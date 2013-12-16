@@ -1,0 +1,23 @@
+<module>
+	<rawname>ucp</rawname>
+	<name>User Control Panel</name>
+	<repo>standard</repo>
+	<version>1.0.0alpha1</version>
+	<publisher>FreePBX</publisher>
+	<license>GPLv2+</license>
+	<description>
+		Formerly ARI, now called User Control Panel
+	</description>
+	<changelog>
+	</changelog>
+	<category>Admin</category>
+	<menuitems>
+		<userpaneltab 
+			category="User Panel" 
+			href="/ucp" 
+			target="ucp" 
+			access="all"
+			requires_auth="false"
+			>User Control Panel</userpaneltab>
+	</menuitems>
+</module>

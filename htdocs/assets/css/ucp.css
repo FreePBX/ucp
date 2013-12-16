@@ -1,0 +1,12 @@
+body {
+	background-color: rgba(74, 171, 255, 0.15);
+}
+
+/* Reset this state from mainstyle */
+input[type="text"] {
+	margin: 0px;
+}
+
+.login-window {
+	padding: 2px;	
+}
