@@ -1,7 +1,7 @@
 		<script src="global/assets/js/bootstrap-3.0.2.custom.min.js"></script>
 		<script type="text/javascript" src="global/assets/js/jquery-ui-1.10.3.custom.min.js"></script>
-		<?php if ($amp_conf['USE_PACKAGED_JS'] && file_exists("global/assets/js/pbxlib.js")) {?>
-			<script type="text/javascript" src="global/assets/js/pbxlib.js'<?php echo $version_tag . '.' . filectime("global/assets/js/pbxlib.js") ?>"></script>
+		<?php if ($amp_conf['USE_PACKAGED_JS'] && file_exists(dirname(__DIR__)."/global/assets/js/pbxlib.js")) {?>
+			<script type="text/javascript" src="global/assets/js/pbxlib.js'<?php echo $version_tag . '.' . filectime(dirname(__DIR__)."/global/assets/js/pbxlib.js") ?>"></script>
 		<?php } else {?>
 			<script type="text/javascript" src="global/assets/js/menu.js<?php echo $version_tag ?>"></script>
 			<script type="text/javascript" src="global/assets/js/jquery.hotkeys.js<?php echo $version_tag ?>"></script>
