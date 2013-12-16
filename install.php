@@ -6,6 +6,10 @@ if(!file_exists($location)) {
 	symlink(dirname(__FILE__).'/htdocs',$location);
 }
 
+if(!file_exists(dirname(__FILE__).'/htdocs/global/assets')) {
+	mkdir(dirname(__FILE__).'/htdocs/global/assets');
+}
+
 $links = array('js','css','fonts','images');
 foreach($links as $link) {
 	if(!file_exists(dirname(__FILE__).'/htdocs/global/assets/'.$link)) {
