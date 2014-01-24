@@ -1,1 +1,2 @@
-htdocs/global/assets/*
+htdocs/assets/framework/*
+htdocs/assets/css/compiled/*
