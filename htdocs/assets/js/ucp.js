@@ -1,11 +1,28 @@
+var transitioning = false;
 $(function() {
 	/* This screws with the checkbox selector on iphones for some reason */
     //FastClick.attach(document.body);
 	if(Modernizr.touch) {
 		//user has some sort of touch based device
+		$$('#dashboard').swipeLeft(function() {
+			if($('.pushmenu-left').hasClass('pushmenu-open')) {
+				toggleMenu()
+			}
+		});
+		$$('#dashboard').swipeRight(function() {
+			if(!$('.pushmenu-left').hasClass('pushmenu-open')) {
+				toggleMenu()
+			}
+		});
 	}
 	
-
+	//Hide Menu when the screen resizes
+	$( window ).resize(function() {
+		if($( window ).width() > 767 && $('.pushmenu-left').hasClass('pushmenu-open')) {
+			toggleMenu();
+		}		
+		resizeContent();
+	});
 	
 	//help tags
 	$("a.info").each(function(){
@@ -31,7 +48,34 @@ $(function() {
 	});
 	
 	stylize();
-	$(document).pjax('[data-pjax] a, a[data-pjax]', '#content-container');
+	if ($.support.pjax) {
+	    $(document).on('click', '[data-pjax] a, a[data-pjax]', function(event) {
+			var container = $('#dashboard-content')
+			var clicker = $(this).data('mod');
+						
+			$.pjax.click(event, {container: container})
+			$( ".pushmenu a").each(function( index ) {	
+				if($(this).data('mod') == clicker) {
+					$(this).addClass('active');
+				} else {
+					$(this).removeClass('active');
+				}
+			});
+			$( ".nav li" ).each(function( index ) {
+				if($(this).data('mod') == clicker) {
+					$(this).addClass('active');
+				} else {
+					$(this).removeClass('active');
+				}
+			});
+			
+			if($( window ).width() < 767 && $('.pushmenu-left').hasClass('pushmenu-open')) {
+				toggleMenu();
+			}
+	    })
+	}
+	
+	$(document).pjax('a[data-pjax-logout]', '#content-container');
 	
 	$(document).on('submit', '#frm-login', function(event) {
 		$.pjax.submit(event, "#content-container")
@@ -40,8 +84,23 @@ $(function() {
 	//After load event restylize the page
 	$(document).on('pjax:end', function() {
 		stylize();
+		resizeContent();
 	})
+	
+	$(".pushmenu").bind("transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd", function(){ 
+		//transitioning = false;
+		//alert('completed');
+	});
+	
+	resizeContent();
 });
+
+function resizeContent() {
+	//run the resize hack against dashboard content
+	if($('#dashboard-content').length) {
+		$('#dashboard-content').height($('#dashboard').height() - 60);
+	}
+}
 
 //Applies any javascript related stylizers
 function stylize() {
@@ -50,7 +109,10 @@ function stylize() {
 }
 
 function toggleMenu() {
-    //$(this).toggleClass('active');
-    $('.pushmenu-push').toggleClass('pushmenu-push-toright');
-    $('.pushmenu-left').toggleClass('pushmenu-open');
+	if(!transitioning) {
+		//transitioning = true;
+	    //$(this).toggleClass('active');
+		$('.pushmenu-push').toggleClass('pushmenu-push-toright');
+		$('.pushmenu-left').toggleClass('pushmenu-open');
+	}
 }

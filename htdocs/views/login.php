@@ -1,6 +1,6 @@
-<div class="login-window">
+<div id="login-window">
 	<form id="frm-login" method="POST" action="?display=dashboard">
-		<h2 class="text-center login-header">User Control Panel</h2>
+		<h2 id="login-header" class="text-center">User Control Panel</h2>
 		<?php if(!empty($error_warning)) {?>
 			<div class="alert alert-warning"><?php echo $error_warning?></div>
 		<?php } ?>
@@ -18,9 +18,9 @@
 		<br/>
 		<div class="row">
 			<div class="col-sm-12">
-				<table class="login-extras">
+				<table id="login-extras">
 					<tr>
-						<td id="rm-text" class="thin-text">Remember Me</td>
+						<td id="rm-text">Remember Me</td>
 						<td id="rm-checkbox">
 							<div class="onoffswitch">
 							    <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch">

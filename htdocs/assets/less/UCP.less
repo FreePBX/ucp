@@ -1,7 +1,6 @@
-@master-color:  #32515e;
-
+/* FONTS */
 @font-face {
-    font-family: 'cinzelregular';
+    font-family: 'cinzel';
     src: url('assets/fonts/cinzel-regular-webfont.eot');
     src: url('assets/fonts/cinzel-regular-webfont.eot?#iefix') format('embedded-opentype'),
          url('assets/fonts/cinzel-regular-webfont.woff') format('woff'),
@@ -11,61 +10,32 @@
     font-style: normal;
 }
 
+@font-face {
+    font-family: 'cinzel';
+    src: url('assets/fonts/cinzel-bold-webfont.eot');
+    src: url('assets/fonts/cinzel-bold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('assets/fonts/cinzel-bold-webfont.woff') format('woff'),
+         url('assets/fonts/cinzel-bold-webfont.ttf') format('truetype'),
+         url('assets/fonts/cinzel-bold-webfont.svg#cinzelbold') format('svg');
+    font-weight: bold;
+    font-style: normal;
 
-html, body, #content-container{
-    height: 100%;
 }
 
-.navside {
-	@media only screen and (max-width : 768px) {
-		display: none;
-	} 	
-}
-
-#content-container{
-	@media only screen and (min-width : 768px) { 
-	    display: table;
-	    vertical-align: middle;
-	} 		
-}
-
-#content-container .vertical-center-row{
-	@media only screen and (min-width : 768px) { 
-    	display: table-cell;
-    	vertical-align: middle;
-	}
-}
-
-.login-header {
-	font-size: x-large;
-}
-
+/* MIXINS */
 .border-radius (@radius: 5px) {
     -webkit-border-radius: @radius;
     -moz-border-radius: @radius;
     border-radius: @radius;
 }
 
-.padding (@padding: 5px) {
-	padding-top: @padding;
-	padding-left: @padding;
-	padding-right: @padding;
-	padding-bottom: @padding;
-}
-
-.margin (@margin: 5px) {
-	margin-top:@margin;
-	margin-bottom:@margin;
-	margin-right:@margin;
-	margin-left:@margin;
-}
-
-html {
+/* GLOBAL DISPLAY */
+html, #content-container{
     height: 100%;
 }
 
 body {
-	font-family: 'cinzelregular';
+	font-family: 'cinzel';
     height: 100%;
     margin: 0;
     background-repeat: no-repeat;
@@ -82,23 +52,47 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
-	font-family: 'cinzelregular';
+	font-family: 'cinzel';
 }
 
-.stitched_element {
-	/* border: 2px dashed  #ffffff; */
+@import "checkbox.less";
+
+#content-container{
+	@media only screen and (min-width : 768px) { 
+	    display: table;
+	    vertical-align: middle;
+	} 		
 }
 
-.login-window {
-    width: 50%;
-    height: 50%;
-    position: absolute;
-    top:0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-	 margin: auto;
-	.padding(5px);
+#content-container .vertical-center-row{
+	@media only screen and (min-width : 768px) { 
+    	display: table-cell;
+    	vertical-align: middle;
+	}
+}
+
+.input-margin {
+	margin-top:5px;
+	margin-bottom:5px;
+}
+
+/* LOGIN */
+#login-window {
+	@media only screen and (min-width : 768px) { 
+		width: 30%;
+		padding-left: 15px;
+		padding-right: 15px;
+ 	}
+	@media only screen and (max-width : 767px) {
+		padding: 10px;
+	}
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	margin: auto;
+	height: 250px;
 	.border-radius(20px);
 	box-shadow: 0px 0px 10px 3px rgba(119, 119, 119, 0.75);
 	-moz-box-shadow: 0px 0px 10px 3px rgba(119, 119, 119, 0.75);
@@ -107,7 +101,98 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 	overflow: hidden;
 }
 
-.content-box {
+#login-header {
+	font-size: x-large;
+}
+
+#login-extras {
+	width: 100%;
+}
+
+#rm-text {
+	width:30%;
+	white-space:nowrap;
+	text-align: right;
+	padding-right: 7px;
+	vertical-align: top;
+	font-size: larger;
+}
+
+#rm-checkbox {
+	width:30%;
+	text-align: left;
+}
+
+#td-btn-login {
+	width:100%;
+	text-align: center;
+}
+
+/* LOGGED IN CONTENT DISPLAY */
+/* BREADCRUMB/MENU/LOGOUT BAR */
+#nav-bar-background {
+	width: 100%;
+	background-color: #f5f5f5;
+	height: 36px;
+}
+
+#bc-mobile-icon {
+	@media only screen and (min-width : 768px) {
+		display: none;
+	}
+	float: left;
+	border-top-right-radius: 0px;
+	border-bottom-right-radius: 0px;
+	background-color: #f5f5f5;
+	cursor: pointer;
+	height: 36px;
+	width: 33px;
+	text-align: center;
+	font-size: x-large;
+	padding-left: 10px;
+}
+
+#top-dashboard-nav {
+	width: 90%;
+	@media only screen and (max-width : 767px) {
+		width: 60%;
+		border-top-left-radius: 0px;
+		border-bottom-left-radius: 0px;
+	}
+	float: left;
+	border-top-right-radius: 0px;
+	border-bottom-right-radius: 0px;
+}
+
+#top-dashboard-nav-logout {
+	width: 10%;
+	@media only screen and (max-width : 767px) {
+		width: 25%;
+	}
+    padding: 8px 15px; 
+    background-color: #f5f5f5; 
+	border-radius: 4px; 
+    float: right;      
+    border-top-left-radius: 0px; 
+    border-bottom-left-radius: 0px;
+    text-align: right;
+    padding-left: 5px;
+}
+
+.clear {
+    clear: both;
+}
+
+/* FULL SCREEN NAV */
+#fs-navside {
+	@media only screen and (max-width : 767px) {
+		display: none;
+	} 	
+}
+
+/* DASHBOARD CONTENT */
+
+.dashboard-container {
 	@media only screen and (min-width : 768px) { 
 		.border-radius(2px);
 	}
@@ -131,198 +216,30 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
     bottom: 0;
     left: 0;
     right: 0;
-
     margin: auto;
 }
 
-.input-margin {
-	margin-top:5px;
-	margin-bottom:5px;
+#container-fixed-left {
+	margin-left: 0px;
 }
 
-.login-extras {
-	width: 100%;
+#dashboard-content {
+	overflow: auto;
 }
 
-#rm-text {
-	width:30%;
-	white-space:nowrap;
-	text-align: right;
-	padding-right: 7px;
-	vertical-align: top;
-}
-
-.thin-text {
-	font-size: larger;
-}
-
-#rm-checkbox {
-	width:30%;
-	text-align: left;
-}
-
-#td-btn-login {
-	width:100%;
-	text-align: center;
-}
-
-.onoffswitch {
-    position: relative; width: 60px;
-    -webkit-user-select:none; -moz-user-select:none; -ms-user-select: none;
-}
-.onoffswitch-checkbox {
-    display: none;
-}
-.onoffswitch-label {
-    display: block; overflow: hidden; cursor: pointer;
-    border: 2px solid #999999; border-radius: 5px;
-}
-.onoffswitch-inner {
-    width: 200%; margin-left: -100%;
-    -moz-transition: margin 0.3s ease-in 0s; -webkit-transition: margin 0.3s ease-in 0s;
-    -o-transition: margin 0.3s ease-in 0s; transition: margin 0.3s ease-in 0s;
-}
-.onoffswitch-inner:before, .onoffswitch-inner:after {
-    float: left; width: 50%; height: 20px; padding: 0; line-height: 20px;
-    font-size: 14px; color: white; font-family: Trebuchet, Arial, sans-serif; font-weight: bold;
-    -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;
-}
-.onoffswitch-inner:before {
-    content: "ON";
-    padding-left: 5px;
-    background-color: #468CE0; color: #FFFFFF;
-}
-.onoffswitch-inner:after {
-    content: "OFF";
-    padding-right: 5px;
-    background-color: #EEEEEE; color: #999999;
-    text-align: right;
-}
-.onoffswitch-switch {
-    width: 18px; margin: 0px;
-    background: #FFFFFF;
-    border: 2px solid #999999; border-radius: 5px;
-    position: absolute; top: 0; bottom: 0; right: 42px;
-    -moz-transition: all 0.3s ease-in 0s; -webkit-transition: all 0.3s ease-in 0s;
-    -o-transition: all 0.3s ease-in 0s; transition: all 0.3s ease-in 0s; 
-    background-image: -moz-linear-gradient(center top, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0) 100%);
-    background-image: -webkit-linear-gradient(center top, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0) 100%);
-    background-image: -o-linear-gradient(center top, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0) 100%);
-    background-image: linear-gradient(center top, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0) 100%);
-}
-.onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-inner {
-    margin-left: 0;
-}
-.onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-switch {
-    right: 0px; 
-}
-
-.pushmenu {
-        background: #3c3933;
-        font-family: Arial, Helvetica, sans-serif;
-        position: fixed;
-        width: 240px;
-        height: 100%;
-        top: 0;
-        z-index: 1000;
-}
- 
-.pushmenu h3 {
-        color: #cbbfad;
-        font-size: 14px;
-        font-weight: bold;
-        padding: 15px 20px;
-        margin: 0;
-        background: #282522;    
-        height: 16px;
-}
- 
-.pushmenu a {
-        display: block;
-        color: #fff;
-        font-size: 16px;
-        font-weight: bold;
-        text-decoration: none;
-        border-top: 1px solid #57544e;
-        border-bottom: 1px solid #312e2a;
-        padding: 14px;
-}
- 
-.pushmenu a:hover {
-        background:258ecd;      
-}
- 
-.pushmenu a:active {
-        background: #454f5c;
-        color: #fff;    
-}
- 
-.pushmenu-left {
-        left: -240px;   
-}
- 
-.pushmenu-left.pushmenu-open {
-        left: 0px;      
-}
- 
-.pushmenu-push {
-        overflow-x: hidden;
-		@media only screen and (max-width : 767px) { 
-			position: relative;
-		}
-        left: 0;        
-}
- 
-.pushmenu-push-toright {
-        left: 240px;    
-}
-
-#bc-full {
-	@media only screen and (max-width : 767px) {
-		display: none;
-	}
-}
-
-#bc-mobile {
-	padding: 8px 15px;
-	margin-bottom: 20px;
-	background-color: #f5f5f5;
-	border-radius: 4px;
-	@media only screen and (min-width : 768px) {
-		display: none;
-	}
-}
-
-/*Transition*/
-.pushmenu, .pushmenu-push {
-	@media only screen and (max-width : 767px) { 
-        -webkit-transition: all 0.3s ease;
-        -moz-transition: all 0.3s ease;
-        transition: all 0.3s ease; 
-	}    
-}
- 
-#nav_list {
-        background: url(assets/images/icon_nav.png) no-repeat left top;
-        cursor: pointer;
-        height: 27px;
-        width: 33px;
-        text-indent: -99999em;  
-}
- 
-#nav_list.active {
-        background-position: -33px top; 
-}
- 
+/* JQUERYUI OVERRIDES */
 .buttonset {
-        background: linear-gradient(center top , #6b85b3, #334d86);
-        background:-moz-linear-gradient(center top , #6b85b3, #334d86);
-    background: -webkit-gradient(linear, center top, center bottom, from(#6b85b3), to(#334d86));
-        height: 16px;
-        padding: 10px 20px 20px;
+	background: linear-gradient(center top , #6b85b3, #334d86);
+	background:-moz-linear-gradient(center top , #6b85b3, #334d86);
+	background: -webkit-gradient(linear, center top, center bottom, from(#6b85b3), to(#334d86));
+	height: 16px;
+	padding: 10px 20px 20px;
 }
  
 section.content {
-        font-family: Arial, Helvetica, sans-serif;
-        padding: 10px 20px;     
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 10px 20px;     
 }
+
+/* MOBILE MENU SYSTEM */
+@import "pushmenu.less";
