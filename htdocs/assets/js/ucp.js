@@ -78,7 +78,17 @@ $(function() {
 	$(document).pjax('a[data-pjax-logout]', '#content-container');
 	
 	$(document).on('submit', '#frm-login', function(event) {
-		$.pjax.submit(event, "#content-container")
+		var queryString = $(this).formSerialize();
+		queryString = queryString + '&quietmode=1&module=User&command=login';
+		$.post( "index.php", queryString, function( data ) {
+			if(!data.status) {
+				$('#error-msg').html(data.message).fadeIn("fast");
+				$('#login-window').height('300');
+			} else {
+				$.pjax.submit(event, "#content-container")
+			}
+		}, "json");
+		return false;
 	})
 	
 	//After load event restylize the page

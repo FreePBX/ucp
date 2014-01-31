@@ -6,7 +6,7 @@ class UCP extends UCP_Helpers {
 	private static $obj;
 	public static $conf;
 	
-	function __construct($mode='local') {
+	function __construct($mode = 'local') {
 		if($mode == 'local') {
 			//Setup our objects for use
 			//FreePBX is the FreePBX Object
@@ -15,6 +15,8 @@ class UCP extends UCP_Helpers {
 			$this->Ucp = $this->FreePBX->Ucp;
 			//System Notifications Class
 			$this->notifications = \notifications::create();
+			//database subsystem
+			$this->db = $this->FreePBX->Database;
 		}
 		
 		// Ensure the local object is available
@@ -31,9 +33,9 @@ class UCP extends UCP_Helpers {
 	 *
 	 * @return object FreePBX BMO Object
 	 */
-	public static function create($mode='local') {
+	public static function create() {
 		if (!isset(self::$obj)) {
-			self::$obj = new UCP($mode);
+			self::$obj = new UCP();
 		}
 		return self::$obj;
 	}

@@ -5,3 +5,11 @@
 	font-size: 120%;
 	text-decoration: underline;
 }
+
+.extensions-list {
+	border: 1px black dotted;
+	padding: 2px;
+	overflow: scroll;
+	height: 150px;
+	font-size: 85%;
+}

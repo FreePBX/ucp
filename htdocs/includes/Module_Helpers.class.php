@@ -1,8 +1,12 @@
 <?php
 namespace UCP;
 
-class UCP_Helpers {
-		
+class Module_Helpers extends UCP {
+	
+	function __construct($UCP) {
+		$this->UCP = $UCP;
+	}
+	
 	/**
 	 * PHP Magic __get - runs AutoLoader if BMO doesn't already have the object.
 	 * 
@@ -11,8 +15,8 @@ class UCP_Helpers {
 	 * @access public 
 	 */
     public function __get($var) {
-		if (isset(UCP::create()->$var)) {
-			$this->$var = UCP::create()->$var;
+		if (isset(Modules::create()->$var)) {
+			$this->$var = Modules::create()->$var;
 			return $this->$var;
 		}
 
@@ -96,12 +100,12 @@ class UCP_Helpers {
 			if (isset($args[1][1])) {
 				throw new \Exception("Multiple params to autoload (__call) not supported. Don't do that. Or re-write this.");
 			}
-			$class = __NAMESPACE__."\\$var";
+			$class = __NAMESPACE__."\\Modules\\$var";
 			$this->$var = new $class($this, $args[1][0]);
 		} else {
-			$class = __NAMESPACE__."\\$var";
+			$class = __NAMESPACE__."\\Modules\\$var";
 			$this->$var = new $class($this);
-			UCP::create()->$var = $this->$var;
+			Modules::create()->$var = $this->$var;
 
 		}
 		return $this->$var;
@@ -112,7 +116,7 @@ class UCP_Helpers {
 	 */
 	private function loadObject($objname, $hint = null) {
 		// If it already exists, we're fine.
-		if (class_exists(__NAMESPACE__."\\".$objname)) {
+		if (class_exists(__NAMESPACE__."\\Modules\\".$objname)) {
 			return true;
 		}
 
@@ -127,7 +131,7 @@ class UCP_Helpers {
 			}
 		} else {
 			// Does this exist as a default Library inside UCP?
-			$try = __DIR__."/$objname.class.php";
+			$try = dirname(__DIR__)."/modules/$objname.class.php";
 		}
 
 		if (file_exists($try)) {
@@ -138,7 +142,7 @@ class UCP_Helpers {
 		}
 
 		// Right, after all of this we should now have our object ready to create.
-		if (!class_exists(__NAMESPACE__."\\".$objname)) {
+		if (!class_exists(__NAMESPACE__."\\Modules\\".$objname)) {
 			// Bad things have happened.
 			if (!$loaded) {
 				throw new \Exception("I was unable to locate the UCP Class $objname. I looked everywhere for $objname.class.php");

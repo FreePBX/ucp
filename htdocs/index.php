@@ -9,9 +9,15 @@ if (!@include_once(getenv('FREEPBX_CONF') ? getenv('FREEPBX_CONF') : '/etc/freep
 include(dirname(__FILE__).'/includes/UCP.class.php');
 $ucp = \UCP\UCP::create();
 
+if(isset($_REQUEST['logout'])) {
+	$ucp->User->logout();
+	header('Location: ?');
+	die();
+}
+
 if(isset($_REQUEST['quietmode'])) {
-	$ucp->Ajax->display();
-	exit();
+	$ucp->Ajax->doRequest($_REQUEST['module'],$_REQUEST['command']);
+	die();
 }
 
 require dirname(__FILE__).'/includes/less/Cache.php';
@@ -64,25 +70,23 @@ if(!isset($_SERVER['HTTP_X_PJAX'])) {
 	show_view(dirname(__FILE__).'/views/header.php',$displayvars);
 }
 
-$display = !empty($_REQUEST['display']) ? $_REQUEST['display'] : '';
-$module = !empty($_REQUEST['mod']) ? $_REQUEST['mod'] : 'home';
+if($ucp->User->getUser()) {
+	$display = !empty($_REQUEST['display']) ? $_REQUEST['display'] : 'dashboard';
+	$module = !empty($_REQUEST['mod']) ? $_REQUEST['mod'] : 'home';
+} else {
+	$display = '';
+	$module = '';
+	if(!empty($_REQUEST['display']) || !empty($_REQUEST['mod']) || isset($_REQUEST['logout'])) {
 
-$displayvars['modules'] = array(
-	"home" => array(
-		"rawname" => "home",
-		"name" => "Home",
-		"content" => "This is where we would put content dynamically after page load through pjax"
-	),
-	"voicemail" => array(
-		"rawname" => "voicemail",
-		"name" => "VM",
-		"badge"	=> 42,
-		"content" => "Voicemail Page horray!<br/>Lets Show stuff<br/>1<br/>2<br/>3<br/>4<br/>5<br/>6<br/>7<br/>8<br/>9<br/>10<br/>11<br/>1<br/>2<br/>3<br/>4<br/>5<br/>6<br/>7<br/>8<br/>9<br/>10<br/>11<br/>1<br/>2<br/>3<br/>4<br/>5<br/>6<br/>7<br/>8<br/>9<br/>10<br/>11<br/>"
-	));
+	}
+}
+
+$displayvars['menu'] = $ucp->Modules->generateMenu();
 $displayvars['active_module'] = $module;
+$mclass = ucfirst($module);
 switch($display) {
 	case "dashboard":
-		$dashboard_content = $displayvars['modules'][$module]['content'];
+		$dashboard_content = $ucp->Modules->$mclass->getDisplay();
 		if(isset($_SERVER['HTTP_X_PJAX'])) {
 			if(!empty($_REQUEST['mod'])) {
 				echo $dashboard_content;
@@ -93,6 +97,7 @@ switch($display) {
 		show_view(dirname(__FILE__).'/views/dashboard.php',$displayvars);
 	break;
 	default:
+		$displayvars['token'] = $ucp->Session->generateToken('login');
 		show_view(dirname(__FILE__).'/views/login.php',$displayvars);
 		break;
 }
@@ -102,3 +107,9 @@ if(!isset($_SERVER['HTTP_X_PJAX'])) {
 }
 
 
+function convert($size) {
+	$unit=array('b','kb','mb','gb','tb','pb');
+	return @round($size/pow(1024,($i=floor(log($size,1024)))),2).' '.$unit[$i];
+}
+
+//dbug("Using ".convert(memory_get_usage(true))); // 123 kb
