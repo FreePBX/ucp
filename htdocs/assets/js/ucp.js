@@ -52,9 +52,22 @@ $(function() {
 	    $(document).on('click', '[data-pjax] a, a[data-pjax]', function(event) {
 			var container = $('#dashboard-content')
 			var clicker = $(this).data('mod');
-						
+			var breadcrumbs = '<li><a data-mod="home" data-pjax href="?display=dashboard&amp;mod=home">Home</a></li>';
 			$.pjax.click(event, {container: container})
-			$( ".pushmenu a").each(function( index ) {	
+			
+			var mod = $.url().param('mod');
+			var sub = $.url().param('sub');
+			
+			if(mod != 'home') {
+					breadcrumbs = breadcrumbs+'<li class="active">'+mod+'</li>'
+			}
+			if(typeof sub !== 'undefined') {
+				breadcrumbs = breadcrumbs+'<li class="active">'+sub+'</li>'
+			}
+			
+			$('#top-dashboard-nav').html(breadcrumbs);
+			
+			$( ".pushmenu li").each(function( index ) {	
 				if($(this).data('mod') == clicker) {
 					$(this).addClass('active');
 				} else {
@@ -124,5 +137,15 @@ function toggleMenu() {
 	    //$(this).toggleClass('active');
 		$('.pushmenu-push').toggleClass('pushmenu-push-toright');
 		$('.pushmenu-left').toggleClass('pushmenu-open');
+		//dropdown-pushmenu
+		$( ".pushmenu .dropdown-pushmenu" ).each(function( index ) {
+			if($(this).is(":visible")) {
+				$(this).slideToggle();
+			}
+		});
 	}
+}
+
+function toggleSubMenu(menu) {
+	$('#submenu-'+menu).slideToggle()
 }

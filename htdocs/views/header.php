@@ -34,6 +34,7 @@
 		<script type="text/javascript" src="assets/framework/js/jquery.cookie.js<?php echo $version_tag ?>"></script>
 		<script type="text/javascript" src="assets/js/jquery.form.min.js"></script>
 		<script type="text/javascript" src="assets/js/quo.js"></script>
+		<script type="text/javascript" src="assets/js/purl.js"></script>
 		<script type="text/javascript" src="assets/js/modernizr.js"></script>
 		<script type="text/javascript" src="assets/js/fastclick.js"></script>
 		<script type="text/javascript" src="assets/js/jquery.pjax.js"></script>
