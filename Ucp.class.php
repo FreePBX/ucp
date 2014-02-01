@@ -257,12 +257,12 @@ class Ucp implements BMO {
 		return $sth->fetch(\PDO::FETCH_ASSOC);
 	}
 	
-	public function checkCredentials($username, $password) {
+	public function checkCredentials($username, $password_sha1) {
 		$sql = "SELECT id, password FROM ucp_users WHERE username = :username";
 		$sth = $this->db->prepare($sql);
 		$sth->execute(array(':username' => $username));
 		$result = $sth->fetch(\PDO::FETCH_ASSOC);
-		if(!empty($result) && sha1($password) == $result['password']) {
+		if(!empty($result) && ($password_sha1 == $result['password'])) {
 			return $result['id'];
 		}
 		return false;

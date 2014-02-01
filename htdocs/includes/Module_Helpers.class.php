@@ -154,13 +154,17 @@ class Module_Helpers extends UCP {
 		} else {
 			// Does this exist as a default Library inside UCP?
 			$try = dirname(__DIR__)."/modules/$objname.class.php";
+			$try2 = dirname(__DIR__)."/modules/$objname/$objname.class.php";
 		}
 
 		if (file_exists($try)) {
 			include $try;
 			$loaded = $try;
+		} elseif(file_exists($try2)) {
+			include $try2;
+			$loaded = $try2;
 		} else {
-			//TODO: When Modules Come Around then We do some work here
+			//TODO: Something here??
 		}
 
 		// Right, after all of this we should now have our object ready to create.

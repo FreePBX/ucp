@@ -2,6 +2,7 @@
 <html>
 	<head>
 		<title>User Control Panel</title>
+		<meta http-equiv="x-pjax-version" content="<?php echo $version?>">
 		<!--[if lt IE 9]>
 			<script src="assets/js/html5shiv.js"></script>
 		<![endif]-->

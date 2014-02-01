@@ -25,7 +25,7 @@
 	<div id="nav-bar-background">
 		<div id="bc-mobile-icon" onClick="toggleMenu()"><i class="fa fa-bars"></i></div>
 		<ol id="top-dashboard-nav" class="breadcrumb">
-		  <li><a data-mod="home" data-pjax href="?display=dashboard&amp;mod=home">Home</a></li>
+		  <li><a data-mod="home" data-pjax href="?display=dashboard&amp;mod=home"><?php echo _('Home')?></a></li>
 		  <?php if($active_module != 'home') {?>
 			  <li class="bc-<?php echo $menu[$active_module]['rawname']?> active"><?php echo $menu[$active_module]['rawname']?></li>
 			  <?php if(!empty($_REQUEST['sub'])) {?>
@@ -33,7 +33,7 @@
 			<?php } ?>
 		  <?php } ?>
 		</ol>
-		<div id="top-dashboard-nav-logout"><a data-pjax-logout href="?logout=1">Logout</a></div>
+		<div id="top-dashboard-nav-logout"><a data-pjax-logout href="?logout=1"><?php echo _('Logout')?></a></div>
 	</div>
 	<div class="clear"></div>
 	<div id="container-fixed-left" class="container">

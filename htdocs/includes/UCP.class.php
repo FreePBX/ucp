@@ -62,4 +62,20 @@ class UCP extends UCP_Helpers {
 		}
 		return self::$obj;
 	}
+	
+	/**
+	 * Get the UCP Version
+	 *
+	 * In accordance with pjax, when the version changes here it will force refresh
+	 * the entire page, instead of just the container, when content is retrieved this 
+	 * will force the client to get new html assets, this version will then be placed 
+	 * in a meta tag
+	 *
+	 * https://github.com/defunkt/jquery-pjax#layout-reloading
+	 *
+	 * @return string The version
+	 */
+	function getVersion() {
+		return 'v1.2';
+	}
 }

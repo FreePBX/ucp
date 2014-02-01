@@ -54,12 +54,22 @@ class Modules extends Module_Helpers {
 	
 	function generateMenu() {
 		$menu = array();
+		//module with no module folder
 		foreach (glob(dirname(__DIR__)."/modules/*.class.php") as $module) {
 		    if(preg_match('/^(.*)\.class$/',pathinfo($module,PATHINFO_FILENAME),$matches)) {
 		    	$module = ucfirst(strtolower($matches[1]));
 				$lc = strtolower($matches[1]);
 				$menu[$lc] = $this->$module->getMenuItems();
 		    }
+		}
+		//module with module folder
+		foreach (glob(dirname(__DIR__)."/modules/*", GLOB_ONLYDIR) as $module) {
+			$mod = basename($module);
+			if(file_exists($module.'/'.$mod.'.class.php')) {
+		    	$module = ucfirst(strtolower($mod));
+				$lc = strtolower($mod);
+				$menu[$lc] = $this->$module->getMenuItems();
+			}
 		}
 		return $menu;
 	}

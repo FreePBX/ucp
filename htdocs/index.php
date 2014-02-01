@@ -9,6 +9,10 @@ if (!@include_once(getenv('FREEPBX_CONF') ? getenv('FREEPBX_CONF') : '/etc/freep
 include(dirname(__FILE__).'/includes/UCP.class.php');
 $ucp = \UCP\UCP::create();
 
+if(isset($_SERVER['HTTP_X_PJAX'])) {
+	header("X-PJAX-Version: ".$ucp->getVersion());
+}
+
 if(isset($_REQUEST['logout'])) {
 	$ucp->User->logout();
 	header('Location: ?');
@@ -67,21 +71,25 @@ if ($amp_conf['FORCE_JS_CSS_IMG_DOWNLOAD']) {
 }
 
 if(!isset($_SERVER['HTTP_X_PJAX'])) {
+	$displayvars['version'] = $ucp->getVersion();
 	show_view(dirname(__FILE__).'/views/header.php',$displayvars);
 }
 
-if($ucp->User->getUser()) {
+$user = $ucp->User->getUser();
+if($user) {
 	$display = !empty($_REQUEST['display']) ? $_REQUEST['display'] : 'dashboard';
 	$module = !empty($_REQUEST['mod']) ? $_REQUEST['mod'] : 'home';
+	$displayvars['menu'] = $ucp->Modules->generateMenu();
+	$displayvars['user'] = $user;
 } else {
 	$display = '';
 	$module = '';
+	$displayvars['menu'] = array();
 	if(!empty($_REQUEST['display']) || !empty($_REQUEST['mod']) || isset($_REQUEST['logout'])) {
 
 	}
 }
 
-$displayvars['menu'] = $ucp->Modules->generateMenu();
 $displayvars['active_module'] = $module;
 $mclass = ucfirst($module);
 switch($display) {
