@@ -1,4 +1,5 @@
 <?php
+ob_start();
 $bootstrap_settings = array();
 $bootstrap_settings['freepbx_auth'] = false;
 //TODO: We need to make sure security is 100%!
@@ -8,26 +9,42 @@ if (!@include_once(getenv('FREEPBX_CONF') ? getenv('FREEPBX_CONF') : '/etc/freep
 }
 include(dirname(__FILE__).'/includes/UCP.class.php');
 $ucp = \UCP\UCP::create();
+ob_end_clean();
 
-if(isset($_SERVER['HTTP_X_PJAX'])) {
-	header("X-PJAX-Version: ".$ucp->getVersion());
-}
+$user = $ucp->User->getUser();
 
-if(isset($_REQUEST['logout'])) {
+if(isset($_REQUEST['logout']) && $user) {
 	$ucp->User->logout();
-	header('Location: ?');
-	die();
+	if(isset($_SERVER['HTTP_X_PJAX'])) {
+		header("X-PJAX-Version: logout");
+	}
+} else {
+	/* Advanced PreVis Stuff */
+	if(isset($_SERVER['HTTP_X_PJAX'])) {
+		header("X-PJAX-Version: ".$ucp->getVersion());
+	}
 }
 
-if(isset($_REQUEST['quietmode'])) {
+if((isset($_REQUEST['quietmode']) && $user) || (isset($_REQUEST['command']) && $_REQUEST['command'] == 'login')) {
 	$ucp->Ajax->doRequest($_REQUEST['module'],$_REQUEST['command']);
 	die();
+} elseif(isset($_REQUEST['quietmode']) && !$user) {
+	header("HTTP/1.0 403 Forbidden");
+	$json = json_encode(array("status" => "false", "message" => "forbidden"));
+	die($json);
 }
+
+if(isset($_REQUEST['stream']) && $user) {
+	dl_file_resumable('/var/spool/asterisk/voicemail/default/'.escapeshellcmd($_REQUEST['extension']).'/'.escapeshellcmd($_REQUEST['folder']).'/'.escapeshellcmd($_REQUEST['msg']));
+	die();
+}
+
+/* Start Visualization Stuff */
+$displayvars = array();
+$displayvars['user'] = $user;
 
 require dirname(__FILE__).'/includes/less/Cache.php';
 Less_Cache::$cache_dir = dirname(__FILE__).'/assets/css/compiled';
-
-$displayvars = array();
 
 $btfiles = array();
 $btfiles[dirname(__FILE__).'/assets/less/bootstrap.less'] = '/ucp/';
@@ -75,12 +92,11 @@ if(!isset($_SERVER['HTTP_X_PJAX'])) {
 	show_view(dirname(__FILE__).'/views/header.php',$displayvars);
 }
 
-$user = $ucp->User->getUser();
 if($user) {
 	$display = !empty($_REQUEST['display']) ? $_REQUEST['display'] : 'dashboard';
 	$module = !empty($_REQUEST['mod']) ? $_REQUEST['mod'] : 'home';
 	$displayvars['menu'] = $ucp->Modules->generateMenu();
-	$displayvars['user'] = $user;
+	
 } else {
 	$display = '';
 	$module = '';
@@ -121,3 +137,106 @@ function convert($size) {
 }
 
 //dbug("Using ".convert(memory_get_usage(true))); // 123 kb
+
+function dl_file_resumable($file, $is_resume=TRUE) {
+	//First, see if the file exists
+	if (!is_file($file)) {
+		header("HTTP/1.0 404 Not Found");
+		die("<b>404 File not found!</b>");
+	}
+
+	//Gather relevent info about file
+	$size = filesize($file);
+	$fileinfo = pathinfo($file);
+	
+	//workaround for IE filename bug with multiple periods / multiple dots in filename
+	//that adds square brackets to filename - eg. setup.abc.exe becomes setup[1].abc.exe
+	$filename = (strstr($_SERVER['HTTP_USER_AGENT'], 'MSIE')) ? preg_replace('/\./', '%2e', $fileinfo['basename'], substr_count($fileinfo['basename'], '.') - 1) :
+	$fileinfo['basename'];
+
+	$file_extension = strtolower($fileinfo['extension']);
+
+	//This will set the Content-Type to the appropriate setting for the file
+	switch($file_extension) {
+		case 'mpeg':
+		case 'mp3': 
+			$ctype='audio/mpeg';
+		break;
+		case 'm4a':
+			$ctype='audio/mp4';
+		break;
+		case 'oga':
+		case 'ogg':
+			$ctype='audio/ogg';
+		break;
+		case 'webm':
+			$ctype='audio/webma';
+		break;
+		case 'wav':
+			$ctype='audio/wav';
+		break;
+		default:
+			header("HTTP/1.0 403 Forbidden");
+			die("<b>403 Forbidden!</b>");
+		break;
+	}
+
+	//check if http_range is sent by browser (or download manager)
+	if($is_resume && isset($_SERVER['HTTP_RANGE'])) {
+		list($size_unit, $range_orig) = explode('=', $_SERVER['HTTP_RANGE'], 2);
+
+		if ($size_unit == 'bytes') {
+			//multiple ranges could be specified at the same time, but for simplicity only serve the first range
+			//http://tools.ietf.org/id/draft-ietf-http-range-retrieval-00.txt
+			list($range, $extra_ranges) = explode(',', $range_orig, 2);
+		} else {
+			$range = '';
+		}
+	} else {
+		$range = '';
+	}
+
+	//figure out download piece from range (if set)
+	list($seek_start, $seek_end) = explode('-', $range, 2);
+
+	//set start and end based on range (if set), else set defaults
+	//also check for invalid ranges.
+	$seek_end = (empty($seek_end)) ? ($size - 1) : min(abs(intval($seek_end)),($size - 1));
+	$seek_start = (empty($seek_start) || $seek_end < abs(intval($seek_start))) ? 0 : max(abs(intval($seek_start)),0);
+
+	//add headers if resumable
+	if ($is_resume) {
+		//Only send partial content header if downloading a piece of the file (IE workaround)
+		if ($seek_start > 0 || $seek_end < ($size - 1)) {
+			header('HTTP/1.1 206 Partial Content');
+		}
+
+		header('Accept-Ranges: bytes');
+		header('Content-Range: bytes '.$seek_start.'-'.$seek_end.'/'.$size);
+	}
+
+	//headers for IE Bugs (is this necessary?)
+	//header("Cache-Control: cache, must-revalidate");   
+	//header("Pragma: public");
+
+	header('Content-Type: ' . $ctype);
+	header('Content-Disposition: attachment; filename="' . $filename . '"');
+	header('Content-Length: '.($seek_end - $seek_start + 1));
+
+	//open the file
+	$fp = fopen($file, 'rb');
+	//seek to start of missing part
+	fseek($fp, $seek_start);
+
+	//start buffered download
+	while(!feof($fp)) {
+		//reset time limit for big files
+		set_time_limit(0);
+		print(fread($fp, 1024*8));
+		flush();
+		ob_flush();
+	}
+
+	fclose($fp);
+	exit;
+}

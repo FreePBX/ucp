@@ -115,7 +115,7 @@ class Module_Helpers extends UCP {
 
 		// This will throw an Exception if it can't find the class.
 		$this->loadObject($var);
-
+		
 		// Now, we may have paramters (__call), or we may not..
 		if (isset($args[1])) {
 			// We do. We were __call'ed. Sanity check
@@ -166,7 +166,7 @@ class Module_Helpers extends UCP {
 		} else {
 			//TODO: Something here??
 		}
-
+		
 		// Right, after all of this we should now have our object ready to create.
 		if (!class_exists(__NAMESPACE__."\\Modules\\".$objname)) {
 			// Bad things have happened.

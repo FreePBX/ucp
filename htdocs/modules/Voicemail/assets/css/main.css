@@ -1,3 +1,93 @@
+.folder-list {
+	background-color: aliceblue;
+}
+.message-header {
+	background-color: aliceblue;
+}
+
+.message-table {
+	font-size: 90%;
+}
+.vm-message {
+	cursor:move;
+}
+.msginfo {
+	position: absolute;
+}
+
+.msginfo.date {
+	left:0px;
+}
+
+.msginfo.time {
+	left:10px;
+}
+
+.msginfo.callerid {
+	left:20px;
+}
+
+.msginfo.priority {
+	left:30px;
+}
+
+.msginfo.mailbox {
+	left:40px;
+}
+
+.vm-message {
+	opacity: 0.99;
+	color: black;
+	background-color: rgba(255, 255, 255, 0.5);
+}
+
+.vm-temp {
+	background-color: rgba(255, 255, 255, 0.5);
+}
+
+.folder {
+	/*width: 95px;*/
+	margin-bottom: 1px;
+	font-size: 85%;
+}
+.folder .badge {
+	float:right;
+}
+
+.folder.active {
+	background-color: #428bca;
+	border-radius: 2px;
+}
+
+.folder.active a {
+	color: #ffffff;	
+}
+
+.folder.active a:hover {
+	text-decoration: none;
+	background-color: #428bca;
+	color: #ffffff;	
+}
+
+.folder a {
+	position: relative;
+	display: block;
+	padding: 3px 8px;
+	border-radius: 2px;
+}
+
+.folder a:hover {
+	text-decoration: none;
+	background-color: #eeeeee;
+	color: #2a6496;
+}
+
 .mailbox-header {
 	font-size:400%;
+}
+
+.hover {
+	text-decoration: none;
+	background-color: #eeeeee;
+	color: #2a6496;
 }

@@ -36,7 +36,7 @@
 		<div id="top-dashboard-nav-logout"><a data-pjax-logout href="?logout=1"><?php echo _('Logout')?></a></div>
 	</div>
 	<div class="clear"></div>
-	<div id="container-fixed-left" class="container">
+	<div id="container-fixed-left" class="container-fluid">
 		<div class="row">
 			<!-- This navigation pane hides when the viewport is smaller than 768 -->
 			<div id="fs-navside" class="col-sm-2">

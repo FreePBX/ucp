@@ -32,18 +32,63 @@ class Voicemail extends Modules{
 	
 	function getDisplay() {
 		$ext = !empty($_REQUEST['sub']) ? $_REQUEST['sub'] : '';
+		$reqFolder = !empty($_REQUEST['folder']) ? $_REQUEST['folder'] : 'INBOX';
 		
 		$folders = $this->UCP->FreePBX->Voicemail->getFolders();
 		$messages = array();
 		foreach($folders as $folder) {
 			$messages[$folder['folder']] = $this->UCP->FreePBX->Voicemail->getMessagesByExtensionFolder($ext,$folder['folder']);
+			$folders[$folder['folder']]['count'] = !empty($messages) && isset($messages[$folder['folder']]['messages']) ? count($messages[$folder['folder']]['messages']) : '0';
 		}
 		
 		$displayvars = array();
+		$displayvars['ext'] = $ext;
 		$displayvars['folders'] = $folders;
-		$displayvars['messages'] = $messages;
-		
+		$displayvars['active_folder'] = $reqFolder;
+		$displayvars['messages'] = isset($messages[$reqFolder]['messages']) ? $messages[$reqFolder]['messages'] : array();
+				
 		return $this->loadScript().$this->loadCSS().load_view(__DIR__.'/views/mailbox.php',$displayvars);
+	}
+	
+	/**
+	 * Determine what commands are allowed
+	 *
+	 * Used by Ajax Class to determine what commands are allowed by this class
+	 *
+	 * @param string $command The command something is trying to perform
+	 * @param string $settings The Settings being passed through $_POST or $_PUT
+	 * @return bool True if pass
+	 */
+	function ajaxRequest($command, $settings) {
+		switch($command) {
+			case 'moveToFolder':
+				return true;
+			default:
+				return false;
+			break;
+		}
+	}
+	
+	/**
+	 * The Handler for all ajax events releated to this class
+	 *
+	 * Used by Ajax Class to process commands
+	 *
+	 * @return mixed Output if success, otherwise false will generate a 500 error serverside
+	 */
+	function ajaxHandler() {
+		$return = array("status" => false, "message" => "");	
+		switch($_REQUEST['command']) {
+			case 'moveToFolder':
+				$ext = '1000';
+				$this->UCP->FreePBX->Voicemail->moveMessageByExtensionFolder($ext,$_POST['msg'],$_POST['folder']);
+				$return = array("status" => true, "message" => "");
+				break;
+			default:
+				return false;
+			break;
+		}
+		return $return;
 	}
 	
 	

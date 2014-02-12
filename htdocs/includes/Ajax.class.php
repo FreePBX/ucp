@@ -51,21 +51,27 @@ class Ajax extends UCP {
 		}
 
 		$ucMod = ucfirst($module);
-		if ($module != 'UCP' && class_exists(__NAMESPACE__."\\".$ucMod)) {
+		if ($module != 'UCP' && $module != 'User' && class_exists(__NAMESPACE__."\\".$ucMod)) {
 			$this->triggerFatal("The class $module already existed. Ajax MUST load it, for security reasons");
 		}
-
-		// Is someone trying to be tricky with filenames?
-		$file = dirname(__FILE__).'/'.$ucMod.'.class.php';
-		if((strpos($module, ".") !== false) || !file_exists($file)) {
-			$this->triggerFatal("Module requested invalid");
-		}
 		
-		// Note, that Self_Helper will throw an exception if the file doesn't exist, or if it does
-		// exist but doesn't define the class.
-		$this->injectClass($ucMod, $file);
+		if($module == 'User' || $module == 'UCP') {
+			// Is someone trying to be tricky with filenames?
+			$file = dirname(__FILE__).'/'.$ucMod.'.class.php';
+			if((strpos($module, ".") !== false) || !file_exists($file)) {
+				$this->triggerFatal("Module requested invalid");
+			}
+		
+			// Note, that Self_Helper will throw an exception if the file doesn't exist, or if it does
+			// exist but doesn't define the class.
+			$this->injectClass($ucMod, $file);
 
-		$thisModule = $this->$ucMod;
+			$thisModule = $this->$ucMod;
+		} else {
+			$this->UCP->Modules->injectClass($ucMod);
+
+			$thisModule = $this->UCP->Modules->$ucMod;
+		}
 		
 		if (!method_exists($thisModule, "ajaxRequest")) {
 			$this->ajaxError(501, 'ajaxRequest not found');
