@@ -22,6 +22,10 @@
 
 }
 
+input {
+	font-family: monospace;
+}
+
 /* MIXINS */
 .border-radius (@radius: 5px) {
     -webkit-border-radius: @radius;
@@ -203,12 +207,13 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 	overflow: hidden;
 }
 
+/*This Adjusts the whole shebang, the whole container */
 .center-box {
     width: 100%;
     height: 100%;
 	@media only screen and (min-width : 768px) { 
-	    width: 90%;
-	    height: 90%;
+	    width: 98%;
+	    height: 95%;
 	}
 
     position: absolute;
@@ -224,7 +229,12 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 }
 
 #dashboard-content {
-	overflow: auto;
+	overflow-y: auto;
+	overflow-x: hidden;
+}
+
+#dashboard {
+	box-shadow: 5px 5px 5px rgb(83, 95, 102);
 }
 
 /* JQUERYUI OVERRIDES */
