@@ -6,7 +6,7 @@
 			<?php if(empty($module['menu'])) {?>
 	    		<a data-pjax data-mod="<?php echo $module['rawname']?>" href="?display=dashboard&amp;mod=<?php echo $module['rawname']?>"><?php echo $module['name']?> <?php if(isset($module['badge'])) {?><span class="badge"><?php echo $module['badge']?></span><?php } ?></a>
 			<?php } else {?>
-	    		<a onClick="toggleSubMenu('<?php echo $module['rawname']?>')" href="#"><?php echo $module['name']?> <?php if(isset($module['badge'])) {?><span class="badge"><?php echo $module['badge']?></span><?php } ?></a>
+	    		<a onClick="toggleSubMenu('<?php echo $module['rawname']?>')"><?php echo $module['name']?> <?php if(isset($module['badge'])) {?><span class="badge"><?php echo $module['badge']?></span><?php } ?></a>
 				<ul data-mod="<?php echo $module['rawname']?>" id="submenu-<?php echo $module['rawname']?>" class="dropdown-pushmenu">
 					<?php foreach($module['menu'] as $smenu) {?>
 						<li>

@@ -11,11 +11,11 @@
 		<div id="error-msg" class="alert alert-danger" style="display:none"></div>
 		<div class="input-group input-margin">
 			<span class="input-group-addon"><i class="fa fa-user fa-fw"></i></span>
-			<input type="text" name="username" class="form-control" placeholder="Username">
+			<input type="text" name="username" class="form-control" placeholder="Username" autocapitalize="off" autocorrect="off">
 		</div>
 		<div class="input-group input-margin">
 			<span class="input-group-addon"><i class="fa fa-key fa-fw"></i></span>
-			<input type="password" name="password" class="form-control" placeholder="Password">
+			<input type="password" name="password" class="form-control" placeholder="Password" autocapitalize="off" autocorrect="off">
 		</div>
 		<br/>
 		<div class="row">

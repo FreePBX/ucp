@@ -47,8 +47,26 @@ class Ucp implements BMO {
 		
 	}
 	public function genConfig() {
-
+		$modulef =& module_functions::create();
+		$modules = $modulef->getinfo(false);
+		$path = FreePBX::create()->Config->get_conf_setting('AMPWEBROOT');
+		$location = $path.'/ucp';
+		foreach($modules as $module) {
+			$rawname = trim($module['rawname']);
+			if(file_exists($path.'/admin/modules/'.$rawname.'/ucp') && file_exists($path.'/admin/modules/'.$rawname.'/ucp/'.ucfirst($rawname).".class.php")) {
+				if($module['status'] == MODULE_STATUS_ENABLED) {
+					if(!file_exists($location."/modules/".ucfirst($rawname))) {
+						symlink($path.'/admin/modules/'.$rawname.'/ucp',$location.'/modules/'.ucfirst($rawname));
+					}
+				} else {
+					if(file_exists($location."/modules/".ucfirst($rawname)) && is_link($location."/modules/".ucfirst($rawname))) {
+						unlink($location."/modules/".ucfirst($rawname));
+					}
+				}
+			}
+		}
 	}
+	
 	public function writeConfig($conf){
 		$this->FreePBX->WriteConfig($conf);
 	}

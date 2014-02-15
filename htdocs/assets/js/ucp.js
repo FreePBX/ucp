@@ -110,6 +110,19 @@ $(function() {
 		resizeContent();
 	})
 	
+	$(document).on('pjax:timeout', function(event) {
+		//query higher up event here
+		console.log('timeout')
+		event.preventDefault()
+		return false
+	})
+	$(document).on('pjax:error', function(event) {
+		//query higher up event here
+		console.log('error')
+		event.preventDefault()
+		return false
+	})
+	
 	$(".pushmenu").bind("transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd", function(){ 
 		//transitioning = false;
 		//alert('completed');

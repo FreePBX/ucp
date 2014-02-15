@@ -2,13 +2,14 @@
 	<rawname>ucp</rawname>
 	<name>User Control Panel</name>
 	<repo>standard</repo>
-	<version>12.0.0alpha1</version>
+	<version>12.0.0alpha2</version>
 	<publisher>FreePBX</publisher>
 	<license>GPLv2+</license>
 	<description>
 		Formerly ARI, now called User Control Panel
 	</description>
 	<changelog>
+		*12.0.0alpha2* Stage 1 Completed. Completely modular and object orientated
 		*12.0.0alpha1* Lets get some structure in there and figure this all out
 	</changelog>
 	<category>Admin</category>
@@ -29,6 +30,6 @@
 		<version>12.0</version>
 	</supported>
 	<depends>
-		<version>12.0.1alpha14</version>
+		<version>12.0.1alpha23</version>
 	</depends>
 </module>

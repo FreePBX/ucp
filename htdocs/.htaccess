@@ -6,6 +6,6 @@ SetEnv HTACCESS on
 
 # Now allow /index.php as well as the various assets
 #
-<FilesMatch "(^$|index\.php|test\.php|\.(gif|GIF|jpg|jpeg|png|css|js|swf|txt|ico|ttf|svg|eot|woff|wav|mp3|aac|ogg|webm|less)$)">
+<FilesMatch "(^$|index\.php|\.(gif|GIF|jpg|jpeg|png|css|js|swf|txt|ico|ttf|svg|eot|woff|wav|mp3|aac|ogg|webm|less)$)">
 	Allow from all
 </FilesMatch>
