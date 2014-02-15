@@ -10,14 +10,9 @@
 		<link href="assets/css/compiled/<?php echo $bootstrapcssless?>" rel="stylesheet" type="text/css">
 		<link rel="stylesheet" href="assets/framework/css/font-awesome.min.css">
 
-		<link href="assets/framework/<?php echo $amp_conf['JQUERY_CSS'] . $version_tag?>" rel="stylesheet" type="text/css">
+		<link href="assets/framework/css/jquery-ui.css" rel="stylesheet" type="text/css">
 
-		<?php if ($amp_conf['USE_GOOGLE_CDN_JS']) { ?>
-			<script src="//ajax.googleapis.com/ajax/libs/jquery/<?php echo $amp_conf['JQUERY_VER'] ?>/jquery.min.js"></script>
-			<script>window.jQuery || document.write('<script src="assets/framework/js/jquery-<?php echo $amp_conf['JQUERY_VER'] ?>.min.js"></script>')</script>
-		<?php } else { ?>
-			<script type="text/javascript" src="assets/framework/js/jquery-<?php echo $amp_conf['JQUERY_VER'] ?>.min.js"></script>
-		<?php } ?>
+		<script type="text/javascript" src="assets/framework/js/jquery-<?php echo $amp_conf['JQUERY_VER'] ?>.min.js"></script>
 
 		
 		<?php if($amp_conf['JQMIGRATE']) { ?>
