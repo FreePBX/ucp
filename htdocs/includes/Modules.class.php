@@ -28,6 +28,7 @@ class Modules extends Module_Helpers {
 	// Static Object used for self-referencing. 
 	private static $obj;
 	public static $conf;
+	protected $module = null;
 	
 	function __construct($UCP) {
 		$this->UCP = $UCP;
@@ -77,5 +78,88 @@ class Modules extends Module_Helpers {
 	function getAssignedDevices() {
 		$user = $this->UCP->User->getUser();
 		return $user['assigned'];
+	}
+	
+	/** Module Specific Funtions, These should be extended into each module **/
+	
+	public function getDisplay() {
+		return '';
+	}
+	
+	public function getBadge() {
+		return false;
+	}
+	
+	public function getMenuItems() {
+		return array();
+	}
+	
+	public function ajaxRequest($command, $settings) {
+		return false;
+	}
+	
+	public function ajaxHandler() {
+		return false;
+	}
+	
+	public function ajaxCustomHandler() {
+		return false;
+	}
+	
+	protected function load_view($view_filename_protected, $vars = array()) {
+		return $this->UCP->View->load_view($view_filename_protected, $vars);
+	}
+	
+	protected function show_view($view_filename_protected, $vars = array()) {
+		return $this->UCP->View->show_view($view_filename_protected, $vars);
+	}
+	
+	/** These Functions attempt to load assets automatically for us **/
+	protected function loadScripts() {
+		$contents = '';
+		$dir = dirname(__DIR__)."/modules/".ucfirst($this->module)."/assets/js";
+		if(is_dir($dir)) {
+			$filenames = glob($dir."/*.js");
+			usort($filenames, "strcmp");
+			foreach ($filenames as $filename) {
+				$contents .= file_get_contents($filename);
+			}
+		}
+		return "<script>".$contents."</script>";
+	}
+	
+	protected function loadCSS() {
+		$contents = '';
+		$dir = dirname(__DIR__)."/modules/".ucfirst($this->module)."/assets/css";
+		if(is_dir($dir)) {
+			$filenames = glob($dir."/*.css");
+			usort($filenames, "strcmp");
+			foreach ($filenames as $filename) {
+				$contents .= file_get_contents($filename);
+			}
+		}
+		return "<style>".$contents."</style>";
+	}
+	
+	protected function loadLESS() {
+		$contents = '';
+		$dir = dirname(__DIR__)."/modules/".ucfirst($this->module)."/assets/less";
+		if(is_dir($dir)) {
+			$files = array();
+			\Less_Cache::$cache_dir = $dir."/cache";
+			if(file_exists($dir."/bootstrap.less")) {
+				$files = array( $dir."/bootstrap.less" => 'modules/'.ucfirst($this->module).'/assets' );
+			} else {
+				$filenames = glob($dir."/*.less");
+				usort($filenames, "strcmp");
+				foreach ($filenames as $filename) {
+					$files[$filename] = 'ucp/';
+				}
+			}
+		}
+		
+		$css_file_name = \Less_Cache::Get( $files, array('compress' => true) );
+		$compiled = file_get_contents( $dir.'/cache/'.$css_file_name );
+		return "<style>".$compiled."</style>";
 	}
 }

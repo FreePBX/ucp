@@ -1,3 +1,28 @@
+@import "fileinput-mixins.less";
+@import "fileinput-variables.less";
+@import "fileinput.less";
+
+.btn-file {
+	padding-top: 4px;
+	font-family: Lucida Grande,Lucida Sans,Arial,sans-serif;
+	font-size: 1.1em;
+	border: 1px solid #aed0ea;
+	background: #d7ebf9 url(assets/framework/images/jquery-ui/ui-bg_glass_80_d7ebf9_1x400.png) 50% 50% repeat-x;
+	font-weight: bold;
+	color: #2779aa;
+}
+.btn-file:hover {
+	border: 1px solid #74b2e2;
+	background: #e4f1fb url(assets/framework/images/jquery-ui/ui-bg_glass_100_e4f1fb_1x400.png) 50% 50% repeat-x;
+	font-weight: bold;
+	color: #0070a3;
+}
+.btn-file:active {
+	border: 1px solid #2694e8;
+	background: #3baae3 url(assets/framework/images/jquery-ui/ui-bg_glass_50_3baae3_1x400.png) 50% 50% repeat-x;
+	font-weight: bold;
+	color: #ffffff;
+}
 /* FONTS */
 @font-face {
     font-family: 'cinzel';
@@ -22,8 +47,9 @@
 
 }
 
+/* Make all input boxes have a font where you can tell the difference between upper and lower case fonts */
 input {
-	font-family: monospace;
+	font-family: sans-serif;
 }
 
 /* MIXINS */
@@ -84,14 +110,20 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 
 /* LOGIN */
 #login-window {
+	padding-top: 20px;
 	@media only screen and (min-width : 768px) { 
 		width: 30%;
 		padding-left: 15px;
 		padding-right: 15px;
+		padding-top: 10px;
  	}
 	@media only screen and (max-width : 767px) {
 		padding: 10px;
+		padding-top: 20px;
 	}
+	@media only screen and (min-width : 974px) { 
+		padding-top: 20px;
+ 	}
 	position: absolute;
 	top: 0;
 	bottom: 0;

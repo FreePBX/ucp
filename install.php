@@ -16,7 +16,7 @@ foreach($links as $link) {
 	}
 }
 
-$sql = "CREATE TABLE `ucp_sessions` (
+$sql = "CREATE TABLE IF NOT EXISTS `ucp_sessions` (
   `session` varchar(255) NOT NULL,
   `uid` 	int(11) DEFAULT NULL,
   `address` varchar(255) DEFAULT NULL,
@@ -30,7 +30,7 @@ if (DB::IsError($result)) {
 }
 unset($result);
 
-$sql = "CREATE TABLE `ucp_users` (
+$sql = "CREATE TABLE IF NOT EXISTS `ucp_users` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `username` varchar(255) DEFAULT NULL,
   `password` varchar(255) DEFAULT NULL,

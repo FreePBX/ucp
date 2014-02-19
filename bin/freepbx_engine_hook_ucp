@@ -1,0 +1,7 @@
+#!/bin/bash
+chown_asterisk_hook_ucp() {
+	chown -R $AMPASTERISKUSER:$AMPASTERISKGROUP $AMPWEBROOT/ucp
+	chmod -R g+w $AMPWEBROOT/ucp
+	chown -R $AMPASTERISKUSER:$AMPASTERISKGROUP $(readlink -f $AMPWEBROOT/ucp)
+	chmod -R g+w $(readlink -f $AMPWEBROOT/ucp)
+}

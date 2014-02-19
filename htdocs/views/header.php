@@ -20,6 +20,7 @@
 		<?php } ?>
 		
 		<link href="assets/css/compiled/<?php echo $ucpcssless?>" rel="stylesheet" type="text/css">
+		<script type="text/javascript" src="assets/js/fileinput.js"></script>
 		<script>
 			$(document).bind("mobileinit", function() {
 			  $.mobile.ignoreContentEnabled = true;
@@ -28,6 +29,8 @@
 		<script type="text/javascript" src="assets/framework/js/bootstrap-3.0.2.custom.min.js"></script>
 		<script type="text/javascript" src="assets/framework/js/jquery-ui-1.10.3.custom.min.js"></script>
 		<script type="text/javascript" src="assets/framework/js/jquery.cookie.js<?php echo $version_tag ?>"></script>
+		<script src="assets/js/jquery.iframe-transport.js"></script>
+		<script src="assets/js/jquery.fileupload.js"></script>
 		<script type="text/javascript" src="assets/js/jquery.form.min.js"></script>
 		<script type="text/javascript" src="assets/js/jquery.jplayer.min.js"></script>
 		<script type="text/javascript" src="assets/js/quo.js"></script>
