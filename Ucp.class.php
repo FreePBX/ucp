@@ -225,7 +225,7 @@ class Ucp implements BMO {
 		$array = array();
 		$array['modules']['Voicemail']['assigned'] = $assigned;
 		$settings = json_encode($array);
-		$sth->execute(array(':username' => $username, ':password' => sha1($password), ':settings' => json_encode($settings)));
+		$sth->execute(array(':username' => $username, ':password' => sha1($password), ':settings' => $settings));
 		return array("status" => true, "type" => "success", "message" => _("User Successfully Added"));
 	}
 	
