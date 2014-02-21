@@ -108,6 +108,11 @@ $(function() {
 	$(document).on('pjax:end', function() {
 		stylize();
 		resizeContent();
+		var mod = $.url().param('mod');
+		if((typeof(mod) !== 'undefined') && mod != 'home') {
+			//do stuff here with modules
+		}
+		
 	})
 	
 	$(document).on('pjax:timeout', function(event) {

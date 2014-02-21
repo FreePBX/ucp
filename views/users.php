@@ -16,7 +16,11 @@
             <td><a href="#" class="info"><?php echo _("UCP Password")?>:<span><?php echo _("This is the UCP Password")?></span></a></td>
         	<td><input type="password" name="password" maxlength="150" value="<?php echo !empty($user['password']) ? '******' : ''; ?>"></td>
 		</tr>
-        	<td><a href="#" class="info"><?php echo _("Assigned Extensions")?>:<span><?php echo _("These are the assigned and active extensions which will show up for this user to control and edit in UCP")?></span></a></td>
+        <tr>
+            <td colspan="2"><h5><?php echo _("Module Settings")?></h5><hr></td>
+        </tr>
+		<tr>
+        	<td><a href="#" class="info"><?php echo _("Assigned Voicemail Extensions")?>:<span><?php echo _("These are the assigned and active extensions which will show up for this user to control and edit in UCP")?></span></a></td>
     		<td>
 				<div class="extensions-list">
 				<?php foreach($fpbxusers as $fpbxuser) {?>

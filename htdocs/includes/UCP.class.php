@@ -76,6 +76,14 @@ class UCP extends UCP_Helpers {
 	 * @return string The version
 	 */
 	function getVersion() {
-		return 'v1.2';
+		return 'v1.3';
+	}
+	
+	function getSetting($username,$module,$setting) {
+		return $this->FreePBX->UCP->getSetting($username,$module,$setting);
+	}
+	
+	function setSetting($username,$module,$setting,$value) {
+		return $this->FreePBX->UCP->setSetting($username,$module,$setting,$value);
 	}
 }

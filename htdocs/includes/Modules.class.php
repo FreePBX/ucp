@@ -146,6 +146,9 @@ class Modules extends Module_Helpers {
 		$dir = dirname(__DIR__)."/modules/".ucfirst($this->module)."/assets/less";
 		if(is_dir($dir)) {
 			$files = array();
+			if(!file_exists($dir.'/cache') && !mkdir($dir.'/cache')) {
+				die('Can Not Create Cache Folder at '.$dir.'/cache');
+			}
 			\Less_Cache::$cache_dir = $dir."/cache";
 			if(file_exists($dir."/bootstrap.less")) {
 				$files = array( $dir."/bootstrap.less" => 'modules/'.ucfirst($this->module).'/assets' );

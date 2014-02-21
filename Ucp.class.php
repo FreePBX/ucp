@@ -143,7 +143,8 @@ class Ucp implements BMO {
 		$sth->execute(array(':username' => $username));
 		$user = $sth->fetch(PDO::FETCH_ASSOC);
 		if(!empty($user)) {
-			$user['assigned'] = json_decode($user['assigned'],true);
+			$user['settings'] = json_decode($user['settings'],true);
+			$user['assigned'] = $user['settings']['modules']['Voicemail']['assigned'];
 		}
 		return $user;
 	}
@@ -154,7 +155,8 @@ class Ucp implements BMO {
 		$sth->execute(array(':id' => $id));
 		$user = $sth->fetch(PDO::FETCH_ASSOC);
 		if(!empty($user)) {
-			$user['assigned'] = json_decode($user['assigned'],true);
+			$user['settings'] = json_decode($user['settings'],true);
+			$user['assigned'] = $user['settings']['modules']['Voicemail']['assigned'];
 		}
 		return $user;
 	}
@@ -183,6 +185,27 @@ class Ucp implements BMO {
 		return true;
 	}
 	
+	public function getSetting($username,$module,$setting) {
+		$user = $this->getUserByUsername($username);
+		if(isset($user['settings']['modules'][ucfirst($module)][$setting])) {
+			return $user['settings']['modules'][ucfirst($module)][$setting];
+		} else {
+			return false;
+		}
+	}
+	
+	public function setSetting($username,$module,$setting,$value) {
+		$user = $this->getUserByUsername($username);
+		if(!$user) {
+			return false;
+		}
+		$sql = "UPDATE ucp_users SET `settings` = :settings WHERE `username` = :username";
+		$sth = $this->db->prepare($sql);
+		$user['modules'][ucfirst($module)][$setting] = $value;
+		$settings = json_encode($user);
+		$sth->execute(array(':username' => $username, ':settings' => $settings));
+	}
+	
 	public function deleteUser($username) {
 		if(!$this->getUserByUsername($prevUsername)) {
 			return array("status" => false, "type" => "danger", "message" => _("User Does Not Exist"));
@@ -197,9 +220,12 @@ class Ucp implements BMO {
 		if($this->getUserByUsername($username)) {
 			return array("status" => false, "type" => "danger", "message" => _("User Already Exists"));
 		}
-		$sql = "INSERT INTO ucp_users (`username`,`password`,`assigned`) VALUES (:username,:password,:assigned)";
+		$sql = "INSERT INTO ucp_users (`username`,`password`,`settings`) VALUES (:username,:password,:settings)";
 		$sth = $this->db->prepare($sql);
-		$sth->execute(array(':username' => $username, ':password' => sha1($password), ':assigned' => json_encode($assigned)));
+		$array = array();
+		$array['modules']['Voicemail']['assigned'] = $assigned;
+		$settings = json_encode($array);
+		$sth->execute(array(':username' => $username, ':password' => sha1($password), ':settings' => json_encode($settings)));
 		return array("status" => true, "type" => "success", "message" => _("User Successfully Added"));
 	}
 	
@@ -208,20 +234,22 @@ class Ucp implements BMO {
 		if(!$user || empty($user)) {
 			return array("status" => false, "type" => "danger", "message" => _("User Does Not Exist"));
 		}
-		$assigned = json_encode($assigned);
+		$array = array();
+		$array['modules']['Voicemail']['assigned'] = $assigned;
+		$settings = json_encode($array);
 		if(!isset($password)) {
-			if($prevUsername != $username || $assigned != $user['assigned']) {
-				$sql = "UPDATE ucp_users SET `username` = :username, `assigned` = :assigned WHERE `username` = :prevusername";
+			if($prevUsername != $username || $settings != $user['settings']) {
+				$sql = "UPDATE ucp_users SET `username` = :username, `settings` = :settings WHERE `username` = :prevusername";
 				$sth = $this->db->prepare($sql);
-				$sth->execute(array(':username' => $username, ':prevusername' => $prevUsername, ':assigned' => $assigned));
+				$sth->execute(array(':username' => $username, ':prevusername' => $prevUsername, ':settings' => $settings));
 			} else {
 				return array("status" => true, "type" => "info", "message" => _("Nothing Changed, Did you mean that?"));
 			}
 		} else {
-			if(sha1($password) != $user['password'] || $assigned != $user['assigned']) {
-				$sql = "UPDATE ucp_users SET `username` = :username, `password` = :password, `assigned` = :assigned WHERE `username` = :prevusername";
+			if(sha1($password) != $user['password'] || $settings != $user['settings']) {
+				$sql = "UPDATE ucp_users SET `username` = :username, `password` = :password, `settings` = :settings WHERE `username` = :prevusername";
 				$sth = $this->db->prepare($sql);
-				$sth->execute(array(':username' => $username, ':prevusername' => $prevUsername, ':password' => sha1($password), ':assigned' => $assigned));	
+				$sth->execute(array(':username' => $username, ':prevusername' => $prevUsername, ':password' => sha1($password), ':settings' => $settings));	
 			} else {
 				return array("status" => true, "type" => "info", "message" => _("Nothing Changed, Did you mean that?"));
 			}

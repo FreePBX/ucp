@@ -39,6 +39,9 @@ $displayvars = array();
 $displayvars['user'] = $user;
 
 require dirname(__FILE__).'/includes/less/Cache.php';
+if(!file_exists(dirname(__FILE__).'/assets/css/compiled') && !mkdir(dirname(__FILE__).'/assets/css/compiled')) {
+	die('Can Not Create Cache Folder at '.dirname(__FILE__).'/assets/css/compiled');
+}
 Less_Cache::$cache_dir = dirname(__FILE__).'/assets/css/compiled';
 
 $btfiles = array();

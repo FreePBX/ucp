@@ -26,6 +26,7 @@
 			  $.mobile.ignoreContentEnabled = true;
 			});
 		</script>
+		<script type="text/javascript" src="assets/js/recorder.js"></script>
 		<script type="text/javascript" src="assets/framework/js/bootstrap-3.0.2.custom.min.js"></script>
 		<script type="text/javascript" src="assets/framework/js/jquery-ui-1.10.3.custom.min.js"></script>
 		<script type="text/javascript" src="assets/framework/js/jquery.cookie.js<?php echo $version_tag ?>"></script>
