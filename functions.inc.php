@@ -30,6 +30,7 @@ function ucp_hook_userman() {
 				$user = $ucp->getUserByID($_REQUEST['user']);
 				if(isset($_POST['submit'])) {
 					$ucp->processModuleConfigPages($user);
+					$ucp->expireUserSessions($_REQUEST['user']);
 				}
 				if(!empty($_REQUEST['deletesession'])) {
 					$ucp->expireUserSession($_REQUEST['deletesession']);
