@@ -12,4 +12,5 @@
 	overflow: scroll;
 	height: 150px;
 	font-size: 85%;
+	min-width: 200px;
 }

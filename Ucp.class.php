@@ -59,7 +59,7 @@ class Ucp implements BMO {
 						if(!file_exists($location."/modules/".ucfirst($rawname))) {
 							symlink($path.'/admin/modules/'.$rawname.'/ucp',$location.'/modules/'.ucfirst($rawname));
 						}
-					} else {
+					} elseif($module['status'] != MODULE_STATUS_DISABLED && $module['status'] != MODULE_STATUS_ENABLED) {
 						if(file_exists($location."/modules/".ucfirst($rawname)) && is_link($location."/modules/".ucfirst($rawname))) {
 							unlink($location."/modules/".ucfirst($rawname));
 						}
@@ -77,16 +77,9 @@ class Ucp implements BMO {
 		switch($_REQUEST['category']) {
 			case 'users':
 				if(isset($_POST['submit'])) {
-					$assigned = !empty($_POST['assigned']) ? $_POST['assigned'] : array();
-					if(empty($_POST['prevUsername'])) {
-						$this->message = $this->addUser($_POST['username'], $_POST['password'],$assigned);
-					} else {
-						if($_POST['password'] == '******') {
-							$this->message = $this->updateUser($_POST['prevUsername'], $_POST['username'], $assigned);
-						} else {
-							$this->message = $this->updateUser($_POST['prevUsername'], $_POST['username'], $assigned, $_POST['password']);
-						}
-					}
+					$user = $this->getUserByID($_REQUEST['user']);
+					$this->setSetting($user['username'],'Voicemail','assigned',$_POST['vmassigned']);
+					$this->expireUserSessions($_REQUEST['user']);
 				}
 				if(!empty($_REQUEST['deletesession'])) {
 					$this->message = $this->expireUserSession($_REQUEST['deletesession']);
@@ -95,23 +88,51 @@ class Ucp implements BMO {
 		}
 	}
 	
+	public function setUsermanMessage($message,$type="info") {
+		$this->FreePBX->Userman->setMessage(_('Deleted User Session'),'success');
+		return true;
+	}
+	
+	public function getSetting($username,$module,$setting) {
+		$user = $this->getUserByUsername($username);
+		$assigned = $this->FreePBX->Userman->getModuleSettingByID($user['id'],'ucp|'.ucfirst(strtolower($module)),$setting);
+		return $assigned;
+	}
+	
+	public function setSetting($username,$module,$setting,$value) {
+		$user = $this->getUserByUsername($username);
+		$assigned = $this->FreePBX->Userman->setModuleSettingByID($user['id'],'ucp|'.ucfirst(strtolower($module)),$setting,$value);
+		return $assigned;
+	}
+	
 	public function myShowPage() {
+		$category = !empty($_REQUEST['category']) ? $_REQUEST['category'] : '';
+		$action = !empty($_REQUEST['action']) ? $_REQUEST['action'] : '';
 		$html = '';
 		$html .= load_view(dirname(__FILE__).'/views/header.php',array());
 		
 		$users = $this->getAllUsers();
 		
 		$html .= load_view(dirname(__FILE__).'/views/rnav.php',array("users"=>$users));
-		switch($_REQUEST['category']) {
-			case 'users':
-				if(isset($_REQUEST['action']) && $_REQUEST['action'] == 'showuser' && !empty($_REQUEST['user'])) {
-					$user = $this->getUserByID($_REQUEST['user']);
-				} else {
-					$user = array();
+		switch($action) {
+			case 'showuser':
+				if(empty($_REQUEST['user'])) {
+					$html = _('No User Selected');
+					break;
 				}
+				$user = $this->getUserByID($_REQUEST['user']);
 				$fpbxusers = array();
-				foreach(core_users_list() as $fpbxuser) {
-					$fpbxusers[] = array("data" => $fpbxuser, "selected" => in_array($fpbxuser[0],$user['assigned']));
+				$cul = array();
+				foreach(core_users_list() as $list) {
+					$cul[$list[0]] = array(
+						"name" => $list[1],
+						"vmcontext" => $list[2]
+					);
+				}
+				$vmassigned = $this->getSetting($user['username'],'Voicemail','assigned');
+				$vmassigned = !empty($vmassigned) ? $vmassigned : array();
+				foreach($user['assigned'] as $assigned) {
+					$fpbxusers[] = array("ext" => $assigned, "data" => $cul[$assigned], "selected" => in_array($assigned,$vmassigned));
 				}
 				$html .= load_view(dirname(__FILE__).'/views/users.php',array("fpbxusers" => $fpbxusers, "user" => $user, "message" => $this->message, "sessions" => $this->getUserSessions($user['id'])));
 			break;
@@ -125,142 +146,26 @@ class Ucp implements BMO {
 	}
 	
 	public function getAllUsers() {
-		$sql = "SELECT * FROM ucp_users";
-		$users = $this->db->query($sql,PDO::FETCH_ASSOC);
-		if(!empty($users)) {
-			$final = array();
-			foreach($users as $key => $user) {
-				$final[$key] = $user;
-				$final[$key]['assigned'] = !empty($user['assigned']) ? json_decode($user['assigned'], true) : array();
-			}
-		}
+		$final = $this->FreePBX->Userman->getAllUsers();
 		return !empty($final) ? $final : array();
 	}
 	
 	public function getUserByUsername($username) {
-		$sql = "SELECT * FROM ucp_users WHERE username = :username";
-		$sth = $this->db->prepare($sql);
-		$sth->execute(array(':username' => $username));
-		$user = $sth->fetch(PDO::FETCH_ASSOC);
+		$user = $this->FreePBX->Userman->getUserByUsername($username);
 		if(!empty($user)) {
-			$user['settings'] = json_decode($user['settings'],true);
-			$user['assigned'] = $user['settings']['modules']['Voicemail']['assigned'];
+			$assigned = $this->FreePBX->Userman->getGlobalSettingByID($user['id'],'assigned');
+			$user['assigned'] = !empty($assigned) ? $assigned : array();
 		}
 		return $user;
 	}
 	
 	public function getUserByID($id) {
-		$sql = "SELECT * FROM ucp_users WHERE id = :id";
-		$sth = $this->db->prepare($sql);
-		$sth->execute(array(':id' => $id));
-		$user = $sth->fetch(PDO::FETCH_ASSOC);
+		$user = $this->FreePBX->Userman->getUserByID($id);
 		if(!empty($user)) {
-			$user['settings'] = json_decode($user['settings'],true);
-			$user['assigned'] = $user['settings']['modules']['Voicemail']['assigned'];
+			$assigned = $this->FreePBX->Userman->getGlobalSettingByID($user['id'],'assigned');
+			$user['assigned'] = !empty($assigned) ? $assigned : array();
 		}
 		return $user;
-	}
-	
-	public function addUsersToExtension($extension, $users) {
-		if(empty($users) || !is_array($users)) {
-			return false;
-		}
-		
-		foreach($this->getAllUsers() as $user) {			
-			if(in_array($user['id'],$users)) {
-				//add
-				if(in_array($extension, $user['assigned'])) {
-					continue;
-				}
-				$user['assigned'][] = $extension;
-			} else {
-				//remove
-				if(!in_array($extension, $user['assigned'])) {
-					continue;
-				}
-				$user['assigned'] = array_diff($user['assigned'], array($extension));
-			}
-			$this->updateUser($user['username'], $user['username'], $user['assigned']);
-		}
-		return true;
-	}
-	
-	public function getSetting($username,$module,$setting) {
-		$user = $this->getUserByUsername($username);
-		if(isset($user['settings']['modules'][ucfirst($module)][$setting])) {
-			return $user['settings']['modules'][ucfirst($module)][$setting];
-		} else {
-			return false;
-		}
-	}
-	
-	public function setSetting($username,$module,$setting,$value) {
-		$user = $this->getUserByUsername($username);
-		if(!$user) {
-			return false;
-		}
-		$sql = "UPDATE ucp_users SET `settings` = :settings WHERE `username` = :username";
-		$sth = $this->db->prepare($sql);
-		$user['modules'][ucfirst($module)][$setting] = $value;
-		$settings = json_encode($user);
-		$sth->execute(array(':username' => $username, ':settings' => $settings));
-	}
-	
-	public function deleteUser($username) {
-		if(!$this->getUserByUsername($prevUsername)) {
-			return array("status" => false, "type" => "danger", "message" => _("User Does Not Exist"));
-		}
-		$sql = "DELETE FROM ucp_users WHERE `username` = :username";
-		$sth = $this->db->prepare($sql);
-		$sth->execute(array(':username' => $username));
-		return array("status" => true, "type" => "success", "message" => _("User Successfully Deleted"));
-	}
-	
-	public function addUser($username, $password, $assigned) {
-		if($this->getUserByUsername($username)) {
-			return array("status" => false, "type" => "danger", "message" => _("User Already Exists"));
-		}
-		$sql = "INSERT INTO ucp_users (`username`,`password`,`settings`) VALUES (:username,:password,:settings)";
-		$sth = $this->db->prepare($sql);
-		$array = array();
-		$array['modules']['Voicemail']['assigned'] = $assigned;
-		$settings = json_encode($array);
-		$sth->execute(array(':username' => $username, ':password' => sha1($password), ':settings' => $settings));
-		return array("status" => true, "type" => "success", "message" => _("User Successfully Added"));
-	}
-	
-	public function updateUser($prevUsername, $username, $assigned, $password=null) {
-		$user = $this->getUserByUsername($prevUsername);
-		if(!$user || empty($user)) {
-			return array("status" => false, "type" => "danger", "message" => _("User Does Not Exist"));
-		}
-		$array = array();
-		$array['modules']['Voicemail']['assigned'] = $assigned;
-		$settings = json_encode($array);
-		if(!isset($password)) {
-			if($prevUsername != $username || $settings != $user['settings']) {
-				$sql = "UPDATE ucp_users SET `username` = :username, `settings` = :settings WHERE `username` = :prevusername";
-				$sth = $this->db->prepare($sql);
-				$sth->execute(array(':username' => $username, ':prevusername' => $prevUsername, ':settings' => $settings));
-			} else {
-				return array("status" => true, "type" => "info", "message" => _("Nothing Changed, Did you mean that?"));
-			}
-		} else {
-			if(sha1($password) != $user['password'] || $settings != $user['settings']) {
-				$sql = "UPDATE ucp_users SET `username` = :username, `password` = :password, `settings` = :settings WHERE `username` = :prevusername";
-				$sth = $this->db->prepare($sql);
-				$sth->execute(array(':username' => $username, ':prevusername' => $prevUsername, ':password' => sha1($password), ':settings' => $settings));	
-			} else {
-				return array("status" => true, "type" => "info", "message" => _("Nothing Changed, Did you mean that?"));
-			}
-		}
-		
-		//if username and/or password changed then clear the UCP sessions for this user (which will force a logout)
-		if($prevUsername != $username || (isset($password) || sha1($password) != $user['password'])) {
-			$this->expireUserSessions($user['id']);
-		}
-		
-		return array("status" => true, "type" => "success", "message" => _("User Successfully Updated"));
 	}
 	
 	//clear all sessions (which will essentially log any user out)
@@ -306,13 +211,6 @@ class Ucp implements BMO {
 	}
 	
 	public function checkCredentials($username, $password_sha1) {
-		$sql = "SELECT id, password FROM ucp_users WHERE username = :username";
-		$sth = $this->db->prepare($sql);
-		$sth->execute(array(':username' => $username));
-		$result = $sth->fetch(\PDO::FETCH_ASSOC);
-		if(!empty($result) && ($password_sha1 == $result['password'])) {
-			return $result['id'];
-		}
-		return false;
+		return $this->FreePBX->Userman->checkCredentials($username, $password_sha1);
 	}
 }

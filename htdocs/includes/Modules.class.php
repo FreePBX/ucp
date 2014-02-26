@@ -60,7 +60,10 @@ class Modules extends Module_Helpers {
 		    if(preg_match('/^(.*)\.class$/',pathinfo($module,PATHINFO_FILENAME),$matches)) {
 		    	$module = ucfirst(strtolower($matches[1]));
 				$lc = strtolower($matches[1]);
-				$menu[$lc] = $this->$module->getMenuItems();
+				$mm = $this->$module->getMenuItems();
+				if(!empty($mm)) {
+					$menu[$lc] = $mm;
+				}
 		    }
 		}
 		//module with module folder
@@ -69,7 +72,10 @@ class Modules extends Module_Helpers {
 			if(file_exists($module.'/'.$mod.'.class.php')) {
 		    	$module = ucfirst(strtolower($mod));
 				$lc = strtolower($mod);
-				$menu[$lc] = $this->$module->getMenuItems();
+				$mm = $this->$module->getMenuItems();
+				if(!empty($mm)) {
+					$menu[$lc] = $mm;
+				}
 			}
 		}
 		return $menu;
