@@ -46,6 +46,46 @@ class Ucp implements BMO {
 	public function restore($backup){
 		
 	}
+	
+	function processModuleConfigPages($user) {
+		$modulef =& module_functions::create();
+		$modules = $modulef->getinfo(false);
+		$path = FreePBX::create()->Config->get_conf_setting('AMPWEBROOT');
+		$location = $path . "/admin/modules";
+		foreach($modules as $module) {
+			if(isset($module['rawname']) && $module['status'] == MODULE_STATUS_ENABLED) {
+				$rawname = trim($module['rawname']);
+				$mod = ucfirst(strtolower($module['rawname']));
+				if(file_exists($location."/".$rawname."/".$mod.".class.php")) {
+					if(method_exists(FreePBX::create()->$mod,'processUCPAdminDisplay')) {
+						$html .= FreePBX::create()->$mod->processUCPAdminDisplay($user);
+					}
+				}
+			}
+		}
+	}
+	
+	function constructModuleConfigPages($user) {
+		//module with no module folder
+		$html = '';
+		$modulef =& module_functions::create();
+		$modules = $modulef->getinfo(false);
+		$path = FreePBX::create()->Config->get_conf_setting('AMPWEBROOT');
+		$location = $path . "/admin/modules";
+		foreach($modules as $module) {
+			if(isset($module['rawname']) && $module['status'] == MODULE_STATUS_ENABLED) {
+				$rawname = trim($module['rawname']);
+				$mod = ucfirst(strtolower($module['rawname']));
+				if(file_exists($location."/".$rawname."/".$mod.".class.php")) {
+					if(method_exists(FreePBX::create()->$mod,'getUCPAdminDisplay')) {
+						$html .= FreePBX::create()->$mod->getUCPAdminDisplay($user);
+					}
+				}
+			}
+		}
+		return $html;
+	}
+	
 	public function genConfig() {
 		$modulef =& module_functions::create();
 		$modules = $modulef->getinfo(false);
@@ -78,7 +118,7 @@ class Ucp implements BMO {
 			case 'users':
 				if(isset($_POST['submit'])) {
 					$user = $this->getUserByID($_REQUEST['user']);
-					$this->setSetting($user['username'],'Voicemail','assigned',$_POST['vmassigned']);
+					$this->processModuleConfigPages($user);
 					$this->expireUserSessions($_REQUEST['user']);
 				}
 				if(!empty($_REQUEST['deletesession'])) {
@@ -121,20 +161,7 @@ class Ucp implements BMO {
 					break;
 				}
 				$user = $this->getUserByID($_REQUEST['user']);
-				$fpbxusers = array();
-				$cul = array();
-				foreach(core_users_list() as $list) {
-					$cul[$list[0]] = array(
-						"name" => $list[1],
-						"vmcontext" => $list[2]
-					);
-				}
-				$vmassigned = $this->getSetting($user['username'],'Voicemail','assigned');
-				$vmassigned = !empty($vmassigned) ? $vmassigned : array();
-				foreach($user['assigned'] as $assigned) {
-					$fpbxusers[] = array("ext" => $assigned, "data" => $cul[$assigned], "selected" => in_array($assigned,$vmassigned));
-				}
-				$html .= load_view(dirname(__FILE__).'/views/users.php',array("fpbxusers" => $fpbxusers, "user" => $user, "message" => $this->message, "sessions" => $this->getUserSessions($user['id'])));
+				$html .= load_view(dirname(__FILE__).'/views/users.php',array("mHtml" => $this->constructModuleConfigPages($user), "user" => $user, "message" => $this->message, "sessions" => $this->getUserSessions($user['id'])));
 			break;
 			default:
 				$html .= load_view(dirname(__FILE__).'/views/main.php',array());

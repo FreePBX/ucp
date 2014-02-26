@@ -7,15 +7,9 @@
         <tr>
             <td colspan="2"><h5><?php echo _("Module Settings")?></h5><hr></td>
         </tr>
-		<tr>
-        	<td><a href="#" class="info"><?php echo _("Allowed Voicemail")?>:<span><?php echo _("These are the assigned and active extensions which will show up for this user to control and edit in UCP")?></span></a></td>
-    		<td>
-				<div class="extensions-list">
-				<?php foreach($fpbxusers as $fpbxuser) {?>
-					<label><input type="checkbox" name="vmassigned[]" value="<?php echo $fpbxuser['ext']?>" <?php echo $fpbxuser['selected'] ? 'checked' : '' ?>> <?php echo $fpbxuser['data']['name']?> &lt;<?php echo $fpbxuser['ext']?>&gt;</label><br />
-				<?php } ?>
-				</div>
-    		</td>
+	</table>
+	<?php echo $mHtml;?>
+	<table>
 		<tr>
 			<td colspan="2"><input type="submit" name="submit" value="Submit"></td>
 		</tr>

@@ -29,30 +29,13 @@ function ucp_hook_userman() {
 				$ucp = FreePBX::create()->Ucp;
 				$user = $ucp->getUserByID($_REQUEST['user']);
 				if(isset($_POST['submit'])) {
-					if(!empty($_POST['ucp|voicemail'])) {
-						$ucp->setSetting($user['username'],'Voicemail','assigned',$_POST['ucp|voicemail']);
-					} else {
-						$ucp->setSetting($user['username'],'Voicemail','assigned',array());
-					}
-					$ucp->expireUserSessions($user['id']);
-				}
-				$fpbxusers = array();
-				$cul = array();
-				foreach(core_users_list() as $list) {
-					$cul[$list[0]] = array(
-						"name" => $list[1],
-						"vmcontext" => $list[2]
-					);
-				}
-				$vmassigned = $ucp->getSetting($user['username'],'Voicemail','assigned');
-				foreach($user['assigned'] as $assigned) {
-					$fpbxusers[] = array("ext" => $assigned, "data" => $cul[$assigned], "selected" => in_array($assigned,$vmassigned));
+					$ucp->processModuleConfigPages($user);
 				}
 				if(!empty($_REQUEST['deletesession'])) {
 					$ucp->expireUserSession($_REQUEST['deletesession']);
 					$ucp->setUsermanMessage(_('Deleted User Session'),'success');
 				}
-				return load_view(dirname(__FILE__).'/views/users_hook.php',array("fpbxusers" => $fpbxusers, "user" => $user, "sessions" => $ucp->getUserSessions($user['id'])));
+				return load_view(dirname(__FILE__).'/views/users_hook.php',array("mHtml" => $ucp->constructModuleConfigPages($user), "user" => $user, "sessions" => $ucp->getUserSessions($user['id'])));
 			break;
 			case 'deluser':
 			break;
