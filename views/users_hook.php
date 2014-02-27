@@ -12,6 +12,15 @@
 			<div class="indent-div">
 				<table>
 				    <tr class="UCP">
+				        <td><?php echo _('Allow Login')?></td>
+						<td>
+							<span class="radioset">
+								<input type="radio" id="radio1" name="radio" checked><label for="radio1">Yes</label>
+								<input type="radio" id="radio2" name="radio"><label for="radio2">No</label>
+							</span>
+						</td>
+				    </tr>
+				    <tr class="UCP">
 				        <td colspan="2"><h5><?php echo _("Module Settings")?></h5><hr></td>
 				    </tr>
 					<tr class="UCP">
