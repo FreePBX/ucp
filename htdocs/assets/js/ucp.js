@@ -15,15 +15,15 @@ $(function() {
 			}
 		});
 	}
-	
+
 	//Hide Menu when the screen resizes
 	$( window ).resize(function() {
 		if($( window ).width() > 767 && $('.pushmenu-left').hasClass('pushmenu-open')) {
 			toggleMenu();
-		}		
+		}
 		resizeContent();
 	});
-	
+
 	//help tags
 	$("a.info").each(function(){
 		$(this).after('<span class="help">?<span>' + $(this).find('span').html() + '</span></span>');
@@ -46,7 +46,7 @@ $(function() {
 					.stop(true, true)
 					.animate({opacity: "hide"}, "fast");
 	});
-	
+
 	stylize();
 	if ($.support.pjax) {
 	    $(document).on('click', '[data-pjax] a, a[data-pjax]', function(event) {
@@ -54,20 +54,20 @@ $(function() {
 			var clicker = $(this).data('mod');
 			var breadcrumbs = '<li><a data-mod="home" data-pjax href="?display=dashboard&amp;mod=home">Home</a></li>';
 			$.pjax.click(event, {container: container})
-			
+
 			var mod = $.url().param('mod');
 			var sub = $.url().param('sub');
-			
+
 			if(mod != 'home') {
 					breadcrumbs = breadcrumbs+'<li class="active">'+mod+'</li>'
 			}
 			if(typeof sub !== 'undefined') {
 				breadcrumbs = breadcrumbs+'<li class="active">'+sub+'</li>'
 			}
-			
+
 			$('#top-dashboard-nav').html(breadcrumbs);
-			
-			$( ".pushmenu li").each(function( index ) {	
+
+			$( ".pushmenu li").each(function( index ) {
 				if($(this).data('mod') == clicker) {
 					$(this).addClass('active');
 				} else {
@@ -81,15 +81,15 @@ $(function() {
 					$(this).removeClass('active');
 				}
 			});
-			
+
 			if($( window ).width() < 767 && $('.pushmenu-left').hasClass('pushmenu-open')) {
 				toggleMenu();
 			}
 	    })
 	}
-	
+
 	$(document).pjax('a[data-pjax-logout]', '#content-container');
-	
+
 	$(document).on('submit', '#frm-login', function(event) {
 		var queryString = $(this).formSerialize();
 		queryString = queryString + '&quietmode=1&module=User&command=login';
@@ -103,7 +103,7 @@ $(function() {
 		}, "json");
 		return false;
 	})
-	
+
 	//After load event restylize the page
 	$(document).on('pjax:end', function() {
 		stylize();
@@ -112,9 +112,9 @@ $(function() {
 		if((typeof(mod) !== 'undefined') && mod != 'home') {
 			//do stuff here with modules
 		}
-		
+
 	})
-	
+
 	$(document).on('pjax:timeout', function(event) {
 		//query higher up event here
 		console.log('timeout')
@@ -127,12 +127,12 @@ $(function() {
 		event.preventDefault()
 		return false
 	})
-	
-	$(".pushmenu").bind("transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd", function(){ 
+
+	$(".pushmenu").bind("transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd", function(){
 		//transitioning = false;
 		//alert('completed');
 	});
-	
+
 	resizeContent();
 });
 
@@ -145,8 +145,8 @@ function resizeContent() {
 
 //Applies any javascript related stylizers
 function stylize() {
-	$('.radioset').buttonset();
-	$( "button, input[type='button'], input[type='submit']" ).button();
+	//$('.radioset').buttonset();
+	//$( "button, input[type='button'], input[type='submit']" ).button();
 }
 
 function toggleMenu() {

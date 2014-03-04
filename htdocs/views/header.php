@@ -14,11 +14,11 @@
 
 		<script type="text/javascript" src="assets/framework/js/jquery-<?php echo $amp_conf['JQUERY_VER'] ?>.min.js"></script>
 
-		
+
 		<?php if($amp_conf['JQMIGRATE']) { ?>
 			<script type="text/javascript" src="assets/framework/js/jquery-migrate-1.2.1.js"></script>
 		<?php } ?>
-		
+
 		<link href="assets/css/compiled/<?php echo $ucpcssless?>" rel="stylesheet" type="text/css">
 		<script type="text/javascript" src="assets/js/fileinput.js"></script>
 		<script>
@@ -44,7 +44,8 @@
 		<meta name="apple-mobile-web-app-capable" content="yes" />
 		<link rel="apple-touch-icon" href="assets/images/badge.png" />
 		<link rel="apple-touch-icon-precomposed" href="assets/images/badge.png" />
-		
+
+		<link href="assets/css/css3-buttons.css" rel="stylesheet" type="text/css">
 		<!--[if gte IE 9]>
 		  <style type="text/css">
 		    .gradient {
