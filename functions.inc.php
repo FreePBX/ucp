@@ -23,6 +23,13 @@
  * @license   AGPL v3
  */
 function ucp_hook_userman() {
+    if(isset($_POST['submit'])) {
+        if($_POST['ucp|login'] == 'true') {
+            FreePBX::create()->Userman->setModuleSettingByID($_POST['user'],'ucp|Global','allowLogin',true);
+        } else {
+            FreePBX::create()->Userman->setModuleSettingByID($_POST['user'],'ucp|Global','allowLogin',false);
+        }
+    }
 	if(isset($_REQUEST['action']) && $_REQUEST['action'] == 'showuser') {
 		switch($_REQUEST['action']) {
 			case 'showuser':
@@ -36,7 +43,7 @@ function ucp_hook_userman() {
 					$ucp->expireUserSession($_REQUEST['deletesession']);
 					$ucp->setUsermanMessage(_('Deleted User Session'),'success');
 				}
-				return load_view(dirname(__FILE__).'/views/users_hook.php',array("mHtml" => $ucp->constructModuleConfigPages($user), "user" => $user, "sessions" => $ucp->getUserSessions($user['id'])));
+				return load_view(dirname(__FILE__).'/views/users_hook.php',array("mHtml" => $ucp->constructModuleConfigPages($user), "user" => $user, "allowLogin" => FreePBX::create()->Userman->getModuleSettingByID($_REQUEST['user'],'ucp|Global','allowLogin'), "sessions" => $ucp->getUserSessions($user['id'])));
 			break;
 			case 'deluser':
 			break;

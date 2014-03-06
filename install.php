@@ -53,9 +53,9 @@ if ($db->getAll('SHOW TABLES LIKE "ucp_users"')) {
 	$userman = FreePBX::create()->Userman;
 	$Ucp = FreePBX::create()->Ucp;
 	foreach($Ucp->getAllUsers() as $user) {
-		$ret = $userman->addUser($user['username'], $user['password'],false);
+		$ret = $userman->addUser($user['username'], $user['password'],'User Migrated from UCP',false);
 		if($ret['status']) {
-			$userman->setGlobalSettingByID($user['id'],'assigned',$user['assigned']);
+			$userman->setAssignedDevices($user['id'],$user['assigned']);
 			$userman->setModuleSettingByID($user['id'],'ucp|Voicemail','assigned',$user['assigned']);
 		}
 	}

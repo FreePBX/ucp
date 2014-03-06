@@ -27,11 +27,11 @@ class User extends UCP {
 	public $uid = null;
 	private $cookieName = 'ucp_tokenkey';
 	private $token = null;
-	
+
 	public function __construct($UCP) {
 		$this->UCP = $UCP;
 	}
-	
+
 	/**
 	 * Determine what commands are allowed
 	 *
@@ -58,7 +58,7 @@ class User extends UCP {
 			break;
 		}
 	}
-	
+
 	/**
 	 * The Handler for all ajax events releated to this class
 	 *
@@ -67,7 +67,7 @@ class User extends UCP {
 	 * @return mixed Output if success, otherwise false will generate a 500 error serverside
 	 */
 	function ajaxHandler() {
-		$return = array("status" => false, "message" => "");	
+		$return = array("status" => false, "message" => "");
 		switch($_REQUEST['command']) {
 			case 'login':
 				$rm = isset($_POST['rememberme']) ? true : false;
@@ -88,7 +88,7 @@ class User extends UCP {
 		}
 		return false;
 	}
-	
+
 	/**
 	 * Get Logged in user information
 	 *
@@ -99,7 +99,7 @@ class User extends UCP {
 	public function getUser() {
 		return $this->_checkToken() ? $this->FreePBX->Ucp->getUserByID($this->uid) : false;
 	}
-	
+
 	/**
 	 * Login
 	 *
@@ -131,7 +131,7 @@ class User extends UCP {
 			return false;
 		}
 	}
-	
+
 	/**
 	 * Logout
 	 *
@@ -151,7 +151,7 @@ class User extends UCP {
 		}
 		return true;
 	}
-	
+
 	/**
 	 * Set Cookie
 	 *
@@ -165,7 +165,7 @@ class User extends UCP {
 	private function _setCookie($token) {
 		return setcookie($this->cookieName, $token, time()+60*60*24*7);
 	}
-	
+
 	/**
 	 * Delete Cookie
 	 *
@@ -179,7 +179,7 @@ class User extends UCP {
 	private function _deleteCookie() {
 		return setcookie($this->cookieName, "", time() - 3600);
 	}
-	
+
 	/**
 	 * Delete Token from FreePBX
 	 *
@@ -191,7 +191,7 @@ class User extends UCP {
 	private function _deleteToken($token) {
 		return $this->UCP->FreePBX->Ucp->deleteToken($token, $this->uid);
 	}
-	
+
 	/**
 	 * Store Token into FreePBX
 	 *
@@ -203,7 +203,7 @@ class User extends UCP {
 	private function _storeToken($token) {
 		$this->UCP->FreePBX->Ucp->storeToken($token, $this->uid, $_SERVER['REMOTE_ADDR']);
 	}
-	
+
 	/**
 	 * Generates a token
 	 *
@@ -215,11 +215,11 @@ class User extends UCP {
 	private function _generateToken() {
 		return bin2hex(openssl_random_pseudo_bytes(16));
 	}
-	
+
 	/**
 	 * Check the token from either the session or cookie
 	 *
-	 * This will attempt to get the session from the session first, 
+	 * This will attempt to get the session from the session first,
 	 * if it can't it will then it will next check the cookie
 	 * it will then check to see if the token is valid, which will
 	 * return a user session
@@ -231,6 +231,10 @@ class User extends UCP {
 		if(!empty($token)) {
 			$result = $this->UCP->FreePBX->Ucp->getToken($token);
 			if(!empty($result['uid'])) {
+                if(!$this->_allowed($result['uid'])) {
+                    $this->_deleteToken($token);
+                    return false;
+                }
 				$this->_storeToken($token); //update the token time
 				$this->uid = $result['uid'];
 				return true;
@@ -238,9 +242,9 @@ class User extends UCP {
 		}
 		return false;
 	}
-	
+
 	/**
-	 * Check the Credentials from FreePBX 
+	 * Check the Credentials from FreePBX
 	 *
 	 * This will check the provided credentials to see if they are valid
 	 * We encrypt it here first before passing it to the next step
@@ -249,10 +253,16 @@ class User extends UCP {
 	 */
 	private function _authenticate($username, $password) {
 		$result = $this->UCP->FreePBX->Ucp->checkCredentials($username, sha1($password));
-		if(!empty($result)) {
+		if(!empty($result) && $this->_allowed($result)) {
 			$this->uid = $result;
 			return true;
 		}
 		return false;
 	}
+
+    private function _allowed($uid) {
+        $user = $this->UCP->FreePBX->Ucp->getUserByID($uid);
+        $status = $this->UCP->getSetting($user['username'],'Global','allowLogin');
+        return !empty($status) ? $status : false;
+    }
 }

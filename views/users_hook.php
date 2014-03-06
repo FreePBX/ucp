@@ -15,8 +15,8 @@
 				        <td><?php echo _('Allow Login')?></td>
 						<td>
 							<span class="radioset">
-								<input type="radio" id="radio1" name="radio" checked><label for="radio1">Yes</label>
-								<input type="radio" id="radio2" name="radio"><label for="radio2">No</label>
+								<input type="radio" id="radio1" name="ucp|login" value="true" <?php echo ($allowLogin) ? 'checked' : ''?>><label for="radio1">Yes</label>
+								<input type="radio" id="radio2" name="ucp|login" value="false" <?php echo (!$allowLogin) ? 'checked' : ''?>><label for="radio2">No</label>
 							</span>
 						</td>
 				    </tr>

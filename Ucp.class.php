@@ -33,20 +33,20 @@ class Ucp implements BMO {
 		$this->FreePBX = $freepbx;
 		$this->db = $freepbx->Database;
 	}
-	
+
 	public function install() {
-		
+
 	}
 	public function uninstall() {
-		
+
 	}
 	public function backup(){
-		
+
 	}
 	public function restore($backup){
-		
+
 	}
-	
+
 	function processModuleConfigPages($user) {
 		$modulef =& module_functions::create();
 		$modules = $modulef->getinfo(false);
@@ -58,13 +58,13 @@ class Ucp implements BMO {
 				$mod = ucfirst(strtolower($module['rawname']));
 				if(file_exists($location."/".$rawname."/".$mod.".class.php")) {
 					if(method_exists(FreePBX::create()->$mod,'processUCPAdminDisplay')) {
-						$html .= FreePBX::create()->$mod->processUCPAdminDisplay($user);
+						FreePBX::create()->$mod->processUCPAdminDisplay($user);
 					}
 				}
 			}
 		}
 	}
-	
+
 	function constructModuleConfigPages($user) {
 		//module with no module folder
 		$html = '';
@@ -85,7 +85,7 @@ class Ucp implements BMO {
 		}
 		return $html;
 	}
-	
+
 	public function genConfig() {
 		$modulef =& module_functions::create();
 		$modules = $modulef->getinfo(false);
@@ -108,11 +108,11 @@ class Ucp implements BMO {
 			}
 		}
 	}
-	
+
 	public function writeConfig($conf){
 		$this->FreePBX->WriteConfig($conf);
 	}
-	
+
 	public function doConfigPageInit($display) {
 		switch($_REQUEST['category']) {
 			case 'users':
@@ -127,32 +127,32 @@ class Ucp implements BMO {
 			break;
 		}
 	}
-	
+
 	public function setUsermanMessage($message,$type="info") {
 		$this->FreePBX->Userman->setMessage(_('Deleted User Session'),'success');
 		return true;
 	}
-	
+
 	public function getSetting($username,$module,$setting) {
 		$user = $this->getUserByUsername($username);
 		$assigned = $this->FreePBX->Userman->getModuleSettingByID($user['id'],'ucp|'.ucfirst(strtolower($module)),$setting);
 		return $assigned;
 	}
-	
+
 	public function setSetting($username,$module,$setting,$value) {
 		$user = $this->getUserByUsername($username);
 		$assigned = $this->FreePBX->Userman->setModuleSettingByID($user['id'],'ucp|'.ucfirst(strtolower($module)),$setting,$value);
 		return $assigned;
 	}
-	
+
 	public function myShowPage() {
 		$category = !empty($_REQUEST['category']) ? $_REQUEST['category'] : '';
 		$action = !empty($_REQUEST['action']) ? $_REQUEST['action'] : '';
 		$html = '';
 		$html .= load_view(dirname(__FILE__).'/views/header.php',array());
-		
+
 		$users = $this->getAllUsers();
-		
+
 		$html .= load_view(dirname(__FILE__).'/views/rnav.php',array("users"=>$users));
 		switch($action) {
 			case 'showuser':
@@ -168,15 +168,15 @@ class Ucp implements BMO {
 			break;
 		}
 		$html .= load_view(dirname(__FILE__).'/views/footer.php',array());
-		
+
 		return $html;
 	}
-	
+
 	public function getAllUsers() {
 		$final = $this->FreePBX->Userman->getAllUsers();
 		return !empty($final) ? $final : array();
 	}
-	
+
 	public function getUserByUsername($username) {
 		$user = $this->FreePBX->Userman->getUserByUsername($username);
 		if(!empty($user)) {
@@ -185,7 +185,7 @@ class Ucp implements BMO {
 		}
 		return $user;
 	}
-	
+
 	public function getUserByID($id) {
 		$user = $this->FreePBX->Userman->getUserByID($id);
 		if(!empty($user)) {
@@ -194,7 +194,7 @@ class Ucp implements BMO {
 		}
 		return $user;
 	}
-	
+
 	//clear all sessions (which will essentially log any user out)
 	public function expireUserSessions($uid) {
 		$sql = "DELETE FROM ucp_sessions WHERE uid = :uid";
@@ -202,14 +202,14 @@ class Ucp implements BMO {
 		$sth->execute(array(':uid' => $uid));
 		return true;
 	}
-	
+
 	public function expireUserSession($session) {
 		$sql = "DELETE FROM ucp_sessions WHERE session = :session";
 		$sth = $this->db->prepare($sql);
 		$sth->execute(array(':session' => $session));
 		return array("status" => true, "type" => "success", "message" => _("Deleted Session"));
 	}
-	
+
 	public function getUserSessions($uid) {
 		$sql = "SELECT * FROM ucp_sessions WHERE uid = :uid";
 		$sth = $this->db->prepare($sql);
@@ -217,26 +217,26 @@ class Ucp implements BMO {
 		$sessions = $sth->fetchAll(PDO::FETCH_ASSOC);
 		return !empty($sessions) ? $sessions : array();
 	}
-	
+
 	public function deleteToken($token, $uid) {
-	    $sql = "DELETE FROM ucp_sessions WHERE session = :session AND uid = :uid";		
+	    $sql = "DELETE FROM ucp_sessions WHERE session = :session AND uid = :uid";
 		$sth = $this->db->prepare($sql);
 		return $sth->execute(array(':session' => $token, ':uid' => $uid));
 	}
-	
+
 	public function storeToken($token, $uid, $address) {
-	    $sql = "INSERT INTO ucp_sessions (session, uid, address, time) VALUES (:session, :uid, :address, :time) ON DUPLICATE KEY UPDATE time = VALUES(time)";		
+	    $sql = "INSERT INTO ucp_sessions (session, uid, address, time) VALUES (:session, :uid, :address, :time) ON DUPLICATE KEY UPDATE time = VALUES(time)";
 		$sth = $this->db->prepare($sql);
 		return $sth->execute(array(':session' => $token, ':uid' => $uid, ':address' => $address, ':time' => time()));
 	}
-	
+
 	public function getToken($token) {
 		$sql = "SELECT uid FROM ucp_sessions WHERE session = :token";
 		$sth = $this->db->prepare($sql);
 		$sth->execute(array(':token' => $token));
 		return $sth->fetch(\PDO::FETCH_ASSOC);
 	}
-	
+
 	public function checkCredentials($username, $password_sha1) {
 		return $this->FreePBX->Userman->checkCredentials($username, $password_sha1);
 	}
