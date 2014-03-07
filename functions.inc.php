@@ -22,18 +22,40 @@
  * @author   Andrew Nagy <andrew.nagy@schmoozecom.com>
  * @license   AGPL v3
  */
-function ucp_hook_userman() {
-    if(isset($_POST['submit'])) {
-        if($_POST['ucp|login'] == 'true') {
-            FreePBX::create()->Userman->setModuleSettingByID($_POST['user'],'ucp|Global','allowLogin',true);
-        } else {
-            FreePBX::create()->Userman->setModuleSettingByID($_POST['user'],'ucp|Global','allowLogin',false);
+
+setup_userman()->registerHook('addUser','ucp_hook_userman_updateUser');
+setup_userman()->registerHook('delUser','ucp_hook_userman_delUser');
+setup_userman()->registerHook('updateUser','ucp_hook_userman_updateUser');
+
+function ucp_hook_userman_updateUser($id,$display,$data) {
+    if($display == 'userman') {
+        if(isset($_POST['ucp|login'])) {
+            if($_POST['ucp|login'] == 'true') {
+                FreePBX::create()->Userman->setModuleSettingByID($id,'ucp|Global','allowLogin',true);
+            } else {
+                FreePBX::create()->Userman->setModuleSettingByID($id,'ucp|Global','allowLogin',false);
+            }
+            return true;
+        }
+    } else {
+        $allowed = FreePBX::create()->Userman->getModuleSettingByID($id,'ucp|Global','allowLogin');
+        if(empty($allowed)) {
+            FreePBX::create()->Userman->setModuleSettingByID($id,'ucp|Global','allowLogin',false);
         }
     }
-	if(isset($_REQUEST['action']) && $_REQUEST['action'] == 'showuser') {
+}
+
+function ucp_hook_userman_delUser($id,$display,$data) {
+    $ucp = FreePBX::create()->Ucp;
+    $ucp->expireUserSessions($id);
+    $ucp->deleteUser($id);
+}
+
+function ucp_hook_userman() {
+	if(isset($_REQUEST['action'])) {
+        $ucp = FreePBX::create()->Ucp;
 		switch($_REQUEST['action']) {
 			case 'showuser':
-				$ucp = FreePBX::create()->Ucp;
 				$user = $ucp->getUserByID($_REQUEST['user']);
 				if(isset($_POST['submit'])) {
 					$ucp->processModuleConfigPages($user);
@@ -44,8 +66,6 @@ function ucp_hook_userman() {
 					$ucp->setUsermanMessage(_('Deleted User Session'),'success');
 				}
 				return load_view(dirname(__FILE__).'/views/users_hook.php',array("mHtml" => $ucp->constructModuleConfigPages($user), "user" => $user, "allowLogin" => FreePBX::create()->Userman->getModuleSettingByID($_REQUEST['user'],'ucp|Global','allowLogin'), "sessions" => $ucp->getUserSessions($user['id'])));
-			break;
-			case 'deluser':
 			break;
 			default:
 			break;

@@ -26,6 +26,7 @@
 
 class Ucp implements BMO {
 	private $message;
+    private $registeredHooks = array();
 	public function __construct($freepbx = null) {
 		if ($freepbx == null)
 			throw new Exception("Not given a FreePBX Object");
@@ -47,7 +48,12 @@ class Ucp implements BMO {
 
 	}
 
+    public function registerHook($action,$class,$method) {
+        $this->registeredHooks[$action] = array('class' => $class, 'method' => $method);
+    }
+
 	function processModuleConfigPages($user) {
+
 		$modulef =& module_functions::create();
 		$modules = $modulef->getinfo(false);
 		$path = FreePBX::create()->Config->get_conf_setting('AMPWEBROOT');
@@ -108,6 +114,10 @@ class Ucp implements BMO {
 			}
 		}
 	}
+
+    public function deleteUser($uid) {
+        //run module functions here if needed otherwise usermanager delete's most of what we are using
+    }
 
 	public function writeConfig($conf){
 		$this->FreePBX->WriteConfig($conf);

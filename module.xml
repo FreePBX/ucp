@@ -2,23 +2,24 @@
 	<rawname>ucp</rawname>
 	<name>User Control Panel</name>
 	<repo>standard</repo>
-	<version>12.0.0alpha4</version>
+	<version>12.0.0alpha5</version>
 	<publisher>FreePBX</publisher>
 	<license>GPLv2+</license>
 	<description>
 		Formerly ARI, now called User Control Panel
 	</description>
 	<changelog>
+		*12.0.0alpha5* Now using usermanager
 		*12.0.0alpha2* Stage 1 Completed. Completely modular and object orientated
 		*12.0.0alpha1* Lets get some structure in there and figure this all out
 	</changelog>
 	<category>Admin</category>
 	<menuitems>
 		<ucpadmin>UCP Admin</ucpadmin>
-		<ucptab 
-			category="User Panel" 
-			href="/ucp" 
-			target="ucp" 
+		<ucptab
+			category="User Panel"
+			href="/ucp"
+			target="ucp"
 			access="all"
 			requires_auth="false"
 			>User Control Panel</ucptab>
@@ -30,7 +31,7 @@
 		<version>12.0</version>
 	</supported>
 	<depends>
-		<module>userman ge 2.11.0alpha1</module>
+		<module>userman</module>
 		<version>12.0.1alpha23</version>
 	</depends>
 </module>
