@@ -52,11 +52,14 @@ if ($db->getAll('SHOW TABLES LIKE "ucp_users"') && !$db->getAll('SHOW COLUMNS FR
 if ($db->getAll('SHOW TABLES LIKE "ucp_users"')) {
 	$userman = FreePBX::create()->Userman;
 	$Ucp = FreePBX::create()->Ucp;
-	foreach($Ucp->getAllUsers() as $user) {
+	$sql = "SELECT username,password,settings FROM ucp_users";
+	$old = sql($sql,'getAll',DB_FETCHMODE_ASSOC);
+	foreach($old as $user) {
+		$assigned = json_decode($user['settings'],true);
 		$ret = $userman->addUser($user['username'], $user['password'],'User Migrated from UCP',false);
 		if($ret['status']) {
-			$userman->setAssignedDevices($user['id'],$user['assigned']);
-			$userman->setModuleSettingByID($user['id'],'ucp|Voicemail','assigned',$user['assigned']);
+			$userman->setAssignedDevices($ret['id'],$assigned['modules']['Voicemail']['assigned']);
+			$userman->setModuleSettingByID($ret['id'],'ucp|Voicemail','assigned',$assigned['modules']['Voicemail']['assigned']);
 		}
 	}
 	$sql = 'DROP TABLE IF EXISTS ucp_users';

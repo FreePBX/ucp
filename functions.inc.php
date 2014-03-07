@@ -22,7 +22,9 @@
  * @author   Andrew Nagy <andrew.nagy@schmoozecom.com>
  * @license   AGPL v3
  */
-
+if(!function_exists('setup_userman')) {
+	return false;
+}
 setup_userman()->registerHook('addUser','ucp_hook_userman_updateUser');
 setup_userman()->registerHook('delUser','ucp_hook_userman_delUser');
 setup_userman()->registerHook('updateUser','ucp_hook_userman_updateUser');
