@@ -56,7 +56,7 @@ if ($db->getAll('SHOW TABLES LIKE "ucp_users"')) {
 	$old = sql($sql,'getAll',DB_FETCHMODE_ASSOC);
 	foreach($old as $user) {
 		$assigned = json_decode($user['settings'],true);
-		$ret = $userman->addUser($user['username'], $user['password'],'User Migrated from UCP',false);
+		$ret = $userman->addUser($user['username'], $user['password'],'none','User Migrated from UCP',false);
 		if($ret['status']) {
 			$userman->setAssignedDevices($ret['id'],$assigned['modules']['Voicemail']['assigned']);
 			$userman->setModuleSettingByID($ret['id'],'ucp|Voicemail','assigned',$assigned['modules']['Voicemail']['assigned']);
