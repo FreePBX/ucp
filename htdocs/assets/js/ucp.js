@@ -112,12 +112,16 @@ $(function() {
 		if((typeof(mod) !== 'undefined') && mod != 'home') {
 			//do stuff here with modules
 		}
+		$('#loader-screen').fadeOut('fast');
+	})
 
+	$(document).on('pjax:start', function() {
+		//$('#loader-screen').fadeIn('fast');
 	})
 
 	$(document).on('pjax:timeout', function(event) {
 		//query higher up event here
-		console.log('timeout')
+		$('#loader-screen').fadeIn('fast');
 		event.preventDefault()
 		return false
 	})
