@@ -159,8 +159,7 @@ class Ucp implements BMO {
 		$category = !empty($_REQUEST['category']) ? $_REQUEST['category'] : '';
 		$action = !empty($_REQUEST['action']) ? $_REQUEST['action'] : '';
 		$html = '';
-		$html .= load_view(dirname(__FILE__).'/views/header.php',array());
-
+        
 		$users = $this->getAllUsers();
 
 		$html .= load_view(dirname(__FILE__).'/views/rnav.php',array("users"=>$users));
@@ -177,7 +176,6 @@ class Ucp implements BMO {
 				$html .= load_view(dirname(__FILE__).'/views/main.php',array());
 			break;
 		}
-		$html .= load_view(dirname(__FILE__).'/views/footer.php',array());
 
 		return $html;
 	}

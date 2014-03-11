@@ -15,7 +15,7 @@
 	</changelog>
 	<category>Admin</category>
 	<menuitems>
-		<ucpadmin>UCP Admin</ucpadmin>
+		<ucpadmin beta="yes">UCP Admin</ucpadmin>
 		<ucptab
 			category="User Panel"
 			href="/ucp"
