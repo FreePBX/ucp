@@ -4,8 +4,8 @@ $bootstrap_settings = array();
 $bootstrap_settings['freepbx_auth'] = false;
 //TODO: We need to make sure security is 100%!
 $restrict_mods = true; //Set to true so that we just load framework and the page wont bomb out because we have no session
-if (!@include_once(getenv('FREEPBX_CONF') ? getenv('FREEPBX_CONF') : '/etc/freepbx.conf')) { 
-      include_once('/etc/asterisk/freepbx.conf'); 
+if (!@include_once(getenv('FREEPBX_CONF') ? getenv('FREEPBX_CONF') : '/etc/freepbx.conf')) {
+      include_once('/etc/asterisk/freepbx.conf');
 }
 include(dirname(__FILE__).'/includes/UCP.class.php');
 $ucp = \UCP\UCP::create();
@@ -60,7 +60,7 @@ $nt = $ucp->notifications;
 if ( !isset($_SERVER['HTACCESS']) ) {
 	// No .htaccess support
 	if(!$nt->exists('ucp', 'htaccess')) {
-		$nt->add_security('ucp', 'htaccess', _('.htaccess files are disable on this webserver. Please enable them'), 
+		$nt->add_security('ucp', 'htaccess', _('.htaccess files are disable on this webserver. Please enable them'),
 		_('To Protect the integrity of your server, you must set AllowOverride to All in the Apache configuration file for the User Control Panel'));
 	}
 } else {
@@ -94,7 +94,7 @@ if($user) {
 	$display = !empty($_REQUEST['display']) ? $_REQUEST['display'] : 'dashboard';
 	$module = !empty($_REQUEST['mod']) ? $_REQUEST['mod'] : 'home';
 	$displayvars['menu'] = $ucp->Modules->generateMenu();
-	
+
 } else {
 	$display = '';
 	$module = '';

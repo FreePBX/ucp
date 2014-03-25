@@ -31,6 +31,7 @@
 		<version>12.0</version>
 	</supported>
 	<depends>
+		<phpversion>5.3.3</phpversion>
 		<module>userman</module>
 		<version>12.0.1alpha23</version>
 	</depends>
