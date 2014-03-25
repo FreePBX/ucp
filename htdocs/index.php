@@ -116,6 +116,7 @@ switch($display) {
 			}
 		}
 		$displayvars['dashboard_content'] = $dashboard_content;
+        $displayvars['year'] = date('Y',time());
 		show_view(dirname(__FILE__).'/views/dashboard.php',$displayvars);
 	break;
 	default:

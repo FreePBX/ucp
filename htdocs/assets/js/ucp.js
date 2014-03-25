@@ -143,7 +143,7 @@ $(function() {
 function resizeContent() {
 	//run the resize hack against dashboard content
 	if($('#dashboard-content').length) {
-		$('#dashboard-content').height($('#dashboard').height() - 60);
+		$('#dashboard-content').height($('#dashboard').height() - 135);
 	}
 }
 

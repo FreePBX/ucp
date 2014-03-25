@@ -70,4 +70,23 @@
 			  </div>
 		</div>
 	</div>
+	<div id="footer">
+		<div id="footer-bar"></div>
+		<div id="footer-content">
+			<div id="footer-image">
+				<img height="65" src="assets/images/schmooze-phone-icon.png">
+			</div>
+			<div id="footer-message">
+				User Control Panel is released as <a href="http://www.gnu.org/licenses/agpl-3.0.html" target="_blank">AGPLV3</a> or newer.<br/>
+				Copyright <?php echo $year?> Schmooze Com Inc.<br/>
+				<a href="http://www.schmoozecom.com/">http://www.schmoozecom.com/</a><br/>
+				<span class="small-text">The removal of this copyright notice is stricly prohibited</span>
+			</div>
+			<div id="html5-badge">
+				<a href="http://www.w3.org/html/logo/">
+					<img src="assets/images/HTML5_Badge.png" height="65" alt="HTML5 Powered with Connectivity / Realtime, CSS3 / Styling, Device Access, Multimedia, Performance &amp; Integration, and Offline &amp; Storage" title="HTML5 Powered with Connectivity / Realtime, CSS3 / Styling, Device Access, Multimedia, Performance &amp; Integration, and Offline &amp; Storage">
+				</a>
+			</div>
+		</div>
+	</div>
 </div>
