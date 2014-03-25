@@ -44,8 +44,6 @@
 		<meta name="apple-mobile-web-app-capable" content="yes" />
 		<link rel="apple-touch-icon" href="assets/images/badge.png" />
 		<link rel="apple-touch-icon-precomposed" href="assets/images/badge.png" />
-
-		<link href="assets/css/css3-buttons.css" rel="stylesheet" type="text/css">
 		<!--[if gte IE 9]>
 		  <style type="text/css">
 		    .gradient {
