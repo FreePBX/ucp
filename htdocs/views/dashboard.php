@@ -74,11 +74,13 @@
 		<div id="footer-bar"></div>
 		<div id="footer-content">
 			<div id="footer-image">
-				<img height="65" src="assets/images/schmooze-phone-icon.png">
+				<a href="http://www.schmoozecom.com/">
+					<img height="65" src="assets/images/schmooze-phone-icon.png">
+				</a>
 			</div>
 			<div id="footer-message">
 				User Control Panel is released as <a href="http://www.gnu.org/licenses/agpl-3.0.html" target="_blank">AGPLV3</a> or newer.<br/>
-				Copyright <?php echo $year?> Schmooze Com Inc.<br/>
+				Copyright 2013-<?php echo $year?> Schmooze Com Inc.<br/>
 				<a href="http://www.schmoozecom.com/">http://www.schmoozecom.com/</a><br/>
 				<span class="small-text">The removal of this copyright notice is stricly prohibited</span>
 			</div>
