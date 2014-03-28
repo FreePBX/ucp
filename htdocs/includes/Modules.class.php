@@ -25,17 +25,17 @@
 namespace UCP;
 include(__DIR__.'/Module_Helpers.class.php');
 class Modules extends Module_Helpers {
-	// Static Object used for self-referencing. 
+	// Static Object used for self-referencing.
 	private static $obj;
 	public static $conf;
 	protected $module = null;
-	
+
 	function __construct($UCP) {
 		$this->UCP = $UCP;
 		// Ensure the local object is available
 		self::$obj = $this;
 	}
-	
+
 	/**
 	 * Alternative Constructor
 	 *
@@ -52,74 +52,90 @@ class Modules extends Module_Helpers {
 		}
 		return self::$obj;
 	}
-	
-	function generateMenu() {
+
+	public function generateMenu() {
 		$menu = array();
 		//module with no module folder
-		foreach (glob(dirname(__DIR__)."/modules/*.class.php") as $module) {
-		    if(preg_match('/^(.*)\.class$/',pathinfo($module,PATHINFO_FILENAME),$matches)) {
-		    	$module = ucfirst(strtolower($matches[1]));
-				$lc = strtolower($matches[1]);
-				$mm = $this->$module->getMenuItems();
-				if(!empty($mm)) {
-					$menu[$lc] = $mm;
-				}
-		    }
-		}
-		//module with module folder
-		foreach (glob(dirname(__DIR__)."/modules/*", GLOB_ONLYDIR) as $module) {
-			$mod = basename($module);
-			if(file_exists($module.'/'.$mod.'.class.php')) {
-		    	$module = ucfirst(strtolower($mod));
-				$lc = strtolower($mod);
-				$mm = $this->$module->getMenuItems();
-				if(!empty($mm)) {
-					$menu[$lc] = $mm;
-				}
-			}
-		}
+        $modules = $this->getModulesByMethod('getMenuItems');
+        foreach($modules as $module) {
+            $module = ucfirst(strtolower($module));
+            $lc = strtolower($module);
+            $mm = $this->$module->getMenuItems();
+            if(!empty($mm)) {
+                $menu[$lc] = $mm;
+            }
+        }
 		return $menu;
 	}
-	
+
+    public function getModulesByMethod($method) {
+        $objects = array();
+        foreach (glob(dirname(__DIR__)."/modules/*.class.php") as $module) {
+            if(preg_match('/^(.*)\.class$/',pathinfo($module,PATHINFO_FILENAME),$matches)) {
+                $module = ucfirst(strtolower($matches[1]));
+                if(method_exists($this->$module,$method)) {
+                    $reflection = new \ReflectionMethod($this->$module, $method);
+                    if ($reflection->isPublic()) {
+                        $objects[] = $module;
+                    }
+                }
+            }
+        }
+        //module with module folder
+        foreach (glob(dirname(__DIR__)."/modules/*", GLOB_ONLYDIR) as $module) {
+            $mod = basename($module);
+            if(file_exists($module.'/'.$mod.'.class.php')) {
+                $module = ucfirst(strtolower($mod));
+                if(method_exists($this->$module,$method)) {
+                    $reflection = new \ReflectionMethod($this->$module, $method);
+                    if ($reflection->isPublic()) {
+                        $objects[] = $module;
+                    }
+                }
+            }
+        }
+        return $objects;
+    }
+
 	function getAssignedDevices() {
 		$user = $this->UCP->User->getUser();
 		return $user['assigned'];
 	}
-	
+
 	/** Module Specific Funtions, These should be extended into each module **/
-	
+
 	public function getDisplay() {
 		return '';
 	}
-	
+
 	public function getBadge() {
 		return false;
 	}
-	
+
 	public function getMenuItems() {
 		return array();
 	}
-	
+
 	public function ajaxRequest($command, $settings) {
 		return false;
 	}
-	
+
 	public function ajaxHandler() {
 		return false;
 	}
-	
+
 	public function ajaxCustomHandler() {
 		return false;
 	}
-	
+
 	protected function load_view($view_filename_protected, $vars = array()) {
 		return $this->UCP->View->load_view($view_filename_protected, $vars);
 	}
-	
+
 	protected function show_view($view_filename_protected, $vars = array()) {
 		return $this->UCP->View->show_view($view_filename_protected, $vars);
 	}
-	
+
 	/** These Functions attempt to load assets automatically for us **/
 	protected function loadScripts() {
 		$contents = '';
@@ -133,7 +149,7 @@ class Modules extends Module_Helpers {
 		}
 		return "<script>".$contents."</script>";
 	}
-	
+
 	protected function loadCSS() {
 		$contents = '';
 		$dir = dirname(__DIR__)."/modules/".ucfirst($this->module)."/assets/css";
@@ -146,7 +162,7 @@ class Modules extends Module_Helpers {
 		}
 		return "<style>".$contents."</style>";
 	}
-	
+
 	protected function loadLESS() {
 		$contents = '';
 		$dir = dirname(__DIR__)."/modules/".ucfirst($this->module)."/assets/less";
@@ -166,7 +182,7 @@ class Modules extends Module_Helpers {
 				}
 			}
 		}
-		
+
 		$css_file_name = \Less_Cache::Get( $files, array('compress' => true) );
 		$compiled = file_get_contents( $dir.'/cache/'.$css_file_name );
 		return "<style>".$compiled."</style>";

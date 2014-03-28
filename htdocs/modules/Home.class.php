@@ -25,25 +25,38 @@
 namespace UCP\Modules;
 use \UCP\Modules as Modules;
 
-class Home extends Modules{	
+class Home extends Modules{
 	function __construct($Modules) {
 		$this->Modules = $Modules;
 	}
-	
+
 	function getDisplay() {
-		return "This is where we would put content dynamically after page load through pjax";
+        $modules = $this->Modules->getModulesByMethod('getHomeWidgets');
+        dbug($modules);
+        $html = '<div class="home-widget">';
+        $html .= '<div class="home-widget-title">Life</div>';
+        $html .= '<div class="home-widget-content">';
+        foreach($modules as $module) {
+            $html .= $this->Modules->$module->getHomeWidgets();
+        }
+        $html .= '</div></div>';
+		return $html;
 	}
-	
+
+    public function getHomeWidgets() {
+        return "This is where we would put content dynamically after page load through pjax";
+    }
+
 	public function doConfigPageInit($display) {
 	}
-	
+
 	public function myShowPage() {
 	}
-	
+
 	public function getBadge() {
 		return false;
 	}
-	
+
 	public function getMenuItems() {
 		return array(
 			"rawname" => "home",

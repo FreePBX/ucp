@@ -53,7 +53,6 @@ class Ucp implements BMO {
     }
 
 	function processModuleConfigPages($user) {
-
 		$modulef =& module_functions::create();
 		$modules = $modulef->getinfo(false);
 		$path = FreePBX::create()->Config->get_conf_setting('AMPWEBROOT');
@@ -159,7 +158,7 @@ class Ucp implements BMO {
 		$category = !empty($_REQUEST['category']) ? $_REQUEST['category'] : '';
 		$action = !empty($_REQUEST['action']) ? $_REQUEST['action'] : '';
 		$html = '';
-        
+
 		$users = $this->getAllUsers();
 
 		$html .= load_view(dirname(__FILE__).'/views/rnav.php',array("users"=>$users));
