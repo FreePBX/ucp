@@ -126,5 +126,6 @@ switch($display) {
 }
 
 if(!isset($_SERVER['HTTP_X_PJAX'])) {
+    $displayvars['scripts'] = $ucp->Modules->getGlobalScripts();
 	show_view(dirname(__FILE__).'/views/footer.php',$displayvars);
 }

@@ -128,6 +128,22 @@ class Modules extends Module_Helpers {
 		return false;
 	}
 
+    //These Scripts persist throughout the navigation of UCP
+    public function getGlobalScripts() {
+        foreach (glob(dirname(__DIR__)."/modules/*", GLOB_ONLYDIR) as $module) {
+            $mod = basename($module);
+            if(file_exists($module.'/'.$mod.'.class.php')) {
+                $module = ucfirst(strtolower($mod));
+                $dir = dirname(__DIR__)."/modules/".$module."/assets/js";
+                $files = array();
+                if(is_dir($dir) && file_exists($dir.'/global.js')) {
+                    $files[] = 'modules/'.ucfirst($module).'/assets/js/global.js';
+                }
+            }
+        }
+        return $files;
+    }
+
 	protected function load_view($view_filename_protected, $vars = array()) {
 		return $this->UCP->View->load_view($view_filename_protected, $vars);
 	}
@@ -144,7 +160,10 @@ class Modules extends Module_Helpers {
 			$filenames = glob($dir."/*.js");
 			usort($filenames, "strcmp");
 			foreach ($filenames as $filename) {
-				$contents .= file_get_contents($filename);
+                $path_parts = pathinfo($filename);
+                if($path_parts['filename'] != 'global') {
+				    $contents .= file_get_contents($filename);
+                }
 			}
 		}
 		return "<script>".$contents."</script>";
