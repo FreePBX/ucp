@@ -19,6 +19,7 @@
 			<script type="text/javascript" src="assets/framework/js/jquery-migrate-1.2.1.js"></script>
 		<?php } ?>
 
+		<link href="assets/css/bootstrap-select.min.css" rel="stylesheet" type="text/css">
 		<link href="assets/css/compiled/<?php echo $ucpcssless?>" rel="stylesheet" type="text/css">
 		<script type="text/javascript" src="assets/js/fileinput.js"></script>
 		<script>
@@ -40,6 +41,7 @@
 		<script type="text/javascript" src="assets/js/fastclick.js"></script>
 		<script type="text/javascript" src="assets/js/jquery.pjax.js"></script>
 		<script type="text/javascript" src="assets/js/notify.js"></script>
+		<script type="text/javascript" src="assets/js/bootstrap-select.min.js"></script>
 		<script type="text/javascript" src="assets/js/ucp.js"></script>
 		<meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
 		<meta name="apple-mobile-web-app-capable" content="yes" />

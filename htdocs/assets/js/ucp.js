@@ -165,6 +165,7 @@ function resizeContent() {
 	if($('#dashboard-content').length) {
 		$('#dashboard-content').height($('#dashboard').height() - 135);
 	}
+	$('select').selectpicker();
 }
 
 function toggleMenu() {
