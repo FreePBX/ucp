@@ -185,3 +185,10 @@ function toggleMenu() {
 function toggleSubMenu(menu) {
 	$('#submenu-'+menu).slideToggle()
 }
+
+//This allows google chrome to request user notifications from said user.
+$(document).click(function() {
+	if(Notify.needsPermission()) {
+		Notify.requestPermission();
+	}
+});
