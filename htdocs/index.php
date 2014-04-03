@@ -26,7 +26,8 @@ if(isset($_REQUEST['logout']) && $user) {
 }
 
 if((isset($_REQUEST['quietmode']) && $user) || (isset($_REQUEST['command']) && $_REQUEST['command'] == 'login')) {
-	$ucp->Ajax->doRequest($_REQUEST['module'],$_REQUEST['command']);
+    $m = !empty($_REQUEST['module']) ? $_REQUEST['module'] : null;
+	$ucp->Ajax->doRequest($m,$_REQUEST['command']);
 	die();
 } elseif(isset($_REQUEST['quietmode']) && !$user) {
 	header("HTTP/1.0 403 Forbidden");
@@ -126,6 +127,7 @@ switch($display) {
 }
 
 if(!isset($_SERVER['HTTP_X_PJAX'])) {
+    $displayvars['modules'] = json_encode($ucp->Modules->getActiveModules());
     $displayvars['scripts'] = $ucp->Modules->getGlobalScripts();
 	show_view(dirname(__FILE__).'/views/footer.php',$displayvars);
 }

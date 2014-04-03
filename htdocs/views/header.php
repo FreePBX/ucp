@@ -54,5 +54,5 @@
 		<![endif]-->
 	</head>
 	<body>
-	<div id="blackout"></div>
+	<div id="binder"></div>
 	<div id="content-container">

@@ -102,6 +102,11 @@ class Modules extends Module_Helpers {
 		return $user['assigned'];
 	}
 
+    function getDefaultDevice() {
+        $user = $this->UCP->User->getUser();
+        return ($user['default_extension'] != 'none') ? $user['default_extension'] : false;
+    }
+
 	/** Module Specific Funtions, These should be extended into each module **/
 
 	public function getDisplay() {
@@ -128,14 +133,18 @@ class Modules extends Module_Helpers {
 		return false;
 	}
 
+    public function getActiveModules() {
+        return $this->getModulesByMethod('ajaxRequest');
+    }
+
     //These Scripts persist throughout the navigation of UCP
     public function getGlobalScripts() {
+        $files = array();
         foreach (glob(dirname(__DIR__)."/modules/*", GLOB_ONLYDIR) as $module) {
             $mod = basename($module);
             if(file_exists($module.'/'.$mod.'.class.php')) {
                 $module = ucfirst(strtolower($mod));
                 $dir = dirname(__DIR__)."/modules/".$module."/assets/js";
-                $files = array();
                 if(is_dir($dir) && file_exists($dir.'/global.js')) {
                     $files[] = 'modules/'.ucfirst($module).'/assets/js/global.js';
                 }
