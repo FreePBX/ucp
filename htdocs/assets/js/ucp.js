@@ -47,7 +47,6 @@ $(function() {
 					.animate({opacity: "hide"}, "fast");
 	});
 
-	stylize();
 	if ($.support.pjax) {
 	    $(document).on('click', '[data-pjax] a, a[data-pjax]', function(event) {
 			var container = $('#dashboard-content')
@@ -106,12 +105,7 @@ $(function() {
 
 	//After load event restylize the page
 	$(document).on('pjax:end', function() {
-		stylize();
 		resizeContent();
-		var mod = $.url().param('mod');
-		if((typeof(mod) !== 'undefined') && mod != 'home') {
-			//do stuff here with modules
-		}
 		$('#loader-screen').fadeOut('fast');
 	})
 
@@ -145,12 +139,6 @@ function resizeContent() {
 	if($('#dashboard-content').length) {
 		$('#dashboard-content').height($('#dashboard').height() - 135);
 	}
-}
-
-//Applies any javascript related stylizers
-function stylize() {
-	//$('.radioset').buttonset();
-	//$( "button, input[type='button'], input[type='submit']" ).button();
 }
 
 function toggleMenu() {
