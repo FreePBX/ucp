@@ -23,7 +23,7 @@
 		<script type="text/javascript" src="assets/js/fileinput.js"></script>
 		<script>
 			$(document).bind("mobileinit", function() {
-			  $.mobile.ignoreContentEnabled = true;
+				$.mobile.ignoreContentEnabled = true;
 			});
 		</script>
 		<script type="text/javascript" src="assets/js/recorder.js"></script>

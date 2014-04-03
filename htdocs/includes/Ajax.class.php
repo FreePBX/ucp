@@ -40,71 +40,79 @@ class Ajax extends UCP {
 		$this->UCP = $UCP;
 		$this->init();
 	}
-	
+
 	public function init() {
 		$this->getHeaders();
 	}
 
 	public function doRequest($module = null, $command = null) {
-		if (!$module || !$command) {
-			$this->triggerFatal("Module or Command were null. Check your code.");
-		}
+        if($command == 'poll') {
+            $ret = $this->poll();
+            if($ret === false) {
+                $this->triggerFatal();
+            }
+            $this->addHeader('HTTP/1.0','200');
+        } else {
+    		if (!$module || !$command) {
+    			$this->triggerFatal("Module or Command were null. Check your code.");
+    		}
 
-		$ucMod = ucfirst($module);
-		if ($module != 'UCP' && $module != 'User' && class_exists(__NAMESPACE__."\\".$ucMod)) {
-			$this->triggerFatal("The class $module already existed. Ajax MUST load it, for security reasons");
-		}
-		
-		if($module == 'User' || $module == 'UCP') {
-			// Is someone trying to be tricky with filenames?
-			$file = dirname(__FILE__).'/'.$ucMod.'.class.php';
-			if((strpos($module, ".") !== false) || !file_exists($file)) {
-				$this->triggerFatal("Module requested invalid");
-			}
-		
-			// Note, that Self_Helper will throw an exception if the file doesn't exist, or if it does
-			// exist but doesn't define the class.
-			$this->injectClass($ucMod, $file);
+    		$ucMod = ucfirst($module);
+    		if ($module != 'UCP' && $module != 'User' && class_exists(__NAMESPACE__."\\".$ucMod)) {
+    			$this->triggerFatal("The class $module already existed. Ajax MUST load it, for security reasons");
+    		}
 
-			$thisModule = $this->$ucMod;
-		} else {
-			$this->UCP->Modules->injectClass($ucMod);
+    		if($module == 'User' || $module == 'UCP') {
+    			// Is someone trying to be tricky with filenames?
+    			$file = dirname(__FILE__).'/'.$ucMod.'.class.php';
+    			if((strpos($module, ".") !== false) || !file_exists($file)) {
+    				$this->triggerFatal("Module requested invalid");
+    			}
 
-			$thisModule = $this->UCP->Modules->$ucMod;
-		}
-		
-		if (!method_exists($thisModule, "ajaxRequest")) {
-			$this->ajaxError(501, 'ajaxRequest not found');
-		}
+    			// Note, that Self_Helper will throw an exception if the file doesn't exist, or if it does
+    			// exist but doesn't define the class.
+    			$this->injectClass($ucMod, $file);
 
-		if (!$thisModule->ajaxRequest($command, $this->settings)) {
-			$this->ajaxError(403, 'ajaxRequest declined');
-		}
-		
-		if (method_exists($thisModule, "ajaxCustomHandler")) {
-			$ret = $thisModule->ajaxCustomHandler();
-			if($ret === true) {
-				exit;
-			}
-		}
-		
-		if (!method_exists($thisModule, "ajaxHandler")) {
-			$this->ajaxError(501, 'ajaxHandler not found');
-		}
-		
-		// Right. Now we can actually do it!
-		$ret = $thisModule->ajaxHandler();
-		if($ret === false) {
-			$this->triggerFatal();
-		}
-		$this->addHeader('HTTP/1.0','200');
+    			$thisModule = $this->$ucMod;
+    		} else {
+    			$this->UCP->Modules->injectClass($ucMod);
+
+    			$thisModule = $this->UCP->Modules->$ucMod;
+    		}
+
+    		if (!method_exists($thisModule, "ajaxRequest")) {
+    			$this->ajaxError(501, 'ajaxRequest not found');
+    		}
+
+    		if (!$thisModule->ajaxRequest($command, $this->settings)) {
+    			$this->ajaxError(403, 'ajaxRequest declined');
+    		}
+
+    		if (method_exists($thisModule, "ajaxCustomHandler")) {
+    			$ret = $thisModule->ajaxCustomHandler();
+    			if($ret === true) {
+    				exit;
+    			}
+    		}
+
+    		if (!method_exists($thisModule, "ajaxHandler")) {
+    			$this->ajaxError(501, 'ajaxHandler not found');
+    		}
+
+    		// Right. Now we can actually do it!
+    		$ret = $thisModule->ajaxHandler();
+    		if($ret === false) {
+    			$this->triggerFatal();
+    		}
+    		$this->addHeader('HTTP/1.0','200');
+        }
 		//some helpers
 		if(!is_array($ret) && is_bool($ret)) {
 			$ret = array(
 				"status" => $ret,
 				"message" => "unknown"
 			);
-		} elseif(is_array($ret) && is_string($ret)) {
+		} elseif(!is_array($ret) && is_string($ret)) {
 			$ret = array(
 				"status" => true,
 				"message" => $ret
@@ -135,27 +143,27 @@ class Ajax extends UCP {
 		echo $output;
 		exit;
 	}
-	
+
 	private function triggerFatal($message = 'Unknown Error') {
 		$this->ajaxError(500, $message);
 	}
-	
+
 	private function getUrl() {
 		return isset($_SERVER['HTTP_HOST'], $_SERVER['REQUEST_URI'])
 			? $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']
 			: '';
 	}
-	
+
 	private function getBody() {
 		return empty($this->body) ? file_get_contents('php://input') : $this->body;
 	}
 
 	/**
-	 * Get Known Headers from the Remote 
+	 * Get Known Headers from the Remote
 	 *
 	 * Get headers and then store them in an object hash
 	 *
-	 * @access private 
+	 * @access private
 	 */
 	private function getHeaders() {
         $h = array(
@@ -228,21 +236,21 @@ class Ajax extends UCP {
 		$this->req = new \StdClass();
 		$this->req->headers = $this->arrayToObject($h);
 	}
-	
+
 	/**
 	 * Get Server Protocol
 	 *
 	 * Not used yet
 	 *
 	 * @return string http
-	 * @access private 
+	 * @access private
 	 */
 	private function getProtocol() {
 		return isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == "on"
 			? 'https'
 			: 'http';
 	}
-	
+
 	/**
 	 * Prepare headers to be returned
 	 *
@@ -251,7 +259,7 @@ class Ajax extends UCP {
 	 * @param mixed $type type of header to be returned
 	 * @param mixed $value value header should be set to
 	 * @return $object New Object
-	 * @access private 
+	 * @access private
 	 */
 	public function addHeader($type, $value = '') {
 		$responses = array(
@@ -304,13 +312,13 @@ class Ajax extends UCP {
 
 		return true;
 	}
-	
+
 	/**
 	 * Send Headers to PHP
 	 *
 	 * Gets headers from this Object (if set) and sends them to the PHP compiler
 	 *
-	 * @access private 
+	 * @access private
 	 */
 	private function sendHeaders() {
 		//send http header
@@ -329,7 +337,7 @@ class Ajax extends UCP {
 				unset($this->headers[$k]);
 			}
 		}
-		
+
 		//CORS: http://en.wikipedia.org/wiki/Cross-origin_resource_sharing
 		header('Access-Control-Allow-Headers:Content-Type, Depth, User-Agent, X-File-Size, X-Requested-With, If-Modified-Since, X-File-Name, Cache-Control, X-Auth-Token');
 		header('Access-Control-Allow-Methods: '.strtoupper($this->req->headers->verb));
@@ -337,7 +345,7 @@ class Ajax extends UCP {
 		header('Access-Control-Max-Age:86400');
 		header('Allow: '.strtoupper($this->req->headers->verb));
 	}
-	
+
 	/**
 	 * Generate Response
 	 *
@@ -345,7 +353,7 @@ class Ajax extends UCP {
 	 *
 	 * @param mixed $body Array of what should be in the body
 	 * @return string XML or JSON or WHATever
-	 * @access private 
+	 * @access private
 	 */
     private function generateResponse($body) {
         $ret = false;
@@ -353,7 +361,7 @@ class Ajax extends UCP {
 		if(!is_array($body)) {
 			$body = array("message" => $body);
 		}
-		
+
 		$accepts = explode(",",$this->req->headers->accept);
 		foreach($accepts as $accept) {
 			//strip off content accept priority
@@ -373,12 +381,12 @@ class Ajax extends UCP {
 					return $xml->saveXML();
 	        }
 		}
-		
+
 		//If nothing is defined then just default to showing json
 		$this->addHeader('Content-Type', 'text/json');
 		return json_encode($body);
     }
-	
+
 	/**
 	 * Turn Array into an Object
 	 *
