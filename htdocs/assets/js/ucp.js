@@ -97,7 +97,10 @@ $(function() {
 				$('#error-msg').html(data.message).fadeIn("fast");
 				$('#login-window').height('300');
 			} else {
-				$.pjax.submit(event, "#content-container")
+				$.pjax.submit(event, "#content-container");
+				$(document).one('pjax:end', function() {
+					$('#binder').trigger('loggedIn');
+				});
 			}
 		}, "json");
 		return false;
@@ -131,8 +134,31 @@ $(function() {
 		//alert('completed');
 	});
 
+	$('#binder').bind('loggedIn', function( event ) {
+		poll();
+	});
+
+	if(!$('#login-window').length) {
+		$('#binder').trigger('loggedIn');
+	}
+
 	resizeContent();
 });
+
+function poll() {
+	setTimeout(function(){
+		$.ajax({ url: "index.php?quietmode=1&command=poll", success: function(data){
+			if(data.status) {
+				$.each(data.modData, function( module, data ) {
+					if (typeof window[module+'_poll'] == 'function') {
+						window[module+'_poll'](data);
+					}
+				});
+				poll();
+			}
+		}, dataType: "json"});
+	}, 5000);
+}
 
 function resizeContent() {
 	//run the resize hack against dashboard content

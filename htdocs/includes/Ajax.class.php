@@ -116,6 +116,18 @@ class Ajax extends UCP {
 		exit;
 	}
 
+    public function poll() {
+        $modules = $this->UCP->Modules->getModulesByMethod('poll');
+        $modData = array();
+        foreach($modules as $module) {
+            $modData[$module] = $this->UCP->Modules->$module->poll();
+        }
+        return array(
+            "status" => true,
+            "modData" => $modData
+        );
+    }
+
 	public function ajaxError($errnum, $message = 'Unknown Error') {
 		$this->addHeader('HTTP/1.0',$errnum);
 		$output = $this->generateResponse(array("error" => $message));
