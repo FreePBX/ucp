@@ -59,7 +59,12 @@ class Home extends Modules{
         );
         $out = array();
         foreach($feeds as $feed) {
-            $feed = file_get_contents($feed);
+            $curl = curl_init();
+            curl_setopt($curl, CURLOPT_URL, $feed);
+            curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+            curl_setopt($curl, CURLOPT_HEADER, false);
+            $feed = curl_exec($curl);
+            curl_close($curl);
             $xml = simplexml_load_string($feed);
             $content = '<ul>';
             foreach($xml->channel->item as $item) {
