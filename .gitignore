@@ -1,3 +1,5 @@
-htdocs/modules/**
+htdocs/modules/*
+!htdocs/modules/Home
+htdocs/modules/Home/assets/less/cache/*
 htdocs/assets/framework/*
 htdocs/assets/css/compiled/*
