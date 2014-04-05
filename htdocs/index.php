@@ -53,6 +53,10 @@ $ucpfiles = array();
 $ucpfiles[dirname(__FILE__).'/assets/less/UCP.less'] = '/ucp/';
 $displayvars['ucpcssless'] = Less_Cache::Get( $ucpfiles );
 
+$ucpfiles = array();
+$ucpfiles[dirname(__FILE__).'/assets/less/font-awesome/font-awesome.less'] = '/ucp/assets/';
+$displayvars['facssless'] = Less_Cache::Get( $ucpfiles );
+
 $displayvars['error_warning'] = '';
 $displayvars['error_danger'] = '';
 

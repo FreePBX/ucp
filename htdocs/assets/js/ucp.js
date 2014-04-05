@@ -99,11 +99,16 @@ $(function() {
 			} else {
 				$.pjax.submit(event, "#content-container");
 				$(document).one('pjax:end', function() {
-					$('#binder').trigger('loggedIn');
+					$(document).trigger('loggedIn');
 				});
 			}
 		}, "json");
 		return false;
+	})
+
+	$('a[data-pjax-logout]').click(function(event) {
+		$(document).trigger('logOut');
+		clearTimeout(pollID);
 	})
 
 	//After load event restylize the page
@@ -134,19 +139,20 @@ $(function() {
 		//alert('completed');
 	});
 
-	$('#binder').bind('loggedIn', function( event ) {
+	$(document).bind('loggedIn', function( event ) {
 		poll();
 	});
 
 	if(!$('#login-window').length) {
-		$('#binder').trigger('loggedIn');
+		$(document).trigger('loggedIn');
 	}
 
 	resizeContent();
 });
 
+var pollID = null;
 function poll() {
-	setTimeout(function(){
+	pollID = setTimeout(function(){
 		$.ajax({ url: "index.php?quietmode=1&command=poll", success: function(data){
 			if(data.status) {
 				$.each(data.modData, function( module, data ) {

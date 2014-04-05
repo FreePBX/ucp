@@ -47,8 +47,7 @@ class User extends UCP {
 				if(!$this->UCP->Session->verifyToken('login')) {
 					return false;
 				}
-			case 'logout':
-				return true;
+			return true;
 			break;
 			case 'getInfo':
 				return $this->uid;
@@ -75,13 +74,13 @@ class User extends UCP {
 				if(!$o) {
 					$return['message'] = _('Invalid Login Credentials');
 				} else {
+					$mods = $this->UCP->Modules->getModulesByMethod('login');
+					foreach($mods as $mod) {
+						$this->UCP->Modules->$mod->login();
+					}
 					$return['status'] = true;
 				}
 				return $return;
-			break;
-			case 'logout':
-				$this->logout();
-				return $return['status'] = true;
 			break;
 			case 'getInfo':
 				return $return;
@@ -141,6 +140,10 @@ class User extends UCP {
 	 */
 	public function logout() {
 		if($this->_checkToken()) {
+			$mods = $this->UCP->Modules->getModulesByMethod('logout');
+			foreach($mods as $mod) {
+				$this->UCP->Modules->$mod->logout();
+			}
 			$token = !empty($this->UCP->Session->token) ? $this->UCP->Session->token : (isset($_COOKIE[$this->cookieName]) ? $_COOKIE[$this->cookieName] : '');
 			if(isset($_COOKIE[$this->cookieName])) {
 				$this->_deleteCookie();

@@ -8,7 +8,7 @@
 		<![endif]-->
 
 		<link href="assets/css/compiled/<?php echo $bootstrapcssless?>" rel="stylesheet" type="text/css">
-		<link rel="stylesheet" href="assets/framework/css/font-awesome.min.css">
+		<link href="assets/css/compiled/<?php echo $facssless?>" rel="stylesheet" type="text/css">
 
 		<link href="assets/framework/css/jquery-ui.css" rel="stylesheet" type="text/css">
 
