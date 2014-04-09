@@ -57,6 +57,9 @@ class Modules extends Module_Helpers {
 		$menu = array();
 		//module with no module folder
         $modules = $this->getModulesByMethod('getMenuItems');
+        //Move Home to the Top in the menu structure.
+        unset($modules[array_search('Home', $modules)]);
+        array_unshift($modules, 'Home');
         foreach($modules as $module) {
             $module = ucfirst(strtolower($module));
             $lc = strtolower($module);
