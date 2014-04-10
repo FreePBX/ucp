@@ -21,7 +21,7 @@ $(function() {
 		if($( window ).width() > 767 && $('.pushmenu-left').hasClass('pushmenu-open')) {
 			toggleMenu();
 		}
-		resizeContent();
+		UCP.resizeContent();
 	});
 
 	//help tags
@@ -190,7 +190,7 @@ function toggleSubMenu(menu) {
 	$('#submenu-'+menu).slideToggle()
 }
 
-//This allows broswers to request user notifications from said user.
+//This allows browsers to request user notifications from said user.
 $(document).click(function() {
 	if(UCP.loggedIn && Notify.needsPermission() && UCP.notify === null) {
 		Notify.requestPermission(UCP.pg(),UCP.pd())
