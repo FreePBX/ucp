@@ -112,7 +112,7 @@ $(function() {
 
 	//After load event restylize the page
 	$(document).on('pjax:end', function() {
-		resizeContent();
+		UCP.resizeContent();
 		$('#loader-screen').fadeOut('fast');
 	})
 
@@ -142,57 +142,34 @@ $(function() {
 		$(document).trigger('loggedIn');
 	}
 
-	resizeContent();
+	UCP.resizeContent();
 });
-var loggedIn = false;
-var pollID = null;
-
 $(document).bind('loggedIn', function( event ) {
-	loggedIn = true;
-	poll();
+	UCP.loggedIn = true;
+	UCP.poll();
+	if(!Notify.needsPermission() && UCP.notify === null) {
+		UCP.notify = true;
+	}
 });
 
 $(document).bind('logOut', function( event ) {
-	loggedIn = false;
-	clearTimeout(pollID);
-	pollID = null;
+	UCP.loggedIn = false;
+	clearTimeout(UCP.pollID);
+	UCP.pollID = null;
 });
 
 $(window).bind('online', function( event ) {
-	if(loggedIn && pollID === null) {
-		poll();
+	if(UCP.loggedIn && UCP.pollID === null) {
+		UCP.poll();
 	}
 });
 
 $(window).bind('offline', function( event ) {
-	if(pollID !== null) {
-		clearTimeout(pollID);
-		pollID = null;
+	if(UCP.pollID !== null) {
+		clearTimeout(UCP.pollID);
+		UCP.pollID = null;
 	}
 });
-
-function poll() {
-	pollID = setTimeout(function(){
-		$.ajax({ url: "index.php?quietmode=1&command=poll", success: function(data){
-			if(data.status) {
-				$.each(data.modData, function( module, data ) {
-					if (typeof window[module+'_poll'] == 'function') {
-						window[module+'_poll'](data);
-					}
-				});
-				poll();
-			}
-		}, dataType: "json"});
-	}, 5000);
-}
-
-function resizeContent() {
-	//run the resize hack against dashboard content
-	if($('#dashboard-content').length) {
-		$('#dashboard-content').height($('#dashboard').height() - 135);
-	}
-	$('select').selectpicker();
-}
 
 function toggleMenu() {
 	if(!transitioning) {
@@ -213,9 +190,42 @@ function toggleSubMenu(menu) {
 	$('#submenu-'+menu).slideToggle()
 }
 
-//This allows google chrome to request user notifications from said user.
+//This allows broswers to request user notifications from said user.
 $(document).click(function() {
-	if(Notify.needsPermission()) {
-		Notify.requestPermission();
+	if(UCP.loggedIn && Notify.needsPermission() && UCP.notify === null) {
+		Notify.requestPermission(UCP.pg(),UCP.pd())
 	}
 });
+
+var UCP = new function() {
+	this.loggedIn = false;
+	this.pollID = null;
+	this.notify = null;
+	this.poll = function() {
+		this.pollID = setTimeout(function(){
+			$.ajax({ url: "index.php?quietmode=1&command=poll", success: function(data){
+				if(data.status) {
+					$.each(data.modData, function( module, data ) {
+						if (typeof window[module+'_poll'] == 'function') {
+							window[module+'_poll'](data);
+						}
+					});
+					UCP.poll();
+				}
+			}, dataType: "json"});
+		}, 5000);
+	};
+	this.resizeContent = function() {
+		//run the resize hack against dashboard content
+		if($('#dashboard-content').length) {
+			$('#dashboard-content').height($('#dashboard').height() - 135);
+		}
+		$('select').selectpicker();
+	};
+	this.pg = function() {
+		this.notify = true;
+	};
+	this.pd = function() {
+		this.notify = false;
+	};
+};
