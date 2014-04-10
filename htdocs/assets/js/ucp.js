@@ -108,7 +108,6 @@ $(function() {
 
 	$('a[data-pjax-logout]').click(function(event) {
 		$(document).trigger('logOut');
-		clearTimeout(pollID);
 	})
 
 	//After load event restylize the page
@@ -139,18 +138,39 @@ $(function() {
 		//alert('completed');
 	});
 
-	$(document).bind('loggedIn', function( event ) {
-		poll();
-	});
-
 	if(!$('#login-window').length) {
 		$(document).trigger('loggedIn');
 	}
 
 	resizeContent();
 });
-
+var loggedIn = false;
 var pollID = null;
+
+$(document).bind('loggedIn', function( event ) {
+	loggedIn = true;
+	poll();
+});
+
+$(document).bind('logOut', function( event ) {
+	loggedIn = false;
+	clearTimeout(pollID);
+	pollID = null;
+});
+
+$(window).bind('online', function( event ) {
+	if(loggedIn && pollID === null) {
+		poll();
+	}
+});
+
+$(window).bind('offline', function( event ) {
+	if(pollID !== null) {
+		clearTimeout(pollID);
+		pollID = null;
+	}
+});
+
 function poll() {
 	pollID = setTimeout(function(){
 		$.ajax({ url: "index.php?quietmode=1&command=poll", success: function(data){
