@@ -356,6 +356,34 @@ section.content {
 .alert {
 	padding: 5px;
 }
+
+.dialog {
+    background-color: #f5f5f5;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    border: 1px solid;
+    border-radius: 5px;
+    margin-top: -75px;
+    margin-left: -125px;
+    height: 150px;
+    width: 250px;
+    .title {
+        padding: 2px;
+        border-bottom: 1px solid;
+		font-weight: bold;
+        .fa-times {
+            float: right;
+            padding: 2px;
+            margin-right: 3px;
+            cursor: pointer;
+			font-weight: normal;
+        }
+    }
+    .content {
+        padding: 5px;
+    }
+}
 /* MOBILE MENU SYSTEM */
 @import "pushmenu.less";
 

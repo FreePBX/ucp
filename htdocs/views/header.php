@@ -56,5 +56,4 @@
 		<![endif]-->
 	</head>
 	<body>
-	<div id="binder"></div>
 	<div id="content-container">
