@@ -81,21 +81,11 @@ class Home extends Modules{
         return $out;
     }
 
-	public function doConfigPageInit($display) {
-	}
-
-	public function myShowPage() {
-	}
-
-	public function getBadge() {
-		return false;
-	}
-
 	public function getMenuItems() {
 		return array(
 			"rawname" => "home",
 			"name" => "Home",
-			"badge" => $this->getBadge(),
+			"badge" => false,
 			"menu" => false
 		);
 	}
