@@ -3,3 +3,10 @@ var Home = new function() {
 		$('#'+module+'-widget-title i').addClass('fa-spin');
 	};
 };
+
+$(function() {
+	$('.masonry-container').packery({
+		columnWidth: 40,
+		itemSelector: '.widget'
+	});
+});

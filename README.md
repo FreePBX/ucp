@@ -20,10 +20,12 @@ FreePBX UCP uses a number of open source projects to work properly:
 * [bootstrap] - a free collection of tools for creating websites and web applications. It contains HTML and CSS-based design templates for typography, forms, buttons, navigation and other interface components, as well as optional JavaScript extensions.
 * [CssMin] - A (simple) css minifier with benefits. By Joe Scylla, Copyright (c) 2008 - 2010. License MIT
 * [Codeigniter helpers/librarires] - Copyright (c) 2008 - 2011, EllisLab, Inc., All rights reserved. License GPL
-* [jQuery UI Bootstrap] - Some work based off of this project which was started to bring the beauty and ease-of-use of Twitter Bootstrap to jQuery UI widgets 
+* [jQuery UI Bootstrap] - Some work based off of this project which was started to bring the beauty and ease-of-use of Twitter Bootstrap to jQuery UI widgets
 * [pjax] - A jQuery plugin that uses ajax and pushState to deliver a fast browsing experience with real permalinks, page titles, and a working back button.
 * [quo] - a micro, modular, Object-Oriented and concise JavaScript Library that simplifies HTML document traversing, event handling, and Ajax interactions for rapid mobile web development. It allows you to write powerful, flexible and cross-browser code with its elegant, well documented and micro coherent API.
 * [modernizr] - a JavaScript library that detects HTML5 and CSS3 features in the user’s browser.
+* [Packery] - a JavaScript layout library that uses a bin-packing algorithm. This is a fancy way of saying “it fills empty gaps.” Packery layouts can be intelligently ordered or organically wild. Elements can be stamped in place, fit in an ideal spot, or dragged around.
+* [Less.php] - a PHP port of the official LESS processor
 
 Visuals
 -----------
@@ -55,19 +57,16 @@ along with this program; if not, write to the Free Software
 Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 
   [asterisk]: http://www.asterisk.org
-  [jQueryUI]: http://jqueryui.com 
+  [jQueryUI]: http://jqueryui.com
   [jQuery]: http://jquery.com
   [Silk Icon Set]: http://www.famfamfam.com/lab/icons/silk/
   [CssMin]: http://opensource.org/licenses/mit-license.php
   [Codeigniter helpers/librarires]: http://codeigniter.com/user_guide/license.html
-  [macroform-cold_day]: http://macroform.bandcamp.com/
-  [macroform-robot_dity]: http://macroform.bandcamp.com/
-  [macroform-the_simplicity]: http://macroform.bandcamp.com/
-  [manolo_camp-morning_coffee]: http://ccmixter.org/people/ManoloCamp
-  [reno_project-system]: http://www.jamendo.com/en/album/23661
   [bootstrap]: http://getbootstrap.com
   [jQuery UI Bootstrap]: https://github.com/addyosmani/jquery-ui-bootstrap
   [pjax]: https://github.com/defunkt/jquery-pjax
   [quo]: http://quojs.tapquo.com/
   [modernizr]: http://modernizr.com/
   [Font Awesome]: http://fortawesome.github.io/Font-Awesome/
+  [Packery]: http://packery.metafizzy.co/
+  [Less.php]: https://github.com/oyejorge/less.php

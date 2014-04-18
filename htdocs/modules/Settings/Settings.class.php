@@ -41,28 +41,35 @@ class Settings extends Modules{
 		$html = '';
 		$html .= $this->LoadLESS();
 
-
-		$size = 0;
-		$html .= '<div class="row">';
+		$sections = array();
 		foreach($modules as $module) {
-			$widgets = $this->Modules->$module->getSettingsDisplay($ext);
-			foreach($widgets as $data) {
-				$size = $size + $data['size'];
-				if($size > 12) {
-					$html .= '</div>';
-					$html .= '<div class="row">';
-					$size = $data['size'];
+			$data = $this->Modules->$module->getSettingsDisplay($ext);
+			foreach($data as $section) {
+				$section['section'] = !empty($section['section']) ? $section['section'] : $module;
+				if(isset($section['order'])) {
+					$o = $section['order'];
+					$sections1 = array_slice($sections, 0, $o, true);
+					$sections2 = array_slice($sections, $o, count($sections)-$o, true);
+					$sections = $sections1;
+					$sections[] = $section;
+					$sections = array_merge($sections, $sections2);
+				} else {
+					$sections[] = $section;
 				}
-				$html .= '<div class="col-md-'.$data['size'].' section" data-module="'.$module.'">';
-				$html .= '<div id="'.$module.'-setting" class="settings">';
-				$html .= '<div id="'.$module.'-setting-title" class="title">'.$data['title'].'</div>';
-				$html .= '<div id="'.$module.'-setting-content" class="content">';
-				$html .= $data['content'];
-				$html .= '</div></div></div>';
-
 			}
 		}
-		$html .= '</div>';
+		$html .= '<div class="masonry-container">';
+		foreach($sections as $data) {
+			$html .= '<div class="section" data-module="'.$data['section'].'" id="module-'.$data['section'].'">';
+			$html .= '<div id="'.$data['section'].'-setting" class="settings">';
+			$html .= '<div id="'.$data['section'].'-setting-title" class="title">'.$data['title'].'</div>';
+			$html .= '<div id="'.$data['section'].'-setting-content" class="content">';
+			$html .= $data['content'];
+			$html .= '</div></div></div>';
+
+		}
+		$html .= '</div><script>var ext = '.$ext.';</script>';
+		$html .= $this->LoadScripts();
 		return $html;
 	}
 

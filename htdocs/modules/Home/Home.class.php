@@ -35,16 +35,15 @@ class Home extends Modules{
 	function getDisplay() {
         $modules = $this->Modules->getModulesByMethod('getHomeWidgets');
         $html = $this->loadLESS();
-        $html .= '<div class="row">';
+		$html .= '<div class="masonry-container">';
         foreach($modules as $module) {
             $widgets = $this->Modules->$module->getHomeWidgets();
             foreach($widgets as $data) {
-                $html .= '<div class="col-sm-'.$data['size'].'">';
                 $html .= '<div id="'.$module.'-widget" class="widget">';
                 $html .= '<div id="'.$module.'-widget-title" class="widget-title">'.$data['title'].'<a onclick="Home.refresh(\''.$module.'\')"><i class="fa fa-refresh"></i></a></div>';
                 $html .= '<div id="'.$module.'-widget-content" class="widget-content">';
                 $html .= $data['content'];
-                $html .= '</div></div></div>';
+                $html .= '</div></div>';
             }
         }
         $html .= '</div>';
