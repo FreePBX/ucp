@@ -219,7 +219,6 @@ var UCP = new function() {
 		if($('#dashboard-content').length) {
 			$('#dashboard-content').height($('#dashboard').height() - 135);
 		}
-		$('select').selectpicker();
 	};
 	this.pg = function() {
 		this.notify = true;
