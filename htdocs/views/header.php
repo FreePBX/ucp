@@ -40,6 +40,7 @@
 		<script type="text/javascript" src="assets/js/jquery.pjax.js"></script>
 		<script type="text/javascript" src="assets/js/notify.js"></script>
 		<script type="text/javascript" src="assets/js/packery.pkgd.min.js"></script>
+		<script type="text/javascript" src="assets/js/class.js"></script>
 		<script type="text/javascript" src="assets/js/ucp.js"></script>
 		<meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
 		<meta name="apple-mobile-web-app-capable" content="yes" />

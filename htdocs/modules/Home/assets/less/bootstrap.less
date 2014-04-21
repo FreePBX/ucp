@@ -1,23 +1,24 @@
 .widget {
-	background-color: whitesmoke;
+	background-color: aliceblue;
 	border-radius: 5px;
-	width: 40%;
-}
 
-.widget-title {
-	padding-top: 5px;
-	text-align: center;
-	font-weight: bold;
-}
+	.title {
+		padding-top: 5px;
+		text-align: center;
+		font-weight: bold;
+		background-color: whitesmoke;
+		border-top-left-radius: 5px;
+		border-top-right-radius: 5px;
+		.fa-refresh {
+			float: right;
+			margin-right: 5px;
+			cursor: pointer;
+		}
+	}
 
-.widget-content {
-	font-size: 85%;
-	font-family: sans-serif;
-	padding: 5px;
-}
-
-.widget-title .fa-refresh {
-	float: right;
-	margin-right: 5px;
-	cursor: pointer;
+	.content {
+		font-size: 85%;
+		font-family: sans-serif;
+		padding: 5px;
+	}
 }

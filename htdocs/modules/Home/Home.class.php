@@ -39,9 +39,9 @@ class Home extends Modules{
         foreach($modules as $module) {
             $widgets = $this->Modules->$module->getHomeWidgets();
             foreach($widgets as $data) {
-                $html .= '<div id="'.$module.'-widget" class="widget">';
-                $html .= '<div id="'.$module.'-widget-title" class="widget-title">'.$data['title'].'<a onclick="Home.refresh(\''.$module.'\')"><i class="fa fa-refresh"></i></a></div>';
-                $html .= '<div id="'.$module.'-widget-content" class="widget-content">';
+                $html .= '<div id="'.$module.'-widget" class="widget" style="width:'.$data['size'].';">';
+                $html .= '<div id="'.$module.'-title" class="title">'.$data['title'].'<a onclick="Home.refresh(\''.$module.'\')"><i class="fa fa-refresh"></i></a></div>';
+                $html .= '<div id="'.$module.'-content" class="content">';
                 $html .= $data['content'];
                 $html .= '</div></div>';
             }
@@ -50,6 +50,10 @@ class Home extends Modules{
         $html .= $this->loadScripts();
 		return $html;
 	}
+
+    public function poll() {
+        return array("status" => true, "data" => array());
+    }
 
     public function getHomeWidgets() {
         $feeds = array(
@@ -67,13 +71,13 @@ class Home extends Modules{
             $xml = simplexml_load_string($feed);
             $content = '<ul>';
             foreach($xml->channel->item as $item) {
-                $content .= '<li><a href="'.$item->link.'">'.$item->title.'</a></li>';
+                $content .= '<li><a href="'.$item->link.'" target="_blank">'.$item->title.'</a></li>';
             }
             $content .= '</ul>';
             $out[] = array(
-                "title" => '<a href="'.$xml->channel->link.'">'.$xml->channel->description.'</a>',
+                "title" => '<a href="'.$xml->channel->link.'" target="_blank">'.$xml->channel->description.'</a>',
                 "content" => $content,
-                "size" => 4
+                "size" => '33.33%'
             );
         }
 

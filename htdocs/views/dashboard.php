@@ -1,12 +1,12 @@
 <nav class="pushmenu pushmenu-left">
-	<h3>Welcome Andrew</h3>
+	<h3><?php echo sprintf(_('Welcome %s'),(!empty($user['fname']) ? $user['fname'] : $user['username']))?></h3>
 	<ul>
 		<?php foreach($menu as $module) {?>
 		<li data-mod="<?php echo $module['rawname']?>" class="<?php echo ($module['rawname'] == $active_module) ? 'active' : ''?>">
 			<?php if(empty($module['menu'])) {?>
 	    		<a data-pjax data-mod="<?php echo $module['rawname']?>" href="?display=dashboard&amp;mod=<?php echo $module['rawname']?>"><?php echo $module['name']?> <?php if(isset($module['badge'])) {?><span class="badge"><?php echo $module['badge']?></span><?php } ?></a>
 			<?php } else {?>
-	    		<a onClick="toggleSubMenu('<?php echo $module['rawname']?>')"><?php echo $module['name']?> <?php if(isset($module['badge'])) {?><span class="badge"><?php echo $module['badge']?></span><?php } ?></a>
+	    		<a class="mobileSubMenu" data-mod="<?php echo $module['rawname']?>"><?php echo $module['name']?> <?php if(isset($module['badge'])) {?><span class="badge"><?php echo $module['badge']?></span><?php } ?></a>
 				<ul data-mod="<?php echo $module['rawname']?>" id="submenu-<?php echo $module['rawname']?>" class="dropdown-pushmenu">
 					<?php foreach($module['menu'] as $smenu) {?>
 						<li>
@@ -23,7 +23,7 @@
 	<!-- This navigation pane hides when the viewport is smaller than 768 -->
 	<!-- Mobile Navigation Header -->
 	<div id="nav-bar-background">
-		<div id="bc-mobile-icon" onClick="toggleMenu()"><i class="fa fa-bars"></i></div>
+		<div id="bc-mobile-icon"><i class="fa fa-bars"></i></div>
 		<ol id="top-dashboard-nav" class="breadcrumb">
 		  <li><a data-mod="home" data-pjax href="?display=dashboard&amp;mod=home"><?php echo _('Home')?></a></li>
 		  <?php if($active_module != 'home') {?>
@@ -33,8 +33,11 @@
 			<?php } ?>
 		  <?php } ?>
 		</ol>
-		<div id="top-dashboard-nav-logout"><img src="assets/images/settings.png"> <a data-pjax-logout href="?logout=1"><?php echo _('Logout')?></a></div>
+		<div id="top-dashboard-nav-right"><div id="settings-btn"><img src="assets/images/settings.png"></div></div>
 	</div>
+	<ol id="settings-menu">
+		<li><a data-pjax-logout href="?logout=1"><?php echo _('Logout')?></a></li>
+	</ol>
 	<div class="clear"></div>
 	<div id="container-fixed-left" class="container-fluid">
 		<div class="row">
@@ -61,7 +64,7 @@
 			</div>
 			  <div class="col-sm-10">
 				<div id="loader-screen">
-					<div id="loader-screen-content"><strong>Excuse us while we try to retrieve your content..</strong></div>
+					<div id="loader-screen-content"><strong><?php echo _('Excuse us while we try to retrieve your content')?>..</strong></div>
 				</div>
 				  <!-- The content below is loaded dynamically through PJAX After Dashboard had loaded -->
 				  <div id="dashboard-content">
@@ -79,15 +82,10 @@
 				</a>
 			</div>
 			<div id="footer-message">
-				User Control Panel is released as <a href="http://www.gnu.org/licenses/agpl-3.0.html" target="_blank">AGPLV3</a> or newer.<br/>
-				Copyright 2013-<?php echo $year?> Schmooze Com Inc.<br/>
+				<?php echo sprintf(_('User Control Panel is released as %s or newer'),'<a href="http://www.gnu.org/licenses/agpl-3.0.html" target="_blank">AGPLV3</a>')?>.<br/>
+				<?php echo sprintf(_('Copyright 2013-%s Schmooze Com Inc'),$year)?>.<br/>
 				<a href="http://www.schmoozecom.com/">http://www.schmoozecom.com/</a><br/>
-				<span class="small-text">The removal of this copyright notice is stricly prohibited</span>
-			</div>
-			<div id="html5-badge">
-				<a href="http://www.w3.org/html/logo/">
-					<img src="assets/images/HTML5_Badge.png" height="65" alt="HTML5 Powered with Connectivity / Realtime, CSS3 / Styling, Device Access, Multimedia, Performance &amp; Integration, and Offline &amp; Storage" title="HTML5 Powered with Connectivity / Realtime, CSS3 / Styling, Device Access, Multimedia, Performance &amp; Integration, and Offline &amp; Storage">
-				</a>
+				<span class="small-text"><?php echo _('The removal of this copyright notice is stricly prohibited')?></span>
 			</div>
 		</div>
 	</div>

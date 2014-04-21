@@ -1,237 +1,198 @@
-var transitioning = false;
-$(function() {
-	/* This screws with the checkbox selector on iphones for some reason */
-    //FastClick.attach(document.body);
-	if(Modernizr.touch) {
-		//user has some sort of touch based device
-		$$('#dashboard').swipeLeft(function() {
-			if($('.pushmenu-left').hasClass('pushmenu-open')) {
-				toggleMenu();
-			}
-		});
-		$$('#dashboard').swipeRight(function() {
-			if(!$('.pushmenu-left').hasClass('pushmenu-open')) {
-				toggleMenu();
-			}
-		});
-	}
-
-	//Hide Menu when the screen resizes
-	$( window ).resize(function() {
-		if($( window ).width() > 767 && $('.pushmenu-left').hasClass('pushmenu-open')) {
-			toggleMenu();
+var UCPC = Class.extend({
+	init: function(){
+		this.loggedIn = false;
+		this.pollID = null;
+		this.notify = null;
+		this.activeModule = 'Home';
+		this.transitioning = false;
+		this.lastScrollTop = 0;
+	},
+	ready: function() {
+		//Detect if the client allows touch access.
+		if(Modernizr.touch) {
+			$$('#dashboard').swipeLeft(function() {
+				if($('.pushmenu-left').hasClass('pushmenu-open')) {
+					toggleMenu();
+				}
+			});
+			$$('#dashboard').swipeRight(function() {
+				if(!$('.pushmenu-left').hasClass('pushmenu-open')) {
+					toggleMenu();
+				}
+			});
 		}
-		UCP.resizeContent();
-	});
+		//Bind to the Resizer
+		$(window).resize(function() {UCP.windowResize();});
+		$(document).bind('logIn', function( event ) {UCP.logIn(event);});
+		$(document).bind('logOut', function( event ) {UCP.logOut(event);});
+		$(window).bind('online', function( event ) {UCP.online(event);});
+		$(window).bind('offline', function( event ) {UCP.offline(event);});
 
-	//help tags
-	$("a.info").each(function(){
-		$(this).after('<span class="help">?<span>' + $(this).find('span').html() + '</span></span>');
-		$(this).find('span').remove();
-		$(this).replaceWith($(this).html());
-	});
+		//Start PJAX Stuff
+		if ($.support.pjax) {
+			//logout bind
+			$(document).pjax('a[data-pjax-logout]', '#content-container');
 
-	$(".help").on('mouseenter', function(){
-			side = fpbx.conf.text_dir == 'lrt' ? 'left' : 'right';
-			var pos = $(this).offset();
-			var offset = (200 - pos.side)+"px";
-			//left = left > 0 ? left : 0;
-			$(this).find("span")
-					.css(side, offset)
-					.stop(true, true)
-					.delay(500)
-					.animate({opacity: "show"}, 750);
-		}).on('mouseleave', function(){
-			$(this).find("span")
-					.stop(true, true)
-					.animate({opacity: "hide"}, "fast");
-	});
+			//Navigation Clicks
+			$(document).on('click', '[data-pjax] a, a[data-pjax]', function(event) {
+				var container = $('#dashboard-content');
+				var clicker = $(this).data('mod');
+				var breadcrumbs = '<li><a data-mod="home" data-pjax href="?display=dashboard&amp;mod=home">Home</a></li>';
+				$.pjax.click(event, {container: container});
 
-	if ($.support.pjax) {
-		$(document).on('click', '[data-pjax] a, a[data-pjax]', function(event) {
-			var container = $('#dashboard-content');
-			var clicker = $(this).data('mod');
-			var breadcrumbs = '<li><a data-mod="home" data-pjax href="?display=dashboard&amp;mod=home">Home</a></li>';
-			$.pjax.click(event, {container: container});
+				var mod = $.url().param('mod');
+				var sub = $.url().param('sub');
 
-			var mod = $.url().param('mod');
-			var sub = $.url().param('sub');
-
-			if(mod != 'home') {
+				if(mod != 'home') {
 					breadcrumbs = breadcrumbs+'<li class="active">'+mod+'</li>';
-			}
-			if(typeof sub !== 'undefined') {
-				breadcrumbs = breadcrumbs+'<li class="active">'+sub+'</li>';
-			}
-
-			$('#top-dashboard-nav').html(breadcrumbs);
-
-			$( ".pushmenu li").each(function( index ) {
-				if($(this).data('mod') == clicker) {
-					$(this).addClass('active');
-				} else {
-					$(this).removeClass('active');
 				}
-			});
-			$( ".nav li" ).each(function( index ) {
-				if($(this).data('mod') == clicker) {
-					$(this).addClass('active');
-				} else {
-					$(this).removeClass('active');
+				if(typeof sub !== 'undefined') {
+					breadcrumbs = breadcrumbs+'<li class="active">'+sub+'</li>';
 				}
-			});
 
-			if($( window ).width() < 767 && $('.pushmenu-left').hasClass('pushmenu-open')) {
-				toggleMenu();
-			}
-		});
-	}
+				$('#top-dashboard-nav').html(breadcrumbs);
 
-	$(document).pjax('a[data-pjax-logout]', '#content-container');
-
-	$(document).on('submit', '#frm-login', function(event) {
-		var queryString = $(this).formSerialize();
-		queryString = queryString + '&quietmode=1&module=User&command=login';
-		$.post( "index.php", queryString, function( data ) {
-			if(!data.status) {
-				$('#error-msg').html(data.message).fadeIn("fast");
-				$('#login-window').height('300');
-			} else {
-				$.pjax.submit(event, "#content-container");
-				$(document).one('pjax:end', function() {
-					$(document).trigger('loggedIn');
+				$( ".pushmenu li").each(function( index ) {
+					if($(this).data('mod') == clicker) {
+						$(this).addClass('active');
+					} else {
+						$(this).removeClass('active');
+					}
 				});
-			}
-		}, "json");
-		return false;
-	});
+				$( ".nav li" ).each(function( index ) {
+					if($(this).data('mod') == clicker) {
+						$(this).addClass('active');
+					} else {
+						$(this).removeClass('active');
+					}
+				});
+			});
 
-	$('a[data-pjax-logout]').click(function(event) {
-		$(document).trigger('logOut');
-	});
+			$(document).on('submit', '#frm-login', function(event) {
+				var queryString = $(this).formSerialize();
+				queryString = queryString + '&quietmode=1&module=User&command=login';
+				$.post( "index.php", queryString, function( data ) {
+					if(!data.status) {
+						$('#error-msg').html(data.message).fadeIn("fast");
+						$('#login-window').height('300');
+					} else {
+						$.pjax.submit(event, "#content-container");
+						$(document).one('pjax:end', function() {
+							$(document).trigger('logIn');
+						});
+					}
+				}, "json");
+				return false;
+			});
+		}
 
-	//After load event restylize the page
-	$(document).on('pjax:end', function() {
-		UCP.resizeContent();
-		$('#loader-screen').fadeOut('fast');
-	});
+		$('a[data-pjax-logout]').click(function(event) {
+			$(document).trigger('logOut');
+		});
 
-	$(document).on('pjax:start', function() {
-		//$('#loader-screen').fadeIn('fast');
-	});
+		$(document).on('pjax:end', function() {UCP.pjaxEnd();});
+		$(document).on('pjax:start', function() {UCP.pjaxStart();});
+		$(document).on('pjax:timeout', function(event) {UCP.pjaxTimeout(event);});
+		$(document).on('pjax:error', function(event) {UCP.pjaxError(event);});
 
-	$(document).on('pjax:timeout', function(event) {
-		//query higher up event here
-		$('#loader-screen').fadeIn('fast');
-		event.preventDefault();
-		return false;
-	});
-	$(document).on('pjax:error', function(event) {
-		//query higher up event here
-		console.log('error');
-		event.preventDefault();
-		return false;
-	});
+		//if we are already logged in (the login window is missing) in then throw the loggedIn trigger
+		if(!$('#login-window').length) {
+			$(document).trigger('logIn');
+		}
 
-	$(".pushmenu").bind("transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd", function(){
-		//transitioning = false;
-		//alert('completed');
-	});
+		//Show/Hide Settings Drop Down
+		$('#top-dashboard-nav-right').click(function() {
+			$('#settings-menu').toggle();
+		});
 
-	if(!$('#login-window').length) {
-		$(document).trigger('loggedIn');
-	}
-
-	UCP.resizeContent();
-});
-$(document).bind('loggedIn', function( event ) {
-	UCP.loggedIn = true;
-	UCP.poll();
-	if(!Notify.needsPermission() && UCP.notify === null) {
-		UCP.notify = true;
-	}
-});
-
-$(document).bind('logOut', function( event ) {
-	UCP.loggedIn = false;
-	clearInterval(UCP.pollID);
-	UCP.pollID = null;
-});
-
-$(window).bind('online', function( event ) {
-	if(UCP.loggedIn && UCP.pollID === null) {
-		UCP.poll();
-	}
-});
-
-$(window).bind('offline', function( event ) {
-	if(UCP.pollID !== null) {
-		clearInterval(UCP.pollID);
-		UCP.pollID = null;
-	}
-});
-
-function toggleMenu() {
-	if(!transitioning) {
-		//transitioning = true;
-		//$(this).toggleClass('active');
-		$('.pushmenu-push').toggleClass('pushmenu-push-toright');
-		$('.pushmenu-left').toggleClass('pushmenu-open');
-		//dropdown-pushmenu
-		$( ".pushmenu .dropdown-pushmenu" ).each(function( index ) {
-			if($(this).is(":visible")) {
-				$(this).slideToggle();
+		//Hide Settings Menu when clicking outside of it
+		$('html').click(function(event) {
+			if(($(event.target).parents().index($('#top-dashboard-nav-right')) == -1) && $(event.target).parents().index($('#settings-menu')) == -1) {
+				if($('#settings-menu').is(":visible")) {
+					$('#settings-menu').hide();
+				}
 			}
 		});
-	}
-}
 
-function toggleSubMenu(menu) {
-	$('#submenu-'+menu).slideToggle();
-}
+		//Show/Hide Side Bar
+		$('#bc-mobile-icon').click(function() {
+			UCP.toggleMenu();
+		});
 
-//This allows browsers to request user notifications from said user.
-$(document).click(function() {
-	if(UCP.loggedIn && Notify.needsPermission() && UCP.notify === null) {
-		Notify.requestPermission(UCP.pg(),UCP.pd());
-	}
-});
+		//mobile submenu display
+		$('.mobileSubMenu').click(function() {
+			var menu = $(this).data('mod');
+			$('#submenu-'+menu).slideToggle();
+		});
 
-var UCP = new function() {
-	this.loggedIn = false;
-	this.pollID = null;
-	this.notify = null;
-	this.poll = function() {
+		$('#dashboard-content').bind('scroll', function() {
+			if(UCP.transitioning || $( window ).width() > 767) {
+				return true;
+			}
+			st = $('#dashboard-content').scrollTop();
+			if (st > 40) {
+				$(document).trigger('hideFooter');
+				UCP.windowResize(true);
+			} else {
+				$(document).trigger('mobileScrollUp');
+				$(document).trigger('showFooter');
+				UCP.windowResize();
+			}
+			UCP.transitioning = true;
+			setTimeout(function(){UCP.transitioning = false;},90);
+
+			UCP.lastScrollTop = st;
+		});
+
+		UCP.windowResize();
+
+		//This allows browsers to request user notifications from said user.
+		$(document).click(function() {
+			if(UCP.loggedIn && Notify.needsPermission() && UCP.notify === null) {
+				Notify.requestPermission(UCP.notificationsAllowed(),UCP.notificationsDenied());
+			}
+		});
+	},
+	poller: function() {
 		this.pollID = setInterval(function(){
 			$.ajax({ url: "index.php?quietmode=1&command=poll", success: function(data){
 				if(data.status) {
 					$.each(data.modData, function( module, data ) {
-						if (typeof window[module+'_poll'] == 'function') {
-							window[module+'_poll'](data);
+						if (typeof window[module] == 'object' && typeof window[module].poll == 'function') {
+							window[module].poll(data);
 						}
 					});
 				}
 			}, dataType: "json"});
 		}, 5000);
-	};
-	this.resizeContent = function() {
+	},
+	windowResize: function(hiddenFooter) {
+		if($( window ).width() > 767 && $('.pushmenu-left').hasClass('pushmenu-open')) {
+			UCP.toggleMenu();
+		}
+
+		hiddenFooter = (typeof hiddenFooter !== undefined) ? hiddenFooter : false;
 		//run the resize hack against dashboard content
 		if($('#dashboard-content').length) {
-			$('#dashboard-content').height($('#dashboard').height() - 135);
+			if(!hiddenFooter) {
+				$('#dashboard-content').height($('#dashboard').height() - 135);
+			} else {
+				$('#dashboard-content').height($('#dashboard').height() - 59);
+			}
 		}
-	};
-	this.pg = function() {
+	},
+	notificationsAllowed: function() {
 		this.notify = true;
-	};
-	this.pd = function() {
+	},
+	notificationsDenied: function() {
 		this.notify = false;
-	};
-	this.closeDialog = function() {
+	},
+	closeDialog: function() {
 		$('.dialog').fadeOut('fast', function(event) {
 			$(this).remove();
 		});
-	};
-	this.showDialog = function(title,content,height,width) {
+	},
+	showDialog: function(title,content,height,width) {
 		var w = (typeof width !== undefined) ? width : '250px';
 		var h = (typeof height !== undefined) ? height : '150px';
 		var html = '<div class="dialog" style="height:'+h+'px;width:'+w+'px;margin-top:-'+h/2+'px;margin-left:-'+w/2+'px;"><div class="title">'+title+'<i class="fa fa-times" onclick="UCP.closeDialog()"></i></div><div class="content">'+content+'</div></div>';
@@ -243,5 +204,83 @@ var UCP = new function() {
 		} else {
 			$(html).appendTo("#dashboard-content").hide().fadeIn('fast');
 		}
-	};
-};
+	},
+	toggleMenu: function() {
+		$('.pushmenu-push').toggleClass('pushmenu-push-toright');
+		$('.pushmenu-left').toggleClass('pushmenu-open');
+		//dropdown-pushmenu
+		$( ".pushmenu .dropdown-pushmenu" ).each(function( index ) {
+			if($(this).is(":visible")) {
+				$(this).slideToggle();
+			}
+		});
+	},
+	toTitleCase: function(str) {
+		return str.replace(/\w\S*/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();});
+	},
+	pjaxEnd: function(event) {
+		this.windowResize();
+		$('#loader-screen').fadeOut('fast');
+		console.log('Execute: '+this.activeModule+'.hide()');
+		if (typeof window[this.activeModule] == 'object' && typeof window[this.activeModule].hide == 'function') {
+			window[this.activeModule].hide(event);
+		}
+		this.activeModule = $.url().param('mod');
+		this.activeModule = (this.activeModule !== undefined) ? UCP.toTitleCase(this.activeModule) : 'Home';
+		console.log('Execute: '+this.activeModule+'.display()');
+		if (typeof window[this.activeModule] == 'object' && typeof window[this.activeModule].display == 'function') {
+			window[this.activeModule].display(event);
+		}
+	},
+	pjaxStart: function(event) {
+
+	},
+	pjaxTimeout: function(event) {
+		//query higher up event here
+		$('#loader-screen').fadeIn('fast');
+		event.preventDefault();
+		return false;
+	},
+	pjaxError: function(event) {
+		//query higher up event here
+		console.log('error');
+		event.preventDefault();
+		return false;
+	},
+	online: function(event) {
+		if(this.loggedIn && this.pollID === null) {
+			this.poller();
+		}
+	},
+	offline: function(event) {
+		if(this.pollID !== null) {
+			clearInterval(this.pollID);
+			this.pollID = null;
+		}
+	},
+	logIn: function(event) {
+		this.activeModule = $.url().param('mod');
+		this.activeModule = (this.activeModule !== undefined) ? UCP.toTitleCase(this.activeModule) : 'Home';
+		this.loggedIn = true;
+		this.poller();
+		if(!Notify.needsPermission() && this.notify === null) {
+			this.notify = true;
+		}
+		console.log('Execute: '+this.activeModule+'.display()');
+		if (typeof window[this.activeModule] == 'object' && typeof window[this.activeModule].display == 'function') {
+			window[this.activeModule].display(event);
+		}
+	},
+	logOut: function(event) {
+		this.loggedIn = false;
+		clearInterval(this.pollID);
+		this.pollID = null;
+		if (typeof window[this.activeModule] == 'object' && typeof window[this.activeModule].hide == 'function') {
+			window[this.activeModule].hide(event);
+		}
+	}
+});
+var UCP = new UCPC();
+$(function() {
+	UCP.ready();
+});

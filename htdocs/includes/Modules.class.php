@@ -137,7 +137,7 @@ class Modules extends Module_Helpers {
 	}
 
     public function getActiveModules() {
-        return $this->getModulesByMethod('ajaxRequest');
+        return $this->getModulesByMethod('getMenuItems');
     }
 
     //These Scripts persist throughout the navigation of UCP

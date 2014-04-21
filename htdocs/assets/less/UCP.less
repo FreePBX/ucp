@@ -190,9 +190,8 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 }
 
 #top-dashboard-nav {
-	width: 87%;
+	width: 75%;
 	@media only screen and (max-width : 767px) {
-		width: 60%;
 		border-top-left-radius: 0px;
 		border-bottom-left-radius: 0px;
 	}
@@ -201,19 +200,46 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 	border-bottom-right-radius: 0px;
 }
 
-#top-dashboard-nav-logout {
-	width: 13%;
-	@media only screen and (max-width : 767px) {
-		width: 26%;
-	}
-	padding: 8px 15px;
+#top-dashboard-nav-right {
+	width: 40px;
+	height: 100%;
 	background-color: #f5f5f5;
 	border-radius: 4px;
 	float: right;
 	border-top-left-radius: 0px;
 	border-bottom-left-radius: 0px;
+	cursor: pointer;
+	#settings-btn {
+		height: 36px;
+		padding-left: 12px;
+		margin-top: 8px;
+	}
+}
+#settings-menu {
+	position: absolute;
+	right: 0;
+	z-index: 1000;
+	display: none;
+	list-style: none;
 	text-align: right;
-	padding-left: 5px;
+	float: left;
+	min-width: 160px;
+	padding: 5px 0;
+	padding-right: 10px;
+	background-color: #f5f5f5;
+	border-left: 1px solid #cccccc;
+	border-bottom: 1px solid #cccccc;
+	border-bottom-left-radius: 4px;
+	-webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+	box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+	background-clip: padding-box;
+	a {
+		display:block
+	}
+	a:hover {
+		text-decoration: none;
+		color: #428bca;
+	}
 }
 
 .clear {
@@ -264,6 +290,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 #dashboard-content {
 	overflow-y: auto;
 	overflow-x: hidden;
+	transition: height 0.1s ease;
 }
 
 #dashboard {
@@ -310,6 +337,7 @@ section.content {
 #footer {
 	background-color: #f5f5f5;
 	height: 80px;
+	overflow: hidden;
 }
 
 #footer-bar {
@@ -329,16 +357,11 @@ section.content {
 	display: inline-block;
 	vertical-align: bottom;
 	padding-top: 2px;
-	padding-right: 5px;
 }
 #footer-message {
 	display: inline-block;
-}
-#html5-badge {
-	display: inline-block;
-	vertical-align: bottom;
 	@media only screen and (max-width : 460px) {
-		display: none;
+		text-align: left;
 	}
 }
 #footer-message .small-text {
