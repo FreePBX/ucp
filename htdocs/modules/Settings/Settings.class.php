@@ -69,7 +69,6 @@ class Settings extends Modules{
 
 		}
 		$html .= '</div><script>var ext = '.$ext.';</script>';
-		$html .= $this->LoadScripts();
 		return $html;
 	}
 

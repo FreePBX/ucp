@@ -6,6 +6,7 @@ var UCPC = Class.extend({
 		this.activeModule = 'Home';
 		this.transitioning = false;
 		this.lastScrollTop = 0;
+		this.hidden = 'hidden';
 	},
 	ready: function() {
 		//Detect if the client allows touch access.
@@ -152,6 +153,43 @@ var UCPC = Class.extend({
 				Notify.requestPermission(UCP.notificationsAllowed(),UCP.notificationsDenied());
 			}
 		});
+
+		//TODO: Do something with this eventually, hidden/display tabs
+		UCP.hidden = "hidden";
+
+		// Standards:
+		if (UCP.hidden in document) {
+			$(document).on("visibilitychange", UCP.onchange);
+		} else if ((UCP.hidden = "mozHidden") in document) {
+			$(document).on("mozvisibilitychange", UCP.onchange);
+		} else if ((UCP.hidden = "webkitHidden") in document) {
+			$(document).on("webkitvisibilitychange", UCP.onchange);
+		} else if ((UCP.hidden = "msHidden") in document) {
+			$(document).on("msvisibilitychange", UCP.onchange);
+		// IE 9 and lower:
+		} else if ('onfocusin' in document) {
+			$(document).on("onfocusin onfocusout",UCP.onchange);
+		// All others:
+		} else {
+			$(window).on("onpageshow onpagehide onfocus onblur",UCP.onchange);
+		}
+	},
+	onchange: function (evt) {
+		var v = 'visible', h = 'hidden',
+			evtMap = {
+				focus:v, focusin:v, pageshow:v, blur:h, focusout:h, pagehide:h
+			};
+
+		evt = evt || window.event;
+		var state = '';
+		if (evt.type in evtMap) {
+			state = evtMap[evt.type];
+		} else {
+			state = this[UCP.hidden] ? "hidden" : "visible";
+		}
+		if (typeof window[UCP.activeModule] == 'object' && typeof window[UCP.activeModule].windowState == 'function') {
+			window[UCP.activeModule].windowState(state);
+		}
 	},
 	poller: function() {
 		this.pollID = setInterval(function(){
@@ -231,6 +269,7 @@ var UCPC = Class.extend({
 		if (typeof window[this.activeModule] == 'object' && typeof window[this.activeModule].display == 'function') {
 			window[this.activeModule].display(event);
 		}
+		this.binds();
 	},
 	pjaxStart: function(event) {
 
@@ -270,6 +309,7 @@ var UCPC = Class.extend({
 		if (typeof window[this.activeModule] == 'object' && typeof window[this.activeModule].display == 'function') {
 			window[this.activeModule].display(event);
 		}
+		this.binds();
 	},
 	logOut: function(event) {
 		this.loggedIn = false;
@@ -278,6 +318,19 @@ var UCPC = Class.extend({
 		if (typeof window[this.activeModule] == 'object' && typeof window[this.activeModule].hide == 'function') {
 			window[this.activeModule].hide(event);
 		}
+	},
+	binds: function() {
+		$('.form-group label.help').click(function() {
+			var f = $(this).prop('for');
+			if(!$('.help-hidden[data-for="'+f+'"]').is(':visible')) {
+				//hide all others
+				$('.help-hidden').fadeOut('slow');
+				//display our reference
+				$('.help-hidden[data-for="'+f+'"]').fadeIn('slow');
+			} else {
+				$('.help-hidden[data-for="'+f+'"]').fadeOut('slow');
+			}
+		});
 	}
 });
 var UCP = new UCPC();
