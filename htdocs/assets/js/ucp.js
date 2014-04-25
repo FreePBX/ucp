@@ -193,11 +193,11 @@ var UCPC = Class.extend({
 	},
 	poller: function() {
 		this.pollID = setInterval(function(){
-			$.ajax({ url: "index.php?quietmode=1&command=poll", success: function(data){
+			$.ajax({ url: "index.php?quietmode=1&command=poll", data: {data: $.url().param()}, success: function(data){
 				if(data.status) {
 					$.each(data.modData, function( module, data ) {
 						if (typeof window[module] == 'object' && typeof window[module].poll == 'function') {
-							window[module].poll(data);
+							window[module].poll(data, $.url().param());
 						}
 					});
 				}
