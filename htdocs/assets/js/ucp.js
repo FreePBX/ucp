@@ -9,26 +9,44 @@ var UCPC = Class.extend({
 		this.hidden = 'hidden';
 	},
 	ready: function() {
-		//Detect if the client allows touch access.
-		if(Modernizr.touch) {
-			$$('#dashboard').swipeLeft(function() {
-				if($('.pushmenu-left').hasClass('pushmenu-open')) {
-					toggleMenu();
-				}
-			});
-			$$('#dashboard').swipeRight(function() {
-				if(!$('.pushmenu-left').hasClass('pushmenu-open')) {
-					toggleMenu();
-				}
-			});
-		}
-		//Bind to the Resizer
 		$(window).resize(function() {UCP.windowResize();});
 		$(document).bind('logIn', function( event ) {UCP.logIn(event);});
 		$(document).bind('logOut', function( event ) {UCP.logOut(event);});
 		$(window).bind('online', function( event ) {UCP.online(event);});
 		$(window).bind('offline', function( event ) {UCP.offline(event);});
 
+		//if we are already logged in (the login window is missing) in then throw the loggedIn trigger
+		if(!$('#login-window').length) {
+			$(document).trigger('logIn');
+			UCP.setupDashboard();
+		} else {
+			UCP.setupLogin();
+		}
+	},
+	setupLogin: function() {
+		if ($.support.pjax) {
+			$(document).on('submit', '#frm-login', function(event) {
+				var queryString = $(this).formSerialize();
+				queryString = queryString + '&quietmode=1&module=User&command=login';
+				$.post( "index.php", queryString, function( data ) {
+					if(!data.status) {
+						$('#error-msg').html(data.message).fadeIn("fast");
+						$('#login-window').height('300');
+					} else {
+						$.pjax.submit(event, "#content-container");
+						$(document).one('pjax:end', function() {
+							$(document).trigger('logIn');
+							UCP.setupDashboard();
+						});
+					}
+				}, "json");
+				return false;
+			});
+		} else {
+			//no pjax support...
+		}
+	},
+	setupDashboard: function() {
 		//Start PJAX Stuff
 		if ($.support.pjax) {
 			//logout bind
@@ -67,26 +85,14 @@ var UCPC = Class.extend({
 						$(this).removeClass('active');
 					}
 				});
+				if($('.pushmenu-left').hasClass('pushmenu-open')) {
+					$('.pushmenu-push').removeClass('pushmenu-push-toright');
+					$('.pushmenu-left').removeClass('pushmenu-open');
+				}
 			});
-
-			$(document).on('submit', '#frm-login', function(event) {
-				var queryString = $(this).formSerialize();
-				queryString = queryString + '&quietmode=1&module=User&command=login';
-				$.post( "index.php", queryString, function( data ) {
-					if(!data.status) {
-						$('#error-msg').html(data.message).fadeIn("fast");
-						$('#login-window').height('300');
-					} else {
-						$.pjax.submit(event, "#content-container");
-						$(document).one('pjax:end', function() {
-							$(document).trigger('logIn');
-						});
-					}
-				}, "json");
-				return false;
-			});
+		} else {
+			//no pjax support
 		}
-
 		$('a[data-pjax-logout]').click(function(event) {
 			$(document).trigger('logOut');
 		});
@@ -95,11 +101,6 @@ var UCPC = Class.extend({
 		$(document).on('pjax:start', function() {UCP.pjaxStart();});
 		$(document).on('pjax:timeout', function(event) {UCP.pjaxTimeout(event);});
 		$(document).on('pjax:error', function(event) {UCP.pjaxError(event);});
-
-		//if we are already logged in (the login window is missing) in then throw the loggedIn trigger
-		if(!$('#login-window').length) {
-			$(document).trigger('logIn');
-		}
 
 		//Show/Hide Settings Drop Down
 		$('#top-dashboard-nav-right').click(function() {
@@ -173,6 +174,20 @@ var UCPC = Class.extend({
 		} else {
 			$(window).on("onpageshow onpagehide onfocus onblur",UCP.onchange);
 		}
+
+		//Detect if the client allows touch access.
+		if(Modernizr.touch) {
+			$$('#dashboard').swipeLeft(function() {
+				if($('.pushmenu-left').hasClass('pushmenu-open')) {
+					toggleMenu();
+				}
+			});
+			$$('#dashboard').swipeRight(function() {
+				if(!$('.pushmenu-left').hasClass('pushmenu-open')) {
+					toggleMenu();
+				}
+			});
+		}
 	},
 	onchange: function (evt) {
 		var v = 'visible', h = 'hidden',
@@ -201,7 +216,7 @@ var UCPC = Class.extend({
 						}
 					});
 				}
-			}, dataType: "json"});
+			}, dataType: "json", type: "POST"});
 		}, 5000);
 	},
 	windowResize: function(hiddenFooter) {

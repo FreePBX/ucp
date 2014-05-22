@@ -124,17 +124,17 @@ class Ajax extends UCP {
 		exit;
 	}
 
-    public function poll() {
-        $modules = $this->UCP->Modules->getModulesByMethod('poll');
-        $modData = array();
-        foreach($modules as $module) {
-            $modData[$module] = $this->UCP->Modules->$module->poll($_REQUEST['data']);
-        }
-        return array(
-            "status" => true,
-            "modData" => $modData
-        );
-    }
+	public function poll() {
+		$modules = $this->UCP->Modules->getModulesByMethod('poll');
+		$modData = array();
+		foreach($modules as $module) {
+			$modData[$module] = $this->UCP->Modules->$module->poll($_REQUEST['data']);
+		}
+		return array(
+			"status" => true,
+			"modData" => $modData
+		);
+	}
 
 	public function ajaxError($errnum, $message = 'Unknown Error') {
 		$this->addHeader('HTTP/1.0',$errnum);
@@ -166,8 +166,8 @@ class Ajax extends UCP {
 	 * @access private
 	 */
 	private function getHeaders() {
-        $h = array(
-            'accept'        => '',
+		$h = array(
+			'accept'        => '',
 			'address'		=> '',
 			'content_type'	=> '',
 			'host' 			=> '',
@@ -184,10 +184,10 @@ class Ajax extends UCP {
 		);
 
 		foreach ($_SERVER as $k => $v) {
-        	switch ($k) {
-            	case 'HTTP_ACCEPT':
-                	$h['accept'] = $v;
-                break;
+			switch ($k) {
+				case 'HTTP_ACCEPT':
+					$h['accept'] = $v;
+				break;
 				case 'HTTP_HOST':
 					$h['host'] = $v;
 				break;
