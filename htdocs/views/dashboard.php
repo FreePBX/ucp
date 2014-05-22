@@ -33,7 +33,7 @@
 			<?php } ?>
 		  <?php } ?>
 		</ol>
-		<div id="top-dashboard-nav-right"><div id="settings-btn"><img src="assets/images/settings.png"></div></div>
+		<div id="top-dashboard-nav-right"><div id="settings-btn"><i class="fa fa-cog"></i></div></div>
 	</div>
 	<ol id="settings-menu">
 		<li><a data-pjax-logout href="?logout=1"><?php echo _('Logout')?></a></li>

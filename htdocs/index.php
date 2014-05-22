@@ -113,7 +113,7 @@ $displayvars['active_module'] = $module;
 $mclass = ucfirst($module);
 switch($display) {
 	case "dashboard":
-		$dashboard_content = $ucp->Modules->$mclass->getDisplay();
+		$dashboard_content = '<div id="module-page-'.$module.'">'.$ucp->Modules->$mclass->getDisplay().'</div>';
 		if(isset($_SERVER['HTTP_X_PJAX'])) {
 			if(!empty($_REQUEST['mod'])) {
 				echo $dashboard_content;
