@@ -82,9 +82,10 @@ class Settings extends Modules{
 				"badge" => false,
 			);
 			foreach($user['assigned'] as $extension) {
+				$data = $this->UCP->FreePBX->Core->getDevice($extension);
 				$menu["menu"][] = array(
 					"rawname" => $extension,
-					"name" => $extension,
+					"name" => $extension . " - " . $data['description'],
 					"badge" => false
 				);
 			}
