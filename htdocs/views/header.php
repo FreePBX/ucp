@@ -26,6 +26,7 @@
 		    }
 		  </style>
 		<![endif]-->
+		<script type="text/javascript" src="assets/framework/js/jquery-<?php echo $amp_conf['JQUERY_VER'] ?>.min.js"></script>
 	</head>
 	<body>
 	<div id="content-container">

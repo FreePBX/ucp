@@ -1,5 +1,4 @@
 		</div>
-		<script type="text/javascript" src="assets/framework/js/jquery-<?php echo $amp_conf['JQUERY_VER'] ?>.min.js"></script>
 		<script type="text/javascript" src="assets/js/fileinput.js"></script>
 		<script>
 			$(document).bind("mobileinit", function() {
