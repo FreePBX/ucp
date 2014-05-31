@@ -34,7 +34,7 @@
 						</td>
 					</tr>
 					<tr>
-						<td colspan="3" id="td-btn-login"><button type="submit" id="btn-login"><?php echo _('Login')?></button></td>
+						<td colspan="3" id="td-btn-login"><button type="submit" id="btn-login" class="btn btn-default"><?php echo _('Login')?></button></td>
 					</tr>
 				</table>
 			</div>

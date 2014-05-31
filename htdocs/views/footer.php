@@ -1,13 +1,13 @@
 		</div>
-		<script type="text/javascript" src="assets/js/fileinput.js"></script>
 		<script>
 			$(document).bind("mobileinit", function() {
 				$.mobile.ignoreContentEnabled = true;
 			});
 		</script>
+		<script type="text/javascript" src="assets/js/fileinput.js"></script>
 		<script type="text/javascript" src="assets/js/recorder.js"></script>
-		<script type="text/javascript" src="assets/framework/js/bootstrap-3.0.2.custom.min.js"></script>
-		<script type="text/javascript" src="assets/framework/js/jquery-ui-1.10.3.custom.min.js"></script>
+		<script type="text/javascript" src="assets/js/bootstrap-3.1.1.custom.min.js"></script>
+		<script type="text/javascript" src="assets/js/jquery-ui-1.10.4.custom.min.js"></script>
 		<script type="text/javascript" src="assets/js/jquery.iframe-transport.js"></script>
 		<script type="text/javascript" src="assets/js/jquery.fileupload.js"></script>
 		<script type="text/javascript" src="assets/js/jquery.form.min.js"></script>
