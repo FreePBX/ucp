@@ -15,6 +15,13 @@ var HomeC = UCPC.extend({
 		//$('.masonry-container').packery('destroy');
 		this.packery = false;
 	},
+	refresh: function(module,id) {
+		$('#'+module+'-title-'+id+' i.fa-refresh').addClass('fa-spin');
+		$.post( "?quietmode=1&module="+module+"&command=homeRefresh&id="+id, {}, function( data ) {
+			$('#'+module+'-title-'+id+' i.fa-refresh').removeClass('fa-spin');
+			$('#'+module+'-content-'+id).html(data.content);
+		});
+	},
 	resize: function() {
 		var wasPackeryEnabled = this.packery;
 		this.packery = $(window).width() >= 768;

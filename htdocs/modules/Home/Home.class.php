@@ -39,9 +39,9 @@ class Home extends Modules{
         foreach($modules as $module) {
             $widgets = $this->Modules->$module->getHomeWidgets();
             foreach($widgets as $data) {
-                $html .= '<div id="'.$module.'-widget" class="widget" style="width:'.$data['size'].';">';
-                $html .= '<div id="'.$module.'-title" class="title">'.$data['title'].'<a onclick="Home.refresh(\''.$module.'\')"><i class="fa fa-refresh"></i></a></div>';
-                $html .= '<div id="'.$module.'-content" class="content">';
+                $html .= '<div id="'.$module.'-widget-'.$data['id'].'" class="widget" style="width:'.$data['size'].';">';
+                $html .= '<div id="'.$module.'-title-'.$data['id'].'" class="title">'.$data['title'].'<a onclick="Home.refresh(\''.$module.'\',\''.$data['id'].'\')"><i class="fa fa-refresh"></i></a></div>';
+                $html .= '<div id="'.$module.'-content-'.$data['id'].'" class="content">';
                 $html .= $data['content'];
                 $html .= '</div></div>';
             }
@@ -55,13 +55,16 @@ class Home extends Modules{
         return array("status" => true, "data" => array());
     }
 
-    public function getHomeWidgets() {
-        $feeds = array(
-            'http://www.freepbx.org/rss.xml',
-            'http://feeds.feedburner.com/InsideTheAsterisk'
-        );
+    public function getHomeWidgets($feed=null) {
+		$feeds = array(
+			'freepbx' => 'http://www.freepbx.org/rss.xml',
+			'digium' => 'http://feeds.feedburner.com/InsideTheAsterisk'
+		);
+		if(!empty($feed)) {
+			$feeds = array($feeds[$feed]);
+		}
         $out = array();
-        foreach($feeds as $feed) {
+        foreach($feeds as $k => $feed) {
             $curl = curl_init();
             curl_setopt($curl, CURLOPT_URL, $feed);
             curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
@@ -75,6 +78,7 @@ class Home extends Modules{
             }
             $content .= '</ul>';
             $out[] = array(
+				"id" => $k,
                 "title" => '<a href="'.$xml->channel->link.'" target="_blank">'.$xml->channel->description.'</a>',
                 "content" => $content,
                 "size" => '33.33%'
@@ -83,6 +87,45 @@ class Home extends Modules{
 
         return $out;
     }
+
+		/**
+	 * Determine what commands are allowed
+	 *
+	 * Used by Ajax Class to determine what commands are allowed by this class
+	 *
+	 * @param string $command The command something is trying to perform
+	 * @param string $settings The Settings being passed through $_POST or $_PUT
+	 * @return bool True if pass
+	 */
+	function ajaxRequest($command, $settings) {
+		switch($command) {
+			case 'homeRefresh':
+				return true;
+			default:
+				return false;
+			break;
+		}
+	}
+
+	/**
+	 * The Handler for all ajax events releated to this class
+	 *
+	 * Used by Ajax Class to process commands
+	 *
+	 * @return mixed Output if success, otherwise false will generate a 500 error serverside
+	 */
+	function ajaxHandler() {
+		$return = array("status" => false, "message" => "");
+		switch($_REQUEST['command']) {
+			case 'homeRefresh':
+				$data = $this->getHomeWidgets($_REQUEST['id']);
+				return array("status" => true, "content" => $data[0]['content']);
+			break;
+			default:
+				return false;
+				break;
+		}
+	}
 
 	public function getMenuItems() {
 		return array(
