@@ -40,12 +40,13 @@ class UCP extends UCP_Helpers {
 			$this->notifications = \notifications::create();
 			//database subsystem
 			$this->db = $this->FreePBX->Database;
+			$this->db->setAttribute(\PDO::MYSQL_ATTR_USE_BUFFERED_QUERY, false);
 		}
-		
+
 		// Ensure the local object is available
 		self::$obj = $this;
 	}
-	
+
 	/**
 	 * Alternative Constructor
 	 *
@@ -62,13 +63,13 @@ class UCP extends UCP_Helpers {
 		}
 		return self::$obj;
 	}
-	
+
 	/**
 	 * Get the UCP Version
 	 *
 	 * In accordance with pjax, when the version changes here it will force refresh
-	 * the entire page, instead of just the container, when content is retrieved this 
-	 * will force the client to get new html assets, this version will then be placed 
+	 * the entire page, instead of just the container, when content is retrieved this
+	 * will force the client to get new html assets, this version will then be placed
 	 * in a meta tag
 	 *
 	 * https://github.com/defunkt/jquery-pjax#layout-reloading
@@ -78,11 +79,11 @@ class UCP extends UCP_Helpers {
 	function getVersion() {
 		return 'v1.3';
 	}
-	
+
 	function getSetting($username,$module,$setting) {
 		return $this->FreePBX->UCP->getSetting($username,$module,$setting);
 	}
-	
+
 	function setSetting($username,$module,$setting,$value) {
 		return $this->FreePBX->UCP->setSetting($username,$module,$setting,$value);
 	}
