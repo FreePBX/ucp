@@ -2,11 +2,13 @@ var UCPC = Class.extend({
 	init: function(){
 		this.loggedIn = false;
 		this.pollID = null;
+		this.polling = false;
 		this.notify = null;
 		this.activeModule = 'Home';
 		this.transitioning = false;
 		this.lastScrollTop = 0;
 		this.hidden = 'hidden';
+		this.ws = null;
 	},
 	ready: function() {
 		$(window).resize(function() {UCP.windowResize();});
@@ -206,8 +208,42 @@ var UCPC = Class.extend({
 			window[UCP.activeModule].windowState(state);
 		}
 	},
-	poller: function() {
-		this.pollID = setInterval(function(){
+	startComm: function() {
+		this.ws = new WebSocket("ws://"+$.url().attr('host')+":8081");
+		this.ws.onerror = function (event) {
+			console.warn('Unable to make websockets connection, falling back to polling');
+			UCP.shortpoll();
+			UCP.pollID = setInterval(function(){
+				UCP.shortpoll();
+			}, 5000);
+		};
+		this.ws.onmessage = function (event) {
+			var data = JSON.parse(event.data);
+			//get messages here
+		};
+		this.ws.onopen = function (event) {
+			//attemp to connect here
+		};
+		this.ws.onclose = function (event) {
+			//terminate the connection do stuff after here
+			console.warn('Connection Terminated');
+		};
+	},
+	longpoll: function() {
+		$.ajax({ url: "index.php?quietmode=1&command=poll", data: {data: $.url().param()}, success: function(data){
+			if(data.status) {
+				$.each(data.modData, function( module, data ) {
+					if (typeof window[module] == 'object' && typeof window[module].poll == 'function') {
+						window[module].poll(data, $.url().param());
+					}
+				});
+			}
+			UCP.longpoll();
+		}, dataType: "json", type: "POST"});
+	},
+	shortpoll: function() {
+		if(!UCP.polling) {
+			UCP.polling = true;
 			$.ajax({ url: "index.php?quietmode=1&command=poll", data: {data: $.url().param()}, success: function(data){
 				if(data.status) {
 					$.each(data.modData, function( module, data ) {
@@ -216,8 +252,9 @@ var UCPC = Class.extend({
 						}
 					});
 				}
+				UCP.polling = false;
 			}, dataType: "json", type: "POST"});
-		}, 5000);
+		}
 	},
 	windowResize: function(hiddenFooter) {
 		if($( window ).width() > 767 && $('.pushmenu-left').hasClass('pushmenu-open')) {
@@ -303,20 +340,17 @@ var UCPC = Class.extend({
 	},
 	online: function(event) {
 		if(this.loggedIn && this.pollID === null) {
-			this.poller();
+			this.startComm();
 		}
 	},
 	offline: function(event) {
-		if(this.pollID !== null) {
-			clearInterval(this.pollID);
-			this.pollID = null;
-		}
+
 	},
 	logIn: function(event) {
 		this.activeModule = $.url().param('mod');
 		this.activeModule = (this.activeModule !== undefined) ? UCP.toTitleCase(this.activeModule) : 'Home';
 		this.loggedIn = true;
-		this.poller();
+		this.startComm();
 		if(!Notify.needsPermission() && this.notify === null) {
 			this.notify = true;
 		}

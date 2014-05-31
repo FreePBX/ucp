@@ -127,8 +127,9 @@ class Ajax extends UCP {
 	public function poll() {
 		$modules = $this->UCP->Modules->getModulesByMethod('poll');
 		$modData = array();
+		$data = !empty($_REQUEST['data']) ? $_REQUEST['data'] : array();//
 		foreach($modules as $module) {
-			$modData[$module] = $this->UCP->Modules->$module->poll($_REQUEST['data']);
+			$modData[$module] = $this->UCP->Modules->$module->poll($data);
 		}
 		return array(
 			"status" => true,

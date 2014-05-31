@@ -25,10 +25,10 @@
 namespace UCP;
 include(__DIR__.'/UCP_Helpers.class.php');
 class UCP extends UCP_Helpers {
-	// Static Object used for self-referencing. 
+	// Static Object used for self-referencing.
 	private static $obj;
 	public static $conf;
-	
+
 	function __construct($mode = 'local') {
 		if($mode == 'local') {
 			//Setup our objects for use
