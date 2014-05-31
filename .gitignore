@@ -1,3 +1,4 @@
+websocketd
 htdocs/modules/*
 !htdocs/modules/Home
 !htdocs/modules/Settings
