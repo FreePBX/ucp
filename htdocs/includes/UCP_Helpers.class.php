@@ -1,46 +1,36 @@
 <?php
+// vim: set ai ts=4 sw=4 ft=php:
 /**
- * This is the User Control Panel Object.
+ * This is Part of the User Control Panel Object
+ * A replacement for the Asterisk Recording Interface
+ * for FreePBX
  *
- * Copyright (C) 2013 Schmooze Com, INC
- * Copyright (C) 2013 Andrew Nagy <andrew.nagy@schmoozecom.com>
+ * UCP Helpers for the UCP Object. They help. Yup.
  *
- * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU Affero General Public License as
- * published by the Free Software Foundation, either version 3 of the
- * License, or (at your option) any later version.
+ * Note: This is namespaced into UCP
  *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU Affero General Public License for more details.
- *
- * You should have received a copy of the GNU Affero General Public License
- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
- *
- * @package   FreePBX UCP BMO
- * @author   Andrew Nagy <andrew.nagy@schmoozecom.com>
- * @license   AGPL v3
+ * License for all code of this FreePBX module can be found in the license file inside the module directory
+ * Copyright 2006-2014 Schmooze Com Inc.
  */
 namespace UCP;
 class UCP_Helpers {
-		
+
 	/**
 	 * PHP Magic __get - runs AutoLoader if BMO doesn't already have the object.
-	 * 
+	 *
 	 * @param $var Class Name
 	 * @return $object New Object
-	 * @access public 
+	 * @access public
 	 */
-    public function __get($var) {
+	public function __get($var) {
 		if (isset(UCP::create()->$var)) {
 			$this->$var = UCP::create()->$var;
 			return $this->$var;
 		}
 
 		return $this->autoLoad($var);
-    }
-	
+	}
+
 	/**
 	 * PHP Magic __call - runs AutoLoader
 	 *
@@ -50,11 +40,11 @@ class UCP_Helpers {
 	 * @param $var Class Name
 	 * @param $args Any params to be passed to the new object
 	 * @return $object New Object
-	 * @access public 
+	 * @access public
 	 */
-    public function __call($var, $args) {
-        return $this->autoLoad($var, $args);
-    }
+	public function __call($var, $args) {
+		return $this->autoLoad($var, $args);
+	}
 
 	/**
 	 * PHP Magic __callStatic - runs AutoLoader
@@ -65,17 +55,17 @@ class UCP_Helpers {
 	 * @param $var Class Name
 	 * @param $args Any params to be passed to the new object
 	 * @return $object New Object
-	 * @access public 
+	 * @access public
 	 */
-    public static function __callStatic($var, $args) {
-        return $this->autoLoad($var, $args);
-    }
-	
+	public static function __callStatic($var, $args) {
+		return $this->autoLoad($var, $args);
+	}
+
 	/**
 	 * AutoLoader for BMO.
-	 * 
+	 *
 	 * This implements a half-arsed spl_autoload that ignore PSR1 and PSR4. I am
-	 * admitting that at the start so no-one gets on my case about it. 
+	 * admitting that at the start so no-one gets on my case about it.
 	 *
 	 * However, as we're having no end of issues with PHP Autoloading things properly
 	 * (as of PHP 5.3.3, which is our minimum version at this point in time), this will
@@ -95,8 +85,8 @@ class UCP_Helpers {
 		if (func_num_args() == 0) {
 			throw new \Exception("Nothing given to the AutoLoader");
 		}
-		
-		// If we have TWO arguments, we've been called by __call, if we only have 
+
+		// If we have TWO arguments, we've been called by __call, if we only have
 		// one we've been called by __get.
 
 		$args = func_get_args();
@@ -128,8 +118,8 @@ class UCP_Helpers {
 		}
 		return $this->$var;
 	}
-	
-	/** 
+
+	/**
 	 * Find the file for the object $objname
 	 */
 	private function loadObject($objname, $hint = null) {

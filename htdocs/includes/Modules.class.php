@@ -1,26 +1,14 @@
 <?php
+// vim: set ai ts=4 sw=4 ft=php:
 /**
- * This is the User Control Panel Object.
+ * This is Part of the User Control Panel Object
+ * A replacement for the Asterisk Recording Interface
+ * for FreePBX
  *
- * Copyright (C) 2013 Schmooze Com, INC
- * Copyright (C) 2013 Andrew Nagy <andrew.nagy@schmoozecom.com>
+ * Manages UCP Modules.
  *
- * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU Affero General Public License as
- * published by the Free Software Foundation, either version 3 of the
- * License, or (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU Affero General Public License for more details.
- *
- * You should have received a copy of the GNU Affero General Public License
- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
- *
- * @package   FreePBX UCP BMO
- * @author   Andrew Nagy <andrew.nagy@schmoozecom.com>
- * @license   AGPL v3
+ * License for all code of this FreePBX module can be found in the license file inside the module directory
+ * Copyright 2006-2014 Schmooze Com Inc.
  */
 namespace UCP;
 include(__DIR__.'/Module_Helpers.class.php');
@@ -142,6 +130,12 @@ class Modules extends Module_Helpers {
 
     //These Scripts persist throughout the navigation of UCP
     public function getGlobalScripts() {
+			$cache = dirname(__DIR__).'/assets/js/compiled';
+			if(!file_exists($cache) && !mkdir($cache)) {
+				die('Can Not Create Cache Folder at '.$cache);
+			}
+			$ftime = 0;
+			$contents = '';
         $files = array();
         foreach (glob(dirname(__DIR__)."/modules/*", GLOB_ONLYDIR) as $module) {
             $mod = basename($module);
@@ -149,12 +143,41 @@ class Modules extends Module_Helpers {
                 $module = ucfirst(strtolower($mod));
                 $dir = dirname(__DIR__)."/modules/".$module."/assets/js";
                 if(is_dir($dir) && file_exists($dir.'/global.js')) {
+									$ftime = filemtime($dir.'/global.js') > $ftime ? filemtime($dir.'/global.js') : $ftime;
                     $files[] = 'modules/'.ucfirst($module).'/assets/js/global.js';
+										$contents .= file_get_contents($dir.'/global.js')."\n";
                 }
             }
         }
-        return $files;
+				$filename = 'jsphp_'.$ftime.'.js';
+				if(!file_exists($cache.'/'.$filename)) {
+					$output = \JShrink\Minifier::minify($contents);
+					file_put_contents($cache.'/'.$filename,$output);
+				}
+        return $filename;
     }
+
+		//These Scripts persist throughout the navigation of UCP
+		public function getGlobalLess() {
+			$cache = dirname(__DIR__).'/assets/css/compiled';
+			if(!file_exists($cache) && !mkdir($cache)) {
+				die('Can Not Create Cache Folder at '.$cache);
+			}
+			\Less_Cache::$cache_dir = $cache;
+				$files = array();
+				foreach (glob(dirname(__DIR__)."/modules/*", GLOB_ONLYDIR) as $module) {
+						$mod = basename($module);
+						if(file_exists($module.'/'.$mod.'.class.php')) {
+								$module = ucfirst(strtolower($mod));
+								$dir = dirname(__DIR__)."/modules/".$module."/assets/less";
+								if(is_dir($dir) && file_exists($dir.'/bootstrap.less')) {
+									$files[$dir."/bootstrap.less"] = 'modules/'.ucfirst($module).'/assets';
+								}
+						}
+				}
+				$css_file_name = \Less_Cache::Get( $files, array('compress' => true) );
+				return $css_file_name;
+		}
 
 	protected function load_view($view_filename_protected, $vars = array()) {
 		return $this->UCP->View->load_view($view_filename_protected, $vars);
@@ -162,60 +185,5 @@ class Modules extends Module_Helpers {
 
 	protected function show_view($view_filename_protected, $vars = array()) {
 		return $this->UCP->View->show_view($view_filename_protected, $vars);
-	}
-
-	/** These Functions attempt to load assets automatically for us **/
-	protected function loadScripts() {
-		$contents = '';
-		$dir = dirname(__DIR__)."/modules/".ucfirst($this->module)."/assets/js";
-		if(is_dir($dir)) {
-			$filenames = glob($dir."/*.js");
-			usort($filenames, "strcmp");
-			foreach ($filenames as $filename) {
-                $path_parts = pathinfo($filename);
-                if($path_parts['filename'] != 'global') {
-				    $contents .= file_get_contents($filename);
-                }
-			}
-		}
-		return "<script>".$contents."</script>";
-	}
-
-	protected function loadCSS() {
-		$contents = '';
-		$dir = dirname(__DIR__)."/modules/".ucfirst($this->module)."/assets/css";
-		if(is_dir($dir)) {
-			$filenames = glob($dir."/*.css");
-			usort($filenames, "strcmp");
-			foreach ($filenames as $filename) {
-				$contents .= file_get_contents($filename);
-			}
-		}
-		return "<style>".$contents."</style>";
-	}
-
-	protected function loadLESS() {
-		$contents = '';
-		$dir = dirname(__DIR__)."/modules/".ucfirst($this->module)."/assets/less";
-		if(is_dir($dir)) {
-			$files = array();
-			if(!file_exists($dir.'/cache') && !mkdir($dir.'/cache')) {
-				die('Can Not Create Cache Folder at '.$dir.'/cache');
-			}
-			\Less_Cache::$cache_dir = $dir."/cache";
-			if(file_exists($dir."/bootstrap.less")) {
-				$files = array( $dir."/bootstrap.less" => 'modules/'.ucfirst($this->module).'/assets' );
-			} else {
-				$filenames = glob($dir."/*.less");
-				usort($filenames, "strcmp");
-				foreach ($filenames as $filename) {
-					$files[$filename] = 'ucp/';
-				}
-			}
-		}
-
-		$css_file_name = \Less_Cache::Get( $files, array('compress' => true) );
-		$compiled = file_get_contents( $dir.'/cache/'.$css_file_name );
-		return "<style>".$compiled."</style>";
 	}
 }

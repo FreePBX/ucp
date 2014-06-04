@@ -34,8 +34,7 @@ class Home extends Modules{
 
 	function getDisplay() {
         $modules = $this->Modules->getModulesByMethod('getHomeWidgets');
-        $html = $this->loadLESS();
-		$html .= '<div class="masonry-container">';
+        $html = '<div class="masonry-container">';
         foreach($modules as $module) {
             $widgets = $this->Modules->$module->getHomeWidgets();
             foreach($widgets as $data) {
@@ -47,7 +46,6 @@ class Home extends Modules{
             }
         }
         $html .= '</div>';
-        $html .= $this->loadScripts();
 		return $html;
 	}
 

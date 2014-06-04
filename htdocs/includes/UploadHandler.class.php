@@ -1,5 +1,10 @@
 <?php
-/*
+// vim: set ai ts=4 sw=4 ft=php:
+/**
+ * This is Part of the User Control Panel Object
+ * A replacement for the Asterisk Recording Interface
+ * for FreePBX
+ *
  * jQuery File Upload Plugin PHP Class 7.1.4
  * https://github.com/blueimp/jQuery-File-Upload
  *
@@ -8,6 +13,9 @@
  *
  * Licensed under the MIT license:
  * http://www.opensource.org/licenses/MIT
+ *
+ * License for all code of this FreePBX module can be found in the license file inside the module directory
+ * Copyright 2006-2014 Schmooze Com Inc.
  */
 
 namespace UCP;
@@ -1090,7 +1098,7 @@ class UploadHandler
     protected function body($str) {
         echo $str;
     }
-    
+
     protected function header($str) {
         header($str);
     }

@@ -73,6 +73,9 @@
 			  </div>
 		</div>
 	</div>
+	<div id="pm">
+		<div class="box"><img id="status-image" src="modules/Presencestate/assets/images/status.png"><i class="fa fa-caret-down"></i></div>
+	</div>
 	<div id="footer">
 		<div id="footer-bar"></div>
 		<div id="footer-content">

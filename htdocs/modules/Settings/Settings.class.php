@@ -39,7 +39,6 @@ class Settings extends Modules{
 		}
 		$modules = $this->Modules->getModulesByMethod('getSettingsDisplay');
 		$html = '';
-		$html .= $this->LoadLESS();
 
 		$sections = array();
 		foreach($modules as $module) {

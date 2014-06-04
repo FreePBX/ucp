@@ -1,26 +1,14 @@
 <?php
+// vim: set ai ts=4 sw=4 ft=php:
 /**
- * This is the User Control Panel Object.
+ * This is Part of the User Control Panel Object
+ * A replacement for the Asterisk Recording Interface
+ * for FreePBX
  *
- * Copyright (C) 2013 Schmooze Com, INC
- * Copyright (C) 2013 Andrew Nagy <andrew.nagy@schmoozecom.com>
+ * Common Functionality that can be shared between all modules
  *
- * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU Affero General Public License as
- * published by the Free Software Foundation, either version 3 of the
- * License, or (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU Affero General Public License for more details.
- *
- * You should have received a copy of the GNU Affero General Public License
- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
- *
- * @package   FreePBX UCP BMO
- * @author   Andrew Nagy <andrew.nagy@schmoozecom.com>
- * @license   AGPL v3
+ * License for all code of this FreePBX module can be found in the license file inside the module directory
+ * Copyright 2006-2014 Schmooze Com Inc.
  */
 namespace UCP;
 class Template extends UCP {
@@ -28,6 +16,15 @@ class Template extends UCP {
 		$this->UCP = $UCP;
 	}
 
+	/**
+	 * Generates the Pagnation in bootstrap style
+	 * that is at the top and bottom of each page
+	 *
+	 * @param {int} $total    The total number of pages
+	 * @param {int} $current  The current visible page number
+	 * @param {string} $link     The link for the href tag that will be appended to
+	 * @param {int} $break=10 How many page links to display to the user
+	 */
 	public function generatePagnation($total,$current,$link,$break=10) {
 		$start = (ceil($current / $break) * $break) - ($break -1);
 		$end = ceil($current / $break) * $break;

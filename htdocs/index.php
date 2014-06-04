@@ -40,6 +40,7 @@ $displayvars = array();
 $displayvars['user'] = $user;
 
 require dirname(__FILE__).'/includes/less/Cache.php';
+require dirname(__FILE__).'/includes/js/Minifier.php';
 if(!file_exists(dirname(__FILE__).'/assets/css/compiled') && !mkdir(dirname(__FILE__).'/assets/css/compiled')) {
 	die('Can Not Create Cache Folder at '.dirname(__FILE__).'/assets/css/compiled');
 }
@@ -56,6 +57,8 @@ $displayvars['ucpcssless'] = Less_Cache::Get( $ucpfiles );
 $ucpfiles = array();
 $ucpfiles[dirname(__FILE__).'/assets/less/font-awesome/font-awesome.less'] = '/ucp/assets/';
 $displayvars['facssless'] = Less_Cache::Get( $ucpfiles );
+
+$displayvars['ucpmoduleless'] = $ucp->Modules->getGlobalLess();
 
 $displayvars['error_warning'] = '';
 $displayvars['error_danger'] = '';

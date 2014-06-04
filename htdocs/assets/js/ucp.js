@@ -230,6 +230,7 @@ var UCPC = Class.extend({
 		};
 	},
 	longpoll: function() {
+		//not used because longpoll is irritating with apache and php
 		$.ajax({ url: "index.php?quietmode=1&command=poll", data: {data: $.url().param()}, success: function(data){
 			if(data.status) {
 				$.each(data.modData, function( module, data ) {
