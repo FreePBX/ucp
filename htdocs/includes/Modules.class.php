@@ -41,77 +41,101 @@ class Modules extends Module_Helpers {
 		return self::$obj;
 	}
 
+	/**
+	 * Generate the navigation menu
+	 */
 	public function generateMenu() {
 		$menu = array();
 		//module with no module folder
-        $modules = $this->getModulesByMethod('getMenuItems');
-        //Move Home to the Top in the menu structure.
-        unset($modules[array_search('Home', $modules)]);
-        array_unshift($modules, 'Home');
-        foreach($modules as $module) {
-            $module = ucfirst(strtolower($module));
-            $lc = strtolower($module);
-            $mm = $this->$module->getMenuItems();
-            if(!empty($mm)) {
-                $menu[$lc] = $mm;
-            }
-        }
+		$modules = $this->getModulesByMethod('getMenuItems');
+		//Move Home to the Top in the menu structure.
+		unset($modules[array_search('Home', $modules)]);
+		array_unshift($modules, 'Home');
+		foreach($modules as $module) {
+			$module = ucfirst(strtolower($module));
+			$lc = strtolower($module);
+			$mm = $this->$module->getMenuItems();
+			if(!empty($mm)) {
+				$menu[$lc] = $mm;
+			}
+		}
 		return $menu;
 	}
 
-    public function getModulesByMethod($method) {
-        $objects = array();
-        foreach (glob(dirname(__DIR__)."/modules/*.class.php") as $module) {
-            if(preg_match('/^(.*)\.class$/',pathinfo($module,PATHINFO_FILENAME),$matches)) {
-                $module = ucfirst(strtolower($matches[1]));
-                if(method_exists($this->$module,$method)) {
-                    $reflection = new \ReflectionMethod($this->$module, $method);
-                    if ($reflection->isPublic()) {
-                        $objects[] = $module;
-                    }
-                }
-            }
-        }
-        //module with module folder
-        foreach (glob(dirname(__DIR__)."/modules/*", GLOB_ONLYDIR) as $module) {
-            $mod = basename($module);
-            if(file_exists($module.'/'.$mod.'.class.php')) {
-                $module = ucfirst(strtolower($mod));
-                if(method_exists($this->$module,$method)) {
-                    $reflection = new \ReflectionMethod($this->$module, $method);
-                    if ($reflection->isPublic()) {
-                        $objects[] = $module;
-                    }
-                }
-            }
-        }
-        return $objects;
-    }
+	/**
+	 * Check all modules to see if they have the requested method
+	 * @param {string} $method method name
+	 * @return {array} Hash of the object names
+	 */
+	public function getModulesByMethod($method) {
+		$objects = array();
+		foreach (glob(dirname(__DIR__)."/modules/*.class.php") as $module) {
+			if(preg_match('/^(.*)\.class$/',pathinfo($module,PATHINFO_FILENAME),$matches)) {
+				$module = ucfirst(strtolower($matches[1]));
+				if(method_exists($this->$module,$method)) {
+					$reflection = new \ReflectionMethod($this->$module, $method);
+					if ($reflection->isPublic()) {
+						$objects[] = $module;
+					}
+				}
+			}
+		}
+		//module with module folder
+		foreach (glob(dirname(__DIR__)."/modules/*", GLOB_ONLYDIR) as $module) {
+			$mod = basename($module);
+			if(file_exists($module.'/'.$mod.'.class.php')) {
+				$module = ucfirst(strtolower($mod));
+				if(method_exists($this->$module,$method)) {
+					$reflection = new \ReflectionMethod($this->$module, $method);
+					if ($reflection->isPublic()) {
+						$objects[] = $module;
+					}
+				}
+			}
+		}
+		return $objects;
+	}
 
+	/**
+	 * Get Devices that are assigned to this user
+	 */
 	function getAssignedDevices() {
 		$user = $this->UCP->User->getUser();
 		return $user['assigned'];
 	}
 
-    function getDefaultDevice() {
-        $user = $this->UCP->User->getUser();
-        return ($user['default_extension'] != 'none') ? $user['default_extension'] : false;
-    }
+	/**
+	 * Get the default assigned device for this user
+	 */
+	function getDefaultDevice() {
+		$user = $this->UCP->User->getUser();
+		return ($user['default_extension'] != 'none') ? $user['default_extension'] : false;
+	}
 
 	/** Module Specific Funtions, These should be extended into each module **/
 
+	/**
+	 * Get module display
+	 */
 	public function getDisplay() {
 		return '';
 	}
 
+	/**
+	 * Get menu badge count
+	 */
 	public function getBadge() {
 		return false;
 	}
 
+	/**
+	 * Get Module Menu Items
+	 */
 	public function getMenuItems() {
 		return array();
 	}
 
+	
 	public function ajaxRequest($command, $settings) {
 		return false;
 	}
@@ -171,7 +195,7 @@ class Modules extends Module_Helpers {
 								$module = ucfirst(strtolower($mod));
 								$dir = dirname(__DIR__)."/modules/".$module."/assets/less";
 								if(is_dir($dir) && file_exists($dir.'/bootstrap.less')) {
-									$files[$dir."/bootstrap.less"] = 'modules/'.ucfirst($module).'/assets';
+									$files[$dir."/bootstrap.less"] = '../../../modules/'.ucfirst($module).'/assets';
 								}
 						}
 				}

@@ -312,14 +312,14 @@ var UCPC = Class.extend({
 	pjaxEnd: function(event) {
 		this.windowResize();
 		$('#loader-screen').fadeOut('fast');
-		console.log('Execute: '+this.activeModule+'.hide()');
 		if (typeof window[this.activeModule] == 'object' && typeof window[this.activeModule].hide == 'function') {
+			console.log('Execute: '+this.activeModule+'.hide()');
 			window[this.activeModule].hide(event);
 		}
 		this.activeModule = $.url().param('mod');
 		this.activeModule = (this.activeModule !== undefined) ? UCP.toTitleCase(this.activeModule) : 'Home';
-		console.log('Execute: '+this.activeModule+'.display()');
 		if (typeof window[this.activeModule] == 'object' && typeof window[this.activeModule].display == 'function') {
+			console.log('Execute: '+this.activeModule+'.display()');
 			window[this.activeModule].display(event);
 		}
 		this.binds();
@@ -355,8 +355,8 @@ var UCPC = Class.extend({
 		if(!Notify.needsPermission() && this.notify === null) {
 			this.notify = true;
 		}
-		console.log('Execute: '+this.activeModule+'.display()');
 		if (typeof window[this.activeModule] == 'object' && typeof window[this.activeModule].display == 'function') {
+			console.log('Execute: '+this.activeModule+'.display()');
 			window[this.activeModule].display(event);
 		}
 		this.binds();
@@ -366,6 +366,7 @@ var UCPC = Class.extend({
 		clearInterval(this.pollID);
 		this.pollID = null;
 		if (typeof window[this.activeModule] == 'object' && typeof window[this.activeModule].hide == 'function') {
+			console.log('Execute: '+this.activeModule+'.hide()');
 			window[this.activeModule].hide(event);
 		}
 	},

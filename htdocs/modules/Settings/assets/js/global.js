@@ -2,6 +2,7 @@ var SettingsC = UCPC.extend({
 	init: function(){
 		this.packery = false;
 		this.doit = null;
+		this.modules = [];
 	},
 	poll: function(data){
 		//console.log(data)
@@ -9,11 +10,21 @@ var SettingsC = UCPC.extend({
 	display: function(event) {
 		$(window).on("resize.Settings", Settings.resize);
 		this.resize();
+		$.each(modules, function( index, module ) {
+			if (typeof window[module] == 'object' && typeof window[module].settingsDisplay == 'function') {
+				window[module].settingsDisplay();
+			}
+		});
 	},
 	hide: function(event) {
 		$(window).off("resize.Settings");
 		//$('.masonry-container').packery('destroy');
 		this.packery = false;
+		$.each(modules, function( index, module ) {
+			if (typeof window[module] == 'object' && typeof window[module].settingsHide == 'function') {
+				window[module].settingsDisplay();
+			}
+		});
 	},
 	resize: function() {
 		var wasPackeryEnabled = this.packery;
