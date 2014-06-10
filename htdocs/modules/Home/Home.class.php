@@ -54,11 +54,12 @@ class Home extends Modules{
     }
 
     public function getHomeWidgets($feed=null) {
-		$feeds = array(
-			'freepbx' => 'http://www.freepbx.org/rss.xml',
-			'digium' => 'http://feeds.feedburner.com/InsideTheAsterisk'
-		);
-		if(!empty($feed)) {
+        $fpbxfeeds = $this->UCP->FreePBX->Config->get('RSSFEEDS');
+        $feeds = array();
+        foreach(explode("\n",$fpbxfeeds) as $k => $f) {
+            $feeds['feed-'.$k] = $f;
+        }
+		if(!empty($feed) && !empty($feeds[$feed])) {
 			$feeds = array($feeds[$feed]);
 		}
         $out = array();
