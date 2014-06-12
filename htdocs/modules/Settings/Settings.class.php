@@ -73,14 +73,15 @@ class Settings extends Modules{
 
 	public function getMenuItems() {
 		$user = $this->UCP->User->getUser();
+        $extensions = $this->UCP->getSetting($user['username'],$this->module,'assigned');
 		$menu = array();
-		if(!empty($user['assigned'])) {
+		if(!empty($extensions)) {
 			$menu = array(
 				"rawname" => "settings",
 				"name" => _("Settings"),
 				"badge" => false,
 			);
-			foreach($user['assigned'] as $extension) {
+			foreach($extensions as $extension) {
 				$data = $this->UCP->FreePBX->Core->getDevice($extension);
 				$menu["menu"][] = array(
 					"rawname" => $extension,
@@ -94,6 +95,7 @@ class Settings extends Modules{
 
 	private function _checkExtension($extension) {
 		$user = $this->UCP->User->getUser();
-		return in_array($extension,$user['assigned']);
+        $extensions = $this->UCP->getSetting($user['username'],$this->module,'assigned');
+		return in_array($extension,$extensions);
 	}
 }

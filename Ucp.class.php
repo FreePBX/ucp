@@ -83,7 +83,11 @@ class Ucp implements BMO {
 				$mod = ucfirst(strtolower($module['rawname']));
 				if(file_exists($location."/".$rawname."/".$mod.".class.php")) {
 					if(method_exists(FreePBX::create()->$mod,'getUCPAdminDisplay')) {
-						$html .= FreePBX::create()->$mod->getUCPAdminDisplay($user);
+						$data = FreePBX::create()->$mod->getUCPAdminDisplay($user);
+						$html[] = array(
+							'description' => $data['description'],
+							'content' => $data['content']
+						);
 					}
 				}
 			}
@@ -152,31 +156,6 @@ class Ucp implements BMO {
 		$user = $this->getUserByUsername($username);
 		$assigned = $this->FreePBX->Userman->setModuleSettingByID($user['id'],'ucp|'.ucfirst(strtolower($module)),$setting,$value);
 		return $assigned;
-	}
-
-	public function myShowPage() {
-		$category = !empty($_REQUEST['category']) ? $_REQUEST['category'] : '';
-		$action = !empty($_REQUEST['action']) ? $_REQUEST['action'] : '';
-		$html = '';
-
-		$users = $this->getAllUsers();
-
-		$html .= load_view(dirname(__FILE__).'/views/rnav.php',array("users"=>$users));
-		switch($action) {
-			case 'showuser':
-				if(empty($_REQUEST['user'])) {
-					$html = _('No User Selected');
-					break;
-				}
-				$user = $this->getUserByID($_REQUEST['user']);
-				$html .= load_view(dirname(__FILE__).'/views/users.php',array("mHtml" => $this->constructModuleConfigPages($user), "user" => $user, "message" => $this->message, "sessions" => $this->getUserSessions($user['id'])));
-			break;
-			default:
-				$html .= load_view(dirname(__FILE__).'/views/main.php',array());
-			break;
-		}
-
-		return $html;
 	}
 
 	public function getAllUsers() {

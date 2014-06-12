@@ -16,36 +16,43 @@ $user = $ucp->User->getUser();
 if(isset($_REQUEST['logout']) && $user) {
 	$ucp->User->logout();
 	if(isset($_SERVER['HTTP_X_PJAX'])) {
+		//Forces pjax to refresh the entire page
 		header("X-PJAX-Version: logout");
 	}
 } else {
-	/* Advanced PreVis Stuff */
+	//Send back only PJAX relevant data
+	//This is to force a complete page refresh if/when UCP gets updates
+	//The header HTTP_X_PJAX comes from the JS PJAX lib, letting us know we don't need the whole html document
 	if(isset($_SERVER['HTTP_X_PJAX'])) {
 		header("X-PJAX-Version: ".$ucp->getVersion());
 	}
 }
 
-if((isset($_REQUEST['quietmode']) && $user) || (isset($_REQUEST['command']) && $_REQUEST['command'] == 'login')) {
+//Second part of this IF statement
+if((isset($_REQUEST['quietmode']) && $user !== false && !empty($user)) || (isset($_REQUEST['command']) && $_REQUEST['command'] == 'login')) {
     $m = !empty($_REQUEST['module']) ? $_REQUEST['module'] : null;
 	$ucp->Ajax->doRequest($m,$_REQUEST['command']);
 	die();
-} elseif(isset($_REQUEST['quietmode']) && !$user) {
+} elseif(isset($_REQUEST['quietmode']) && ($user === false || empty($user))) {
 	header("HTTP/1.0 403 Forbidden");
 	$json = json_encode(array("status" => "false", "message" => "forbidden"));
 	die($json);
 }
 
-/* Start Visualization Stuff */
+/* Start Display GUI Items */
 $displayvars = array();
 $displayvars['user'] = $user;
 
+//TODO: these need to be included in UCP_HELPERS
 require dirname(__FILE__).'/includes/less/Cache.php';
 require dirname(__FILE__).'/includes/js/Minifier.php';
+//TODO: needs to be an array of directories that need to be created on install
 if(!file_exists(dirname(__FILE__).'/assets/css/compiled') && !mkdir(dirname(__FILE__).'/assets/css/compiled')) {
 	die('Can Not Create Cache Folder at '.dirname(__FILE__).'/assets/css/compiled');
 }
 Less_Cache::$cache_dir = dirname(__FILE__).'/assets/css/compiled';
 
+//Needs to be one unified LESS file along with the module LESS file
 $btfiles = array();
 $btfiles[dirname(__FILE__).'/assets/less/bootstrap.less'] = '/ucp/';
 $displayvars['bootstrapcssless'] = Less_Cache::Get( $btfiles );
@@ -77,44 +84,33 @@ if ( !isset($_SERVER['HTACCESS']) ) {
 	}
 }
 
-foreach($ucp->FreePBX->Config->get_conf_settings() as $key => $data) {
-	$amp_conf[$key] = $data['value'];
-}
-$amp_conf['JQUERY_CSS'] = str_replace('assets/','',$amp_conf['JQUERY_CSS']);
-$displayvars['amp_conf'] = $amp_conf;
-
 $displayvars['version']			= getVersion();
 $displayvars['version_tag']		= '?load_version=' . urlencode($displayvars['version']);
 
-if ($amp_conf['FORCE_JS_CSS_IMG_DOWNLOAD']) {
-	$displayvars['this_time_append']	= '.' . time();
-	$displayvars['version_tag'] 		.= $this_time_append;
-} else {
-	$displayvars['this_time_append'] = '';
-}
-
 if(!isset($_SERVER['HTTP_X_PJAX'])) {
 	$displayvars['version'] = $ucp->getVersion();
+	//TODO: needs to not be global
 	show_view(dirname(__FILE__).'/views/header.php',$displayvars);
 }
 
-if($user) {
+if($user && !empty($user)) {
+	//TODO: this is depreciated and needs to be removed
 	$display = !empty($_REQUEST['display']) ? $_REQUEST['display'] : 'dashboard';
 	$module = !empty($_REQUEST['mod']) ? $_REQUEST['mod'] : 'home';
 	$displayvars['menu'] = $ucp->Modules->generateMenu();
-
 } else {
 	$display = '';
 	$module = '';
 	$displayvars['menu'] = array();
 	if(!empty($_REQUEST['display']) || !empty($_REQUEST['mod']) || isset($_REQUEST['logout'])) {
-
+		//TODO: logout code?
 	}
 }
 
 $displayvars['active_module'] = $module;
-$mclass = ucfirst($module);
+$mclass = ucfirst(strtolower($module));
 switch($display) {
+	//TODO: needs to be cleaned up to not have to use dashboard
 	case "dashboard":
 		$dashboard_content = '<div id="module-page-'.$module.'">'.$ucp->Modules->$mclass->getDisplay().'</div>';
 		if(isset($_SERVER['HTTP_X_PJAX'])) {
@@ -124,17 +120,17 @@ switch($display) {
 			}
 		}
 		$displayvars['dashboard_content'] = $dashboard_content;
-        $displayvars['year'] = date('Y',time());
+		$displayvars['year'] = date('Y',time());
 		show_view(dirname(__FILE__).'/views/dashboard.php',$displayvars);
 	break;
 	default:
 		$displayvars['token'] = $ucp->Session->generateToken('login');
 		show_view(dirname(__FILE__).'/views/login.php',$displayvars);
-		break;
+	break;
 }
 
 if(!isset($_SERVER['HTTP_X_PJAX'])) {
-    $displayvars['modules'] = json_encode($ucp->Modules->getActiveModules());
-    $displayvars['scripts'] = $ucp->Modules->getGlobalScripts();
+	$displayvars['modules'] = json_encode($ucp->Modules->getActiveModules());
+	$displayvars['scripts'] = $ucp->Modules->getGlobalScripts();
 	show_view(dirname(__FILE__).'/views/footer.php',$displayvars);
 }

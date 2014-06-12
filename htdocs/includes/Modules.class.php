@@ -124,6 +124,7 @@ class Modules extends Module_Helpers {
 	/**
 	 * Get menu badge count
 	 */
+	//TODO: Depreciated
 	public function getBadge() {
 		return false;
 	}

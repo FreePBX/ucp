@@ -37,7 +37,11 @@ function ucp_hook_userman_updateUser($id,$display,$data) {
             } else {
                 FreePBX::create()->Userman->setModuleSettingByID($id,'ucp|Global','allowLogin',false);
             }
-            return true;
+			if(isset($_POST['ucp|settings'])) {
+				$ucp = FreePBX::create()->Ucp;
+				$user = $ucp->getUserByID($id);
+				$ucp->setSetting($user['username'],'Settings','assigned',$_POST['ucp|settings']);
+			}
         }
     } else {
         $allowed = FreePBX::create()->Userman->getModuleSettingByID($id,'ucp|Global','allowLogin');
@@ -45,6 +49,7 @@ function ucp_hook_userman_updateUser($id,$display,$data) {
             FreePBX::create()->Userman->setModuleSettingByID($id,'ucp|Global','allowLogin',false);
         }
     }
+	return true;
 }
 
 function ucp_hook_userman_delUser($id,$display,$data) {
@@ -67,7 +72,19 @@ function ucp_hook_userman() {
 					$ucp->expireUserSession($_REQUEST['deletesession']);
 					$ucp->setUsermanMessage(_('Deleted User Session'),'success');
 				}
-				return load_view(dirname(__FILE__).'/views/users_hook.php',array("mHtml" => $ucp->constructModuleConfigPages($user), "user" => $user, "allowLogin" => FreePBX::create()->Userman->getModuleSettingByID($_REQUEST['user'],'ucp|Global','allowLogin'), "sessions" => $ucp->getUserSessions($user['id'])));
+				$fpbxusers = array();
+				$cul = array();
+				foreach(core_users_list() as $list) {
+					$cul[$list[0]] = array(
+						"name" => $list[1],
+					);
+				}
+				$sassigned = $ucp->getSetting($user['username'],'Settings','assigned');
+				$sassigned = !empty($sassigned) ? $sassigned : array();
+				foreach($user['assigned'] as $assigned) {
+					$fpbxusers[] = array("ext" => $assigned, "data" => $cul[$assigned], "selected" => in_array($assigned,$sassigned));
+				}
+				return load_view(dirname(__FILE__).'/views/users_hook.php',array("fpbxusers" => $fpbxusers, "mHtml" => $ucp->constructModuleConfigPages($user), "user" => $user, "allowLogin" => FreePBX::create()->Userman->getModuleSettingByID($_REQUEST['user'],'ucp|Global','allowLogin'), "sessions" => $ucp->getUserSessions($user['id'])));
 			break;
 			default:
 			break;

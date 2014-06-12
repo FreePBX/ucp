@@ -39,11 +39,12 @@ class Ajax extends UCP {
     			$this->triggerFatal("Module or Command were null. Check your code.");
     		}
 
-    		$ucMod = ucfirst($module);
+    		$ucMod = ucfirst(strtolower($module));
     		if ($module != 'UCP' && $module != 'User' && class_exists(__NAMESPACE__."\\".$ucMod)) {
     			$this->triggerFatal("The class $module already existed. Ajax MUST load it, for security reasons");
     		}
 
+		//Part of the login functionality, thats the only place its used!
     		if($module == 'User' || $module == 'UCP') {
     			// Is someone trying to be tricky with filenames?
     			$file = dirname(__FILE__).'/'.$ucMod.'.class.php';
@@ -82,6 +83,7 @@ class Ajax extends UCP {
     		}
 
     		// Right. Now we can actually do it!
+		//TODO: Use Request Handler from BMO here
     		$ret = $thisModule->ajaxHandler();
     		if($ret === false) {
     			$this->triggerFatal();
@@ -109,7 +111,8 @@ class Ajax extends UCP {
 	public function poll() {
 		$modules = $this->UCP->Modules->getModulesByMethod('poll');
 		$modData = array();
-		$data = !empty($_REQUEST['data']) ? $_REQUEST['data'] : array();//
+		//TODO: Use Request Handler object from BMO
+		$data = !empty($_REQUEST['data']) ? $_REQUEST['data'] : array();
 		foreach($modules as $module) {
 			$modData[$module] = $this->UCP->Modules->$module->poll($data);
 		}
@@ -324,6 +327,7 @@ class Ajax extends UCP {
 		//CORS: http://en.wikipedia.org/wiki/Cross-origin_resource_sharing
 		header('Access-Control-Allow-Headers:Content-Type, Depth, User-Agent, X-File-Size, X-Requested-With, If-Modified-Since, X-File-Name, Cache-Control, X-Auth-Token');
 		header('Access-Control-Allow-Methods: '.strtoupper($this->req->headers->verb));
+		//TODO: Make this configurable
 		header('Access-Control-Allow-Origin:*');
 		header('Access-Control-Max-Age:86400');
 		header('Allow: '.strtoupper($this->req->headers->verb));
@@ -366,6 +370,7 @@ class Ajax extends UCP {
 		}
 
 		//If nothing is defined then just default to showing json
+		//TODO: move this up into the switch statement?
 		$this->addHeader('Content-Type', 'text/json');
 		return json_encode($body);
     }

@@ -375,11 +375,22 @@ var UCPC = Class.extend({
 			var f = $(this).prop('for');
 			if(!$('.help-hidden[data-for="'+f+'"]').is(':visible')) {
 				//hide all others
-				$('.help-hidden').fadeOut('slow');
+				$('.help-hidden').fadeOut('slow', function() {
+					if(('#module-page-settings .masonry-container').length && Settings.packery) {
+						$('#module-page-settings .masonry-container').packery();
+					}
+				});
 				//display our reference
 				$('.help-hidden[data-for="'+f+'"]').fadeIn('slow');
+				if(('#module-page-settings .masonry-container').length && Settings.packery) {
+					$('#module-page-settings .masonry-container').packery();
+				}
 			} else {
-				$('.help-hidden[data-for="'+f+'"]').fadeOut('slow');
+				$('.help-hidden[data-for="'+f+'"]').fadeOut('slow', function() {
+					if(('#module-page-settings .masonry-container').length && Settings.packery) {
+						$('#module-page-settings .masonry-container').packery();
+					}
+				});
 			}
 		});
 	}

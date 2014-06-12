@@ -25,6 +25,7 @@ class UCP extends UCP_Helpers {
 			//UCP is the UCP Specific Object from BMO
 			$this->Ucp = $this->FreePBX->Ucp;
 			//System Notifications Class
+			//TODO: pull this from BMO
 			$this->notifications = \notifications::create();
 			//database subsystem
 			$this->db = $this->FreePBX->Database;
@@ -65,6 +66,7 @@ class UCP extends UCP_Helpers {
 	 * @return string The version
 	 */
 	function getVersion() {
+		//TODO: return version of UCP from FreePBX
 		return 'v1.3';
 	}
 

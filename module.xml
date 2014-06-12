@@ -2,13 +2,14 @@
 	<rawname>ucp</rawname>
 	<name>User Control Panel</name>
 	<repo>standard</repo>
-	<version>12.0.0alpha6</version>
+	<version>12.0.0alpha7</version>
 	<publisher>FreePBX</publisher>
 	<license>GPLv2+</license>
 	<description>
 		Formerly ARI, now called User Control Panel
 	</description>
 	<changelog>
+		*12.0.0alpha7* Several Additions and features (yes again) also bump version requirements
 		*12.0.0alpha6* Several Additions and Features, see commit log
 		*12.0.0alpha5* Now using usermanager
 		*12.0.0alpha2* Stage 1 Completed. Completely modular and object orientated
@@ -16,14 +17,13 @@
 	</changelog>
 	<category>Admin</category>
 	<menuitems>
-		<ucpadmin beta="yes">UCP Admin</ucpadmin>
 		<ucptab
 			category="User Panel"
 			href="/ucp"
 			target="ucp"
 			access="all"
 			requires_auth="false"
-			>User Control Panel</ucptab>
+			>UCP</ucptab>
 	</menuitems>
 	<fileinclude>
 	    <install>install.inc.php</install>
@@ -34,7 +34,7 @@
 	<depends>
 		<phpversion>5.3.3</phpversion>
 		<module>userman</module>
-		<module>core</module>
-		<version>12.0.1alpha23</version>
+		<module>core ge 12.0.1alpha25</module>
+		<version>12.0.1alpha52</version>
 	</depends>
 </module>

@@ -19,7 +19,7 @@ var SettingsC = UCPC.extend({
 	hide: function(event) {
 		$(window).off("resize.Settings");
 		//$('.masonry-container').packery('destroy');
-		this.packery = false;
+		Settings.packery = false;
 		$.each(modules, function( index, module ) {
 			if (typeof window[module] == 'object' && typeof window[module].settingsHide == 'function') {
 				window[module].settingsDisplay();
@@ -27,10 +27,10 @@ var SettingsC = UCPC.extend({
 		});
 	},
 	resize: function() {
-		var wasPackeryEnabled = this.packery;
-		this.packery = $(window).width() >= 768;
-		if(this.packery !== wasPackeryEnabled) {
-			if(this.packery) {
+		var wasPackeryEnabled = Settings.packery;
+		Settings.packery = $(window).width() >= 768;
+		if(Settings.packery !== wasPackeryEnabled) {
+			if(Settings.packery) {
 				clearTimeout(this.doit);
 				this.doit = setTimeout(function() {
 					$('.section').css('width','300px');
@@ -41,12 +41,12 @@ var SettingsC = UCPC.extend({
 					});
 				}, 100);
 			} else {
-				this.packery = false;
+				Settings.packery = false;
 				$('.masonry-container').packery('destroy');
 				$('.section').css('width','100%');
 				$('.section').css('margin-bottom','10px');
 			}
-		} else if(!this.packery) {
+		} else if(!Settings.packery) {
 			$('.section').css('width','100%');
 			$('.section').css('margin-bottom','10px');
 		}
