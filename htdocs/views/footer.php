@@ -20,6 +20,7 @@
 		<script type="text/javascript" src="assets/js/packery.pkgd.min.js"></script>
 		<script type="text/javascript" src="assets/js/class.js"></script>
 		<script type="text/javascript" src="assets/js/ucp.js"></script>
+		<script type="text/javascript" src="assets/js/module.js"></script>
 		<script type="text/javascript" src="assets/js/compiled/<?php echo $scripts?>"></script>
 		<script>var modules = <?php echo $modules?></script>
 		<div id="shade"></div>

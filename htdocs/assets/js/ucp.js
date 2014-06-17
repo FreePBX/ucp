@@ -16,7 +16,9 @@ var UCPC = Class.extend({
 		$(document).bind('logOut', function( event ) {UCP.logOut(event);});
 		$(window).bind('online', function( event ) {UCP.online(event);});
 		$(window).bind('offline', function( event ) {UCP.offline(event);});
-
+		$(document).ajaxError(UCP.ajaxError);
+		$(document).ajaxStart(UCP.ajaxStart);
+		$(document).ajaxStop(UCP.ajaxStop);
 		//if we are already logged in (the login window is missing) in then throw the loggedIn trigger
 		if(!$('#login-window').length) {
 			$(document).trigger('logIn');
@@ -24,6 +26,15 @@ var UCPC = Class.extend({
 		} else {
 			UCP.setupLogin();
 		}
+	},
+	ajaxStart: function() {
+		$('#settings-btn i').addClass('fa-spin');
+	},
+	ajaxStop: function() {
+		$('#settings-btn i').removeClass('fa-spin');
+	},
+	ajaxError: function(event, jqxhr, settings, exception) {
+		alert('Opps something went wrong. Try again a little later');
 	},
 	setupLogin: function() {
 		if ($.support.pjax) {
