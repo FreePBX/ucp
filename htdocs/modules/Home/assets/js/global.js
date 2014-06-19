@@ -33,6 +33,7 @@ var HomeC = UCPC.extend({
 					$('.widget').css('margin-bottom','');
 					$('.masonry-container').packery({
 						columnWidth: 40,
+						gutter: 10,
 						itemSelector: '.widget'
 					});
 				}, 100);

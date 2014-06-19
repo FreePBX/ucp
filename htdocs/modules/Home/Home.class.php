@@ -72,13 +72,18 @@ class Home extends Modules{
             curl_close($curl);
             $xml = simplexml_load_string($feed);
             $content = '<ul>';
+            $i = 1;
             foreach($xml->channel->item as $item) {
+                if($i > 10) {
+                    break;
+                }
                 $content .= '<li><a href="'.$item->link.'" target="_blank">'.$item->title.'</a></li>';
+                $i++;
             }
             $content .= '</ul>';
             $out[] = array(
 				"id" => $k,
-                "title" => '<a href="'.$xml->channel->link.'" target="_blank">'.$xml->channel->description.'</a>',
+                "title" => '<a href="'.$xml->channel->link.'" target="_blank">'.$xml->channel->title.'</a>',
                 "content" => $content,
                 "size" => '33.33%'
             );

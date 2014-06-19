@@ -4,7 +4,8 @@
 	<repo>standard</repo>
 	<version>12.0.0alpha7</version>
 	<publisher>FreePBX</publisher>
-	<license>GPLv2+</license>
+	<license>GPLv3+</license>
+	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
 	<description>
 		Formerly ARI, now called User Control Panel
 	</description>
