@@ -2,7 +2,7 @@
 	<rawname>ucp</rawname>
 	<name>User Control Panel</name>
 	<repo>standard</repo>
-	<version>12.0.0alpha7</version>
+	<version>12.0.0alpha8</version>
 	<publisher>FreePBX</publisher>
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
@@ -10,6 +10,7 @@
 		Formerly ARI, now called User Control Panel
 	</description>
 	<changelog>
+		*12.0.0alpha8* Remove some dev work
 		*12.0.0alpha7* Several Additions and features (yes again) also bump version requirements
 		*12.0.0alpha6* Several Additions and Features, see commit log
 		*12.0.0alpha5* Now using usermanager
