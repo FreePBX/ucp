@@ -78,6 +78,9 @@ class Ucp implements BMO {
 		return $html;
 	}
 
+	/**
+	 * Retrieve Conf Hook to search all modules and add their respective UCP folders
+	 */
 	public function genConfig() {
 		$modulef =& module_functions::create();
 		$modules = $modulef->getinfo(false);

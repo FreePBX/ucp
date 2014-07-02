@@ -17,11 +17,13 @@ class Modules extends Module_Helpers {
 	private static $obj;
 	public static $conf;
 	protected $module = null;
+	private $activeModules = array();
 
 	function __construct($UCP) {
 		$this->UCP = $UCP;
 		// Ensure the local object is available
 		self::$obj = $this;
+		$this->activeModules = $this->UCP->FreePBX->Modules->getActiveModules();
 	}
 
 	/**
@@ -69,13 +71,18 @@ class Modules extends Module_Helpers {
 	 */
 	public function getModulesByMethod($method) {
 		$objects = array();
+		$amods = array_keys($this->activeModules);
+		$amods[] = 'home';
+		$amods[] = 'settings';
 		foreach (glob(dirname(__DIR__)."/modules/*.class.php") as $module) {
 			if(preg_match('/^(.*)\.class$/',pathinfo($module,PATHINFO_FILENAME),$matches)) {
 				$module = ucfirst(strtolower($matches[1]));
-				if(method_exists($this->$module,$method)) {
-					$reflection = new \ReflectionMethod($this->$module, $method);
-					if ($reflection->isPublic()) {
-						$objects[] = $module;
+				if(in_array(strtolower($module),$amods)) {
+					if(method_exists($this->$module,$method)) {
+						$reflection = new \ReflectionMethod($this->$module, $method);
+						if ($reflection->isPublic()) {
+							$objects[] = $module;
+						}
 					}
 				}
 			}
@@ -83,12 +90,14 @@ class Modules extends Module_Helpers {
 		//module with module folder
 		foreach (glob(dirname(__DIR__)."/modules/*", GLOB_ONLYDIR) as $module) {
 			$mod = basename($module);
-			if(file_exists($module.'/'.$mod.'.class.php')) {
-				$module = ucfirst(strtolower($mod));
-				if(method_exists($this->$module,$method)) {
-					$reflection = new \ReflectionMethod($this->$module, $method);
-					if ($reflection->isPublic()) {
-						$objects[] = $module;
+			if(in_array(strtolower($mod),$amods)) {
+				if(file_exists($module.'/'.$mod.'.class.php')) {
+					$module = ucfirst(strtolower($mod));
+					if(method_exists($this->$module,$method)) {
+						$reflection = new \ReflectionMethod($this->$module, $method);
+						if ($reflection->isPublic()) {
+							$objects[] = $module;
+						}
 					}
 				}
 			}
@@ -136,7 +145,7 @@ class Modules extends Module_Helpers {
 		return array();
 	}
 
-	
+
 	public function ajaxRequest($command, $settings) {
 		return false;
 	}

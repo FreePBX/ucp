@@ -13,8 +13,18 @@ $restrict_mods = true; //Set to true so that we just load framework and the page
 if (!@include_once(getenv('FREEPBX_CONF') ? getenv('FREEPBX_CONF') : '/etc/freepbx.conf')) {
       include_once('/etc/asterisk/freepbx.conf');
 }
-include(dirname(__FILE__).'/includes/UCP.class.php');
-$ucp = \UCP\UCP::create();
+
+try {
+  include(dirname(__FILE__).'/includes/UCP.class.php');
+  $ucp = \UCP\UCP::create();
+} catch(\Exception $e) {
+  if(isset($_REQUEST['quietmode'])) {
+    echo json_encode(array("status" => false, "message" => "UCP is disabled"));
+  } else {
+    echo "<html><head><title>UCP</title></head><body style='background-color: rgb(211, 234, 255);'><div style='border-radius: 5px;border: 1px solid black;text-align: center;padding: 5px;width: 90%;margin: auto;left: 0px;right: 0px;background-color: rgba(53, 77, 255, 0.18);'>"._('UCP is currently disabled. Please talk to your system Administrator')."</div></body></html>";
+  }
+  die();
+}
 ob_end_clean();
 
 $user = $ucp->User->getUser();

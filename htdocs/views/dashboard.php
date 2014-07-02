@@ -23,6 +23,9 @@
 	<!-- This navigation pane hides when the viewport is smaller than 768 -->
 	<!-- Mobile Navigation Header -->
 	<div id="nav-bar-background">
+		<div id="global-message-container">
+			<div id="global-message"></div>
+		</div>
 		<div id="bc-mobile-icon"><i class="fa fa-bars"></i></div>
 		<ol id="top-dashboard-nav" class="breadcrumb">
 		  <li><a data-mod="home" data-pjax href="?display=dashboard&amp;mod=home"><?php echo _('Home')?></a></li>
@@ -33,11 +36,16 @@
 			<?php } ?>
 		  <?php } ?>
 		</ol>
-		<div id="top-dashboard-nav-right"><div id="settings-btn"><i class="fa fa-cog"></i></div></div>
+		<div id="top-dashboard-nav-right"><div id="presence-btn"><i class="fa fa-circle"></i></div><div id="presence-msg">WOrd</div><div id="settings-btn"><i class="fa fa-cog"></i></div></div>
+		<ol id="settings-menu">
+			<li>
+				<a data-pjax href="?display=dashboard&amp;mod=ucpsettings"><?php echo _('Settings')?></a>
+			</li>
+			<li>
+				<a data-pjax-logout href="?logout=1"><?php echo _('Logout')?></a>
+			</li>
+		</ol>
 	</div>
-	<ol id="settings-menu">
-		<li><a data-pjax-logout href="?logout=1"><?php echo _('Logout')?></a></li>
-	</ol>
 	<div class="clear"></div>
 	<div id="container-fixed-left" class="container-fluid">
 		<div class="row">
