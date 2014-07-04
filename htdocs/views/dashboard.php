@@ -36,16 +36,52 @@
 			<?php } ?>
 		  <?php } ?>
 		</ol>
-		<div id="top-dashboard-nav-right"><div id="presence-btn"><i class="fa fa-circle"></i></div><div id="presence-msg">WOrd</div><div id="settings-btn"><i class="fa fa-cog"></i></div></div>
-		<ol id="settings-menu">
-			<li>
-				<a data-pjax href="?display=dashboard&amp;mod=ucpsettings"><?php echo _('Settings')?></a>
-			</li>
-			<li>
-				<a data-pjax-logout href="?logout=1"><?php echo _('Logout')?></a>
-			</li>
-		</ol>
+		<div id="top-dashboard-nav-right">
+			<div id="presence-box2">
+				<div class="p-btn">
+					<i class="fa fa-circle"></i>
+				</div>
+				<div class="p-container">
+					<div class="p-msg"></div>
+				</div>
+			</div>
+			<div id="settings-btn">
+				<i class="fa fa-cog"></i>
+			</div>
+		</div>
 	</div>
+	<ol id="settings-menu">
+		<li>
+			<a data-pjax href="?display=dashboard&amp;mod=ucpsettings"><?php echo _('Settings')?></a>
+		</li>
+		<li>
+			<a data-pjax-logout href="?logout=1"><?php echo _('Logout')?></a>
+		</li>
+	</ol>
+	<ol id="presence-menu2">
+		<li><a class="change-status">Change Status</a></li>
+		<li class="statuses">
+			<ol>
+				<li>Status1</li>
+				<li>Status2</li>
+			</ol>
+		</li>
+		<li class="options">
+			<ol>
+				<li class="actions">
+					<i class="fa fa-phone"></i><i class="fa fa-comment"></i>
+				</li>
+				<li>
+					<span style="padding-left:5px;">Recent Contacts</span>
+					<div class="clist">
+						<ol>
+							<li><i class="fa fa-phone"></i>Tony Lewis</li>
+							<li><i class="fa fa-male"></i>Andrew Nagy</li>
+					</div>
+				</li>
+			</ol>
+		</li>
+	</ol>
 	<div class="clear"></div>
 	<div id="container-fixed-left" class="container-fluid">
 		<div class="row">

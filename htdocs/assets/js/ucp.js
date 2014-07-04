@@ -41,7 +41,7 @@ var UCPC = Class.extend({
 		$('#settings-btn i').removeClass('fa-spin');
 	},
 	ajaxError: function(event, jqxhr, settings, exception) {
-		alert('Opps something went wrong. Try again a little later');
+		UCP.displayGlobalMessage('Opps something went wrong. Try again a little later');
 	},
 	setupLogin: function() {
 		if ($.support.pjax) {
@@ -124,16 +124,34 @@ var UCPC = Class.extend({
 
 		//Show/Hide Settings Drop Down
 		$('#settings-btn').click(function() {
-			$('#settings-menu').toggle();
+			$('#settings-menu').toggleClass('active');
 			$('#settings-btn i').toggleClass('active');
 		});
 
+		$('#presence-box2').click(function() {
+			$(this).toggleClass('active');
+			$('#presence-menu2').toggleClass('active');
+			$(this).find('i').toggleClass('active');
+		})
+
+		$('#presence-menu2 .change-status').click(function() {
+			$('.options').toggleClass('shrink');
+			$('.statuses').toggleClass('grow');
+		})
+
 		//Hide Settings Menu when clicking outside of it
 		$('html').click(function(event) {
-			if(($(event.target).parents().index($('#top-dashboard-nav-right')) == -1) && $(event.target).parents().index($('#settings-menu')) == -1) {
-				if($('#settings-menu').is(":visible")) {
-					$('#settings-menu').hide();
+			if(($(event.target).parents().index($('#settings-btn')) == -1) && $(event.target).parents().index($('#settings-menu')) == -1) {
+				if($('#settings-menu').hasClass("active")) {
+					$('#settings-menu').removeClass('active');
 					$('#settings-btn i').removeClass('active');
+				}
+			}
+			if(($(event.target).parents().index($('#presence-menu2')) == -1) && $(event.target).parents().index($('#presence-box2')) == -1) {
+				if($('#presence-menu2').hasClass("active")) {
+					$('#presence-menu2').removeClass('active');
+					$('#presence-box2').removeClass('active');
+					$('#presence-box2 i').removeClass('active');
 				}
 			}
 		});

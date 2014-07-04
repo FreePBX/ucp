@@ -19,6 +19,8 @@
 		<script type="text/javascript" src="assets/js/notify.js"></script>
 		<script type="text/javascript" src="assets/js/packery.pkgd.min.js"></script>
 		<script type="text/javascript" src="assets/js/class.js"></script>
+		<script type="text/javascript" src="assets/js/jquery.transit.min.js"></script>
+		<script type="text/javascript" src="assets/js/jquery.keyframes.min.js"></script>
 		<script type="text/javascript" src="assets/js/ucp.js"></script>
 		<script type="text/javascript" src="assets/js/module.js"></script>
 		<script type="text/javascript" src="assets/js/compiled/<?php echo $scripts?>"></script>
