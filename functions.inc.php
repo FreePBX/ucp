@@ -5,7 +5,11 @@
  * License for all code of this FreePBX module can be found in the license file inside the module directory
  * Copyright 2006-2014 Schmooze Com Inc.
  */
-$userman = FreePBX::Userman();
+try {
+  $userman = FreePBX::Userman();
+} catch(\Exception $e) {
+  return false;
+}
 $userman->registerHook('addUser','ucp_hook_userman_updateUser');
 $userman->registerHook('delUser','ucp_hook_userman_delUser');
 $userman->registerHook('updateUser','ucp_hook_userman_updateUser');

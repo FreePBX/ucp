@@ -28,68 +28,91 @@ class Ajax extends UCP {
 	}
 
 	public function doRequest($module = null, $command = null) {
-        if($command == 'poll') {
-            $ret = $this->poll();
-            if($ret === false) {
-                $this->triggerFatal();
-            }
-            $this->addHeader('HTTP/1.0','200');
-        } else {
-    		if (!$module || !$command) {
-    			$this->triggerFatal("Module or Command were null. Check your code.");
-    		}
+		switch($command) {
+			case 'template':
+				$file = dirname(__DIR__).'/views/templates/'.basename($_REQUEST['type']).'.php';
+				if(ctype_alpha($_REQUEST['type']) && file_exists($file)) {
+					$this->addHeader('HTTP/1.0','200');
+					$template = $_POST['template'];
+					if($_REQUEST['type'] == 'chat') {
+						$mods = $this->UCP->Modules->getModulesByMethod('getChatHistory');
+						$template['history'] = array();
+						foreach($mods as $m) {
+							$template['history'] = $this->UCP->Modules->$m->getChatHistory($_POST['template']['id']);
+						}
+					}
+					$ret = array(
+						"status" => true,
+						"contents" => $this->UCP->View->load_view($file, $template)
+					);
+				} else {
+					$this->triggerFatal();
+				}
+			break;
+			case 'poll':
+				$ret = $this->poll();
+				if($ret === false) {
+					$this->triggerFatal();
+				}
+				$this->addHeader('HTTP/1.0','200');
+			break;
+			default:
+				if (!$module || !$command) {
+					$this->triggerFatal("Module or Command were null. Check your code.");
+				}
 
-    		$ucMod = ucfirst(strtolower($module));
-    		if ($module != 'UCP' && $module != 'User' && class_exists(__NAMESPACE__."\\".$ucMod)) {
-    			$this->triggerFatal("The class $module already existed. Ajax MUST load it, for security reasons");
-    		}
+				$ucMod = ucfirst(strtolower($module));
+				if ($module != 'UCP' && $module != 'User' && class_exists(__NAMESPACE__."\\".$ucMod)) {
+					$this->triggerFatal("The class $module already existed. Ajax MUST load it, for security reasons");
+				}
 
-		//Part of the login functionality, thats the only place its used!
-    		if($module == 'User' || $module == 'UCP') {
-    			// Is someone trying to be tricky with filenames?
-    			$file = dirname(__FILE__).'/'.$ucMod.'.class.php';
-    			if((strpos($module, ".") !== false) || !file_exists($file)) {
-    				$this->triggerFatal("Module requested invalid");
-    			}
+				//Part of the login functionality, thats the only place its used!
+				if($module == 'User' || $module == 'UCP') {
+					// Is someone trying to be tricky with filenames?
+					$file = dirname(__FILE__).'/'.$ucMod.'.class.php';
+					if((strpos($module, ".") !== false) || !file_exists($file)) {
+						$this->triggerFatal("Module requested invalid");
+					}
 
-    			// Note, that Self_Helper will throw an exception if the file doesn't exist, or if it does
-    			// exist but doesn't define the class.
-    			$this->injectClass($ucMod, $file);
+					// Note, that Self_Helper will throw an exception if the file doesn't exist, or if it does
+					// exist but doesn't define the class.
+					$this->injectClass($ucMod, $file);
 
-    			$thisModule = $this->$ucMod;
-    		} else {
-    			$this->UCP->Modules->injectClass($ucMod);
+					$thisModule = $this->$ucMod;
+				} else {
+					$this->UCP->Modules->injectClass($ucMod);
 
-    			$thisModule = $this->UCP->Modules->$ucMod;
-    		}
+					$thisModule = $this->UCP->Modules->$ucMod;
+				}
 
-    		if (!method_exists($thisModule, "ajaxRequest")) {
-    			$this->ajaxError(501, 'ajaxRequest not found');
-    		}
+				if (!method_exists($thisModule, "ajaxRequest")) {
+					$this->ajaxError(501, 'ajaxRequest not found');
+				}
 
-    		if (!$thisModule->ajaxRequest($command, $this->settings)) {
-    			$this->ajaxError(403, 'ajaxRequest declined');
-    		}
+				if (!$thisModule->ajaxRequest($command, $this->settings)) {
+					$this->ajaxError(403, 'ajaxRequest declined');
+				}
 
-    		if (method_exists($thisModule, "ajaxCustomHandler")) {
-    			$ret = $thisModule->ajaxCustomHandler();
-    			if($ret === true) {
-    				exit;
-    			}
-    		}
+				if (method_exists($thisModule, "ajaxCustomHandler")) {
+					$ret = $thisModule->ajaxCustomHandler();
+					if($ret === true) {
+						exit;
+					}
+				}
 
-    		if (!method_exists($thisModule, "ajaxHandler")) {
-    			$this->ajaxError(501, 'ajaxHandler not found');
-    		}
+				if (!method_exists($thisModule, "ajaxHandler")) {
+					$this->ajaxError(501, 'ajaxHandler not found');
+				}
 
-    		// Right. Now we can actually do it!
-		//TODO: Use Request Handler from BMO here
-    		$ret = $thisModule->ajaxHandler();
-    		if($ret === false) {
-    			$this->triggerFatal();
-    		}
-    		$this->addHeader('HTTP/1.0','200');
-        }
+				// Right. Now we can actually do it!
+				//TODO: Use Request Handler from BMO here
+				$ret = $thisModule->ajaxHandler();
+				if($ret === false) {
+					$this->triggerFatal();
+				}
+				$this->addHeader('HTTP/1.0','200');
+			break;
+		}
 		//some helpers
 		if(!is_array($ret) && is_bool($ret)) {
 			$ret = array(

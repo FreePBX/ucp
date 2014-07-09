@@ -59,24 +59,27 @@
 		</li>
 	</ol>
 	<ol id="presence-menu2">
-		<li><a class="change-status">Change Status</a></li>
-		<li class="statuses">
-			<ol>
-				<li>Status1</li>
-				<li>Status2</li>
-			</ol>
-		</li>
+		<?php if(isset($presence)) {?>
+			<li><a class="change-status">Change Status</a></li>
+			<li class="statuses">
+				<?php echo $presence['menu'] ?>
+			</li>
+		<?php } ?>
 		<li class="options">
 			<ol>
 				<li class="actions">
-					<i class="fa fa-phone"></i><i class="fa fa-comment"></i>
+					<?php foreach($presence['actions'] as $m => $a) {?>
+						<i class="fa <?php echo $a?>" data-module="<?php echo $m?>"></i>
+					<?php } ?>
 				</li>
 				<li>
 					<span style="padding-left:5px;">Recent Contacts</span>
 					<div class="clist">
 						<ol>
-							<li><i class="fa fa-phone"></i>Tony Lewis</li>
-							<li><i class="fa fa-male"></i>Andrew Nagy</li>
+							<?php foreach($rcontacts as $c) {?>
+								<li><i class="fa fa-male"></i><?php echo $c['name']?></li>
+							<?php } ?>
+						</ol>
 					</div>
 				</li>
 			</ol>
@@ -116,6 +119,8 @@
 				 </div>
 			  </div>
 		</div>
+	</div>
+	<div id="messages-container">
 	</div>
 	<div id="footer">
 		<div id="footer-bar"></div>

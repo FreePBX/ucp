@@ -137,6 +137,23 @@ switch($display) {
 		}
 		$displayvars['dashboard_content'] = $dashboard_content;
 		$displayvars['year'] = date('Y',time());
+    $modules = $ucp->Modules->getActiveModules();
+    if(in_array('Presencestate',$modules)) {
+      $actions = array();
+      foreach($ucp->Modules->getModulesByMethod('getPresenceAction') as $m) {
+        $mc = ucfirst(strtolower($m));
+        $actions[$m] = $ucp->Modules->$mc->getPresenceAction();
+      }
+      foreach($ucp->Modules->getModulesByMethod('getRecentContacts') as $m) {
+        $mc = ucfirst(strtolower($m));
+        $rcontacts = $ucp->Modules->$mc->getRecentContacts();
+      }
+      $displayvars['presence'] = array(
+        'menu' => $ucp->Modules->Presencestate->getStatusMenu(),
+        'actions' => $actions,
+        'rcontacts' => $rcontacts
+      );
+    }
 		show_view(dirname(__FILE__).'/views/dashboard.php',$displayvars);
 	break;
 	default:
