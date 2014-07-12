@@ -29,6 +29,35 @@ class Ajax extends UCP {
 
 	public function doRequest($module = null, $command = null) {
 		switch($command) {
+			case 'ucpsettings':
+				$this->addHeader('HTTP/1.0','200');
+				$user = $this->UCP->User->getUser();
+				switch($_POST['key']) {
+					case 'fname':
+					case 'lname':
+					case 'email':
+						$this->UCP->FreePBX->Userman->updateUserExtraData($user['id'],array($_POST['key'] => $_POST['value']));
+						$ret = array(
+							"status" => true
+						);
+					break;
+					case 'notifications':
+					break;
+					case 'password':
+						$this->UCP->FreePBX->Userman->updateUser($user['username'], $user['username'], $user['default_extension'], $user['description'], array(), $_POST['value']);
+						$ret = array(
+							"status" => true
+						);
+					break;
+					break;
+					default:
+						$ret = array(
+							"status" => false,
+							"message" => 'Invalid Parameter'
+						);
+				}
+
+			break;
 			case 'template':
 				$file = dirname(__DIR__).'/views/templates/'.basename($_REQUEST['type']).'.php';
 				if(ctype_alpha($_REQUEST['type']) && file_exists($file)) {

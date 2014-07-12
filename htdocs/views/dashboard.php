@@ -33,7 +33,9 @@
 			  <li class="bc-<?php echo $menu[$active_module]['rawname']?> active"><?php echo $menu[$active_module]['rawname']?></li>
 			  <?php if(!empty($_REQUEST['sub'])) {?>
 				  <li class="bc-<?php echo $_REQUEST['sub']?> active"><?php echo $_REQUEST['sub']?></li>
-			<?php } ?>
+				<?php } ?>
+			<?php } elseif($active_module == 'ucpsettings') { ?>
+				<li class="bc-ucpsettings active"><?php echo _('Settings')?></li>
 		  <?php } ?>
 		</ol>
 		<div id="top-dashboard-nav-right">
@@ -52,7 +54,7 @@
 	</div>
 	<ol id="settings-menu">
 		<li>
-			<a data-pjax href="?display=dashboard&amp;mod=ucpsettings"><?php echo _('Settings')?></a>
+			<a data-pjax href="?display=settings"><?php echo _('Settings')?></a>
 		</li>
 		<li>
 			<a data-pjax-logout href="?logout=1"><?php echo _('Logout')?></a>
@@ -71,16 +73,6 @@
 					<?php foreach($presence['actions'] as $m => $a) {?>
 						<i class="fa <?php echo $a?>" data-module="<?php echo $m?>"></i>
 					<?php } ?>
-				</li>
-				<li>
-					<span style="padding-left:5px;">Recent Contacts</span>
-					<div class="clist">
-						<ol>
-							<?php foreach($rcontacts as $c) {?>
-								<li><i class="fa fa-male"></i><?php echo $c['name']?></li>
-							<?php } ?>
-						</ol>
-					</div>
 				</li>
 			</ol>
 		</li>

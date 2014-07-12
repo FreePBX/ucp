@@ -11,19 +11,19 @@ $bootstrap_settings['freepbx_auth'] = false;
 //TODO: We need to make sure security is 100%!
 $restrict_mods = true; //Set to true so that we just load framework and the page wont bomb out because we have no session
 if (!@include_once(getenv('FREEPBX_CONF') ? getenv('FREEPBX_CONF') : '/etc/freepbx.conf')) {
-      include_once('/etc/asterisk/freepbx.conf');
+	include_once('/etc/asterisk/freepbx.conf');
 }
 
 try {
-  include(dirname(__FILE__).'/includes/UCP.class.php');
-  $ucp = \UCP\UCP::create();
+	include(dirname(__FILE__).'/includes/UCP.class.php');
+	$ucp = \UCP\UCP::create();
 } catch(\Exception $e) {
-  if(isset($_REQUEST['quietmode'])) {
-    echo json_encode(array("status" => false, "message" => "UCP is disabled"));
-  } else {
-    echo "<html><head><title>UCP</title></head><body style='background-color: rgb(211, 234, 255);'><div style='border-radius: 5px;border: 1px solid black;text-align: center;padding: 5px;width: 90%;margin: auto;left: 0px;right: 0px;background-color: rgba(53, 77, 255, 0.18);'>"._('UCP is currently disabled. Please talk to your system Administrator')."</div></body></html>";
-  }
-  die();
+	if(isset($_REQUEST['quietmode'])) {
+		echo json_encode(array("status" => false, "message" => "UCP is disabled"));
+	} else {
+		echo "<html><head><title>UCP</title></head><body style='background-color: rgb(211, 234, 255);'><div style='border-radius: 5px;border: 1px solid black;text-align: center;padding: 5px;width: 90%;margin: auto;left: 0px;right: 0px;background-color: rgba(53, 77, 255, 0.18);'>"._('UCP is currently disabled. Please talk to your system Administrator')."</div></body></html>";
+	}
+	die();
 }
 ob_end_clean();
 
@@ -46,7 +46,7 @@ if(isset($_REQUEST['logout']) && $user) {
 
 //Second part of this IF statement
 if((isset($_REQUEST['quietmode']) && $user !== false && !empty($user)) || (isset($_REQUEST['command']) && $_REQUEST['command'] == 'login')) {
-    $m = !empty($_REQUEST['module']) ? $_REQUEST['module'] : null;
+	$m = !empty($_REQUEST['module']) ? $_REQUEST['module'] : null;
 	$ucp->Ajax->doRequest($m,$_REQUEST['command']);
 	die();
 } elseif(isset($_REQUEST['quietmode']) && ($user === false || empty($user))) {
@@ -100,17 +100,13 @@ if ( !isset($_SERVER['HTACCESS']) ) {
 	}
 }
 
-$displayvars['version']			= getVersion();
-$displayvars['version_tag']		= '?load_version=' . urlencode($displayvars['version']);
-
 if(!isset($_SERVER['HTTP_X_PJAX'])) {
 	$displayvars['version'] = $ucp->getVersion();
 	//TODO: needs to not be global
-	show_view(dirname(__FILE__).'/views/header.php',$displayvars);
+	$ucp->View->show_view(dirname(__FILE__).'/views/header.php',$displayvars);
 }
 
 if($user && !empty($user)) {
-	//TODO: this is depreciated and needs to be removed
 	$display = !empty($_REQUEST['display']) ? $_REQUEST['display'] : 'dashboard';
 	$module = !empty($_REQUEST['mod']) ? $_REQUEST['mod'] : 'home';
 	$displayvars['menu'] = $ucp->Modules->generateMenu();
@@ -123,47 +119,53 @@ if($user && !empty($user)) {
 	}
 }
 
-$displayvars['active_module'] = $module;
-$mclass = ucfirst(strtolower($module));
+$active_modules = $ucp->Modules->getActiveModules();
 switch($display) {
-	//TODO: needs to be cleaned up to not have to use dashboard
+	case "settings":
 	case "dashboard":
-		$dashboard_content = '<div id="module-page-'.$module.'">'.$ucp->Modules->$mclass->getDisplay().'</div>';
+		if($display == "settings") {
+			$dashboard_content = $ucp->View->load_view(dirname(__FILE__).'/views/settings.php',$displayvars);
+			$displayvars['active_module'] = 'ucpsettings';
+		} else {
+			$displayvars['active_module'] = $module;
+			$mclass = ucfirst(strtolower($module));
+			if(in_array($mclass,$active_modules)) {
+				$dashboard_content = $ucp->View->load_view(dirname(__FILE__).'/views/module.php',array("module" => $module, "display" => $ucp->Modules->$mclass->getDisplay()));
+			} else {
+				$dashboard_content = sprintf(_('Unknown Module %s'),$module);
+			}
+		}
+
 		if(isset($_SERVER['HTTP_X_PJAX'])) {
-			if(!empty($_REQUEST['mod'])) {
+			if(!empty($_REQUEST['mod']) || ($display == 'settings')) {
 				echo $dashboard_content;
 				exit();
 			}
 		}
 		$displayvars['dashboard_content'] = $dashboard_content;
 		$displayvars['year'] = date('Y',time());
-    $modules = $ucp->Modules->getActiveModules();
-    if(in_array('Presencestate',$modules)) {
-      $actions = array();
-      foreach($ucp->Modules->getModulesByMethod('getPresenceAction') as $m) {
-        $mc = ucfirst(strtolower($m));
-        $actions[$m] = $ucp->Modules->$mc->getPresenceAction();
-      }
-      foreach($ucp->Modules->getModulesByMethod('getRecentContacts') as $m) {
-        $mc = ucfirst(strtolower($m));
-        $rcontacts = $ucp->Modules->$mc->getRecentContacts();
-      }
-      $displayvars['presence'] = array(
-        'menu' => $ucp->Modules->Presencestate->getStatusMenu(),
-        'actions' => $actions,
-        'rcontacts' => $rcontacts
-      );
-    }
-		show_view(dirname(__FILE__).'/views/dashboard.php',$displayvars);
+		$modules = $ucp->Modules->getActiveModules();
+		if(in_array('Presencestate',$modules)) {
+			$actions = array();
+			foreach($ucp->Modules->getModulesByMethod('getPresenceAction') as $m) {
+				$mc = ucfirst(strtolower($m));
+				$actions[$m] = $ucp->Modules->$mc->getPresenceAction();
+			}
+			$displayvars['presence'] = array(
+				'menu' => $ucp->Modules->Presencestate->getStatusMenu(),
+				'actions' => $actions
+			);
+		}
+		$ucp->View->show_view(dirname(__FILE__).'/views/dashboard.php',$displayvars);
 	break;
 	default:
 		$displayvars['token'] = $ucp->Session->generateToken('login');
-		show_view(dirname(__FILE__).'/views/login.php',$displayvars);
+		$ucp->View->show_view(dirname(__FILE__).'/views/login.php',$displayvars);
 	break;
 }
 
 if(!isset($_SERVER['HTTP_X_PJAX'])) {
-	$displayvars['modules'] = json_encode($ucp->Modules->getActiveModules());
+	$displayvars['modules'] = json_encode($active_modules);
 	$displayvars['scripts'] = $ucp->Modules->getGlobalScripts();
-	show_view(dirname(__FILE__).'/views/footer.php',$displayvars);
+	$ucp->View->show_view(dirname(__FILE__).'/views/footer.php',$displayvars);
 }

@@ -80,16 +80,22 @@ var UCPC = Class.extend({
 						clicker = $(this).data("mod"),
 						breadcrumbs = "<li><a data-mod=\"home\" data-pjax href=\"?display=dashboard&amp;mod=home\">Home</a></li>",
 						mod = "home",
-						sub = "";
+						sub = "",
+						display = "";
 				$.pjax.click(event, { container: container });
 
 				mod = $.url().param("mod");
 				sub = $.url().param("sub");
-				if (mod != "home") {
-					breadcrumbs = breadcrumbs + "<li class=\"active\">" + mod + "</li>";
-				}
-				if (typeof sub !== "undefined") {
-					breadcrumbs = breadcrumbs + "<li class=\"active\">" + sub + "</li>";
+				display = $.url().param("display");
+				if (typeof display === "undefined" || display == "dashboard") {
+					if (mod != "home") {
+						breadcrumbs = breadcrumbs + "<li class=\"active\">" + mod + "</li>";
+					}
+					if (typeof sub !== "undefined") {
+						breadcrumbs = breadcrumbs + "<li class=\"active\">" + sub + "</li>";
+					}
+				} else if (display == "settings") {
+					breadcrumbs = breadcrumbs + "<li class=\"active\">Settings</li>";
 				}
 
 				$("#top-dashboard-nav").html(breadcrumbs);
@@ -344,9 +350,9 @@ var UCPC = Class.extend({
 			$(html).appendTo("#dashboard-content").hide().fadeIn("fast");
 		}
 	},
-	addChat: function(module, id, title, sender, message) {
+	addChat: function(module, id, title, from, to, sender, message) {
 		if(!$( "#messages-container .message-box[data-id=\"" + id + "\"]" ).length) {
-			$.ajax({ url: "index.php?quietmode=1&command=template&type=chat", data: { template: { id: id, title: title } }, success: function(data) {
+			$.ajax({ url: "index.php?quietmode=1&command=template&type=chat", data: { template: { id: id, title: title, to: to, from: from } }, success: function(data) {
 				$( "#messages-container" ).prepend( data.contents );
 				$( "#messages-container .message-box[data-id=\"" + id + "\"]" ).fadeIn("fast", function() {
 					if(typeof message !== "undefined") {
@@ -360,7 +366,13 @@ var UCPC = Class.extend({
 				$(document).trigger( "chatWindowAdded", [ id, module,  $( "#messages-container .message-box[data-id=\"" + id + "\"]" ) ] );
 				$( "#messages-container .title-bar[data-id=\"" + id + "\"]" ).on("click", function(event) {
 					if (!$(event.target).hasClass("cancelExpand")) {
-						$("#messages-container .message-box[data-id=\"" + id + "\"]").toggleClass("expand");
+						var container = $("#messages-container .message-box[data-id=\"" + id + "\"]");
+						container.toggleClass("expand");
+						if (container.hasClass("expand")) {
+							container.find(".fa-arrow-up").addClass("fa-arrow-down").removeClass("fa-arrow-up");
+						} else {
+							container.find(".fa-arrow-down").addClass("fa-arrow-up").removeClass("fa-arrow-down");
+						}
 					} else {
 						UCP.removeChat($(this).data("id"));
 					}
@@ -379,13 +391,16 @@ var UCPC = Class.extend({
 			$(this).remove();
 		});
 	},
-	addChatMessage: function(id, sender, message) {
+	addChatMessage: function(id, sender, message, colorNew) {
 		if (!$( "#messages-container .message-box[data-id=\"" + id + "\"]" ).hasClass("expand")) {
 			$( "#messages-container .message-box[data-id=\"" + id + "\"]" ).addClass("expand");
+			$( "#messages-container .message-box[data-id=\"" + id + "\"] .fa-arrow-up" ).addClass("fa-arrow-down").removeClass("fa-arrow-up");
 		}
 		$( "#messages-container .message-box[data-id=\"" + id + "\"] .chat" ).append("<strong>" + sender + ":</strong> " + message + "<br/>");
 
-		$( "#messages-container .title-bar[data-id=\"" + id + "\"]" ).css("background-color", "#428bca");
+		if(typeof colorNew === "undefined" || colorNew) {
+			$( "#messages-container .title-bar[data-id=\"" + id + "\"]" ).css("background-color", "#428bca");
+		}
 		if (UCP.chatTimeout[id] !== undefined && UCP.chatTimeout[id] !== null) {
 			clearTimeout(UCP.chatTimeout[id]);
 		}
@@ -434,11 +449,16 @@ var UCPC = Class.extend({
 			typeof window[this.activeModule].hide == "function") {
 			window[this.activeModule].hide(event);
 		}
-		this.activeModule = $.url().param("mod");
-		this.activeModule = (this.activeModule !== undefined) ? UCP.toTitleCase(this.activeModule) : "Home";
-		if (typeof window[this.activeModule] == "object" &&
-			typeof window[this.activeModule].display == "function") {
-			window[this.activeModule].display(event);
+		var display = $.url().param("display");
+		if (typeof display === "undefined" || display == "dashboard") {
+			this.activeModule = $.url().param("mod");
+			this.activeModule = (this.activeModule !== undefined) ? UCP.toTitleCase(this.activeModule) : "Home";
+			if (typeof window[this.activeModule] == "object" &&
+				typeof window[this.activeModule].display == "function") {
+				window[this.activeModule].display(event);
+			}
+		} else if (display == "settings") {
+			this.settingsBinds();
 		}
 		this.binds();
 	},
@@ -473,9 +493,14 @@ var UCPC = Class.extend({
 		if (!Notify.needsPermission() && this.notify === null) {
 			this.notify = true;
 		}
-		if (typeof window[this.activeModule] == "object" &&
-			typeof window[this.activeModule].display == "function") {
-			window[this.activeModule].display(event);
+		var display = $.url().param("display");
+		if (typeof display === "undefined" || display == "dashboard") {
+			if (typeof window[this.activeModule] == "object" &&
+				typeof window[this.activeModule].display == "function") {
+				window[this.activeModule].display(event);
+			}
+		} else if (display == "settings") {
+			this.settingsBinds();
 		}
 		this.binds();
 	},
@@ -487,6 +512,83 @@ var UCPC = Class.extend({
 			typeof window[this.activeModule].hide == "function") {
 			window[this.activeModule].hide(event);
 		}
+	},
+	settingsBinds: function() {
+		if (Notify.isSupported()) {
+			$("#ucp-settings input[name=\"desktopnotifications\"]").prop("checked", UCP.notify);
+			$("#ucp-settings input[name=\"desktopnotifications\"]").change(function() {
+				if (!UCP.notify && $(this).is(":checked")) {
+					Notify.requestPermission(function() {
+						UCP.notificationsAllowed();
+						$("#ucp-settings input[name=\"desktopnotifications\"]").prop("checked", true);
+						$("#message").addClass("alert-success");
+						$("#message").text("Saved!");
+						$("#message").fadeIn( "slow", function() {
+							setTimeout(function() { $("#message").fadeOut("slow"); }, 2000);
+						});
+					}, function() {
+						UCP.notificationsDenied();
+						$("#ucp-settings input[name=\"desktopnotifications\"]").prop("checked", false);
+					});
+				} else {
+					UCP.notify = false;
+					$("#message").addClass("alert-success");
+					$("#message").text("Saved!");
+					$("#message").fadeIn( "slow", function() {
+						setTimeout(function() { $("#message").fadeOut("slow"); }, 2000);
+					});
+				}
+			});
+			$("#ucp-settings .desktopnotifications-group").show();
+		}
+
+		$("#ucp-settings input[type!=\"checkbox\"]").change(function() {
+			var password = $(this).val();
+			$(this).blur(function() {
+				if ($(this).prop("type") == "password") {
+					UCP.showDialog("Confirm Password", "Please Reconfirm Your Password<input type='password' id='ucppass'></input><button id='passsub'>Submit</button>");
+					$("#passsub").click(function() {
+						if($("#ucppass").val() !== "") {
+							var np = $("#ucppass").val();
+							if (np != password) {
+								$("#message").addClass("alert-danger");
+								$("#message").text("Password Confirmation Didn't Match!");
+								$("#message").fadeIn( "fast" );
+							} else {
+								UCP.closeDialog();
+								$.post( "?quietmode=1&command=ucpsettings", { key: "password", value: $("#ucppass").val() }, function( data ) {
+									if (data.status) {
+										$("#message").addClass("alert-success");
+										$("#message").text("Saved!");
+										$("#message").fadeIn( "slow", function() {
+											setTimeout(function() { $("#message").fadeOut("slow"); }, 2000);
+										});
+									} else {
+										$("#message").addClass("alert-danger");
+										$("#message").text(data.message);
+									}
+									$(this).off("blur");
+								});
+							}
+						}
+					});
+					return 0;
+				}
+				$.post( "?quietmode=1&command=ucpsettings", { key: $(this).prop("name"), value: $(this).val() }, function( data ) {
+					if (data.status) {
+						$("#message").addClass("alert-success");
+						$("#message").text("Saved!");
+						$("#message").fadeIn( "slow", function() {
+							setTimeout(function() { $("#message").fadeOut("slow"); }, 2000);
+						});
+					} else {
+						$("#message").addClass("alert-danger");
+						$("#message").text(data.message);
+					}
+					$(this).off("blur");
+				});
+			});
+		});
 	},
 	binds: function() {
 		$(".form-group label.help").click(function() {

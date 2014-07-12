@@ -1,11 +1,11 @@
-<div class="message-box" data-id="<?php echo $id?>" style="display:none">
+<div class="message-box" data-id="<?php echo $id?>" data-from="<?php echo $from?>" data-to="<?php echo $to?>" style="display:none">
 	<div class="title-bar" data-id="<?php echo $id?>">
 		<div class="type">
 			<i class="fa fa-comment"></i>
 		</div>
 		<div class="name"><?php echo $title?></div>
 		<div class="actions">
-			<i class="fa fa-times cancelExpand"></i>
+			<i class="fa fa-times cancelExpand"></i><i class="fa fa-arrow-up"></i>
 		</div>
 	</div>
 	<div class="window">
