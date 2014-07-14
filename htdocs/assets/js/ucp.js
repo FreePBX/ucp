@@ -300,7 +300,13 @@ var UCPC = Class.extend({
 	shortpoll: function() {
 		if (!UCP.polling) {
 			UCP.polling = true;
-			$.ajax({ url: "index.php?quietmode=1&command=poll", data: { data: $.url().param() }, success: function(data) {
+			var mdata = {};
+			$.each(modules, function( index, module ) {
+				if (typeof window[module] == "object" && typeof window[module].prepoll == "function") {
+					mdata[module] = window[module].prepoll($.url().param());
+				}
+			});
+			$.ajax({ url: "index.php?quietmode=1&command=poll", data: { data: $.url().param(), mdata: mdata }, success: function(data) {
 				if (data.status) {
 					$.each(data.modData, function( module, data ) {
 						if (typeof window[module] == "object" && typeof window[module].poll == "function") {
@@ -350,13 +356,13 @@ var UCPC = Class.extend({
 			$(html).appendTo("#dashboard-content").hide().fadeIn("fast");
 		}
 	},
-	addChat: function(module, id, title, from, to, sender, message) {
+	addChat: function(module, id, title, from, to, sender, msgid, message) {
 		if(!$( "#messages-container .message-box[data-id=\"" + id + "\"]" ).length) {
-			$.ajax({ url: "index.php?quietmode=1&command=template&type=chat", data: { template: { id: id, title: title, to: to, from: from } }, success: function(data) {
+			$.ajax({ url: "index.php?quietmode=1&command=template&type=chat", data: { template: { module: module, id: id, title: title, to: to, from: from } }, success: function(data) {
 				$( "#messages-container" ).prepend( data.contents );
 				$( "#messages-container .message-box[data-id=\"" + id + "\"]" ).fadeIn("fast", function() {
-					if(typeof message !== "undefined") {
-						UCP.addChatMessage(id, sender, message);
+					if (typeof msgid !== "undefined") {
+						UCP.addChatMessage(id, sender, msgid, message);
 					} else {
 						if (!$( "#messages-container .message-box[data-id=\"" + id + "\"]" ).hasClass("expand")) {
 							$( "#messages-container .message-box[data-id=\"" + id + "\"]" ).addClass("expand");
@@ -379,8 +385,8 @@ var UCPC = Class.extend({
 				});
 			}, dataType: "json", type: "POST" });
 		} else {
-			if(typeof message !== "undefined") {
-				UCP.addChatMessage(id, sender, message);
+			if (typeof msgid !== "undefined") {
+				UCP.addChatMessage(id, sender, msgid, message);
 			}
 			return null;
 		}
@@ -391,16 +397,19 @@ var UCPC = Class.extend({
 			$(this).remove();
 		});
 	},
-	addChatMessage: function(id, sender, message, colorNew) {
+	addChatMessage: function(id, sender, msgid, message, colorNew) {
 		if (!$( "#messages-container .message-box[data-id=\"" + id + "\"]" ).hasClass("expand")) {
 			$( "#messages-container .message-box[data-id=\"" + id + "\"]" ).addClass("expand");
 			$( "#messages-container .message-box[data-id=\"" + id + "\"] .fa-arrow-up" ).addClass("fa-arrow-down").removeClass("fa-arrow-up");
 		}
-		$( "#messages-container .message-box[data-id=\"" + id + "\"] .chat" ).append("<strong>" + sender + ":</strong> " + message + "<br/>");
+		$( "#messages-container .message-box[data-id=\"" + id + "\"]" ).data("last-msg-id",msgid);
 
 		if(typeof colorNew === "undefined" || colorNew) {
 			$( "#messages-container .title-bar[data-id=\"" + id + "\"]" ).css("background-color", "#428bca");
+		} else {
+			sender = "Me";
 		}
+		$( "#messages-container .message-box[data-id=\"" + id + "\"] .chat" ).append("<div class='message' data-id='" + msgid + "'><strong>" + sender + ":</strong> " + message + "</div>");
 		if (UCP.chatTimeout[id] !== undefined && UCP.chatTimeout[id] !== null) {
 			clearTimeout(UCP.chatTimeout[id]);
 		}

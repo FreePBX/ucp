@@ -67,7 +67,7 @@ class Ajax extends UCP {
 						$mods = $this->UCP->Modules->getModulesByMethod('getChatHistory');
 						$template['history'] = array();
 						foreach($mods as $m) {
-							$template['history'] = $this->UCP->Modules->$m->getChatHistory($_POST['template']['id']);
+							$template['history'] = $this->UCP->Modules->$m->getChatHistory($_POST['template']['from'],$_POST['template']['to']);
 						}
 					}
 					$ret = array(
@@ -164,9 +164,14 @@ class Ajax extends UCP {
 		$modules = $this->UCP->Modules->getModulesByMethod('poll');
 		$modData = array();
 		//TODO: Use Request Handler object from BMO
-		$data = !empty($_REQUEST['data']) ? $_REQUEST['data'] : array();
+		$data = !empty($_POST['data']) ? $_POST['data'] : array();
 		foreach($modules as $module) {
-			$modData[$module] = $this->UCP->Modules->$module->poll($data);
+			$mdata = !empty($_POST['mdata'][$module]) ? $_POST['mdata'][$module] : array();
+			if(!empty($mdata)) {
+				$modData[$module] = $this->UCP->Modules->$module->poll($data,$mdata);
+			} else {
+				$modData[$module] = $this->UCP->Modules->$module->poll($data);
+			}
 		}
 		return array(
 			"status" => true,
