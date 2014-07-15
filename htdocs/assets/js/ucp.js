@@ -358,7 +358,8 @@ var UCPC = Class.extend({
 	},
 	addChat: function(module, id, title, from, to, sender, msgid, message) {
 		if(!$( "#messages-container .message-box[data-id=\"" + id + "\"]" ).length) {
-			$.ajax({ url: "index.php?quietmode=1&command=template&type=chat", data: { template: { module: module, id: id, title: title, to: to, from: from } }, success: function(data) {
+			var newWindow = (typeof msgid === "undefined");
+			$.ajax({ url: "index.php?quietmode=1&command=template&type=chat", data: { newWindow: newWindow, template: { module: module, id: id, title: title, to: to, from: from } }, success: function(data) {
 				$( "#messages-container" ).prepend( data.contents );
 				$( "#messages-container .message-box[data-id=\"" + id + "\"]" ).fadeIn("fast", function() {
 					if (typeof msgid !== "undefined") {
@@ -383,6 +384,7 @@ var UCPC = Class.extend({
 						UCP.removeChat($(this).data("id"));
 					}
 				});
+				$("#messages-container .message-box[data-id=\"" + id + "\"] .chat").animate({ scrollTop: $("#messages-container .message-box[data-id=\"" + id + "\"] .chat")[0].scrollHeight }, "slow");
 			}, dataType: "json", type: "POST" });
 		} else {
 			if (typeof msgid !== "undefined") {
@@ -434,7 +436,6 @@ var UCPC = Class.extend({
 	displayGlobalMessage: function(message, color, sticky) {
 		color = (typeof color !== "undefined") ? color : "#f76a6a;";
 		sticky = (typeof sticky !== "undefined") ? sticky : false;
-		console.log(sticky);
 		$("#global-message").text(message);
 		$("#global-message-container").css("background-color", color);
 		$("#global-message-container").fadeIn("slow", function() {

@@ -13,7 +13,6 @@
 			<div class="history">
 				<?php if(!empty($history['messages'])) { ?>
 					<?php foreach($history['messages'] as $h) { ?>
-						<?php dbug($h)?>
 						<div class="message" data-id="<?php echo $h['id']?>">
 							<strong><?php echo $h['from']?>:</strong> <?php echo $h['message']?>
 						</div>

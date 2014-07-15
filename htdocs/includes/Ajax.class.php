@@ -67,7 +67,7 @@ class Ajax extends UCP {
 						$mods = $this->UCP->Modules->getModulesByMethod('getChatHistory');
 						$template['history'] = array();
 						foreach($mods as $m) {
-							$template['history'] = $this->UCP->Modules->$m->getChatHistory($_POST['template']['from'],$_POST['template']['to']);
+							$template['history'] = $this->UCP->Modules->$m->getChatHistory($_POST['template']['from'],$_POST['template']['to'],$_POST['newWindow']);
 						}
 					}
 					$ret = array(
