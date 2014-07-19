@@ -158,38 +158,40 @@ class Modules extends Module_Helpers {
 		return false;
 	}
 
-    public function getActiveModules() {
-        return $this->getModulesByMethod('getMenuItems');
-    }
+	public function getActiveModules() {
+		return $this->getModulesByMethod('getMenuItems');
+	}
 
-    //These Scripts persist throughout the navigation of UCP
-    public function getGlobalScripts() {
-			$cache = dirname(__DIR__).'/assets/js/compiled';
-			if(!file_exists($cache) && !mkdir($cache)) {
-				die('Can Not Create Cache Folder at '.$cache);
-			}
-			$ftime = 0;
-			$contents = '';
-        $files = array();
-        foreach (glob(dirname(__DIR__)."/modules/*", GLOB_ONLYDIR) as $module) {
-            $mod = basename($module);
-            if(file_exists($module.'/'.$mod.'.class.php')) {
-                $module = ucfirst(strtolower($mod));
-                $dir = dirname(__DIR__)."/modules/".$module."/assets/js";
-                if(is_dir($dir) && file_exists($dir.'/global.js')) {
-									$ftime = filemtime($dir.'/global.js') > $ftime ? filemtime($dir.'/global.js') : $ftime;
-                    $files[] = 'modules/'.ucfirst($module).'/assets/js/global.js';
-										$contents .= file_get_contents($dir.'/global.js')."\n";
-                }
-            }
-        }
-				$filename = 'jsphp_'.$ftime.'.js';
-				if(!file_exists($cache.'/'.$filename)) {
-					$output = \JShrink\Minifier::minify($contents);
-					file_put_contents($cache.'/'.$filename,$output);
+	//These Scripts persist throughout the navigation of UCP
+	public function getGlobalScripts() {
+		$cache = dirname(__DIR__).'/assets/js/compiled';
+		if(!file_exists($cache) && !mkdir($cache)) {
+			die('Can Not Create Cache Folder at '.$cache);
+		}
+		$ftime = 0;
+		$contents = '';
+		$files = array();
+		foreach (glob(dirname(__DIR__)."/modules/*", GLOB_ONLYDIR) as $module) {
+			$mod = basename($module);
+			if(file_exists($module.'/'.$mod.'.class.php')) {
+				$module = ucfirst(strtolower($mod));
+				$dir = dirname(__DIR__)."/modules/".$module."/assets/js";
+				if(is_dir($dir)) {
+					foreach (glob($dir."/*.js") as $file) {
+						$ftime = filemtime($file) > $ftime ? filemtime($file) : $ftime;
+						$files[] = $file;
+						$contents .= file_get_contents($file)."\n";
+					}
 				}
-        return $filename;
-    }
+			}
+		}
+		$filename = 'jsphp_'.$ftime.'.js';
+		if(!file_exists($cache.'/'.$filename)) {
+			$output = \JShrink\Minifier::minify($contents);
+			file_put_contents($cache.'/'.$filename,$output);
+		}
+		return $filename;
+	}
 
 		//These Scripts persist throughout the navigation of UCP
 		public function getGlobalLess() {

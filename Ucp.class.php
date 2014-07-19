@@ -104,9 +104,9 @@ class Ucp implements BMO {
 		}
 	}
 
-    public function deleteUser($uid) {
-        //run module functions here if needed otherwise usermanager delete's most of what we are using
-    }
+	public function deleteUser($uid) {
+		//run module functions here if needed otherwise usermanager delete's most of what we are using
+	}
 
 	public function writeConfig($conf){
 		$this->FreePBX->WriteConfig($conf);
