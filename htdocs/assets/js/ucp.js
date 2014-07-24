@@ -367,6 +367,7 @@ var UCPC = Class.extend({
 					} else {
 						if (!$( "#messages-container .message-box[data-id=\"" + id + "\"]" ).hasClass("expand")) {
 							$( "#messages-container .message-box[data-id=\"" + id + "\"]" ).addClass("expand");
+							$( "#messages-container .message-box[data-id=\"" + id + "\"]" ).find(".fa-arrow-up").addClass("fa-arrow-down").removeClass("fa-arrow-up");
 						}
 					}
 				});
