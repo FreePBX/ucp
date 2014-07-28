@@ -29,7 +29,8 @@ class UCP extends UCP_Helpers {
 			$this->notifications = \notifications::create();
 			//database subsystem
 			$this->db = $this->FreePBX->Database;
-			$this->db->setAttribute(\PDO::MYSQL_ATTR_USE_BUFFERED_QUERY, false);
+			//This causes crazy errors later on. Dont use it
+			//$this->db->setAttribute(\PDO::MYSQL_ATTR_USE_BUFFERED_QUERY, false);
 		}
 
 		// Ensure the local object is available

@@ -266,11 +266,7 @@ var UCPC = Class.extend({
 	startComm: function() {
 		this.ws = new WebSocket("ws://" + $.url().attr("host") + ":8081");
 		this.ws.onerror = function(event) {
-			console.warn("Unable to make websockets connection, falling back to polling");
-			UCP.shortpoll();
-			UCP.pollID = setInterval(function() {
-				UCP.shortpoll();
-			}, 5000);
+			//
 		};
 		this.ws.onmessage = function(event) {
 			var data = JSON.parse(event.data);
@@ -281,7 +277,11 @@ var UCPC = Class.extend({
 		};
 		this.ws.onclose = function(event) {
 			//terminate the connection do stuff after here
-			console.warn("Connection Terminated");
+			console.warn("Unable to make websockets connection, falling back to polling");
+			UCP.shortpoll();
+			UCP.pollID = setInterval(function() {
+				UCP.shortpoll();
+			}, 5000);
 		};
 	},
 	longpoll: function() {
