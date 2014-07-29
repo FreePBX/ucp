@@ -366,6 +366,9 @@ var UCPC = Class.extend({
 						UCP.addChatMessage(id, sender, msgid, message);
 					} else {
 						if (!$( "#messages-container .message-box[data-id=\"" + id + "\"]" ).hasClass("expand")) {
+							$( "#messages-container .message-box[data-id=\"" + id + "\"]" ).one("webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend", function() {
+								$(this).find("textarea").focus();
+							});
 							$( "#messages-container .message-box[data-id=\"" + id + "\"]" ).addClass("expand");
 							$( "#messages-container .message-box[data-id=\"" + id + "\"]" ).find(".fa-arrow-up").addClass("fa-arrow-down").removeClass("fa-arrow-up");
 						}
@@ -375,12 +378,17 @@ var UCPC = Class.extend({
 				$( "#messages-container .title-bar[data-id=\"" + id + "\"]" ).on("click", function(event) {
 					if (!$(event.target).hasClass("cancelExpand")) {
 						var container = $("#messages-container .message-box[data-id=\"" + id + "\"]");
-						container.toggleClass("expand");
-						if (container.hasClass("expand")) {
+						if (!container.hasClass("expand")) {
 							container.find(".fa-arrow-up").addClass("fa-arrow-down").removeClass("fa-arrow-up");
 						} else {
 							container.find(".fa-arrow-down").addClass("fa-arrow-up").removeClass("fa-arrow-down");
 						}
+						container.one("webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend", function() {
+							if (container.hasClass("expand")) {
+								$(this).find("textarea").focus();
+							}
+						});
+						container.toggleClass("expand");
 					} else {
 						UCP.removeChat($(this).data("id"));
 					}
@@ -485,6 +493,7 @@ var UCPC = Class.extend({
 	pjaxError: function(event) {
 		//query higher up event here
 		console.log("error");
+		console.log(event);
 		event.preventDefault();
 		return false;
 	},
@@ -629,3 +638,11 @@ var UCPC = Class.extend({
 $(function() {
 	UCP.ready();
 });
+
+jQuery.fn.highlight = function(str, className) {
+	var regex = new RegExp("\\b" + str + "\\b", "gi");
+
+	return this.each(function() {
+		this.innerHTML = this.innerHTML.replace(regex, function(matched) {return "<span class=\"" + className + "\">" + matched + "</span>";});
+	});
+};
