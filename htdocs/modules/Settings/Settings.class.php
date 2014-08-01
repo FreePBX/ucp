@@ -26,7 +26,7 @@ namespace UCP\Modules;
 use \UCP\Modules as Modules;
 
 class Settings extends Modules{
-    protected $module = 'Settings';
+	protected $module = 'Settings';
 
 	function __construct($Modules) {
 		$this->Modules = $Modules;
@@ -73,7 +73,7 @@ class Settings extends Modules{
 
 	public function getMenuItems() {
 		$user = $this->UCP->User->getUser();
-        $extensions = $this->UCP->getSetting($user['username'],$this->module,'assigned');
+		$extensions = $this->UCP->getSetting($user['username'],$this->module,'assigned');
 		$menu = array();
 		if(!empty($extensions)) {
 			$menu = array(
@@ -95,7 +95,7 @@ class Settings extends Modules{
 
 	private function _checkExtension($extension) {
 		$user = $this->UCP->User->getUser();
-        $extensions = $this->UCP->getSetting($user['username'],$this->module,'assigned');
+		$extensions = $this->UCP->getSetting($user['username'],$this->module,'assigned');
 		return in_array($extension,$extensions);
 	}
 }

@@ -3,7 +3,11 @@
 		<div class="type">
 			<i class="fa fa-comment"></i>
 		</div>
-		<div class="name"><?php echo $title?></div>
+		<div class="name">
+			<div class="from"><strong>F:</strong> <?php echo $from?></div>
+			<br/>
+			<div class="to"><strong>T:</strong> <?php echo $to?></div>
+		</div>
 		<div class="actions">
 			<i class="fa fa-times cancelExpand"></i><i class="fa fa-arrow-up"></i>
 		</div>
