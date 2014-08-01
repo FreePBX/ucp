@@ -10,10 +10,21 @@ try {
 } catch(\Exception $e) {
 	return false;
 }
-$userman->registerHook('addUser','ucp_hook_userman_updateUser');
+$userman->registerHook('addUser','ucp_hook_userman_addUser');
 $userman->registerHook('delUser','ucp_hook_userman_delUser');
 $userman->registerHook('updateUser','ucp_hook_userman_updateUser');
 
+function ucp_hook_userman_addUser($id,$display,$data) {
+	if($display == 'extensions' || $display == 'users') {
+		FreePBX::create()->Userman->setModuleSettingByID($id,'ucp|Global','allowLogin',true);
+		$ucp = FreePBX::create()->Ucp;
+		$user = $ucp->getUserByID($id);
+		$ucp->setSetting($user['username'],'Settings','assigned',array($data['username']));
+		$ucp->setSetting($user['username'],'Voicemail','assigned',array($data['username']));
+	} else {
+		ucp_hook_userman_updateUser($id,$display,$data);
+	}
+}
 function ucp_hook_userman_updateUser($id,$display,$data) {
 	if($display == 'userman') {
 		if(isset($_POST['ucp|login'])) {
