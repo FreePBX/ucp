@@ -6,46 +6,46 @@
  * Copyright 2006-2014 Schmooze Com Inc.
  */
 try {
-  $userman = FreePBX::Userman();
+	$userman = FreePBX::Userman();
 } catch(\Exception $e) {
-  return false;
+	return false;
 }
 $userman->registerHook('addUser','ucp_hook_userman_updateUser');
 $userman->registerHook('delUser','ucp_hook_userman_delUser');
 $userman->registerHook('updateUser','ucp_hook_userman_updateUser');
 
 function ucp_hook_userman_updateUser($id,$display,$data) {
-    if($display == 'userman') {
-        if(isset($_POST['ucp|login'])) {
-            if($_POST['ucp|login'] == 'true') {
-                FreePBX::create()->Userman->setModuleSettingByID($id,'ucp|Global','allowLogin',true);
-            } else {
-                FreePBX::create()->Userman->setModuleSettingByID($id,'ucp|Global','allowLogin',false);
-            }
+	if($display == 'userman') {
+		if(isset($_POST['ucp|login'])) {
+			if($_POST['ucp|login'] == 'true') {
+				FreePBX::create()->Userman->setModuleSettingByID($id,'ucp|Global','allowLogin',true);
+			} else {
+				FreePBX::create()->Userman->setModuleSettingByID($id,'ucp|Global','allowLogin',false);
+			}
 			if(isset($_POST['ucp|settings'])) {
 				$ucp = FreePBX::create()->Ucp;
 				$user = $ucp->getUserByID($id);
 				$ucp->setSetting($user['username'],'Settings','assigned',$_POST['ucp|settings']);
 			}
-        }
-    } else {
-        $allowed = FreePBX::create()->Userman->getModuleSettingByID($id,'ucp|Global','allowLogin');
-        if(empty($allowed)) {
-            FreePBX::create()->Userman->setModuleSettingByID($id,'ucp|Global','allowLogin',false);
-        }
-    }
+		}
+	} else {
+		$allowed = FreePBX::create()->Userman->getModuleSettingByID($id,'ucp|Global','allowLogin');
+		if(empty($allowed)) {
+			FreePBX::create()->Userman->setModuleSettingByID($id,'ucp|Global','allowLogin',false);
+		}
+	}
 	return true;
 }
 
 function ucp_hook_userman_delUser($id,$display,$data) {
-    $ucp = FreePBX::create()->Ucp;
-    $ucp->expireUserSessions($id);
-    $ucp->deleteUser($id);
+	$ucp = FreePBX::create()->Ucp;
+	$ucp->expireUserSessions($id);
+	$ucp->deleteUser($id);
 }
 
 function ucp_hook_userman() {
 	if(isset($_REQUEST['action'])) {
-        $ucp = FreePBX::create()->Ucp;
+		$ucp = FreePBX::create()->Ucp;
 		switch($_REQUEST['action']) {
 			case 'showuser':
 				$user = $ucp->getUserByID($_REQUEST['user']);
@@ -70,6 +70,21 @@ function ucp_hook_userman() {
 					$fpbxusers[] = array("ext" => $assigned, "data" => $cul[$assigned], "selected" => in_array($assigned,$sassigned));
 				}
 				return load_view(dirname(__FILE__).'/views/users_hook.php',array("fpbxusers" => $fpbxusers, "mHtml" => $ucp->constructModuleConfigPages($user), "user" => $user, "allowLogin" => FreePBX::create()->Userman->getModuleSettingByID($_REQUEST['user'],'ucp|Global','allowLogin'), "sessions" => $ucp->getUserSessions($user['id'])));
+			break;
+			case 'adduser':
+				if(isset($_POST['submit'])) {
+					$user = $ucp->getUserByID($_REQUEST['user']);
+					$ucp->processModuleConfigPages($user);
+				}
+				$fpbxusers = array();
+				$cul = array();
+				foreach(core_users_list() as $list) {
+					$cul[$list[0]] = array(
+						"name" => $list[1],
+					);
+				}
+
+				return load_view(dirname(__FILE__).'/views/users_hook.php',array("fpbxusers" => $fpbxusers, "mHtml" => $ucp->constructModuleConfigPages($user), "user" => array(), "allowLogin" => true, "sessions" => array()));
 			break;
 			default:
 			break;
