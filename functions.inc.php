@@ -33,10 +33,12 @@ function ucp_hook_userman_updateUser($id,$display,$data) {
 			} else {
 				FreePBX::create()->Userman->setModuleSettingByID($id,'ucp|Global','allowLogin',false);
 			}
+			$ucp = FreePBX::create()->Ucp;
+			$user = $ucp->getUserByID($id);
 			if(isset($_POST['ucp|settings'])) {
-				$ucp = FreePBX::create()->Ucp;
-				$user = $ucp->getUserByID($id);
 				$ucp->setSetting($user['username'],'Settings','assigned',$_POST['ucp|settings']);
+			} else {
+				$ucp->setSetting($user['username'],'Settings','assigned',array());
 			}
 		}
 	} else {
