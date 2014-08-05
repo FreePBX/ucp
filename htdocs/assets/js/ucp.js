@@ -71,6 +71,14 @@ var UCPC = Class.extend({
 	setupDashboard: function() {
 		//Start PJAX Stuff
 		if ($.support.pjax) {
+			$.post( "index.php", { "quietmode": 1, "command": "staticsettings" }, function( data ) {
+				if (data.status) {
+					$.each(data.settings, function(i, v) {
+						window[i].staticsettings = v;
+					});
+					$(document).trigger("staticSettingsFinished");
+				}
+			});
 			//logout bind
 			$(document).pjax("a[data-pjax-logout]", "#content-container");
 
@@ -344,8 +352,8 @@ var UCPC = Class.extend({
 		});
 	},
 	showDialog: function(title, content, height, width) {
-		var w = (typeof width !== undefined) ? width : "250px",
-				h = (typeof height !== undefined) ? height : "150px",
+		var w = (typeof width !== "undefined") ? width : "250px",
+				h = (typeof height !== "undefined") ? height : "250px",
 				html = "<div class=\"dialog\" style=\"height:" + h + "px;width:" + w + "px;margin-top:-" + (h / 2) + "px;margin-left:-" + (w / 2) + "px;\"><div class=\"title\">" + title + "<i class=\"fa fa-times\" onclick=\"UCP.closeDialog()\"></i></div><div class=\"content\">" + content + "</div></div>";
 		if ($(".dialog").length) {
 			$(".dialog").fadeOut("fast", function(event) {
@@ -356,11 +364,59 @@ var UCPC = Class.extend({
 			$(html).appendTo("#dashboard-content").hide().fadeIn("fast");
 		}
 	},
+	addPhone: function(module, id, s, msg, callback) {
+		var message = (typeof msg !== "undefined") ? msg : "",
+				state = (typeof s !== "undefined") ? s : "call";
+		if ($( ".phone-box[data-id=\"" + id + "\"]" ).length > 0) {
+			return;
+		}
+		$.ajax({ url: "index.php?quietmode=1&command=template&type=phone", data: { template: { id: id, state: state, message: message, module: module } }, success: function(data) {
+			$( "#messages-container" ).append( data.contents );
+			if (typeof callback === "function") {
+				callback(id, state, message);
+			}
+			$( ".phone-box[data-id=\"" + id + "\"]" ).fadeIn("fast", function() {
+				$(document).trigger( "phoneWindowAdded" );
+				if (!$( "#messages-container .phone-box[data-id=\"" + id + "\"]" ).hasClass("expand")) {
+					$( "#messages-container .phone-box[data-id=\"" + id + "\"]" ).one("webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend", function() {
+						$("#messages-container .phone-box[data-id=\"" + id + "\"] input").focus();
+					});
+					$( "#messages-container .phone-box[data-id=\"" + id + "\"]" ).addClass("expand");
+					$( "#messages-container .phone-box[data-id=\"" + id + "\"]" ).find(".fa-arrow-up").addClass("fa-arrow-down").removeClass("fa-arrow-up");
+				}
+			});
+			$( "#messages-container .phone-box[data-id=\"" + id + "\"] .title-bar" ).on("click", function(event) {
+				if (!$(event.target).hasClass("cancelExpand")) {
+					var container = $("#messages-container .phone-box");
+					if (!container.hasClass("expand")) {
+						container.find(".fa-arrow-up").addClass("fa-arrow-down").removeClass("fa-arrow-up");
+					} else {
+						container.find(".fa-arrow-down").addClass("fa-arrow-up").removeClass("fa-arrow-down");
+					}
+					container.one("webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend", function() {
+						if (container.hasClass("expand")) {
+							$("#messages-container .phone-box[data-id=\"" + id + "\"] input").focus();
+						}
+					});
+					container.toggleClass("expand");
+				} else {
+					UCP.removePhone(id);
+				}
+			});
+		}, dataType: "json", type: "POST" });
+	},
+	removePhone: function(id) {
+		$( "#messages-container .phone-box[data-id=\"" + id + "\"]" ).off("click");
+		$( "#messages-container .phone-box[data-id=\"" + id + "\"]" ).fadeOut("fast", function() {
+			$(this).remove();
+			$(document).trigger( "phoneWindowRemoved");
+		});
+	},
 	addChat: function(module, id, title, from, to, sender, msgid, message) {
-		if(!$( "#messages-container .message-box[data-id=\"" + id + "\"]" ).length) {
+		if (!$( "#messages-container .message-box[data-id=\"" + id + "\"]" ).length) {
 			var newWindow = (typeof msgid === "undefined");
 			$.ajax({ url: "index.php?quietmode=1&command=template&type=chat", data: { newWindow: newWindow, template: { module: module, id: id, title: title, to: to, from: from } }, success: function(data) {
-				$( "#messages-container" ).prepend( data.contents );
+				$( "#messages-container" ).append( data.contents );
 				$( "#messages-container .message-box[data-id=\"" + id + "\"]" ).fadeIn("fast", function() {
 					if (typeof msgid !== "undefined") {
 						UCP.addChatMessage(id, sender, msgid, message);
@@ -375,7 +431,7 @@ var UCPC = Class.extend({
 					}
 				});
 				$(document).trigger( "chatWindowAdded", [ id, module,  $( "#messages-container .message-box[data-id=\"" + id + "\"]" ) ] );
-				$( "#messages-container .title-bar[data-id=\"" + id + "\"]" ).on("click", function(event) {
+				$( "#messages-container .message-box .title-bar[data-id=\"" + id + "\"]" ).on("click", function(event) {
 					if (!$(event.target).hasClass("cancelExpand")) {
 						var container = $("#messages-container .message-box[data-id=\"" + id + "\"]");
 						if (!container.hasClass("expand")) {
@@ -406,6 +462,7 @@ var UCPC = Class.extend({
 		$( "#messages-container .title-bar[data-id=\"" + id + "\"]" ).off("click");
 		$( "#messages-container .message-box[data-id=\"" + id + "\"]" ).fadeOut("fast", function() {
 			$(this).remove();
+			$(document).trigger( "chatWindowRemoved", [ id ] );
 		});
 	},
 	addChatMessage: function(id, sender, msgid, message, colorNew) {

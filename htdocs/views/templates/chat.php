@@ -28,7 +28,7 @@
 			</div>
 		</div>
 		<div class="response">
-			<textarea></textarea>
+			<textarea class="form-control"></textarea>
 		</div>
 	</div>
 </div>

@@ -260,13 +260,10 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 					box-sizing: border-box;
 					display: inline-block;
 					position: relative;
-					/*-webkit-animation: marquee 10s linear infinite;
-					-webkit-animation-direction: alternate;*/
 					font-size: initial;
 					top: 1px;
-					span {
-						font-size: 80%;
-					}
+					width: 160px;
+					height: 21px;
 				}
 			}
 		}
@@ -721,6 +718,145 @@ section.content {
 
 .message-box.expand {
 	top: -275px;
+}
+
+.phone-box {
+	z-index: 50;
+	background-color: #f5f5f5;
+	height: 295px;
+	width: 225px;
+	position: relative;
+	top: -38px;
+	float: right;
+	margin-left: 5px;
+	transition: top .5s;
+	.title-bar {
+		background-color: #404040;
+		height: 38px;
+		cursor: pointer;
+		.type {
+			i {
+				color: white;
+				font-size: 178%;
+				top: 7px;
+				position: absolute;
+				left: 7px;
+			}
+		}
+		.name {
+			color: white;
+			vertical-align: middle;
+			top: 0px;
+			position: relative;
+			left: 32px;
+			display: inline-block;
+			font-size: 103%;
+			white-space: nowrap;
+			overflow: hidden;
+			width: 133px;
+			.message-container {
+				text-align: center;
+				width:133px;
+				height:17px;
+				.message {
+
+				}
+			}
+			.title {
+				text-align: center;
+			}
+		}
+		.actions {
+			position: absolute;
+			right: 3px;
+			top: 4px;
+			i {
+				color: white;
+				font-size: 136%;
+				float: right;
+				padding: 5px;
+				border: 1px solid transparent;
+			}
+			i:hover {
+				background-color: lightgray;
+				color: black;
+				border: 1px solid black;
+			}
+		}
+	}
+	.window {
+		/* Fix for Scroll bars showing in Chrome */
+		-webkit-transform: translate3d(0, 0, 0);
+		/* end fix */
+		border-left: 1px solid black;
+		border-right: 1px solid black;
+		height: 258px;
+		font-family: sans-serif;
+		table.keypad {
+			margin: auto;
+			position: relative;
+			top: 7px;
+			table-layout: fixed;
+			td {
+				cursor: pointer;
+				border: 1px solid rgb(201, 201, 201);
+				width: 64px;
+				height: 43px;
+				text-align: center;
+				border-radius: 0px;
+				.num {
+					font-weight: bold;
+				}
+				.letters {
+					font-size: 86%;
+					color: rgb(172, 172, 172);
+					margin-top: -4px;
+				}
+			}
+			td.upper-left {
+				border-top-left-radius: 4px;
+			}
+			td.upper-right {
+				border-top-right-radius: 4px;
+			}
+			td.lower-left {
+				border-bottom-left-radius: 4px;
+			}
+			td.lower-right {
+				border-bottom-right-radius: 4px;
+			}
+		}
+		.input-container {
+			width: 191px;
+			top: 3px;
+			position: relative;
+			left: 16px;
+		}
+		.actions {
+			position: relative;
+			top: 12px;
+			left: 16px;
+			width: 192px;
+			table-layout: fixed;
+			td {
+				padding-left: 1px;
+				padding-right: 1px;
+				.right {
+					display: none;
+				}
+			}
+			button.action {
+				width: 100%;
+			}
+			button.secondaction {
+				width: 100%;
+			}
+		}
+	}
+}
+
+.phone-box.expand {
+	top: -295px;
 }
 
 #ucp-settings {

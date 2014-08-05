@@ -44,7 +44,7 @@
 					<i class="fa fa-circle"></i>
 				</div>
 				<div class="p-container">
-					<div class="p-msg"></div>
+					<div class="p-msg"><span></span></div>
 				</div>
 			</div>
 			<div id="settings-btn">

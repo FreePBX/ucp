@@ -22,6 +22,7 @@
 		<script type="text/javascript" src="assets/js/jquery.transit.min.js"></script>
 		<script type="text/javascript" src="assets/js/jquery.keyframes.min.js"></script>
 		<script type="text/javascript" src="assets/js/date.format.js"></script>
+		<script type="text/javascript" src="assets/js/jquery.textfill.min.js"></script>
 		<script type="text/javascript" src="assets/js/ucp.js"></script>
 		<script type="text/javascript" src="assets/js/module.js"></script>
 		<script type="text/javascript" src="assets/js/compiled/<?php echo $scripts?>"></script>

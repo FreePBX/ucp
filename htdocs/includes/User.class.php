@@ -63,10 +63,9 @@ class User extends UCP {
 				if(!$o) {
 					$return['message'] = _('Invalid Login Credentials');
 				} else {
-					//TODO: this is all in the javascript, shouldnt be here
 					$mods = $this->UCP->Modules->getModulesByMethod('login');
 					foreach($mods as $mod) {
-						$this->UCP->Modules->$mod->login();
+						$settings[$mod] = $this->UCP->Modules->$mod->login();
 					}
 					$return['status'] = true;
 				}

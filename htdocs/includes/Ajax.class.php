@@ -78,6 +78,17 @@ class Ajax extends UCP {
 					$this->triggerFatal();
 				}
 			break;
+			case 'staticsettings':
+				$mods = $this->UCP->Modules->getModulesByMethod('getStaticSettings');
+				$settings = array();
+				foreach($mods as $m) {
+					$settings[$m] = $this->UCP->Modules->$m->getStaticSettings();
+				}
+				$ret = array(
+					"status" => true,
+					"settings" => $settings
+				);
+			break;
 			case 'poll':
 				$ret = $this->poll();
 				if($ret === false) {
