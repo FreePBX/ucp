@@ -152,8 +152,13 @@ var UCPC = Class.extend({
 		});
 
 		$("#presence-menu2 .change-status").click(function() {
-			$(".options").toggleClass("shrink");
-			$(".statuses").toggleClass("grow");
+			$("#presence-menu2 .options").toggleClass("shrink");
+			$("#presence-menu2 .statuses").toggleClass("grow");
+			if ($("#presence-menu2 .statuses").hasClass("grow")) {
+				$("#presence-menu2 .change-status").text("Select Actions");
+			} else {
+				$("#presence-menu2 .change-status").text("Change Status");
+			}
 		});
 
 		//Hide Settings Menu when clicking outside of it

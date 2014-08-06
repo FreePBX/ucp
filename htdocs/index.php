@@ -149,7 +149,10 @@ switch($display) {
 			$actions = array();
 			foreach($ucp->Modules->getModulesByMethod('getPresenceAction') as $m) {
 				$mc = ucfirst(strtolower($m));
-				$actions[$m] = $ucp->Modules->$mc->getPresenceAction();
+				$act = $ucp->Modules->$mc->getPresenceAction();
+				if(!empty($act)) {
+					$actions[$m] = $act;
+				}
 			}
 			$displayvars['presence'] = array(
 				'menu' => $ucp->Modules->Presencestate->getStatusMenu(),

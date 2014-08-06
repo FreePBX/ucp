@@ -384,12 +384,18 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 	.actions {
 		font-size: large;
 		padding-left:5px;
-		i {
-			padding: 5px;
+		div {
+			padding-left: 5px;
 			border: 1px solid transparent;
 			cursor: pointer;
+			margin-top: 2px;
+			margin-bottom: 2px;
+			margin-right: 2px;
+			span {
+				font-size: 80%;
+			}
 		}
-		i:hover {
+		div:hover {
 			border: 1px solid black;
 			background-color: #ffffff;
 		}
@@ -723,7 +729,7 @@ section.content {
 .phone-box {
 	z-index: 50;
 	background-color: #f5f5f5;
-	height: 295px;
+	height: 315px;
 	width: 225px;
 	position: relative;
 	top: -38px;
@@ -790,7 +796,7 @@ section.content {
 		/* end fix */
 		border-left: 1px solid black;
 		border-right: 1px solid black;
-		height: 258px;
+		height: 278px;
 		font-family: sans-serif;
 		table.keypad {
 			margin: auto;
@@ -826,6 +832,44 @@ section.content {
 				border-bottom-right-radius: 4px;
 			}
 		}
+		.activeCallSession {
+			position: absolute;
+			top: 11px;
+			width: 100%;
+			height: 217px;
+		}
+		.contactDisplay {
+			display: none;
+			position: absolute;
+			width: 100%;
+			height: 230px;
+			z-index: 50;
+			background-color: #f5f5f5;
+			padding-left: 17px;
+			padding-right: 17px;
+			padding-top: 7px;
+			.contactImage {
+				border: 1px solid rgb(187, 187, 187);
+				background-image: url('/ucp/modules/Webrtc/assets/images/no_user_logo.png');
+				height: 166px;
+				border: 1px solid rgb(187, 187, 187);
+				background-size: contain;
+				background-repeat: no-repeat;
+				position: relative;
+				top: 9px;
+			}
+			.contactInfo {
+				position: relative;
+				top: 17px;
+				text-align: center;
+				width: 189px;
+				height: 39px;
+				span {
+					font-weight: bold;
+				}
+			}
+
+		}
 		.input-container {
 			width: 191px;
 			top: 3px;
@@ -833,8 +877,8 @@ section.content {
 			left: 16px;
 		}
 		.actions {
-			position: relative;
-			top: 12px;
+			position: absolute;
+			bottom: 8px;
 			left: 16px;
 			width: 192px;
 			table-layout: fixed;
@@ -856,7 +900,7 @@ section.content {
 }
 
 .phone-box.expand {
-	top: -295px;
+	top: -315px;
 }
 
 #ucp-settings {

@@ -71,7 +71,10 @@
 			<ol>
 				<li class="actions">
 					<?php foreach($presence['actions'] as $m => $a) {?>
-						<i class="fa <?php echo $a?>" data-module="<?php echo $m?>"></i>
+						<div data-module="<?php echo $m?>">
+							<i class="fa <?php echo $a['icon']?>"></i>
+							<span><?php echo $a['title']?></span>
+						</div>
 					<?php } ?>
 				</li>
 			</ol>

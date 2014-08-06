@@ -2,7 +2,7 @@
 	<rawname>ucp</rawname>
 	<name>User Control Panel</name>
 	<repo>standard</repo>
-	<version>12.0.0beta7</version>
+	<version>12.0.0beta8</version>
 	<publisher>FreePBX</publisher>
 	<license>AGPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/agpl-3.0.txt</licenselink>
@@ -10,6 +10,7 @@
 		Formerly ARI, now called User Control Panel
 	</description>
 	<changelog>
+		*12.0.0beta8* Standardization in presence menu items
 		*12.0.0beta7* Added the hooks required for Webrtc type modules
 		*12.0.0beta6* Allow multiple options per module
 		*12.0.0beta5* Show settings on user creation
