@@ -86,7 +86,7 @@ var UCPC = Class.extend({
 			$(document).on("click", "[data-pjax] a, a[data-pjax]", function(event) {
 				var container = $("#dashboard-content"),
 						clicker = $(this).data("mod"),
-						breadcrumbs = "<li><a data-mod=\"home\" data-pjax href=\"?display=dashboard&amp;mod=home\">Home</a></li>",
+						breadcrumbs = "<li class=\"home\"><a data-mod=\"home\" data-pjax href=\"?display=dashboard&amp;mod=home\">Home</a></li>",
 						mod = "home",
 						sub = "",
 						display = "";
@@ -97,13 +97,13 @@ var UCPC = Class.extend({
 				display = $.url().param("display");
 				if (typeof display === "undefined" || display == "dashboard") {
 					if (mod != "home") {
-						breadcrumbs = breadcrumbs + "<li class=\"active\">" + mod + "</li>";
+						breadcrumbs = breadcrumbs + "<li class=\"module bc-" + mod + " active\">" + mod + "</li>";
 					}
 					if (typeof sub !== "undefined") {
-						breadcrumbs = breadcrumbs + "<li class=\"active\">" + sub + "</li>";
+						breadcrumbs = breadcrumbs + "<li class=\"subsection bc-" + sub + " active\">" + sub + "</li>";
 					}
 				} else if (display == "settings") {
-					breadcrumbs = breadcrumbs + "<li class=\"active\">Settings</li>";
+					breadcrumbs = breadcrumbs + "<li class=\"module active\">Settings</li>";
 				}
 
 				$("#top-dashboard-nav").html(breadcrumbs);

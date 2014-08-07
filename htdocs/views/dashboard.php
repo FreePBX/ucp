@@ -28,11 +28,11 @@
 		</div>
 		<div id="bc-mobile-icon"><i class="fa fa-bars"></i></div>
 		<ol id="top-dashboard-nav" class="breadcrumb">
-		  <li><a data-mod="home" data-pjax href="?display=dashboard&amp;mod=home"><?php echo _('Home')?></a></li>
+		  <li class="home"><a data-mod="home" data-pjax href="?display=dashboard&amp;mod=home"><?php echo _('Home')?></a></li>
 		  <?php if($active_module != 'home' && !empty($menu[$active_module])) {?>
-			  <li class="bc-<?php echo $menu[$active_module]['rawname']?> active"><?php echo $menu[$active_module]['rawname']?></li>
+			  <li class="module bc-<?php echo $menu[$active_module]['rawname']?> active"><?php echo $menu[$active_module]['rawname']?></li>
 			  <?php if(!empty($_REQUEST['sub'])) {?>
-				  <li class="bc-<?php echo $_REQUEST['sub']?> active"><?php echo $_REQUEST['sub']?></li>
+				  <li class="subsection bc-<?php echo $_REQUEST['sub']?> active"><?php echo $_REQUEST['sub']?></li>
 				<?php } ?>
 			<?php } elseif($active_module == 'ucpsettings') { ?>
 				<li class="bc-ucpsettings active"><?php echo _('Settings')?></li>
