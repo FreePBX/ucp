@@ -86,7 +86,7 @@ function ucp_hook_userman() {
 			break;
 			case 'adduser':
 				if(isset($_POST['submit'])) {
-					$user = $ucp->getUserByID($_REQUEST['user']);
+					$user = $ucp->getUserByUsername($_REQUEST['username']);
 					$ucp->processModuleConfigPages($user);
 				}
 				$fpbxusers = array();
