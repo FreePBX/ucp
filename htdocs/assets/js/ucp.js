@@ -328,6 +328,11 @@ var UCPC = Class.extend({
 					});
 				}
 				UCP.polling = false;
+			}, error: function(jqXHR, textStatus, errorThrown) {
+				//We probably should logout on every event here... but
+				if (jqXHR.status === 403) {
+					$("a[data-pjax-logout]").click();
+				}
 			}, dataType: "json", type: "POST" });
 		}
 	},
