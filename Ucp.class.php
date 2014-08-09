@@ -19,7 +19,7 @@ class Ucp implements BMO {
 	}
 
 	public function install() {
-
+		$this->expireAllUserSessions();
 	}
 	public function uninstall() {
 
@@ -221,6 +221,17 @@ class Ucp implements BMO {
 			$user['assigned'] = !empty($assigned) ? $assigned : array();
 		}
 		return $user;
+	}
+
+	/**
+	* Trash all sessions (used for upgrade purposes)
+	*/
+	public function expireAllUserSessions() {
+		$sql = "TRUNCATE TABLE ucp_sessions";
+		try {
+			$sth = $this->db->prepare($sql);
+		} catch(\Exception $e) {}
+		return true;
 	}
 
 	/**
