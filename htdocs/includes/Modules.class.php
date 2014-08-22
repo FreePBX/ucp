@@ -193,26 +193,35 @@ class Modules extends Module_Helpers {
 		return $filename;
 	}
 
-		//These Scripts persist throughout the navigation of UCP
-		public function getGlobalLess() {
-			$cache = dirname(__DIR__).'/assets/css/compiled';
-			if(!file_exists($cache) && !mkdir($cache)) {
-				die('Can Not Create Cache Folder at '.$cache);
-			}
-			\Less_Cache::$cache_dir = $cache;
-				$files = array();
-				foreach (glob(dirname(__DIR__)."/modules/*", GLOB_ONLYDIR) as $module) {
-						$mod = basename($module);
-						if(file_exists($module.'/'.$mod.'.class.php')) {
-								$module = ucfirst(strtolower($mod));
-								$dir = dirname(__DIR__)."/modules/".$module."/assets/less";
-								if(is_dir($dir) && file_exists($dir.'/bootstrap.less')) {
-									$files[$dir."/bootstrap.less"] = '../../../modules/'.ucfirst($module).'/assets';
-								}
-						}
+	//These Scripts persist throughout the navigation of UCP
+	public function getGlobalLess() {
+		$cache = dirname(__DIR__).'/assets/css/compiled';
+		if(!file_exists($cache) && !mkdir($cache)) {
+			die('Can Not Create Cache Folder at '.$cache);
+		}
+		\Less_Cache::$cache_dir = $cache;
+			$files = array();
+			foreach (glob(dirname(__DIR__)."/modules/*", GLOB_ONLYDIR) as $module) {
+				$mod = basename($module);
+				if(file_exists($module.'/'.$mod.'.class.php')) {
+					$module = ucfirst(strtolower($mod));
+					$dir = dirname(__DIR__)."/modules/".$module."/assets/less";
+					if(is_dir($dir) && file_exists($dir.'/bootstrap.less')) {
+						$files[$dir."/bootstrap.less"] = '../../../modules/'.ucfirst($module).'/assets';
+					}
 				}
-				$css_file_name = \Less_Cache::Get( $files, array('compress' => true) );
-				return $css_file_name;
+			}
+			$css_file_name = \Less_Cache::Get( $files, array('compress' => true) );
+		return $css_file_name;
+	}
+
+	public function getGlobalLanguageJSON($language) {
+		$modules = array();
+		foreach (glob(dirname(__DIR__)."/modules/*", GLOB_ONLYDIR) as $module) {
+			$mod = basename($module);
+			if(file_exists($module.'/'.$mod.'.class.php')) {
+				$modules[] = $mod;
+			}
 		}
 
 	protected function load_view($view_filename_protected, $vars = array()) {

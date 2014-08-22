@@ -168,6 +168,48 @@ switch($display) {
 }
 
 if(!isset($_SERVER['HTTP_X_PJAX'])) {
+	$globalJavascripts = array(
+		"bootstrap-3.1.1.custom.min.js",
+		"jquery-ui-1.10.4.custom.min.js",
+		"jquery.keyframes.min.js",
+		"fileinput.js",
+		"recorder.js",
+		"jquery.iframe-transport.js",
+		"jquery.fileupload.js",
+		"jquery.form.min.js",
+		"jquery.jplayer.min.js",
+		"quo.js",
+		"purl.js",
+		"modernizr.js",
+		"jquery.pjax.js",
+		"notify.js",
+		"packery.pkgd.min.js",
+		"class.js",
+		"jquery.transit.min.js",
+		"date.format.js",
+		"jquery.textfill.min.js",
+		"jed.js",
+		"jquery.cookie.js",
+		"ucp.js",
+		"module.js"
+	);
+	$ftime = 0;
+	$contents = '';
+	$files = array();
+	foreach ($globalJavascripts as $f) {
+		$file = __DIR__.'/assets/js/'.$f;
+		if(file_exists($file)) {
+			$ftime = filemtime($file) > $ftime ? filemtime($file) : $ftime;
+			$files[] = $file;
+			$contents .= file_get_contents($file)."\n\n";
+		}
+	}
+	$filename = 'jsphpg_'.$ftime.'.js';
+	if(!file_exists(__DIR__.'/assets/js/'.$filename)) {
+		$output = \JShrink\Minifier::minify($contents);
+		file_put_contents(__DIR__.'/assets/js/'.$filename,$output);
+	}
+	$displayvars['language'] = $ucp->Modules->getGlobalLanguageJSON($lang);
 	$displayvars['modules'] = json_encode($active_modules);
 	$displayvars['scripts'] = $ucp->Modules->getGlobalScripts();
 	$ucp->View->show_view(dirname(__FILE__).'/views/footer.php',$displayvars);
