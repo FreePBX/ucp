@@ -28,10 +28,12 @@ class Ajax extends UCP {
 	}
 
 	public function doRequest($module = null, $command = null) {
+		$this->UCP->Modgettext->textdomain("ucp");
 		switch($command) {
 			case 'ucpsettings':
 				$this->addHeader('HTTP/1.0','200');
 				$user = $this->UCP->User->getUser();
+				$this->UCP->Modgettext->push_textdomain("ucp");
 				switch($_POST['key']) {
 					case 'fname':
 					case 'lname':
@@ -56,9 +58,10 @@ class Ajax extends UCP {
 							"message" => 'Invalid Parameter'
 						);
 				}
-
+				$this->UCP->Modgettext->pop_textdomain();
 			break;
 			case 'template':
+				$this->UCP->Modgettext->push_textdomain("ucp");
 				$file = dirname(__DIR__).'/views/templates/'.basename($_REQUEST['type']).'.php';
 				if(ctype_alpha($_REQUEST['type']) && file_exists($file)) {
 					$this->addHeader('HTTP/1.0','200');
@@ -77,8 +80,10 @@ class Ajax extends UCP {
 				} else {
 					$this->triggerFatal();
 				}
+				$this->UCP->Modgettext->pop_textdomain();
 			break;
 			case 'staticsettings':
+				$this->UCP->Modgettext->push_textdomain("ucp");
 				$mods = $this->UCP->Modules->getModulesByMethod('getStaticSettings');
 				$settings = array();
 				foreach($mods as $m) {
@@ -88,6 +93,7 @@ class Ajax extends UCP {
 					"status" => true,
 					"settings" => $settings
 				);
+				$this->UCP->Modgettext->pop_textdomain();
 			break;
 			case 'poll':
 				$ret = $this->poll();
@@ -98,12 +104,12 @@ class Ajax extends UCP {
 			break;
 			default:
 				if (!$module || !$command) {
-					$this->triggerFatal("Module or Command were null. Check your code.");
+					$this->triggerFatal(_("Module or Command were null. Check your code."));
 				}
 
 				$ucMod = ucfirst(strtolower($module));
 				if ($module != 'UCP' && $module != 'User' && class_exists(__NAMESPACE__."\\".$ucMod)) {
-					$this->triggerFatal("The class $module already existed. Ajax MUST load it, for security reasons");
+					$this->triggerFatal(_("The class $module already existed. Ajax MUST load it, for security reasons"));
 				}
 
 				//Part of the login functionality, thats the only place its used!
@@ -129,6 +135,7 @@ class Ajax extends UCP {
 					$this->ajaxError(501, 'ajaxRequest not found');
 				}
 
+				$this->UCP->Modgettext->push_textdomain(strtolower($module));
 				if (!$thisModule->ajaxRequest($command, $this->settings)) {
 					$this->ajaxError(403, 'ajaxRequest declined');
 				}
@@ -150,6 +157,7 @@ class Ajax extends UCP {
 				if($ret === false) {
 					$this->triggerFatal();
 				}
+				$this->UCP->Modgettext->pop_textdomain();
 				$this->addHeader('HTTP/1.0','200');
 			break;
 		}
@@ -178,11 +186,13 @@ class Ajax extends UCP {
 		$data = !empty($_POST['data']) ? $_POST['data'] : array();
 		foreach($modules as $module) {
 			$mdata = !empty($_POST['mdata'][$module]) ? $_POST['mdata'][$module] : array();
+			$this->UCP->Modgettext->push_textdomain(strtolower($module));
 			if(!empty($mdata)) {
 				$modData[$module] = $this->UCP->Modules->$module->poll($data,$mdata);
 			} else {
 				$modData[$module] = $this->UCP->Modules->$module->poll($data);
 			}
+			$this->UCP->Modgettext->pop_textdomain();
 		}
 		return array(
 			"status" => true,

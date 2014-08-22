@@ -36,7 +36,9 @@ class Home extends Modules{
         $modules = $this->Modules->getModulesByMethod('getHomeWidgets');
         $html = '<div class="masonry-container">';
         foreach($modules as $module) {
+            $this->UCP->Modgettext->push_textdomain(strtolower($module));
             $widgets = $this->Modules->$module->getHomeWidgets();
+            $this->UCP->Modgettext->pop_textdomain();
             foreach($widgets as $data) {
                 $html .= '<div id="'.$module.'-widget-'.$data['id'].'" class="widget" style="width:'.$data['size'].';">';
                 $html .= '<div id="'.$module.'-title-'.$data['id'].'" class="title">'.$data['title'].'<a onclick="Home.refresh(\''.$module.'\',\''.$data['id'].'\')"><i class="fa fa-refresh"></i></a></div>';

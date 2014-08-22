@@ -42,7 +42,9 @@ class Settings extends Modules{
 
 		$sections = array();
 		foreach($modules as $module) {
+			$this->UCP->Modgettext->push_textdomain(strtolower($module));
 			$data = $this->Modules->$module->getSettingsDisplay($ext);
+			$this->UCP->Modgettext->pop_textdomain();
 			foreach($data as $section) {
 				$section['section'] = !empty($section['section']) ? $section['section'] : $module;
 				if(isset($section['order'])) {

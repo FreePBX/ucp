@@ -17,6 +17,8 @@ var UCPC = Class.extend({
 		this.ws = null;
 		this.footerHidden = false;
 		this.chatTimeout = {};
+		this.domain = "ucp";
+		this.i18n = null;
 	},
 	ready: function() {
 		$(window).resize(function() {UCP.windowResize();});
@@ -43,7 +45,7 @@ var UCPC = Class.extend({
 		$("#settings-btn i").removeClass("fa-spin");
 	},
 	ajaxError: function(event, jqxhr, settings, exception) {
-		UCP.displayGlobalMessage("Opps something went wrong. Try again a little later");
+		UCP.displayGlobalMessage(_("Opps something went wrong. Try again a little later"));
 	},
 	setupLogin: function() {
 		if ($.support.pjax) {
@@ -290,7 +292,7 @@ var UCPC = Class.extend({
 		};
 		this.ws.onclose = function(event) {
 			//terminate the connection do stuff after here
-			console.warn("Unable to make websockets connection, falling back to polling");
+			console.warn(_("Unable to make websockets connection, falling back to polling"));
 			UCP.shortpoll();
 			UCP.pollID = setInterval(function() {
 				UCP.shortpoll();
@@ -480,9 +482,9 @@ var UCPC = Class.extend({
 			$( "#messages-container .message-box[data-id=\"" + id + "\"]" ).addClass("expand");
 			$( "#messages-container .message-box[data-id=\"" + id + "\"] .fa-arrow-up" ).addClass("fa-arrow-down").removeClass("fa-arrow-up");
 		}
-		$( "#messages-container .message-box[data-id=\"" + id + "\"]" ).data("last-msg-id",msgid);
+		$( "#messages-container .message-box[data-id=\"" + id + "\"]" ).data("last-msg-id", msgid);
 
-		if(typeof colorNew === "undefined" || colorNew) {
+		if (typeof colorNew === "undefined" || colorNew) {
 			$( "#messages-container .title-bar[data-id=\"" + id + "\"]" ).css("background-color", "#428bca");
 		} else {
 			sender = "Me";
@@ -539,6 +541,7 @@ var UCPC = Class.extend({
 		if (typeof display === "undefined" || display == "dashboard") {
 			this.activeModule = $.url().param("mod");
 			this.activeModule = (this.activeModule !== undefined) ? UCP.toTitleCase(this.activeModule) : "Home";
+			this.domain = this.activeModule.toLowerCase();
 			if (typeof window[this.activeModule] == "object" &&
 				typeof window[this.activeModule].display == "function") {
 				window[this.activeModule].display(event);
@@ -575,6 +578,7 @@ var UCPC = Class.extend({
 	logIn: function(event) {
 		this.activeModule = $.url().param("mod");
 		this.activeModule = (this.activeModule !== undefined) ? UCP.toTitleCase(this.activeModule) : "Home";
+		this.domain = this.activeModule.toLowerCase();
 		this.loggedIn = true;
 		this.startComm();
 		if (!Notify.needsPermission() && this.notify === null) {
@@ -635,18 +639,18 @@ var UCPC = Class.extend({
 				if ($(this).prop("type") == "password") {
 					UCP.showDialog("Confirm Password", "Please Reconfirm Your Password<input type='password' id='ucppass'></input><button id='passsub'>Submit</button>");
 					$("#passsub").click(function() {
-						if($("#ucppass").val() !== "") {
+						if ($("#ucppass").val() !== "") {
 							var np = $("#ucppass").val();
 							if (np != password) {
 								$("#message").addClass("alert-danger");
-								$("#message").text("Password Confirmation Didn't Match!");
+								$("#message").text(_("Password Confirmation Didn't Match!"));
 								$("#message").fadeIn( "fast" );
 							} else {
 								UCP.closeDialog();
 								$.post( "?quietmode=1&command=ucpsettings", { key: "password", value: $("#ucppass").val() }, function( data ) {
 									if (data.status) {
 										$("#message").addClass("alert-success");
-										$("#message").text("Saved!");
+										$("#message").text(_("Saved!"));
 										$("#message").fadeIn( "slow", function() {
 											setTimeout(function() { $("#message").fadeOut("slow"); }, 2000);
 										});
@@ -664,7 +668,7 @@ var UCPC = Class.extend({
 				$.post( "?quietmode=1&command=ucpsettings", { key: $(this).prop("name"), value: $(this).val() }, function( data ) {
 					if (data.status) {
 						$("#message").addClass("alert-success");
-						$("#message").text("Saved!");
+						$("#message").text(_("Saved!"));
 						$("#message").fadeIn( "slow", function() {
 							setTimeout(function() { $("#message").fadeOut("slow"); }, 2000);
 						});
@@ -713,3 +717,12 @@ jQuery.fn.highlight = function(str, className) {
 		this.innerHTML = this.innerHTML.replace(regex, function(matched) {return "<span class=\"" + className + "\">" + matched + "</span>";});
 	});
 };
+
+UCP.i18n = new Jed(languages);
+function _(string) {
+	try {
+		return UCP.i18n.dgettext( UCP.domain, string );
+	} catch (err) {
+		return string;
+	}
+}

@@ -14,9 +14,14 @@ if (!@include_once(getenv('FREEPBX_CONF') ? getenv('FREEPBX_CONF') : '/etc/freep
 	include_once('/etc/asterisk/freepbx.conf');
 }
 
+$lang = !empty($_COOKIE['lang']) ? $_COOKIE['lang'] : 'en_US';
+putenv('LC_ALL='.$lang);
+setlocale(LC_ALL, $lang);
+
 try {
 	include(dirname(__FILE__).'/includes/UCP.class.php');
 	$ucp = \UCP\UCP::create();
+	$ucp->Modgettext->textdomain("ucp");
 } catch(\Exception $e) {
 	if(isset($_REQUEST['quietmode'])) {
 		echo json_encode(array("status" => false, "message" => "UCP is disabled"));
@@ -62,6 +67,7 @@ $displayvars['user'] = $user;
 //TODO: these need to be included in UCP_HELPERS
 require dirname(__FILE__).'/includes/less/Cache.php';
 require dirname(__FILE__).'/includes/js/Minifier.php';
+require dirname(__FILE__).'/includes/po2json/po2json.php';
 //TODO: needs to be an array of directories that need to be created on install
 if(!file_exists(dirname(__FILE__).'/assets/css/compiled') && !mkdir(dirname(__FILE__).'/assets/css/compiled')) {
 	die('Can Not Create Cache Folder at '.dirname(__FILE__).'/assets/css/compiled');
@@ -124,16 +130,25 @@ switch($display) {
 	case "settings":
 	case "dashboard":
 		if($display == "settings") {
+			$ucp->Modgettext->push_textdomain("ucp");
 			$dashboard_content = $ucp->View->load_view(dirname(__FILE__).'/views/settings.php',$displayvars);
 			$displayvars['active_module'] = 'ucpsettings';
+			$ucp->Modgettext->pop_textdomain();
 		} else {
+			if($module != "home") {
+				$ucp->Modgettext->push_textdomain(strtolower($module));
+			} else {
+				$ucp->Modgettext->push_textdomain("ucp");
+			}
 			$displayvars['active_module'] = $module;
 			$mclass = ucfirst(strtolower($module));
 			if(in_array($mclass,$active_modules)) {
 				$dashboard_content = $ucp->View->load_view(dirname(__FILE__).'/views/module.php',array("module" => $module, "display" => $ucp->Modules->$mclass->getDisplay()));
 			} else {
+				$ucp->Modgettext->pop_textdomain();
 				$dashboard_content = sprintf(_('Unknown Module %s'),$module);
 			}
+			$ucp->Modgettext->pop_textdomain();
 		}
 
 		if(isset($_SERVER['HTTP_X_PJAX'])) {
@@ -211,6 +226,7 @@ if(!isset($_SERVER['HTTP_X_PJAX'])) {
 	}
 	$displayvars['language'] = $ucp->Modules->getGlobalLanguageJSON($lang);
 	$displayvars['modules'] = json_encode($active_modules);
+	$displayvars['gScripts'] = $filename;
 	$displayvars['scripts'] = $ucp->Modules->getGlobalScripts();
 	$ucp->View->show_view(dirname(__FILE__).'/views/footer.php',$displayvars);
 }

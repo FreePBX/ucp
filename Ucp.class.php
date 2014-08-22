@@ -31,6 +31,27 @@ class Ucp implements BMO {
 
 	}
 
+	public function getModulesLanguage($language, $modules) {
+		if(!class_exists("po2json")) {
+			require_once(__DIR__."/includes/po2json.php");
+		}
+		$final = array();
+		$root = $this->FreePBX->Config->get("AMPWEBROOT");
+		foreach ($modules as $module) {
+			$module = strtolower($module);
+			$po = $root."/admin/modules/".$module."/i18n/" . $language . "/LC_MESSAGES/".$module.".po";
+			if(file_exists($po)) {
+				$c = new po2json($po,$module);
+
+				$array = $c->po2array();
+				if(!empty($array)) {
+					$final[$module] = $array;
+				}
+			}
+		}
+		return json_encode($final);
+	}
+
 	/**
 	 * Register a hook from another module
 	 * This is semi depreciated as FreePBX 12 has hooking functions now

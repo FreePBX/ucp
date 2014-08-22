@@ -56,7 +56,9 @@ class Modules extends Module_Helpers {
 		foreach($modules as $module) {
 			$module = ucfirst(strtolower($module));
 			$lc = strtolower($module);
+			$this->UCP->Modgettext->push_textdomain($lc);
 			$mm = $this->$module->getMenuItems();
+			$this->UCP->Modgettext->pop_textdomain();
 			if(!empty($mm)) {
 				$menu[$lc] = $mm;
 			}
@@ -223,6 +225,8 @@ class Modules extends Module_Helpers {
 				$modules[] = $mod;
 			}
 		}
+		return $this->UCP->FreePBX->Ucp->getModulesLanguage($language, $modules);
+	}
 
 	protected function load_view($view_filename_protected, $vars = array()) {
 		return $this->UCP->View->load_view($view_filename_protected, $vars);
