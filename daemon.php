@@ -12,7 +12,22 @@ if(!file_exists(__DIR__.'/pid')) {
 }
 
 function start() {
-	$pid = exec(__DIR__."/websocketd --port=8081 ".__DIR__."/server.php > /dev/null 2>&1 & echo $!",$output);
+	exec("uname -m", $arch);
+	$server = "";
+	$arch = $arch[0];
+	switch($arch) {
+		case "i686":
+			$server = "websocketd-32";
+		break;
+		case "x86_64":
+			$server = "websocketd-64";
+		break;
+		default:
+			echo "Not a suitable environment: " . $arch . "\n";
+			exit(1);
+		break;
+	}
+	$pid = exec(__DIR__."/daemons/" . $server . " --port=8081 ".__DIR__."/server.php > /dev/null 2>&1 & echo $!",$output);
 	file_put_contents(__DIR__.'/pid',$pid);
 	echo "started\n";
 }
