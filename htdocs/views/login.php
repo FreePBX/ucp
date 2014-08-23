@@ -40,4 +40,5 @@
 			</div>
 		</div>
 	</form>
+	<span style="color: #dcecfe;"><?php echo session_id()?></span>
 </div>

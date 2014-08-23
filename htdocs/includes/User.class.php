@@ -141,6 +141,9 @@ class User extends UCP {
 			$this->_deleteToken($token);
 			$this->uid = null;
 			$this->UCP->Session->token = null;
+			unset($_SESSION['id']);
+			session_regenerate_id();
+			session_destroy();
 		}
 		return true;
 	}
@@ -224,10 +227,10 @@ class User extends UCP {
 		if(!empty($token)) {
 			$result = $this->UCP->FreePBX->Ucp->getToken($token);
 			if(!empty($result['uid'])) {
-                if(!$this->_allowed($result['uid'])) {
-                    $this->_deleteToken($token);
-                    return false;
-                }
+				if(!$this->_allowed($result['uid'])) {
+					$this->_deleteToken($token);
+					return false;
+				}
 				$this->_storeToken($token); //update the token time
 				$this->uid = $result['uid'];
 				return true;
@@ -253,9 +256,14 @@ class User extends UCP {
 		return false;
 	}
 
-    private function _allowed($uid) {
-        $user = $this->UCP->FreePBX->Ucp->getUserByID($uid);
-        $status = $this->UCP->getSetting($user['username'],'Global','allowLogin');
-        return !empty($status) ? $status : false;
-    }
+	/**
+	 * Check to make sure login is allowed
+	 * @param  {int} $uid The user ID
+	 * @return {bool}      True if allowed
+	 */
+	private function _allowed($uid) {
+		$user = $this->UCP->FreePBX->Ucp->getUserByID($uid);
+		$status = $this->UCP->getSetting($user['username'],'Global','allowLogin');
+		return !empty($status) ? $status : false;
+	}
 }

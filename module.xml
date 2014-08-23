@@ -10,6 +10,7 @@
 		Formerly ARI, now called User Control Panel
 	</description>
 	<changelog>
+		*12.0.0beta14* FREEPBX-7845 UCP and User Management settings
 		*12.0.0beta13* Expire all user sessions on upgrade (which forces a logout from now on)
 		*12.0.0beta12* Logout user is poller is forbidden, small visual tweaks
 		*12.0.0beta11* Scroll Bar removal if not needed.

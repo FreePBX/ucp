@@ -300,6 +300,19 @@ class Ucp implements BMO {
 		return $sth->execute(array(':session' => $token, ':uid' => $uid));
 	}
 
+	public function sessionUnlock($username, $session) {
+		$user = $this->getUserByUsername(trim($username));
+		if(empty($user["id"])) {
+			return false;
+		}
+		session_id(trim($session));
+		session_start();
+		$token = bin2hex(openssl_random_pseudo_bytes(16));
+		$_SESSION["UCP_token"] = $token;
+		$this->storeToken($token, $user["id"], "CLI");
+		return true;
+	}
+
 	/**
 	 * Store a token, assigned to a session
 	 * @param {string} $token   The token
@@ -330,5 +343,27 @@ class Ucp implements BMO {
 	 */
 	public function checkCredentials($username, $password_sha1) {
 		return $this->FreePBX->Userman->checkCredentials($username, $password_sha1);
+	}
+
+	/**
+	 * Enable and Allow all users in User Manager to login to UCP
+	 */
+	public function enableAllUsers() {
+		$userman = $this->FreePBX->Userman;
+		foreach($userman->getAllUsers() as $user) {
+			if(!empty($user['default_extension']) && $user['default_extension'] != 'none') {
+				$ext = $user['default_extension'];
+				$userman->setModuleSettingByID($user['id'],'ucp|Global','allowLogin',true);
+				$sassigned = $this->getSetting($user['username'],'Settings','assigned');
+				if(!in_array($ext, $sassigned)) {
+					$this->setSetting($user['username'],'Settings','assigned',array($ext));
+				}
+				$vassigned = $this->getSetting($user['username'],'Voicemail','assigned');
+				if(!in_array($ext, $vassigned)) {
+					$this->setSetting($user['username'],'Settings','assigned',array($ext));
+				}
+			}
+		}
+		return true;
 	}
 }

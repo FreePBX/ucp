@@ -74,14 +74,7 @@ if ($db->getAll('SHOW TABLES LIKE "ucp_users"')) {
 switch(true) {
 	case FreePBX::Modules()->checkStatus('ucp',MODULE_STATUS_NOTINSTALLED):
 		//ok so auto enable UCP for all users
-		$userman = FreePBX::create()->Userman;
 		$ucp = FreePBX::create()->Ucp;
-		foreach($userman->getAllUsers() as $user) {
-			if(!empty($user['default_extension']) && $user['default_extension'] != 'none') {
-				$userman->setModuleSettingByID($user['id'],'ucp|Global','allowLogin',true);
-				$ucp->setSetting($user['username'],'Settings','assigned',array($user['default_extension']));
-				$ucp->setSetting($user['username'],'Voicemail','assigned',array($user['default_extension']));
-			}
-		}
+		$ucp->enableAllUsers();
 	break;
 }
