@@ -19,8 +19,10 @@ function ucp_hook_userman_addUser($id,$display,$data) {
 		FreePBX::create()->Userman->setModuleSettingByID($id,'ucp|Global','allowLogin',true);
 		$ucp = FreePBX::create()->Ucp;
 		$user = $ucp->getUserByID($id);
-		$ucp->setSetting($user['username'],'Settings','assigned',array($data['username']));
-		$ucp->setSetting($user['username'],'Voicemail','assigned',array($data['username']));
+		if($user['default_extension'] != "none") {
+			$ucp->setSetting($user['username'],'Settings','assigned',array($user['default_extension']));
+			$ucp->setSetting($user['username'],'Voicemail','assigned',array($user['default_extension']));
+		}
 	} else {
 		ucp_hook_userman_updateUser($id,$display,$data);
 	}
