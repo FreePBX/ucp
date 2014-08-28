@@ -362,6 +362,8 @@ class Ucp implements BMO {
 				if(!in_array($ext, $vassigned)) {
 					$this->setSetting($user['username'],'Voicemail','assigned',array($ext));
 				}
+
+				$this->setSetting($user['username'],'Presencestate','enabled',true);
 			}
 		}
 		return true;
