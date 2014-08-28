@@ -2,7 +2,7 @@
 	<rawname>ucp</rawname>
 	<name>User Control Panel</name>
 	<repo>standard</repo>
-	<version>12.0.0beta14</version>
+	<version>12.0.0beta15</version>
 	<publisher>FreePBX</publisher>
 	<license>AGPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/agpl-3.0.txt</licenselink>
@@ -10,6 +10,7 @@
 		Formerly ARI, now called User Control Panel
 	</description>
 	<changelog>
+		*12.0.0beta15* Minor bug in enableall command
 		*12.0.0beta14* FREEPBX-7845 UCP and User Management settings
 		*12.0.0beta13* Expire all user sessions on upgrade (which forces a logout from now on)
 		*12.0.0beta12* Logout user is poller is forbidden, small visual tweaks

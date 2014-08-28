@@ -360,7 +360,7 @@ class Ucp implements BMO {
 				}
 				$vassigned = $this->getSetting($user['username'],'Voicemail','assigned');
 				if(!in_array($ext, $vassigned)) {
-					$this->setSetting($user['username'],'Settings','assigned',array($ext));
+					$this->setSetting($user['username'],'Voicemail','assigned',array($ext));
 				}
 			}
 		}
