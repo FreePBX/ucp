@@ -13,6 +13,11 @@ try {
 $userman->registerHook('addUser','ucp_hook_userman_addUser');
 $userman->registerHook('delUser','ucp_hook_userman_delUser');
 $userman->registerHook('updateUser','ucp_hook_userman_updateUser');
+$userman->registerHook('welcome','ucp_hook_userman_welcome');
+
+function ucp_hook_userman_welcome($id,$display,$data) {
+	return sprintf(_('User Control Panel: %s'),$data['host'].'/ucp');
+}
 
 function ucp_hook_userman_addUser($id,$display,$data) {
 	if($display == 'extensions' || $display == 'users') {

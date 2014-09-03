@@ -97,8 +97,8 @@ $nt = $ucp->notifications;
 if ( !isset($_SERVER['HTACCESS']) ) {
 	// No .htaccess support
 	if(!$nt->exists('ucp', 'htaccess')) {
-		$nt->add_security('ucp', 'htaccess', _('.htaccess files are disable on this webserver. Please enable them'),
-		_('To Protect the integrity of your server, you must set AllowOverride to All in the Apache configuration file for the User Control Panel'));
+		$nt->add_security('ucp', 'htaccess', _('.htaccess files are disabled on this webserver. Please enable them'),
+		sprintf(_("To protect the integrity of your server, you must allow overrides in your webserver's configuration file for the User Control Panel. For more information see: %s"), '<a href="http://wiki.freepbx.org/display/F2/Webserver+Overrides">http://wiki.freepbx.org/display/F2/Webserver+Overrides</a>'));
 	}
 } else {
 	if($nt->exists('ucp', 'htaccess')) {
