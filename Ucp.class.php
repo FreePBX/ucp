@@ -330,7 +330,7 @@ class Ucp implements BMO {
 	 * @param {string} $token The token name
 	 */
 	public function getToken($token) {
-		$sql = "SELECT uid FROM ucp_sessions WHERE session = :token";
+		$sql = "SELECT uid, address FROM ucp_sessions WHERE session = :token";
 		$sth = $this->db->prepare($sql);
 		$sth->execute(array(':token' => $token));
 		return $sth->fetch(\PDO::FETCH_ASSOC);

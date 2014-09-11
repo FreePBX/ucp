@@ -14,7 +14,7 @@
 namespace UCP;
 class User extends UCP {
 	public $uid = null;
-	private $cookieName = 'ucp_tokenkey';
+	private $remembermeCookieName = 'ucp_rememberme';
 	private $token = null;
 
 	public function __construct($UCP) {
@@ -134,8 +134,8 @@ class User extends UCP {
 			foreach($mods as $mod) {
 				$this->UCP->Modules->$mod->logout();
 			}
-			$token = !empty($this->UCP->Session->token) ? $this->UCP->Session->token : (isset($_COOKIE[$this->cookieName]) ? $_COOKIE[$this->cookieName] : '');
-			if(isset($_COOKIE[$this->cookieName])) {
+			$token = !empty($this->UCP->Session->token) ? $this->UCP->Session->token : (isset($_COOKIE[$this->remembermeCookieName]) ? $_COOKIE[$this->remembermeCookieName] : '');
+			if(isset($_COOKIE[$this->remembermeCookieName])) {
 				$this->_deleteCookie();
 			}
 			$this->_deleteToken($token);
@@ -159,7 +159,7 @@ class User extends UCP {
 	 * @return bool True if cookie was set, otherwise false
 	 */
 	private function _setCookie($token) {
-		return setcookie($this->cookieName, $token, time()+60*60*24*7);
+		return setcookie($this->remembermeCookieName, $token, time()+60*60*24*7);
 	}
 
 	/**
@@ -173,7 +173,7 @@ class User extends UCP {
 	 * @return bool True if cookie was set, otherwise false
 	 */
 	private function _deleteCookie() {
-		return setcookie($this->cookieName, "", time() - 3600);
+		return setcookie($this->remembermeCookieName, "", time() - 3600);
 	}
 
 	/**
@@ -223,9 +223,12 @@ class User extends UCP {
 	 * @return bool True if token was valid, otherwise false
 	 */
 	private function _checkToken() {
-		$token = !empty($this->UCP->Session->token) ? $this->UCP->Session->token : (isset($_COOKIE[$this->cookieName]) ? $_COOKIE[$this->cookieName] : '');
+		$token = !empty($this->UCP->Session->token) ? $this->UCP->Session->token : (isset($_COOKIE[$this->remembermeCookieName]) ? $_COOKIE[$this->remembermeCookieName] : '');
 		if(!empty($token)) {
 			$result = $this->UCP->FreePBX->Ucp->getToken($token);
+			if($result['address'] != $_SERVER['REMOTE_ADDR']) {
+				return false;
+			}
 			if(!empty($result['uid'])) {
 				if(!$this->_allowed($result['uid'])) {
 					$this->_deleteToken($token);

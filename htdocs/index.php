@@ -184,6 +184,7 @@ switch($display) {
 
 if(!isset($_SERVER['HTTP_X_PJAX'])) {
 	$globalJavascripts = array(
+		"socket.io.js",
 		"bootstrap-3.1.1.custom.min.js",
 		"jquery-ui-1.10.4.custom.min.js",
 		"jquery.keyframes.min.js",

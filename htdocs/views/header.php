@@ -10,8 +10,6 @@
 		<link href="assets/css/compiled/<?php echo $bootstrapcssless?>" rel="stylesheet" type="text/css">
 		<link href="assets/css/compiled/<?php echo $facssless?>" rel="stylesheet" type="text/css">
 
-		<link href="assets/framework/css/jquery-ui.css" rel="stylesheet" type="text/css">
-
 		<link href="assets/css/bootstrap-select.min.css" rel="stylesheet" type="text/css">
 		<link href="assets/css/compiled/<?php echo $ucpcssless?>" rel="stylesheet" type="text/css">
 

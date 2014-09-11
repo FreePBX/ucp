@@ -279,38 +279,28 @@ var UCPC = Class.extend({
 		}
 	},
 	startComm: function() {
-		this.ws = new WebSocket("ws://" + $.url().attr("host") + ":8081");
-		this.ws.onerror = function(event) {
-			//
-		};
-		this.ws.onmessage = function(event) {
-			var data = JSON.parse(event.data);
-			//get messages here
-		};
-		this.ws.onopen = function(event) {
-			//attemp to connect here
-		};
-		this.ws.onclose = function(event) {
-			//terminate the connection do stuff after here
-			console.warn(_("Unable to make websockets connection, falling back to polling"));
-			UCP.shortpoll();
-			UCP.pollID = setInterval(function() {
-				UCP.shortpoll();
-			}, 5000);
-		};
-	},
-	longpoll: function() {
-		//not used because longpoll is irritating with apache and php
-		$.ajax( { url: "index.php?quietmode=1&command=poll", data: { data: $.url().param() }, success: function(data) {
-			if (data.status) {
-				$.each(data.modData, function( module, data ) {
-					if (typeof window[module] == "object" && typeof window[module].poll == "function") {
-						window[module].poll(data, $.url().param());
-					}
+		// Create a socket instance
+		// removeAllListeners("news");
+		/*
+		var token = "7f7ntkppvsmb6hsa0ol27kjh72";
+		try {
+			this.ws = io("ws://" + $.url().attr("host") + ":8001/conferences", {
+				reconnection: false,
+				query: "token=" + token
+			});
+			this.ws.on("connect", function(data) {
+				UCP.ws.emit("subscribe", { conference: 4000 });
+				UCP.ws.on("conference", function(data) {
+					console.log(data);
 				});
-			}
-			UCP.longpoll();
-		}, dataType: "json", type: "POST" });
+			});
+
+		}catch (err) {}
+		*/
+		UCP.shortpoll();
+		UCP.pollID = setInterval(function() {
+			UCP.shortpoll();
+		}, 5000);
 	},
 	shortpoll: function() {
 		if (!UCP.polling) {
