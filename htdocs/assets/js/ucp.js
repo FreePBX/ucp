@@ -45,7 +45,9 @@ var UCPC = Class.extend({
 		$("#settings-btn i").removeClass("fa-spin");
 	},
 	ajaxError: function(event, jqxhr, settings, exception) {
-		UCP.displayGlobalMessage(_("Opps something went wrong. Try again a little later"));
+		if (exception !== "abort") {
+			UCP.displayGlobalMessage(_("Oops something went wrong. Try again a little later"));
+		}
 	},
 	setupLogin: function() {
 		if ($.support.pjax) {
