@@ -19,6 +19,7 @@ var UCPC = Class.extend({
 		this.chatTimeout = {};
 		this.domain = "ucp";
 		this.i18n = null;
+		this.messageBuffer = {};
 	},
 	ready: function() {
 		$(window).resize(function() {UCP.windowResize();});
@@ -416,14 +417,31 @@ var UCPC = Class.extend({
 			$(document).trigger( "phoneWindowRemoved");
 		});
 	},
+	addMessageBuffer: function(id, msgid, sender, message) {
+
+	},
 	addChat: function(module, id, title, from, to, sender, msgid, message) {
-		if (!$( "#messages-container .message-box[data-id=\"" + id + "\"]" ).length) {
+		if (!$( "#messages-container .message-box[data-id=\"" + id + "\"]" ).length && (typeof this.messageBuffer[id] === "undefined")) {
+			//add placeholder
+			if (typeof msgid !== "undefined") {
+				this.messageBuffer[id] = [];
+				this.messageBuffer[id].push({
+					sender: sender,
+					msgid: msgid,
+					message: message
+				});
+			}
 			var newWindow = (typeof msgid === "undefined");
 			$.ajax({ url: "index.php?quietmode=1&command=template&type=chat", data: { newWindow: newWindow, template: { module: module, id: id, title: title, to: to, from: from } }, success: function(data) {
 				$( "#messages-container" ).append( data.contents );
 				$( "#messages-container .message-box[data-id=\"" + id + "\"]" ).fadeIn("fast", function() {
 					if (typeof msgid !== "undefined") {
-						UCP.addChatMessage(id, sender, msgid, message);
+						if (typeof UCP.messageBuffer[id] !== "undefined") {
+							$.each(UCP.messageBuffer[id], function(i, v) {
+								UCP.addChatMessage(id, v.sender, v.msgid, v.message);
+							});
+							delete UCP.messageBuffer[id];
+						}
 					} else {
 						if (!$( "#messages-container .message-box[data-id=\"" + id + "\"]" ).hasClass("expand")) {
 							$( "#messages-container .message-box[data-id=\"" + id + "\"]" ).one("webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend", function() {
@@ -470,28 +488,36 @@ var UCPC = Class.extend({
 		});
 	},
 	addChatMessage: function(id, sender, msgid, message, colorNew) {
-		if (!$( "#messages-container .message-box[data-id=\"" + id + "\"]" ).hasClass("expand")) {
-			$( "#messages-container .message-box[data-id=\"" + id + "\"]" ).addClass("expand");
-			$( "#messages-container .message-box[data-id=\"" + id + "\"] .fa-arrow-up" ).addClass("fa-arrow-down").removeClass("fa-arrow-up");
-		}
-		$( "#messages-container .message-box[data-id=\"" + id + "\"]" ).data("last-msg-id", msgid);
+		if ($( "#messages-container .message-box[data-id=\"" + id + "\"]" ).length) {
+			if (!$( "#messages-container .message-box[data-id=\"" + id + "\"]" ).hasClass("expand")) {
+				$( "#messages-container .message-box[data-id=\"" + id + "\"]" ).addClass("expand");
+				$( "#messages-container .message-box[data-id=\"" + id + "\"] .fa-arrow-up" ).addClass("fa-arrow-down").removeClass("fa-arrow-up");
+			}
+			$( "#messages-container .message-box[data-id=\"" + id + "\"]" ).data("last-msg-id", msgid);
 
-		if (typeof colorNew === "undefined" || colorNew) {
-			$( "#messages-container .title-bar[data-id=\"" + id + "\"]" ).css("background-color", "#428bca");
-		} else {
-			sender = "Me";
-		}
-		$( "#messages-container .message-box[data-id=\"" + id + "\"] .chat" ).append("<div class='message' data-id='" + msgid + "'><strong>" + sender + ":</strong> " + message + "</div>");
-		if (UCP.chatTimeout[id] !== undefined && UCP.chatTimeout[id] !== null) {
-			clearTimeout(UCP.chatTimeout[id]);
-		}
+			if (typeof colorNew === "undefined" || colorNew) {
+				$( "#messages-container .title-bar[data-id=\"" + id + "\"]" ).css("background-color", "#428bca");
+			} else {
+				sender = "Me";
+			}
+			$( "#messages-container .message-box[data-id=\"" + id + "\"] .chat" ).append("<div class='message' data-id='" + msgid + "'><strong>" + sender + ":</strong> " + message + "</div>");
+			if (UCP.chatTimeout[id] !== undefined && UCP.chatTimeout[id] !== null) {
+				clearTimeout(UCP.chatTimeout[id]);
+			}
 
-		var d = new Date();
-		UCP.chatTimeout[id] = setTimeout(function() {
-			$( "#messages-container .message-box[data-id=\"" + id + "\"] .chat" ).append("<span class=\"date\">Sent at " + d.format("g:i A \\o\\n l") + "</span><br/>");
-		}, 60000);
+			var d = new Date();
+			UCP.chatTimeout[id] = setTimeout(function() {
+				$( "#messages-container .message-box[data-id=\"" + id + "\"] .chat" ).append("<span class=\"date\">Sent at " + d.format("g:i A \\o\\n l") + "</span><br/>");
+			}, 60000);
 
-		$("#messages-container .message-box[data-id=\"" + id + "\"] .chat").animate({ scrollTop: $("#messages-container .message-box[data-id=\"" + id + "\"] .chat")[0].scrollHeight }, "slow");
+			$("#messages-container .message-box[data-id=\"" + id + "\"] .chat").animate({ scrollTop: $("#messages-container .message-box[data-id=\"" + id + "\"] .chat")[0].scrollHeight }, "slow");
+		} else if (typeof this.messageBuffer[id] !== "undefined") {
+			this.messageBuffer[id].push({
+				sender: sender,
+				msgid: msgid,
+				message: message
+			});
+		}
 	},
 	toggleMenu: function() {
 		$(".pushmenu-push").toggleClass("pushmenu-push-toright");

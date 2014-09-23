@@ -368,4 +368,61 @@ class Ucp implements BMO {
 		}
 		return true;
 	}
+
+	public function dashboardService() {
+		$services = array(
+			array(
+				'title' => 'UCP Daemon',
+				'type' => 'unknown',
+				'tooltip' => _("Unknown"),
+				'order' => 999,
+				'command' => "service ucp status"
+			)
+		);
+		foreach($services as &$service) {
+			$output = '';
+			exec($service['command']." 2>&1", $output, $ret);
+			if ($ret === 0) {
+				$service = array_merge($service, $this->genAlertGlyphicon('ok', _("Running")));
+				continue;
+			}
+
+			$service = array_merge($service, $this->genAlertGlyphicon('warning', $output));
+		}
+
+		return $services;
+	}
+
+	private function genAlertGlyphicon($res, $tt = null) {
+		$glyphs = array(
+			"ok" => "glyphicon-ok text-success",
+			"warning" => "glyphicon-warning-sign text-warning",
+			"error" => "glyphicon-remove text-danger",
+			"unknown" => "glyphicon-question-sign text-info",
+			"info" => "glyphicon-info-sign text-info",
+			"critical" => "glyphicon-fire text-danger"
+		);
+		// Are we being asked for an alert we actually know about?
+		if (!isset($glyphs[$res])) {
+			return array('type' => 'unknown', "tooltip" => "Don't know what $res is", "glyph-class" => $glyphs['unknown']);
+		}
+
+		if ($tt === null) {
+			// No Tooltip
+			return array('type' => $res, "tooltip" => null, "glyph-class" => $glyphs[$res]);
+		} else {
+			// Generate a tooltip
+			$html = '';
+			if (is_array($tt)) {
+				foreach ($tt as $line) {
+					$html .= htmlentities($line, ENT_QUOTES)."\n";
+				}
+			} else {
+				$html .= htmlentities($tt, ENT_QUOTES);
+			}
+
+			return array('type' => $res, "tooltip" => $html, "glyph-class" => $glyphs[$res]);
+		}
+		return '';
+	}
 }
