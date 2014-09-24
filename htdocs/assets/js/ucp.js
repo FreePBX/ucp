@@ -340,8 +340,10 @@ var UCPC = Class.extend({
 		if ($("#dashboard-content").length) {
 			if (!UCP.footerHidden) {
 				$("#dashboard-content").height($("#dashboard").height() - 135);
+				$("#fs-navside").height($("#dashboard").height() - 135);
 			} else {
 				$("#dashboard-content").height($("#dashboard").height() - 59);
+				$("#fs-navside").height($("#dashboard").height() - 59);
 			}
 		}
 	},
