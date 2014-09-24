@@ -1,3 +1,4 @@
+<!-- small device nav menu -->
 <nav class="pushmenu pushmenu-left">
 	<h3><?php echo sprintf(_('Welcome %s'),(!empty($user['fname']) ? $user['fname'] : $user['username']))?></h3>
 	<ul>
@@ -19,9 +20,9 @@
 		<?php } ?>
 	</ul>
 </nav>
+<!-- end small device nav menu -->
 <div id="dashboard" class="pushmenu-push dashboard-container center-box">
 	<!-- This navigation pane hides when the viewport is smaller than 768 -->
-	<!-- Mobile Navigation Header -->
 	<div id="nav-bar-background">
 		<div id="global-message-container">
 			<div id="global-message"></div>
@@ -47,8 +48,24 @@
 					<div class="p-msg"><span></span></div>
 				</div>
 			</div>
-			<div id="settings-btn">
-				<i class="fa fa-cog"></i>
+			<div class="nav-btns">
+				<div class="bell module-container">
+					<div id="bell-btn" class="icon">
+						<i class="fa fa-envelope"></i>
+						<span class="badge">23</span>
+					</div>
+				</div>
+				<div class="bell module-container">
+					<div id="bell-btn" class="icon">
+						<i class="fa fa-comment"></i>
+						<span class="badge">4</span>
+					</div>
+				</div>
+				<div class="settings module-container">
+					<div id="settings-btn" class="icon">
+						<i class="fa fa-cog"></i>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>

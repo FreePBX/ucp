@@ -184,7 +184,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 		background-color: rgb(247, 106, 106);
 		height: 36px;
 		width: 100%;
-		z-index: 1;
+		z-index: 50;
 		display: none;
 		#global-message {
 			text-align:center;
@@ -296,6 +296,48 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 		#presence-box2:hover, #presence-box2.active {
 			width: 189px;
 		}
+		.nav-btns {
+			top: 0;
+			height: 36px;
+			margin-top: -6px;
+			position: relative;
+			.module-container {
+				float: left;
+				height: 36px;
+				padding: 5px;
+				padding-right: 10px;
+				.icon {
+					.badge {
+						display: inline-block;
+						min-width: 18px;
+						padding: 2px 4px;
+						font-size: 13px;
+						font-weight: 700;
+						line-height: 1;
+						color: #fff;
+						text-align: center;
+						white-space: nowrap;
+						vertical-align: baseline;
+						background-color: rgb(219, 0, 0);
+						border-radius: 10px;
+						position: absolute;
+						margin-top: -15px;
+						margin-left: 7px;
+					}
+				}
+				i {
+					font-size: 150%;
+					color: black;
+					opacity: .5;
+					transition: opacity .5s;
+					padding-right: 3px;
+				}
+				i:hover, i.active {
+					opacity: 1;
+				}
+			}
+		}
+		/*
 		#settings-btn {
 			i {
 				font-size: 150%;
@@ -309,6 +351,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 			display: inline;
 			margin-right: 5px;
 		}
+		*/
 	}
 }
 
@@ -346,7 +389,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 }
 #presence-menu2 {
 	position: absolute;
-	right: 0;
+	right: 29px;
 	z-index: 399;
 	list-style: none;
 	text-align: left;
@@ -359,7 +402,6 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 	box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
 	background-clip: padding-box;
 	top: 36px;
-	margin-right: 29px;
 	transition: max-height .5s, border-bottom .5s;
 	max-height: 0px;
 	overflow: hidden;
@@ -454,8 +496,12 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 	@media only screen and (max-width : 767px) {
 		display: none;
 	}
-	overflow-y: auto;
-	overflow-x: hidden;
+	.nav > li > a {
+		padding: 5px 10px
+	}
+	.dropdown-menu {
+		padding: 1px 0;
+	}
 }
 
 /* DASHBOARD CONTENT */

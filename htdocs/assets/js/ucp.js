@@ -38,6 +38,8 @@ var UCPC = Class.extend({
 		} else {
 			UCP.setupLogin();
 		}
+		$("#presence-box2").css("right", $(".nav-btns").width() + "px");
+		$("#presence-menu2").css("right", $(".nav-btns").width() + "px");
 	},
 	ajaxStart: function() {
 		$("#settings-btn i").addClass("fa-spin");
@@ -341,6 +343,7 @@ var UCPC = Class.extend({
 			if (!UCP.footerHidden) {
 				$("#dashboard-content").height($("#dashboard").height() - 135);
 				$("#fs-navside").height($("#dashboard").height() - 135);
+				//presence-box2
 			} else {
 				$("#dashboard-content").height($("#dashboard").height() - 59);
 				$("#fs-navside").height($("#dashboard").height() - 59);
