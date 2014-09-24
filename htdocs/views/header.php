@@ -11,6 +11,7 @@
 		<link href="assets/css/compiled/<?php echo $facssless?>" rel="stylesheet" type="text/css">
 
 		<link href="assets/css/bootstrap-select.min.css" rel="stylesheet" type="text/css">
+		<link href="assets/css/emojione.min.css" rel="stylesheet" type="text/css">
 		<link href="assets/css/compiled/<?php echo $ucpcssless?>" rel="stylesheet" type="text/css">
 
 		<link href="assets/css/compiled/<?php echo $ucpmoduleless?>" rel="stylesheet" type="text/css">

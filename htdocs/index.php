@@ -31,6 +31,9 @@ try {
 	die();
 }
 ob_end_clean();
+include(dirname(__FILE__).'/includes/emoji/Emojione.class.php');
+\Emojione::$imagePathPNG = 'assets/images/emoji/png/'; // defaults to jsdelivr's free CDN
+\Emojione::$imagePathSVG = 'assets/images/emoji/svg/'; // defaults to jsdelivr's free CDN
 
 $user = $ucp->User->getUser();
 
@@ -48,6 +51,8 @@ if(isset($_REQUEST['logout']) && $user) {
 		header("X-PJAX-Version: ".$ucp->getVersion());
 	}
 }
+//http://htmlpurifier.org/docs/enduser-utf8.html#fixcharset
+header('Content-Type:text/html; charset=UTF-8');
 
 //Second part of this IF statement
 if((isset($_REQUEST['quietmode']) && $user !== false && !empty($user)) || (isset($_REQUEST['command']) && $_REQUEST['command'] == 'login')) {
@@ -206,6 +211,7 @@ if(!isset($_SERVER['HTTP_X_PJAX'])) {
 		"jquery.textfill.min.js",
 		"jed.js",
 		"jquery.cookie.js",
+		"emojione.min.js",
 		"ucp.js",
 		"module.js"
 	);

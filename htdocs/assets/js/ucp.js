@@ -488,6 +488,8 @@ var UCPC = Class.extend({
 		});
 	},
 	addChatMessage: function(id, sender, msgid, message, colorNew) {
+		message = emojione.toImage(htmlEncode(message));
+
 		if ($( "#messages-container .message-box[data-id=\"" + id + "\"]" ).length) {
 			if (!$( "#messages-container .message-box[data-id=\"" + id + "\"]" ).hasClass("expand")) {
 				$( "#messages-container .message-box[data-id=\"" + id + "\"]" ).addClass("expand");
@@ -735,6 +737,16 @@ jQuery.fn.highlight = function(str, className) {
 		this.innerHTML = this.innerHTML.replace(regex, function(matched) {return "<span class=\"" + className + "\">" + matched + "</span>";});
 	});
 };
+
+function htmlEncode( html ) {
+	return document.createElement( "a" ).appendChild(
+		document.createTextNode( html ) ).parentNode.innerHTML;
+}
+
+function htmlDecode( html ) {
+	var a = document.createElement( "a" ); a.innerHTML = html;
+	return a.textContent;
+}
 
 UCP.i18n = new Jed(languages);
 function _(string) {
