@@ -40,18 +40,18 @@
 		  <?php } ?>
 		</ol>
 		<div id="top-dashboard-nav-right">
-			<div id="presence-box2">
-				<div class="p-btn">
-					<i class="fa fa-circle"></i>
-				</div>
-				<div class="p-container">
-					<div class="p-msg"><span></span></div>
-				</div>
-			</div>
 			<div class="nav-btns">
+				<div id="presence-box2" class="module-container">
+					<div class="p-btn icon">
+						<i class="fa fa-circle"></i>
+					</div>
+					<div class="p-container">
+						<div class="p-msg"><span></span></div>
+					</div>
+				</div>
 				<div class="bell module-container">
 					<div id="bell-btn" class="icon">
-						<i class="fa fa-envelope"></i>
+						<i class="fa fa-envelope-square"></i>
 						<span class="badge">23</span>
 					</div>
 				</div>

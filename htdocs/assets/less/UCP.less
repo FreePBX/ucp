@@ -244,17 +244,18 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 	}
 
 	#top-dashboard-nav-right {
-		top: 6px;
+		top: 5px;
 		cursor: pointer;
 		position: absolute;
 		right: 0;
 		z-index: 50;
 		font-size: 120%;
+		height: 100%;
 		#presence-box2 {
 			display: none;
+			float: left;
 			overflow: hidden;
-			position: absolute;
-			right: 30px;
+			position: relative;
 			white-space: nowrap;
 			transition: width 1s;
 			padding-left: 1px;
@@ -267,9 +268,6 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 					opacity: .5;
 					width: 25px;
 					padding-left: 1px;
-				}
-				i:hover, i.active {
-					opacity: 1;
 				}
 				display: inline-block;
 				position: relative;
@@ -296,16 +294,21 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 		#presence-box2:hover, #presence-box2.active {
 			width: 189px;
 		}
+		#presence-box2:hover > .p-btn > i, #presence-box2.active > .p-btn > i {
+			opacity: 1;
+		}
 		.nav-btns {
 			top: 0;
 			height: 36px;
 			margin-top: -6px;
 			position: relative;
+			float: left;
 			.module-container {
 				float: left;
 				height: 36px;
 				padding: 5px;
-				padding-right: 10px;
+				position: relative;
+				z-index: 5;
 				.icon {
 					.badge {
 						display: inline-block;
@@ -318,40 +321,32 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 						text-align: center;
 						white-space: nowrap;
 						vertical-align: baseline;
-						background-color: rgb(219, 0, 0);
+						background-color: #BB0000;
 						border-radius: 10px;
 						position: absolute;
 						margin-top: -15px;
 						margin-left: 7px;
+						transition: color .5s ease-in;
 					}
+				}
+				#settings-btn {
+					margin-top: 1px;
 				}
 				i {
 					font-size: 150%;
 					color: black;
 					opacity: .5;
 					transition: opacity .5s;
-					padding-right: 3px;
-				}
-				i:hover, i.active {
-					opacity: 1;
+					padding: 0.5px;
 				}
 			}
-		}
-		/*
-		#settings-btn {
-			i {
-				font-size: 150%;
-				color: black;
-				opacity: .5;
-				transition: opacity .5s;
-			}
-			i:hover, i.active {
+			.module-container:hover > .icon > i, .module-container.active > .icon > i {
 				opacity: 1;
 			}
-			display: inline;
-			margin-right: 5px;
+			.module-container:hover > .icon > .badge, .module-container.active > .icon > .badge {
+				background-color: rgb(219, 0, 0);
+			}
 		}
-		*/
 	}
 }
 

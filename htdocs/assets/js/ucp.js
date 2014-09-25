@@ -38,8 +38,8 @@ var UCPC = Class.extend({
 		} else {
 			UCP.setupLogin();
 		}
-		$("#presence-box2").css("right", $(".nav-btns").width() + "px");
-		$("#presence-menu2").css("right", $(".nav-btns").width() + "px");
+		//$("#presence-box2").css("right", $(".nav-btns").width() + "px");
+		//$("#presence-menu2").css("right", $(".nav-btns").width() + "px");
 	},
 	ajaxStart: function() {
 		$("#settings-btn i").addClass("fa-spin");
@@ -149,7 +149,7 @@ var UCPC = Class.extend({
 		//Show/Hide Settings Drop Down
 		$("#settings-btn").click(function() {
 			$("#settings-menu").toggleClass("active");
-			$("#settings-btn i").toggleClass("active");
+			$(".settings.module-container").toggleClass("active");
 		});
 
 		$("#presence-box2").click(function() {
@@ -174,7 +174,7 @@ var UCPC = Class.extend({
 				$(event.target).parents().index($("#settings-menu")) == -1) {
 				if ($("#settings-menu").hasClass("active")) {
 					$("#settings-menu").removeClass("active");
-					$("#settings-btn i").removeClass("active");
+					$(".settings.module-container").removeClass("active");
 				}
 			}
 			if (($(event.target).parents().index($("#presence-menu2")) == -1) &&
