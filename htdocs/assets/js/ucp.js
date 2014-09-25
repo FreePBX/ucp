@@ -38,14 +38,12 @@ var UCPC = Class.extend({
 		} else {
 			UCP.setupLogin();
 		}
-		//$("#presence-box2").css("right", $(".nav-btns").width() + "px");
-		//$("#presence-menu2").css("right", $(".nav-btns").width() + "px");
 	},
 	ajaxStart: function() {
-		$("#settings-btn i").addClass("fa-spin");
+		$("#nav-btn-settings i").addClass("fa-spin");
 	},
 	ajaxStop: function() {
-		$("#settings-btn i").removeClass("fa-spin");
+		$("#nav-btn-settings i").removeClass("fa-spin");
 	},
 	ajaxError: function(event, jqxhr, settings, exception) {
 		if (exception !== "abort") {
@@ -76,6 +74,7 @@ var UCPC = Class.extend({
 		}
 	},
 	setupDashboard: function() {
+		var totalNavs = 0, navWidth = 33;
 		//Start PJAX Stuff
 		if ($.support.pjax) {
 			$.post( "index.php", { "quietmode": 1, "command": "staticsettings" }, function( data ) {
@@ -146,12 +145,6 @@ var UCPC = Class.extend({
 		$(document).on("pjax:timeout", function(event) {UCP.pjaxTimeout(event);});
 		$(document).on("pjax:error", function(event) {UCP.pjaxError(event);});
 
-		//Show/Hide Settings Drop Down
-		$("#settings-btn").click(function() {
-			$("#settings-menu").toggleClass("active");
-			$(".settings.module-container").toggleClass("active");
-		});
-
 		$("#presence-box2").click(function() {
 			$(this).toggleClass("active");
 			$("#presence-menu2").toggleClass("active");
@@ -170,13 +163,6 @@ var UCPC = Class.extend({
 
 		//Hide Settings Menu when clicking outside of it
 		$("html").click(function(event) {
-			if (($(event.target).parents().index($("#settings-btn")) == -1) &&
-				$(event.target).parents().index($("#settings-menu")) == -1) {
-				if ($("#settings-menu").hasClass("active")) {
-					$("#settings-menu").removeClass("active");
-					$(".settings.module-container").removeClass("active");
-				}
-			}
 			if (($(event.target).parents().index($("#presence-menu2")) == -1) &&
 				$(event.target).parents().index($("#presence-box2")) == -1) {
 				if ($("#presence-menu2").hasClass("active")) {
@@ -264,6 +250,40 @@ var UCPC = Class.extend({
 				}
 			});
 		}
+
+		//Menu adjustments
+		//$("#presence-box2").css("right", $(".nav-btns").width() + "px");
+		//$("#presence-menu2").css("right", $(".nav-btns").width() + "px");
+		totalNavs = $(".module-container").length;
+		navWidth = $(".module-container").last().outerWidth();
+
+		count = totalNavs;
+		$(".module-container").each(function() {
+			var module = $(this).data("module");
+			count--;
+			if ($(".nav-menus ol[data-module='" + module + "']").length > 0) {
+				$(".nav-menus ol[data-module='" + module + "']").css("right", (navWidth * count) + "px");
+				if (module == "presencestate") {
+					return true;
+				}
+				//Show/Hide Settings Drop Down
+				$("#nav-btn-" + module).click(function() {
+					$("#" + module + "-menu").toggleClass("active");
+					$("." + module + ".module-container").toggleClass("active");
+				});
+
+				//hide menu when clicked outside
+				$("html").click(function(event) {
+					if (($(event.target).parents().index($("#nav-btn-" + module)) == -1) &&
+						$(event.target).parents().index($("#" + module + "-menu")) == -1) {
+						if ($("#" + module + "-menu").hasClass("active")) {
+							$("#" + module + "-menu").removeClass("active");
+							$("." + module + ".module-container").removeClass("active");
+						}
+					}
+				});
+			}
+		});
 	},
 	onchange: function(evt) {
 		var v = "visible", h = "hidden",
