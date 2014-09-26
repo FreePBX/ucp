@@ -41,7 +41,7 @@
 		</ol>
 		<div id="top-dashboard-nav-right">
 			<div class="nav-btns">
-				<div id="presence-box2" class="module-container" data-module="presencestate">
+				<div id="nav-btn-presencestate" class="module-container" data-module="presencestate">
 					<div class="p-btn icon">
 						<i class="fa fa-circle"></i>
 					</div>
@@ -70,27 +70,12 @@
 		</div>
 	</div>
 	<div class="nav-menus">
-		<ol id="presence-menu2" data-module="presencestate">
-			<?php if(isset($presence)) {?>
-				<li><a class="change-status">Change Status</a></li>
-				<li class="statuses">
-					<?php echo $presence['menu'] ?>
-				</li>
-			<?php } ?>
-			<li class="options">
-				<ol>
-					<li class="actions">
-						<?php foreach($presence['actions'] as $m => $a) {?>
-							<div data-module="<?php echo $m?>">
-								<i class="fa <?php echo $a['icon']?>"></i>
-								<span><?php echo $a['title']?></span>
-							</div>
-						<?php } ?>
-					</li>
-				</ol>
+		<ol id="presencestate-menu" class="nav-btn-menu" data-module="presencestate">
+			<li class="statuses">
+				<?php echo $presence['menu'] ?>
 			</li>
 		</ol>
-		<ol id="sms-menu" data-module="sms">
+		<ol id="sms-menu" class="nav-btn-menu" data-module="sms">
 			<li>
 				<a data-pjax href="?display=settings"><?php echo _('Settings')?></a>
 			</li>
@@ -98,7 +83,7 @@
 				<a data-pjax-logout href="?logout=1"><?php echo _('Logout')?></a>
 			</li>
 		</ol>
-		<ol id="settings-menu" data-module="settings">
+		<ol id="settings-menu" class="nav-btn-menu" data-module="settings">
 			<li>
 				<a data-pjax href="?display=settings"><?php echo _('Settings')?></a>
 			</li>

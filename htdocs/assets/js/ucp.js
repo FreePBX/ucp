@@ -259,26 +259,39 @@ var UCPC = Class.extend({
 
 		count = totalNavs;
 		$(".module-container").each(function() {
-			var module = $(this).data("module");
+			var module = $(this).data("module"),
+					menuObj = $("#" + module + "-menu"),
+					btnObj = $("#nav-btn-" + module),
+					hidden = menuObj.outerHeight() + 30;
 			count--;
-			if ($(".nav-menus ol[data-module='" + module + "']").length > 0) {
-				$(".nav-menus ol[data-module='" + module + "']").css("right", (navWidth * count) + "px");
-				if (module == "presencestate") {
-					return true;
-				}
+			if (menuObj.length > 0) {
+				menuObj.css("right", (navWidth * count) + "px");
+				//reposition placement of menu
+				//hidding the full length of it
+				menuObj.data("hidden", hidden);
+				menuObj.css("top", "-" + hidden + "px");
+				//now "show" it (really it's hidden so show it to the dom)
+				menuObj.show();
+
 				//Show/Hide Settings Drop Down
 				$("#nav-btn-" + module).click(function() {
-					$("#" + module + "-menu").toggleClass("active");
-					$("." + module + ".module-container").toggleClass("active");
+					menuObj.toggleClass("active");
+					$("#nav-btn-" + module).toggleClass("active");
+					if (menuObj.css("top") == "36px") {
+						menuObj.css("top", "-" + menuObj.data("hidden") + "px");
+					} else {
+						menuObj.css("top", "36px");
+					}
 				});
 
 				//hide menu when clicked outside
 				$("html").click(function(event) {
 					if (($(event.target).parents().index($("#nav-btn-" + module)) == -1) &&
-						$(event.target).parents().index($("#" + module + "-menu")) == -1) {
-						if ($("#" + module + "-menu").hasClass("active")) {
-							$("#" + module + "-menu").removeClass("active");
-							$("." + module + ".module-container").removeClass("active");
+						$(event.target).parents().index(menuObj) == -1) {
+						if (menuObj.hasClass("active")) {
+							menuObj.removeClass("active");
+							$("#nav-btn-" + module).removeClass("active");
+							menuObj.css("top", "-" + menuObj.data("hidden") + "px");
 						}
 					}
 				});
