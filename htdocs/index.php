@@ -165,20 +165,25 @@ switch($display) {
 		$displayvars['dashboard_content'] = $dashboard_content;
 		$displayvars['year'] = date('Y',time());
 		$modules = $ucp->Modules->getActiveModules();
-		if(in_array('Presencestate',$modules)) {
-			$actions = array();
-			foreach($ucp->Modules->getModulesByMethod('getPresenceAction') as $m) {
-				$mc = ucfirst(strtolower($m));
-				$act = $ucp->Modules->$mc->getPresenceAction();
-				if(!empty($act)) {
-					$actions[$m] = $act;
+
+		$displayvars['navItems'] = array();
+		foreach($ucp->Modules->getModulesByMethod('getNavItems') as $m) {
+			$mc = ucfirst(strtolower($m));
+			$item = $ucp->Modules->$mc->getNavItems();
+			if(!empty($item)) {
+				foreach($item as $i) {
+					$displayvars['navItems'][] = $i;
 				}
 			}
-			$displayvars['presence'] = array(
-				'menu' => $ucp->Modules->Presencestate->getStatusMenu(),
-				'actions' => $actions
-			);
 		}
+		$displayvars['navItems']['settings'] = array(
+			"rawname" => "settings",
+			"badge" => false,
+			"icon" => "fa-cog",
+			"menu" => array(
+				"html" => '<li><a data-pjax href="?display=settings">' . _('Settings') . '</a></li><li><a data-pjax-logout href="?logout=1">' . _('Logout') . '</a></li>'
+			)
+		);
 		$ucp->View->show_view(dirname(__FILE__).'/views/dashboard.php',$displayvars);
 	break;
 	default:

@@ -41,56 +41,25 @@
 		</ol>
 		<div id="top-dashboard-nav-right">
 			<div class="nav-btns">
-				<div id="nav-btn-presencestate" class="module-container" data-module="presencestate">
-					<div class="p-btn icon">
-						<i class="fa fa-circle"></i>
+				<?php foreach($navItems as $button) {?>
+					<div id="nav-btn-<?php echo $button['rawname']?>" class="module-container" data-module="<?php echo $button['rawname']?>">
+						<div class="icon">
+							<i class="fa <?php echo $button['icon']?>"></i>
+							<?php echo !empty($button['badge']) ? '<span class="badge">'.$button['badge'].'</span>' : ""?>
+						</div>
+						<?php echo isset($button['extra']) ? $button['extra'] : ""?>
 					</div>
-					<div class="p-container">
-						<div class="p-msg"><span></span></div>
-					</div>
-				</div>
-				<div id="nav-btn-voicemail" class="module-container" data-module="voicemail">
-					<div class="icon">
-						<i class="fa fa-envelope-square"></i>
-						<span class="badge">23</span>
-					</div>
-				</div>
-				<div id="nav-btn-sms" class="module-container" data-module="sms">
-					<div class="icon">
-						<i class="fa fa-comment"></i>
-						<span class="badge">4</span>
-					</div>
-				</div>
-				<div id="nav-btn-settings" class="module-container" data-module="settings">
-					<div class="icon">
-						<i class="fa fa-cog"></i>
-					</div>
-				</div>
+				<?php } ?>
 			</div>
 		</div>
 	</div>
 	<div class="nav-menus">
-		<ol id="presencestate-menu" class="nav-btn-menu" data-module="presencestate">
-			<li class="statuses">
-				<?php echo $presence['menu'] ?>
-			</li>
-		</ol>
-		<ol id="sms-menu" class="nav-btn-menu" data-module="sms">
-			<li>
-				<a data-pjax href="?display=settings"><?php echo _('Settings')?></a>
-			</li>
-			<li>
-				<a data-pjax-logout href="?logout=1"><?php echo _('Logout')?></a>
-			</li>
-		</ol>
-		<ol id="settings-menu" class="nav-btn-menu" data-module="settings">
-			<li>
-				<a data-pjax href="?display=settings"><?php echo _('Settings')?></a>
-			</li>
-			<li>
-				<a data-pjax-logout href="?logout=1"><?php echo _('Logout')?></a>
-			</li>
-		</ol>
+		<?php foreach($navItems as $module => $item) {
+			if (!empty($item['menu']['html'])) {?>
+				<ol id="<?php echo $item['rawname']?>-menu" class="nav-btn-menu" data-module="<?php echo $item['rawname']?>">
+					<?php echo $item['menu']['html'] ?>
+				</ol>
+		<?php } } ?>
 	</div>
 	<div class="clear"></div>
 	<div id="container-fixed-left" class="container-fluid">
