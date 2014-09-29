@@ -22,7 +22,7 @@
 						</div>
 					<?php } ?>
 					<?php if(!empty($history)) {?>
-						<span class="date">Sent at <?php echo date('g:i A \\o\\n l', $h['date'])?></span>
+						<div class="status" data-type="date">Sent at <?php echo date('g:i A \\o\\n l', $h['date'])?></div>
 					<?php } ?>
 				<?php } ?>
 			</div>

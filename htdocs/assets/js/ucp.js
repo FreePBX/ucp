@@ -316,29 +316,27 @@ var UCPC = Class.extend({
 			window[UCP.activeModule].windowState(state);
 		}
 	},
-	startComm: function() {
-		// Create a socket instance
-		// removeAllListeners("news");
-		/*
-		var token = "7f7ntkppvsmb6hsa0ol27kjh72";
-		try {
-			this.ws = io("ws://" + $.url().attr("host") + ":8001/conferences", {
-				reconnection: false,
-				query: "token=" + token
-			});
-			this.ws.on("connect", function(data) {
-				UCP.ws.emit("subscribe", { conference: 4000 });
-				UCP.ws.on("conference", function(data) {
-					console.log(data);
-				});
-			});
-
-		}catch (err) {}
-		*/
+	connect: function() {
 		UCP.shortpoll();
 		UCP.pollID = setInterval(function() {
 			UCP.shortpoll();
 		}, 5000);
+		$.each(modules, function( index, module ) {
+			if (typeof window[module] == "object" && typeof window[module].connect == "function") {
+				window[module].connect();
+			}
+		});
+	},
+	disconnect: function() {
+		clearInterval(this.pollID);
+		this.pollID = null;
+		this.polling = false;
+		$("#nav-btn-settings i").removeClass("fa-spin");
+		$.each(modules, function( index, module ) {
+			if (typeof window[module] == "object" && typeof window[module].disconnect == "function") {
+				window[module].disconnect();
+			}
+		});
 	},
 	shortpoll: function() {
 		if (!UCP.polling) {
@@ -394,17 +392,25 @@ var UCPC = Class.extend({
 			$(this).remove();
 		});
 	},
-	showDialog: function(title, content, height, width) {
+	showDialog: function(title, content, height, width, callback) {
 		var w = (typeof width !== "undefined") ? width : "250px",
 				h = (typeof height !== "undefined") ? height : "250px",
 				html = "<div class=\"dialog\" style=\"height:" + h + "px;width:" + w + "px;margin-top:-" + (h / 2) + "px;margin-left:-" + (w / 2) + "px;\"><div class=\"title\">" + title + "<i class=\"fa fa-times\" onclick=\"UCP.closeDialog()\"></i></div><div class=\"content\">" + content + "</div></div>";
 		if ($(".dialog").length) {
 			$(".dialog").fadeOut("fast", function(event) {
 				$(this).remove();
-				$(html).appendTo("#dashboard-content").hide().fadeIn("fast");
+				$(html).appendTo("#dashboard-content").hide().fadeIn("fast", function(event) {
+					if (typeof callback === "function") {
+						callback();
+					}
+				});
 			});
 		} else {
-			$(html).appendTo("#dashboard-content").hide().fadeIn("fast");
+			$(html).appendTo("#dashboard-content").hide().fadeIn("fast", function(event) {
+				if (typeof callback === "function") {
+					callback();
+				}
+			});
 		}
 	},
 	addPhone: function(module, id, s, msg, callback) {
@@ -458,7 +464,7 @@ var UCPC = Class.extend({
 	addMessageBuffer: function(id, msgid, sender, message) {
 
 	},
-	addChat: function(module, id, title, from, to, sender, msgid, message) {
+	addChat: function(module, id, title, from, to, sender, msgid, message, callback) {
 		if (!$( "#messages-container .message-box[data-id=\"" + id + "\"]" ).length && (typeof this.messageBuffer[id] === "undefined")) {
 			//add placeholder
 			if (typeof msgid !== "undefined") {
@@ -490,6 +496,9 @@ var UCPC = Class.extend({
 						}
 					}
 				});
+				if (typeof callback === "function") {
+					callback();
+				}
 				$(document).trigger( "chatWindowAdded", [ id, module,  $( "#messages-container .message-box[data-id=\"" + id + "\"]" ) ] );
 				$( "#messages-container .message-box .title-bar[data-id=\"" + id + "\"]" ).on("click", function(event) {
 					if (!$(event.target).hasClass("cancelExpand")) {
@@ -547,7 +556,7 @@ var UCPC = Class.extend({
 
 			var d = new Date();
 			UCP.chatTimeout[id] = setTimeout(function() {
-				$( "#messages-container .message-box[data-id=\"" + id + "\"] .chat" ).append("<span class=\"date\">Sent at " + d.format("g:i A \\o\\n l") + "</span><br/>");
+				$( "#messages-container .message-box[data-id=\"" + id + "\"] .chat" ).append("<div class=\"status\" data-type=\"date\">Sent at " + d.format("g:i A \\o\\n l") + "</div><br/>");
 			}, 60000);
 
 			$("#messages-container .message-box[data-id=\"" + id + "\"] .chat").animate({ scrollTop: $("#messages-container .message-box[data-id=\"" + id + "\"] .chat")[0].scrollHeight }, "slow");
@@ -627,18 +636,18 @@ var UCPC = Class.extend({
 	},
 	online: function(event) {
 		if (this.loggedIn && this.pollID === null) {
-			this.startComm();
+			this.connect();
 		}
 	},
 	offline: function(event) {
-
+		this.disconnect();
 	},
 	logIn: function(event) {
 		this.activeModule = $.url().param("mod");
 		this.activeModule = (this.activeModule !== undefined) ? UCP.toTitleCase(this.activeModule) : "Home";
 		this.domain = this.activeModule.toLowerCase();
 		this.loggedIn = true;
-		this.startComm();
+		this.connect();
 		if (!Notify.needsPermission() && this.notify === null) {
 			this.notify = true;
 		}
@@ -654,13 +663,12 @@ var UCPC = Class.extend({
 		this.binds();
 	},
 	logOut: function(event) {
-		this.loggedIn = false;
-		clearInterval(this.pollID);
-		this.pollID = null;
 		if (typeof window[this.activeModule] == "object" &&
 			typeof window[this.activeModule].hide == "function") {
 			window[this.activeModule].hide(event);
 		}
+		this.loggedIn = false;
+		this.disconnect();
 	},
 	settingsBinds: function() {
 		if (Notify.isSupported()) {
@@ -790,6 +798,14 @@ UCP.i18n = new Jed(languages);
 function _(string) {
 	try {
 		return UCP.i18n.dgettext( UCP.domain, string );
+	} catch (err) {
+		return string;
+	}
+}
+
+function sprintf() {
+	try {
+		return UCP.i18n.sprintf.apply(this, arguments);
 	} catch (err) {
 		return string;
 	}

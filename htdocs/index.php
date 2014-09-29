@@ -233,6 +233,9 @@ if(!isset($_SERVER['HTTP_X_PJAX'])) {
 	}
 	$filename = 'jsphpg_'.$ftime.'.js';
 	if(!file_exists(__DIR__.'/assets/js/'.$filename)) {
+		foreach(glob(__DIR__.'/assets/js/jsphpg_*.js') as $f) {
+			unlink($f);
+		}
 		$output = \JShrink\Minifier::minify($contents);
 		file_put_contents(__DIR__.'/assets/js/'.$filename,$output);
 	}

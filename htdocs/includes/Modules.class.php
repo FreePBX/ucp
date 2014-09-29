@@ -189,6 +189,9 @@ class Modules extends Module_Helpers {
 		}
 		$filename = 'jsphp_'.$ftime.'.js';
 		if(!file_exists($cache.'/'.$filename)) {
+			foreach(glob($cache.'/jsphpg_*.js') as $f) {
+				unlink($f);
+			}
 			$output = \JShrink\Minifier::minify($contents);
 			file_put_contents($cache.'/'.$filename,$output);
 		}
