@@ -770,6 +770,17 @@ var UCPC = Class.extend({
 				});
 			}
 		});
+	},
+	updateNavBadge: function(button, num) {
+		var badge = $("#nav-btn-" + button + " .badge");
+		if (num > 0) {
+			badge.text(num);
+			badge.fadeIn("fast");
+		} else {
+			badge.fadeOut("fast", function() {
+				badge.text(0);
+			});
+		}
 	}
 }), UCP = new UCPC();
 $(function() {
@@ -794,6 +805,7 @@ function htmlDecode( html ) {
 	return a.textContent;
 }
 
+/** Language, global functions so they act like php **/
 UCP.i18n = new Jed(languages);
 function _(string) {
 	try {
