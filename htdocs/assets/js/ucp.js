@@ -46,8 +46,8 @@ var UCPC = Class.extend({
 		$("#nav-btn-settings i").removeClass("fa-spin");
 	},
 	ajaxError: function(event, jqxhr, settings, exception) {
-		if (exception !== "abort") {
-			UCP.displayGlobalMessage(_("Oops something went wrong. Try again a little later"));
+		if (exception !== "abort" && !$("#global-message-container").is(":visible")) {
+			UCP.disconnect();
 		}
 	},
 	setupLogin: function() {
@@ -317,14 +317,18 @@ var UCPC = Class.extend({
 		}
 	},
 	connect: function() {
-		UCP.shortpoll();
-		UCP.pollID = setInterval(function() {
-			UCP.shortpoll();
-		}, 5000);
-		$.each(modules, function( index, module ) {
-			if (typeof window[module] == "object" && typeof window[module].connect == "function") {
-				window[module].connect();
-			}
+		//Interval is in a callback to shortpoll to make sure we are "online"
+		UCP.displayGlobalMessage(_("Connecting...."), "rgba(128, 128, 128, 0.5)", true);
+		UCP.shortpoll(function() {
+			UCP.pollID = setInterval(function() {
+				UCP.shortpoll();
+			}, 5000);
+			$.each(modules, function( index, module ) {
+				if (typeof window[module] == "object" && typeof window[module].connect == "function") {
+					window[module].connect();
+				}
+			});
+			UCP.removeGlobalMessage();
 		});
 	},
 	disconnect: function() {
@@ -337,8 +341,9 @@ var UCPC = Class.extend({
 				window[module].disconnect();
 			}
 		});
+		UCP.displayGlobalMessage(_("You are currently working in offline mode."), "rgba(128, 128, 128, 0.5)", true);
 	},
-	shortpoll: function() {
+	shortpoll: function(callback) {
 		if (!UCP.polling) {
 			UCP.polling = true;
 			var mdata = {};
@@ -349,6 +354,9 @@ var UCPC = Class.extend({
 			});
 			$.ajax({ url: "index.php?quietmode=1&command=poll", data: { data: $.url().param(), mdata: mdata }, success: function(data) {
 				if (data.status) {
+					if (typeof callback === "function") {
+						callback();
+					}
 					$.each(data.modData, function( module, data ) {
 						if (typeof window[module] == "object" && typeof window[module].poll == "function") {
 							window[module].poll(data, $.url().param());
