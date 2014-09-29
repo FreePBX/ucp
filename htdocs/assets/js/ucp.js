@@ -51,14 +51,20 @@ var UCPC = Class.extend({
 		}
 	},
 	setupLogin: function() {
+		var btn = $("#btn-login");
 		if ($.support.pjax) {
 			$(document).on("submit", "#frm-login", function(event) {
 				var queryString = $(this).formSerialize();
+
+				btn.prop("disabled", true);
+				btn.text(_("Processing..."));
 				queryString = queryString + "&quietmode=1&module=User&command=login";
 				$.post( "index.php", queryString, function( data ) {
 					if (!data.status) {
 						$("#error-msg").html(data.message).fadeIn("fast");
 						$("#login-window").height("300");
+						btn.prop("disabled", false);
+						btn.text(_("Login"));
 					} else {
 						$.pjax.submit(event, "#content-container");
 						$(document).one("pjax:end", function() {
@@ -70,7 +76,11 @@ var UCPC = Class.extend({
 				return false;
 			});
 		} else {
-			//no pjax support...
+			//TODO: I guess we don't allow login...
+			//Seriously though this probably means most of
+			//the other functionality of UCP isn't supported as well.
+			btn.prop("disabled", true);
+			btn.text(_("Your Browser is unsupported at this time."));
 		}
 	},
 	setupDashboard: function() {
@@ -135,6 +145,7 @@ var UCPC = Class.extend({
 			});
 		} else {
 			//no pjax support
+			//TODO: Im not sure what happens if we hit this?
 		}
 		$("a[data-pjax-logout]").click(function(event) {
 			$(document).trigger("logOut");
