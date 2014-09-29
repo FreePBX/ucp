@@ -82,6 +82,10 @@ function handleClick(event, container, options) {
   if (link.href === location.href + '#')
     return
 
+  // Ignore event with default prevented
+  if (event.isDefaultPrevented())
+    return
+
   var defaults = {
     url: link.href,
     container: $(link).attr('data-pjax'),
@@ -95,6 +99,7 @@ function handleClick(event, container, options) {
   if (!clickEvent.isDefaultPrevented()) {
     pjax(opts)
     event.preventDefault()
+    $(link).trigger('pjax:clicked', [opts])
   }
 }
 
@@ -173,8 +178,10 @@ function pjax(options) {
   if (!options.data) options.data = {}
   options.data._pjax = context.selector
 
-  function fire(type, args) {
-    var event = $.Event(type, { relatedTarget: target })
+  function fire(type, args, props) {
+    if (!props) props = {}
+    props.relatedTarget = target
+    var event = $.Event(type, props)
     context.trigger(event, args)
     return !event.isDefaultPrevented()
   }
@@ -226,6 +233,8 @@ function pjax(options) {
   }
 
   options.success = function(data, status, xhr) {
+    var previousState = pjax.state;
+
     // If $.pjax.defaults.version is a function, invoke it first.
     // Otherwise it can be a static string.
     var currentVersion = (typeof $.pjax.defaults.version === 'function') ?
@@ -262,9 +271,16 @@ function pjax(options) {
     }
 
     // Clear out any focused controls before inserting new page contents.
-    document.activeElement.blur()
+    try {
+      document.activeElement.blur()
+    } catch (e) { }
 
     if (container.title) document.title = container.title
+
+    fire('pjax:beforeReplace', [container.contents, options], {
+      state: pjax.state,
+      previousState: previousState
+    })
     context.html(container.contents)
 
     // FF bug: Won't autofocus fields that are inserted via JS.
@@ -393,6 +409,7 @@ if ('state' in window.history) {
 // You probably shouldn't use pjax on pages with other pushState
 // stuff yet.
 function onPjaxPopstate(event) {
+  var previousState = pjax.state;
   var state = event.state
 
   if (state && state.container) {
@@ -403,7 +420,7 @@ function onPjaxPopstate(event) {
 
     // If popping back to the same state, just skip.
     // Could be clicking back from hashchange rather than a pushState.
-    if (pjax.state.id === state.id) return
+    if (pjax.state && pjax.state.id === state.id) return
 
     var container = $(state.container)
     if (container.length) {
@@ -438,9 +455,14 @@ function onPjaxPopstate(event) {
       if (contents) {
         container.trigger('pjax:start', [null, options])
 
-        if (state.title) document.title = state.title
-        container.html(contents)
         pjax.state = state
+        if (state.title) document.title = state.title
+        var beforeReplaceEvent = $.Event('pjax:beforeReplace', {
+          state: state,
+          previousState: previousState
+        })
+        container.trigger(beforeReplaceEvent, [contents, options])
+        container.html(contents)
 
         container.trigger('pjax:end', [null, options])
       } else {
@@ -722,14 +744,11 @@ function cachePush(id, value) {
   cacheMapping[id] = value
   cacheBackStack.push(id)
 
-  // Remove all entires in forward history stack after pushing
-  // a new page.
-  while (cacheForwardStack.length)
-    delete cacheMapping[cacheForwardStack.shift()]
+  // Remove all entries in forward history stack after pushing a new page.
+  trimCacheStack(cacheForwardStack, 0)
 
   // Trim back history stack to max cache length.
-  while (cacheBackStack.length > pjax.defaults.maxCacheLength)
-    delete cacheMapping[cacheBackStack.shift()]
+  trimCacheStack(cacheBackStack, pjax.defaults.maxCacheLength)
 }
 
 // Shifts cache from directional history cache. Should be
@@ -756,6 +775,21 @@ function cachePop(direction, id, value) {
   pushStack.push(id)
   if (id = popStack.pop())
     delete cacheMapping[id]
+
+  // Trim whichever stack we just pushed to to max cache length.
+  trimCacheStack(pushStack, pjax.defaults.maxCacheLength)
+}
+
+// Trim a cache stack (either cacheBackStack or cacheForwardStack) to be no
+// longer than the specified length, deleting cached DOM elements as necessary.
+//
+// stack  - Array of state IDs
+// length - Maximum length to trim to
+//
+// Returns nothing.
+function trimCacheStack(stack, length) {
+  while (stack.length > length)
+    delete cacheMapping[stack.shift()]
 }
 
 // Public: Find version identifier for the initial page load.
