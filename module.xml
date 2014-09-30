@@ -2,7 +2,7 @@
 	<rawname>ucp</rawname>
 	<name>User Control Panel</name>
 	<repo>standard</repo>
-	<version>12.0.0beta20</version>
+	<version>12.0.0beta21</version>
 	<publisher>FreePBX</publisher>
 	<license>AGPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/agpl-3.0.txt</licenselink>
@@ -10,6 +10,7 @@
 		Formerly ARI, now called User Control Panel
 	</description>
 	<changelog>
+		*12.0.0beta21* Require framework 22
 		*12.0.0beta20* Redux on the nav bar, more mobile looking functionality
 		*12.0.0beta19* Eliminate message backup issues with buffering
 		*12.0.0beta18* Fix for double click issue
@@ -62,6 +63,6 @@
 		<phpversion>5.3.3</phpversion>
 		<module>userman ge 2.11.6</module>
 		<module>core ge 12.0.1alpha25</module>
-		<version>12.0.1alpha52</version>
+		<version>12.0.1rc22</version>
 	</depends>
 </module>
