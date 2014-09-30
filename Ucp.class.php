@@ -150,6 +150,7 @@ class Ucp implements BMO {
 				}
 			}
 		}
+		//TODO: Need to figure out how to generate all assets from here.
 	}
 
 	public function deleteUser($uid) {
@@ -309,6 +310,7 @@ class Ucp implements BMO {
 		session_start();
 		$token = bin2hex(openssl_random_pseudo_bytes(16));
 		$_SESSION["UCP_token"] = $token;
+		session_write_close();
 		$this->storeToken($token, $user["id"], "CLI");
 		return true;
 	}

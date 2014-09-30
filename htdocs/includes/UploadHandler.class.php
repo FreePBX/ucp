@@ -202,7 +202,9 @@ class UploadHandler
 
     protected function get_user_id() {
         @session_start();
-        return session_id();
+        $id = session_id();
+        @session_write_close();
+        return $id;
     }
 
     protected function get_user_path() {

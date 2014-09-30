@@ -16,7 +16,6 @@ class Session extends UCP {
 	private $prefix = 'UCP_';
 
 	function __construct($UCP) {
-		session_start();
 		$this->UCP = $UCP;
 	}
 
@@ -30,7 +29,9 @@ class Session extends UCP {
 	 */
 	function generateToken($id='default') {
 		$token = bin2hex(openssl_random_pseudo_bytes(16));
+		session_start();
 		$_SESSION['UCP_'.$id.'_token'] = $token;
+		session_write_close();
 		return $token;
 	}
 
@@ -43,6 +44,7 @@ class Session extends UCP {
 	 * @return bool true is passed, false if failure
 	 */
 	function verifyToken($id='default') {
+		session_start();
 		if(!isset($_SESSION[$this->prefix.$id.'_token'])) {
 			return false;
 		}
@@ -52,8 +54,7 @@ class Session extends UCP {
 		if ($_SESSION[$this->prefix.$id.'_token'] !== $_POST['token']) {
 			return false;
 	    }
-		//clear the token if it was accepted
-		//$_SESSION[$this->prefix.$id.'_token'] = '';
+		session_write_close();
 		return true;
 	}
 
@@ -67,7 +68,10 @@ class Session extends UCP {
 	 * @return bool True if it exists
 	 */
 	public function __isset($name) {
-		return isset($_SESSION[$this->prefix.$name]);
+		session_start();
+		$var = isset($_SESSION[$this->prefix.$name]);
+		session_write_close();
+		return $var;
 	}
 
 	/**
@@ -80,8 +84,11 @@ class Session extends UCP {
 	 * @return mixed Return value if it exists, otherwise null
 	 */
 	public function __get($name) {
+		session_start();
 		if(isset($_SESSION[$this->prefix.$name])) {
-			return $_SESSION[$this->prefix.$name];
+			$var = $_SESSION[$this->prefix.$name];
+			session_write_close();
+			return $var;
 		} else {
 			return null;
 		}
@@ -98,7 +105,9 @@ class Session extends UCP {
 	 * @return bool true
 	 */
 	public function __set($name, $value) {
+		session_start();
 		$_SESSION[$this->prefix.$name] = $value;
+		session_write_close();
 		return true;
 	}
 }

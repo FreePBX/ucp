@@ -575,7 +575,7 @@ var UCPC = Class.extend({
 
 			var d = new Date();
 			UCP.chatTimeout[id] = setTimeout(function() {
-				$( "#messages-container .message-box[data-id=\"" + id + "\"] .chat" ).append("<div class=\"status\" data-type=\"date\">Sent at " + d.format("g:i A \\o\\n l") + "</div><br/>");
+				$( "#messages-container .message-box[data-id=\"" + id + "\"] .chat" ).append("<div class=\"status\" data-type=\"date\">Sent at " + d.format("g:i A \\o\\n l") + "</div>");
 			}, 60000);
 
 			$("#messages-container .message-box[data-id=\"" + id + "\"] .chat").animate({ scrollTop: $("#messages-container .message-box[data-id=\"" + id + "\"] .chat")[0].scrollHeight }, "slow");
