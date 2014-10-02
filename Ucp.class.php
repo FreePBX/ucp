@@ -372,6 +372,7 @@ class Ucp implements BMO {
 	}
 
 	public function dashboardService() {
+		return array();
 		$services = array(
 			array(
 				'title' => 'UCP Daemon',
