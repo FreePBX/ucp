@@ -20,12 +20,12 @@ class Ucp implements BMO {
 
 	public function install() {
 		$this->expireAllUserSessions();
-		outn(_("Refreshing all UCP Assets..."));
-		$this->generateUCP();
+		out(_("Refreshing all UCP Assets, this could take a while..."));
+		$this->generateUCP(true);
 		out("Done!");
 	}
 	public function uninstall() {
-		$path = FreePBX::create()->Config->get_conf_setting('AMPWEBROOT');
+		$path = $this->FreePBX->Config->get_conf_setting('AMPWEBROOT');
 		$location = $path.'/ucp';
 		unlink($location);
 	}
@@ -76,7 +76,7 @@ class Ucp implements BMO {
 	function processModuleConfigPages($user) {
 		$modulef =& module_functions::create();
 		$modules = $modulef->getinfo(false);
-		$path = FreePBX::create()->Config->get_conf_setting('AMPWEBROOT');
+		$path = $this->FreePBX->Config->get_conf_setting('AMPWEBROOT');
 		$location = $path . "/admin/modules";
 		foreach($modules as $module) {
 			if(isset($module['rawname']) && $module['status'] == MODULE_STATUS_ENABLED) {
@@ -102,7 +102,7 @@ class Ucp implements BMO {
 		$html = '';
 		$modulef =& module_functions::create();
 		$modules = $modulef->getinfo(false);
-		$path = FreePBX::create()->Config->get_conf_setting('AMPWEBROOT');
+		$path = $this->FreePBX->Config->get_conf_setting('AMPWEBROOT');
 		$location = $path . "/admin/modules";
 		foreach($modules as $module) {
 			if(isset($module['rawname']) && $module['status'] == MODULE_STATUS_ENABLED) {
@@ -138,10 +138,10 @@ class Ucp implements BMO {
 		$this->generateUCP();
 	}
 
-	public function generateUCP() {
+	public function generateUCP($regenassets = false) {
 		$modulef =& module_functions::create();
 		$modules = $modulef->getinfo(false);
-		$path = FreePBX::create()->Config->get_conf_setting('AMPWEBROOT');
+		$path = $this->FreePBX->Config->get_conf_setting('AMPWEBROOT');
 		$location = $path.'/ucp';
 		if(!file_exists($location)) {
 			symlink(dirname(__FILE__).'/htdocs',$location);
@@ -162,7 +162,9 @@ class Ucp implements BMO {
 				}
 			}
 		}
-		$this->refreshAssets();
+		if($regenassets) {
+			$this->refreshAssets();
+		}
 	}
 
 	public function deleteUser($uid) {
@@ -449,10 +451,23 @@ class Ucp implements BMO {
 	public function refreshAssets() {
 		include(dirname(__FILE__).'/htdocs/includes/bootstrap.php');
 		$ucp = \UCP\UCP::create();
+
+		outn(_("Generating Module Scripts..."));
 		$ucp->Modules->getGlobalScripts(true);
+		out(_("Done"));
+
+		outn(_("Generating Module CSS..."));
 		$ucp->Modules->getGlobalLess(true);
+		out(_("Done"));
+
+		outn(_("Generating Main Scripts..."));
 		$ucp->getLess(true);
+		out(_("Done"));
+
+		outn(_("Generating Main CSS..."));
 		$ucp->getScripts(true);
+		out(_("Done"));
+
 		exec("amportal chown");
 	}
 }

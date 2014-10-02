@@ -2,7 +2,7 @@
 	<rawname>ucp</rawname>
 	<name>User Control Panel</name>
 	<repo>standard</repo>
-	<version>12.0.0beta23</version>
+	<version>12.0.0beta24</version>
 	<publisher>FreePBX</publisher>
 	<license>AGPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/agpl-3.0.txt</licenselink>
@@ -10,6 +10,7 @@
 		Formerly ARI, now called User Control Panel
 	</description>
 	<changelog>
+		*12.0.0beta24* FREEPBX-8063 UCP Refresh Assets on install and reload
 		*12.0.0beta23* Remove UCP daemon status from dashboard for now
 		*12.0.0beta22* Prevent browser lockups by closing the session
 		*12.0.0beta21* Require framework 22
