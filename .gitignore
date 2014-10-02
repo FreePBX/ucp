@@ -4,7 +4,6 @@ htdocs/modules/*
 !htdocs/modules/Settings
 htdocs/modules/Home/assets/less/cache/*
 htdocs/modules/Settings/assets/less/cache/*
-htdocs/assets/framework/*
 htdocs/assets/less/compiled/*
 htdocs/assets/js/compiled/*
 htdocs/assets/css/compiled/*
