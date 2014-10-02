@@ -165,12 +165,11 @@ class Modules extends Module_Helpers {
 	}
 
 	//These Scripts persist throughout the navigation of UCP
-	public function getGlobalScripts() {
-		$cache = dirname(__DIR__).'/assets/js/compiled';
-		if(!file_exists($cache) && !mkdir($cache)) {
+	public function getGlobalScripts($force = false) {
+		$cache = dirname(__DIR__).'/assets/js/compiled/modules';
+		if(!file_exists($cache) && !mkdir($cache,0777,true)) {
 			die('Can Not Create Cache Folder at '.$cache);
 		}
-		$ftime = 0;
 		$contents = '';
 		$files = array();
 		foreach (glob(dirname(__DIR__)."/modules/*", GLOB_ONLYDIR) as $module) {
@@ -180,16 +179,16 @@ class Modules extends Module_Helpers {
 				$dir = dirname(__DIR__)."/modules/".$module."/assets/js";
 				if(is_dir($dir)) {
 					foreach (glob($dir."/*.js") as $file) {
-						$ftime = filemtime($file) > $ftime ? filemtime($file) : $ftime;
 						$files[] = $file;
 						$contents .= file_get_contents($file)."\n";
 					}
 				}
 			}
 		}
-		$filename = 'jsphp_'.$ftime.'.js';
-		if(!file_exists($cache.'/'.$filename)) {
-			foreach(glob($cache.'/jsphpg_*.js') as $f) {
+		$md5 = md5($contents);
+		$filename = 'jsphp_'.$md5.'.js';
+		if(!file_exists($cache.'/'.$filename) || $force) {
+			foreach(glob($cache.'/jsphp_*.js') as $f) {
 				unlink($f);
 			}
 			$output = \JShrink\Minifier::minify($contents);
@@ -199,10 +198,15 @@ class Modules extends Module_Helpers {
 	}
 
 	//These Scripts persist throughout the navigation of UCP
-	public function getGlobalLess() {
-		$cache = dirname(__DIR__).'/assets/css/compiled';
-		if(!file_exists($cache) && !mkdir($cache)) {
+	public function getGlobalLess($force = false) {
+		$cache = dirname(__DIR__).'/assets/css/compiled/modules';
+		if(!file_exists($cache) && !mkdir($cache,0777,true)) {
 			die('Can Not Create Cache Folder at '.$cache);
+		}
+		if($force) {
+			foreach(glob($cache.'/lessphp_*') as $f) {
+				unlink($f);
+			}
 		}
 		\Less_Cache::$cache_dir = $cache;
 			$files = array();
@@ -212,7 +216,7 @@ class Modules extends Module_Helpers {
 					$module = ucfirst(strtolower($mod));
 					$dir = dirname(__DIR__)."/modules/".$module."/assets/less";
 					if(is_dir($dir) && file_exists($dir.'/bootstrap.less')) {
-						$files[$dir."/bootstrap.less"] = '../../../modules/'.ucfirst($module).'/assets';
+						$files[$dir."/bootstrap.less"] = '../../../../modules/'.ucfirst($module).'/assets';
 					}
 				}
 			}

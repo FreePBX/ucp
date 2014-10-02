@@ -18,8 +18,8 @@ $lang = !empty($_COOKIE['lang']) ? $_COOKIE['lang'] : 'en_US';
 putenv('LC_ALL='.$lang);
 setlocale(LC_ALL, $lang);
 
+include(dirname(__FILE__).'/includes/bootstrap.php');
 try {
-	include(dirname(__FILE__).'/includes/UCP.class.php');
 	$ucp = \UCP\UCP::create();
 	$ucp->Modgettext->textdomain("ucp");
 } catch(\Exception $e) {
@@ -31,7 +31,7 @@ try {
 	die();
 }
 ob_end_clean();
-include(dirname(__FILE__).'/includes/emoji/Emojione.class.php');
+
 \Emojione::$imagePathPNG = 'assets/images/emoji/png/'; // defaults to jsdelivr's free CDN
 \Emojione::$imagePathSVG = 'assets/images/emoji/svg/'; // defaults to jsdelivr's free CDN
 
@@ -69,28 +69,11 @@ if((isset($_REQUEST['quietmode']) && $user !== false && !empty($user)) || (isset
 $displayvars = array();
 $displayvars['user'] = $user;
 
-//TODO: these need to be included in UCP_HELPERS
-require dirname(__FILE__).'/includes/less/Cache.php';
-require dirname(__FILE__).'/includes/js/Minifier.php';
-require dirname(__FILE__).'/includes/po2json/po2json.php';
-//TODO: needs to be an array of directories that need to be created on install
-if(!file_exists(dirname(__FILE__).'/assets/css/compiled') && !mkdir(dirname(__FILE__).'/assets/css/compiled')) {
-	die('Can Not Create Cache Folder at '.dirname(__FILE__).'/assets/css/compiled');
-}
-Less_Cache::$cache_dir = dirname(__FILE__).'/assets/css/compiled';
+$lesses = $ucp->getLess();
 
-//Needs to be one unified LESS file along with the module LESS file
-$btfiles = array();
-$btfiles[dirname(__FILE__).'/assets/less/bootstrap.less'] = '/ucp/';
-$displayvars['bootstrapcssless'] = Less_Cache::Get( $btfiles );
-
-$ucpfiles = array();
-$ucpfiles[dirname(__FILE__).'/assets/less/UCP.less'] = '/ucp/';
-$displayvars['ucpcssless'] = Less_Cache::Get( $ucpfiles );
-
-$ucpfiles = array();
-$ucpfiles[dirname(__FILE__).'/assets/less/font-awesome/font-awesome.less'] = '/ucp/assets/';
-$displayvars['facssless'] = Less_Cache::Get( $ucpfiles );
+$displayvars['bootstrapcssless'] = $lesses['bootstrapcssless'];
+$displayvars['ucpcssless'] = $lesses['ucpcssless'];
+$displayvars['facssless'] = $lesses['facssless'];
 
 $displayvars['ucpmoduleless'] = $ucp->Modules->getGlobalLess();
 
@@ -193,55 +176,9 @@ switch($display) {
 }
 
 if(!isset($_SERVER['HTTP_X_PJAX'])) {
-	$globalJavascripts = array(
-		"socket.io.js",
-		"bootstrap-3.1.1.custom.min.js",
-		"jquery-ui-1.10.4.custom.min.js",
-		"jquery.keyframes.min.js",
-		"fileinput.js",
-		"recorder.js",
-		"jquery.iframe-transport.js",
-		"jquery.fileupload.js",
-		"jquery.form.min.js",
-		"jquery.jplayer.min.js",
-		"quo.js",
-		"purl.js",
-		"modernizr.js",
-		"jquery.pjax.js",
-		"notify.js",
-		"packery.pkgd.min.js",
-		"class.js",
-		"jquery.transit.min.js",
-		"date.format.js",
-		"jquery.textfill.min.js",
-		"jed.js",
-		"jquery.cookie.js",
-		"emojione.min.js",
-		"ucp.js",
-		"module.js"
-	);
-	$ftime = 0;
-	$contents = '';
-	$files = array();
-	foreach ($globalJavascripts as $f) {
-		$file = __DIR__.'/assets/js/'.$f;
-		if(file_exists($file)) {
-			$ftime = filemtime($file) > $ftime ? filemtime($file) : $ftime;
-			$files[] = $file;
-			$contents .= file_get_contents($file)."\n\n";
-		}
-	}
-	$filename = 'jsphpg_'.$ftime.'.js';
-	if(!file_exists(__DIR__.'/assets/js/'.$filename)) {
-		foreach(glob(__DIR__.'/assets/js/jsphpg_*.js') as $f) {
-			unlink($f);
-		}
-		$output = \JShrink\Minifier::minify($contents);
-		file_put_contents(__DIR__.'/assets/js/'.$filename,$output);
-	}
 	$displayvars['language'] = $ucp->Modules->getGlobalLanguageJSON($lang);
 	$displayvars['modules'] = json_encode($active_modules);
-	$displayvars['gScripts'] = $filename;
+	$displayvars['gScripts'] = $ucp->getScripts();
 	$displayvars['scripts'] = $ucp->Modules->getGlobalScripts();
 	$ucp->View->show_view(dirname(__FILE__).'/views/footer.php',$displayvars);
 }

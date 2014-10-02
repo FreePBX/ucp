@@ -78,4 +78,96 @@ class UCP extends UCP_Helpers {
 	function setSetting($username,$module,$setting,$value) {
 		return $this->FreePBX->UCP->setSetting($username,$module,$setting,$value);
 	}
+
+	//These Scripts persist throughout the navigation of UCP
+	public function getScripts($force = false) {
+		$cache = dirname(__DIR__).'/assets/js/compiled/main';
+		if(!file_exists($cache) && !mkdir($cache,0777,true)) {
+			die('Can Not Create Cache Folder at '.$cache);
+		}
+
+		$globalJavascripts = array(
+			"socket.io.js",
+			"bootstrap-3.1.1.custom.min.js",
+			"jquery-ui-1.10.4.custom.min.js",
+			"jquery.keyframes.min.js",
+			"fileinput.js",
+			"recorder.js",
+			"jquery.iframe-transport.js",
+			"jquery.fileupload.js",
+			"jquery.form.min.js",
+			"jquery.jplayer.min.js",
+			"quo.js",
+			"purl.js",
+			"modernizr.js",
+			"jquery.pjax.js",
+			"notify.js",
+			"packery.pkgd.min.js",
+			"class.js",
+			"jquery.transit.min.js",
+			"date.format.js",
+			"jquery.textfill.min.js",
+			"jed.js",
+			"jquery.cookie.js",
+			"emojione.min.js",
+			"ucp.js",
+			"module.js"
+		);
+		$contents = '';
+		$files = array();
+		foreach ($globalJavascripts as $f) {
+			$file = dirname(__DIR__).'/assets/js/'.$f;
+			if(file_exists($file)) {
+				$files[] = $file;
+				$contents .= file_get_contents($file)."\n\n";
+			}
+		}
+
+		$md5 = md5($contents);
+		$filename = 'jsphpg_'.$md5.'.js';
+		if(!file_exists($cache.'/'.$filename) || $force) {
+			foreach(glob($cache.'/jsphp_*.js') as $f) {
+				unlink($f);
+			}
+			$output = \JShrink\Minifier::minify($contents);
+			file_put_contents($cache.'/'.$filename,$output);
+		}
+
+		return $filename;
+	}
+
+	//These Scripts persist throughout the navigation of UCP
+	public function getLess($force = false) {
+		$cache = dirname(__DIR__).'/assets/css/compiled/main';
+		//TODO: needs to be an array of directories that need to be created on install
+		if(!file_exists($cache) && !mkdir($cache,0777,true)) {
+			die('Can Not Create Cache Folder at '.$cache);
+		}
+		if($force) {
+			foreach(glob($cache.'/lessphp*') as $f) {
+				unlink($f);
+			}
+		}
+
+		$options = array( 'cache_dir' => $cache );
+
+		$final = array();
+		//Needs to be one unified LESS file along with the module LESS file
+		$btfiles = array();
+		$vars = array("icon-font-path" => '"../../../fonts/"');
+		$btfiles[dirname(__DIR__).'/assets/less/bootstrap.less'] = '../../../../';
+		$final['bootstrapcssless'] = \Less_Cache::Get( $btfiles, $options, $vars );
+
+		$ucpfiles = array();
+		$ucpfiles[dirname(__DIR__).'/assets/less/UCP.less'] = '../../../../';
+		$final['ucpcssless'] = \Less_Cache::Get( $ucpfiles, $options );
+
+		$ucpfiles = array();
+		$ucpfiles[dirname(__DIR__).'/assets/less/font-awesome/font-awesome.less'] = '../../../../';
+		$vars = array("fa-font-path" => '"../../../fonts"');
+		$final['facssless'] = \Less_Cache::Get( $ucpfiles, $options, $vars );
+
+		return $final;
+	}
+
 }

@@ -20,9 +20,14 @@ class Ucp implements BMO {
 
 	public function install() {
 		$this->expireAllUserSessions();
+		outn(_("Refreshing all UCP Assets..."));
+		$this->generateUCP();
+		out("Done!");
 	}
 	public function uninstall() {
-
+		$path = FreePBX::create()->Config->get_conf_setting('AMPWEBROOT');
+		$location = $path.'/ucp';
+		unlink($location);
 	}
 	public function backup(){
 
@@ -130,10 +135,17 @@ class Ucp implements BMO {
 	 * Retrieve Conf Hook to search all modules and add their respective UCP folders
 	 */
 	public function genConfig() {
+		$this->generateUCP();
+	}
+
+	public function generateUCP() {
 		$modulef =& module_functions::create();
 		$modules = $modulef->getinfo(false);
 		$path = FreePBX::create()->Config->get_conf_setting('AMPWEBROOT');
 		$location = $path.'/ucp';
+		if(!file_exists($location)) {
+			symlink(dirname(__FILE__).'/htdocs',$location);
+		}
 		foreach($modules as $module) {
 			if(isset($module['rawname'])) {
 				$rawname = trim($module['rawname']);
@@ -150,7 +162,7 @@ class Ucp implements BMO {
 				}
 			}
 		}
-		//TODO: Need to figure out how to generate all assets from here.
+		$this->refreshAssets();
 	}
 
 	public function deleteUser($uid) {
@@ -301,6 +313,11 @@ class Ucp implements BMO {
 		return $sth->execute(array(':session' => $token, ':uid' => $uid));
 	}
 
+	/**
+	 * Unlock a UCP Session by session token and username
+	 * @param {string} $username The username to login to
+	 * @param {string} $session  session id
+	 */
 	public function sessionUnlock($username, $session) {
 		$user = $this->getUserByUsername(trim($username));
 		if(empty($user["id"])) {
@@ -427,5 +444,15 @@ class Ucp implements BMO {
 			return array('type' => $res, "tooltip" => $html, "glyph-class" => $glyphs[$res]);
 		}
 		return '';
+	}
+
+	public function refreshAssets() {
+		include(dirname(__FILE__).'/htdocs/includes/bootstrap.php');
+		$ucp = \UCP\UCP::create();
+		$ucp->Modules->getGlobalScripts(true);
+		$ucp->Modules->getGlobalLess(true);
+		$ucp->getLess(true);
+		$ucp->getScripts(true);
+		exec("amportal chown");
 	}
 }
