@@ -8,6 +8,7 @@
 		<?php if(!empty($error_danger)) {?>
 			<div class="alert alert-danger"><?php echo $error_danger?></div>
 		<?php } ?>
+		<div class="alert alert-warning jsalert" style="display:none;"></div>
 		<div id="error-msg" class="alert alert-danger" style="display:none"></div>
 		<div class="input-group input-margin">
 			<span class="input-group-addon"><i class="fa fa-user fa-fw"></i></span>
@@ -34,7 +35,7 @@
 						</td>
 					</tr>
 					<tr>
-						<td colspan="3" id="td-btn-login"><button type="submit" id="btn-login" class="btn btn-default"><?php echo _('Login')?></button></td>
+						<td colspan="3" id="td-btn-login"><button type="submit" id="btn-login" class="btn btn-default" disabled><?php echo _('Loading...')?></button></td>
 					</tr>
 				</table>
 			</div>

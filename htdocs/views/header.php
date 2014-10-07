@@ -30,4 +30,9 @@
 		<script type="text/javascript" src="assets/js/jquery-1.11.1.min.js"></script>
 	</head>
 	<body>
+	<div id="loading-container">
+		<div class="message-container">
+			<div class="message"><?php echo _("Loading")?></div>
+		</div>
+	</div>
 	<div id="content-container">

@@ -75,13 +75,18 @@ var UCPC = Class.extend({
 				}, "json");
 				return false;
 			});
+			btn.prop("disabled", false);
+			btn.text(_("Login"));
 		} else {
 			//TODO: I guess we don't allow login...
 			//Seriously though this probably means most of
 			//the other functionality of UCP isn't supported as well.
-			btn.prop("disabled", true);
 			btn.text(_("Your Browser is unsupported at this time."));
+			$(".jsalert").show();
+			$(".jsalert").text(_("Your browser is unsupported at this time. Please upgrade or talk to your system administrator"));
+			$("#login-window").height("300");
 		}
+		$("#loading-container").fadeOut("fast");
 	},
 	setupDashboard: function() {
 		var totalNavs = 0, navWidth = 33;
@@ -308,6 +313,7 @@ var UCPC = Class.extend({
 				});
 			}
 		});
+		$("#loading-container").fadeOut("fast");
 	},
 	onchange: function(evt) {
 		var v = "visible", h = "hidden",
