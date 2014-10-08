@@ -20,6 +20,7 @@ var UCPC = Class.extend({
 		this.domain = "ucp";
 		this.i18n = null;
 		this.messageBuffer = {};
+		this.token = null;
 	},
 	ready: function() {
 		$(window).resize(function() {UCP.windowResize();});
@@ -34,7 +35,12 @@ var UCPC = Class.extend({
 		//in then throw the loggedIn trigger
 		if (!$("#login-window").length) {
 			$(document).trigger("logIn");
-			UCP.setupDashboard();
+			$.post( "index.php", { "quietmode": 1, "command": "token" }, function( data ) {
+				if (data.status) {
+					UCP.token = data.token;
+					UCP.setupDashboard();
+				}
+			});
 		} else {
 			UCP.setupLogin();
 		}
@@ -66,6 +72,7 @@ var UCPC = Class.extend({
 						btn.prop("disabled", false);
 						btn.text(_("Login"));
 					} else {
+						UCP.token = data.token;
 						$.pjax.submit(event, "#content-container");
 						$(document).one("pjax:end", function() {
 							$(document).trigger("logIn");
@@ -331,6 +338,23 @@ var UCPC = Class.extend({
 		if (typeof window[UCP.activeModule] == "object" &&
 			typeof window[UCP.activeModule].windowState == "function") {
 			window[UCP.activeModule].windowState(state);
+		}
+	},
+	wsconnect: function(namespace) {
+		if (!this.loggedIn) {
+			return false;
+		}
+		var host = $.url().attr("host"),
+				port = 8001,
+				socket = null;
+		try {
+			socket = io("ws://" + host + ":" + port + "/" + namespace, {
+				reconnection: false,
+				query: "token=" + UCP.token
+			});
+			return socket;
+		}catch (err) {
+			return false;
 		}
 	},
 	connect: function() {

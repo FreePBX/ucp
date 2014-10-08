@@ -68,6 +68,7 @@ class User extends UCP {
 						$settings[$mod] = $this->UCP->Modules->$mod->login();
 					}
 					$return['status'] = true;
+					$return['token'] = $token = $this->UCP->Session->token;
 				}
 				return $return;
 			break;

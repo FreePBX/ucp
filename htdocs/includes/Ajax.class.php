@@ -82,6 +82,13 @@ class Ajax extends UCP {
 				}
 				$this->UCP->Modgettext->pop_textdomain();
 			break;
+			case 'token':
+				$token = $this->UCP->Session->token;
+				$ret = array(
+					"status" => true,
+					"token" => $token
+				);
+			break;
 			case 'staticsettings':
 				$this->UCP->Modgettext->push_textdomain("ucp");
 				$mods = $this->UCP->Modules->getModulesByMethod('getStaticSettings');
@@ -405,8 +412,7 @@ class Ajax extends UCP {
 		//CORS: http://en.wikipedia.org/wiki/Cross-origin_resource_sharing
 		header('Access-Control-Allow-Headers:Content-Type, Depth, User-Agent, X-File-Size, X-Requested-With, If-Modified-Since, X-File-Name, Cache-Control, X-Auth-Token');
 		header('Access-Control-Allow-Methods: '.strtoupper($this->req->headers->verb));
-		//TODO: Make this configurable
-		header('Access-Control-Allow-Origin:*');
+		header('Access-Control-Allow-Origin:'.$_SERVER['HTTP_ORIGIN']);
 		header('Access-Control-Max-Age:86400');
 		header('Allow: '.strtoupper($this->req->headers->verb));
 	}
