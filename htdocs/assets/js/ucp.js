@@ -20,7 +20,8 @@ var UCPC = Class.extend({
 		this.domain = "ucp";
 		this.i18n = null;
 		this.messageBuffer = {};
-		this.token = null;
+		this.token = null,
+		this.lastIO = null;
 	},
 	ready: function() {
 		$(window).resize(function() {UCP.windowResize();});
@@ -340,7 +341,7 @@ var UCPC = Class.extend({
 			window[UCP.activeModule].windowState(state);
 		}
 	},
-	wsconnect: function(namespace) {
+	wsconnect: function(namespace, callback) {
 		if (!this.loggedIn) {
 			return false;
 		}
@@ -349,8 +350,14 @@ var UCPC = Class.extend({
 				socket = null;
 		try {
 			socket = io("ws://" + host + ":" + port + "/" + namespace, {
-				reconnection: false,
+				reconnection: true,
 				query: "token=" + UCP.token
+			});
+			socket.on("connect", function() {
+				UCP.lastIO = socket.io;
+			});
+			socket.on("connect_error", function(reason) {
+				//console.error('Unable to connect Socket.IO', reason);
 			});
 			return socket;
 		}catch (err) {
@@ -370,6 +377,9 @@ var UCPC = Class.extend({
 				}
 			});
 			UCP.removeGlobalMessage();
+			if (UCP.lastIO !== null) {
+				UCP.lastIO.reconnect();
+			}
 		});
 	},
 	disconnect: function() {
@@ -383,6 +393,9 @@ var UCPC = Class.extend({
 			}
 		});
 		UCP.displayGlobalMessage(_("You are currently working in offline mode."), "rgba(128, 128, 128, 0.5)", true);
+		if (UCP.lastIO !== null) {
+			UCP.lastIO.disconnect();
+		}
 	},
 	shortpoll: function(callback) {
 		if (!UCP.polling) {
