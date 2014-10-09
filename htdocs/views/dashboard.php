@@ -44,7 +44,7 @@
 				<?php foreach($navItems as $button) {?>
 					<div id="nav-btn-<?php echo $button['rawname']?>" class="module-container" data-module="<?php echo $button['rawname']?>">
 						<div class="icon">
-							<i class="fa <?php echo $button['icon']?>"></i>
+							<i class="<?php echo preg_match("/^fa-/",$button['icon']) ? "fa ". $button['icon'] : $button['icon']?>"></i>
 							<?php echo !empty($button['badge']) ? '<span class="badge">'.$button['badge'].'</span>' : '<span class="badge" style="display:none">0</span>'?>
 						</div>
 						<?php echo isset($button['extra']) ? $button['extra'] : ""?>

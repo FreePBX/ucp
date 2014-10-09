@@ -377,9 +377,7 @@ var UCPC = Class.extend({
 				}
 			});
 			UCP.removeGlobalMessage();
-			if (UCP.lastIO !== null) {
-				UCP.lastIO.reconnect();
-			}
+			UCP.websocketConnect();
 		});
 	},
 	disconnect: function() {
@@ -393,6 +391,14 @@ var UCPC = Class.extend({
 			}
 		});
 		UCP.displayGlobalMessage(_("You are currently working in offline mode."), "rgba(128, 128, 128, 0.5)", true);
+		UCP.websocketDisconnect();
+	},
+	websocketConnect: function() {
+		if (UCP.lastIO !== null) {
+			UCP.lastIO.reconnect();
+		}
+	},
+	websocketDisconnect: function() {
 		if (UCP.lastIO !== null) {
 			UCP.lastIO.disconnect();
 		}

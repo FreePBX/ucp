@@ -86,6 +86,7 @@ class UCP extends UCP_Helpers {
 			die('Can Not Create Cache Folder at '.$cache);
 		}
 
+		//Loading order is important here
 		$globalJavascripts = array(
 			"socket.io.js",
 			"bootstrap-3.1.1.custom.min.js",
@@ -166,6 +167,10 @@ class UCP extends UCP_Helpers {
 		$ucpfiles[dirname(__DIR__).'/assets/less/font-awesome/font-awesome.less'] = '../../../../';
 		$vars = array("fa-font-path" => '"../../../fonts"');
 		$final['facssless'] = \Less_Cache::Get( $ucpfiles, $options, $vars );
+
+		$ucpfiles = array();
+		$ucpfiles[dirname(__DIR__).'/assets/less/schmooze-font/schmooze-font.less'] = '../../';
+		$final['sfcssless'] = \Less_Cache::Get( $ucpfiles, $options, $vars );
 
 		return $final;
 	}

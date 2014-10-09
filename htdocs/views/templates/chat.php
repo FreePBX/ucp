@@ -27,6 +27,7 @@
 				<?php } ?>
 			</div>
 		</div>
+		<div class="response-status"></div>
 		<div class="response">
 			<textarea class="form-control"></textarea>
 		</div>

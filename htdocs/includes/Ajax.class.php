@@ -410,9 +410,10 @@ class Ajax extends UCP {
 		}
 
 		//CORS: http://en.wikipedia.org/wiki/Cross-origin_resource_sharing
+		$origin = !empty($_SERVER['HTTP_ORIGIN']) ? $_SERVER['HTTP_ORIGIN'] : "";
 		header('Access-Control-Allow-Headers:Content-Type, Depth, User-Agent, X-File-Size, X-Requested-With, If-Modified-Since, X-File-Name, Cache-Control, X-Auth-Token');
 		header('Access-Control-Allow-Methods: '.strtoupper($this->req->headers->verb));
-		header('Access-Control-Allow-Origin:'.$_SERVER['HTTP_ORIGIN']);
+		header('Access-Control-Allow-Origin:'.$origin);
 		header('Access-Control-Max-Age:86400');
 		header('Allow: '.strtoupper($this->req->headers->verb));
 	}

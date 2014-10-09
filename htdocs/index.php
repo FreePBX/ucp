@@ -74,6 +74,7 @@ $lesses = $ucp->getLess();
 $displayvars['bootstrapcssless'] = $lesses['bootstrapcssless'];
 $displayvars['ucpcssless'] = $lesses['ucpcssless'];
 $displayvars['facssless'] = $lesses['facssless'];
+$displayvars['sfcssless'] = $lesses['sfcssless'];
 
 $displayvars['ucpmoduleless'] = $ucp->Modules->getGlobalLess();
 
@@ -82,16 +83,39 @@ $displayvars['error_danger'] = '';
 
 //Check .htaccess and make sure it actually works
 $nt = $ucp->notifications;
-if ( !isset($_SERVER['HTACCESS']) ) {
+if ( !isset($_SERVER['HTACCESS']) && preg_match("/apache/i", $_SERVER['SERVER_SOFTWARE'])) {
 	// No .htaccess support
 	if(!$nt->exists('ucp', 'htaccess')) {
 		$nt->add_security('ucp', 'htaccess', _('.htaccess files are disabled on this webserver. Please enable them'),
 		sprintf(_("To protect the integrity of your server, you must allow overrides in your webserver's configuration file for the User Control Panel. For more information see: %s"), '<a href="http://wiki.freepbx.org/display/F2/Webserver+Overrides">http://wiki.freepbx.org/display/F2/Webserver+Overrides</a>'));
 	}
+} elseif(!preg_match("/apache/i", $_SERVER['SERVER_SOFTWARE'])) {
+	$sql = "SELECT value FROM admin WHERE variable = 'htaccess'";
+	$sth = FreePBX::Database()->prepare($sql);
+	$sth->execute();
+	$o = $sth->fetch();
+
+	if(empty($o)) {
+		if($nt->exists('ucp', 'htaccess')) {
+			$nt->delete('ucp', 'htaccess');
+		}
+		$nt->add_warning('ucp', 'htaccess', _('.htaccess files are not supported on this webserver.'),
+		sprintf(_("htaccess files help protect the integrity of your server. Please make sure file paths and directories are locked down properly. For more information see: %s"), '<a href="http://wiki.freepbx.org/display/F2/Webserver+Overrides">http://wiki.freepbx.org/display/F2/Webserver+Overrides</a>'),"http://wiki.freepbx.org/display/F2/Webserver+Overrides",true,true);
+		$sql = "REPLACE INTO admin (`value`, `variable`) VALUES (1, 'htaccess')";
+		$sth = FreePBX::Database()->prepare($sql);
+		$sth->execute();
+	}
 } else {
 	if($nt->exists('ucp', 'htaccess')) {
 		$nt->delete('ucp', 'htaccess');
 	}
+}
+
+try {
+	$active_modules = $ucp->Modules->getActiveModules();
+} catch(\Exception $e) {
+	echo "<html><head><title>UCP</title></head><body style='background-color: rgb(211, 234, 255);'><div style='border-radius: 5px;border: 1px solid black;text-align: center;padding: 5px;width: 90%;margin: auto;left: 0px;right: 0px;background-color: rgba(53, 77, 255, 0.18);'>"._('There was an error trying to load UCP').":<br>".$e->getMessage()."</div></body></html>";
+	die();
 }
 
 if(!isset($_SERVER['HTTP_X_PJAX'])) {
@@ -113,7 +137,6 @@ if($user && !empty($user)) {
 	}
 }
 
-$active_modules = $ucp->Modules->getActiveModules();
 switch($display) {
 	case "settings":
 	case "dashboard":
