@@ -1,7 +1,7 @@
 <div class="message-box" data-module="<?php echo $module?>" data-last-msg-id="<?php echo !empty($history['lastMessage']['id']) ? $history['lastMessage']['id'] : '0'?>" data-id="<?php echo $id?>" data-from="<?php echo $from?>" data-to="<?php echo $to?>" style="display:none">
 	<div class="title-bar" data-id="<?php echo $id?>">
 		<div class="type">
-			<i class="fa fa-comment"></i>
+			<i class="<?php echo $icon?>"></i>
 		</div>
 		<div class="name">
 			<div class="from"><strong>F:</strong> <?php echo $from?></div>

@@ -20,7 +20,7 @@ var UCPC = Class.extend({
 		this.domain = "ucp";
 		this.i18n = null;
 		this.messageBuffer = {};
-		this.token = null,
+		this.token = null;
 		this.lastIO = null;
 	},
 	ready: function() {
@@ -35,13 +35,8 @@ var UCPC = Class.extend({
 		//if we are already logged in (the login window is missing)
 		//in then throw the loggedIn trigger
 		if (!$("#login-window").length) {
+			UCP.setupDashboard();
 			$(document).trigger("logIn");
-			$.post( "index.php", { "quietmode": 1, "command": "token" }, function( data ) {
-				if (data.status) {
-					UCP.token = data.token;
-					UCP.setupDashboard();
-				}
-			});
 		} else {
 			UCP.setupLogin();
 		}
@@ -76,8 +71,8 @@ var UCPC = Class.extend({
 						UCP.token = data.token;
 						$.pjax.submit(event, "#content-container");
 						$(document).one("pjax:end", function() {
-							$(document).trigger("logIn");
 							UCP.setupDashboard();
+							$(document).trigger("logIn");
 						});
 					}
 				}, "json");
@@ -108,8 +103,6 @@ var UCPC = Class.extend({
 					$(document).trigger("staticSettingsFinished");
 				}
 			});
-			//logout bind
-			$(document).pjax("a[data-pjax-logout]", "#content-container");
 
 			//Navigation Clicks
 			$(document).on("click", "[data-pjax] a, a[data-pjax]", function(event) {
@@ -160,8 +153,11 @@ var UCPC = Class.extend({
 			//no pjax support
 			//TODO: Im not sure what happens if we hit this?
 		}
-		$("a[data-pjax-logout]").click(function(event) {
+		$("a.logout").click(function(event) {
+			event.preventDefault();
+			event.stopPropagation();
 			$(document).trigger("logOut");
+			location.href = "?logout=1";
 		});
 
 		$(document).on("pjax:end", function() {UCP.pjaxEnd();});
@@ -345,23 +341,36 @@ var UCPC = Class.extend({
 		if (!this.loggedIn) {
 			return false;
 		}
-		var host = $.url().attr("host"),
-				port = 8001,
-				socket = null;
-		try {
-			socket = io("ws://" + host + ":" + port + "/" + namespace, {
-				reconnection: true,
-				query: "token=" + UCP.token
+
+		//If we don't have a valid token then try to get one
+		if (UCP.token === null) {
+			$.post( "index.php", { "quietmode": 1, "command": "token" }, function( data ) {
+				if (data.status) {
+					UCP.token = data.token;
+					UCP.wsconnect(namespace, callback);
+				} else {
+					callback(false);
+				}
 			});
+		} else {
+			var host = $.url().attr("host"),
+					port = 8001,
+					socket = null;
+			try {
+				socket = io("ws://" + host + ":" + port + "/" + namespace, {
+					reconnection: true,
+					query: "token=" + UCP.token
+				});
+			}catch (err) {
+				callback(false);
+			}
 			socket.on("connect", function() {
 				UCP.lastIO = socket.io;
 			});
 			socket.on("connect_error", function(reason) {
 				//console.error('Unable to connect Socket.IO', reason);
 			});
-			return socket;
-		}catch (err) {
-			return false;
+			callback(socket);
 		}
 	},
 	connect: function() {
@@ -427,7 +436,8 @@ var UCPC = Class.extend({
 			}, error: function(jqXHR, textStatus, errorThrown) {
 				//We probably should logout on every event here... but
 				if (jqXHR.status === 403) {
-					$("a[data-pjax-logout]").click();
+					$(document).trigger("logOut");
+					location.href = "?logout=1";
 				}
 			}, dataType: "json", type: "POST" });
 		}
@@ -532,7 +542,7 @@ var UCPC = Class.extend({
 	addMessageBuffer: function(id, msgid, sender, message) {
 
 	},
-	addChat: function(module, id, title, from, to, sender, msgid, message, callback) {
+	addChat: function(module, id, icon, from, to, sender, msgid, message, callback) {
 		if (!$( "#messages-container .message-box[data-id=\"" + id + "\"]" ).length && (typeof this.messageBuffer[id] === "undefined")) {
 			//add placeholder
 			if (typeof msgid !== "undefined") {
@@ -544,7 +554,7 @@ var UCPC = Class.extend({
 				});
 			}
 			var newWindow = (typeof msgid === "undefined");
-			$.ajax({ url: "index.php?quietmode=1&command=template&type=chat", data: { newWindow: newWindow, template: { module: module, id: id, title: title, to: to, from: from } }, success: function(data) {
+			$.ajax({ url: "index.php?quietmode=1&command=template&type=chat", data: { newWindow: newWindow, template: { module: module, icon: icon, id: id, to: to, from: from } }, success: function(data) {
 				$( "#messages-container" ).append( data.contents );
 				$( "#messages-container .message-box[data-id=\"" + id + "\"]" ).fadeIn("fast", function() {
 					if (typeof msgid !== "undefined") {
@@ -563,11 +573,12 @@ var UCPC = Class.extend({
 							$( "#messages-container .message-box[data-id=\"" + id + "\"]" ).find(".fa-arrow-up").addClass("fa-arrow-down").removeClass("fa-arrow-up");
 						}
 					}
+					if (typeof callback === "function") {
+						callback();
+					}
+					$(document).trigger( "chatWindowAdded", [ id, module,  $( "#messages-container .message-box[data-id=\"" + id + "\"]" ) ] );
 				});
-				if (typeof callback === "function") {
-					callback();
-				}
-				$(document).trigger( "chatWindowAdded", [ id, module,  $( "#messages-container .message-box[data-id=\"" + id + "\"]" ) ] );
+
 				$( "#messages-container .message-box .title-bar[data-id=\"" + id + "\"]" ).on("click", function(event) {
 					if (!$(event.target).hasClass("cancelExpand")) {
 						var container = $("#messages-container .message-box[data-id=\"" + id + "\"]");

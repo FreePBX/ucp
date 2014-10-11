@@ -2,28 +2,7 @@
 @import "fileinput-variables.less";
 @import "fileinput.less";
 
-/*
-.btn-file {
-	padding-top: 4px;
-	font-family: Lucida Grande,Lucida Sans,Arial,sans-serif;
-	font-size: 1.1em;
-	border: 1px solid #aed0ea;
-	background: #d7ebf9 url(assets/framework/images/jquery-ui/ui-bg_glass_80_d7ebf9_1x400.png) 50% 50% repeat-x;
-	font-weight: bold;
-	color: #2779aa;
-}
-.btn-file:hover {
-	border: 1px solid #74b2e2;
-	background: #e4f1fb url(assets/framework/images/jquery-ui/ui-bg_glass_100_e4f1fb_1x400.png) 50% 50% repeat-x;
-	font-weight: bold;
-	color: #0070a3;
-}
-.btn-file:active {
-	border: 1px solid #2694e8;
-	background: #3baae3 url(assets/framework/images/jquery-ui/ui-bg_glass_50_3baae3_1x400.png) 50% 50% repeat-x;
-	font-weight: bold;
-	color: #ffffff;
-}
+
 /* FONTS */
 @font-face {
 	font-family: 'cinzel';
@@ -47,9 +26,33 @@
 	font-style: normal;
 }
 
+@font-face {
+	font-family: 'lato';
+	src: url('assets/fonts/lato-regular-webfont.eot');
+	src: url('assets/fonts/lato-regular-webfont.eot?#iefix') format('embedded-opentype'),
+		url('assets/fonts/lato-regular-webfont.woff') format('woff'),
+		url('assets/fonts/lato-regular-webfont.woff2') format('woff2'),
+		url('assets/fonts/lato-regular-webfont.ttf') format('truetype'),
+		url('assets/fonts/lato-regular-webfont.svg#latoregular') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'lato';
+	src: url('assets/fonts/lato-bold-webfont.eot');
+	src: url('assets/fonts/lato-bold-webfont.eot?#iefix') format('embedded-opentype'),
+		url('assets/fonts/lato-bold-webfont.woff') format('woff'),
+		url('assets/fonts/lato-bold-webfont.woff2') format('woff2'),
+		url('assets/fonts/lato-bold-webfont.ttf') format('truetype'),
+		url('assets/fonts/lato-bold-webfont.svg#latobold') format('svg');
+	font-weight: bold;
+	font-style: normal;
+}
+
 /* Make all input boxes have a font where you can tell the difference between upper and lower case fonts */
 input, textarea {
-	font-family: sans-serif;
+	font-family: 'lato', sans-serif;
 }
 
 /* MIXINS */
@@ -65,7 +68,7 @@ html, #content-container{
 }
 
 body {
-	font-family: 'cinzel';
+	font-family: 'lato', sans-serif;
 	height: 100%;
 	margin: 0;
 	background-repeat: no-repeat;
@@ -82,7 +85,7 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
-	font-family: 'cinzel';
+	font-family: 'lato', sans-serif;
 	margin-top: 2px;
 	margin-bottom: 10px;
 }
@@ -274,7 +277,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 						opacity: .5;
 						transition: opacity .5s;
 						padding: 0.5px;
-						width: 22px;
+						width: 23px;
 					}
 					.badge {
 						min-width: 18px;
@@ -285,7 +288,8 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 						margin-top: -15px;
 						margin-left: 7px;
 						transition: color .5s ease-in;
-						top: -19px;
+						top: -21px;
+						right: -1px;
 					}
 				}
 				#settings-btn {
@@ -345,6 +349,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 
 /* FULL SCREEN NAV */
 #fs-navside {
+	font-size: 15px;
 	@media only screen and (max-width : 767px) {
 		display: none;
 	}
@@ -367,6 +372,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 	-webkit-box-shadow: 0px 0px 10px 3px rgba(119, 119, 119, 0.75);
 	background-color: #dcecfe;
 	overflow: hidden;
+	background-image: url("assets/images/noise.png");
 }
 
 /*This Adjusts the whole shebang, the whole container */
@@ -410,7 +416,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 }
 
 section.content {
-	font-family: Arial, Helvetica, sans-serif;
+	font-family: 'lato', sans-serif;
 	padding: 10px 20px;
 }
 
@@ -459,7 +465,7 @@ section.content {
 #footer-content {
 	font-size: 75%;
 	color: black;
-	font-family: serif;
+	font-family: 'lato', sans-serif;
 	text-align: center;
 	height: 100%;
 	padding-top: 2px;
@@ -584,12 +590,15 @@ section.content {
 			vertical-align: middle;
 			top: 0px;
 			position: relative;
-			left: 57px;
+			left: 39px;
 			display: inline-block;
-			font-size: 97%;
+			font-size: 12px;
 			white-space: nowrap;
 			overflow: hidden;
-			width: 102px;
+			width: 127px;
+			line-height: 1.5;
+			font-weight: bold;
+			margin-top: 2px;
 			.from {
 				display: inline-block;
 			}
@@ -622,29 +631,31 @@ section.content {
 		border-left: 1px solid black;
 		border-right: 1px solid black;
 		height: 237px;
-		font-family: sans-serif;
+		font-family: 'lato';
 		.chat {
-			height: 181px;
+			height: 183px;
 			overflow-x: hidden;
 			overflow-y: auto;
 			padding: 5px;
+			font-size: 13px;
+			line-height: 1.3;
 			.history {
 				color: gray;
 			}
 			.status {
 				text-align: center;
 				color: gray;
-				font-size: small;
+				font-size: 11px;
 				font-style: italic;
 			}
 		}
 		.response-status {
 			text-align: center;
 			color: gray;
-			font-size: smaller;
+			font-size: 11px;
 			font-style: italic;
-			height: 16px;
-			margin-bottom: -5px;
+			height: 15px;
+			margin-bottom: -7px;
 		}
 		.response {
 			textarea {
@@ -735,7 +746,7 @@ section.content {
 		border-left: 1px solid black;
 		border-right: 1px solid black;
 		height: 278px;
-		font-family: sans-serif;
+		font-family: 'lato';
 		table.keypad {
 			margin: auto;
 			position: relative;

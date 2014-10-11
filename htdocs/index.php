@@ -39,18 +39,15 @@ $user = $ucp->User->getUser();
 
 if(isset($_REQUEST['logout']) && $user) {
 	$ucp->User->logout();
-	if(isset($_SERVER['HTTP_X_PJAX'])) {
-		//Forces pjax to refresh the entire page
-		header("X-PJAX-Version: logout");
-	}
-} else {
-	//Send back only PJAX relevant data
-	//This is to force a complete page refresh if/when UCP gets updates
-	//The header HTTP_X_PJAX comes from the JS PJAX lib, letting us know we don't need the whole html document
-	if(isset($_SERVER['HTTP_X_PJAX'])) {
-		header("X-PJAX-Version: ".$ucp->getVersion());
-	}
+	$user = $ucp->User->getUser();
 }
+//Send back only PJAX relevant data
+//This is to force a complete page refresh if/when UCP gets updates
+//The header HTTP_X_PJAX comes from the JS PJAX lib, letting us know we don't need the whole html document
+if(isset($_SERVER['HTTP_X_PJAX'])) {
+	header("X-PJAX-Version: ".$ucp->getVersion());
+}
+
 //http://htmlpurifier.org/docs/enduser-utf8.html#fixcharset
 header('Content-Type:text/html; charset=UTF-8');
 
@@ -187,7 +184,7 @@ switch($display) {
 			"badge" => false,
 			"icon" => "fa-cog",
 			"menu" => array(
-				"html" => '<li><a data-pjax href="?display=settings">' . _('Settings') . '</a></li><li><a data-pjax-logout href="?logout=1">' . _('Logout') . '</a></li>'
+				"html" => '<li><a data-pjax href="?display=settings">' . _('Settings') . '</a></li><li><a class="logout" href="?logout=1">' . _('Logout') . '</a></li>'
 			)
 		);
 		$ucp->View->show_view(dirname(__FILE__).'/views/dashboard.php',$displayvars);
