@@ -2,7 +2,7 @@
 	<rawname>ucp</rawname>
 	<name>User Control Panel</name>
 	<repo>standard</repo>
-	<version>12.0.0beta29</version>
+	<version>12.0.0beta30</version>
 	<publisher>FreePBX</publisher>
 	<license>AGPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/agpl-3.0.txt</licenselink>
@@ -10,6 +10,7 @@
 		Formerly ARI, now called User Control Panel
 	</description>
 	<changelog>
+		*12.0.0beta30* Use proper 12 hooking into usermanager
 		*12.0.0beta29* Fix null token issue
 		*12.0.0beta28* Replace font, add texture, more socket work (future)
 		*12.0.0beta27* Added new fonts package, more websocket work
@@ -66,10 +67,17 @@
 		<dashboard namespace="FreePBX\modules\Dashboard\Sections" class="Overview">
 			<method class="Ucp" callingMethod="getSummary">dashboardService</method>
 		</dashboard>
+		<userman namespace="FreePBX\modules" class="Userman">
+			<method class="Ucp" callingMethod="delUser">usermanDelUser</method>
+			<method class="Ucp" callingMethod="addUser">usermanAddUser</method>
+			<method class="Ucp" callingMethod="updateUser">usermanUpdateUser</method>
+			<method class="Ucp" callingMethod="sendWelcomeEmail">usermanSendEmail</method>
+			<method class="Ucp" callingMethod="myShowPage">usermanShowPage</method>
+		</userman>
 	</hooks>
 	<depends>
 		<phpversion>5.3.3</phpversion>
-		<module>userman ge 2.11.6</module>
+		<module>userman ge 12.0.5</module>
 		<module>core ge 12.0.1alpha25</module>
 		<version>12.0.1rc22</version>
 	</depends>

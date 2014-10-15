@@ -36,6 +36,100 @@ class Ucp implements BMO {
 
 	}
 
+	public function usermanShowPage() {
+		if(isset($_REQUEST['action'])) {
+			switch($_REQUEST['action']) {
+				case 'showuser':
+					$user = $this->getUserByID($_REQUEST['user']);
+					if(isset($_POST['submit'])) {
+						$this->processModuleConfigPages($user);
+						$this->expireUserSessions($_REQUEST['user']);
+					}
+					if(!empty($_REQUEST['deletesession'])) {
+						$this->expireUserSession($_REQUEST['deletesession']);
+						$this->setUsermanMessage(_('Deleted User Session'),'success');
+					}
+					$fpbxusers = array();
+					$cul = array();
+					foreach(core_users_list() as $list) {
+						$cul[$list[0]] = array(
+							"name" => $list[1],
+						);
+					}
+					$sassigned = $this->getSetting($user['username'],'Settings','assigned');
+					$sassigned = !empty($sassigned) ? $sassigned : array();
+					foreach($user['assigned'] as $assigned) {
+						$fpbxusers[] = array("ext" => $assigned, "data" => $cul[$assigned], "selected" => in_array($assigned,$sassigned));
+					}
+					return load_view(dirname(__FILE__).'/views/users_hook.php',array("fpbxusers" => $fpbxusers, "mHtml" => $this->constructModuleConfigPages($user), "user" => $user, "allowLogin" => FreePBX::create()->Userman->getModuleSettingByID($_REQUEST['user'],'ucp|Global','allowLogin'), "sessions" => $this->getUserSessions($user['id'])));
+				break;
+				case 'adduser':
+					if(isset($_POST['submit'])) {
+						$user = $this->getUserByUsername($_REQUEST['username']);
+						$this->processModuleConfigPages($user);
+					}
+					$fpbxusers = array();
+					$cul = array();
+					foreach(core_users_list() as $list) {
+						$cul[$list[0]] = array(
+							"name" => $list[1],
+						);
+					}
+
+					return load_view(dirname(__FILE__).'/views/users_hook.php',array("fpbxusers" => $fpbxusers, "mHtml" => $this->constructModuleConfigPages($user), "user" => array(), "allowLogin" => true, "sessions" => array()));
+				break;
+				default:
+				break;
+			}
+		}
+	}
+
+	public function usermanSendEmail($id, $display, $data) {
+		return sprintf(_('User Control Panel: %s'),$data['host'].'/ucp');
+	}
+
+	public function usermanDelUser($id, $display, $data) {
+		$this->expireUserSessions($id);
+		$this->deleteUser($id);
+	}
+
+	public function usermanAddUser($id, $display, $data) {
+		if($display == 'extensions' || $display == 'users') {
+			$this->FreePBX->Userman->setModuleSettingByID($id,'ucp|Global','allowLogin',true);
+			$user = $this->getUserByID($id);
+			if($user['default_extension'] != "none") {
+				$this->setSetting($user['username'],'Settings','assigned',array($user['default_extension']));
+				$this->setSetting($user['username'],'Voicemail','assigned',array($user['default_extension']));
+			}
+		} else {
+			$this->ucpUpdateUser($id, $display, $data);
+		}
+	}
+
+	public function usermanUpdateUser($id, $display, $data) {
+		if($display == 'userman') {
+			if(isset($_POST['ucp|login'])) {
+				if($_POST['ucp|login'] == 'true') {
+					$this->FreePBX->Userman->setModuleSettingByID($id,'ucp|Global','allowLogin',true);
+				} else {
+					$this->FreePBX->Userman->setModuleSettingByID($id,'ucp|Global','allowLogin',false);
+				}
+				$user = $this->getUserByID($id);
+				if(isset($_POST['ucp|settings'])) {
+					$this->setSetting($user['username'],'Settings','assigned',$_POST['ucp|settings']);
+				} else {
+					$this->setSetting($user['username'],'Settings','assigned',array());
+				}
+			}
+		} else {
+			$allowed = $this->FreePBX->Userman->getModuleSettingByID($id,'ucp|Global','allowLogin');
+			if(empty($allowed)) {
+				$this->FreePBX->Userman->setModuleSettingByID($id,'ucp|Global','allowLogin',false);
+			}
+		}
+		return true;
+	}
+
 	public function getModulesLanguage($language, $modules) {
 		if(!class_exists("po2json")) {
 			require_once(__DIR__."/includes/po2json.php");
