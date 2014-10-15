@@ -22,6 +22,7 @@ var UCPC = Class.extend({
 		this.messageBuffer = {};
 		this.token = null;
 		this.lastIO = null;
+		this.modules = {};
 	},
 	ready: function() {
 		$(window).resize(function() {UCP.windowResize();});
@@ -92,13 +93,19 @@ var UCPC = Class.extend({
 		$("#loading-container").fadeOut("fast");
 	},
 	setupDashboard: function() {
-		var totalNavs = 0, navWidth = 33;
+		var totalNavs = 0, navWidth = 33, Ucp = this;
+		//inite class autoloader
+		UCP.autoload();
 		//Start PJAX Stuff
 		if ($.support.pjax) {
 			$.post( "index.php", { "quietmode": 1, "command": "staticsettings" }, function( data ) {
 				if (data.status) {
 					$.each(data.settings, function(i, v) {
-						window[i].staticsettings = v;
+						if (typeof window[i] !== "undefined") {
+							window[i].staticsettings = v;
+						} else if (typeof Ucp.modules[i] !== "undefined") {
+							Ucp.modules[i].staticsettings = v;
+						}
 					});
 					$(document).trigger("staticSettingsFinished");
 				}
@@ -344,8 +351,8 @@ var UCPC = Class.extend({
 
 		//If we don't have a valid token then try to get one
 		if (UCP.token === null) {
-			$.post( "index.php", { "quietmode": 1, "command": "token" }, function( data ) {
-				if (data.status) {
+			$.post( "index.php", { "quietmode": 1, "command": "token", "module": "User" }, function( data ) {
+				if (data.status && data.token !== null) {
 					UCP.token = data.token;
 					UCP.wsconnect(namespace, callback);
 				} else {
@@ -383,6 +390,8 @@ var UCPC = Class.extend({
 			$.each(modules, function( index, module ) {
 				if (typeof window[module] == "object" && typeof window[module].connect == "function") {
 					window[module].connect();
+				} else if (UCP.validMethod(module, "connect")) {
+					UCP.modules[module].connect();
 				}
 			});
 			UCP.removeGlobalMessage();
@@ -397,6 +406,8 @@ var UCPC = Class.extend({
 		$.each(modules, function( index, module ) {
 			if (typeof window[module] == "object" && typeof window[module].disconnect == "function") {
 				window[module].disconnect();
+			} else if (UCP.validMethod(module, "disconnect")) {
+				UCP.modules[module].disconnect();
 			}
 		});
 		UCP.displayGlobalMessage(_("You are currently working in offline mode."), "rgba(128, 128, 128, 0.5)", true);
@@ -412,6 +423,19 @@ var UCPC = Class.extend({
 			UCP.lastIO.disconnect();
 		}
 	},
+	autoload: function() {
+		var Ucp = this;
+		$.each(modules, function( index, module ) {
+			var className = module + "C", UCPclass = null;
+			if (typeof window[module] === "undefined") {
+				if (typeof Ucp.modules[module] === "undefined" && typeof window[className]) {
+					UCPclass = window[className];
+					console.log("Auto Loading " + className);
+					Ucp.modules[module] = new UCPclass(Ucp);
+				}
+			}
+		});
+	},
 	shortpoll: function(callback) {
 		if (!UCP.polling) {
 			UCP.polling = true;
@@ -419,9 +443,11 @@ var UCPC = Class.extend({
 			$.each(modules, function( index, module ) {
 				if (typeof window[module] == "object" && typeof window[module].prepoll == "function") {
 					mdata[module] = window[module].prepoll($.url().param());
+				} else if (UCP.validMethod(module, "prepoll")) {
+					mdata[module] = UCP.modules[module].prepoll($.url().param());
 				}
 			});
-			$.ajax({ url: "index.php?quietmode=1&command=poll", data: { data: $.url().param(), mdata: mdata }, success: function(data) {
+			$.ajax({ url: "index.php", data: { quietmode: 1, command: "poll", data: $.url().param(), mdata: mdata }, success: function(data) {
 				if (data.status) {
 					if (typeof callback === "function") {
 						callback();
@@ -429,6 +455,8 @@ var UCPC = Class.extend({
 					$.each(data.modData, function( module, data ) {
 						if (typeof window[module] == "object" && typeof window[module].poll == "function") {
 							window[module].poll(data, $.url().param());
+						} else if (UCP.validMethod(module, "poll")) {
+							UCP.modules[module].poll(data, $.url().param());
 						}
 					});
 				}
@@ -497,7 +525,7 @@ var UCPC = Class.extend({
 		if ($( ".phone-box[data-id=\"" + id + "\"]" ).length > 0) {
 			return;
 		}
-		$.ajax({ url: "index.php?quietmode=1&command=template&type=phone", data: { template: { id: id, state: state, message: message, module: module } }, success: function(data) {
+		$.ajax({ url: "index.php", data: { quietmode: 1, command: "template", type: "phone", template: { id: id, state: state, message: message, module: module } }, success: function(data) {
 			$( "#messages-container" ).append( data.contents );
 			if (typeof callback === "function") {
 				callback(id, state, message);
@@ -539,9 +567,6 @@ var UCPC = Class.extend({
 			$(document).trigger( "phoneWindowRemoved");
 		});
 	},
-	addMessageBuffer: function(id, msgid, sender, message) {
-
-	},
 	addChat: function(module, id, icon, from, to, sender, msgid, message, callback) {
 		if (!$( "#messages-container .message-box[data-id=\"" + id + "\"]" ).length && (typeof this.messageBuffer[id] === "undefined")) {
 			//add placeholder
@@ -554,7 +579,7 @@ var UCPC = Class.extend({
 				});
 			}
 			var newWindow = (typeof msgid === "undefined");
-			$.ajax({ url: "index.php?quietmode=1&command=template&type=chat", data: { newWindow: newWindow, template: { module: module, icon: icon, id: id, to: to, from: from } }, success: function(data) {
+			$.ajax({ url: "index.php", data: { quietmode: 1, command: "template", type: "chat", newWindow: newWindow, template: { module: module, icon: icon, id: id, to: to, from: from } }, success: function(data) {
 				$( "#messages-container" ).append( data.contents );
 				$( "#messages-container .message-box[data-id=\"" + id + "\"]" ).fadeIn("fast", function() {
 					if (typeof msgid !== "undefined") {
@@ -636,6 +661,7 @@ var UCPC = Class.extend({
 			var d = new Date();
 			UCP.chatTimeout[id] = setTimeout(function() {
 				$( "#messages-container .message-box[data-id=\"" + id + "\"] .chat" ).append("<div class=\"status\" data-type=\"date\">Sent at " + d.format("g:i A \\o\\n l") + "</div>");
+				$("#messages-container .message-box[data-id=\"" + id + "\"] .chat").animate({ scrollTop: $("#messages-container .message-box[data-id=\"" + id + "\"] .chat")[0].scrollHeight }, "fast");
 			}, 60000);
 
 			$("#messages-container .message-box[data-id=\"" + id + "\"] .chat").animate({ scrollTop: $("#messages-container .message-box[data-id=\"" + id + "\"] .chat")[0].scrollHeight }, "slow");
@@ -682,6 +708,8 @@ var UCPC = Class.extend({
 		if (typeof window[this.activeModule] == "object" &&
 			typeof window[this.activeModule].hide == "function") {
 			window[this.activeModule].hide(event);
+		} else if (this.validMethod(this.activeModule, "hide")) {
+			this.modules[this.activeModule].hide(event);
 		}
 		var display = $.url().param("display");
 		if (typeof display === "undefined" || display == "dashboard") {
@@ -691,6 +719,8 @@ var UCPC = Class.extend({
 			if (typeof window[this.activeModule] == "object" &&
 				typeof window[this.activeModule].display == "function") {
 				window[this.activeModule].display(event);
+			} else if (this.validMethod(this.activeModule, "display")) {
+				this.modules[this.activeModule].display(event);
 			}
 		} else if (display == "settings") {
 			this.settingsBinds();
@@ -712,6 +742,14 @@ var UCPC = Class.extend({
 		console.log(event);
 		event.preventDefault();
 		return false;
+	},
+	validMethod: function(module, method) {
+		if (typeof this.modules[module] == "object" &&
+			typeof this.modules[module][method] == "function") {
+			return true;
+		} else {
+			return false;
+		}
 	},
 	online: function(event) {
 		if (this.loggedIn && this.pollID === null) {
@@ -735,6 +773,8 @@ var UCPC = Class.extend({
 			if (typeof window[this.activeModule] == "object" &&
 				typeof window[this.activeModule].display == "function") {
 				window[this.activeModule].display(event);
+			} else if (this.validMethod(this.activeModule, "display")) {
+				this.modules[this.activeModule].display(event);
 			}
 		} else if (display == "settings") {
 			this.settingsBinds();
@@ -745,6 +785,8 @@ var UCPC = Class.extend({
 		if (typeof window[this.activeModule] == "object" &&
 			typeof window[this.activeModule].hide == "function") {
 			window[this.activeModule].hide(event);
+		} else if (this.validMethod(this.activeModule, "hide")) {
+			UCP.modules[this.activeModule].hide(event);
 		}
 		this.loggedIn = false;
 		this.disconnect();

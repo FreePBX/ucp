@@ -32,6 +32,9 @@ class User extends UCP {
 	 */
 	function ajaxRequest($command, $settings) {
 		switch($command) {
+			case 'token':
+				return true;
+			break;
 			case 'login':
 				if(!$this->UCP->Session->verifyToken('login')) {
 					return false;
@@ -67,13 +70,29 @@ class User extends UCP {
 					foreach($mods as $mod) {
 						$settings[$mod] = $this->UCP->Modules->$mod->login();
 					}
-					$return['status'] = true;
-					$return['token'] = $token = $this->UCP->Session->token;
+					$token = $this->UCP->Session->token;
+					if(!empty($token)) {
+						$return['status'] = true;
+						$return['token'] = $this->UCP->Session->token;
+					} else {
+						$return['status'] = false;
+					}
 				}
 				return $return;
 			break;
 			case 'getInfo':
 				return $return;
+			break;
+			case 'token':
+				$token = $this->UCP->Session->token;
+				if(!empty($token)) {
+					$return['status'] = true;
+					$return['token'] = $this->UCP->Session->token;
+				} else {
+					$return['status'] = false;
+				}
+				return $return;
+			break;
 		}
 		return false;
 	}
@@ -111,7 +130,6 @@ class User extends UCP {
 						$remember = false;
 					}
 				}
-				$this->UCP->Session->token = $this->token;
 				return true;
 			} else {
 				return true;
@@ -141,7 +159,6 @@ class User extends UCP {
 			}
 			$this->_deleteToken($token);
 			$this->uid = null;
-			$this->UCP->Session->token = null;
 			unset($_SESSION['id']);
 			session_regenerate_id();
 			session_destroy();
@@ -186,6 +203,7 @@ class User extends UCP {
 	 * @return bool True if token was deleted, otherwise false
 	 */
 	private function _deleteToken($token) {
+		$this->UCP->Session->token = null;
 		return $this->UCP->FreePBX->Ucp->deleteToken($token, $this->uid);
 	}
 
@@ -198,7 +216,8 @@ class User extends UCP {
 	 * @return bool True if token was stored, otherwise false
 	 */
 	private function _storeToken($token) {
-		$this->UCP->FreePBX->Ucp->storeToken($token, $this->uid, $_SERVER['REMOTE_ADDR']);
+		$this->UCP->Session->token = $token;
+		return $this->UCP->FreePBX->Ucp->storeToken($token, $this->uid, $_SERVER['REMOTE_ADDR']);
 	}
 
 	/**

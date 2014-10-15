@@ -82,13 +82,6 @@ class Ajax extends UCP {
 				}
 				$this->UCP->Modgettext->pop_textdomain();
 			break;
-			case 'token':
-				$token = $this->UCP->Session->token;
-				$ret = array(
-					"status" => true,
-					"token" => $token
-				);
-			break;
 			case 'staticsettings':
 				$this->UCP->Modgettext->push_textdomain("ucp");
 				$mods = $this->UCP->Modules->getModulesByMethod('getStaticSettings');
