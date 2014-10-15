@@ -2,7 +2,7 @@
 	<rawname>ucp</rawname>
 	<name>User Control Panel</name>
 	<repo>standard</repo>
-	<version>12.0.0beta28</version>
+	<version>12.0.0beta29</version>
 	<publisher>FreePBX</publisher>
 	<license>AGPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/agpl-3.0.txt</licenselink>
@@ -10,7 +10,8 @@
 		Formerly ARI, now called User Control Panel
 	</description>
 	<changelog>
-		*12.0.0brta28* Replace font, add texture, more socket work (future)
+		*12.0.0beta29* Fix null token issue
+		*12.0.0beta28* Replace font, add texture, more socket work (future)
 		*12.0.0beta27* Added new fonts package, more websocket work
 		*12.0.0beta26* Add more loading screens
 		*12.0.0beta25* Remove framework assets dir. Not used. Not needed
