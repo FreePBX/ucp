@@ -66,6 +66,22 @@ class Modules extends Module_Helpers {
 		return $menu;
 	}
 
+	public function moduleHasMethod($module, $method) {
+		$amods = array_keys($this->activeModules);
+		$amods[] = 'home';
+		$amods[] = 'settings';
+		if(in_array(strtolower($module),$amods)) {
+			$module = ucfirst(strtolower($module));
+			if(method_exists($this->$module,$method)) {
+				$reflection = new \ReflectionMethod($this->$module, $method);
+				if ($reflection->isPublic()) {
+				return true;
+				}
+			}
+		}
+		return false;
+	}
+
 	/**
 	 * Check all modules to see if they have the requested method
 	 * @param {string} $method method name

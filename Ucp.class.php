@@ -102,7 +102,7 @@ class Ucp implements BMO {
 				$this->setSetting($user['username'],'Voicemail','assigned',array($user['default_extension']));
 			}
 		} else {
-			$this->ucpUpdateUser($id, $display, $data);
+			$this->usermanUpdateUser($id, $display, $data);
 		}
 	}
 
