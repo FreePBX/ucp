@@ -22,7 +22,7 @@ var UCPC = Class.extend({
 		this.messageBuffer = {};
 		this.token = null;
 		this.lastIO = null;
-		this.modules = {};
+		this.Modules = {};
 	},
 	ready: function() {
 		$(window).resize(function() {UCP.windowResize();});
@@ -103,8 +103,8 @@ var UCPC = Class.extend({
 					$.each(data.settings, function(i, v) {
 						if (typeof window[i] !== "undefined") {
 							window[i].staticsettings = v;
-						} else if (typeof Ucp.modules[i] !== "undefined") {
-							Ucp.modules[i].staticsettings = v;
+						} else if (typeof Ucp.Modules[i] !== "undefined") {
+							Ucp.Modules[i].staticsettings = v;
 						}
 					});
 					$(document).trigger("staticSettingsFinished");
@@ -391,7 +391,7 @@ var UCPC = Class.extend({
 				if (typeof window[module] == "object" && typeof window[module].connect == "function") {
 					window[module].connect();
 				} else if (UCP.validMethod(module, "connect")) {
-					UCP.modules[module].connect();
+					UCP.Modules[module].connect();
 				}
 			});
 			UCP.removeGlobalMessage();
@@ -407,7 +407,7 @@ var UCPC = Class.extend({
 			if (typeof window[module] == "object" && typeof window[module].disconnect == "function") {
 				window[module].disconnect();
 			} else if (UCP.validMethod(module, "disconnect")) {
-				UCP.modules[module].disconnect();
+				UCP.Modules[module].disconnect();
 			}
 		});
 		UCP.displayGlobalMessage(_("You are currently working in offline mode."), "rgba(128, 128, 128, 0.5)", true);
@@ -428,10 +428,10 @@ var UCPC = Class.extend({
 		$.each(modules, function( index, module ) {
 			var className = module + "C", UCPclass = null;
 			if (typeof window[module] === "undefined") {
-				if (typeof Ucp.modules[module] === "undefined" && typeof window[className]) {
+				if (typeof Ucp.Modules[module] === "undefined" && typeof window[className]) {
 					UCPclass = window[className];
 					console.log("Auto Loading " + className);
-					Ucp.modules[module] = new UCPclass(Ucp);
+					Ucp.Modules[module] = new UCPclass(Ucp);
 				}
 			}
 		});
@@ -444,7 +444,7 @@ var UCPC = Class.extend({
 				if (typeof window[module] == "object" && typeof window[module].prepoll == "function") {
 					mdata[module] = window[module].prepoll($.url().param());
 				} else if (UCP.validMethod(module, "prepoll")) {
-					mdata[module] = UCP.modules[module].prepoll($.url().param());
+					mdata[module] = UCP.Modules[module].prepoll($.url().param());
 				}
 			});
 			$.ajax({ url: "index.php", data: { quietmode: 1, command: "poll", data: $.url().param(), mdata: mdata }, success: function(data) {
@@ -456,7 +456,7 @@ var UCPC = Class.extend({
 						if (typeof window[module] == "object" && typeof window[module].poll == "function") {
 							window[module].poll(data, $.url().param());
 						} else if (UCP.validMethod(module, "poll")) {
-							UCP.modules[module].poll(data, $.url().param());
+							UCP.Modules[module].poll(data, $.url().param());
 						}
 					});
 				}
@@ -632,6 +632,9 @@ var UCPC = Class.extend({
 		}
 	},
 	removeChat: function(id) {
+		if (typeof UCP.chatTimeout[id] !== "undefined") {
+			clearTimeout(UCP.chatTimeout[id]);
+		}
 		$( "#messages-container .title-bar[data-id=\"" + id + "\"]" ).off("click");
 		$( "#messages-container .message-box[data-id=\"" + id + "\"]" ).fadeOut("fast", function() {
 			$(this).remove();
@@ -709,7 +712,7 @@ var UCPC = Class.extend({
 			typeof window[this.activeModule].hide == "function") {
 			window[this.activeModule].hide(event);
 		} else if (this.validMethod(this.activeModule, "hide")) {
-			this.modules[this.activeModule].hide(event);
+			this.Modules[this.activeModule].hide(event);
 		}
 		var display = $.url().param("display");
 		if (typeof display === "undefined" || display == "dashboard") {
@@ -720,7 +723,7 @@ var UCPC = Class.extend({
 				typeof window[this.activeModule].display == "function") {
 				window[this.activeModule].display(event);
 			} else if (this.validMethod(this.activeModule, "display")) {
-				this.modules[this.activeModule].display(event);
+				this.Modules[this.activeModule].display(event);
 			}
 		} else if (display == "settings") {
 			this.settingsBinds();
@@ -744,8 +747,8 @@ var UCPC = Class.extend({
 		return false;
 	},
 	validMethod: function(module, method) {
-		if (typeof this.modules[module] == "object" &&
-			typeof this.modules[module][method] == "function") {
+		if (typeof this.Modules[module] == "object" &&
+			typeof this.Modules[module][method] == "function") {
 			return true;
 		} else {
 			return false;
@@ -774,7 +777,7 @@ var UCPC = Class.extend({
 				typeof window[this.activeModule].display == "function") {
 				window[this.activeModule].display(event);
 			} else if (this.validMethod(this.activeModule, "display")) {
-				this.modules[this.activeModule].display(event);
+				this.Modules[this.activeModule].display(event);
 			}
 		} else if (display == "settings") {
 			this.settingsBinds();
@@ -786,7 +789,7 @@ var UCPC = Class.extend({
 			typeof window[this.activeModule].hide == "function") {
 			window[this.activeModule].hide(event);
 		} else if (this.validMethod(this.activeModule, "hide")) {
-			UCP.modules[this.activeModule].hide(event);
+			this.Modules[this.activeModule].hide(event);
 		}
 		this.loggedIn = false;
 		this.disconnect();
