@@ -313,8 +313,7 @@ var UCPC = Class.extend({
 
 				//hide menu when clicked outside
 				$("html").click(function(event) {
-					if (($(event.target).parents().index($("#nav-btn-" + module)) == -1) &&
-						$(event.target).parents().index(menuObj) == -1) {
+					if ($(event.target).parents().index($("#nav-btn-" + module)) == -1) {
 						if (menuObj.hasClass("active")) {
 							menuObj.removeClass("active");
 							$("#nav-btn-" + module).removeClass("active");
