@@ -13,6 +13,7 @@
 
 		<link href="assets/css/bootstrap-select.min.css" rel="stylesheet" type="text/css">
 		<link href="assets/css/emojione.min.css" rel="stylesheet" type="text/css">
+		<link href="assets/css/jquery.tokenize.css" rel="stylesheet" type="text/css">
 		<link href="assets/css/compiled/main/<?php echo $ucpcssless?>" rel="stylesheet" type="text/css">
 
 		<link href="assets/css/compiled/modules/<?php echo $ucpmoduleless?>" rel="stylesheet" type="text/css">

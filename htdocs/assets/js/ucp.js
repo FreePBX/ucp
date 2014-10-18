@@ -518,13 +518,13 @@ var UCPC = Class.extend({
 			});
 		}
 	},
-	addPhone: function(module, id, s, msg, callback) {
+	addPhone: function(module, id, s, msg, contacts, callback) {
 		var message = (typeof msg !== "undefined") ? msg : "",
 				state = (typeof s !== "undefined") ? s : "call";
 		if ($( ".phone-box[data-id=\"" + id + "\"]" ).length > 0) {
 			return;
 		}
-		$.ajax({ url: "index.php", data: { quietmode: 1, command: "template", type: "phone", template: { id: id, state: state, message: message, module: module } }, success: function(data) {
+		$.ajax({ url: "index.php", data: { quietmode: 1, command: "template", type: "phone", template: { id: id, state: state, message: message, module: module, contacts: contacts } }, success: function(data) {
 			$( "#messages-container" ).append( data.contents );
 			if (typeof callback === "function") {
 				callback(id, state, message);

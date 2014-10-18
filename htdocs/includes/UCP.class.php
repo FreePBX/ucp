@@ -111,6 +111,7 @@ class UCP extends UCP_Helpers {
 			"jed.js",
 			"jquery.cookie.js",
 			"emojione.min.js",
+			"jquery.tokenize.js",
 			"ucp.js",
 			"module.js"
 		);
