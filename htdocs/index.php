@@ -186,7 +186,7 @@ switch($display) {
 			"badge" => false,
 			"icon" => "fa-cog",
 			"menu" => array(
-				"html" => '<li>' . $originate . '<a data-pjax href="?display=settings">' . _('Settings') . '</a></li><li><a class="logout" href="?logout=1">' . _('Logout') . '</a></li>'
+				"html" => '<li>' . $originate . '</li><li><a data-pjax href="?display=settings">' . _('Settings') . '</a></li><li><a class="logout" href="?logout=1">' . _('Logout') . '</a></li>'
 			)
 		);
 		$ucp->View->show_view(dirname(__FILE__).'/views/dashboard.php',$displayvars);
