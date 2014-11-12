@@ -225,13 +225,14 @@ var UCPC = Class.extend({
 				$(document).trigger("hideFooter");
 				UCP.windowResize();
 			} else {
+				/*
 				UCP.footerHidden = false;
 				$("#footer").removeClass("shrink");
 				$(document).trigger("mobileScrollUp");
 				$(document).trigger("showFooter");
 				UCP.windowResize();
+				*/
 			}
-
 			UCP.lastScrollTop = st;
 		});
 
@@ -241,6 +242,12 @@ var UCPC = Class.extend({
 		$(document).click(function() {
 			if (UCP.loggedIn && Notify.needsPermission() && UCP.notify === null) {
 				Notify.requestPermission(UCP.notificationsAllowed(), UCP.notificationsDenied() );
+			}
+			if ($( window ).width() < 767) {
+				UCP.footerHidden = true;
+				$("#footer").addClass("shrink");
+				$(document).trigger("hideFooter");
+				UCP.windowResize();
 			}
 		});
 

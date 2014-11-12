@@ -2,7 +2,7 @@
 	<rawname>ucp</rawname>
 	<name>User Control Panel</name>
 	<repo>standard</repo>
-	<version>12.0.0beta35</version>
+	<version>12.0.0beta36</version>
 	<publisher>FreePBX</publisher>
 	<license>AGPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/agpl-3.0.txt</licenselink>
@@ -10,6 +10,7 @@
 		Formerly ARI, now called User Control Panel
 	</description>
 	<changelog>
+		*12.0.0beta36* Mobile detection class added for mobile and tablet specific things
 		*12.0.0beta35* Fix cog dropdown items and speed up RSS feeds by adding a timeout.
 		*12.0.0beta34* Support for auto complete lib and new class module
 		*12.0.0beta33* Close menu when clicked on

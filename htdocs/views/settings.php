@@ -23,17 +23,19 @@
 				<input name="pwd" type="password" class="form-control" id="pwd" value="******" autocapitalize="off" autocorrect="off" autocomplete="off">
 				<span class="help-block help-hidden" data-for="pwd"><?php echo _('The password used to login to User Control Panel and other services')?></span>
 			</div>
-			<div class="form-group desktopnotifications-group" style="display:none;">
-				<label for="desktopnotifications-h" class="help"><?php echo _('Allow Desktop Notifications')?> <i class="fa fa-question-circle"></i></label>
-				<div class="onoffswitch">
-					<input type="checkbox" name="desktopnotifications" class="onoffswitch-checkbox" id="desktopnotifications">
-					<label class="onoffswitch-label" for="desktopnotifications">
-						<div class="onoffswitch-inner"></div>
-						<div class="onoffswitch-switch"></div>
-					</label>
+			<?php if($desktop) {?>
+				<div class="form-group desktopnotifications-group" style="display:none;">
+					<label for="desktopnotifications-h" class="help"><?php echo _('Allow Desktop Notifications')?> <i class="fa fa-question-circle"></i></label>
+					<div class="onoffswitch">
+						<input type="checkbox" name="desktopnotifications" class="onoffswitch-checkbox" id="desktopnotifications">
+						<label class="onoffswitch-label" for="desktopnotifications">
+							<div class="onoffswitch-inner"></div>
+							<div class="onoffswitch-switch"></div>
+						</label>
+					</div>
+					<span class="help-block help-hidden" data-for="desktopnotifications-h"><?php echo _('Allow browser desktop notifications from UCP modules.')?></span>
 				</div>
-				<span class="help-block help-hidden" data-for="desktopnotifications-h"><?php echo _('Allow browser desktop notifications from UCP modules.')?></span>
-			</div>
+			<?php } ?>
 		</form>
 	</div>
 </div>
