@@ -2,7 +2,7 @@
 	<rawname>ucp</rawname>
 	<name>User Control Panel</name>
 	<repo>standard</repo>
-	<version>12.0.0beta36</version>
+	<version>12.0.0beta37</version>
 	<publisher>FreePBX</publisher>
 	<license>AGPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/agpl-3.0.txt</licenselink>
@@ -10,6 +10,7 @@
 		Formerly ARI, now called User Control Panel
 	</description>
 	<changelog>
+		*12.0.0beta37* FREEPBX-8226 Names don't show up on virtual extensions in UCP
 		*12.0.0beta36* Mobile detection class added for mobile and tablet specific things
 		*12.0.0beta35* Fix cog dropdown items and speed up RSS feeds by adding a timeout.
 		*12.0.0beta34* Support for auto complete lib and new class module
@@ -84,7 +85,7 @@
 	<depends>
 		<phpversion>5.3.3</phpversion>
 		<module>userman ge 12.0.5</module>
-		<module>core ge 12.0.1alpha25</module>
+		<module>core ge 12.0.8</module>
 		<version>12.0.1rc22</version>
 	</depends>
 </module>
