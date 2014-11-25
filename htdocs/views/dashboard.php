@@ -42,7 +42,7 @@
 		<div id="top-dashboard-nav-right">
 			<div class="nav-btns">
 				<?php foreach($navItems as $button) {?>
-					<div id="nav-btn-<?php echo $button['rawname']?>" class="module-container" data-module="<?php echo $button['rawname']?>">
+					<div id="nav-btn-<?php echo $button['rawname']?>" class="module-container <?php echo (!empty($button['hide']) ? 'hidden' : '')?>" data-module="<?php echo $button['rawname']?>">
 						<div class="icon">
 							<i class="<?php echo preg_match("/^fa-/",$button['icon']) ? "fa ". $button['icon'] : $button['icon']?>"></i>
 							<?php echo !empty($button['badge']) ? '<span class="badge">'.$button['badge'].'</span>' : '<span class="badge" style="display:none">0</span>'?>

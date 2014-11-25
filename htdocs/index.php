@@ -185,7 +185,7 @@ switch($display) {
 			}
 		}
 		$o = $ucp->getSetting($user['username'],'Webrtc','originate');
-		$originate = !empty($o) ? '<li class="originate"><a>'._("Originate Call").'</a></li>' : '';
+		$originate = !empty($o) ? '<a class="originate">'._("Originate Call").'</a>' : '';
 		$displayvars['navItems']['settings'] = array(
 			"rawname" => "settings",
 			"badge" => false,

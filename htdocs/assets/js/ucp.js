@@ -273,6 +273,7 @@ var UCPC = Class.extend({
 
 		//Detect if the client allows touch access.
 		if (Modernizr.touch) {
+			/*
 			$$("#dashboard").swipeLeft(function() {
 				if ($(".pushmenu-left").hasClass("pushmenu-open")) {
 					toggleMenu();
@@ -283,20 +284,25 @@ var UCPC = Class.extend({
 					toggleMenu();
 				}
 			});
+			*/
 		}
-
+		this.calibrateMenus();
+		$("#loading-container").fadeOut("fast");
+	},
+	calibrateMenus: function() {
 		//Menu adjustments
 		//$("#presence-box2").css("right", $(".nav-btns").width() + "px");
 		//$("#presence-menu2").css("right", $(".nav-btns").width() + "px");
-		totalNavs = $(".module-container").length;
-		navWidth = $(".module-container").last().outerWidth();
+
+		totalNavs = $(".module-container").filter(":visible").length;
+		navWidth = $(".module-container").filter(":visible").last().outerWidth();
 
 		count = totalNavs;
-		$(".module-container").each(function() {
+		$(".module-container").filter(":visible").each(function() {
 			var module = $(this).data("module"),
-					menuObj = $("#" + module + "-menu"),
-					btnObj = $("#nav-btn-" + module),
-					hidden = menuObj.outerHeight() + 30;
+			menuObj = $("#" + module + "-menu"),
+			btnObj = $("#nav-btn-" + module),
+			hidden = menuObj.outerHeight() + 30;
 			count--;
 			if (menuObj.length > 0) {
 				menuObj.css("right", (navWidth * count) + "px");
@@ -330,7 +336,6 @@ var UCPC = Class.extend({
 				});
 			}
 		});
-		$("#loading-container").fadeOut("fast");
 	},
 	onchange: function(evt) {
 		var v = "visible", h = "hidden",

@@ -99,7 +99,7 @@ class UCP extends UCP_Helpers {
 			"jquery.fileupload.js",
 			"jquery.form.min.js",
 			"jquery.jplayer.min.js",
-			"quo.js",
+			/*"quo.js",*/
 			"purl.js",
 			"modernizr.js",
 			"jquery.pjax.js",
