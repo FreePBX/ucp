@@ -276,6 +276,9 @@ class User extends UCP {
 			$this->uid = $result;
 			return true;
 		}
+		if(function_exists('freepbx_log_security')) {
+			freepbx_log_security('Authentication failure for '.(!empty($username) ? $username : 'unknown').' from '.$_SERVER['REMOTE_ADDR']);
+		}
 		return false;
 	}
 
