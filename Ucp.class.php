@@ -85,6 +85,12 @@ class Ucp implements BMO {
 	}
 
 	public function usermanSendEmail($id, $display, $data) {
+		if(function_exists('sysadmin_get_portmgmt')) {
+			$ports = sysadmin_get_portmgmt();
+			if(!empty($ports['ucp'])) {
+				$data['host'] = $data['host'].":".$ports['ucp'];
+			}
+		}
 		return sprintf(_('User Control Panel: %s'),$data['host'].'/ucp');
 	}
 
