@@ -314,6 +314,7 @@ var UCPC = Class.extend({
 				menuObj.show();
 
 				//Show/Hide Settings Drop Down
+				$("#nav-btn-" + module).off("click");
 				$("#nav-btn-" + module).click(function() {
 					menuObj.toggleClass("active");
 					$("#nav-btn-" + module).toggleClass("active");
@@ -322,17 +323,21 @@ var UCPC = Class.extend({
 					} else {
 						menuObj.css("top", "36px");
 					}
-				});
-
-				//hide menu when clicked outside
-				$("html").click(function(event) {
-					if ($(event.target).parents().index($("#nav-btn-" + module)) == -1) {
-						if (menuObj.hasClass("active")) {
-							menuObj.removeClass("active");
-							$("#nav-btn-" + module).removeClass("active");
-							menuObj.css("top", "-" + menuObj.data("hidden") + "px");
+					//hide menu when clicked outside
+					$("html").on("click." + module, function(event) {
+						if ($(event.target).parents().index($("#nav-btn-" + module)) == -1) {
+							if ((menuObj.hasClass("active") &&
+									(menuObj.data("keep-on-click") != "false")) ||
+									(menuObj.hasClass("active") &&
+									(menuObj.data("keep-on-click") == "false") &&
+									($(event.target).parents().index($("#" + module + "-menu")) == -1))) {
+								menuObj.removeClass("active");
+								$("#nav-btn-" + module).removeClass("active");
+								menuObj.css("top", "-" + menuObj.data("hidden") + "px");
+								$("html").off("click." + module);
+							}
 						}
-					}
+					});
 				});
 			}
 		});
@@ -802,6 +807,7 @@ var UCPC = Class.extend({
 		} else if (this.validMethod(this.activeModule, "hide")) {
 			this.Modules[this.activeModule].hide(event);
 		}
+		localforage.clear();
 		this.loggedIn = false;
 		this.disconnect();
 	},

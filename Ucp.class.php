@@ -84,6 +84,12 @@ class Ucp implements BMO {
 		}
 	}
 
+	/**
+	 * Hook functionality for sending an email from userman
+	 * @param {int} $id      The userman user id
+	 * @param {string} $display The display page name where this was executed
+	 * @param {array} $data    Array of data to be able to use
+	 */
 	public function usermanSendEmail($id, $display, $data) {
 		if(function_exists('sysadmin_get_portmgmt')) {
 			$ports = sysadmin_get_portmgmt();
@@ -94,11 +100,23 @@ class Ucp implements BMO {
 		return sprintf(_('User Control Panel: %s'),$data['host'].'/ucp');
 	}
 
+	/**
+	 * Hook functionality from userman when a user is deleted
+	 * @param {int} $id      The userman user id
+	 * @param {string} $display The display page name where this was executed
+	 * @param {array} $data    Array of data to be able to use
+	 */
 	public function usermanDelUser($id, $display, $data) {
 		$this->expireUserSessions($id);
 		$this->deleteUser($id);
 	}
 
+	/**
+	 * Hook functionality from userman when a user is added
+	 * @param {int} $id      The userman user id
+	 * @param {string} $display The display page name where this was executed
+	 * @param {array} $data    Array of data to be able to use
+	 */
 	public function usermanAddUser($id, $display, $data) {
 		if($display == 'extensions' || $display == 'users') {
 			$this->FreePBX->Userman->setModuleSettingByID($id,'ucp|Global','allowLogin',true);
@@ -112,6 +130,12 @@ class Ucp implements BMO {
 		}
 	}
 
+	/**
+	 * Hook functionality from userman when a user is updated
+	 * @param {int} $id      The userman user id
+	 * @param {string} $display The display page name where this was executed
+	 * @param {array} $data    Array of data to be able to use
+	 */
 	public function usermanUpdateUser($id, $display, $data) {
 		if($display == 'userman') {
 			if(isset($_POST['ucp|login'])) {
@@ -136,6 +160,11 @@ class Ucp implements BMO {
 		return true;
 	}
 
+	/**
+	 * Get language from a module and make it json for UCP translations
+	 * @param {string} $language The Language name
+	 * @param {array} $modules  Array of module rawnames
+	 */
 	public function getModulesLanguage($language, $modules) {
 		if(!class_exists("po2json")) {
 			require_once(__DIR__."/includes/po2json.php");
@@ -147,7 +176,6 @@ class Ucp implements BMO {
 			$po = $root."/admin/modules/".$module."/i18n/" . $language . "/LC_MESSAGES/".$module.".po";
 			if(file_exists($po)) {
 				$c = new po2json($po,$module);
-
 				$array = $c->po2array();
 				if(!empty($array)) {
 					$final[$module] = $array;
@@ -238,6 +266,10 @@ class Ucp implements BMO {
 		$this->generateUCP();
 	}
 
+	/**
+	 * Generate UCP assets if needed
+	 * @param {bool} $regenassets = false If set to true regenerate assets even if not needed
+	 */
 	public function generateUCP($regenassets = false) {
 		$modulef =& module_functions::create();
 		$modules = $modulef->getinfo(false);

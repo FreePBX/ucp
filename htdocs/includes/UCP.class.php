@@ -92,7 +92,7 @@ class UCP extends UCP_Helpers {
 			"socket.io.js",
 			"bootstrap-3.1.1.custom.min.js",
 			"jquery-ui-1.10.4.custom.min.js",
-			"jquery.keyframes.min.js",
+			/*"jquery.keyframes.min.js",*/
 			"fileinput.js",
 			"recorder.js",
 			"jquery.iframe-transport.js",
@@ -100,13 +100,14 @@ class UCP extends UCP_Helpers {
 			"jquery.form.min.js",
 			"jquery.jplayer.min.js",
 			/*"quo.js",*/
+			"localforage.js",
 			"purl.js",
 			"modernizr.js",
 			"jquery.pjax.js",
 			"notify.js",
 			"packery.pkgd.min.js",
 			"class.js",
-			"jquery.transit.min.js",
+			/*"jquery.transit.min.js",*/
 			"date.format.js",
 			"jquery.textfill.min.js",
 			"jed.js",

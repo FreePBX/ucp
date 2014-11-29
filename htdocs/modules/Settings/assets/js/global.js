@@ -13,6 +13,8 @@ var SettingsC = UCPMC.extend({
 		$.each(modules, function( index, module ) {
 			if (typeof window[module] == "object" && typeof window[module].settingsDisplay == "function") {
 				window[module].settingsDisplay();
+			} else if (UCP.validMethod(module, "settingsDisplay")) {
+				UCP.Modules[module].settingsDisplay();
 			}
 		});
 	},
@@ -23,6 +25,8 @@ var SettingsC = UCPMC.extend({
 		$.each(modules, function( index, module ) {
 			if (typeof window[module] == "object" && typeof window[module].settingsHide == "function") {
 				window[module].settingsDisplay();
+			} else if (UCP.validMethod(module, "settingsHide")) {
+				UCP.Modules[module].settingsHide();
 			}
 		});
 	},
