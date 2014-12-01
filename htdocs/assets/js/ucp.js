@@ -509,9 +509,12 @@ var UCPC = Class.extend({
 	notificationsDenied: function() {
 		this.notify = false;
 	},
-	closeDialog: function() {
+	closeDialog: function(callback) {
 		$(".dialog").fadeOut("fast", function(event) {
 			$(this).remove();
+			if (typeof callback === "function") {
+				callback();
+			}
 		});
 	},
 	showDialog: function(title, content, height, width, callback) {

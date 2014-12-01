@@ -2,7 +2,7 @@
 	<rawname>ucp</rawname>
 	<name>User Control Panel</name>
 	<repo>standard</repo>
-	<version>12.0.0beta39</version>
+	<version>12.0.0beta40</version>
 	<publisher>FreePBX</publisher>
 	<license>AGPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/agpl-3.0.txt</licenselink>
@@ -10,6 +10,7 @@
 		Formerly ARI, now called User Control Panel
 	</description>
 	<changelog>
+		*12.0.0beta40* Add callback to closeDialog
 		*12.0.0beta39* Support for Contact Manager
 		*12.0.0beta38* Readjust menu if icons are missing or added
 		*12.0.0beta37* FREEPBX-8226 Names don't show up on virtual extensions in UCP
