@@ -115,6 +115,8 @@ class Session extends UCP {
 	}
 
 	private function startSession() {
-		session_start();
+		if(!headers_sent()) {
+			session_start();
+		}
 	}
 }
