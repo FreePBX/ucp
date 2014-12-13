@@ -2,7 +2,7 @@
 	<rawname>ucp</rawname>
 	<name>User Control Panel</name>
 	<repo>standard</repo>
-	<version>12.0.0beta40</version>
+	<version>12.0.0beta41</version>
 	<publisher>FreePBX</publisher>
 	<license>AGPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/agpl-3.0.txt</licenselink>
@@ -10,6 +10,7 @@
 		Formerly ARI, now called User Control Panel
 	</description>
 	<changelog>
+		*12.0.0beta41* FREEPBX-8434 Also enable WebRTC and Originate Calls when using command line enableall
 		*12.0.0beta40* Add callback to closeDialog
 		*12.0.0beta39* Support for Contact Manager
 		*12.0.0beta38* Readjust menu if icons are missing or added
@@ -74,9 +75,6 @@
 		<version>12.0</version>
 	</supported>
 	<hooks>
-		<dashboard namespace="FreePBX\modules\Dashboard\Sections" class="Overview">
-			<method class="Ucp" callingMethod="getSummary">dashboardService</method>
-		</dashboard>
 		<userman namespace="FreePBX\modules" class="Userman">
 			<method class="Ucp" callingMethod="delUser">usermanDelUser</method>
 			<method class="Ucp" callingMethod="addUser">usermanAddUser</method>
@@ -89,6 +87,6 @@
 		<phpversion>5.3.3</phpversion>
 		<module>userman ge 12.0.5</module>
 		<module>core ge 12.0.8</module>
-		<version>12.0.1rc22</version>
+		<version>12.0.14</version>
 	</depends>
 </module>
