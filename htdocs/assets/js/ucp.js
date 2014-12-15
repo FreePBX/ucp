@@ -172,34 +172,6 @@ var UCPC = Class.extend({
 		$(document).on("pjax:timeout", function(event) {UCP.pjaxTimeout(event);});
 		$(document).on("pjax:error", function(event) {UCP.pjaxError(event);});
 
-		$("#presence-box2").click(function() {
-			$(this).toggleClass("active");
-			$("#presence-menu2").toggleClass("active");
-			$(this).find("i").toggleClass("active");
-		});
-
-		$("#presence-menu2 .change-status").click(function() {
-			$("#presence-menu2 .options").toggleClass("shrink");
-			$("#presence-menu2 .statuses").toggleClass("grow");
-			if ($("#presence-menu2 .statuses").hasClass("grow")) {
-				$("#presence-menu2 .change-status").text("Select Actions");
-			} else {
-				$("#presence-menu2 .change-status").text("Change Status");
-			}
-		});
-
-		//Hide Settings Menu when clicking outside of it
-		$("html").click(function(event) {
-			if (($(event.target).parents().index($("#presence-menu2")) == -1) &&
-				$(event.target).parents().index($("#presence-box2")) == -1) {
-				if ($("#presence-menu2").hasClass("active")) {
-					$("#presence-menu2").removeClass("active");
-					$("#presence-box2").removeClass("active");
-					$("#presence-box2 i").removeClass("active");
-				}
-			}
-		});
-
 		//Show/Hide Side Bar
 		$("#bc-mobile-icon").click(function() {
 			UCP.toggleMenu();
@@ -817,6 +789,7 @@ var UCPC = Class.extend({
 	settingsBinds: function() {
 		if (Notify.isSupported()) {
 			$("#ucp-settings input[name=\"desktopnotifications\"]").prop("checked", UCP.notify);
+			$("#ucp-settings input[name=\"desktopnotifications\"]").off();
 			$("#ucp-settings input[name=\"desktopnotifications\"]").change(function() {
 				if (!UCP.notify && $(this).is(":checked")) {
 					Notify.requestPermission(function() {
@@ -843,11 +816,12 @@ var UCPC = Class.extend({
 			$("#ucp-settings .desktopnotifications-group").show();
 		}
 
+		$("#ucp-settings input[type!=\"checkbox\"]").off();
 		$("#ucp-settings input[type!=\"checkbox\"]").change(function() {
 			var password = $(this).val();
 			$(this).blur(function() {
 				if ($(this).prop("type") == "password") {
-					UCP.showDialog("Confirm Password", "Please Reconfirm Your Password<input type='password' id='ucppass'></input><button id='passsub'>Submit</button>");
+					UCP.showDialog("Confirm Password", "<label for='ucppass' class='control-label'>Please Reconfirm Your Password</label><input type='password' class='form-control' id='ucppass'></input><button id='passsub' class='btn btn-default'>Submit</button>");
 					$("#passsub").click(function() {
 						if ($("#ucppass").val() !== "") {
 							var np = $("#ucppass").val();
@@ -874,20 +848,21 @@ var UCPC = Class.extend({
 						}
 					});
 					return 0;
+				} else {
+					$.post( "?quietmode=1&command=ucpsettings", { key: $(this).prop("name"), value: $(this).val() }, function( data ) {
+						if (data.status) {
+							$("#message").addClass("alert-success");
+							$("#message").text(_("Saved!"));
+							$("#message").fadeIn( "slow", function() {
+								setTimeout(function() { $("#message").fadeOut("slow"); }, 2000);
+							});
+						} else {
+							$("#message").addClass("alert-danger");
+							$("#message").text(data.message);
+						}
+						$(this).off("blur");
+					});
 				}
-				$.post( "?quietmode=1&command=ucpsettings", { key: $(this).prop("name"), value: $(this).val() }, function( data ) {
-					if (data.status) {
-						$("#message").addClass("alert-success");
-						$("#message").text(_("Saved!"));
-						$("#message").fadeIn( "slow", function() {
-							setTimeout(function() { $("#message").fadeOut("slow"); }, 2000);
-						});
-					} else {
-						$("#message").addClass("alert-danger");
-						$("#message").text(data.message);
-					}
-					$(this).off("blur");
-				});
 			});
 		});
 	},

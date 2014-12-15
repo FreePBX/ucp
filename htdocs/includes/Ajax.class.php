@@ -38,6 +38,13 @@ class Ajax extends UCP {
 					case 'fname':
 					case 'lname':
 					case 'email':
+					case 'title':
+					case 'company':
+					case 'fax':
+					case 'cell':
+					case 'displayname':
+					case 'work':
+					case 'home':
 						$this->UCP->FreePBX->Userman->updateUserExtraData($user['id'],array($_POST['key'] => $_POST['value']));
 						$ret = array(
 							"status" => true
