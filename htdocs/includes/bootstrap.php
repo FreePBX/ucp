@@ -1,7 +1,4 @@
 <?php
-if(!class_exists("Mobile_Detect")) {
-	require __DIR__.'/mobileDetect/Mobile_Detect.php';
-}
 if(!class_exists("Less_Cache")) {
 	require __DIR__.'/less/Cache.php';
 }

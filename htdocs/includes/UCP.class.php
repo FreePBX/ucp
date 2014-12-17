@@ -33,7 +33,6 @@ class UCP extends UCP_Helpers {
 			//$this->db->setAttribute(\PDO::MYSQL_ATTR_USE_BUFFERED_QUERY, false);
 		}
 
-		$this->detect = new \Mobile_Detect;
 		// Ensure the local object is available
 		self::$obj = $this;
 	}

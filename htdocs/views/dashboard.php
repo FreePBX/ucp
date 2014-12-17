@@ -5,9 +5,9 @@
 		<?php foreach($menu as $module) {?>
 		<li data-mod="<?php echo $module['rawname']?>" class="<?php echo ($module['rawname'] == $active_module) ? 'active' : ''?>">
 			<?php if(empty($module['menu'])) {?>
-					<a data-pjax data-mod="<?php echo $module['rawname']?>" href="?display=dashboard&amp;mod=<?php echo $module['rawname']?>"><?php echo $module['name']?> <?php if(isset($module['badge'])) {?><span class="badge"><?php echo $module['badge']?></span><?php } ?></a>
+	    		<a data-pjax data-mod="<?php echo $module['rawname']?>" href="?display=dashboard&amp;mod=<?php echo $module['rawname']?>"><?php echo $module['name']?> <?php if(isset($module['badge'])) {?><span class="badge"><?php echo $module['badge']?></span><?php } ?></a>
 			<?php } else {?>
-					<a class="mobileSubMenu" data-mod="<?php echo $module['rawname']?>"><?php echo $module['name']?> <?php if(isset($module['badge'])) {?><span class="badge"><?php echo $module['badge']?></span><?php } ?></a>
+	    		<a class="mobileSubMenu" data-mod="<?php echo $module['rawname']?>"><?php echo $module['name']?> <?php if(isset($module['badge'])) {?><span class="badge"><?php echo $module['badge']?></span><?php } ?></a>
 				<ul data-mod="<?php echo $module['rawname']?>" id="submenu-<?php echo $module['rawname']?>" class="dropdown-pushmenu">
 					<?php foreach($module['menu'] as $smenu) {?>
 						<li>
@@ -29,15 +29,15 @@
 		</div>
 		<div id="bc-mobile-icon"><i class="fa fa-bars"></i></div>
 		<ol id="top-dashboard-nav" class="breadcrumb">
-			<li class="home"><a data-mod="home" data-pjax href="?display=dashboard&amp;mod=home"><?php echo _('Home')?></a></li>
-			<?php if($active_module != 'home' && !empty($menu[$active_module])) {?>
-				<li class="module bc-<?php echo $menu[$active_module]['rawname']?> active"><?php echo $menu[$active_module]['rawname']?></li>
-				<?php if(!empty($_REQUEST['sub'])) {?>
-					<li class="subsection bc-<?php echo $_REQUEST['sub']?> active"><?php echo $_REQUEST['sub']?></li>
+		  <li class="home"><a data-mod="home" data-pjax href="?display=dashboard&amp;mod=home"><?php echo _('Home')?></a></li>
+		  <?php if($active_module != 'home' && !empty($menu[$active_module])) {?>
+			  <li class="module bc-<?php echo $menu[$active_module]['rawname']?> active"><?php echo $menu[$active_module]['rawname']?></li>
+			  <?php if(!empty($_REQUEST['sub'])) {?>
+				  <li class="subsection bc-<?php echo $_REQUEST['sub']?> active"><?php echo $_REQUEST['sub']?></li>
 				<?php } ?>
 			<?php } elseif($active_module == 'ucpsettings') { ?>
 				<li class="bc-ucpsettings active"><?php echo _('Settings')?></li>
-			<?php } ?>
+		  <?php } ?>
 		</ol>
 		<div id="top-dashboard-nav-right">
 			<div class="nav-btns">
@@ -70,13 +70,13 @@
 					<?php foreach($menu as $module) {?>
 						<li data-mod="<?php echo $module['rawname']?>" class="menu-<?php echo $module['rawname']?> <?php echo ($module['rawname'] == $active_module) ? 'active' : ''?>">
 							<?php if(empty($module['menu'])) {?>
-								<a data-mod="<?php echo $module['rawname']?>" data-pjax href="?display=dashboard&amp;mod=<?php echo $module['rawname']?>"><?php echo $module['name']?> <?php if(isset($module['badge'])) {?><span id="<?php echo $module['rawname']?>-badge" class="badge"><?php echo $module['badge']?></span><?php } ?></a>
+   								<a data-mod="<?php echo $module['rawname']?>" data-pjax href="?display=dashboard&amp;mod=<?php echo $module['rawname']?>"><?php echo $module['name']?> <?php if(isset($module['badge'])) {?><span id="<?php echo $module['rawname']?>-badge" class="badge"><?php echo $module['badge']?></span><?php } ?></a>
 							<?php } else {?>
 								<a class="dropdown-toggle <?php echo ($module['rawname'] == $active_module) ? 'active' : ''?>" data-toggle="dropdown" href="#"><?php echo $module['name']?> <?php if(isset($module['badge'])) {?><span id="<?php echo $module['rawname']?>-badge" class="badge"><?php echo $module['badge']?></span><?php } ?> <span class="caret"></span></a>
 								<ul class="dropdown-menu">
 									<?php foreach($module['menu'] as $smenu) {?>
 										<li>
-												<a data-mod="<?php echo $module['rawname']?>" data-pjax href="?display=dashboard&amp;mod=<?php echo $module['rawname']?>&amp;sub=<?php echo $smenu['rawname']?>"><?php echo $smenu['name']?> <?php if(isset($smenu['badge'])) {?><span id="<?php echo $module['rawname']?>-<?php echo $smenu['rawname']?>-badge" class="badge"><?php echo $smenu['badge']?></span><?php } ?></a>
+			   								<a data-mod="<?php echo $module['rawname']?>" data-pjax href="?display=dashboard&amp;mod=<?php echo $module['rawname']?>&amp;sub=<?php echo $smenu['rawname']?>"><?php echo $smenu['name']?> <?php if(isset($smenu['badge'])) {?><span id="<?php echo $module['rawname']?>-<?php echo $smenu['rawname']?>-badge" class="badge"><?php echo $smenu['badge']?></span><?php } ?></a>
 										</li>
 									<?php } ?>
 								</ul>
@@ -85,15 +85,15 @@
 					<?php } ?>
 				</ul>
 			</div>
-			<div id="content" class="col-sm-10">
+			  <div class="col-sm-10">
 				<div id="loader-screen">
 					<div id="loader-screen-content"><strong><?php echo _('Excuse us while we try to retrieve your content')?>..</strong></div>
 				</div>
-				<!-- The content below is loaded dynamically through PJAX After Dashboard had loaded -->
-				<div id="dashboard-content">
-					<?php echo $dashboard_content?>
-				</div>
-			</div>
+				  <!-- The content below is loaded dynamically through PJAX After Dashboard had loaded -->
+				  <div id="dashboard-content">
+					  <?php echo $dashboard_content?>
+				 </div>
+			  </div>
 		</div>
 	</div>
 	<div id="messages-container">

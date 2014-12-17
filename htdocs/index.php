@@ -41,10 +41,6 @@ if(isset($_REQUEST['logout']) && $user) {
 	$ucp->User->logout();
 	$user = $ucp->User->getUser();
 }
-if(empty($ucp->Session->isMobile)) {
-	$ucp->Session->isMobile = $ucp->detect->isMobile();
-	$ucp->Session->isTablet = $ucp->detect->isTablet();
-}
 //Send back only PJAX relevant data
 //This is to force a complete page refresh if/when UCP gets updates
 //The header HTTP_X_PJAX comes from the JS PJAX lib, letting us know we don't need the whole html document
@@ -143,7 +139,6 @@ switch($display) {
 	case "dashboard":
 		if($display == "settings") {
 			$ucp->Modgettext->push_textdomain("ucp");
-			$displayvars['desktop'] = (!$ucp->Session->isMobile && !$ucp->Session->isTablet);
 			$dashboard_content = $ucp->View->load_view(dirname(__FILE__).'/views/settings.php',$displayvars);
 			$displayvars['active_module'] = 'ucpsettings';
 			$ucp->Modgettext->pop_textdomain();
@@ -191,7 +186,7 @@ switch($display) {
 			"badge" => false,
 			"icon" => "fa-cog",
 			"menu" => array(
-				"html" => '<li>' . $originate . '</li><li><a data-pjax href="?display=settings">' . _('Settings') . '</a></li><li><a class="logout" href="?logout=1">' . _('Logout') . '</a></li>'
+				"html" => '<li>' . $originate . '<a data-pjax href="?display=settings">' . _('Settings') . '</a></li><li><a class="logout" href="?logout=1">' . _('Logout') . '</a></li>'
 			)
 		);
 		$ucp->View->show_view(dirname(__FILE__).'/views/dashboard.php',$displayvars);
@@ -207,6 +202,5 @@ if(!isset($_SERVER['HTTP_X_PJAX'])) {
 	$displayvars['modules'] = json_encode($active_modules);
 	$displayvars['gScripts'] = $ucp->getScripts();
 	$displayvars['scripts'] = $ucp->Modules->getGlobalScripts();
-	$displayvars['desktop'] = (!$ucp->Session->isMobile && !$ucp->Session->isTablet);
 	$ucp->View->show_view(dirname(__FILE__).'/views/footer.php',$displayvars);
 }

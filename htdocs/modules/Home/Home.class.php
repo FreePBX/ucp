@@ -61,17 +61,15 @@ class Home extends Modules{
         foreach(explode("\n",$fpbxfeeds) as $k => $f) {
             $feeds['feed-'.$k] = $f;
         }
-        if(!empty($feed) && !empty($feeds[$feed])) {
-          $feeds = array($feeds[$feed]);
-        }
+		if(!empty($feed) && !empty($feeds[$feed])) {
+			$feeds = array($feeds[$feed]);
+		}
         $out = array();
         foreach($feeds as $k => $feed) {
             $curl = curl_init();
             curl_setopt($curl, CURLOPT_URL, $feed);
             curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
             curl_setopt($curl, CURLOPT_HEADER, false);
-            curl_setopt($curl, CURLOPT_CONNECTTIMEOUT ,1);
-            curl_setopt($curl, CURLOPT_TIMEOUT, 5);
             $feed = curl_exec($curl);
             curl_close($curl);
             $xml = simplexml_load_string($feed);
