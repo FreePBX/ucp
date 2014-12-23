@@ -54,7 +54,59 @@ var UCPC = Class.extend({
 		}
 	},
 	setupLogin: function() {
-		var btn = $("#btn-login");
+		var btn = $("#btn-login"), fbtn = $("#btn-forgot");
+		$(".action-switch span").click(function() {
+			var hide = $(this).data("hide"), show = $(this).data("show");
+			$("." + show).show();
+			$("." + hide).hide();
+			$("input[name!=username][name!=token][name!=ftoken]").val("");
+		});
+		$("#btn-forgot").click(function() {
+			var otext = fbtn.text();
+			if ($("input[name=email]").length > 0) {
+				fbtn.prop("disabled", true);
+				fbtn.text(_("Processing..."));
+				if ($("input[name=username]").val().trim() === "" && $("input[name=email]").val().trim() === "") {
+					alert(_("Please enter either a username or email address"));
+				} else {
+					var queryString = $("#frm-login").formSerialize();
+					queryString = queryString + "&quietmode=1&module=User&command=forgot";
+					$.post( "index.php", queryString, function( data ) {
+						if (!data.status) {
+							$("#error-msg").html(data.message).fadeIn("fast");
+						} else {
+							alert(_("Your reset link is in the mail!"));
+						}
+						fbtn.prop("disabled", false);
+						fbtn.text(otext);
+					});
+				}
+			}
+			if ($("input[name=npass1]").length > 0) {
+				var token = $("input[name=ftoken]").val(),
+						pass1 = $("input[name=npass1]").val().trim(),
+						pass2 = $("input[name=npass2]").val().trim();
+				if (pass1 != pass2) {
+					alert(_("Passwords do not match"));
+					return false;
+				} else if (pass1 === "" || pass2 === "") {
+					alert(_("Passwords can't be blank!"));
+					return false;
+				} else {
+					var queryString = $("#frm-login").formSerialize();
+					queryString = queryString + "&quietmode=1&module=User&command=reset";
+					$.post( "index.php", queryString, function( data ) {
+						if (!data.status) {
+							$("#error-msg").html(data.message).fadeIn("fast");
+						} else {
+							alert(_("Passwords changed!"));
+							$("#switch-login").click();
+						}
+					});
+
+				}
+			}
+		});
 		if ($.support.pjax) {
 			$(document).on("submit", "#frm-login", function(event) {
 				var queryString = $(this).formSerialize();

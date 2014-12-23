@@ -1,6 +1,7 @@
-<div id="login-window" style="<?php echo (!empty($error_warning) || !empty($error_danger)) ? 'height: 300px;' : ''?>">
+<div id="login-window">
 	<form id="frm-login" method="POST" action="?display=dashboard">
 		<input type="hidden" name="token" value="<?php echo $token?>">
+		<input type="hidden" name="ftoken" value="<?php echo $ftoken?>">
 		<h2 class="header text-center"><?php echo _('User Control Panel')?></h2>
 		<?php if(!empty($error_warning)) {?>
 			<div class="alert alert-warning"><?php echo $error_warning?></div>
@@ -10,33 +11,40 @@
 		<?php } ?>
 		<div class="alert alert-warning jsalert" style="display:none;"></div>
 		<div id="error-msg" class="alert alert-danger" style="display:none"></div>
-		<div class="input-group input-margin">
-			<span class="input-group-addon"><i class="fa fa-user fa-fw"></i></span>
-			<input type="text" name="username" class="form-control" placeholder="Username" autocapitalize="off" autocorrect="off">
+		<div class="lhide">
+			<div class="input-group input-margin">
+				<span class="input-group-addon"><i class="fa fa-user fa-fw"></i></span>
+				<input type="text" name="username" class="form-control" placeholder="Username" autocapitalize="off" autocorrect="off" value="<?php echo $username?>">
+			</div>
 		</div>
-		<div class="lshow">
+		<div class="lhide">
 			<div class="input-group input-margin">
 				<span class="input-group-addon"><i class="fa fa-key fa-fw"></i></span>
 				<input type="password" name="password" class="form-control" placeholder="Password" autocapitalize="off" autocorrect="off">
 			</div>
 		</div>
-		<div class="lhide text-center">
-			<?php echo _('or')?>
+		<div class="lshow reset-title">
+			<?php echo sprintf(_("Password Reset for: %s"),$username)?>
 		</div>
-		<div class="lhide">
+		<div class="lshow">
 			<div class="input-group input-margin">
-				<span class="input-group-addon"><i class="fa fa-envelope fa-fw"></i></span>
-				<input type="text" name="email" class="form-control" placeholder="Email" autocapitalize="off" autocorrect="off">
+				<span class="input-group-addon"><i class="fa fa-key fa-fw"></i></span>
+				<input type="password" name="npass1" class="form-control" placeholder="New Password" autocapitalize="off" autocorrect="off">
+			</div>
+		</div>
+		<div class="lshow">
+			<div class="input-group input-margin">
+				<span class="input-group-addon"><i class="fa fa-key fa-fw"></i></span>
+				<input type="password" name="npass2" class="form-control" placeholder="Confirm New Password" autocapitalize="off" autocorrect="off">
 			</div>
 		</div>
 		<div class="row">
 			<div class="col-sm-12">
 				<table class="extras">
 					<tr class="action-switch">
-						<td colspan="2" class="lshow"><span data-show="lhide" data-hide="lshow"><i class="fa fa-question"></i> <?php echo _('Forgot Password')?></span></td>
-						<td colspan="2" class="lhide"><span data-show="lshow" data-hide="lhide"><i class="fa fa-sign-in"></i> <?php echo _('Login')?></span></td>
+						<td colspan="2" class="lshow"><span data-show="lhide" data-hide="lshow" id="switch-login"><i class="fa fa-sign-in"></i> <?php echo _('Login')?></span></td>
 					</tr>
-					<tr class="lshow remember-me">
+					<tr class="lhide remember-me">
 						<td class="text"><?php echo _('Remember Me')?></td>
 						<td id="rm-checkbox" class="checkbox-c">
 							<div class="onoffswitch">
@@ -50,8 +58,8 @@
 					</tr>
 					<tr>
 						<td colspan="3" class="button-row">
-							<button type="submit" id="btn-login" class="btn btn-default lshow" disabled><?php echo _('Loading...')?></button>
-							<button type="button" id="btn-forgot" class="btn btn-default lhide"><?php echo _('Send Me A Password Reset Link')?></button>
+							<button type="submit" id="btn-login" class="btn btn-default lhide" disabled><?php echo _('Loading...')?></button>
+							<button type="button" id="btn-forgot" class="btn btn-default lshow"><?php echo _('Reset Password')?></button>
 						</td>
 					</tr>
 				</table>

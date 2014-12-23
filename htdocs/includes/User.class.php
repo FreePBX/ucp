@@ -35,6 +35,8 @@ class User extends UCP {
 			case 'token':
 				return true;
 			break;
+			case 'reset':
+			case 'forgot':
 			case 'login':
 				if(!$this->UCP->Session->verifyToken('login')) {
 					return false;
@@ -60,6 +62,30 @@ class User extends UCP {
 	function ajaxHandler() {
 		$return = array("status" => false, "message" => "");
 		switch($_REQUEST['command']) {
+			case 'forgot':
+				if(!empty($_POST['username'])) {
+					$user = $this->UCP->FreePBX->Ucp->getUserByUsername($_POST['username']);
+					$return['status'] = true;
+				} elseif(!empty($_POST['email'])) {
+					$user = $this->UCP->FreePBX->Ucp->getUserByEmail($_POST['email']);
+					$return['status'] = true;
+				} else {
+					$return['message'] = _('Nothing was Provided!');
+					return $return;
+				}
+				if(!empty($user['email'])) {
+					$this->UCP->FreePBX->Ucp->sendPassResetEmail($user['id']);
+				}
+				return $return;
+			break;
+			case 'reset':
+				if($this->validateResetToken($_POST['ftoken']) && ($_POST['npass1'] == $_POST['npass2'])) {
+					$return['status'] = $this->UCP->FreePBX->Ucp->resetPasswordWithToken($_POST['ftoken'],$_POST['npass1']);
+				} else {
+					$return['message'] = _("Invalid");
+				}
+				return $return;
+			break;
 			case 'login':
 				$rm = isset($_POST['rememberme']) ? true : false;
 				$o = $this->login($_POST['username'],$_POST['password'], $rm);
@@ -95,6 +121,10 @@ class User extends UCP {
 			break;
 		}
 		return false;
+	}
+
+	public function validateResetToken($token) {
+		return $this->FreePBX->UCP->validatePasswordResetToken($token);
 	}
 
 	/**

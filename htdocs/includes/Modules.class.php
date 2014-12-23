@@ -18,6 +18,7 @@ class Modules extends Module_Helpers {
 	public static $conf;
 	protected $module = null;
 	private $activeModules = array();
+	private $defaultModules = array("home", "settings");
 
 	function __construct($UCP) {
 		$this->UCP = $UCP;
@@ -67,9 +68,7 @@ class Modules extends Module_Helpers {
 	}
 
 	public function moduleHasMethod($module, $method) {
-		$amods = array_keys($this->activeModules);
-		$amods[] = 'home';
-		$amods[] = 'settings';
+		$amods = array_merge($this->defaultModules, array_keys($this->activeModules));
 		if(in_array(strtolower($module),$amods)) {
 			$module = ucfirst(strtolower($module));
 			if(method_exists($this->$module,$method)) {
@@ -89,9 +88,7 @@ class Modules extends Module_Helpers {
 	 */
 	public function getModulesByMethod($method) {
 		$objects = array();
-		$amods = array_keys($this->activeModules);
-		$amods[] = 'home';
-		$amods[] = 'settings';
+		$amods = array_merge($this->defaultModules, array_keys($this->activeModules));
 		foreach (glob(dirname(__DIR__)."/modules/*.class.php") as $module) {
 			if(preg_match('/^(.*)\.class$/',pathinfo($module,PATHINFO_FILENAME),$matches)) {
 				$module = ucfirst(strtolower($matches[1]));
@@ -186,12 +183,16 @@ class Modules extends Module_Helpers {
 		if(!file_exists($cache) && !mkdir($cache,0777,true)) {
 			die('Can Not Create Cache Folder at '.$cache);
 		}
+		$amods = array_merge($this->defaultModules, array_keys($this->activeModules));
 		$contents = '';
 		$files = array();
 		foreach (glob(dirname(__DIR__)."/modules/*", GLOB_ONLYDIR) as $module) {
 			$mod = basename($module);
 			if(file_exists($module.'/'.$mod.'.class.php')) {
 				$module = ucfirst(strtolower($mod));
+				if(!in_array(strtolower($mod), $amods)) {
+					continue;
+				}
 				$dir = dirname(__DIR__)."/modules/".$module."/assets/js";
 				if(is_dir($dir)) {
 					foreach (glob($dir."/*.js") as $file) {
@@ -224,19 +225,23 @@ class Modules extends Module_Helpers {
 				unlink($f);
 			}
 		}
+		$amods = array_merge($this->defaultModules, array_keys($this->activeModules));
 		\Less_Cache::$cache_dir = $cache;
-			$files = array();
-			foreach (glob(dirname(__DIR__)."/modules/*", GLOB_ONLYDIR) as $module) {
-				$mod = basename($module);
-				if(file_exists($module.'/'.$mod.'.class.php')) {
-					$module = ucfirst(strtolower($mod));
-					$dir = dirname(__DIR__)."/modules/".$module."/assets/less";
-					if(is_dir($dir) && file_exists($dir.'/bootstrap.less')) {
-						$files[$dir."/bootstrap.less"] = '../../../../modules/'.ucfirst($module).'/assets';
-					}
+		$files = array();
+		foreach (glob(dirname(__DIR__)."/modules/*", GLOB_ONLYDIR) as $module) {
+			$mod = basename($module);
+			if(file_exists($module.'/'.$mod.'.class.php')) {
+				$module = ucfirst(strtolower($mod));
+				if(!in_array(strtolower($mod), $amods)) {
+					continue;
+				}
+				$dir = dirname(__DIR__)."/modules/".$module."/assets/less";
+				if(is_dir($dir) && file_exists($dir.'/bootstrap.less')) {
+					$files[$dir."/bootstrap.less"] = '../../../../modules/'.ucfirst($module).'/assets';
 				}
 			}
-			$css_file_name = \Less_Cache::Get( $files, array('compress' => true) );
+		}
+		$css_file_name = \Less_Cache::Get( $files, array('compress' => true) );
 		return $css_file_name;
 	}
 

@@ -56,7 +56,10 @@ if(isset($_SERVER['HTTP_X_PJAX'])) {
 header('Content-Type:text/html; charset=UTF-8');
 
 //Second part of this IF statement
-if((isset($_REQUEST['quietmode']) && $user !== false && !empty($user)) || (isset($_REQUEST['command']) && $_REQUEST['command'] == 'login')) {
+if((isset($_REQUEST['quietmode']) && $user !== false && !empty($user)) ||
+	(isset($_REQUEST['command']) && ($_REQUEST['command'] == 'login' ||
+																	$_REQUEST['command'] == 'forgot' ||
+																	$_REQUEST['command'] == 'reset'))) {
 	$m = !empty($_REQUEST['module']) ? $_REQUEST['module'] : null;
 	$ucp->Ajax->doRequest($m,$_REQUEST['command']);
 	die();
@@ -130,7 +133,11 @@ if($user && !empty($user)) {
 	$module = !empty($_REQUEST['mod']) ? $_REQUEST['mod'] : 'home';
 	$displayvars['menu'] = $ucp->Modules->generateMenu();
 } else {
-	$display = '';
+	if(isset($_REQUEST['forgot'])) {
+		$display = 'forgot';
+	} else {
+		$display = '';
+	}
 	$module = '';
 	$displayvars['menu'] = array();
 	if(!empty($_REQUEST['display']) || !empty($_REQUEST['mod']) || isset($_REQUEST['logout'])) {
@@ -195,6 +202,18 @@ switch($display) {
 			)
 		);
 		$ucp->View->show_view(dirname(__FILE__).'/views/dashboard.php',$displayvars);
+	break;
+	case "forgot":
+		$displayvars['token'] = $ucp->Session->generateToken('login');
+		$user = $ucp->User->validateResetToken($_REQUEST['forgot']);
+		if(!empty($user)) {
+			$displayvars['username'] = $user['username'];
+			$displayvars['ftoken'] = $_REQUEST['forgot'];
+			$ucp->View->show_view(dirname(__FILE__).'/views/forgot.php',$displayvars);
+		} else {
+			$displayvars['error_danger'] = _("Invalid Token");
+			$ucp->View->show_view(dirname(__FILE__).'/views/login.php',$displayvars);
+		}
 	break;
 	default:
 		$displayvars['token'] = $ucp->Session->generateToken('login');

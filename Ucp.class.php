@@ -10,12 +10,26 @@
 class Ucp implements BMO {
 	private $message;
 	private $registeredHooks = array();
+	private $brand = 'FreePBX';
 	public function __construct($freepbx = null) {
 		if ($freepbx == null)
 			throw new Exception("Not given a FreePBX Object");
 
 		$this->FreePBX = $freepbx;
+		$this->Userman = $this->FreePBX->Userman;
 		$this->db = $freepbx->Database;
+
+		if (!defined('DASHBOARD_FREEPBX_BRAND')) {
+			if (!empty($_SESSION['DASHBOARD_FREEPBX_BRAND'])) {
+				define('DASHBOARD_FREEPBX_BRAND', $_SESSION['DASHBOARD_FREEPBX_BRAND']);
+			} else {
+				define('DASHBOARD_FREEPBX_BRAND', \FreePBX::Config()->get("DASHBOARD_FREEPBX_BRAND"));
+			}
+		} else {
+			$_SESSION['DASHBOARD_FREEPBX_BRAND'] = DASHBOARD_FREEPBX_BRAND;
+		}
+
+		$this->brand = DASHBOARD_FREEPBX_BRAND;
 	}
 
 	public function install() {
@@ -95,9 +109,73 @@ class Ucp implements BMO {
 			$ports = sysadmin_get_portmgmt();
 			if(!empty($ports['ucp'])) {
 				$data['host'] = $data['host'].":".$ports['ucp'];
+				$final = array(
+					sprintf(_('User Control Panel: %s'),$data['host']),
+				);
+				if(empty($data['password'])) {
+					$token = $this->FreePBX->Userman->generatePasswordResetToken($user['id']);
+					$final[] = sprintf(_('Password Reset Link (Valid Until: %s): %s'),date("h:i:s A", $token['valid']),$data['host']."/?forgot=".$token['token']);
+				}
+				return $final;
 			}
 		}
-		return sprintf(_('User Control Panel: %s'),$data['host'].'/ucp');
+		$final = array(
+			sprintf(_('User Control Panel: %s'),$data['host']."/ucp"),
+		);
+		if(empty($data['password'])) {
+			$token = $this->FreePBX->Userman->generatePasswordResetToken($user['id']);
+			$final[] = sprintf(_('Password Reset Link (Valid Until: %s): %s'),date("h:i:s A", $token['valid']),$data['host']."/ucp/?forgot=".$token['token']);
+		}
+		return $final;
+	}
+
+	public function validatePasswordResetToken($token) {
+		return $this->FreePBX->Userman->validatePasswordResetToken($token);
+	}
+
+	public function resetPasswordWithToken($token,$newpassword) {
+		return $this->FreePBX->Userman->resetPasswordWithToken($token,$newpassword);
+	}
+
+	/**
+	* Sends a password reset email
+	* @param {int} $id The userid
+	*/
+	public function sendPassResetEmail($id) {
+		global $amp_conf;
+		$user = $this->getUserByID($id);
+		if(empty($user) || empty($user['email'])) {
+			return false;
+		}
+
+		$token = $this->Userman->generatePasswordResetToken($id);
+
+		if(empty($token)) {
+			return false;
+		}
+
+		$user['token'] = $token['token'];
+		$user['brand'] = $this->brand;
+		$user['host'] = 'http://'.$_SERVER["SERVER_NAME"];
+		$user['link'] = $user['host'] . "/ucp/?forgot=".$user['token'];
+		$user['valid'] = date("h:i:s A", $token['valid']);
+
+		if(function_exists('sysadmin_get_portmgmt')) {
+			$ports = sysadmin_get_portmgmt();
+			if(!empty($ports['ucp'])) {
+				$user['host'] = $user['host'].":".$ports['ucp'];
+				$user['link'] = $user['host'] . "/?forgot=".$user['token'];
+			}
+		}
+
+		$template = file_get_contents(__DIR__.'/views/emails/reset_text.tpl');
+		preg_match_all('/%([\w|\d]*)%/',$template,$matches);
+		foreach($matches[1] as $match) {
+			$replacement = !empty($user[$match]) ? $user[$match] : '';
+			$template = str_replace('%'.$match.'%',$replacement,$template);
+		}
+
+		$this->Userman->sendEmail($user['id'],$this->brand . " password reset",$template);
 	}
 
 	/**
@@ -370,6 +448,15 @@ class Ucp implements BMO {
 	 * @param {string} $username The username
 	 */
 	public function getUserByUsername($username) {
+		$user = $this->FreePBX->Userman->getUserByUsername($username);
+		if(!empty($user)) {
+			$assigned = $this->FreePBX->Userman->getGlobalSettingByID($user['id'],'assigned');
+			$user['assigned'] = !empty($assigned) ? $assigned : array();
+		}
+		return $user;
+	}
+
+	public function getUserByEmail($email) {
 		$user = $this->FreePBX->Userman->getUserByUsername($username);
 		if(!empty($user)) {
 			$assigned = $this->FreePBX->Userman->getGlobalSettingByID($user['id'],'assigned');
