@@ -112,8 +112,8 @@ class Ucp implements BMO {
 				$final = array(
 					sprintf(_('User Control Panel: %s'),$data['host']),
 				);
-				if(empty($data['password'])) {
-					$token = $this->FreePBX->Userman->generatePasswordResetToken($user['id']);
+				if(!$data['password']) {
+					$token = $this->FreePBX->Userman->generatePasswordResetToken($id,"1 hour",true);
 					$final[] = sprintf(_('Password Reset Link (Valid Until: %s): %s'),date("h:i:s A", $token['valid']),$data['host']."/?forgot=".$token['token']);
 				}
 				return $final;
@@ -122,8 +122,8 @@ class Ucp implements BMO {
 		$final = array(
 			sprintf(_('User Control Panel: %s'),$data['host']."/ucp"),
 		);
-		if(empty($data['password'])) {
-			$token = $this->FreePBX->Userman->generatePasswordResetToken($user['id']);
+		if(!$data['password']) {
+			$token = $this->FreePBX->Userman->generatePasswordResetToken($id,"1 hour",true);
 			$final[] = sprintf(_('Password Reset Link (Valid Until: %s): %s'),date("h:i:s A", $token['valid']),$data['host']."/ucp/?forgot=".$token['token']);
 		}
 		return $final;
