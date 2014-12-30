@@ -385,7 +385,7 @@ var UCPC = Class.extend({
 		}
 	},
 	wsconnect: function(namespace, callback) {
-		if (!this.loggedIn) {
+		if (!this.loggedIn || !ucpserver.enabled) {
 			return false;
 		}
 
@@ -400,8 +400,8 @@ var UCPC = Class.extend({
 				}
 			});
 		} else {
-			var host = $.url().attr("host"),
-					port = 8001,
+			var host = ucpserver.host,
+					port = ucpserver.port,
 					socket = null;
 			try {
 				socket = io("ws://" + host + ":" + port + "/" + namespace, {

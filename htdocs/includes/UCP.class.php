@@ -72,15 +72,46 @@ class UCP extends UCP_Helpers {
 		return 'v'.$info['ucp']['dbversion'];
 	}
 
+	/**
+	 * Get a UCP Setting
+	 * @param string $username The username
+	 * @param string $module   The module name
+	 * @param string $setting  The setting key
+	 */
 	function getSetting($username,$module,$setting) {
 		return $this->FreePBX->UCP->getSetting($username,$module,$setting);
 	}
 
+	/**
+	 * Set a UCP Setting
+	 * @param string $username The username
+	 * @param string $module   The module name
+	 * @param string $setting  The setting key
+	 * @param string $value    the setting value
+	 */
 	function setSetting($username,$module,$setting,$value) {
 		return $this->FreePBX->UCP->setSetting($username,$module,$setting,$value);
 	}
 
-	//These Scripts persist throughout the navigation of UCP
+	/**
+	 * Get the Node JS Server Settings
+	 */
+	function getServerSettings() {
+		if(!$this->FreePBX->Modules->checkStatus('ucpnode')) {
+			return array("enabled" => false, "port" => "0", "host" => "");
+		}
+		$enabled = $this->FreePBX->Config->get('NODEJSENABLED');
+		$enabled = is_bool($enabled) || is_int($enabled) ? $enabled : true;
+		$port = $this->FreePBX->Config->get('NODEJSBINDPORT');
+		$port = !empty($port) ? $port : 8001;
+		return array("enabled" => $enabled, "port" => $port, "host" => $_SERVER['SERVER_ADDR']);
+	}
+
+	/**
+	 * These scripts persist throughout the navigation of UCP
+	 * Minified all scripts.
+	 * @param bool $force Whether to forcefully regenerate the minified JS
+	 */
 	public function getScripts($force = false) {
 		$cache = dirname(__DIR__).'/assets/js/compiled/main';
 		if(!file_exists($cache) && !mkdir($cache,0777,true)) {
@@ -140,7 +171,11 @@ class UCP extends UCP_Helpers {
 		return $filename;
 	}
 
-	//These Scripts persist throughout the navigation of UCP
+	/**
+	 * Generate and Minify LESS into CSS
+	 * These Scripts persist throughout the navigation of UCP
+	 * @param bool $force Whether to forcefully regenerate the minified CSS
+	 */
 	public function getLess($force = false) {
 		$cache = dirname(__DIR__).'/assets/css/compiled/main';
 		//TODO: needs to be an array of directories that need to be created on install
@@ -177,5 +212,4 @@ class UCP extends UCP_Helpers {
 
 		return $final;
 	}
-
 }
