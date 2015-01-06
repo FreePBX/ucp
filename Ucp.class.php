@@ -160,6 +160,11 @@ class Ucp implements BMO {
 		$user['link'] = $user['host'] . "/ucp/?forgot=".$user['token'];
 		$user['valid'] = date("h:i:s A", $token['valid']);
 
+		//TODO: Stop gap until sysadmin becomes a full class
+		if(!function_exists('sysadmin_get_portmgmt') && $this->FreePBX->Modules->checkStatus('sysadmin') && file_exists($this->FreePBX->Config()->get('AMPWEBROOT').'/admin/modules/sysadmin/functions.inc.php')) {
+			include $this->FreePBX->Config()->get('AMPWEBROOT').'/admin/modules/sysadmin/functions.inc.php';
+		}
+
 		if(function_exists('sysadmin_get_portmgmt')) {
 			$ports = sysadmin_get_portmgmt();
 			if(!empty($ports['ucp'])) {
