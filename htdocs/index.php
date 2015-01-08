@@ -131,7 +131,6 @@ if(!isset($_SERVER['HTTP_X_PJAX'])) {
 if($user && !empty($user)) {
 	$display = !empty($_REQUEST['display']) ? $_REQUEST['display'] : 'dashboard';
 	$module = !empty($_REQUEST['mod']) ? $_REQUEST['mod'] : 'home';
-	$displayvars['menu'] = $ucp->Modules->generateMenu();
 } else {
 	if(isset($_REQUEST['forgot'])) {
 		$display = 'forgot';
@@ -139,7 +138,6 @@ if($user && !empty($user)) {
 		$display = '';
 	}
 	$module = '';
-	$displayvars['menu'] = array();
 	if(!empty($_REQUEST['display']) || !empty($_REQUEST['mod']) || isset($_REQUEST['logout'])) {
 		//TODO: logout code?
 	}
@@ -177,6 +175,7 @@ switch($display) {
 				exit();
 			}
 		}
+		$displayvars['menu'] = ($user && !empty($user)) ? $ucp->Modules->generateMenu() : array();
 		$displayvars['dashboard_content'] = $dashboard_content;
 		$displayvars['year'] = date('Y',time());
 		$modules = $ucp->Modules->getActiveModules();

@@ -16,6 +16,7 @@ class User extends UCP {
 	public $uid = null;
 	private $remembermeCookieName = 'ucp_rememberme';
 	private $token = null;
+	private $user = null;
 
 	public function __construct($UCP) {
 		$this->UCP = $UCP;
@@ -135,7 +136,13 @@ class User extends UCP {
 	 * @return mixed array if logged in, false if not
 	 */
 	public function getUser() {
-		return $this->_checkToken() ? $this->FreePBX->Ucp->getUserByID($this->uid) : false;
+		if($this->_checkToken()) {
+			if(!empty($this->user)) {
+				return $this->user;
+			}
+			return $this->FreePBX->Ucp->getUserByID($this->uid);
+		}
+		return false;
 	}
 
 	/**
@@ -189,6 +196,7 @@ class User extends UCP {
 			}
 			$this->_deleteToken($token);
 			$this->uid = null;
+			$this->user = null;
 			unset($_SESSION['id']);
 			session_regenerate_id();
 			session_destroy();
@@ -318,8 +326,8 @@ class User extends UCP {
 	 * @return {bool}      True if allowed
 	 */
 	private function _allowed($uid) {
-		$user = $this->UCP->FreePBX->Ucp->getUserByID($uid);
-		$status = $this->UCP->getSetting($user['username'],'Global','allowLogin');
+		$this->user = $this->UCP->FreePBX->Ucp->getUserByID($uid);
+		$status = $this->UCP->getSetting($this->user['username'],'Global','allowLogin');
 		return !empty($status) ? $status : false;
 	}
 }
