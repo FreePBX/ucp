@@ -29,8 +29,6 @@
 
 		<link rel="apple-touch-startup-image" href="assets/icons/320x480.png">
 
-		<meta name="apple-mobile-web-app-capable" content="yes">
-
 		<meta name="apple-mobile-web-app-status-bar-style" content="black">
 		<!-- End Apple Specific -->
 
