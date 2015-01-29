@@ -544,7 +544,7 @@ class Ucp implements BMO {
 	 * @param {string} $username The username to login to
 	 * @param {string} $session  session id
 	 */
-	public function sessionUnlock($username, $session) {
+	public function sessionUnlock($username, $session, $address = "CLI") {
 		$user = $this->getUserByUsername(trim($username));
 		if(empty($user["id"])) {
 			return false;
@@ -554,7 +554,7 @@ class Ucp implements BMO {
 		$token = bin2hex(openssl_random_pseudo_bytes(16));
 		$_SESSION["UCP_token"] = $token;
 		session_write_close();
-		$this->storeToken($token, $user["id"], "CLI");
+		$this->storeToken($token, $user["id"], $address);
 		return true;
 	}
 
