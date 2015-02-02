@@ -58,5 +58,6 @@
 			</div>
 		</div>
 	</form>
-	<span style="color: #dcecfe;"><?php echo session_id()?></span>
+	<div style="color: #dcecfe;float: left;"><?php echo session_id()?></div>
+	<div style="color: #dcecfe;float: right;"><?php echo $_SERVER['REMOTE_ADDR']?></div>
 </div>
