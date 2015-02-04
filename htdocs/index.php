@@ -125,7 +125,7 @@ try {
 if(!isset($_SERVER['HTTP_X_PJAX'])) {
 	$displayvars['version'] = $ucp->getVersion();
 	//TODO: needs to not be global
-	$ucp->View->show_view(dirname(__FILE__).'/views/header.php',$displayvars);
+	$ucp->View->show_view(__DIR__.'/views/header.php',$displayvars);
 }
 
 if($user && !empty($user)) {
@@ -149,7 +149,7 @@ switch($display) {
 		if($display == "settings") {
 			$ucp->Modgettext->push_textdomain("ucp");
 			$displayvars['desktop'] = (!$ucp->Session->isMobile && !$ucp->Session->isTablet);
-			$dashboard_content = $ucp->View->load_view(dirname(__FILE__).'/views/settings.php',$displayvars);
+			$dashboard_content = $ucp->View->load_view(__DIR__.'/views/settings.php',$displayvars);
 			$displayvars['active_module'] = 'ucpsettings';
 			$ucp->Modgettext->pop_textdomain();
 		} else {
@@ -161,7 +161,7 @@ switch($display) {
 			$displayvars['active_module'] = $module;
 			$mclass = ucfirst(strtolower($module));
 			if(in_array($mclass,$active_modules)) {
-				$dashboard_content = $ucp->View->load_view(dirname(__FILE__).'/views/module.php',array("module" => $module, "display" => $ucp->Modules->$mclass->getDisplay()));
+				$dashboard_content = $ucp->View->load_view(__DIR__.'/views/module.php',array("module" => $module, "display" => $ucp->Modules->$mclass->getDisplay()));
 			} else {
 				$ucp->Modgettext->pop_textdomain();
 				$dashboard_content = sprintf(_('Unknown Module %s'),$module);
@@ -178,6 +178,8 @@ switch($display) {
 		$displayvars['menu'] = ($user && !empty($user)) ? $ucp->Modules->generateMenu() : array();
 		$displayvars['dashboard_content'] = $dashboard_content;
 		$displayvars['year'] = date('Y',time());
+		$dbfc = FreePBX::Config()->get('VIEW_UCP_FOOTER_CONTENT');
+		$displayvars['dashboard_footer_content'] = $ucp->View->load_view(__DIR__."/".$dbfc, array("year" => date('Y',time())));
 		$modules = $ucp->Modules->getActiveModules();
 
 		$displayvars['navItems'] = array();
@@ -200,7 +202,7 @@ switch($display) {
 				"html" => '<li>' . $originate . '</li><li><a data-pjax href="?display=settings">' . _('Settings') . '</a></li><li><a class="logout" href="?logout=1">' . _('Logout') . '</a></li>'
 			)
 		);
-		$ucp->View->show_view(dirname(__FILE__).'/views/dashboard.php',$displayvars);
+		$ucp->View->show_view(__DIR__.'/views/dashboard.php',$displayvars);
 	break;
 	case "forgot":
 		$displayvars['token'] = $ucp->Session->generateToken('login');
@@ -208,10 +210,10 @@ switch($display) {
 		if(!empty($user)) {
 			$displayvars['username'] = $user['username'];
 			$displayvars['ftoken'] = $_REQUEST['forgot'];
-			$ucp->View->show_view(dirname(__FILE__).'/views/forgot.php',$displayvars);
+			$ucp->View->show_view(__DIR__.'/views/forgot.php',$displayvars);
 		} else {
 			$displayvars['error_danger'] = _("Invalid Token");
-			$ucp->View->show_view(dirname(__FILE__).'/views/login.php',$displayvars);
+			$ucp->View->show_view(__DIR__.'/views/login.php',$displayvars);
 		}
 	break;
 	default:

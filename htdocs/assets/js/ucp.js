@@ -468,7 +468,7 @@ var UCPC = Class.extend({
 		$.each(modules, function( index, module ) {
 			var className = module + "C", UCPclass = null;
 			if (typeof window[module] === "undefined") {
-				if (typeof Ucp.Modules[module] === "undefined" && typeof window[className]) {
+				if (typeof Ucp.Modules[module] === "undefined" && typeof window[className] === "function") {
 					UCPclass = window[className];
 					console.log("Auto Loading " + className);
 					Ucp.Modules[module] = new UCPclass(Ucp);
