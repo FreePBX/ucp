@@ -69,7 +69,7 @@ class Settings extends Modules{
 			$html .= '</div></div></div>';
 
 		}
-		$html .= '</div><script>var ext = '.$ext.';</script>';
+		$html .= '</div><script>var ext = "'.$ext.'";</script>';
 		return $html;
 	}
 
