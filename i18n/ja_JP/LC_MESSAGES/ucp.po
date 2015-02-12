@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-02-11 19:09-0500\n"
-"PO-Revision-Date: 2015-02-12 14:13+0200\n"
+"PO-Revision-Date: 2015-02-12 14:21+0200\n"
 "Last-Translator: Kevin <kevin@qloog.com>\n"
 "Language-Team: Japanese <http://git.freepbx.org/projects/freepbx/ucp/ja_JP/>"
 "\n"
@@ -56,7 +56,7 @@ msgstr "可能な設定"
 #: /usr/src/freepbx/ucp/htdocs/views/templates/phone.php:7
 #: /usr/src/freepbx/ucp/htdocs/views/templates/phone.php:95
 msgid "Call"
-msgstr ""
+msgstr "発信"
 
 #: /usr/src/freepbx/ucp/htdocs/views/settings.php:42
 msgid "Cell Phone"
@@ -81,12 +81,12 @@ msgstr "DEF"
 
 #: /usr/src/freepbx/ucp/Ucp.class.php:516
 msgid "Deleted Session"
-msgstr ""
+msgstr "セッションを削除しました"
 
 #: /usr/src/freepbx/ucp/Ucp.class.php:64
 #: /usr/src/freepbx/ucp/Ucp.class.php:414
 msgid "Deleted User Session"
-msgstr ""
+msgstr "ユーザーのセッションを削除しました"
 
 #: /usr/src/freepbx/ucp/htdocs/views/settings.php:7
 msgid "Display Name"
@@ -117,7 +117,7 @@ msgstr "FAX"
 
 #: /usr/src/freepbx/ucp/htdocs/views/templates/pagnation.php:4
 msgid "First"
-msgstr ""
+msgstr "名"
 
 #: /usr/src/freepbx/ucp/htdocs/views/settings.php:22
 msgid "First Name"
@@ -230,7 +230,7 @@ msgstr "情報は入力されていません！"
 
 #: /usr/src/freepbx/ucp/htdocs/index.php:196
 msgid "Originate Call"
-msgstr ""
+msgstr "発信する"
 
 #: /usr/src/freepbx/ucp/htdocs/views/templates/phone.php:65
 msgid "PQRS"
