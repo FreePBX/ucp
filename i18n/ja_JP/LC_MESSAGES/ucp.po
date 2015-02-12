@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-02-11 19:09-0500\n"
-"PO-Revision-Date: 2015-02-12 10:57+0200\n"
+"PO-Revision-Date: 2015-02-12 14:13+0200\n"
 "Last-Translator: Kevin <kevin@qloog.com>\n"
 "Language-Team: Japanese <http://git.freepbx.org/projects/freepbx/ucp/ja_JP/>"
 "\n"
@@ -35,7 +35,7 @@ msgstr "ABC"
 
 #: /usr/src/freepbx/ucp/views/users_hook.php:65
 msgid "Active Sessions"
-msgstr ""
+msgstr "有効セッション"
 
 #: /usr/src/freepbx/ucp/htdocs/views/settings.php:63
 msgid "Allow Desktop Notifications"
@@ -51,7 +51,7 @@ msgstr "UCPモジュールからのデスクトップ通知（ブラウザ経由
 
 #: /usr/src/freepbx/ucp/views/users_hook.php:39
 msgid "Allowed Settings"
-msgstr ""
+msgstr "可能な設定"
 
 #: /usr/src/freepbx/ucp/htdocs/views/templates/phone.php:7
 #: /usr/src/freepbx/ucp/htdocs/views/templates/phone.php:95
@@ -125,7 +125,7 @@ msgstr "名前"
 
 #: /usr/src/freepbx/ucp/htdocs/modules/Settings/Settings.class.php:38
 msgid "Forbidden"
-msgstr ""
+msgstr "アクセス拒否"
 
 #: /usr/src/freepbx/ucp/htdocs/views/login.php:36
 msgid "Forgot Password"
@@ -226,7 +226,7 @@ msgstr "モジュールかコマンドはnull。コードを確認してくだ�
 
 #: /usr/src/freepbx/ucp/htdocs/includes/User.class.php:74
 msgid "Nothing was Provided!"
-msgstr ""
+msgstr "情報は入力されていません！"
 
 #: /usr/src/freepbx/ucp/htdocs/index.php:196
 msgid "Originate Call"
@@ -314,17 +314,17 @@ msgstr "著作権情報の削除は禁止されています"
 
 #: /usr/src/freepbx/ucp/htdocs/index.php:121
 msgid "There was an error trying to load UCP"
-msgstr ""
+msgstr "UCPをロード中にエラーが発生しました"
 
 #: /usr/src/freepbx/ucp/views/users_hook.php:39
 msgid ""
 "These are the assigned and active extensions which will show up for this "
 "user to control and edit in UCP"
-msgstr ""
+msgstr "UCPでこのユーザーが使える内線を設定します"
 
 #: /usr/src/freepbx/ucp/htdocs/views/settings.php:32
 msgid "Title"
-msgstr ""
+msgstr "タイトル"
 
 #: /usr/src/freepbx/ucp/htdocs/index.php:94
 #, php-format
@@ -333,114 +333,116 @@ msgid ""
 "webserver's configuration file for the User Control Panel. For more "
 "information see: %s"
 msgstr ""
+"ユーザー・コントロール・パネルを使用するには、サーバーの整合性を保つためにウェブサーバーの設定ファイルにオーバーライドを許可する必要があります。詳しくはこ"
+"ちら： %s"
 
 #: /usr/src/freepbx/ucp/views/users_hook.php:19
 msgid "UCP"
-msgstr ""
+msgstr "UCP"
 
 #: /usr/src/freepbx/ucp/views/header.php:1
 msgid "UCP Admin"
-msgstr ""
+msgstr "UCP管理者"
 
 #: /usr/src/freepbx/ucp/htdocs/views/settings.php:17
 msgid "UCP Password"
-msgstr ""
+msgstr "UCPパスワード"
 
 #: /usr/src/freepbx/ucp/htdocs/index.php:29
 msgid "UCP is currently disabled. Please talk to your system Administrator"
-msgstr ""
+msgstr "UCPは無効です。システムの管理者にご相談ください"
 
 #: /usr/src/freepbx/ucp/htdocs/index.php:167
 #, php-format
 msgid "Unknown Module %s"
-msgstr ""
+msgstr "不明モジュール %s"
 
 #: /usr/src/freepbx/ucp/htdocs/views/forgot.php:5
 #: /usr/src/freepbx/ucp/htdocs/views/login.php:4
 msgid "User Control Panel"
-msgstr ""
+msgstr "ユーザーコントロールパネル"
 
 #: /usr/src/freepbx/ucp/htdocs/views/settings.php:2
 msgid "User Control Panel Settings"
-msgstr ""
+msgstr "ユーザーコントロールパネル設定"
 
 #: /usr/src/freepbx/ucp/htdocs/views/dashfootercontent.php:7
 #, php-format
 msgid "User Control Panel is released as %s or newer"
-msgstr ""
+msgstr "ユーザーコントロールパネルのライセンスは %s もしくは最新のライセンスで提供されています"
 
 #: /usr/src/freepbx/ucp/Ucp.class.php:113
 #: /usr/src/freepbx/ucp/Ucp.class.php:123
 #, php-format
 msgid "User Control Panel: %s"
-msgstr ""
+msgstr "ユーザーコントロールパネル： %s"
 
 #: /usr/src/freepbx/ucp/htdocs/views/templates/phone.php:73
 msgid "WXYZ"
-msgstr ""
+msgstr "WXYZ"
 
 #: /usr/src/freepbx/ucp/htdocs/views/dashboard.php:3
 #, php-format
 msgid "Welcome %s"
-msgstr ""
+msgstr "こんにちは %s"
 
 #: /usr/src/freepbx/ucp/htdocs/views/settings.php:47
 msgid "Work Phone"
-msgstr ""
+msgstr "オフィス電話"
 
 #: /usr/src/freepbx/ucp/htdocs/views/settings.php:34
 msgid "You Title"
-msgstr ""
+msgstr "あなたの肩書"
 
 #: /usr/src/freepbx/ucp/htdocs/assets/js/ucp.js:453
 msgid "You are currently working in offline mode."
-msgstr ""
+msgstr "オフラインモードを利用中です。"
 
 #: /usr/src/freepbx/ucp/htdocs/assets/js/ucp.js:140
 msgid "Your Browser is unsupported at this time."
-msgstr ""
+msgstr "このブラウザはサポートされていません。"
 
 #: /usr/src/freepbx/ucp/htdocs/views/settings.php:44
 msgid "Your Cell Phone Number"
-msgstr ""
+msgstr "あなたの携帯電話番号"
 
 #: /usr/src/freepbx/ucp/htdocs/views/settings.php:39
 msgid "Your Company"
-msgstr ""
+msgstr "あなたの会社名"
 
 #: /usr/src/freepbx/ucp/htdocs/views/settings.php:14
 msgid "Your Email Address"
-msgstr ""
+msgstr "あなたのメールアドレス"
 
 #: /usr/src/freepbx/ucp/htdocs/views/settings.php:59
 msgid "Your Fax Number"
-msgstr ""
+msgstr "あなたのFAX番号"
 
 #: /usr/src/freepbx/ucp/htdocs/views/settings.php:24
 msgid "Your First Name"
-msgstr ""
+msgstr "あなたの名前"
 
 #: /usr/src/freepbx/ucp/htdocs/views/settings.php:54
 msgid "Your Home Number"
-msgstr ""
+msgstr "あなたの自宅電話番号"
 
 #: /usr/src/freepbx/ucp/htdocs/views/settings.php:29
 msgid "Your Last Name"
-msgstr ""
+msgstr "あなたの苗字"
 
 #: /usr/src/freepbx/ucp/htdocs/views/settings.php:49
 msgid "Your Work Number"
-msgstr ""
+msgstr "あなたの勤務先電話番号"
 
 #: /usr/src/freepbx/ucp/htdocs/assets/js/ucp.js:142
 msgid ""
 "Your browser is unsupported at this time. Please upgrade or talk to your "
 "system administrator"
-msgstr ""
+msgstr "ご利用のブラウザはサポートされていません。アップグレードするか、システムの管理者にご相談ください"
 
 #: /usr/src/freepbx/ucp/htdocs/assets/js/ucp.js:78
 msgid "Your reset link is in the mail!"
-msgstr ""
+msgstr "リセットリンクはメールで送信しました！"
 
 #: /usr/src/freepbx/ucp/htdocs/index.php:107
 #, php-format
@@ -449,7 +451,9 @@ msgid ""
 "file paths and directories are locked down properly. For more information "
 "see: %s"
 msgstr ""
+"htaccessファイルはサーバーの整合性を保つために重要なファイルです。関連するパスとディレクトリのセキュリティ設定をご確認ください。詳しくはこちら： "
+"%s"
 
 #: /usr/src/freepbx/ucp/htdocs/views/login.php:24
 msgid "or"
-msgstr ""
+msgstr "もしくは"
