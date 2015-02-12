@@ -10,25 +10,28 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-02-11 19:09-0500\n"
-"PO-Revision-Date: 2015-02-11 19:09-0500\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2015-02-12 10:57+0200\n"
+"Last-Translator: Kevin <kevin@qloog.com>\n"
+"Language-Team: Japanese <http://git.freepbx.org/projects/freepbx/ucp/ja_JP/>"
+"\n"
+"Language: ja_JP\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 2.1\n"
 
 #: /usr/src/freepbx/ucp/htdocs/index.php:93
 msgid ".htaccess files are disabled on this webserver. Please enable them"
-msgstr ""
+msgstr "このサーバーでは .htaccess ファイルが無効化されています。有効にしてください"
 
 #: /usr/src/freepbx/ucp/htdocs/index.php:106
 msgid ".htaccess files are not supported on this webserver."
-msgstr ""
+msgstr "このサーバーは .htaccess ファイルをサポートしていません。"
 
 #: /usr/src/freepbx/ucp/htdocs/views/templates/phone.php:41
 msgid "ABC"
-msgstr ""
+msgstr "ABC"
 
 #: /usr/src/freepbx/ucp/views/users_hook.php:65
 msgid "Active Sessions"
@@ -36,15 +39,15 @@ msgstr ""
 
 #: /usr/src/freepbx/ucp/htdocs/views/settings.php:63
 msgid "Allow Desktop Notifications"
-msgstr ""
+msgstr "デスクトップ通知を許可する"
 
 #: /usr/src/freepbx/ucp/views/users_hook.php:26
 msgid "Allow Login"
-msgstr ""
+msgstr "ログインを許可する"
 
 #: /usr/src/freepbx/ucp/htdocs/views/settings.php:71
 msgid "Allow browser desktop notifications from UCP modules."
-msgstr ""
+msgstr "UCPモジュールからのデスクトップ通知（ブラウザ経由）を許可します。"
 
 #: /usr/src/freepbx/ucp/views/users_hook.php:39
 msgid "Allowed Settings"
@@ -57,24 +60,24 @@ msgstr ""
 
 #: /usr/src/freepbx/ucp/htdocs/views/settings.php:42
 msgid "Cell Phone"
-msgstr ""
+msgstr "携帯"
 
 #: /usr/src/freepbx/ucp/htdocs/views/settings.php:37
 msgid "Company"
-msgstr ""
+msgstr "会社"
 
 #: /usr/src/freepbx/ucp/htdocs/assets/js/ucp.js:425
 msgid "Connecting...."
-msgstr ""
+msgstr "接続中...."
 
 #: /usr/src/freepbx/ucp/htdocs/views/dashfootercontent.php:8
 #, php-format
 msgid "Copyright 2013-%s Schmooze Com Inc"
-msgstr ""
+msgstr "Copyright 2013-%s Schmooze Com Inc"
 
 #: /usr/src/freepbx/ucp/htdocs/views/templates/phone.php:45
 msgid "DEF"
-msgstr ""
+msgstr "DEF"
 
 #: /usr/src/freepbx/ucp/Ucp.class.php:516
 msgid "Deleted Session"
@@ -87,30 +90,30 @@ msgstr ""
 
 #: /usr/src/freepbx/ucp/htdocs/views/settings.php:7
 msgid "Display Name"
-msgstr ""
+msgstr "表示名"
 
 #: /usr/src/freepbx/ucp/Ucp.class.php:626
 #: /usr/src/freepbx/ucp/Ucp.class.php:630
 #: /usr/src/freepbx/ucp/Ucp.class.php:634
 #: /usr/src/freepbx/ucp/Ucp.class.php:638
 msgid "Done"
-msgstr ""
+msgstr "完了"
 
 #: /usr/src/freepbx/ucp/htdocs/views/settings.php:12
 msgid "Email"
-msgstr ""
+msgstr "メール"
 
 #: /usr/src/freepbx/ucp/htdocs/views/dashboard.php:90
 msgid "Excuse us while we try to retrieve your content"
-msgstr ""
+msgstr "コンテンツを読み込み中"
 
 #: /usr/src/freepbx/ucp/install.inc.php:20
 msgid "Failed to install "
-msgstr ""
+msgstr "インストールが失敗しました "
 
 #: /usr/src/freepbx/ucp/htdocs/views/settings.php:57
 msgid "Fax"
-msgstr ""
+msgstr "FAX"
 
 #: /usr/src/freepbx/ucp/htdocs/views/templates/pagnation.php:4
 msgid "First"
@@ -118,7 +121,7 @@ msgstr ""
 
 #: /usr/src/freepbx/ucp/htdocs/views/settings.php:22
 msgid "First Name"
-msgstr ""
+msgstr "名前"
 
 #: /usr/src/freepbx/ucp/htdocs/modules/Settings/Settings.class.php:38
 msgid "Forbidden"
@@ -126,100 +129,100 @@ msgstr ""
 
 #: /usr/src/freepbx/ucp/htdocs/views/login.php:36
 msgid "Forgot Password"
-msgstr ""
+msgstr "パスワードお忘れの場合"
 
 #: /usr/src/freepbx/ucp/htdocs/views/templates/phone.php:51
 msgid "GHI"
-msgstr ""
+msgstr "GHI"
 
 #: /usr/src/freepbx/ucp/Ucp.class.php:636
 msgid "Generating Main CSS..."
-msgstr ""
+msgstr "メインCSSを生成中..."
 
 #: /usr/src/freepbx/ucp/Ucp.class.php:632
 msgid "Generating Main Scripts..."
-msgstr ""
+msgstr "メインスクリプトを生成中..."
 
 #: /usr/src/freepbx/ucp/Ucp.class.php:628
 msgid "Generating Module CSS..."
-msgstr ""
+msgstr "モジュールCSSを生成中..."
 
 #: /usr/src/freepbx/ucp/Ucp.class.php:624
 msgid "Generating Module Scripts..."
-msgstr ""
+msgstr "モジュールスクリプトを生成中..."
 
 #: /usr/src/freepbx/ucp/htdocs/views/templates/phone.php:98
 msgid "Hold"
-msgstr ""
+msgstr "保留"
 
 #: /usr/src/freepbx/ucp/htdocs/views/dashboard.php:32
 msgid "Home"
-msgstr ""
+msgstr "自宅"
 
 #: /usr/src/freepbx/ucp/htdocs/views/settings.php:52
 msgid "Home Phone"
-msgstr ""
+msgstr "自宅電話"
 
 #: /usr/src/freepbx/ucp/htdocs/views/settings.php:9
 msgid ""
 "How you would like your name displayed throughout UCP and Contact Manager"
-msgstr ""
+msgstr "UCPとコンタクトマネージャーで使う表示名"
 
 #: /usr/src/freepbx/ucp/htdocs/includes/User.class.php:86
 msgid "Invalid"
-msgstr ""
+msgstr "不正"
 
 #: /usr/src/freepbx/ucp/htdocs/includes/User.class.php:94
 msgid "Invalid Login Credentials"
-msgstr ""
+msgstr "ログイン情報が間違っています"
 
 #: /usr/src/freepbx/ucp/htdocs/index.php:215
 msgid "Invalid Token"
-msgstr ""
+msgstr "不正トーケン"
 
 #: /usr/src/freepbx/ucp/htdocs/views/templates/phone.php:55
 msgid "JKL"
-msgstr ""
+msgstr "JKL"
 
 #: /usr/src/freepbx/ucp/htdocs/views/templates/pagnation.php:20
 msgid "Last"
-msgstr ""
+msgstr "性"
 
 #: /usr/src/freepbx/ucp/htdocs/views/settings.php:27
 msgid "Last Name"
-msgstr ""
+msgstr "苗字"
 
 #: /usr/src/freepbx/ucp/htdocs/views/header.php:55
 msgid "Loading"
-msgstr ""
+msgstr "読み込み中"
 
 #: /usr/src/freepbx/ucp/htdocs/views/forgot.php:61
 #: /usr/src/freepbx/ucp/htdocs/views/login.php:53
 msgid "Loading..."
-msgstr ""
+msgstr "読み込み中..."
 
 #: /usr/src/freepbx/ucp/htdocs/views/forgot.php:45
 #: /usr/src/freepbx/ucp/htdocs/views/login.php:37
 #: /usr/src/freepbx/ucp/htdocs/assets/js/ucp.js:122
 #: /usr/src/freepbx/ucp/htdocs/assets/js/ucp.js:135
 msgid "Login"
-msgstr ""
+msgstr "ログイン"
 
 #: /usr/src/freepbx/ucp/htdocs/index.php:202
 msgid "Logout"
-msgstr ""
+msgstr "ログアウト"
 
 #: /usr/src/freepbx/ucp/htdocs/views/templates/phone.php:59
 msgid "MNO"
-msgstr ""
+msgstr "MNO"
 
 #: /usr/src/freepbx/ucp/views/users_hook.php:35
 msgid "Module Settings"
-msgstr ""
+msgstr "モジュール設定"
 
 #: /usr/src/freepbx/ucp/htdocs/includes/Ajax.class.php:114
 msgid "Module or Command were null. Check your code."
-msgstr ""
+msgstr "モジュールかコマンドはnull。コードを確認してください。"
 
 #: /usr/src/freepbx/ucp/htdocs/includes/User.class.php:74
 msgid "Nothing was Provided!"
@@ -231,83 +234,83 @@ msgstr ""
 
 #: /usr/src/freepbx/ucp/htdocs/views/templates/phone.php:65
 msgid "PQRS"
-msgstr ""
+msgstr "PQRS"
 
 #: /usr/src/freepbx/ucp/htdocs/assets/js/ucp.js:882
 msgid "Password Confirmation Didn't Match!"
-msgstr ""
+msgstr "パスワードは一致しません！"
 
 #: /usr/src/freepbx/ucp/Ucp.class.php:117
 #: /usr/src/freepbx/ucp/Ucp.class.php:127
 #, php-format
 msgid "Password Reset Link (Valid Until: %s): %s"
-msgstr ""
+msgstr "パスワードリセットリンク（%sまで有効）: %s"
 
 #: /usr/src/freepbx/ucp/htdocs/views/forgot.php:27
 #, php-format
 msgid "Password Reset for: %s"
-msgstr ""
+msgstr "%s のパスワードをリセットしました"
 
 #: /usr/src/freepbx/ucp/htdocs/assets/js/ucp.js:93
 msgid "Passwords can't be blank!"
-msgstr ""
+msgstr "パスワードは空にできません！"
 
 #: /usr/src/freepbx/ucp/htdocs/assets/js/ucp.js:102
 msgid "Passwords changed!"
-msgstr ""
+msgstr "パスワードを変更しました！"
 
 #: /usr/src/freepbx/ucp/htdocs/assets/js/ucp.js:90
 msgid "Passwords do not match"
-msgstr ""
+msgstr "パスワードが一致しません"
 
 #: /usr/src/freepbx/ucp/htdocs/assets/js/ucp.js:70
 msgid "Please enter either a username or email address"
-msgstr ""
+msgstr "ユーザー名もしくはメールアドレスを入力してください"
 
 #: /usr/src/freepbx/ucp/htdocs/assets/js/ucp.js:68
 #: /usr/src/freepbx/ucp/htdocs/assets/js/ucp.js:115
 msgid "Processing..."
-msgstr ""
+msgstr "処理中..."
 
 #: /usr/src/freepbx/ucp/Ucp.class.php:37
 msgid "Refreshing all UCP Assets, this could take a while..."
-msgstr ""
+msgstr "UCPアセットを再読み込みしています。お待ちください..."
 
 #: /usr/src/freepbx/ucp/htdocs/views/forgot.php:48
 #: /usr/src/freepbx/ucp/htdocs/views/login.php:40
 msgid "Remember Me"
-msgstr ""
+msgstr "保存する"
 
 #: /usr/src/freepbx/ucp/htdocs/views/forgot.php:62
 msgid "Reset Password"
-msgstr ""
+msgstr "パスワードをリセット"
 
 #: /usr/src/freepbx/ucp/htdocs/assets/js/ucp.js:889
 #: /usr/src/freepbx/ucp/htdocs/assets/js/ucp.js:907
 msgid "Saved!"
-msgstr ""
+msgstr "保存しました！"
 
 #: /usr/src/freepbx/ucp/htdocs/views/login.php:54
 msgid "Send Me A Password Reset Link"
-msgstr ""
+msgstr "パスワードリセットリンクを送信する"
 
 #: /usr/src/freepbx/ucp/htdocs/index.php:202
 #: /usr/src/freepbx/ucp/htdocs/modules/Settings/Settings.class.php:83
 #: /usr/src/freepbx/ucp/htdocs/views/dashboard.php:39
 msgid "Settings"
-msgstr ""
+msgstr "設定"
 
 #: /usr/src/freepbx/ucp/htdocs/views/templates/phone.php:69
 msgid "TUV"
-msgstr ""
+msgstr "TUV"
 
 #: /usr/src/freepbx/ucp/htdocs/views/settings.php:19
 msgid "The password used to login to User Control Panel and other services"
-msgstr ""
+msgstr "UCPやその他のサービスのログインに使うパスワード"
 
 #: /usr/src/freepbx/ucp/htdocs/views/dashfootercontent.php:10
 msgid "The removal of this copyright notice is stricly prohibited"
-msgstr ""
+msgstr "著作権情報の削除は禁止されています"
 
 #: /usr/src/freepbx/ucp/htdocs/index.php:121
 msgid "There was an error trying to load UCP"
