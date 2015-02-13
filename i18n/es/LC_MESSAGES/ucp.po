@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-02-13 16:58-0500\n"
+"POT-Creation-Date: 2015-02-13 17:26-0500\n"
 "PO-Revision-Date: 2015-02-11 19:09-0500\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -18,335 +18,319 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: /usr/src/freepbx/ucp/htdocs/index.php:95
+#: htdocs/index.php:95
 msgid ".htaccess files are disabled on this webserver. Please enable them"
 msgstr ""
 
-#: /usr/src/freepbx/ucp/htdocs/index.php:108
+#: htdocs/index.php:108
 msgid ".htaccess files are not supported on this webserver."
 msgstr ""
 
-#: /usr/src/freepbx/ucp/htdocs/views/templates/phone.php:41
+#: htdocs/views/templates/phone.php:41
 msgid "ABC"
 msgstr ""
 
-#: /usr/src/freepbx/ucp/views/users_hook.php:65
+#: views/users_hook.php:65
 msgid "Active Sessions"
 msgstr ""
 
-#: /usr/src/freepbx/ucp/ucp.i18n.php:4
+#: ucp.i18n.php:4
 msgid "Admin"
 msgstr ""
 
-#: /usr/src/freepbx/ucp/htdocs/views/settings.php:63
+#: htdocs/views/settings.php:63
 msgid "Allow Desktop Notifications"
 msgstr ""
 
-#: /usr/src/freepbx/ucp/views/users_hook.php:26
+#: views/users_hook.php:26
 msgid "Allow Login"
 msgstr ""
 
-#: /usr/src/freepbx/ucp/htdocs/views/settings.php:71
+#: htdocs/views/settings.php:71
 msgid "Allow browser desktop notifications from UCP modules."
 msgstr ""
 
-#: /usr/src/freepbx/ucp/views/users_hook.php:39
+#: views/users_hook.php:39
 msgid "Allowed Settings"
 msgstr ""
 
-#: /usr/src/freepbx/ucp/htdocs/views/templates/phone.php:7
-#: /usr/src/freepbx/ucp/htdocs/views/templates/phone.php:95
+#: htdocs/views/templates/phone.php:7 htdocs/views/templates/phone.php:95
 msgid "Call"
 msgstr ""
 
-#: /usr/src/freepbx/ucp/htdocs/views/settings.php:42
+#: htdocs/views/settings.php:42
 msgid "Cell Phone"
 msgstr ""
 
-#: /usr/src/freepbx/ucp/htdocs/views/settings.php:37
+#: htdocs/views/settings.php:37
 msgid "Company"
 msgstr ""
 
-#: /usr/src/freepbx/ucp/htdocs/assets/js/ucp.js:408
+#: htdocs/assets/js/ucp.js:408
 msgid "Connecting...."
 msgstr ""
 
-#: /usr/src/freepbx/ucp/htdocs/views/templates/phone.php:45
+#: htdocs/views/templates/phone.php:45
 msgid "DEF"
 msgstr ""
 
-#: /usr/src/freepbx/ucp/Ucp.class.php:526
+#: Ucp.class.php:526
 msgid "Deleted Session"
 msgstr ""
 
-#: /usr/src/freepbx/ucp/Ucp.class.php:64
-#: /usr/src/freepbx/ucp/Ucp.class.php:424
+#: Ucp.class.php:64 Ucp.class.php:424
 msgid "Deleted User Session"
 msgstr ""
 
-#: /usr/src/freepbx/ucp/htdocs/views/settings.php:7
+#: htdocs/views/settings.php:7
 msgid "Display Name"
 msgstr ""
 
-#: /usr/src/freepbx/ucp/Ucp.class.php:636
-#: /usr/src/freepbx/ucp/Ucp.class.php:640
-#: /usr/src/freepbx/ucp/Ucp.class.php:644
-#: /usr/src/freepbx/ucp/Ucp.class.php:648
+#: Ucp.class.php:636 Ucp.class.php:640 Ucp.class.php:644 Ucp.class.php:648
 msgid "Done"
 msgstr ""
 
-#: /usr/src/freepbx/ucp/htdocs/views/login.php:29
-#: /usr/src/freepbx/ucp/htdocs/views/settings.php:12
+#: htdocs/views/login.php:29 htdocs/views/settings.php:12
 msgid "Email"
 msgstr ""
 
-#: /usr/src/freepbx/ucp/htdocs/views/dashboard.php:90
+#: htdocs/views/dashboard.php:90
 msgid "Excuse us while we try to retrieve your content"
 msgstr ""
 
-#: /usr/src/freepbx/ucp/install.inc.php:20
+#: install.inc.php:20
 msgid "Failed to install "
 msgstr ""
 
-#: /usr/src/freepbx/ucp/htdocs/views/settings.php:57
+#: htdocs/views/settings.php:57
 msgid "Fax"
 msgstr ""
 
-#: /usr/src/freepbx/ucp/htdocs/views/templates/pagnation.php:4
+#: htdocs/views/templates/pagnation.php:4
 msgid "First"
 msgstr ""
 
-#: /usr/src/freepbx/ucp/htdocs/views/settings.php:22
+#: htdocs/views/settings.php:22
 msgid "First Name"
 msgstr ""
 
-#: /usr/src/freepbx/ucp/htdocs/modules/Settings/Settings.class.php:38
+#: htdocs/modules/Settings/Settings.class.php:38
 msgid "Forbidden"
 msgstr ""
 
-#: /usr/src/freepbx/ucp/htdocs/views/login.php:36
+#: htdocs/views/login.php:36
 msgid "Forgot Password"
 msgstr ""
 
-#: /usr/src/freepbx/ucp/ucp.i18n.php:5
+#: ucp.i18n.php:5
 msgid "Formerly ARI, now called User Control Panel"
 msgstr ""
 
-#: /usr/src/freepbx/ucp/htdocs/views/templates/phone.php:51
+#: htdocs/views/templates/phone.php:51
 msgid "GHI"
 msgstr ""
 
-#: /usr/src/freepbx/ucp/Ucp.class.php:646
+#: Ucp.class.php:646
 msgid "Generating Main CSS..."
 msgstr ""
 
-#: /usr/src/freepbx/ucp/Ucp.class.php:642
+#: Ucp.class.php:642
 msgid "Generating Main Scripts..."
 msgstr ""
 
-#: /usr/src/freepbx/ucp/Ucp.class.php:638
+#: Ucp.class.php:638
 msgid "Generating Module CSS..."
 msgstr ""
 
-#: /usr/src/freepbx/ucp/Ucp.class.php:634
+#: Ucp.class.php:634
 msgid "Generating Module Scripts..."
 msgstr ""
 
-#: /usr/src/freepbx/ucp/htdocs/views/templates/phone.php:98
+#: htdocs/views/templates/phone.php:98
 msgid "Hold"
 msgstr ""
 
-#: /usr/src/freepbx/ucp/htdocs/modules/Home/Home.class.php:141
-#: /usr/src/freepbx/ucp/htdocs/views/dashboard.php:32
-#: /usr/src/freepbx/ucp/htdocs/assets/js/ucp.js:736
+#: htdocs/modules/Home/Home.class.php:141 htdocs/views/dashboard.php:32
+#: htdocs/assets/js/ucp.js:736
 msgid "Home"
 msgstr ""
 
-#: /usr/src/freepbx/ucp/htdocs/views/settings.php:52
+#: htdocs/views/settings.php:52
 msgid "Home Phone"
 msgstr ""
 
-#: /usr/src/freepbx/ucp/htdocs/views/settings.php:9
+#: htdocs/views/settings.php:9
 msgid ""
 "How you would like your name displayed throughout UCP and Contact Manager"
 msgstr ""
 
-#: /usr/src/freepbx/ucp/htdocs/includes/User.class.php:86
+#: htdocs/includes/User.class.php:86
 msgid "Invalid"
 msgstr ""
 
-#: /usr/src/freepbx/ucp/htdocs/includes/User.class.php:94
+#: htdocs/includes/User.class.php:94
 msgid "Invalid Login Credentials"
 msgstr ""
 
-#: /usr/src/freepbx/ucp/htdocs/index.php:217
+#: htdocs/index.php:217
 msgid "Invalid Token"
 msgstr ""
 
-#: /usr/src/freepbx/ucp/htdocs/views/templates/phone.php:55
+#: htdocs/views/templates/phone.php:55
 msgid "JKL"
 msgstr ""
 
-#: /usr/src/freepbx/ucp/htdocs/views/templates/pagnation.php:20
+#: htdocs/views/templates/pagnation.php:20
 msgid "Last"
 msgstr ""
 
-#: /usr/src/freepbx/ucp/htdocs/views/settings.php:27
+#: htdocs/views/settings.php:27
 msgid "Last Name"
 msgstr ""
 
-#: /usr/src/freepbx/ucp/htdocs/views/header.php:64
+#: htdocs/views/header.php:64
 msgid "Loading"
 msgstr ""
 
-#: /usr/src/freepbx/ucp/htdocs/views/forgot.php:61
-#: /usr/src/freepbx/ucp/htdocs/views/login.php:53
+#: htdocs/views/forgot.php:61 htdocs/views/login.php:53
 msgid "Loading..."
 msgstr ""
 
-#: /usr/src/freepbx/ucp/htdocs/views/forgot.php:45
-#: /usr/src/freepbx/ucp/htdocs/views/login.php:37
-#: /usr/src/freepbx/ucp/htdocs/assets/js/ucp.js:125
-#: /usr/src/freepbx/ucp/htdocs/assets/js/ucp.js:138
+#: htdocs/views/forgot.php:45 htdocs/views/login.php:37
+#: htdocs/assets/js/ucp.js:125 htdocs/assets/js/ucp.js:138
 msgid "Login"
 msgstr ""
 
-#: /usr/src/freepbx/ucp/htdocs/index.php:204
+#: htdocs/index.php:204
 msgid "Logout"
 msgstr ""
 
-#: /usr/src/freepbx/ucp/htdocs/views/templates/phone.php:59
+#: htdocs/views/templates/phone.php:59
 msgid "MNO"
 msgstr ""
 
-#: /usr/src/freepbx/ucp/views/users_hook.php:35
+#: views/users_hook.php:35
 msgid "Module Settings"
 msgstr ""
 
-#: /usr/src/freepbx/ucp/htdocs/includes/Ajax.class.php:114
+#: htdocs/includes/Ajax.class.php:114
 msgid "Module or Command were null. Check your code."
 msgstr ""
 
-#: /usr/src/freepbx/ucp/htdocs/includes/User.class.php:74
+#: htdocs/includes/User.class.php:74
 msgid "Nothing was Provided!"
 msgstr ""
 
-#: /usr/src/freepbx/ucp/htdocs/views/header.php:57
+#: htdocs/views/header.php:57
 msgid "OFF"
 msgstr ""
 
-#: /usr/src/freepbx/ucp/htdocs/views/header.php:54
+#: htdocs/views/header.php:54
 msgid "ON"
 msgstr ""
 
-#: /usr/src/freepbx/ucp/htdocs/index.php:198
+#: htdocs/index.php:198
 msgid "Originate Call"
 msgstr ""
 
-#: /usr/src/freepbx/ucp/htdocs/views/templates/phone.php:65
+#: htdocs/views/templates/phone.php:65
 msgid "PQRS"
 msgstr ""
 
-#: /usr/src/freepbx/ucp/htdocs/views/login.php:20
+#: htdocs/views/login.php:20
 msgid "Password"
 msgstr ""
 
-#: /usr/src/freepbx/ucp/htdocs/assets/js/ucp.js:890
+#: htdocs/assets/js/ucp.js:890
 msgid "Password Confirmation Didn't Match!"
 msgstr ""
 
-#: /usr/src/freepbx/ucp/Ucp.class.php:117
-#: /usr/src/freepbx/ucp/Ucp.class.php:127
+#: Ucp.class.php:117 Ucp.class.php:127
 #, php-format
 msgid "Password Reset Link (Valid Until: %s): %s"
 msgstr ""
 
-#: /usr/src/freepbx/ucp/htdocs/views/forgot.php:27
+#: htdocs/views/forgot.php:27
 #, php-format
 msgid "Password Reset for: %s"
 msgstr ""
 
-#: /usr/src/freepbx/ucp/htdocs/assets/js/ucp.js:96
+#: htdocs/assets/js/ucp.js:96
 msgid "Passwords can't be blank!"
 msgstr ""
 
-#: /usr/src/freepbx/ucp/htdocs/assets/js/ucp.js:105
+#: htdocs/assets/js/ucp.js:105
 msgid "Passwords changed!"
 msgstr ""
 
-#: /usr/src/freepbx/ucp/htdocs/assets/js/ucp.js:93
+#: htdocs/assets/js/ucp.js:93
 msgid "Passwords do not match"
 msgstr ""
 
-#: /usr/src/freepbx/ucp/htdocs/assets/js/ucp.js:71
+#: htdocs/assets/js/ucp.js:71
 msgid "Please enter either a username or email address"
 msgstr ""
 
-#: /usr/src/freepbx/ucp/htdocs/assets/js/ucp.js:69
-#: /usr/src/freepbx/ucp/htdocs/assets/js/ucp.js:118
+#: htdocs/assets/js/ucp.js:69 htdocs/assets/js/ucp.js:118
 msgid "Processing..."
 msgstr ""
 
-#: /usr/src/freepbx/ucp/Ucp.class.php:37
+#: Ucp.class.php:37
 msgid "Refreshing all UCP Assets, this could take a while..."
 msgstr ""
 
-#: /usr/src/freepbx/ucp/htdocs/views/forgot.php:48
-#: /usr/src/freepbx/ucp/htdocs/views/login.php:40
+#: htdocs/views/forgot.php:48 htdocs/views/login.php:40
 msgid "Remember Me"
 msgstr ""
 
-#: /usr/src/freepbx/ucp/htdocs/views/forgot.php:62
+#: htdocs/views/forgot.php:62
 msgid "Reset Password"
 msgstr ""
 
-#: /usr/src/freepbx/ucp/htdocs/assets/js/ucp.js:897
-#: /usr/src/freepbx/ucp/htdocs/assets/js/ucp.js:915
+#: htdocs/assets/js/ucp.js:897 htdocs/assets/js/ucp.js:915
 msgid "Saved!"
 msgstr ""
 
-#: /usr/src/freepbx/ucp/htdocs/views/login.php:54
+#: htdocs/views/login.php:54
 msgid "Send Me A Password Reset Link"
 msgstr ""
 
-#: /usr/src/freepbx/ucp/htdocs/index.php:204
-#: /usr/src/freepbx/ucp/htdocs/modules/Settings/Settings.class.php:83
-#: /usr/src/freepbx/ucp/htdocs/views/dashboard.php:39
-#: /usr/src/freepbx/ucp/htdocs/assets/js/ucp.js:777
+#: htdocs/index.php:204 htdocs/modules/Settings/Settings.class.php:83
+#: htdocs/views/dashboard.php:39 htdocs/assets/js/ucp.js:777
 msgid "Settings"
 msgstr ""
 
-#: /usr/src/freepbx/ucp/ucp.i18n.php:7
+#: ucp.i18n.php:7
 msgid "Styling and Logos"
 msgstr ""
 
-#: /usr/src/freepbx/ucp/htdocs/views/templates/phone.php:69
+#: htdocs/views/templates/phone.php:69
 msgid "TUV"
 msgstr ""
 
-#: /usr/src/freepbx/ucp/htdocs/views/settings.php:19
+#: htdocs/views/settings.php:19
 msgid "The password used to login to User Control Panel and other services"
 msgstr ""
 
-#: /usr/src/freepbx/ucp/htdocs/views/dashfootercontent.php:10
+#: htdocs/views/dashfootercontent.php:10
 msgid "The removal of this copyright notice is stricly prohibited"
 msgstr ""
 
-#: /usr/src/freepbx/ucp/htdocs/index.php:123
+#: htdocs/index.php:123
 msgid "There was an error trying to load UCP"
 msgstr ""
 
-#: /usr/src/freepbx/ucp/views/users_hook.php:39
+#: views/users_hook.php:39
 msgid ""
 "These are the assigned and active extensions which will show up for this "
 "user to control and edit in UCP"
 msgstr ""
 
-#: /usr/src/freepbx/ucp/htdocs/views/settings.php:32
+#: htdocs/views/settings.php:32
 msgid "Title"
 msgstr ""
 
-#: /usr/src/freepbx/ucp/htdocs/index.php:96
+#: htdocs/index.php:96
 #, php-format
 msgid ""
 "To protect the integrity of your server, you must allow overrides in your "
@@ -354,131 +338,127 @@ msgid ""
 "information see: %s"
 msgstr ""
 
-#: /usr/src/freepbx/ucp/ucp.i18n.php:6
-#: /usr/src/freepbx/ucp/views/users_hook.php:19
+#: ucp.i18n.php:6 views/users_hook.php:19
 msgid "UCP"
 msgstr ""
 
-#: /usr/src/freepbx/ucp/views/header.php:1
+#: views/header.php:1
 msgid "UCP Admin"
 msgstr ""
 
-#: /usr/src/freepbx/ucp/htdocs/views/settings.php:17
+#: htdocs/views/settings.php:17
 msgid "UCP Password"
 msgstr ""
 
-#: /usr/src/freepbx/ucp/htdocs/index.php:31
+#: htdocs/index.php:31
 msgid "UCP is currently disabled. Please talk to your system Administrator"
 msgstr ""
 
-#: /usr/src/freepbx/ucp/htdocs/index.php:169
+#: htdocs/index.php:169
 #, php-format
 msgid "Unknown Module %s"
 msgstr ""
 
-#: /usr/src/freepbx/ucp/htdocs/views/forgot.php:5
-#: /usr/src/freepbx/ucp/htdocs/views/login.php:4
-#: /usr/src/freepbx/ucp/ucp.i18n.php:3
+#: htdocs/views/forgot.php:5 htdocs/views/login.php:4 ucp.i18n.php:3
 msgid "User Control Panel"
 msgstr ""
 
-#: /usr/src/freepbx/ucp/htdocs/views/settings.php:2
+#: htdocs/views/settings.php:2
 msgid "User Control Panel Settings"
 msgstr ""
 
-#: /usr/src/freepbx/ucp/htdocs/views/dashfootercontent.php:7
+#: htdocs/views/dashfootercontent.php:7
 #, php-format
 msgid "User Control Panel is released as %s or newer"
 msgstr ""
 
-#: /usr/src/freepbx/ucp/Ucp.class.php:113
-#: /usr/src/freepbx/ucp/Ucp.class.php:123
+#: Ucp.class.php:113 Ucp.class.php:123
 #, php-format
 msgid "User Control Panel: %s"
 msgstr ""
 
-#: /usr/src/freepbx/ucp/htdocs/views/login.php:15
+#: htdocs/views/login.php:15
 msgid "Username"
 msgstr ""
 
-#: /usr/src/freepbx/ucp/ucp.i18n.php:8
+#: ucp.i18n.php:8
 msgid "View: UCP dashfootercontent.php"
 msgstr ""
 
-#: /usr/src/freepbx/ucp/htdocs/views/templates/phone.php:73
+#: htdocs/views/templates/phone.php:73
 msgid "WXYZ"
 msgstr ""
 
-#: /usr/src/freepbx/ucp/htdocs/views/dashboard.php:3
+#: htdocs/views/dashboard.php:3
 #, php-format
 msgid "Welcome %s"
 msgstr ""
 
-#: /usr/src/freepbx/ucp/htdocs/views/settings.php:47
+#: htdocs/views/settings.php:47
 msgid "Work Phone"
 msgstr ""
 
-#: /usr/src/freepbx/ucp/htdocs/views/settings.php:34
+#: htdocs/views/settings.php:34
 msgid "You Title"
 msgstr ""
 
-#: /usr/src/freepbx/ucp/htdocs/assets/js/ucp.js:436
+#: htdocs/assets/js/ucp.js:436
 msgid "You are currently working in offline mode."
 msgstr ""
 
-#: /usr/src/freepbx/ucp/htdocs/assets/js/ucp.js:143
+#: htdocs/assets/js/ucp.js:143
 msgid "Your Browser is unsupported at this time."
 msgstr ""
 
-#: /usr/src/freepbx/ucp/htdocs/views/settings.php:44
+#: htdocs/views/settings.php:44
 msgid "Your Cell Phone Number"
 msgstr ""
 
-#: /usr/src/freepbx/ucp/htdocs/views/settings.php:39
+#: htdocs/views/settings.php:39
 msgid "Your Company"
 msgstr ""
 
-#: /usr/src/freepbx/ucp/htdocs/views/settings.php:14
+#: htdocs/views/settings.php:14
 msgid "Your Email Address"
 msgstr ""
 
-#: /usr/src/freepbx/ucp/htdocs/views/settings.php:59
+#: htdocs/views/settings.php:59
 msgid "Your Fax Number"
 msgstr ""
 
-#: /usr/src/freepbx/ucp/htdocs/views/settings.php:24
+#: htdocs/views/settings.php:24
 msgid "Your First Name"
 msgstr ""
 
-#: /usr/src/freepbx/ucp/htdocs/views/settings.php:54
+#: htdocs/views/settings.php:54
 msgid "Your Home Number"
 msgstr ""
 
-#: /usr/src/freepbx/ucp/htdocs/views/settings.php:29
+#: htdocs/views/settings.php:29
 msgid "Your Last Name"
 msgstr ""
 
-#: /usr/src/freepbx/ucp/htdocs/views/settings.php:49
+#: htdocs/views/settings.php:49
 msgid "Your Work Number"
 msgstr ""
 
-#: /usr/src/freepbx/ucp/htdocs/assets/js/ucp.js:145
+#: htdocs/assets/js/ucp.js:145
 msgid ""
 "Your browser is unsupported at this time. Please upgrade or talk to your "
 "system administrator"
 msgstr ""
 
-#: /usr/src/freepbx/ucp/htdocs/assets/js/ucp.js:81
+#: htdocs/assets/js/ucp.js:81
 msgid "Your reset link is in the mail!"
 msgstr ""
 
-#: /usr/src/freepbx/ucp/ucp.i18n.php:9
+#: ucp.i18n.php:9
 msgid ""
 "dashfootercontent.php view. This should never be changed except for very "
 "advanced layout changes"
 msgstr ""
 
-#: /usr/src/freepbx/ucp/htdocs/index.php:109
+#: htdocs/index.php:109
 #, php-format
 msgid ""
 "htaccess files help protect the integrity of your server. Please make sure "
@@ -486,6 +466,6 @@ msgid ""
 "see: %s"
 msgstr ""
 
-#: /usr/src/freepbx/ucp/htdocs/views/login.php:24
+#: htdocs/views/login.php:24
 msgid "or"
 msgstr ""
