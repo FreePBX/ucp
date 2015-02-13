@@ -14,7 +14,9 @@ if (!@include_once(getenv('FREEPBX_CONF') ? getenv('FREEPBX_CONF') : '/etc/freep
 	include_once('/etc/asterisk/freepbx.conf');
 }
 
+//TODO: default the language from/for ucp somewhere.
 $lang = !empty($_COOKIE['lang']) ? $_COOKIE['lang'] : 'en_US';
+$_COOKIE['lang'] = $lang;
 putenv('LC_ALL='.$lang);
 setlocale(LC_ALL, $lang);
 

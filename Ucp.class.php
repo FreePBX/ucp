@@ -254,6 +254,16 @@ class Ucp implements BMO {
 		}
 		$final = array();
 		$root = $this->FreePBX->Config->get("AMPWEBROOT");
+		//first get ucp
+		$po = $root."/admin/modules/ucp/i18n/" . $language . "/LC_MESSAGES/ucp.po";
+		if(file_exists($po)) {
+			$c = new po2json($po,"ucp");
+			$array = $c->po2array();
+			if(!empty($array)) {
+				$final['ucp'] = $array;
+			}
+		}
+		//now get the modules
 		foreach ($modules as $module) {
 			$module = strtolower($module);
 			$po = $root."/admin/modules/".$module."/i18n/" . $language . "/LC_MESSAGES/".$module.".po";

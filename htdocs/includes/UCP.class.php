@@ -142,6 +142,7 @@ class UCP extends UCP_Helpers {
 			"date.format.js",
 			"jquery.textfill.min.js",
 			"jed.js",
+			"modgettext.js",
 			"jquery.cookie.js",
 			"emojione.min.js",
 			"jquery.tokenize.js",

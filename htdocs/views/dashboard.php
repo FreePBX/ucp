@@ -31,7 +31,7 @@
 		<ol id="top-dashboard-nav" class="breadcrumb">
 			<li class="home"><a data-mod="home" data-pjax href="?display=dashboard&amp;mod=home"><?php echo _('Home')?></a></li>
 			<?php if($active_module != 'home' && !empty($menu[$active_module])) {?>
-				<li class="module bc-<?php echo $menu[$active_module]['rawname']?> active"><?php echo $menu[$active_module]['rawname']?></li>
+				<li class="module bc-<?php echo $menu[$active_module]['rawname']?> active"><?php echo $menu[$active_module]['name']?></li>
 				<?php if(!empty($_REQUEST['sub'])) {?>
 					<li class="subsection bc-<?php echo $_REQUEST['sub']?> active"><?php echo $_REQUEST['sub']?></li>
 				<?php } ?>

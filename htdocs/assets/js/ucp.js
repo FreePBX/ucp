@@ -17,12 +17,13 @@ var UCPC = Class.extend({
 		this.ws = null;
 		this.footerHidden = false;
 		this.chatTimeout = {};
-		this.domain = "ucp";
 		this.i18n = null;
 		this.messageBuffer = {};
 		this.token = null;
 		this.lastIO = null;
 		this.Modules = {};
+
+		textdomain("ucp");
 	},
 	ready: function() {
 		$(window).resize(function() {UCP.windowResize();});
@@ -68,6 +69,8 @@ var UCPC = Class.extend({
 				fbtn.text(_("Processing..."));
 				if ($("input[name=username]").val().trim() === "" && $("input[name=email]").val().trim() === "") {
 					alert(_("Please enter either a username or email address"));
+					fbtn.prop("disabled", false);
+					fbtn.text(otext);
 				} else {
 					var queryString = $("#frm-login").formSerialize();
 					queryString = queryString + "&quietmode=1&module=User&command=forgot";
@@ -166,28 +169,8 @@ var UCPC = Class.extend({
 			//Navigation Clicks
 			$(document).on("click", "[data-pjax] a, a[data-pjax]", function(event) {
 				var container = $("#dashboard-content"),
-						clicker = $(this).data("mod"),
-						breadcrumbs = "<li class=\"home\"><a data-mod=\"home\" data-pjax href=\"?display=dashboard&amp;mod=home\">Home</a></li>",
-						mod = "home",
-						sub = "",
-						display = "";
+						clicker = $(this).data("mod");
 				$.pjax.click(event, { container: container });
-
-				mod = $.url().param("mod");
-				sub = $.url().param("sub");
-				display = $.url().param("display");
-				if (typeof display === "undefined" || display == "dashboard") {
-					if (mod != "home") {
-						breadcrumbs = breadcrumbs + "<li class=\"module bc-" + mod + " active\">" + mod + "</li>";
-					}
-					if (typeof sub !== "undefined") {
-						breadcrumbs = breadcrumbs + "<li class=\"subsection bc-" + sub + " active\">" + sub + "</li>";
-					}
-				} else if (display == "settings") {
-					breadcrumbs = breadcrumbs + "<li class=\"module active\">Settings</li>";
-				}
-
-				$("#top-dashboard-nav").html(breadcrumbs);
 
 				$( ".pushmenu li").each(function( index ) {
 					if ($(this).data("mod") == clicker) {
@@ -749,6 +732,10 @@ var UCPC = Class.extend({
 		return str.replace(/\w\S*/g, function(txt) { return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase(); });
 	},
 	pjaxEnd: function(event) {
+		var display = $.url().param("display"),
+				breadcrumbs = "<li class=\"home\"><a data-mod=\"home\" data-pjax href=\"?display=dashboard&amp;mod=home\">" + _("Home") + "</a></li>",
+				sub = $.url().param("sub");
+
 		this.windowResize();
 		$("#loader-screen").fadeOut("fast");
 		if (typeof window[this.activeModule] == "object" &&
@@ -757,11 +744,11 @@ var UCPC = Class.extend({
 		} else if (this.validMethod(this.activeModule, "hide")) {
 			this.Modules[this.activeModule].hide(event);
 		}
-		var display = $.url().param("display");
+
 		if (typeof display === "undefined" || display == "dashboard") {
 			this.activeModule = $.url().param("mod");
 			this.activeModule = (this.activeModule !== undefined) ? UCP.toTitleCase(this.activeModule) : "Home";
-			this.domain = this.activeModule.toLowerCase();
+			textdomain(this.activeModule.toLowerCase());
 			if (typeof window[this.activeModule] == "object" &&
 				typeof window[this.activeModule].display == "function") {
 				window[this.activeModule].display(event);
@@ -771,6 +758,27 @@ var UCPC = Class.extend({
 		} else if (display == "settings") {
 			this.settingsBinds();
 		}
+
+		if (typeof UCP.Modules[this.activeModule] !== "undefined" && typeof UCP.Modules[this.activeModule].getInfo !== "undefined") {
+			var tmp = UCP.Modules[this.activeModule].getInfo();
+			name = tmp.name;
+		} else {
+			name = this.activeModule;
+		}
+
+		if (typeof display === "undefined" || display == "dashboard") {
+			if (this.activeModule != "Home") {
+				breadcrumbs = breadcrumbs + "<li class=\"module bc-" + this.activeModule.toLowerCase() + " active\">" + name + "</li>";
+			}
+			if (typeof sub !== "undefined") {
+				breadcrumbs = breadcrumbs + "<li class=\"subsection bc-" + sub + " active\">" + sub + "</li>";
+			}
+		} else if (display == "settings") {
+			breadcrumbs = breadcrumbs + "<li class=\"module active\">" + _("Settings") + "</li>";
+		}
+
+		$("#top-dashboard-nav").html(breadcrumbs);
+
 		this.binds();
 	},
 	pjaxStart: function(event) {
@@ -808,7 +816,7 @@ var UCPC = Class.extend({
 	logIn: function(event) {
 		this.activeModule = $.url().param("mod");
 		this.activeModule = (this.activeModule !== undefined) ? UCP.toTitleCase(this.activeModule) : "Home";
-		this.domain = this.activeModule.toLowerCase();
+		textdomain(this.activeModule.toLowerCase());
 		this.loggedIn = true;
 		this.connect();
 		if (!Notify.needsPermission() && this.notify === null) {
@@ -958,6 +966,10 @@ $(function() {
 	UCP.ready();
 });
 
+String.prototype.modularize = function() {
+		return this.toLowerCase().charAt(0).toUpperCase() + this.slice(1);
+};
+
 jQuery.fn.highlight = function(str, className) {
 	var regex = new RegExp("\\b" + str + "\\b", "gi");
 
@@ -976,20 +988,5 @@ function htmlDecode( html ) {
 	return a.textContent;
 }
 
-/** Language, global functions so they act like php **/
+/** Language, global functions so they act like php procedurals **/
 UCP.i18n = new Jed(languages);
-function _(string) {
-	try {
-		return UCP.i18n.dgettext( UCP.domain, string );
-	} catch (err) {
-		return string;
-	}
-}
-
-function sprintf() {
-	try {
-		return UCP.i18n.sprintf.apply(this, arguments);
-	} catch (err) {
-		return string;
-	}
-}
