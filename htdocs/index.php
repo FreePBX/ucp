@@ -14,10 +14,17 @@ if (!@include_once(getenv('FREEPBX_CONF') ? getenv('FREEPBX_CONF') : '/etc/freep
 	include_once('/etc/asterisk/freepbx.conf');
 }
 
-//TODO: default the language from/for ucp somewhere.
-$lang = !empty($_COOKIE['lang']) ? $_COOKIE['lang'] : 'en_US';
-$_COOKIE['lang'] = $lang;
+if (empty($_COOKIE['lang']) || !preg_match('/^[\w\._@-]+$/', $_COOKIE['lang'], $matches)) {
+	$deflang = FreePBX::Config()->get('UIDEFAULTLANG');
+	$lang = !empty($deflang)?$deflang:'en_US';
+	$_COOKIE['lang'] = $lang;
+} else {
+	preg_match('/^([\w\._@-]+)$/', $_COOKIE['lang'], $matches);
+	$lang = !empty($matches[1])?$matches[1]:'en_US';
+}
 putenv('LC_ALL='.$lang);
+putenv('LANG='.$lang);
+putenv('LANGUAGE='.$lang);
 setlocale(LC_ALL, $lang);
 
 include(dirname(__FILE__).'/includes/bootstrap.php');
