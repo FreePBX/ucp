@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-02-13 17:26-0500\n"
+"POT-Creation-Date: 2015-02-13 19:50-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,11 +17,11 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: htdocs/index.php:95
+#: htdocs/index.php:102
 msgid ".htaccess files are disabled on this webserver. Please enable them"
 msgstr ""
 
-#: htdocs/index.php:108
+#: htdocs/index.php:115
 msgid ".htaccess files are not supported on this webserver."
 msgstr ""
 
@@ -171,7 +171,7 @@ msgstr ""
 msgid "Invalid Login Credentials"
 msgstr ""
 
-#: htdocs/index.php:217
+#: htdocs/index.php:224
 msgid "Invalid Token"
 msgstr ""
 
@@ -200,7 +200,7 @@ msgstr ""
 msgid "Login"
 msgstr ""
 
-#: htdocs/index.php:204
+#: htdocs/index.php:211
 msgid "Logout"
 msgstr ""
 
@@ -228,7 +228,7 @@ msgstr ""
 msgid "ON"
 msgstr ""
 
-#: htdocs/index.php:198
+#: htdocs/index.php:205
 msgid "Originate Call"
 msgstr ""
 
@@ -294,7 +294,7 @@ msgstr ""
 msgid "Send Me A Password Reset Link"
 msgstr ""
 
-#: htdocs/index.php:204 htdocs/modules/Settings/Settings.class.php:83
+#: htdocs/index.php:211 htdocs/modules/Settings/Settings.class.php:83
 #: htdocs/views/dashboard.php:39 htdocs/assets/js/ucp.js:777
 msgid "Settings"
 msgstr ""
@@ -315,7 +315,7 @@ msgstr ""
 msgid "The removal of this copyright notice is stricly prohibited"
 msgstr ""
 
-#: htdocs/index.php:123
+#: htdocs/index.php:130
 msgid "There was an error trying to load UCP"
 msgstr ""
 
@@ -329,7 +329,7 @@ msgstr ""
 msgid "Title"
 msgstr ""
 
-#: htdocs/index.php:96
+#: htdocs/index.php:103
 #, php-format
 msgid ""
 "To protect the integrity of your server, you must allow overrides in your "
@@ -349,11 +349,11 @@ msgstr ""
 msgid "UCP Password"
 msgstr ""
 
-#: htdocs/index.php:31
+#: htdocs/index.php:38
 msgid "UCP is currently disabled. Please talk to your system Administrator"
 msgstr ""
 
-#: htdocs/index.php:169
+#: htdocs/index.php:176
 #, php-format
 msgid "Unknown Module %s"
 msgstr ""
@@ -457,7 +457,7 @@ msgid ""
 "advanced layout changes"
 msgstr ""
 
-#: htdocs/index.php:109
+#: htdocs/index.php:116
 #, php-format
 msgid ""
 "htaccess files help protect the integrity of your server. Please make sure "
