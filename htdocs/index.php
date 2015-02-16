@@ -25,6 +25,7 @@ if (empty($_COOKIE['lang']) || !preg_match('/^[\w\._@-]+$/', $_COOKIE['lang'], $
 } else {
 	preg_match('/^([\w\._@-]+)$/', $_COOKIE['lang'], $matches);
 	$lang = !empty($matches[1])?$matches[1]:'en_US';
+	$_COOKIE['lang'] = $lang;
 }
 putenv('LC_ALL='.$lang);
 putenv('LANG='.$lang);

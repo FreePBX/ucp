@@ -31,7 +31,7 @@
 			<div class="form-group">
 				<label for="title" class="help"><?php echo _('Title')?> <i class="fa fa-question-circle"></i></label>
 				<input name="title" type="text" class="form-control" id="title" value="<?php echo $user['title']?>" autocapitalize="off" autocorrect="off" autocomplete="off">
-				<span class="help-block help-hidden" data-for="title"><?php echo _('You Title')?></span>
+				<span class="help-block help-hidden" data-for="title"><?php echo _('Your Title')?></span>
 			</div>
 			<div class="form-group">
 				<label for="company" class="help"><?php echo _('Company')?> <i class="fa fa-question-circle"></i></label>
