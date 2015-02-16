@@ -876,6 +876,16 @@ var UCPC = Class.extend({
 			$("#ucp-settings .desktopnotifications-group").show();
 		}
 
+		if (typeof $.cookie("lang") !== "undefined") {
+			$("#ucp-settings select[name=\"lang\"]").val($.cookie("lang"));
+		}
+		$("#ucp-settings select[name=\"lang\"]").change(function() {
+			$.cookie("lang", $(this).val());
+			if (confirm(_("UCP needs to reload, ok?"))) {
+				window.location.reload();
+			}
+		});
+
 		$("#ucp-settings input[type!=\"checkbox\"]").off();
 		$("#ucp-settings input[type!=\"checkbox\"]").change(function() {
 			var password = $(this).val();

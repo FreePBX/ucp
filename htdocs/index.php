@@ -17,7 +17,7 @@ if (!@include_once(getenv('FREEPBX_CONF') ? getenv('FREEPBX_CONF') : '/etc/freep
 if (empty($_COOKIE['lang']) || !preg_match('/^[\w\._@-]+$/', $_COOKIE['lang'], $matches)) {
 	$deflang = FreePBX::Config()->get('UIDEFAULTLANG');
 	$lang = !empty($deflang)?$deflang:'en_US';
-	$_COOKIE['lang'] = $lang;
+	setcookie("lang", $lang);
 } else {
 	preg_match('/^([\w\._@-]+)$/', $_COOKIE['lang'], $matches);
 	$lang = !empty($matches[1])?$matches[1]:'en_US';
@@ -158,6 +158,14 @@ switch($display) {
 		if($display == "settings") {
 			$ucp->Modgettext->push_textdomain("ucp");
 			$displayvars['desktop'] = (!$ucp->Session->isMobile && !$ucp->Session->isTablet);
+			$displayvars['lang'] = $lang;
+			$displayvars['languages'] = array(
+				'en_US' => _('English'). " (US)"
+			);
+			foreach(glob(FreePBX::Config()->get('AMPWEBROOT')."/admin/modules/ucp/i18n/*",GLOB_ONLYDIR) as $langDir) {
+				$l = basename($langDir);
+				$displayvars['languages'][$l] = function_exists('locale_get_display_name') ? locale_get_display_name($l, $lang) : $l;
+			}
 			$dashboard_content = $ucp->View->load_view(__DIR__.'/views/settings.php',$displayvars);
 			$displayvars['active_module'] = 'ucpsettings';
 			$ucp->Modgettext->pop_textdomain();

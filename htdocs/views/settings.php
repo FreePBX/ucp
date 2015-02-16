@@ -58,6 +58,15 @@
 				<input name="fax" type="text" class="form-control" id="fax" value="<?php echo $user['fax']?>" autocapitalize="off" autocorrect="off" autocomplete="off">
 				<span class="help-block help-hidden" data-for="fax"><?php echo _('Your Fax Number')?></span>
 			</div>
+			<div class="form-group">
+				<label for="lang" class="help"><?php echo _('Language')?> <i class="fa fa-question-circle"></i></label>
+				<select class="form-control" name="lang">
+					<?php foreach($languages as $key => $lang) {?>
+						<option value="<?php echo $key?>"><?php echo $lang?></option>
+					<?php } ?>
+				</select>
+				<span class="help-block help-hidden" data-for="lang"><?php echo _('UCP Language')?></span>
+			</div>
 			<?php if($desktop) {?>
 				<div class="form-group desktopnotifications-group" style="display:none;">
 					<label for="desktopnotifications-h" class="help"><?php echo _('Allow Desktop Notifications')?> <i class="fa fa-question-circle"></i></label>
