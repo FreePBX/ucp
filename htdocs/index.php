@@ -17,7 +17,11 @@ if (!@include_once(getenv('FREEPBX_CONF') ? getenv('FREEPBX_CONF') : '/etc/freep
 if (empty($_COOKIE['lang']) || !preg_match('/^[\w\._@-]+$/', $_COOKIE['lang'], $matches)) {
 	$deflang = FreePBX::Config()->get('UIDEFAULTLANG');
 	$lang = !empty($deflang)?$deflang:'en_US';
-	setcookie("lang", $lang);
+	if (empty($_COOKIE['lang'])) {
+		setcookie("lang", $lang);
+	} else {
+		$_COOKIE['lang'] = $lang;
+	}
 } else {
 	preg_match('/^([\w\._@-]+)$/', $_COOKIE['lang'], $matches);
 	$lang = !empty($matches[1])?$matches[1]:'en_US';

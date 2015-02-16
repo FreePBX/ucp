@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-02-13 19:50-0500\n"
+"POT-Creation-Date: 2015-02-16 13:59-0500\n"
 "PO-Revision-Date: 2015-02-11 19:09-0500\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -18,11 +18,11 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: htdocs/index.php:102
+#: htdocs/index.php:106
 msgid ".htaccess files are disabled on this webserver. Please enable them"
 msgstr ""
 
-#: htdocs/index.php:115
+#: htdocs/index.php:119
 msgid ".htaccess files are not supported on this webserver."
 msgstr ""
 
@@ -38,7 +38,7 @@ msgstr ""
 msgid "Admin"
 msgstr ""
 
-#: htdocs/views/settings.php:63
+#: htdocs/views/settings.php:72
 msgid "Allow Desktop Notifications"
 msgstr ""
 
@@ -46,7 +46,7 @@ msgstr ""
 msgid "Allow Login"
 msgstr ""
 
-#: htdocs/views/settings.php:71
+#: htdocs/views/settings.php:80
 msgid "Allow browser desktop notifications from UCP modules."
 msgstr ""
 
@@ -92,6 +92,10 @@ msgstr ""
 
 #: htdocs/views/login.php:29 htdocs/views/settings.php:12
 msgid "Email"
+msgstr ""
+
+#: htdocs/index.php:167
+msgid "English"
 msgstr ""
 
 #: htdocs/views/dashboard.php:90
@@ -172,12 +176,16 @@ msgstr ""
 msgid "Invalid Login Credentials"
 msgstr ""
 
-#: htdocs/index.php:224
+#: htdocs/index.php:236
 msgid "Invalid Token"
 msgstr ""
 
 #: htdocs/views/templates/phone.php:55
 msgid "JKL"
+msgstr ""
+
+#: htdocs/views/settings.php:62
+msgid "Language"
 msgstr ""
 
 #: htdocs/views/templates/pagnation.php:20
@@ -201,7 +209,7 @@ msgstr ""
 msgid "Login"
 msgstr ""
 
-#: htdocs/index.php:211
+#: htdocs/index.php:223
 msgid "Logout"
 msgstr ""
 
@@ -229,7 +237,7 @@ msgstr ""
 msgid "ON"
 msgstr ""
 
-#: htdocs/index.php:205
+#: htdocs/index.php:217
 msgid "Originate Call"
 msgstr ""
 
@@ -241,7 +249,7 @@ msgstr ""
 msgid "Password"
 msgstr ""
 
-#: htdocs/assets/js/ucp.js:890
+#: htdocs/assets/js/ucp.js:900
 msgid "Password Confirmation Didn't Match!"
 msgstr ""
 
@@ -287,7 +295,7 @@ msgstr ""
 msgid "Reset Password"
 msgstr ""
 
-#: htdocs/assets/js/ucp.js:897 htdocs/assets/js/ucp.js:915
+#: htdocs/assets/js/ucp.js:907 htdocs/assets/js/ucp.js:925
 msgid "Saved!"
 msgstr ""
 
@@ -295,7 +303,7 @@ msgstr ""
 msgid "Send Me A Password Reset Link"
 msgstr ""
 
-#: htdocs/index.php:211 htdocs/modules/Settings/Settings.class.php:83
+#: htdocs/index.php:223 htdocs/modules/Settings/Settings.class.php:83
 #: htdocs/views/dashboard.php:39 htdocs/assets/js/ucp.js:777
 msgid "Settings"
 msgstr ""
@@ -316,7 +324,7 @@ msgstr ""
 msgid "The removal of this copyright notice is stricly prohibited"
 msgstr ""
 
-#: htdocs/index.php:130
+#: htdocs/index.php:134
 msgid "There was an error trying to load UCP"
 msgstr ""
 
@@ -330,7 +338,7 @@ msgstr ""
 msgid "Title"
 msgstr ""
 
-#: htdocs/index.php:103
+#: htdocs/index.php:107
 #, php-format
 msgid ""
 "To protect the integrity of your server, you must allow overrides in your "
@@ -346,15 +354,23 @@ msgstr ""
 msgid "UCP Admin"
 msgstr ""
 
+#: htdocs/views/settings.php:68
+msgid "UCP Language"
+msgstr ""
+
 #: htdocs/views/settings.php:17
 msgid "UCP Password"
 msgstr ""
 
-#: htdocs/index.php:38
+#: htdocs/index.php:42
 msgid "UCP is currently disabled. Please talk to your system Administrator"
 msgstr ""
 
-#: htdocs/index.php:176
+#: htdocs/assets/js/ucp.js:884
+msgid "UCP needs to reload, ok?"
+msgstr ""
+
+#: htdocs/index.php:188
 #, php-format
 msgid "Unknown Module %s"
 msgstr ""
@@ -458,7 +474,7 @@ msgid ""
 "advanced layout changes"
 msgstr ""
 
-#: htdocs/index.php:116
+#: htdocs/index.php:120
 #, php-format
 msgid ""
 "htaccess files help protect the integrity of your server. Please make sure "
