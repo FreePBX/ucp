@@ -2,7 +2,7 @@
 	<rawname>ucp</rawname>
 	<name>User Control Panel</name>
 	<repo>standard</repo>
-	<version>12.0.5</version>
+	<version>12.0.6</version>
 	<publisher>FreePBX</publisher>
 	<license>AGPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/agpl-3.0.txt</licenselink>
@@ -10,6 +10,7 @@
 		Formerly ARI, now called User Control Panel
 	</description>
 	<changelog>
+		*12.0.6* Update tokenizer for FREEPBX-8275
 		*12.0.5* Allow language selection in UCP
 		*12.0.4* Better localization awareness
 		*12.0.3* Localization updates
@@ -98,7 +99,7 @@
 	<depends>
 		<phpversion>5.3.3</phpversion>
 		<module>userman ge 12.0.21</module>
-		<module>core ge 12.0.8</module>
+		<module>core ge 12.0.23</module>
 		<version>12.0.24</version>
 	</depends>
 </module>
