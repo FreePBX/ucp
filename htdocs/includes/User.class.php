@@ -16,6 +16,7 @@ class User extends UCP {
 	public $uid = null;
 	private $remembermeCookieName = 'ucp_rememberme';
 	private $token = null;
+	private $user = null;
 
 	public function __construct($UCP) {
 		$this->UCP = $UCP;
@@ -35,6 +36,8 @@ class User extends UCP {
 			case 'token':
 				return true;
 			break;
+			case 'reset':
+			case 'forgot':
 			case 'login':
 				if(!$this->UCP->Session->verifyToken('login')) {
 					return false;
@@ -60,6 +63,30 @@ class User extends UCP {
 	function ajaxHandler() {
 		$return = array("status" => false, "message" => "");
 		switch($_REQUEST['command']) {
+			case 'forgot':
+				if(!empty($_POST['username'])) {
+					$user = $this->UCP->FreePBX->Ucp->getUserByUsername($_POST['username']);
+					$return['status'] = true;
+				} elseif(!empty($_POST['email'])) {
+					$user = $this->UCP->FreePBX->Ucp->getUserByEmail($_POST['email']);
+					$return['status'] = true;
+				} else {
+					$return['message'] = _('Nothing was Provided!');
+					return $return;
+				}
+				if(!empty($user['email'])) {
+					$this->UCP->FreePBX->Ucp->sendPassResetEmail($user['id']);
+				}
+				return $return;
+			break;
+			case 'reset':
+				if($this->validateResetToken($_POST['ftoken']) && ($_POST['npass1'] == $_POST['npass2'])) {
+					$return['status'] = $this->UCP->FreePBX->Ucp->resetPasswordWithToken($_POST['ftoken'],$_POST['npass1']);
+				} else {
+					$return['message'] = _("Invalid");
+				}
+				return $return;
+			break;
 			case 'login':
 				$rm = isset($_POST['rememberme']) ? true : false;
 				$o = $this->login($_POST['username'],$_POST['password'], $rm);
@@ -97,6 +124,10 @@ class User extends UCP {
 		return false;
 	}
 
+	public function validateResetToken($token) {
+		return $this->FreePBX->UCP->validatePasswordResetToken($token);
+	}
+
 	/**
 	 * Get Logged in user information
 	 *
@@ -105,7 +136,13 @@ class User extends UCP {
 	 * @return mixed array if logged in, false if not
 	 */
 	public function getUser() {
-		return $this->_checkToken() ? $this->FreePBX->Ucp->getUserByID($this->uid) : false;
+		if($this->_checkToken()) {
+			if(!empty($this->user)) {
+				return $this->user;
+			}
+			return $this->FreePBX->Ucp->getUserByID($this->uid);
+		}
+		return false;
 	}
 
 	/**
@@ -159,6 +196,7 @@ class User extends UCP {
 			}
 			$this->_deleteToken($token);
 			$this->uid = null;
+			$this->user = null;
 			unset($_SESSION['id']);
 			session_regenerate_id();
 			session_destroy();
@@ -276,6 +314,9 @@ class User extends UCP {
 			$this->uid = $result;
 			return true;
 		}
+		if(function_exists('freepbx_log_security')) {
+			freepbx_log_security('Authentication failure for '.(!empty($username) ? $username : 'unknown').' from '.$_SERVER['REMOTE_ADDR']);
+		}
 		return false;
 	}
 
@@ -285,8 +326,8 @@ class User extends UCP {
 	 * @return {bool}      True if allowed
 	 */
 	private function _allowed($uid) {
-		$user = $this->UCP->FreePBX->Ucp->getUserByID($uid);
-		$status = $this->UCP->getSetting($user['username'],'Global','allowLogin');
+		$this->user = $this->UCP->FreePBX->Ucp->getUserByID($uid);
+		$status = $this->UCP->getSetting($this->user['username'],'Global','allowLogin');
 		return !empty($status) ? $status : false;
 	}
 }

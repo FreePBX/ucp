@@ -16,7 +16,7 @@
  *
  * @author      David Zeller <me@zellerda.com>
  * @license     http://www.opensource.org/licenses/BSD-3-Clause New BSD license
- * @version     2.1
+ * @version     2.3
  */
 (function($, tokenize){
 
@@ -69,8 +69,15 @@
                 .appendTo(this.tokensContainer);
 
             this.searchInput = $('<input />')
-                .attr('maxlength', this.options.searchMaxLength)
                 .appendTo(this.searchToken);
+
+            if(this.options.searchMaxLength > 0){
+                this.searchInput.attr('maxlength', this.options.searchMaxLength)
+            }
+
+            if(this.select.prop('disabled')){
+                this.disable();
+            }
 
             this.container
                 .append(this.tokensContainer)
@@ -80,7 +87,14 @@
             this.tokensContainer.on('click', function(e){
                 e.stopImmediatePropagation();
                 $this.searchInput.get(0).focus();
+                $this.updatePlaceholder();
                 if($this.dropdown.is(':hidden') && $this.searchInput.val() != ''){
+                    $this.search();
+                }
+            });
+
+            this.searchInput.on('focus click', function(){
+                if($this.options.displayDropdownOnFocus && $this.options.datas == 'select'){
                     $this.search();
                 }
             });
@@ -120,6 +134,25 @@
             $('option:selected', this.select).each(function(){
                 $this.tokenAdd($(this).attr('value'), $(this).html(), true);
             });
+
+            this.updatePlaceholder();
+
+        },
+
+        updatePlaceholder: function(){
+
+            if(this.options.placeholder != false){
+                if(this.placeholder == undefined){
+                    this.placeholder = $('<li />').addClass('Placeholder').html(this.options.placeholder);
+                    this.placeholder.insertBefore($('li:first-child', this.tokensContainer));
+                }
+
+                if(this.searchInput.val().length == 0 && $('li.Token', this.tokensContainer).length == 0){
+                    this.placeholder.show();
+                } else {
+                    this.placeholder.hide();
+                }
+            }
 
         },
 
@@ -203,15 +236,8 @@
 
         resizeSearchInput: function(){
 
-            var measure = $('<div />')
-                .css({ position: 'absolute', visibility: 'hidden' })
-                .addClass('TokenizeMeasure')
-                .html(this.searchInput.val());
-
-            $('body').append(measure);
-
-            this.searchInput.width(measure.width() + 25);
-            measure.remove();
+            this.searchInput.attr('size', (this.searchInput.val().length > 1 ? this.searchInput.val().length : 5));
+            this.updatePlaceholder();
 
         },
 
@@ -288,6 +314,7 @@
 
         keyup: function(e){
 
+            this.updatePlaceholder();
             if(e.keyCode != this.options.validator){
                 switch(e.keyCode){
                     case KEYS.TAB:
@@ -385,7 +412,6 @@
 
         },
 
-
         tokenAdd: function(value, text, first){
 
             if(value == undefined || value == ''){
@@ -408,7 +434,7 @@
             var $this = this;
             var close_btn = $('<a />')
                 .addClass('Close')
-                .html("×")
+                .html("&#215;")
                 .on('click', function(e){
                     e.stopImmediatePropagation();
                     $this.tokenRemove(value);
@@ -416,7 +442,7 @@
 
             if($('option[value="' + value + '"]', this.select).length){
                 $('option[value="' + value + '"]', this.select).attr('selected', 'selected');
-            } else if(this.options.newElements) {
+            } else if(this.options.newElements || (!this.options.newElements && $('li[data-value="' + value + '"]', this.dropdown).length > 0)) {
                 var option = $('<option />')
                     .attr('selected', 'selected')
                     .attr('value', value)
@@ -448,7 +474,7 @@
             this.dropdownHide();
 
             if (this.options.maxElements == 1 && this.select.hasClass("Fill")){
-              this.searchToken.hide();
+                this.searchToken.hide();
             }
 
             return true;
@@ -459,7 +485,7 @@
 
             var option = $('option[value="' + value + '"]', this.select);
 
-            if (option.attr('data-type') == 'custom'){
+            if(option.attr('data-type') == 'custom'){
                 option.remove();
             } else {
                 option.removeAttr('selected');
@@ -472,8 +498,31 @@
             this.dropdownHide();
 
             if (this.options.maxElements == 1 && this.select.hasClass("Fill")){
-              this.searchToken.show();
+                this.searchToken.show();
             }
+        },
+
+        clear: function(){
+
+            var $this = this;
+            $('li.Token', this.tokensContainer).each(function(){
+                $this.tokenRemove($(this).attr('data-value'));
+            });
+
+            this.options.onClear();
+
+        },
+
+        disable: function(){
+            this.select.prop('disabled', true);
+            this.searchInput.prop('disabled', true);
+            this.container.addClass('Disabled');
+        },
+
+        enable: function(){
+            this.select.prop('disabled', false);
+            this.searchInput.prop('disabled', false);
+            this.container.removeClass('Disabled');
         }
 
     });
@@ -497,10 +546,12 @@
     $.fn.tokenize.defaults = {
 
         datas: 'select',
+        placeholder: false,
         searchParam: 'search',
-        searchMaxLength: 30,
+        searchMaxLength: 0,
         newElements: true,
         nbDropdownElements: 10,
+        displayDropdownOnFocus: false,
         maxElements: 0,
         dataType: 'json',
         valueField: 'value',
@@ -508,7 +559,8 @@
         htmlField: 'html',
 
         onAddToken: function(value, text){},
-        onRemoveToken: function(value){}
+        onRemoveToken: function(value){},
+        onClear: function(){}
 
     };
 

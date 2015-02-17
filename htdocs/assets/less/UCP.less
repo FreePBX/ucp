@@ -140,33 +140,61 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 	-webkit-box-shadow: 0px 0px 10px 3px rgba(119, 119, 119, 0.75);
 	background-color: #dcecfe;
 	overflow: hidden;
-}
 
-#login-header {
-	font-size: x-large;
-}
+	.header {
+		font-size: x-large;
+	}
 
-#login-extras {
-	width: 100%;
-}
+	.extras {
+		width: 100%;
+	}
 
-#rm-text {
-	width:30%;
-	white-space:nowrap;
-	text-align: right;
-	padding-right: 7px;
-	vertical-align: top;
-	font-size: larger;
-}
+	.action-switch {
+		td {
+			text-align: center;
+			span {
+				cursor: pointer;
+			}
+			span:hover {
+				color: rgb(51, 97, 171);
+			}
+		}
+		height: 30px;
+		vertical-align: top;
+	}
 
-#rm-checkbox {
-	width:30%;
-	text-align: left;
-}
+	.lshow {
+	}
 
-#td-btn-login {
-	width:100%;
-	text-align: center;
+	.reset-title {
+		text-align: center;
+		font-size: larger;
+	}
+
+	.remember-me {
+		.text {
+			width:30%;
+			white-space:nowrap;
+			text-align: right;
+			padding-right: 7px;
+			vertical-align: top;
+			font-size: larger;
+		}
+
+		.checkbox-c {
+			width:30%;
+			text-align: left;
+		}
+	}
+
+	.lhide {
+		display: none;
+	}
+
+	.button-row {
+		width:100%;
+		text-align: center;
+	}
 }
 
 /* LOGGED IN CONTENT DISPLAY */
@@ -497,12 +525,12 @@ section.content {
 }
 
 .dialog {
-	background-color: #f5f5f5;
+	background-color: #FFFFFF;
 	position: fixed;
 	z-index: 5000;
 	top: 50%;
 	left: 50%;
-	border: 1px solid;
+	border: 1px solid rgb(202, 202, 202);
 	border-radius: 5px;
 	margin-top: -75px;
 	margin-left: -125px;
@@ -512,9 +540,12 @@ section.content {
 	-moz-box-shadow: 10px 10px 19px -1px rgba(0,0,0,0.75);
 	box-shadow: 10px 10px 19px -1px rgba(0,0,0,0.75);
 	.title {
-		padding: 2px;
-		border-bottom: 1px solid;
+		padding: 6px;
+		border-top-left-radius: 5px;
+		border-top-right-radius: 5px;
 		font-weight: bold;
+		background-color: whitesmoke;
+		font-size: 110%;
 		.fa-times {
 			float: right;
 			padding: 2px;

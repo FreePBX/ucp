@@ -1,7 +1,7 @@
-<div id="login-window">
+<div id="login-window" style="<?php echo (!empty($error_warning) || !empty($error_danger)) ? 'height: 300px;' : ''?>">
 	<form id="frm-login" method="POST" action="?display=dashboard">
 		<input type="hidden" name="token" value="<?php echo $token?>">
-		<h2 id="login-header" class="text-center"><?php echo _('User Control Panel')?></h2>
+		<h2 class="header text-center"><?php echo _('User Control Panel')?></h2>
 		<?php if(!empty($error_warning)) {?>
 			<div class="alert alert-warning"><?php echo $error_warning?></div>
 		<?php } ?>
@@ -12,19 +12,33 @@
 		<div id="error-msg" class="alert alert-danger" style="display:none"></div>
 		<div class="input-group input-margin">
 			<span class="input-group-addon"><i class="fa fa-user fa-fw"></i></span>
-			<input type="text" name="username" class="form-control" placeholder="Username" autocapitalize="off" autocorrect="off">
+			<input type="text" name="username" class="form-control" placeholder="<?php echo _('Username')?>" autocapitalize="off" autocorrect="off">
 		</div>
-		<div class="input-group input-margin">
-			<span class="input-group-addon"><i class="fa fa-key fa-fw"></i></span>
-			<input type="password" name="password" class="form-control" placeholder="Password" autocapitalize="off" autocorrect="off">
+		<div class="lshow">
+			<div class="input-group input-margin">
+				<span class="input-group-addon"><i class="fa fa-key fa-fw"></i></span>
+				<input type="password" name="password" class="form-control" placeholder="<?php echo _('Password')?>" autocapitalize="off" autocorrect="off">
+			</div>
 		</div>
-		<br/>
+		<div class="lhide text-center">
+			<?php echo _('or')?>
+		</div>
+		<div class="lhide">
+			<div class="input-group input-margin">
+				<span class="input-group-addon"><i class="fa fa-envelope fa-fw"></i></span>
+				<input type="text" name="email" class="form-control" placeholder="<?php echo _('Email')?>" autocapitalize="off" autocorrect="off">
+			</div>
+		</div>
 		<div class="row">
 			<div class="col-sm-12">
-				<table id="login-extras">
-					<tr>
-						<td id="rm-text"><?php echo _('Remember Me')?></td>
-						<td id="rm-checkbox">
+				<table class="extras">
+					<tr class="action-switch">
+						<td colspan="2" class="lshow"><span data-show="lhide" data-hide="lshow"><i class="fa fa-question"></i> <?php echo _('Forgot Password')?></span></td>
+						<td colspan="2" class="lhide"><span data-show="lshow" data-hide="lhide"><i class="fa fa-sign-in"></i> <?php echo _('Login')?></span></td>
+					</tr>
+					<tr class="lshow remember-me">
+						<td class="text"><?php echo _('Remember Me')?></td>
+						<td id="rm-checkbox" class="checkbox-c">
 							<div class="onoffswitch">
 							    <input type="checkbox" name="rememberme" class="onoffswitch-checkbox" id="rememberme">
 							    <label class="onoffswitch-label" for="rememberme">
@@ -35,11 +49,15 @@
 						</td>
 					</tr>
 					<tr>
-						<td colspan="3" id="td-btn-login"><button type="submit" id="btn-login" class="btn btn-default" disabled><?php echo _('Loading...')?></button></td>
+						<td colspan="3" class="button-row">
+							<button type="submit" id="btn-login" class="btn btn-default lshow" disabled><?php echo _('Loading...')?></button>
+							<button type="button" id="btn-forgot" class="btn btn-default lhide"><?php echo _('Send Me A Password Reset Link')?></button>
+						</td>
 					</tr>
 				</table>
 			</div>
 		</div>
 	</form>
-	<span style="color: #dcecfe;"><?php echo session_id()?></span>
+	<div style="color: #dcecfe;float: left;"><?php echo session_id()?></div>
+	<div style="color: #dcecfe;float: right;"><?php echo $_SERVER['REMOTE_ADDR']?></div>
 </div>

@@ -17,12 +17,13 @@ var UCPC = Class.extend({
 		this.ws = null;
 		this.footerHidden = false;
 		this.chatTimeout = {};
-		this.domain = "ucp";
 		this.i18n = null;
 		this.messageBuffer = {};
 		this.token = null;
 		this.lastIO = null;
 		this.Modules = {};
+
+		textdomain("ucp");
 	},
 	ready: function() {
 		$(window).resize(function() {UCP.windowResize();});
@@ -54,7 +55,61 @@ var UCPC = Class.extend({
 		}
 	},
 	setupLogin: function() {
-		var btn = $("#btn-login");
+		var btn = $("#btn-login"), fbtn = $("#btn-forgot");
+		$(".action-switch span").click(function() {
+			var hide = $(this).data("hide"), show = $(this).data("show");
+			$("." + show).show();
+			$("." + hide).hide();
+			$("input[name!=username][name!=token][name!=ftoken]").val("");
+		});
+		$("#btn-forgot").click(function() {
+			var otext = fbtn.text();
+			if ($("input[name=email]").length > 0) {
+				fbtn.prop("disabled", true);
+				fbtn.text(_("Processing..."));
+				if ($("input[name=username]").val().trim() === "" && $("input[name=email]").val().trim() === "") {
+					alert(_("Please enter either a username or email address"));
+					fbtn.prop("disabled", false);
+					fbtn.text(otext);
+				} else {
+					var queryString = $("#frm-login").formSerialize();
+					queryString = queryString + "&quietmode=1&module=User&command=forgot";
+					$.post( "index.php", queryString, function( data ) {
+						if (!data.status) {
+							$("#error-msg").html(data.message).fadeIn("fast");
+						} else {
+							alert(_("Your reset link is in the mail!"));
+						}
+						fbtn.prop("disabled", false);
+						fbtn.text(otext);
+					});
+				}
+			}
+			if ($("input[name=npass1]").length > 0) {
+				var token = $("input[name=ftoken]").val(),
+						pass1 = $("input[name=npass1]").val().trim(),
+						pass2 = $("input[name=npass2]").val().trim();
+				if (pass1 != pass2) {
+					alert(_("Passwords do not match"));
+					return false;
+				} else if (pass1 === "" || pass2 === "") {
+					alert(_("Passwords can't be blank!"));
+					return false;
+				} else {
+					var queryString = $("#frm-login").formSerialize();
+					queryString = queryString + "&quietmode=1&module=User&command=reset";
+					$.post( "index.php", queryString, function( data ) {
+						if (!data.status) {
+							$("#error-msg").html(data.message).fadeIn("fast");
+						} else {
+							alert(_("Passwords changed!"));
+							$("#switch-login").click();
+						}
+					});
+
+				}
+			}
+		});
 		if ($.support.pjax) {
 			$(document).on("submit", "#frm-login", function(event) {
 				var queryString = $(this).formSerialize();
@@ -114,28 +169,8 @@ var UCPC = Class.extend({
 			//Navigation Clicks
 			$(document).on("click", "[data-pjax] a, a[data-pjax]", function(event) {
 				var container = $("#dashboard-content"),
-						clicker = $(this).data("mod"),
-						breadcrumbs = "<li class=\"home\"><a data-mod=\"home\" data-pjax href=\"?display=dashboard&amp;mod=home\">Home</a></li>",
-						mod = "home",
-						sub = "",
-						display = "";
+						clicker = $(this).data("mod");
 				$.pjax.click(event, { container: container });
-
-				mod = $.url().param("mod");
-				sub = $.url().param("sub");
-				display = $.url().param("display");
-				if (typeof display === "undefined" || display == "dashboard") {
-					if (mod != "home") {
-						breadcrumbs = breadcrumbs + "<li class=\"module bc-" + mod + " active\">" + mod + "</li>";
-					}
-					if (typeof sub !== "undefined") {
-						breadcrumbs = breadcrumbs + "<li class=\"subsection bc-" + sub + " active\">" + sub + "</li>";
-					}
-				} else if (display == "settings") {
-					breadcrumbs = breadcrumbs + "<li class=\"module active\">Settings</li>";
-				}
-
-				$("#top-dashboard-nav").html(breadcrumbs);
 
 				$( ".pushmenu li").each(function( index ) {
 					if ($(this).data("mod") == clicker) {
@@ -171,34 +206,6 @@ var UCPC = Class.extend({
 		$(document).on("pjax:start", function() {UCP.pjaxStart();});
 		$(document).on("pjax:timeout", function(event) {UCP.pjaxTimeout(event);});
 		$(document).on("pjax:error", function(event) {UCP.pjaxError(event);});
-
-		$("#presence-box2").click(function() {
-			$(this).toggleClass("active");
-			$("#presence-menu2").toggleClass("active");
-			$(this).find("i").toggleClass("active");
-		});
-
-		$("#presence-menu2 .change-status").click(function() {
-			$("#presence-menu2 .options").toggleClass("shrink");
-			$("#presence-menu2 .statuses").toggleClass("grow");
-			if ($("#presence-menu2 .statuses").hasClass("grow")) {
-				$("#presence-menu2 .change-status").text("Select Actions");
-			} else {
-				$("#presence-menu2 .change-status").text("Change Status");
-			}
-		});
-
-		//Hide Settings Menu when clicking outside of it
-		$("html").click(function(event) {
-			if (($(event.target).parents().index($("#presence-menu2")) == -1) &&
-				$(event.target).parents().index($("#presence-box2")) == -1) {
-				if ($("#presence-menu2").hasClass("active")) {
-					$("#presence-menu2").removeClass("active");
-					$("#presence-box2").removeClass("active");
-					$("#presence-box2 i").removeClass("active");
-				}
-			}
-		});
 
 		//Show/Hide Side Bar
 		$("#bc-mobile-icon").click(function() {
@@ -266,6 +273,7 @@ var UCPC = Class.extend({
 
 		//Detect if the client allows touch access.
 		if (Modernizr.touch) {
+			/*
 			$$("#dashboard").swipeLeft(function() {
 				if ($(".pushmenu-left").hasClass("pushmenu-open")) {
 					toggleMenu();
@@ -276,20 +284,25 @@ var UCPC = Class.extend({
 					toggleMenu();
 				}
 			});
+			*/
 		}
-
+		this.calibrateMenus();
+		$("#loading-container").fadeOut("fast");
+	},
+	calibrateMenus: function() {
 		//Menu adjustments
 		//$("#presence-box2").css("right", $(".nav-btns").width() + "px");
 		//$("#presence-menu2").css("right", $(".nav-btns").width() + "px");
-		totalNavs = $(".module-container").length;
-		navWidth = $(".module-container").last().outerWidth();
+
+		totalNavs = $(".module-container").filter(":visible").length;
+		navWidth = $(".module-container").filter(":visible").last().outerWidth();
 
 		count = totalNavs;
-		$(".module-container").each(function() {
+		$(".module-container").filter(":visible").each(function() {
 			var module = $(this).data("module"),
-					menuObj = $("#" + module + "-menu"),
-					btnObj = $("#nav-btn-" + module),
-					hidden = menuObj.outerHeight() + 30;
+			menuObj = $("#" + module + "-menu"),
+			btnObj = $("#nav-btn-" + module),
+			hidden = menuObj.outerHeight() + 30;
 			count--;
 			if (menuObj.length > 0) {
 				menuObj.css("right", (navWidth * count) + "px");
@@ -301,6 +314,7 @@ var UCPC = Class.extend({
 				menuObj.show();
 
 				//Show/Hide Settings Drop Down
+				$("#nav-btn-" + module).off("click");
 				$("#nav-btn-" + module).click(function() {
 					menuObj.toggleClass("active");
 					$("#nav-btn-" + module).toggleClass("active");
@@ -309,21 +323,24 @@ var UCPC = Class.extend({
 					} else {
 						menuObj.css("top", "36px");
 					}
-				});
-
-				//hide menu when clicked outside
-				$("html").click(function(event) {
-					if ($(event.target).parents().index($("#nav-btn-" + module)) == -1) {
-						if (menuObj.hasClass("active")) {
-							menuObj.removeClass("active");
-							$("#nav-btn-" + module).removeClass("active");
-							menuObj.css("top", "-" + menuObj.data("hidden") + "px");
+					//hide menu when clicked outside
+					$("html").on("click." + module, function(event) {
+						if ($(event.target).parents().index($("#nav-btn-" + module)) == -1) {
+							if ((menuObj.hasClass("active") &&
+									(menuObj.data("keep-on-click") != "false")) ||
+									(menuObj.hasClass("active") &&
+									(menuObj.data("keep-on-click") == "false") &&
+									($(event.target).parents().index($("#" + module + "-menu")) == -1))) {
+								menuObj.removeClass("active");
+								$("#nav-btn-" + module).removeClass("active");
+								menuObj.css("top", "-" + menuObj.data("hidden") + "px");
+								$("html").off("click." + module);
+							}
 						}
-					}
+					});
 				});
 			}
 		});
-		$("#loading-container").fadeOut("fast");
 	},
 	onchange: function(evt) {
 		var v = "visible", h = "hidden",
@@ -344,7 +361,7 @@ var UCPC = Class.extend({
 		}
 	},
 	wsconnect: function(namespace, callback) {
-		if (!this.loggedIn) {
+		if (!this.loggedIn || !ucpserver.enabled) {
 			return false;
 		}
 
@@ -359,8 +376,8 @@ var UCPC = Class.extend({
 				}
 			});
 		} else {
-			var host = $.url().attr("host"),
-					port = 8001,
+			var host = ucpserver.host,
+					port = ucpserver.port,
 					socket = null;
 			try {
 				socket = io("ws://" + host + ":" + port + "/" + namespace, {
@@ -427,7 +444,7 @@ var UCPC = Class.extend({
 		$.each(modules, function( index, module ) {
 			var className = module + "C", UCPclass = null;
 			if (typeof window[module] === "undefined") {
-				if (typeof Ucp.Modules[module] === "undefined" && typeof window[className]) {
+				if (typeof Ucp.Modules[module] === "undefined" && typeof window[className] === "function") {
 					UCPclass = window[className];
 					console.log("Auto Loading " + className);
 					Ucp.Modules[module] = new UCPclass(Ucp);
@@ -492,9 +509,12 @@ var UCPC = Class.extend({
 	notificationsDenied: function() {
 		this.notify = false;
 	},
-	closeDialog: function() {
+	closeDialog: function(callback) {
 		$(".dialog").fadeOut("fast", function(event) {
 			$(this).remove();
+			if (typeof callback === "function") {
+				callback();
+			}
 		});
 	},
 	showDialog: function(title, content, height, width, callback) {
@@ -705,6 +725,10 @@ var UCPC = Class.extend({
 		return str.replace(/\w\S*/g, function(txt) { return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase(); });
 	},
 	pjaxEnd: function(event) {
+		var display = $.url().param("display"),
+				breadcrumbs = "<li class=\"home\"><a data-mod=\"home\" data-pjax href=\"?display=dashboard&amp;mod=home\">" + _("Home") + "</a></li>",
+				sub = $.url().param("sub");
+
 		this.windowResize();
 		$("#loader-screen").fadeOut("fast");
 		if (typeof window[this.activeModule] == "object" &&
@@ -713,11 +737,11 @@ var UCPC = Class.extend({
 		} else if (this.validMethod(this.activeModule, "hide")) {
 			this.Modules[this.activeModule].hide(event);
 		}
-		var display = $.url().param("display");
+
 		if (typeof display === "undefined" || display == "dashboard") {
 			this.activeModule = $.url().param("mod");
 			this.activeModule = (this.activeModule !== undefined) ? UCP.toTitleCase(this.activeModule) : "Home";
-			this.domain = this.activeModule.toLowerCase();
+			textdomain(this.activeModule.toLowerCase());
 			if (typeof window[this.activeModule] == "object" &&
 				typeof window[this.activeModule].display == "function") {
 				window[this.activeModule].display(event);
@@ -727,6 +751,27 @@ var UCPC = Class.extend({
 		} else if (display == "settings") {
 			this.settingsBinds();
 		}
+
+		if (typeof UCP.Modules[this.activeModule] !== "undefined" && typeof UCP.Modules[this.activeModule].getInfo !== "undefined") {
+			var tmp = UCP.Modules[this.activeModule].getInfo();
+			name = tmp.name;
+		} else {
+			name = this.activeModule;
+		}
+
+		if (typeof display === "undefined" || display == "dashboard") {
+			if (this.activeModule != "Home") {
+				breadcrumbs = breadcrumbs + "<li class=\"module bc-" + this.activeModule.toLowerCase() + " active\">" + name + "</li>";
+			}
+			if (typeof sub !== "undefined") {
+				breadcrumbs = breadcrumbs + "<li class=\"subsection bc-" + sub + " active\">" + sub + "</li>";
+			}
+		} else if (display == "settings") {
+			breadcrumbs = breadcrumbs + "<li class=\"module active\">" + _("Settings") + "</li>";
+		}
+
+		$("#top-dashboard-nav").html(breadcrumbs);
+
 		this.binds();
 	},
 	pjaxStart: function(event) {
@@ -764,7 +809,7 @@ var UCPC = Class.extend({
 	logIn: function(event) {
 		this.activeModule = $.url().param("mod");
 		this.activeModule = (this.activeModule !== undefined) ? UCP.toTitleCase(this.activeModule) : "Home";
-		this.domain = this.activeModule.toLowerCase();
+		textdomain(this.activeModule.toLowerCase());
 		this.loggedIn = true;
 		this.connect();
 		if (!Notify.needsPermission() && this.notify === null) {
@@ -790,12 +835,14 @@ var UCPC = Class.extend({
 		} else if (this.validMethod(this.activeModule, "hide")) {
 			this.Modules[this.activeModule].hide(event);
 		}
+		localforage.clear();
 		this.loggedIn = false;
 		this.disconnect();
 	},
 	settingsBinds: function() {
 		if (Notify.isSupported()) {
 			$("#ucp-settings input[name=\"desktopnotifications\"]").prop("checked", UCP.notify);
+			$("#ucp-settings input[name=\"desktopnotifications\"]").off();
 			$("#ucp-settings input[name=\"desktopnotifications\"]").change(function() {
 				if (!UCP.notify && $(this).is(":checked")) {
 					Notify.requestPermission(function() {
@@ -822,11 +869,22 @@ var UCPC = Class.extend({
 			$("#ucp-settings .desktopnotifications-group").show();
 		}
 
+		if (typeof $.cookie("lang") !== "undefined") {
+			$("#ucp-settings select[name=\"lang\"]").val($.cookie("lang"));
+		}
+		$("#ucp-settings select[name=\"lang\"]").change(function() {
+			$.cookie("lang", $(this).val());
+			if (confirm(_("UCP needs to reload, ok?"))) {
+				window.location.reload();
+			}
+		});
+
+		$("#ucp-settings input[type!=\"checkbox\"]").off();
 		$("#ucp-settings input[type!=\"checkbox\"]").change(function() {
 			var password = $(this).val();
 			$(this).blur(function() {
 				if ($(this).prop("type") == "password") {
-					UCP.showDialog("Confirm Password", "Please Reconfirm Your Password<input type='password' id='ucppass'></input><button id='passsub'>Submit</button>");
+					UCP.showDialog("Confirm Password", "<label for='ucppass' class='control-label'>Please Reconfirm Your Password</label><input type='password' class='form-control' id='ucppass'></input><button id='passsub' class='btn btn-default'>Submit</button>");
 					$("#passsub").click(function() {
 						if ($("#ucppass").val() !== "") {
 							var np = $("#ucppass").val();
@@ -853,20 +911,21 @@ var UCPC = Class.extend({
 						}
 					});
 					return 0;
+				} else {
+					$.post( "?quietmode=1&command=ucpsettings", { key: $(this).prop("name"), value: $(this).val() }, function( data ) {
+						if (data.status) {
+							$("#message").addClass("alert-success");
+							$("#message").text(_("Saved!"));
+							$("#message").fadeIn( "slow", function() {
+								setTimeout(function() { $("#message").fadeOut("slow"); }, 2000);
+							});
+						} else {
+							$("#message").addClass("alert-danger");
+							$("#message").text(data.message);
+						}
+						$(this).off("blur");
+					});
 				}
-				$.post( "?quietmode=1&command=ucpsettings", { key: $(this).prop("name"), value: $(this).val() }, function( data ) {
-					if (data.status) {
-						$("#message").addClass("alert-success");
-						$("#message").text(_("Saved!"));
-						$("#message").fadeIn( "slow", function() {
-							setTimeout(function() { $("#message").fadeOut("slow"); }, 2000);
-						});
-					} else {
-						$("#message").addClass("alert-danger");
-						$("#message").text(data.message);
-					}
-					$(this).off("blur");
-				});
 			});
 		});
 	},
@@ -910,6 +969,10 @@ $(function() {
 	UCP.ready();
 });
 
+String.prototype.modularize = function() {
+		return this.toLowerCase().charAt(0).toUpperCase() + this.slice(1);
+};
+
 jQuery.fn.highlight = function(str, className) {
 	var regex = new RegExp("\\b" + str + "\\b", "gi");
 
@@ -928,20 +991,5 @@ function htmlDecode( html ) {
 	return a.textContent;
 }
 
-/** Language, global functions so they act like php **/
+/** Language, global functions so they act like php procedurals **/
 UCP.i18n = new Jed(languages);
-function _(string) {
-	try {
-		return UCP.i18n.dgettext( UCP.domain, string );
-	} catch (err) {
-		return string;
-	}
-}
-
-function sprintf() {
-	try {
-		return UCP.i18n.sprintf.apply(this, arguments);
-	} catch (err) {
-		return string;
-	}
-}

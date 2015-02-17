@@ -9,6 +9,8 @@
 		<script type="text/javascript" src="assets/js/compiled/modules/<?php echo $scripts?>"></script>
 		<script>
 			var modules = <?php echo $modules?>;
+			var desktop = <?php echo $desktop ? "true" : "false"?>;
+			var ucpserver = <?php echo $ucpserver ?>;
 			emojione.imagePathPNG = 'assets/images/emoji/png/';
 			emojione.imagePathSVG = 'assets/images/emoji/svg/';
 		</script>

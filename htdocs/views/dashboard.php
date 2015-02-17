@@ -29,11 +29,11 @@
 		</div>
 		<div id="bc-mobile-icon"><i class="fa fa-bars"></i></div>
 		<ol id="top-dashboard-nav" class="breadcrumb">
-		  <li class="home"><a data-mod="home" data-pjax href="?display=dashboard&amp;mod=home"><?php echo _('Home')?></a></li>
-		  <?php if($active_module != 'home' && !empty($menu[$active_module])) {?>
-			  <li class="module bc-<?php echo $menu[$active_module]['rawname']?> active"><?php echo $menu[$active_module]['rawname']?></li>
-			  <?php if(!empty($_REQUEST['sub'])) {?>
-				  <li class="subsection bc-<?php echo $_REQUEST['sub']?> active"><?php echo $_REQUEST['sub']?></li>
+			<li class="home"><a data-mod="home" data-pjax href="?display=dashboard&amp;mod=home"><?php echo _('Home')?></a></li>
+			<?php if($active_module != 'home' && !empty($menu[$active_module])) {?>
+				<li class="module bc-<?php echo $menu[$active_module]['rawname']?> active"><?php echo $menu[$active_module]['name']?></li>
+				<?php if(!empty($_REQUEST['sub'])) {?>
+					<li class="subsection bc-<?php echo $_REQUEST['sub']?> active"><?php echo $_REQUEST['sub']?></li>
 				<?php } ?>
 			<?php } elseif($active_module == 'ucpsettings') { ?>
 				<li class="bc-ucpsettings active"><?php echo _('Settings')?></li>
@@ -42,7 +42,7 @@
 		<div id="top-dashboard-nav-right">
 			<div class="nav-btns">
 				<?php foreach($navItems as $button) {?>
-					<div id="nav-btn-<?php echo $button['rawname']?>" class="module-container" data-module="<?php echo $button['rawname']?>">
+					<div id="nav-btn-<?php echo $button['rawname']?>" class="module-container <?php echo (!empty($button['hide']) ? 'hidden' : '')?>" data-module="<?php echo $button['rawname']?>">
 						<div class="icon">
 							<i class="<?php echo preg_match("/^fa-/",$button['icon']) ? "fa ". $button['icon'] : $button['icon']?>"></i>
 							<?php echo !empty($button['badge']) ? '<span class="badge">'.$button['badge'].'</span>' : '<span class="badge" style="display:none">0</span>'?>
@@ -101,17 +101,6 @@
 	<div id="footer">
 		<div id="footer-bar"></div>
 		<div id="footer-content">
-			<div id="footer-image">
-				<a href="http://www.schmoozecom.com/">
-					<img height="65" src="assets/images/schmooze-phone-icon.png">
-				</a>
-			</div>
-			<div id="footer-message">
-				<?php echo sprintf(_('User Control Panel is released as %s or newer'),'<a href="http://www.gnu.org/licenses/agpl-3.0.html" target="_blank">AGPLV3</a>')?>.<br/>
-				<?php echo sprintf(_('Copyright 2013-%s Schmooze Com Inc'),$year)?>.<br/>
-				<a href="http://www.schmoozecom.com/">http://www.schmoozecom.com/</a><br/>
-				<span class="small-text"><?php echo _('The removal of this copyright notice is stricly prohibited')?></span>
-			</div>
-		</div>
+			<?php echo $dashboard_footer_content?>
 	</div>
 </div>

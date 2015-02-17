@@ -64,3 +64,17 @@ switch(true) {
 		$ucp->enableAllUsers();
 	break;
 }
+
+ $set['value'] = 'views/dashfootercontent.php';
+ $set['defaultval'] =& $set['value'];
+ $set['readonly'] = 1;
+ $set['hidden'] = 1;
+ $set['level'] = 1;
+ $set['sortorder'] = 355;
+ $set['module'] = 'ucp'; //This will help delete the settings when module is uninstalled
+ $set['category'] = 'Styling and Logos';
+ $set['emptyok'] = 0;
+ $set['name'] = 'View: UCP dashfootercontent.php';
+ $set['description'] = 'dashfootercontent.php view. This should never be changed except for very advanced layout changes';
+ $set['type'] = CONF_TYPE_TEXT;
+ FreePBX::Config()->define_conf_setting('VIEW_UCP_FOOTER_CONTENT',$set,true);

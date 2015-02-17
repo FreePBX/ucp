@@ -14,8 +14,22 @@ if (!@include_once(getenv('FREEPBX_CONF') ? getenv('FREEPBX_CONF') : '/etc/freep
 	include_once('/etc/asterisk/freepbx.conf');
 }
 
-$lang = !empty($_COOKIE['lang']) ? $_COOKIE['lang'] : 'en_US';
+if (empty($_COOKIE['lang']) || !preg_match('/^[\w\._@-]+$/', $_COOKIE['lang'], $matches)) {
+	$deflang = FreePBX::Config()->get('UIDEFAULTLANG');
+	$lang = !empty($deflang)?$deflang:'en_US';
+	if (empty($_COOKIE['lang'])) {
+		setcookie("lang", $lang);
+	} else {
+		$_COOKIE['lang'] = $lang;
+	}
+} else {
+	preg_match('/^([\w\._@-]+)$/', $_COOKIE['lang'], $matches);
+	$lang = !empty($matches[1])?$matches[1]:'en_US';
+	$_COOKIE['lang'] = $lang;
+}
 putenv('LC_ALL='.$lang);
+putenv('LANG='.$lang);
+putenv('LANGUAGE='.$lang);
 setlocale(LC_ALL, $lang);
 
 include(dirname(__FILE__).'/includes/bootstrap.php');
@@ -41,6 +55,10 @@ if(isset($_REQUEST['logout']) && $user) {
 	$ucp->User->logout();
 	$user = $ucp->User->getUser();
 }
+if(empty($ucp->Session->isMobile)) {
+	$ucp->Session->isMobile = $ucp->detect->isMobile();
+	$ucp->Session->isTablet = $ucp->detect->isTablet();
+}
 //Send back only PJAX relevant data
 //This is to force a complete page refresh if/when UCP gets updates
 //The header HTTP_X_PJAX comes from the JS PJAX lib, letting us know we don't need the whole html document
@@ -52,7 +70,10 @@ if(isset($_SERVER['HTTP_X_PJAX'])) {
 header('Content-Type:text/html; charset=UTF-8');
 
 //Second part of this IF statement
-if((isset($_REQUEST['quietmode']) && $user !== false && !empty($user)) || (isset($_REQUEST['command']) && $_REQUEST['command'] == 'login')) {
+if((isset($_REQUEST['quietmode']) && $user !== false && !empty($user)) ||
+	(isset($_REQUEST['command']) && ($_REQUEST['command'] == 'login' ||
+																	$_REQUEST['command'] == 'forgot' ||
+																	$_REQUEST['command'] == 'reset'))) {
 	$m = !empty($_REQUEST['module']) ? $_REQUEST['module'] : null;
 	$ucp->Ajax->doRequest($m,$_REQUEST['command']);
 	die();
@@ -118,17 +139,19 @@ try {
 if(!isset($_SERVER['HTTP_X_PJAX'])) {
 	$displayvars['version'] = $ucp->getVersion();
 	//TODO: needs to not be global
-	$ucp->View->show_view(dirname(__FILE__).'/views/header.php',$displayvars);
+	$ucp->View->show_view(__DIR__.'/views/header.php',$displayvars);
 }
 
 if($user && !empty($user)) {
 	$display = !empty($_REQUEST['display']) ? $_REQUEST['display'] : 'dashboard';
 	$module = !empty($_REQUEST['mod']) ? $_REQUEST['mod'] : 'home';
-	$displayvars['menu'] = $ucp->Modules->generateMenu();
 } else {
-	$display = '';
+	if(isset($_REQUEST['forgot'])) {
+		$display = 'forgot';
+	} else {
+		$display = '';
+	}
 	$module = '';
-	$displayvars['menu'] = array();
 	if(!empty($_REQUEST['display']) || !empty($_REQUEST['mod']) || isset($_REQUEST['logout'])) {
 		//TODO: logout code?
 	}
@@ -139,7 +162,16 @@ switch($display) {
 	case "dashboard":
 		if($display == "settings") {
 			$ucp->Modgettext->push_textdomain("ucp");
-			$dashboard_content = $ucp->View->load_view(dirname(__FILE__).'/views/settings.php',$displayvars);
+			$displayvars['desktop'] = (!$ucp->Session->isMobile && !$ucp->Session->isTablet);
+			$displayvars['lang'] = $lang;
+			$displayvars['languages'] = array(
+				'en_US' => _('English'). " (US)"
+			);
+			foreach(glob(FreePBX::Config()->get('AMPWEBROOT')."/admin/modules/ucp/i18n/*",GLOB_ONLYDIR) as $langDir) {
+				$l = basename($langDir);
+				$displayvars['languages'][$l] = function_exists('locale_get_display_name') ? locale_get_display_name($l, $lang) : $l;
+			}
+			$dashboard_content = $ucp->View->load_view(__DIR__.'/views/settings.php',$displayvars);
 			$displayvars['active_module'] = 'ucpsettings';
 			$ucp->Modgettext->pop_textdomain();
 		} else {
@@ -151,7 +183,7 @@ switch($display) {
 			$displayvars['active_module'] = $module;
 			$mclass = ucfirst(strtolower($module));
 			if(in_array($mclass,$active_modules)) {
-				$dashboard_content = $ucp->View->load_view(dirname(__FILE__).'/views/module.php',array("module" => $module, "display" => $ucp->Modules->$mclass->getDisplay()));
+				$dashboard_content = $ucp->View->load_view(__DIR__.'/views/module.php',array("module" => $module, "display" => $ucp->Modules->$mclass->getDisplay()));
 			} else {
 				$ucp->Modgettext->pop_textdomain();
 				$dashboard_content = sprintf(_('Unknown Module %s'),$module);
@@ -165,8 +197,11 @@ switch($display) {
 				exit();
 			}
 		}
+		$displayvars['menu'] = ($user && !empty($user)) ? $ucp->Modules->generateMenu() : array();
 		$displayvars['dashboard_content'] = $dashboard_content;
 		$displayvars['year'] = date('Y',time());
+		$dbfc = FreePBX::Config()->get('VIEW_UCP_FOOTER_CONTENT');
+		$displayvars['dashboard_footer_content'] = $ucp->View->load_view(__DIR__."/".$dbfc, array("year" => date('Y',time())));
 		$modules = $ucp->Modules->getActiveModules();
 
 		$displayvars['navItems'] = array();
@@ -180,16 +215,28 @@ switch($display) {
 			}
 		}
 		$o = $ucp->getSetting($user['username'],'Webrtc','originate');
-		$originate = !empty($o) ? '<li class="originate"><a>'._("Originate Call").'</a></li>' : '';
+		$originate = !empty($o) ? '<a class="originate">'._("Originate Call").'</a>' : '';
 		$displayvars['navItems']['settings'] = array(
 			"rawname" => "settings",
 			"badge" => false,
 			"icon" => "fa-cog",
 			"menu" => array(
-				"html" => '<li>' . $originate . '<a data-pjax href="?display=settings">' . _('Settings') . '</a></li><li><a class="logout" href="?logout=1">' . _('Logout') . '</a></li>'
+				"html" => '<li>' . $originate . '</li><li><a data-pjax href="?display=settings">' . _('Settings') . '</a></li><li><a class="logout" href="?logout=1">' . _('Logout') . '</a></li>'
 			)
 		);
-		$ucp->View->show_view(dirname(__FILE__).'/views/dashboard.php',$displayvars);
+		$ucp->View->show_view(__DIR__.'/views/dashboard.php',$displayvars);
+	break;
+	case "forgot":
+		$displayvars['token'] = $ucp->Session->generateToken('login');
+		$user = $ucp->User->validateResetToken($_REQUEST['forgot']);
+		if(!empty($user)) {
+			$displayvars['username'] = $user['username'];
+			$displayvars['ftoken'] = $_REQUEST['forgot'];
+			$ucp->View->show_view(__DIR__.'/views/forgot.php',$displayvars);
+		} else {
+			$displayvars['error_danger'] = _("Invalid Token");
+			$ucp->View->show_view(__DIR__.'/views/login.php',$displayvars);
+		}
 	break;
 	default:
 		$displayvars['token'] = $ucp->Session->generateToken('login');
@@ -199,8 +246,10 @@ switch($display) {
 
 if(!isset($_SERVER['HTTP_X_PJAX'])) {
 	$displayvars['language'] = $ucp->Modules->getGlobalLanguageJSON($lang);
+	$displayvars['ucpserver'] = json_encode($ucp->getServerSettings());
 	$displayvars['modules'] = json_encode($active_modules);
 	$displayvars['gScripts'] = $ucp->getScripts();
 	$displayvars['scripts'] = $ucp->Modules->getGlobalScripts();
+	$displayvars['desktop'] = (!$ucp->Session->isMobile && !$ucp->Session->isTablet);
 	$ucp->View->show_view(dirname(__FILE__).'/views/footer.php',$displayvars);
 }

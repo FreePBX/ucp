@@ -69,7 +69,7 @@ class Settings extends Modules{
 			$html .= '</div></div></div>';
 
 		}
-		$html .= '</div><script>var ext = '.$ext.';</script>';
+		$html .= '</div><script>var ext = "'.$ext.'";</script>';
 		return $html;
 	}
 
@@ -83,11 +83,17 @@ class Settings extends Modules{
 				"name" => _("Settings"),
 				"badge" => false,
 			);
-			foreach($extensions as $extension) {
-				$data = $this->UCP->FreePBX->Core->getDevice($extension);
+			foreach($extensions as $e) {
+				$data = $this->UCP->FreePBX->Core->getDevice($e);
+				if(empty($data) || empty($data['description'])) {
+					$data = $this->UCP->FreePBX->Core->getUser($e);
+					$name = $data['name'];
+				} else {
+					$name = $data['description'];
+				}
 				$menu["menu"][] = array(
-					"rawname" => $extension,
-					"name" => $extension . (!empty($data['description']) ? " - " . $data['description'] : ""),
+					"rawname" => $e,
+					"name" => $e . (!empty($name) ? " - " . $name : ""),
 					"badge" => false
 				);
 			}

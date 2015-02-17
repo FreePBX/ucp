@@ -10,12 +10,26 @@
 class Ucp implements BMO {
 	private $message;
 	private $registeredHooks = array();
+	private $brand = 'FreePBX';
 	public function __construct($freepbx = null) {
 		if ($freepbx == null)
 			throw new Exception("Not given a FreePBX Object");
 
 		$this->FreePBX = $freepbx;
+		$this->Userman = $this->FreePBX->Userman;
 		$this->db = $freepbx->Database;
+
+		if (!defined('DASHBOARD_FREEPBX_BRAND')) {
+			if (!empty($_SESSION['DASHBOARD_FREEPBX_BRAND'])) {
+				define('DASHBOARD_FREEPBX_BRAND', $_SESSION['DASHBOARD_FREEPBX_BRAND']);
+			} else {
+				define('DASHBOARD_FREEPBX_BRAND', \FreePBX::Config()->get("DASHBOARD_FREEPBX_BRAND"));
+			}
+		} else {
+			$_SESSION['DASHBOARD_FREEPBX_BRAND'] = DASHBOARD_FREEPBX_BRAND;
+		}
+
+		$this->brand = DASHBOARD_FREEPBX_BRAND;
 	}
 
 	public function install() {
@@ -84,15 +98,108 @@ class Ucp implements BMO {
 		}
 	}
 
+	/**
+	 * Hook functionality for sending an email from userman
+	 * @param {int} $id      The userman user id
+	 * @param {string} $display The display page name where this was executed
+	 * @param {array} $data    Array of data to be able to use
+	 */
 	public function usermanSendEmail($id, $display, $data) {
-		return sprintf(_('User Control Panel: %s'),$data['host'].'/ucp');
+		if(function_exists('sysadmin_get_portmgmt')) {
+			$ports = sysadmin_get_portmgmt();
+			if(!empty($ports['ucp'])) {
+				$data['host'] = $data['host'].":".$ports['ucp'];
+				$final = array(
+					"\t".sprintf(_('User Control Panel: %s'),$data['host']),
+				);
+				if(!$data['password']) {
+					$token = $this->FreePBX->Userman->generatePasswordResetToken($id,"1 hour",true);
+					$final[] = "\n".sprintf(_('Password Reset Link (Valid Until: %s): %s'),date("h:i:s A", $token['valid']),$data['host']."/?forgot=".$token['token']);
+				}
+				return $final;
+			}
+		}
+		$final = array(
+			"\t".sprintf(_('User Control Panel: %s'),$data['host']."/ucp"),
+		);
+		if(!$data['password']) {
+			$token = $this->FreePBX->Userman->generatePasswordResetToken($id,"1 hour",true);
+			$final[] = "\n".sprintf(_('Password Reset Link (Valid Until: %s): %s'),date("h:i:s A", $token['valid']),$data['host']."/ucp/?forgot=".$token['token']);
+		}
+		return $final;
 	}
 
+	public function validatePasswordResetToken($token) {
+		return $this->FreePBX->Userman->validatePasswordResetToken($token);
+	}
+
+	public function resetPasswordWithToken($token,$newpassword) {
+		return $this->FreePBX->Userman->resetPasswordWithToken($token,$newpassword);
+	}
+
+	/**
+	* Sends a password reset email
+	* @param {int} $id The userid
+	*/
+	public function sendPassResetEmail($id) {
+		global $amp_conf;
+		$user = $this->getUserByID($id);
+		if(empty($user) || empty($user['email'])) {
+			return false;
+		}
+
+		$token = $this->Userman->generatePasswordResetToken($id);
+
+		if(empty($token)) {
+			return false;
+		}
+
+		$user['token'] = $token['token'];
+		$user['brand'] = $this->brand;
+		$user['host'] = 'http://'.$_SERVER["SERVER_NAME"];
+		$user['link'] = $user['host'] . "/ucp/?forgot=".$user['token'];
+		$user['valid'] = date("h:i:s A", $token['valid']);
+
+		//TODO: Stop gap until sysadmin becomes a full class
+		if(!function_exists('sysadmin_get_portmgmt') && $this->FreePBX->Modules->checkStatus('sysadmin') && file_exists($this->FreePBX->Config()->get('AMPWEBROOT').'/admin/modules/sysadmin/functions.inc.php')) {
+			include $this->FreePBX->Config()->get('AMPWEBROOT').'/admin/modules/sysadmin/functions.inc.php';
+		}
+
+		if(function_exists('sysadmin_get_portmgmt')) {
+			$ports = sysadmin_get_portmgmt();
+			if(!empty($ports['ucp'])) {
+				$user['host'] = $user['host'].":".$ports['ucp'];
+				$user['link'] = $user['host'] . "/?forgot=".$user['token'];
+			}
+		}
+
+		$template = file_get_contents(__DIR__.'/views/emails/reset_text.tpl');
+		preg_match_all('/%([\w|\d]*)%/',$template,$matches);
+		foreach($matches[1] as $match) {
+			$replacement = !empty($user[$match]) ? $user[$match] : '';
+			$template = str_replace('%'.$match.'%',$replacement,$template);
+		}
+
+		$this->Userman->sendEmail($user['id'],$this->brand . " password reset",$template);
+	}
+
+	/**
+	 * Hook functionality from userman when a user is deleted
+	 * @param {int} $id      The userman user id
+	 * @param {string} $display The display page name where this was executed
+	 * @param {array} $data    Array of data to be able to use
+	 */
 	public function usermanDelUser($id, $display, $data) {
 		$this->expireUserSessions($id);
 		$this->deleteUser($id);
 	}
 
+	/**
+	 * Hook functionality from userman when a user is added
+	 * @param {int} $id      The userman user id
+	 * @param {string} $display The display page name where this was executed
+	 * @param {array} $data    Array of data to be able to use
+	 */
 	public function usermanAddUser($id, $display, $data) {
 		if($display == 'extensions' || $display == 'users') {
 			$this->FreePBX->Userman->setModuleSettingByID($id,'ucp|Global','allowLogin',true);
@@ -106,6 +213,12 @@ class Ucp implements BMO {
 		}
 	}
 
+	/**
+	 * Hook functionality from userman when a user is updated
+	 * @param {int} $id      The userman user id
+	 * @param {string} $display The display page name where this was executed
+	 * @param {array} $data    Array of data to be able to use
+	 */
 	public function usermanUpdateUser($id, $display, $data) {
 		if($display == 'userman') {
 			if(isset($_POST['ucp|login'])) {
@@ -130,18 +243,32 @@ class Ucp implements BMO {
 		return true;
 	}
 
+	/**
+	 * Get language from a module and make it json for UCP translations
+	 * @param {string} $language The Language name
+	 * @param {array} $modules  Array of module rawnames
+	 */
 	public function getModulesLanguage($language, $modules) {
 		if(!class_exists("po2json")) {
 			require_once(__DIR__."/includes/po2json.php");
 		}
 		$final = array();
 		$root = $this->FreePBX->Config->get("AMPWEBROOT");
+		//first get ucp
+		$po = $root."/admin/modules/ucp/i18n/" . $language . "/LC_MESSAGES/ucp.po";
+		if(file_exists($po)) {
+			$c = new po2json($po,"ucp");
+			$array = $c->po2array();
+			if(!empty($array)) {
+				$final['ucp'] = $array;
+			}
+		}
+		//now get the modules
 		foreach ($modules as $module) {
 			$module = strtolower($module);
 			$po = $root."/admin/modules/".$module."/i18n/" . $language . "/LC_MESSAGES/".$module.".po";
 			if(file_exists($po)) {
 				$c = new po2json($po,$module);
-
 				$array = $c->po2array();
 				if(!empty($array)) {
 					$final[$module] = $array;
@@ -232,6 +359,10 @@ class Ucp implements BMO {
 		$this->generateUCP();
 	}
 
+	/**
+	 * Generate UCP assets if needed
+	 * @param {bool} $regenassets = false If set to true regenerate assets even if not needed
+	 */
 	public function generateUCP($regenassets = false) {
 		$modulef =& module_functions::create();
 		$modules = $modulef->getinfo(false);
@@ -340,6 +471,15 @@ class Ucp implements BMO {
 		return $user;
 	}
 
+	public function getUserByEmail($email) {
+		$user = $this->FreePBX->Userman->getUserByUsername($username);
+		if(!empty($user)) {
+			$assigned = $this->FreePBX->Userman->getGlobalSettingByID($user['id'],'assigned');
+			$user['assigned'] = !empty($assigned) ? $assigned : array();
+		}
+		return $user;
+	}
+
 	/**
 	 * Get user by user id
 	 * @param {int} $id The user id
@@ -414,7 +554,7 @@ class Ucp implements BMO {
 	 * @param {string} $username The username to login to
 	 * @param {string} $session  session id
 	 */
-	public function sessionUnlock($username, $session) {
+	public function sessionUnlock($username, $session, $address = "CLI") {
 		$user = $this->getUserByUsername(trim($username));
 		if(empty($user["id"])) {
 			return false;
@@ -424,7 +564,7 @@ class Ucp implements BMO {
 		$token = bin2hex(openssl_random_pseudo_bytes(16));
 		$_SESSION["UCP_token"] = $token;
 		session_write_close();
-		$this->storeToken($token, $user["id"], "CLI");
+		$this->storeToken($token, $user["id"], $address);
 		return true;
 	}
 
@@ -479,67 +619,12 @@ class Ucp implements BMO {
 				}
 
 				$this->setSetting($user['username'],'Presencestate','enabled',true);
+				if($this->FreePBX->Modules->moduleHasMethod('webrtc','migrationEnable')) {
+					$this->FreePBX->Webrtc->migrationEnable($user['username']);
+				}
 			}
 		}
 		return true;
-	}
-
-	public function dashboardService() {
-		return array();
-		$services = array(
-			array(
-				'title' => 'UCP Daemon',
-				'type' => 'unknown',
-				'tooltip' => _("Unknown"),
-				'order' => 999,
-				'command' => "service ucp status"
-			)
-		);
-		foreach($services as &$service) {
-			$output = '';
-			exec($service['command']." 2>&1", $output, $ret);
-			if ($ret === 0) {
-				$service = array_merge($service, $this->genAlertGlyphicon('ok', _("Running")));
-				continue;
-			}
-
-			$service = array_merge($service, $this->genAlertGlyphicon('warning', $output));
-		}
-
-		return $services;
-	}
-
-	private function genAlertGlyphicon($res, $tt = null) {
-		$glyphs = array(
-			"ok" => "glyphicon-ok text-success",
-			"warning" => "glyphicon-warning-sign text-warning",
-			"error" => "glyphicon-remove text-danger",
-			"unknown" => "glyphicon-question-sign text-info",
-			"info" => "glyphicon-info-sign text-info",
-			"critical" => "glyphicon-fire text-danger"
-		);
-		// Are we being asked for an alert we actually know about?
-		if (!isset($glyphs[$res])) {
-			return array('type' => 'unknown', "tooltip" => "Don't know what $res is", "glyph-class" => $glyphs['unknown']);
-		}
-
-		if ($tt === null) {
-			// No Tooltip
-			return array('type' => $res, "tooltip" => null, "glyph-class" => $glyphs[$res]);
-		} else {
-			// Generate a tooltip
-			$html = '';
-			if (is_array($tt)) {
-				foreach ($tt as $line) {
-					$html .= htmlentities($line, ENT_QUOTES)."\n";
-				}
-			} else {
-				$html .= htmlentities($tt, ENT_QUOTES);
-			}
-
-			return array('type' => $res, "tooltip" => $html, "glyph-class" => $glyphs[$res]);
-		}
-		return '';
 	}
 
 	public function refreshAssets() {
