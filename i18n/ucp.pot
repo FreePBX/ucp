@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-02-16 13:59-0500\n"
+"POT-Creation-Date: 2015-02-17 18:26-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,11 +17,11 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: htdocs/index.php:106
+#: htdocs/index.php:107
 msgid ".htaccess files are disabled on this webserver. Please enable them"
 msgstr ""
 
-#: htdocs/index.php:119
+#: htdocs/index.php:120
 msgid ".htaccess files are not supported on this webserver."
 msgstr ""
 
@@ -99,7 +99,7 @@ msgstr ""
 msgid "Email"
 msgstr ""
 
-#: htdocs/index.php:167
+#: htdocs/index.php:168
 msgid "English"
 msgstr ""
 
@@ -182,7 +182,7 @@ msgstr ""
 msgid "Invalid Login Credentials"
 msgstr ""
 
-#: htdocs/index.php:236
+#: htdocs/index.php:237
 msgid "Invalid Token"
 msgstr ""
 
@@ -218,7 +218,7 @@ msgstr ""
 msgid "Login"
 msgstr ""
 
-#: htdocs/index.php:223
+#: htdocs/index.php:224
 msgid "Logout"
 msgstr ""
 
@@ -246,7 +246,7 @@ msgstr ""
 msgid "ON"
 msgstr ""
 
-#: htdocs/index.php:217
+#: htdocs/index.php:218
 msgid "Originate Call"
 msgstr ""
 
@@ -316,7 +316,7 @@ msgstr ""
 msgid "Send Me A Password Reset Link"
 msgstr ""
 
-#: htdocs/index.php:223
+#: htdocs/index.php:224
 #: htdocs/modules/Settings/Settings.class.php:83
 #: htdocs/views/dashboard.php:39
 #: htdocs/assets/js/ucp.js:777
@@ -339,7 +339,7 @@ msgstr ""
 msgid "The removal of this copyright notice is stricly prohibited"
 msgstr ""
 
-#: htdocs/index.php:134
+#: htdocs/index.php:135
 msgid "There was an error trying to load UCP"
 msgstr ""
 
@@ -353,7 +353,7 @@ msgstr ""
 msgid "Title"
 msgstr ""
 
-#: htdocs/index.php:107
+#: htdocs/index.php:108
 #, php-format
 msgid ""
 "To protect the integrity of your server, you must allow overrides in your "
@@ -378,7 +378,7 @@ msgstr ""
 msgid "UCP Password"
 msgstr ""
 
-#: htdocs/index.php:42
+#: htdocs/index.php:43
 msgid "UCP is currently disabled. Please talk to your system Administrator"
 msgstr ""
 
@@ -386,7 +386,7 @@ msgstr ""
 msgid "UCP needs to reload, ok?"
 msgstr ""
 
-#: htdocs/index.php:188
+#: htdocs/index.php:189
 #, php-format
 msgid "Unknown Module %s"
 msgstr ""
@@ -433,10 +433,6 @@ msgstr ""
 msgid "Work Phone"
 msgstr ""
 
-#: htdocs/views/settings.php:34
-msgid "You Title"
-msgstr ""
-
 #: htdocs/assets/js/ucp.js:436
 msgid "You are currently working in offline mode."
 msgstr ""
@@ -473,6 +469,10 @@ msgstr ""
 msgid "Your Last Name"
 msgstr ""
 
+#: htdocs/views/settings.php:34
+msgid "Your Title"
+msgstr ""
+
 #: htdocs/views/settings.php:49
 msgid "Your Work Number"
 msgstr ""
@@ -493,7 +493,7 @@ msgid ""
 "advanced layout changes"
 msgstr ""
 
-#: htdocs/index.php:120
+#: htdocs/index.php:121
 #, php-format
 msgid ""
 "htaccess files help protect the integrity of your server. Please make sure "
