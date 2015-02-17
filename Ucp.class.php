@@ -55,7 +55,7 @@ class Ucp implements BMO {
 			switch($_REQUEST['action']) {
 				case 'showuser':
 					$user = $this->getUserByID($_REQUEST['user']);
-					if(isset($_POST['submit'])) {
+					if(isset($_POST['submit']) || isset($_POST['submittype'])) {
 						$this->processModuleConfigPages($user);
 						$this->expireUserSessions($_REQUEST['user']);
 					}

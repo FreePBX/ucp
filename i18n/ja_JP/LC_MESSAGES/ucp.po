@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-02-16 13:59-0500\n"
+"POT-Creation-Date: 2015-02-17 18:26-0500\n"
 "PO-Revision-Date: 2015-02-14 05:29+0200\n"
 "Last-Translator: Andrew <andrew.nagy@the159.com>\n"
 "Language-Team: Japanese <http://weblate.freepbx.org/projects/freepbx/ucp/"
@@ -21,12 +21,12 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Weblate 2.2-dev\n"
 
-#: htdocs/index.php:106
+#: htdocs/index.php:107
 msgid ".htaccess files are disabled on this webserver. Please enable them"
 msgstr ""
 "このサーバーでは .htaccess ファイルが無効化されています。有効にしてください"
 
-#: htdocs/index.php:119
+#: htdocs/index.php:120
 msgid ".htaccess files are not supported on this webserver."
 msgstr "このサーバーは .htaccess ファイルをサポートしていません。"
 
@@ -98,7 +98,7 @@ msgstr "完了"
 msgid "Email"
 msgstr "メール"
 
-#: htdocs/index.php:167
+#: htdocs/index.php:168
 msgid "English"
 msgstr ""
 
@@ -180,7 +180,7 @@ msgstr "不正"
 msgid "Invalid Login Credentials"
 msgstr "ログイン情報が間違っています"
 
-#: htdocs/index.php:236
+#: htdocs/index.php:237
 msgid "Invalid Token"
 msgstr "不正トーケン"
 
@@ -213,7 +213,7 @@ msgstr "読み込み中..."
 msgid "Login"
 msgstr "ログイン"
 
-#: htdocs/index.php:223
+#: htdocs/index.php:224
 msgid "Logout"
 msgstr "ログアウト"
 
@@ -241,7 +241,7 @@ msgstr ""
 msgid "ON"
 msgstr ""
 
-#: htdocs/index.php:217
+#: htdocs/index.php:218
 msgid "Originate Call"
 msgstr "発信する"
 
@@ -307,7 +307,7 @@ msgstr "保存しました！"
 msgid "Send Me A Password Reset Link"
 msgstr "パスワードリセットリンクを送信する"
 
-#: htdocs/index.php:223 htdocs/modules/Settings/Settings.class.php:83
+#: htdocs/index.php:224 htdocs/modules/Settings/Settings.class.php:83
 #: htdocs/views/dashboard.php:39 htdocs/assets/js/ucp.js:777
 msgid "Settings"
 msgstr "設定"
@@ -328,7 +328,7 @@ msgstr "UCPやその他のサービスのログインに使うパスワード"
 msgid "The removal of this copyright notice is stricly prohibited"
 msgstr "著作権情報の削除は禁止されています"
 
-#: htdocs/index.php:134
+#: htdocs/index.php:135
 msgid "There was an error trying to load UCP"
 msgstr "UCPをロード中にエラーが発生しました"
 
@@ -342,7 +342,7 @@ msgstr "UCPでこのユーザーが使える内線を設定します"
 msgid "Title"
 msgstr "タイトル"
 
-#: htdocs/index.php:107
+#: htdocs/index.php:108
 #, php-format
 msgid ""
 "To protect the integrity of your server, you must allow overrides in your "
@@ -369,7 +369,7 @@ msgstr ""
 msgid "UCP Password"
 msgstr "UCPパスワード"
 
-#: htdocs/index.php:42
+#: htdocs/index.php:43
 msgid "UCP is currently disabled. Please talk to your system Administrator"
 msgstr "UCPは無効です。システムの管理者にご相談ください"
 
@@ -377,7 +377,7 @@ msgstr "UCPは無効です。システムの管理者にご相談ください"
 msgid "UCP needs to reload, ok?"
 msgstr ""
 
-#: htdocs/index.php:188
+#: htdocs/index.php:189
 #, php-format
 msgid "Unknown Module %s"
 msgstr "不明モジュール %s"
@@ -423,10 +423,6 @@ msgstr "こんにちは %s"
 msgid "Work Phone"
 msgstr "オフィス電話"
 
-#: htdocs/views/settings.php:34
-msgid "You Title"
-msgstr "あなたの肩書"
-
 #: htdocs/assets/js/ucp.js:436
 msgid "You are currently working in offline mode."
 msgstr "オフラインモードを利用中です。"
@@ -463,6 +459,10 @@ msgstr "あなたの自宅電話番号"
 msgid "Your Last Name"
 msgstr "あなたの苗字"
 
+#: htdocs/views/settings.php:34
+msgid "Your Title"
+msgstr ""
+
 #: htdocs/views/settings.php:49
 msgid "Your Work Number"
 msgstr "あなたの勤務先電話番号"
@@ -485,7 +485,7 @@ msgid ""
 "advanced layout changes"
 msgstr ""
 
-#: htdocs/index.php:120
+#: htdocs/index.php:121
 #, php-format
 msgid ""
 "htaccess files help protect the integrity of your server. Please make sure "
@@ -498,6 +498,9 @@ msgstr ""
 #: htdocs/views/login.php:24
 msgid "or"
 msgstr "もしくは"
+
+#~ msgid "You Title"
+#~ msgstr "あなたの肩書"
 
 #~ msgid "Copyright 2013-%s Schmooze Com Inc"
 #~ msgstr "Copyright 2013-%s Schmooze Com Inc"
