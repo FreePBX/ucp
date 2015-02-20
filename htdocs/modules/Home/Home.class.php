@@ -57,6 +57,11 @@ class Home extends Modules{
 
 	public function getHomeWidgets($feed=null) {
 		$fpbxfeeds = $this->UCP->FreePBX->Config->get('RSSFEEDS');
+		$fpbxfeeds = trim($fpbxfeeds);
+		if(empty($fpbxfeeds)) {
+			return array();
+		}
+		
 		$feeds = array();
 		foreach(explode("\n",$fpbxfeeds) as $k => $f) {
 			$feeds['feed-'.$k] = $f;
