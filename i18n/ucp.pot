@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-02-19 21:54-0500\n"
+"POT-Creation-Date: 2015-02-20 20:05-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -33,7 +33,7 @@ msgstr ""
 msgid "Active Sessions"
 msgstr ""
 
-#: ucp.i18n.php:4 /usr/src/freepbx/ucp/ucp.i18n.php:10
+#: ucp.i18n.php:4
 msgid "Admin"
 msgstr ""
 
@@ -131,7 +131,7 @@ msgstr ""
 msgid "Forgot Password"
 msgstr ""
 
-#: ucp.i18n.php:5 /usr/src/freepbx/ucp/ucp.i18n.php:12
+#: ucp.i18n.php:5
 msgid "Formerly ARI, now called User Control Panel"
 msgstr ""
 
@@ -323,7 +323,7 @@ msgstr ""
 msgid "Settings"
 msgstr ""
 
-#: ucp.i18n.php:18
+#: ucp.i18n.php:10
 msgid "Styling and Logos"
 msgstr ""
 
@@ -361,7 +361,7 @@ msgid ""
 "information see: %s"
 msgstr ""
 
-#: ucp.i18n.php:6 /usr/src/freepbx/ucp/ucp.i18n.php:14
+#: ucp.i18n.php:6
 #: views/users_hook.php:19
 msgid "UCP"
 msgstr ""
@@ -393,7 +393,7 @@ msgstr ""
 
 #: htdocs/views/forgot.php:5
 #: htdocs/views/login.php:4
-#: ucp.i18n.php:3 /usr/src/freepbx/ucp/ucp.i18n.php:8
+#: ucp.i18n.php:3
 msgid "User Control Panel"
 msgstr ""
 
@@ -416,7 +416,7 @@ msgstr ""
 msgid "Username"
 msgstr ""
 
-#: ucp.i18n.php:16
+#: ucp.i18n.php:8
 msgid "View: UCP dashfootercontent.php"
 msgstr ""
 
@@ -487,7 +487,7 @@ msgstr ""
 msgid "Your reset link is in the mail!"
 msgstr ""
 
-#: ucp.i18n.php:20
+#: ucp.i18n.php:12
 msgid ""
 "dashfootercontent.php view. This should never be changed except for very "
 "advanced layout changes"
