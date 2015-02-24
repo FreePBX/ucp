@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-02-17 18:26-0500\n"
+"POT-Creation-Date: 2015-02-20 20:05-0500\n"
 "PO-Revision-Date: 2015-02-14 05:29+0200\n"
 "Last-Translator: Andrew <andrew.nagy@the159.com>\n"
 "Language-Team: Japanese <http://weblate.freepbx.org/projects/freepbx/ucp/"
@@ -158,7 +158,7 @@ msgstr "モジュールスクリプトを生成中..."
 msgid "Hold"
 msgstr "保留"
 
-#: htdocs/modules/Home/Home.class.php:141 htdocs/views/dashboard.php:32
+#: htdocs/modules/Home/Home.class.php:146 htdocs/views/dashboard.php:32
 #: htdocs/assets/js/ucp.js:736
 msgid "Home"
 msgstr "自宅"
@@ -312,7 +312,7 @@ msgstr "パスワードリセットリンクを送信する"
 msgid "Settings"
 msgstr "設定"
 
-#: ucp.i18n.php:7
+#: ucp.i18n.php:10
 msgid "Styling and Logos"
 msgstr ""
 
@@ -479,7 +479,7 @@ msgstr ""
 msgid "Your reset link is in the mail!"
 msgstr "リセットリンクはメールで送信しました！"
 
-#: ucp.i18n.php:9
+#: ucp.i18n.php:12
 msgid ""
 "dashfootercontent.php view. This should never be changed except for very "
 "advanced layout changes"
