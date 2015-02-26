@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-02-20 20:05-0500\n"
+"POT-Creation-Date: 2015-02-26 18:49-0500\n"
 "PO-Revision-Date: 2015-02-14 05:29+0200\n"
 "Last-Translator: Andrew <andrew.nagy@the159.com>\n"
 "Language-Team: Japanese <http://weblate.freepbx.org/projects/freepbx/ucp/"
@@ -38,7 +38,7 @@ msgstr "ABC"
 msgid "Active Sessions"
 msgstr "有効セッション"
 
-#: ucp.i18n.php:4
+#: ucp.i18n.php:4 /usr/src/freepbx/ucp/ucp.i18n.php:10
 msgid "Admin"
 msgstr ""
 
@@ -130,7 +130,7 @@ msgstr "アクセス拒否"
 msgid "Forgot Password"
 msgstr "パスワードお忘れの場合"
 
-#: ucp.i18n.php:5
+#: ucp.i18n.php:5 /usr/src/freepbx/ucp/ucp.i18n.php:12
 msgid "Formerly ARI, now called User Control Panel"
 msgstr ""
 
@@ -312,7 +312,7 @@ msgstr "パスワードリセットリンクを送信する"
 msgid "Settings"
 msgstr "設定"
 
-#: ucp.i18n.php:10
+#: ucp.i18n.php:18
 msgid "Styling and Logos"
 msgstr ""
 
@@ -353,7 +353,7 @@ msgstr ""
 "ウェブサーバーの設定ファイルにオーバーライドを許可する必要があります。詳しく"
 "はこちら： %s"
 
-#: ucp.i18n.php:6 views/users_hook.php:19
+#: ucp.i18n.php:6 /usr/src/freepbx/ucp/ucp.i18n.php:14 views/users_hook.php:19
 msgid "UCP"
 msgstr "UCP"
 
@@ -383,6 +383,7 @@ msgid "Unknown Module %s"
 msgstr "不明モジュール %s"
 
 #: htdocs/views/forgot.php:5 htdocs/views/login.php:4 ucp.i18n.php:3
+#: /usr/src/freepbx/ucp/ucp.i18n.php:8
 msgid "User Control Panel"
 msgstr "ユーザーコントロールパネル"
 
@@ -406,7 +407,7 @@ msgstr "ユーザーコントロールパネル： %s"
 msgid "Username"
 msgstr "ユーザー名"
 
-#: ucp.i18n.php:8
+#: ucp.i18n.php:16
 msgid "View: UCP dashfootercontent.php"
 msgstr ""
 
@@ -479,7 +480,7 @@ msgstr ""
 msgid "Your reset link is in the mail!"
 msgstr "リセットリンクはメールで送信しました！"
 
-#: ucp.i18n.php:12
+#: ucp.i18n.php:20
 msgid ""
 "dashfootercontent.php view. This should never be changed except for very "
 "advanced layout changes"
