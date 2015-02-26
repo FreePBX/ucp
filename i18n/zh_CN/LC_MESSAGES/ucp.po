@@ -306,7 +306,7 @@ msgstr ""
 #: htdocs/index.php:224 htdocs/modules/Settings/Settings.class.php:83
 #: htdocs/views/dashboard.php:39 htdocs/assets/js/ucp.js:777
 msgid "Settings"
-msgstr ""
+msgstr "设置"
 
 #: ucp.i18n.php:10
 msgid "Styling and Logos"
