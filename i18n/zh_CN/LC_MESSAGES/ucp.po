@@ -10,13 +10,16 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-02-20 20:05-0500\n"
-"PO-Revision-Date: 2015-02-20 20:05-0500\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2015-02-26 16:28+0200\n"
+"Last-Translator: james <zhulizhong@gmail.com>\n"
+"Language-Team: Simplified Chinese "
+"<http://weblate.freepbx.org/projects/freepbx/ucp/zh_CN/>\n"
 "Language: zh_CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 2.2-dev\n"
 
 #: htdocs/index.php:107
 msgid ".htaccess files are disabled on this webserver. Please enable them"
@@ -239,7 +242,7 @@ msgstr ""
 
 #: htdocs/index.php:218
 msgid "Originate Call"
-msgstr ""
+msgstr "发起呼叫"
 
 #: htdocs/views/templates/phone.php:65
 msgid "PQRS"
