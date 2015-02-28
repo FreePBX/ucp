@@ -56,13 +56,16 @@ class Home extends Modules{
 	}
 
 	public function getHomeWidgets($feed=null) {
-		$fpbxfeeds = $this->UCP->FreePBX->Config->get('RSSFEEDS');
+		$fpbxfeeds = $this->UCP->FreePBX->Config->get('UCPRSSFEEDS');
+		$fpbxfeeds = !empty($fpbxfeeds) ? $fpbxfeeds : $this->UCP->FreePBX->Config->get('RSSFEEDS');
+
 		$fpbxfeeds = trim($fpbxfeeds);
 		if(empty($fpbxfeeds)) {
 			return array();
 		}
-		
+
 		$feeds = array();
+		$fpbxfeeds = str_replace("\r","",$fpbxfeeds);
 		foreach(explode("\n",$fpbxfeeds) as $k => $f) {
 			$feeds['feed-'.$k] = $f;
 		}
