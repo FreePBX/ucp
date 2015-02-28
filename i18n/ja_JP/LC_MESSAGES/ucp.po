@@ -10,14 +10,14 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-02-26 18:49-0500\n"
-"PO-Revision-Date: 2015-02-14 05:29+0200\n"
-"Last-Translator: Andrew <andrew.nagy@the159.com>\n"
-"Language-Team: Japanese <http://weblate.freepbx.org/projects/freepbx/ucp/"
-"ja_JP/>\n"
+"PO-Revision-Date: 2015-02-28 10:58+0200\n"
+"Last-Translator: Kevin <kevin@qloog.com>\n"
+"Language-Team: Japanese "
+"<http://weblate.freepbx.org/projects/freepbx/ucp/ja_JP/>\n"
+"Language: ja_JP\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: ja_JP\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Weblate 2.2-dev\n"
 
@@ -40,7 +40,7 @@ msgstr "有効セッション"
 
 #: ucp.i18n.php:4 /usr/src/freepbx/ucp/ucp.i18n.php:10
 msgid "Admin"
-msgstr ""
+msgstr "アドミン"
 
 #: htdocs/views/settings.php:72
 msgid "Allow Desktop Notifications"
@@ -100,7 +100,7 @@ msgstr "メール"
 
 #: htdocs/index.php:168
 msgid "English"
-msgstr ""
+msgstr "英語"
 
 #: htdocs/views/dashboard.php:90
 msgid "Excuse us while we try to retrieve your content"
@@ -132,7 +132,7 @@ msgstr "パスワードお忘れの場合"
 
 #: ucp.i18n.php:5 /usr/src/freepbx/ucp/ucp.i18n.php:12
 msgid "Formerly ARI, now called User Control Panel"
-msgstr ""
+msgstr "かつてARIと呼ばれたモジュールに代わる「ユーザーコントロールパネル」です。"
 
 #: htdocs/views/templates/phone.php:51
 msgid "GHI"
@@ -190,7 +190,7 @@ msgstr "JKL"
 
 #: htdocs/views/settings.php:62
 msgid "Language"
-msgstr ""
+msgstr "言語"
 
 #: htdocs/views/templates/pagnation.php:20
 msgid "Last"
@@ -235,11 +235,11 @@ msgstr "情報は入力されていません！"
 
 #: htdocs/views/header.php:57
 msgid "OFF"
-msgstr ""
+msgstr "オフ"
 
 #: htdocs/views/header.php:54
 msgid "ON"
-msgstr ""
+msgstr "オン"
 
 #: htdocs/index.php:218
 msgid "Originate Call"
@@ -314,7 +314,7 @@ msgstr "設定"
 
 #: ucp.i18n.php:18
 msgid "Styling and Logos"
-msgstr ""
+msgstr "デザインとロゴ"
 
 #: htdocs/views/templates/phone.php:69
 msgid "TUV"
@@ -363,7 +363,7 @@ msgstr "UCP管理者"
 
 #: htdocs/views/settings.php:68
 msgid "UCP Language"
-msgstr ""
+msgstr "UCPの言語"
 
 #: htdocs/views/settings.php:17
 msgid "UCP Password"
@@ -375,7 +375,7 @@ msgstr "UCPは無効です。システムの管理者にご相談ください"
 
 #: htdocs/assets/js/ucp.js:884
 msgid "UCP needs to reload, ok?"
-msgstr ""
+msgstr "UCPを再読み込みします。よろしいですか？"
 
 #: htdocs/index.php:189
 #, php-format
@@ -462,7 +462,7 @@ msgstr "あなたの苗字"
 
 #: htdocs/views/settings.php:34
 msgid "Your Title"
-msgstr ""
+msgstr "あなたの役職"
 
 #: htdocs/views/settings.php:49
 msgid "Your Work Number"
