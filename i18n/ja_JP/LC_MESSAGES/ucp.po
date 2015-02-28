@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-02-26 18:49-0500\n"
-"PO-Revision-Date: 2015-02-28 10:58+0200\n"
+"PO-Revision-Date: 2015-02-28 11:22+0200\n"
 "Last-Translator: Kevin <kevin@qloog.com>\n"
 "Language-Team: Japanese "
 "<http://weblate.freepbx.org/projects/freepbx/ucp/ja_JP/>\n"
@@ -161,7 +161,7 @@ msgstr "保留"
 #: htdocs/modules/Home/Home.class.php:146 htdocs/views/dashboard.php:32
 #: htdocs/assets/js/ucp.js:736
 msgid "Home"
-msgstr "自宅"
+msgstr "ホーム"
 
 #: htdocs/views/settings.php:52
 msgid "Home Phone"
