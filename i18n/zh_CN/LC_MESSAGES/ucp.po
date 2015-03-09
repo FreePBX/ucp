@@ -10,337 +10,336 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-02-26 18:49-0500\n"
-"PO-Revision-Date: 2015-02-28 11:22+0200\n"
-"Last-Translator: Kevin <kevin@qloog.com>\n"
-"Language-Team: Japanese "
-"<http://weblate.freepbx.org/projects/freepbx/ucp/ja_JP/>\n"
-"Language: ja_JP\n"
+"PO-Revision-Date: 2015-02-26 16:28+0200\n"
+"Last-Translator: james <zhulizhong@gmail.com>\n"
+"Language-Team: Simplified Chinese <http://weblate.freepbx.org/projects/"
+"freepbx/ucp/zh_CN/>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: zh_CN\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Weblate 2.2-dev\n"
 
 #: htdocs/index.php:107
 msgid ".htaccess files are disabled on this webserver. Please enable them"
 msgstr ""
-"このサーバーでは .htaccess ファイルが無効化されています。有効にしてください"
 
 #: htdocs/index.php:120
 msgid ".htaccess files are not supported on this webserver."
-msgstr "このサーバーは .htaccess ファイルをサポートしていません。"
+msgstr ""
 
 #: htdocs/views/templates/phone.php:41
 msgid "ABC"
-msgstr "ABC"
+msgstr ""
 
 #: views/users_hook.php:65
 msgid "Active Sessions"
-msgstr "有効セッション"
+msgstr ""
 
 #: ucp.i18n.php:4 /usr/src/freepbx/ucp/ucp.i18n.php:10
 msgid "Admin"
-msgstr "アドミン"
+msgstr "管理"
 
 #: htdocs/views/settings.php:72
 msgid "Allow Desktop Notifications"
-msgstr "デスクトップ通知を許可する"
+msgstr ""
 
 #: views/users_hook.php:26
 msgid "Allow Login"
-msgstr "ログインを許可する"
+msgstr ""
 
 #: htdocs/views/settings.php:80
 msgid "Allow browser desktop notifications from UCP modules."
-msgstr "UCPモジュールからのデスクトップ通知（ブラウザ経由）を許可します。"
+msgstr ""
 
 #: views/users_hook.php:39
 msgid "Allowed Settings"
-msgstr "可能な設定"
+msgstr ""
 
 #: htdocs/views/templates/phone.php:7 htdocs/views/templates/phone.php:95
 msgid "Call"
-msgstr "発信"
+msgstr ""
 
 #: htdocs/views/settings.php:42
 msgid "Cell Phone"
-msgstr "携帯"
+msgstr ""
 
 #: htdocs/views/settings.php:37
 msgid "Company"
-msgstr "会社"
+msgstr ""
 
 #: htdocs/assets/js/ucp.js:408
 msgid "Connecting...."
-msgstr "接続中...."
+msgstr ""
 
 #: htdocs/views/templates/phone.php:45
 msgid "DEF"
-msgstr "DEF"
+msgstr ""
 
 #: Ucp.class.php:526
 msgid "Deleted Session"
-msgstr "セッションを削除しました"
+msgstr ""
 
 #: Ucp.class.php:64 Ucp.class.php:424
 msgid "Deleted User Session"
-msgstr "ユーザーのセッションを削除しました"
+msgstr ""
 
 #: htdocs/views/settings.php:7
 msgid "Display Name"
-msgstr "表示名"
+msgstr "显示名"
 
 #: Ucp.class.php:636 Ucp.class.php:640 Ucp.class.php:644 Ucp.class.php:648
 msgid "Done"
-msgstr "完了"
+msgstr "完成"
 
 #: htdocs/views/login.php:29 htdocs/views/settings.php:12
 msgid "Email"
-msgstr "メール"
+msgstr ""
 
 #: htdocs/index.php:168
 msgid "English"
-msgstr "英語"
+msgstr ""
 
 #: htdocs/views/dashboard.php:90
 msgid "Excuse us while we try to retrieve your content"
-msgstr "コンテンツを読み込み中"
+msgstr ""
 
 #: install.inc.php:20
 msgid "Failed to install "
-msgstr "インストールが失敗しました "
+msgstr ""
 
 #: htdocs/views/settings.php:57
 msgid "Fax"
-msgstr "FAX"
+msgstr ""
 
 #: htdocs/views/templates/pagnation.php:4
 msgid "First"
-msgstr "名"
+msgstr ""
 
 #: htdocs/views/settings.php:22
 msgid "First Name"
-msgstr "名前"
+msgstr ""
 
 #: htdocs/modules/Settings/Settings.class.php:38
 msgid "Forbidden"
-msgstr "アクセス拒否"
+msgstr ""
 
 #: htdocs/views/login.php:36
 msgid "Forgot Password"
-msgstr "パスワードお忘れの場合"
+msgstr ""
 
 #: ucp.i18n.php:5 /usr/src/freepbx/ucp/ucp.i18n.php:12
 msgid "Formerly ARI, now called User Control Panel"
-msgstr "かつてARIと呼ばれたモジュールに代わる「ユーザーコントロールパネル」です。"
+msgstr ""
 
 #: htdocs/views/templates/phone.php:51
 msgid "GHI"
-msgstr "GHI"
+msgstr ""
 
 #: Ucp.class.php:646
 msgid "Generating Main CSS..."
-msgstr "メインCSSを生成中..."
+msgstr ""
 
 #: Ucp.class.php:642
 msgid "Generating Main Scripts..."
-msgstr "メインスクリプトを生成中..."
+msgstr ""
 
 #: Ucp.class.php:638
 msgid "Generating Module CSS..."
-msgstr "モジュールCSSを生成中..."
+msgstr ""
 
 #: Ucp.class.php:634
 msgid "Generating Module Scripts..."
-msgstr "モジュールスクリプトを生成中..."
+msgstr ""
 
 #: htdocs/views/templates/phone.php:98
 msgid "Hold"
-msgstr "保留"
+msgstr ""
 
 #: htdocs/modules/Home/Home.class.php:146 htdocs/views/dashboard.php:32
 #: htdocs/assets/js/ucp.js:736
 msgid "Home"
-msgstr "ホーム"
+msgstr ""
 
 #: htdocs/views/settings.php:52
 msgid "Home Phone"
-msgstr "自宅電話"
+msgstr ""
 
 #: htdocs/views/settings.php:9
 msgid ""
 "How you would like your name displayed throughout UCP and Contact Manager"
-msgstr "UCPとコンタクトマネージャーで使う表示名"
+msgstr ""
 
 #: htdocs/includes/User.class.php:86
 msgid "Invalid"
-msgstr "不正"
+msgstr ""
 
 #: htdocs/includes/User.class.php:94
 msgid "Invalid Login Credentials"
-msgstr "ログイン情報が間違っています"
+msgstr ""
 
 #: htdocs/index.php:237
 msgid "Invalid Token"
-msgstr "不正トーケン"
+msgstr ""
 
 #: htdocs/views/templates/phone.php:55
 msgid "JKL"
-msgstr "JKL"
+msgstr ""
 
 #: htdocs/views/settings.php:62
 msgid "Language"
-msgstr "言語"
+msgstr "界面语言设置"
 
 #: htdocs/views/templates/pagnation.php:20
 msgid "Last"
-msgstr "性"
+msgstr ""
 
 #: htdocs/views/settings.php:27
 msgid "Last Name"
-msgstr "苗字"
+msgstr ""
 
 #: htdocs/views/header.php:64
 msgid "Loading"
-msgstr "読み込み中"
+msgstr ""
 
 #: htdocs/views/forgot.php:61 htdocs/views/login.php:53
 msgid "Loading..."
-msgstr "読み込み中..."
+msgstr "装载中。。。"
 
 #: htdocs/views/forgot.php:45 htdocs/views/login.php:37
 #: htdocs/assets/js/ucp.js:125 htdocs/assets/js/ucp.js:138
 msgid "Login"
-msgstr "ログイン"
+msgstr "登录"
 
 #: htdocs/index.php:224
 msgid "Logout"
-msgstr "ログアウト"
+msgstr "退出"
 
 #: htdocs/views/templates/phone.php:59
 msgid "MNO"
-msgstr "MNO"
+msgstr ""
 
 #: views/users_hook.php:35
 msgid "Module Settings"
-msgstr "モジュール設定"
+msgstr ""
 
 #: htdocs/includes/Ajax.class.php:114
 msgid "Module or Command were null. Check your code."
-msgstr "モジュールかコマンドはnull。コードを確認してください。"
+msgstr ""
 
 #: htdocs/includes/User.class.php:74
 msgid "Nothing was Provided!"
-msgstr "情報は入力されていません！"
+msgstr ""
 
 #: htdocs/views/header.php:57
 msgid "OFF"
-msgstr "オフ"
+msgstr ""
 
 #: htdocs/views/header.php:54
 msgid "ON"
-msgstr "オン"
+msgstr ""
 
 #: htdocs/index.php:218
 msgid "Originate Call"
-msgstr "発信する"
+msgstr "发起呼叫"
 
 #: htdocs/views/templates/phone.php:65
 msgid "PQRS"
-msgstr "PQRS"
+msgstr ""
 
 #: htdocs/views/login.php:20
 msgid "Password"
-msgstr "パスワード"
+msgstr ""
 
 #: htdocs/assets/js/ucp.js:900
 msgid "Password Confirmation Didn't Match!"
-msgstr "パスワードは一致しません！"
+msgstr ""
 
 #: Ucp.class.php:117 Ucp.class.php:127
 #, php-format
 msgid "Password Reset Link (Valid Until: %s): %s"
-msgstr "パスワードリセットリンク（%sまで有効）: %s"
+msgstr ""
 
 #: htdocs/views/forgot.php:27
 #, php-format
 msgid "Password Reset for: %s"
-msgstr "%s のパスワードをリセットしました"
+msgstr ""
 
 #: htdocs/assets/js/ucp.js:96
 msgid "Passwords can't be blank!"
-msgstr "パスワードは空にできません！"
+msgstr ""
 
 #: htdocs/assets/js/ucp.js:105
 msgid "Passwords changed!"
-msgstr "パスワードを変更しました！"
+msgstr ""
 
 #: htdocs/assets/js/ucp.js:93
 msgid "Passwords do not match"
-msgstr "パスワードが一致しません"
+msgstr ""
 
 #: htdocs/assets/js/ucp.js:71
 msgid "Please enter either a username or email address"
-msgstr "ユーザー名もしくはメールアドレスを入力してください"
+msgstr ""
 
 #: htdocs/assets/js/ucp.js:69 htdocs/assets/js/ucp.js:118
 msgid "Processing..."
-msgstr "処理中..."
+msgstr ""
 
 #: Ucp.class.php:37
 msgid "Refreshing all UCP Assets, this could take a while..."
-msgstr "UCPアセットを再読み込みしています。お待ちください..."
+msgstr ""
 
 #: htdocs/views/forgot.php:48 htdocs/views/login.php:40
 msgid "Remember Me"
-msgstr "保存する"
+msgstr ""
 
 #: htdocs/views/forgot.php:62
 msgid "Reset Password"
-msgstr "パスワードをリセット"
+msgstr ""
 
 #: htdocs/assets/js/ucp.js:907 htdocs/assets/js/ucp.js:925
 msgid "Saved!"
-msgstr "保存しました！"
+msgstr ""
 
 #: htdocs/views/login.php:54
 msgid "Send Me A Password Reset Link"
-msgstr "パスワードリセットリンクを送信する"
+msgstr ""
 
 #: htdocs/index.php:224 htdocs/modules/Settings/Settings.class.php:83
 #: htdocs/views/dashboard.php:39 htdocs/assets/js/ucp.js:777
 msgid "Settings"
-msgstr "設定"
+msgstr "设置"
 
 #: ucp.i18n.php:18
 msgid "Styling and Logos"
-msgstr "デザインとロゴ"
+msgstr ""
 
 #: htdocs/views/templates/phone.php:69
 msgid "TUV"
-msgstr "TUV"
+msgstr ""
 
 #: htdocs/views/settings.php:19
 msgid "The password used to login to User Control Panel and other services"
-msgstr "UCPやその他のサービスのログインに使うパスワード"
+msgstr ""
 
 #: htdocs/views/dashfootercontent.php:10
 msgid "The removal of this copyright notice is stricly prohibited"
-msgstr "著作権情報の削除は禁止されています"
+msgstr ""
 
 #: htdocs/index.php:135
 msgid "There was an error trying to load UCP"
-msgstr "UCPをロード中にエラーが発生しました"
+msgstr ""
 
 #: views/users_hook.php:39
 msgid ""
 "These are the assigned and active extensions which will show up for this "
 "user to control and edit in UCP"
-msgstr "UCPでこのユーザーが使える内線を設定します"
+msgstr ""
 
 #: htdocs/views/settings.php:32
 msgid "Title"
-msgstr "タイトル"
+msgstr ""
 
 #: htdocs/index.php:108
 #, php-format
@@ -349,63 +348,58 @@ msgid ""
 "webserver's configuration file for the User Control Panel. For more "
 "information see: %s"
 msgstr ""
-"ユーザー・コントロール・パネルを使用するには、サーバーの整合性を保つために"
-"ウェブサーバーの設定ファイルにオーバーライドを許可する必要があります。詳しく"
-"はこちら： %s"
 
 #: ucp.i18n.php:6 /usr/src/freepbx/ucp/ucp.i18n.php:14 views/users_hook.php:19
 msgid "UCP"
-msgstr "UCP"
+msgstr ""
 
 #: views/header.php:1
 msgid "UCP Admin"
-msgstr "UCP管理者"
+msgstr ""
 
 #: htdocs/views/settings.php:68
 msgid "UCP Language"
-msgstr "UCPの言語"
+msgstr ""
 
 #: htdocs/views/settings.php:17
 msgid "UCP Password"
-msgstr "UCPパスワード"
+msgstr ""
 
 #: htdocs/index.php:43
 msgid "UCP is currently disabled. Please talk to your system Administrator"
-msgstr "UCPは無効です。システムの管理者にご相談ください"
+msgstr ""
 
 #: htdocs/assets/js/ucp.js:884
 msgid "UCP needs to reload, ok?"
-msgstr "UCPを再読み込みします。よろしいですか？"
+msgstr ""
 
 #: htdocs/index.php:189
 #, php-format
 msgid "Unknown Module %s"
-msgstr "不明モジュール %s"
+msgstr ""
 
 #: htdocs/views/forgot.php:5 htdocs/views/login.php:4 ucp.i18n.php:3
 #: /usr/src/freepbx/ucp/ucp.i18n.php:8
 msgid "User Control Panel"
-msgstr "ユーザーコントロールパネル"
+msgstr "用户控制界面"
 
 #: htdocs/views/settings.php:2
 msgid "User Control Panel Settings"
-msgstr "ユーザーコントロールパネル設定"
+msgstr ""
 
 #: htdocs/views/dashfootercontent.php:7
 #, php-format
 msgid "User Control Panel is released as %s or newer"
 msgstr ""
-"ユーザーコントロールパネルのライセンスは %s もしくは最新のライセンスで提供さ"
-"れています"
 
 #: Ucp.class.php:113 Ucp.class.php:123
 #, php-format
 msgid "User Control Panel: %s"
-msgstr "ユーザーコントロールパネル： %s"
+msgstr ""
 
 #: htdocs/views/login.php:15
 msgid "Username"
-msgstr "ユーザー名"
+msgstr ""
 
 #: ucp.i18n.php:16
 msgid "View: UCP dashfootercontent.php"
@@ -413,72 +407,70 @@ msgstr ""
 
 #: htdocs/views/templates/phone.php:73
 msgid "WXYZ"
-msgstr "WXYZ"
+msgstr ""
 
 #: htdocs/views/dashboard.php:3
 #, php-format
 msgid "Welcome %s"
-msgstr "こんにちは %s"
+msgstr ""
 
 #: htdocs/views/settings.php:47
 msgid "Work Phone"
-msgstr "オフィス電話"
+msgstr ""
 
 #: htdocs/assets/js/ucp.js:436
 msgid "You are currently working in offline mode."
-msgstr "オフラインモードを利用中です。"
+msgstr ""
 
 #: htdocs/assets/js/ucp.js:143
 msgid "Your Browser is unsupported at this time."
-msgstr "このブラウザはサポートされていません。"
+msgstr ""
 
 #: htdocs/views/settings.php:44
 msgid "Your Cell Phone Number"
-msgstr "あなたの携帯電話番号"
+msgstr ""
 
 #: htdocs/views/settings.php:39
 msgid "Your Company"
-msgstr "あなたの会社名"
+msgstr ""
 
 #: htdocs/views/settings.php:14
 msgid "Your Email Address"
-msgstr "あなたのメールアドレス"
+msgstr ""
 
 #: htdocs/views/settings.php:59
 msgid "Your Fax Number"
-msgstr "あなたのFAX番号"
+msgstr ""
 
 #: htdocs/views/settings.php:24
 msgid "Your First Name"
-msgstr "あなたの名前"
+msgstr ""
 
 #: htdocs/views/settings.php:54
 msgid "Your Home Number"
-msgstr "あなたの自宅電話番号"
+msgstr ""
 
 #: htdocs/views/settings.php:29
 msgid "Your Last Name"
-msgstr "あなたの苗字"
+msgstr ""
 
 #: htdocs/views/settings.php:34
 msgid "Your Title"
-msgstr "あなたの役職"
+msgstr ""
 
 #: htdocs/views/settings.php:49
 msgid "Your Work Number"
-msgstr "あなたの勤務先電話番号"
+msgstr ""
 
 #: htdocs/assets/js/ucp.js:145
 msgid ""
 "Your browser is unsupported at this time. Please upgrade or talk to your "
 "system administrator"
 msgstr ""
-"ご利用のブラウザはサポートされていません。アップグレードするか、システムの管"
-"理者にご相談ください"
 
 #: htdocs/assets/js/ucp.js:81
 msgid "Your reset link is in the mail!"
-msgstr "リセットリンクはメールで送信しました！"
+msgstr ""
 
 #: ucp.i18n.php:20
 msgid ""
@@ -493,15 +485,7 @@ msgid ""
 "file paths and directories are locked down properly. For more information "
 "see: %s"
 msgstr ""
-"htaccessファイルはサーバーの整合性を保つために重要なファイルです。関連するパ"
-"スとディレクトリのセキュリティ設定をご確認ください。詳しくはこちら： %s"
 
 #: htdocs/views/login.php:24
 msgid "or"
-msgstr "もしくは"
-
-#~ msgid "You Title"
-#~ msgstr "あなたの肩書"
-
-#~ msgid "Copyright 2013-%s Schmooze Com Inc"
-#~ msgstr "Copyright 2013-%s Schmooze Com Inc"
+msgstr ""
