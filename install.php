@@ -65,16 +65,31 @@ switch(true) {
 	break;
 }
 
- $set['value'] = 'views/dashfootercontent.php';
- $set['defaultval'] =& $set['value'];
- $set['readonly'] = 1;
- $set['hidden'] = 1;
- $set['level'] = 1;
- $set['sortorder'] = 355;
- $set['module'] = 'ucp'; //This will help delete the settings when module is uninstalled
- $set['category'] = 'Styling and Logos';
- $set['emptyok'] = 0;
- $set['name'] = 'View: UCP dashfootercontent.php';
- $set['description'] = 'dashfootercontent.php view. This should never be changed except for very advanced layout changes';
- $set['type'] = CONF_TYPE_TEXT;
- FreePBX::Config()->define_conf_setting('VIEW_UCP_FOOTER_CONTENT',$set,true);
+// VIEW_UCP_FOOTER_CONTENT
+$set['value'] = 'views/dashfootercontent.php';
+$set['defaultval'] =& $set['value'];
+$set['readonly'] = 1;
+$set['hidden'] = 1;
+$set['level'] = 1;
+$set['sortorder'] = 355;
+$set['module'] = 'ucp'; //This will help delete the settings when module is uninstalled
+$set['category'] = 'Styling and Logos';
+$set['emptyok'] = 0;
+$set['name'] = 'View: UCP dashfootercontent.php';
+$set['description'] = 'dashfootercontent.php view. This should never be changed except for very advanced layout changes';
+$set['type'] = CONF_TYPE_TEXT;
+FreePBX::Config()->define_conf_setting('VIEW_UCP_FOOTER_CONTENT',$set,true);
+
+// UCPRSSFEEDS
+$set['value'] = "";
+$set['defaultval'] = "";
+$set['readonly'] = 0;
+$set['hidden'] = 0;
+$set['level'] = 0;
+$set['module'] = 'ucp';
+$set['category'] = 'User Control Panel';
+$set['emptyok'] = 1;
+$set['name'] = 'RSS Feeds';
+$set['description'] = 'RSS Feeds that are displayed in UCP. This overrides "System Setup" for UCP. If this is blank then the feeds will be taken from RSS Feeds under "System Setup". Separate each feed by a new line';
+$set['type'] = CONF_TYPE_TEXTAREA;
+FreePBX::Config()->define_conf_setting('UCPRSSFEEDS',$set);
