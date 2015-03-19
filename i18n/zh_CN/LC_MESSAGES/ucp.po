@@ -39,7 +39,7 @@ msgstr ""
 
 #: ucp.i18n.php:4 /usr/src/freepbx/ucp/ucp.i18n.php:10
 msgid "Admin"
-msgstr ""
+msgstr "管理"
 
 #: htdocs/views/settings.php:72
 msgid "Allow Desktop Notifications"
@@ -87,7 +87,7 @@ msgstr ""
 
 #: htdocs/views/settings.php:7
 msgid "Display Name"
-msgstr ""
+msgstr "显示名"
 
 #: Ucp.class.php:636 Ucp.class.php:640 Ucp.class.php:644 Ucp.class.php:648
 msgid "Done"
@@ -189,7 +189,7 @@ msgstr ""
 
 #: htdocs/views/settings.php:62
 msgid "Language"
-msgstr ""
+msgstr "界面语言设置"
 
 #: htdocs/views/templates/pagnation.php:20
 msgid "Last"
@@ -205,16 +205,16 @@ msgstr ""
 
 #: htdocs/views/forgot.php:61 htdocs/views/login.php:53
 msgid "Loading..."
-msgstr ""
+msgstr "装载中。。。"
 
 #: htdocs/views/forgot.php:45 htdocs/views/login.php:37
 #: htdocs/assets/js/ucp.js:125 htdocs/assets/js/ucp.js:138
 msgid "Login"
-msgstr ""
+msgstr "登录"
 
 #: htdocs/index.php:224
 msgid "Logout"
-msgstr ""
+msgstr "退出"
 
 #: htdocs/views/templates/phone.php:59
 msgid "MNO"
@@ -381,7 +381,7 @@ msgstr ""
 #: htdocs/views/forgot.php:5 htdocs/views/login.php:4 ucp.i18n.php:3
 #: /usr/src/freepbx/ucp/ucp.i18n.php:8
 msgid "User Control Panel"
-msgstr ""
+msgstr "用户控制界面"
 
 #: htdocs/views/settings.php:2
 msgid "User Control Panel Settings"
