@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-19 12:18-0400\n"
+"POT-Creation-Date: 2015-03-19 12:20-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -29,7 +29,7 @@ msgstr ""
 msgid "ABC"
 msgstr ""
 
-#: views/users_hook.php:65
+#: views/users_hook.php:110
 msgid "Active Sessions"
 msgstr ""
 
@@ -37,19 +37,19 @@ msgstr ""
 msgid "Admin"
 msgstr ""
 
-#: htdocs/views/settings.php:72
+#: htdocs/views/settings.php:71
 msgid "Allow Desktop Notifications"
 msgstr ""
 
-#: views/users_hook.php:26
+#: views/users_hook.php:56
 msgid "Allow Login"
 msgstr ""
 
-#: htdocs/views/settings.php:80
+#: htdocs/views/settings.php:79
 msgid "Allow browser desktop notifications from UCP modules."
 msgstr ""
 
-#: views/users_hook.php:39
+#: views/users_hook.php:83
 msgid "Allowed Settings"
 msgstr ""
 
@@ -66,7 +66,7 @@ msgstr ""
 msgid "Company"
 msgstr ""
 
-#: htdocs/assets/js/ucp.js:408
+#: htdocs/assets/js/ucp.js:401
 msgid "Connecting...."
 msgstr ""
 
@@ -161,7 +161,7 @@ msgstr ""
 
 #: htdocs/modules/Home/Home.class.php:149
 #: htdocs/views/dashboard.php:32
-#: htdocs/assets/js/ucp.js:736
+#: htdocs/assets/js/ucp.js:729
 msgid "Home"
 msgstr ""
 
@@ -226,12 +226,16 @@ msgstr ""
 msgid "MNO"
 msgstr ""
 
-#: views/users_hook.php:35
-msgid "Module Settings"
+#: views/users_hook.php:71
+msgid "May this user log in to UCP"
 msgstr ""
 
 #: htdocs/includes/Ajax.class.php:114
 msgid "Module or Command were null. Check your code."
+msgstr ""
+
+#: views/users_hook.php:63
+msgid "No"
 msgstr ""
 
 #: htdocs/includes/User.class.php:74
@@ -258,7 +262,7 @@ msgstr ""
 msgid "Password"
 msgstr ""
 
-#: htdocs/assets/js/ucp.js:900
+#: htdocs/assets/js/ucp.js:893
 msgid "Password Confirmation Didn't Match!"
 msgstr ""
 
@@ -315,8 +319,8 @@ msgstr ""
 msgid "Reset Password"
 msgstr ""
 
-#: htdocs/assets/js/ucp.js:907
-#: htdocs/assets/js/ucp.js:925
+#: htdocs/assets/js/ucp.js:900
+#: htdocs/assets/js/ucp.js:918
 msgid "Saved!"
 msgstr ""
 
@@ -327,7 +331,7 @@ msgstr ""
 #: htdocs/index.php:206
 #: htdocs/modules/Settings/Settings.class.php:83
 #: htdocs/views/dashboard.php:39
-#: htdocs/assets/js/ucp.js:777
+#: htdocs/assets/js/ucp.js:770
 msgid "Settings"
 msgstr ""
 
@@ -351,7 +355,7 @@ msgstr ""
 msgid "There was an error trying to load UCP"
 msgstr ""
 
-#: views/users_hook.php:39
+#: views/users_hook.php:95
 msgid ""
 "These are the assigned and active extensions which will show up for this "
 "user to control and edit in UCP"
@@ -370,7 +374,7 @@ msgid ""
 msgstr ""
 
 #: ucp.i18n.php:10
-#: views/users_hook.php:19
+#: views/users_hook.php:47
 msgid "UCP"
 msgstr ""
 
@@ -390,7 +394,7 @@ msgstr ""
 msgid "UCP is currently disabled. Please talk to your system Administrator"
 msgstr ""
 
-#: htdocs/assets/js/ucp.js:884
+#: htdocs/assets/js/ucp.js:877
 msgid "UCP needs to reload, ok?"
 msgstr ""
 
@@ -400,6 +404,7 @@ msgid "Unknown Module %s"
 msgstr ""
 
 #: htdocs/views/forgot.php:5
+#: htdocs/views/header.php:4
 #: htdocs/views/login.php:4
 #: ucp.i18n.php:4 /usr/src/freepbx/ucp/ucp.i18n.php:22
 msgid "User Control Panel"
@@ -445,7 +450,11 @@ msgstr ""
 msgid "Work Phone"
 msgstr ""
 
-#: htdocs/assets/js/ucp.js:436
+#: views/users_hook.php:61
+msgid "Yes"
+msgstr ""
+
+#: htdocs/assets/js/ucp.js:429
 msgid "You are currently working in offline mode."
 msgstr ""
 

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-19 12:18-0400\n"
+"POT-Creation-Date: 2015-03-19 12:20-0400\n"
 "PO-Revision-Date: 2015-03-17 02:40+0200\n"
 "Last-Translator: philippebolduc <philippe@florenceinc.com>\n"
 "Language-Team: French <http://weblate.freepbx.org/projects/freepbx/ucp/fr/>\n"
@@ -34,7 +34,7 @@ msgstr "Les fichiers .htaccess ne sont pas supportés sur ce serveur web."
 msgid "ABC"
 msgstr "ABC"
 
-#: views/users_hook.php:65
+#: views/users_hook.php:110
 msgid "Active Sessions"
 msgstr "Sessions actives"
 
@@ -42,21 +42,21 @@ msgstr "Sessions actives"
 msgid "Admin"
 msgstr "Administrateur"
 
-#: htdocs/views/settings.php:72
+#: htdocs/views/settings.php:71
 msgid "Allow Desktop Notifications"
 msgstr "Autoriser les notifications sur le bureau"
 
-#: views/users_hook.php:26
+#: views/users_hook.php:56
 msgid "Allow Login"
 msgstr "Permettre la connexion"
 
-#: htdocs/views/settings.php:80
+#: htdocs/views/settings.php:79
 msgid "Allow browser desktop notifications from UCP modules."
 msgstr ""
 "Autoriser les notifications sur le bureau du navigateur provenant des "
 "modules UCP."
 
-#: views/users_hook.php:39
+#: views/users_hook.php:83
 msgid "Allowed Settings"
 msgstr "Paramètres autorisés"
 
@@ -72,7 +72,7 @@ msgstr "Téléphone cellulaire"
 msgid "Company"
 msgstr "Compagnie"
 
-#: htdocs/assets/js/ucp.js:408
+#: htdocs/assets/js/ucp.js:401
 msgid "Connecting...."
 msgstr "Connexion ...."
 
@@ -161,7 +161,7 @@ msgid "Hold"
 msgstr "Attente"
 
 #: htdocs/modules/Home/Home.class.php:149 htdocs/views/dashboard.php:32
-#: htdocs/assets/js/ucp.js:736
+#: htdocs/assets/js/ucp.js:729
 msgid "Home"
 msgstr "Maison"
 
@@ -225,13 +225,17 @@ msgstr "Déconnexion"
 msgid "MNO"
 msgstr "MNO"
 
-#: views/users_hook.php:35
-msgid "Module Settings"
-msgstr "Paramètres du module"
+#: views/users_hook.php:71
+msgid "May this user log in to UCP"
+msgstr ""
 
 #: htdocs/includes/Ajax.class.php:114
 msgid "Module or Command were null. Check your code."
 msgstr "Module ou commande nulle. Vérifiez votre code."
+
+#: views/users_hook.php:63
+msgid "No"
+msgstr ""
 
 #: htdocs/includes/User.class.php:74
 msgid "Nothing was Provided!"
@@ -257,7 +261,7 @@ msgstr "PQRS"
 msgid "Password"
 msgstr "Mot de passe"
 
-#: htdocs/assets/js/ucp.js:900
+#: htdocs/assets/js/ucp.js:893
 msgid "Password Confirmation Didn't Match!"
 msgstr "Le mot de passe de confirmation ne correspond pas !"
 
@@ -312,7 +316,7 @@ msgstr "Se souvenir de moi"
 msgid "Reset Password"
 msgstr "Réinitialiser le mot de passe"
 
-#: htdocs/assets/js/ucp.js:907 htdocs/assets/js/ucp.js:925
+#: htdocs/assets/js/ucp.js:900 htdocs/assets/js/ucp.js:918
 msgid "Saved!"
 msgstr "Enregistré !"
 
@@ -321,7 +325,7 @@ msgid "Send Me A Password Reset Link"
 msgstr "Envoyez-moi un lien pour réinitialiser mot de passe"
 
 #: htdocs/index.php:206 htdocs/modules/Settings/Settings.class.php:83
-#: htdocs/views/dashboard.php:39 htdocs/assets/js/ucp.js:777
+#: htdocs/views/dashboard.php:39 htdocs/assets/js/ucp.js:770
 msgid "Settings"
 msgstr "Paramètres"
 
@@ -347,7 +351,7 @@ msgstr "La suppression de cette mention de copyright est strictement interdite"
 msgid "There was an error trying to load UCP"
 msgstr "Il y eu une erreur en essayant de charger UCP"
 
-#: views/users_hook.php:39
+#: views/users_hook.php:95
 msgid ""
 "These are the assigned and active extensions which will show up for this "
 "user to control and edit in UCP"
@@ -370,7 +374,7 @@ msgstr ""
 "overrides\" dans le fichier de configuration de votre serveur web pour le "
 "Panneau de l'utilisateur. Pour plus d'informations, voir:%s"
 
-#: ucp.i18n.php:10 views/users_hook.php:19
+#: ucp.i18n.php:10 views/users_hook.php:47
 msgid "UCP"
 msgstr "UCP"
 
@@ -392,7 +396,7 @@ msgstr ""
 "UCP est actuellement désactivé. Veuillez parler à votre administrateur "
 "système"
 
-#: htdocs/assets/js/ucp.js:884
+#: htdocs/assets/js/ucp.js:877
 msgid "UCP needs to reload, ok?"
 msgstr "UCP doit recharger, ok ?"
 
@@ -401,7 +405,8 @@ msgstr "UCP doit recharger, ok ?"
 msgid "Unknown Module %s"
 msgstr "Module inconnu %s"
 
-#: htdocs/views/forgot.php:5 htdocs/views/login.php:4 ucp.i18n.php:4
+#: htdocs/views/forgot.php:5 htdocs/views/header.php:4
+#: htdocs/views/login.php:4 ucp.i18n.php:4
 #: /usr/src/freepbx/ucp/ucp.i18n.php:22
 msgid "User Control Panel"
 msgstr "Panneau de l'utilisateur"
@@ -445,7 +450,11 @@ msgstr "Bienvenue %s"
 msgid "Work Phone"
 msgstr "Numéro de téléphone au travail"
 
-#: htdocs/assets/js/ucp.js:436
+#: views/users_hook.php:61
+msgid "Yes"
+msgstr ""
+
+#: htdocs/assets/js/ucp.js:429
 msgid "You are currently working in offline mode."
 msgstr "Vous travaillez actuellement en mode déconnecté."
 
@@ -523,3 +532,6 @@ msgstr ""
 #: htdocs/views/login.php:24
 msgid "or"
 msgstr "ou"
+
+#~ msgid "Module Settings"
+#~ msgstr "Paramètres du module"
