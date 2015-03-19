@@ -9,24 +9,24 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-02-26 18:49-0500\n"
+"POT-Creation-Date: 2015-03-19 12:18-0400\n"
 "PO-Revision-Date: 2015-03-17 02:40+0200\n"
 "Last-Translator: philippebolduc <philippe@florenceinc.com>\n"
 "Language-Team: French <http://weblate.freepbx.org/projects/freepbx/ucp/fr/>\n"
-"Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: fr\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
 "X-Generator: Weblate 2.2-dev\n"
 
-#: htdocs/index.php:107
+#: htdocs/index.php:89
 msgid ".htaccess files are disabled on this webserver. Please enable them"
 msgstr ""
 "Les fichiers .htaccess sont désactivées sur ce serveur web. Veuillez les "
 "activer S.V.P. ."
 
-#: htdocs/index.php:120
+#: htdocs/index.php:102
 msgid ".htaccess files are not supported on this webserver."
 msgstr "Les fichiers .htaccess ne sont pas supportés sur ce serveur web."
 
@@ -38,7 +38,7 @@ msgstr "ABC"
 msgid "Active Sessions"
 msgstr "Sessions actives"
 
-#: ucp.i18n.php:4 /usr/src/freepbx/ucp/ucp.i18n.php:10
+#: ucp.i18n.php:6
 msgid "Admin"
 msgstr "Administrateur"
 
@@ -100,7 +100,7 @@ msgstr "Terminé"
 msgid "Email"
 msgstr "Courriel"
 
-#: htdocs/index.php:168
+#: htdocs/index.php:150
 msgid "English"
 msgstr "Anglais"
 
@@ -132,7 +132,7 @@ msgstr "Interdit"
 msgid "Forgot Password"
 msgstr "Mot de passe oublié"
 
-#: ucp.i18n.php:5 /usr/src/freepbx/ucp/ucp.i18n.php:12
+#: ucp.i18n.php:8
 msgid "Formerly ARI, now called User Control Panel"
 msgstr "Anciennement ARI, maintenant appelé panneau de l'utilisateur"
 
@@ -160,7 +160,7 @@ msgstr "Génération des scripts module ..."
 msgid "Hold"
 msgstr "Attente"
 
-#: htdocs/modules/Home/Home.class.php:146 htdocs/views/dashboard.php:32
+#: htdocs/modules/Home/Home.class.php:149 htdocs/views/dashboard.php:32
 #: htdocs/assets/js/ucp.js:736
 msgid "Home"
 msgstr "Maison"
@@ -184,7 +184,7 @@ msgstr "Invalide"
 msgid "Invalid Login Credentials"
 msgstr "Nom d'utilisateur ou mot de passe invalide"
 
-#: htdocs/index.php:237
+#: htdocs/index.php:219
 msgid "Invalid Token"
 msgstr "Jeton invalide"
 
@@ -217,7 +217,7 @@ msgstr "Chargement..."
 msgid "Login"
 msgstr "Nom d'utilisateur"
 
-#: htdocs/index.php:224
+#: htdocs/index.php:206
 msgid "Logout"
 msgstr "Déconnexion"
 
@@ -245,7 +245,7 @@ msgstr "Désactivé"
 msgid "ON"
 msgstr "Activé"
 
-#: htdocs/index.php:218
+#: htdocs/index.php:200
 msgid "Originate Call"
 msgstr "Faire un appel"
 
@@ -291,6 +291,14 @@ msgstr "Veuillez entrer un nom d'utilisateur ou une adresse courriel"
 msgid "Processing..."
 msgstr "Traitement en cours ..."
 
+#: ucp.i18n.php:20
+msgid "RSS Feeds"
+msgstr ""
+
+#: ucp.i18n.php:24
+msgid "RSS Feeds that are displayed in UCP. This overrides "
+msgstr ""
+
 #: Ucp.class.php:37
 msgid "Refreshing all UCP Assets, this could take a while..."
 msgstr ""
@@ -312,12 +320,12 @@ msgstr "Enregistré !"
 msgid "Send Me A Password Reset Link"
 msgstr "Envoyez-moi un lien pour réinitialiser mot de passe"
 
-#: htdocs/index.php:224 htdocs/modules/Settings/Settings.class.php:83
+#: htdocs/index.php:206 htdocs/modules/Settings/Settings.class.php:83
 #: htdocs/views/dashboard.php:39 htdocs/assets/js/ucp.js:777
 msgid "Settings"
 msgstr "Paramètres"
 
-#: ucp.i18n.php:18
+#: ucp.i18n.php:16
 msgid "Styling and Logos"
 msgstr "Style et Logos"
 
@@ -335,7 +343,7 @@ msgstr ""
 msgid "The removal of this copyright notice is stricly prohibited"
 msgstr "La suppression de cette mention de copyright est strictement interdite"
 
-#: htdocs/index.php:135
+#: htdocs/index.php:117
 msgid "There was an error trying to load UCP"
 msgstr "Il y eu une erreur en essayant de charger UCP"
 
@@ -351,7 +359,7 @@ msgstr ""
 msgid "Title"
 msgstr "Titre"
 
-#: htdocs/index.php:108
+#: htdocs/index.php:90
 #, php-format
 msgid ""
 "To protect the integrity of your server, you must allow overrides in your "
@@ -362,7 +370,7 @@ msgstr ""
 "overrides\" dans le fichier de configuration de votre serveur web pour le "
 "Panneau de l'utilisateur. Pour plus d'informations, voir:%s"
 
-#: ucp.i18n.php:6 /usr/src/freepbx/ucp/ucp.i18n.php:14 views/users_hook.php:19
+#: ucp.i18n.php:10 views/users_hook.php:19
 msgid "UCP"
 msgstr "UCP"
 
@@ -378,7 +386,7 @@ msgstr "Langue UCP"
 msgid "UCP Password"
 msgstr "Mot de passe UCP"
 
-#: htdocs/index.php:43
+#: htdocs/index.php:25
 msgid "UCP is currently disabled. Please talk to your system Administrator"
 msgstr ""
 "UCP est actuellement désactivé. Veuillez parler à votre administrateur "
@@ -388,13 +396,13 @@ msgstr ""
 msgid "UCP needs to reload, ok?"
 msgstr "UCP doit recharger, ok ?"
 
-#: htdocs/index.php:189
+#: htdocs/index.php:171
 #, php-format
 msgid "Unknown Module %s"
 msgstr "Module inconnu %s"
 
-#: htdocs/views/forgot.php:5 htdocs/views/login.php:4 ucp.i18n.php:3
-#: /usr/src/freepbx/ucp/ucp.i18n.php:8
+#: htdocs/views/forgot.php:5 htdocs/views/login.php:4 ucp.i18n.php:4
+#: /usr/src/freepbx/ucp/ucp.i18n.php:22
 msgid "User Control Panel"
 msgstr "Panneau de l'utilisateur"
 
@@ -412,11 +420,15 @@ msgstr "Le panneau de l'utilisateur %s ou plus récent est disponible"
 msgid "User Control Panel: %s"
 msgstr "Panneau de l'utilisateur : %s"
 
+#: ucp.i18n.php:12
+msgid "User Panel"
+msgstr ""
+
 #: htdocs/views/login.php:15
 msgid "Username"
 msgstr "Nom d'utilisateur"
 
-#: ucp.i18n.php:16
+#: ucp.i18n.php:14
 msgid "View: UCP dashfootercontent.php"
 msgstr "Vue:  UCP dashfootercontent.php"
 
@@ -489,7 +501,7 @@ msgstr ""
 msgid "Your reset link is in the mail!"
 msgstr "Votre lien de réinitialisation est dans le courriel !"
 
-#: ucp.i18n.php:20
+#: ucp.i18n.php:18
 msgid ""
 "dashfootercontent.php view. This should never be changed except for very "
 "advanced layout changes"
@@ -497,7 +509,7 @@ msgstr ""
 "vue dashfootercontent.php. Cela ne devrait jamais être modifié, sauf pour "
 "les modifications de mise en page très avancées"
 
-#: htdocs/index.php:121
+#: htdocs/index.php:103
 #, php-format
 msgid ""
 "htaccess files help protect the integrity of your server. Please make sure "

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-02-26 18:49-0500\n"
+"POT-Creation-Date: 2015-03-19 12:18-0400\n"
 "PO-Revision-Date: 2015-02-26 16:28+0200\n"
 "Last-Translator: james <zhulizhong@gmail.com>\n"
 "Language-Team: Simplified Chinese <http://weblate.freepbx.org/projects/"
@@ -21,11 +21,11 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Weblate 2.2-dev\n"
 
-#: htdocs/index.php:107
+#: htdocs/index.php:89
 msgid ".htaccess files are disabled on this webserver. Please enable them"
 msgstr ""
 
-#: htdocs/index.php:120
+#: htdocs/index.php:102
 msgid ".htaccess files are not supported on this webserver."
 msgstr ""
 
@@ -37,7 +37,7 @@ msgstr ""
 msgid "Active Sessions"
 msgstr ""
 
-#: ucp.i18n.php:4 /usr/src/freepbx/ucp/ucp.i18n.php:10
+#: ucp.i18n.php:6
 msgid "Admin"
 msgstr "管理"
 
@@ -97,7 +97,7 @@ msgstr "完成"
 msgid "Email"
 msgstr ""
 
-#: htdocs/index.php:168
+#: htdocs/index.php:150
 msgid "English"
 msgstr ""
 
@@ -129,7 +129,7 @@ msgstr ""
 msgid "Forgot Password"
 msgstr ""
 
-#: ucp.i18n.php:5 /usr/src/freepbx/ucp/ucp.i18n.php:12
+#: ucp.i18n.php:8
 msgid "Formerly ARI, now called User Control Panel"
 msgstr ""
 
@@ -157,7 +157,7 @@ msgstr ""
 msgid "Hold"
 msgstr ""
 
-#: htdocs/modules/Home/Home.class.php:146 htdocs/views/dashboard.php:32
+#: htdocs/modules/Home/Home.class.php:149 htdocs/views/dashboard.php:32
 #: htdocs/assets/js/ucp.js:736
 msgid "Home"
 msgstr ""
@@ -179,7 +179,7 @@ msgstr ""
 msgid "Invalid Login Credentials"
 msgstr ""
 
-#: htdocs/index.php:237
+#: htdocs/index.php:219
 msgid "Invalid Token"
 msgstr ""
 
@@ -212,7 +212,7 @@ msgstr "装载中。。。"
 msgid "Login"
 msgstr "登录"
 
-#: htdocs/index.php:224
+#: htdocs/index.php:206
 msgid "Logout"
 msgstr "退出"
 
@@ -240,7 +240,7 @@ msgstr ""
 msgid "ON"
 msgstr ""
 
-#: htdocs/index.php:218
+#: htdocs/index.php:200
 msgid "Originate Call"
 msgstr "发起呼叫"
 
@@ -286,6 +286,14 @@ msgstr ""
 msgid "Processing..."
 msgstr ""
 
+#: ucp.i18n.php:20
+msgid "RSS Feeds"
+msgstr ""
+
+#: ucp.i18n.php:24
+msgid "RSS Feeds that are displayed in UCP. This overrides "
+msgstr ""
+
 #: Ucp.class.php:37
 msgid "Refreshing all UCP Assets, this could take a while..."
 msgstr ""
@@ -306,12 +314,12 @@ msgstr ""
 msgid "Send Me A Password Reset Link"
 msgstr ""
 
-#: htdocs/index.php:224 htdocs/modules/Settings/Settings.class.php:83
+#: htdocs/index.php:206 htdocs/modules/Settings/Settings.class.php:83
 #: htdocs/views/dashboard.php:39 htdocs/assets/js/ucp.js:777
 msgid "Settings"
 msgstr "设置"
 
-#: ucp.i18n.php:18
+#: ucp.i18n.php:16
 msgid "Styling and Logos"
 msgstr ""
 
@@ -327,7 +335,7 @@ msgstr ""
 msgid "The removal of this copyright notice is stricly prohibited"
 msgstr ""
 
-#: htdocs/index.php:135
+#: htdocs/index.php:117
 msgid "There was an error trying to load UCP"
 msgstr ""
 
@@ -341,7 +349,7 @@ msgstr ""
 msgid "Title"
 msgstr ""
 
-#: htdocs/index.php:108
+#: htdocs/index.php:90
 #, php-format
 msgid ""
 "To protect the integrity of your server, you must allow overrides in your "
@@ -349,7 +357,7 @@ msgid ""
 "information see: %s"
 msgstr ""
 
-#: ucp.i18n.php:6 /usr/src/freepbx/ucp/ucp.i18n.php:14 views/users_hook.php:19
+#: ucp.i18n.php:10 views/users_hook.php:19
 msgid "UCP"
 msgstr ""
 
@@ -365,7 +373,7 @@ msgstr ""
 msgid "UCP Password"
 msgstr ""
 
-#: htdocs/index.php:43
+#: htdocs/index.php:25
 msgid "UCP is currently disabled. Please talk to your system Administrator"
 msgstr ""
 
@@ -373,13 +381,13 @@ msgstr ""
 msgid "UCP needs to reload, ok?"
 msgstr ""
 
-#: htdocs/index.php:189
+#: htdocs/index.php:171
 #, php-format
 msgid "Unknown Module %s"
 msgstr ""
 
-#: htdocs/views/forgot.php:5 htdocs/views/login.php:4 ucp.i18n.php:3
-#: /usr/src/freepbx/ucp/ucp.i18n.php:8
+#: htdocs/views/forgot.php:5 htdocs/views/login.php:4 ucp.i18n.php:4
+#: /usr/src/freepbx/ucp/ucp.i18n.php:22
 msgid "User Control Panel"
 msgstr "用户控制界面"
 
@@ -397,11 +405,15 @@ msgstr ""
 msgid "User Control Panel: %s"
 msgstr ""
 
+#: ucp.i18n.php:12
+msgid "User Panel"
+msgstr ""
+
 #: htdocs/views/login.php:15
 msgid "Username"
 msgstr ""
 
-#: ucp.i18n.php:16
+#: ucp.i18n.php:14
 msgid "View: UCP dashfootercontent.php"
 msgstr ""
 
@@ -472,13 +484,13 @@ msgstr ""
 msgid "Your reset link is in the mail!"
 msgstr ""
 
-#: ucp.i18n.php:20
+#: ucp.i18n.php:18
 msgid ""
 "dashfootercontent.php view. This should never be changed except for very "
 "advanced layout changes"
 msgstr ""
 
-#: htdocs/index.php:121
+#: htdocs/index.php:103
 #, php-format
 msgid ""
 "htaccess files help protect the integrity of your server. Please make sure "
