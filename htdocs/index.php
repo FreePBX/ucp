@@ -14,24 +14,6 @@ if (!@include_once(getenv('FREEPBX_CONF') ? getenv('FREEPBX_CONF') : '/etc/freep
 	include_once('/etc/asterisk/freepbx.conf');
 }
 
-if (empty($_COOKIE['lang']) || !preg_match('/^[\w\._@-]+$/', $_COOKIE['lang'], $matches)) {
-	$deflang = FreePBX::Config()->get('UIDEFAULTLANG');
-	$lang = !empty($deflang)?$deflang:'en_US';
-	if (empty($_COOKIE['lang'])) {
-		setcookie("lang", $lang);
-	} else {
-		$_COOKIE['lang'] = $lang;
-	}
-} else {
-	preg_match('/^([\w\._@-]+)$/', $_COOKIE['lang'], $matches);
-	$lang = !empty($matches[1])?$matches[1]:'en_US';
-	$_COOKIE['lang'] = $lang;
-}
-putenv('LC_ALL='.$lang);
-putenv('LANG='.$lang);
-putenv('LANGUAGE='.$lang);
-setlocale(LC_ALL, $lang);
-
 include(dirname(__FILE__).'/includes/bootstrap.php');
 try {
 	$ucp = \UCP\UCP::create();
