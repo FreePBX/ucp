@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-09 12:23-0400\n"
+"POT-Creation-Date: 2015-03-19 12:18-0400\n"
 "PO-Revision-Date: 2015-02-28 11:22+0200\n"
 "Last-Translator: Kevin <kevin@qloog.com>\n"
 "Language-Team: Japanese <http://weblate.freepbx.org/projects/freepbx/ucp/"
@@ -21,12 +21,12 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Weblate 2.2-dev\n"
 
-#: htdocs/index.php:107
+#: htdocs/index.php:89
 msgid ".htaccess files are disabled on this webserver. Please enable them"
 msgstr ""
 "このサーバーでは .htaccess ファイルが無効化されています。有効にしてください"
 
-#: htdocs/index.php:120
+#: htdocs/index.php:102
 msgid ".htaccess files are not supported on this webserver."
 msgstr "このサーバーは .htaccess ファイルをサポートしていません。"
 
@@ -34,7 +34,7 @@ msgstr "このサーバーは .htaccess ファイルをサポートしていま�
 msgid "ABC"
 msgstr "ABC"
 
-#: views/users_hook.php:110
+#: views/users_hook.php:65
 msgid "Active Sessions"
 msgstr "有効セッション"
 
@@ -42,19 +42,19 @@ msgstr "有効セッション"
 msgid "Admin"
 msgstr "アドミン"
 
-#: htdocs/views/settings.php:71
+#: htdocs/views/settings.php:72
 msgid "Allow Desktop Notifications"
 msgstr "デスクトップ通知を許可する"
 
-#: views/users_hook.php:56
+#: views/users_hook.php:26
 msgid "Allow Login"
 msgstr "ログインを許可する"
 
-#: htdocs/views/settings.php:79
+#: htdocs/views/settings.php:80
 msgid "Allow browser desktop notifications from UCP modules."
 msgstr "UCPモジュールからのデスクトップ通知（ブラウザ経由）を許可します。"
 
-#: views/users_hook.php:83
+#: views/users_hook.php:39
 msgid "Allowed Settings"
 msgstr "可能な設定"
 
@@ -70,7 +70,7 @@ msgstr "携帯"
 msgid "Company"
 msgstr "会社"
 
-#: htdocs/assets/js/ucp.js:401
+#: htdocs/assets/js/ucp.js:408
 msgid "Connecting...."
 msgstr "接続中...."
 
@@ -98,7 +98,7 @@ msgstr "完了"
 msgid "Email"
 msgstr "メール"
 
-#: htdocs/index.php:168
+#: htdocs/index.php:150
 msgid "English"
 msgstr "英語"
 
@@ -159,8 +159,8 @@ msgstr "モジュールスクリプトを生成中..."
 msgid "Hold"
 msgstr "保留"
 
-#: htdocs/modules/Home/Home.class.php:146 htdocs/views/dashboard.php:32
-#: htdocs/assets/js/ucp.js:729
+#: htdocs/modules/Home/Home.class.php:149 htdocs/views/dashboard.php:32
+#: htdocs/assets/js/ucp.js:736
 msgid "Home"
 msgstr "ホーム"
 
@@ -181,7 +181,7 @@ msgstr "不正"
 msgid "Invalid Login Credentials"
 msgstr "ログイン情報が間違っています"
 
-#: htdocs/index.php:237
+#: htdocs/index.php:219
 msgid "Invalid Token"
 msgstr "不正トーケン"
 
@@ -214,7 +214,7 @@ msgstr "読み込み中..."
 msgid "Login"
 msgstr "ログイン"
 
-#: htdocs/index.php:224
+#: htdocs/index.php:206
 msgid "Logout"
 msgstr "ログアウト"
 
@@ -222,17 +222,13 @@ msgstr "ログアウト"
 msgid "MNO"
 msgstr "MNO"
 
-#: views/users_hook.php:71
-msgid "May this user log in to UCP"
-msgstr ""
+#: views/users_hook.php:35
+msgid "Module Settings"
+msgstr "モジュール設定"
 
 #: htdocs/includes/Ajax.class.php:114
 msgid "Module or Command were null. Check your code."
 msgstr "モジュールかコマンドはnull。コードを確認してください。"
-
-#: views/users_hook.php:63
-msgid "No"
-msgstr ""
 
 #: htdocs/includes/User.class.php:74
 msgid "Nothing was Provided!"
@@ -246,7 +242,7 @@ msgstr "オフ"
 msgid "ON"
 msgstr "オン"
 
-#: htdocs/index.php:218
+#: htdocs/index.php:200
 msgid "Originate Call"
 msgstr "発信する"
 
@@ -258,7 +254,7 @@ msgstr "PQRS"
 msgid "Password"
 msgstr "パスワード"
 
-#: htdocs/assets/js/ucp.js:893
+#: htdocs/assets/js/ucp.js:900
 msgid "Password Confirmation Didn't Match!"
 msgstr "パスワードは一致しません！"
 
@@ -312,7 +308,7 @@ msgstr "保存する"
 msgid "Reset Password"
 msgstr "パスワードをリセット"
 
-#: htdocs/assets/js/ucp.js:900 htdocs/assets/js/ucp.js:918
+#: htdocs/assets/js/ucp.js:907 htdocs/assets/js/ucp.js:925
 msgid "Saved!"
 msgstr "保存しました！"
 
@@ -320,8 +316,8 @@ msgstr "保存しました！"
 msgid "Send Me A Password Reset Link"
 msgstr "パスワードリセットリンクを送信する"
 
-#: htdocs/index.php:224 htdocs/modules/Settings/Settings.class.php:83
-#: htdocs/views/dashboard.php:39 htdocs/assets/js/ucp.js:770
+#: htdocs/index.php:206 htdocs/modules/Settings/Settings.class.php:83
+#: htdocs/views/dashboard.php:39 htdocs/assets/js/ucp.js:777
 msgid "Settings"
 msgstr "設定"
 
@@ -341,11 +337,11 @@ msgstr "UCPやその他のサービスのログインに使うパスワード"
 msgid "The removal of this copyright notice is stricly prohibited"
 msgstr "著作権情報の削除は禁止されています"
 
-#: htdocs/index.php:135
+#: htdocs/index.php:117
 msgid "There was an error trying to load UCP"
 msgstr "UCPをロード中にエラーが発生しました"
 
-#: views/users_hook.php:95
+#: views/users_hook.php:39
 msgid ""
 "These are the assigned and active extensions which will show up for this "
 "user to control and edit in UCP"
@@ -355,7 +351,7 @@ msgstr "UCPでこのユーザーが使える内線を設定します"
 msgid "Title"
 msgstr "タイトル"
 
-#: htdocs/index.php:108
+#: htdocs/index.php:90
 #, php-format
 msgid ""
 "To protect the integrity of your server, you must allow overrides in your "
@@ -366,7 +362,7 @@ msgstr ""
 "ウェブサーバーの設定ファイルにオーバーライドを許可する必要があります。詳しく"
 "はこちら： %s"
 
-#: ucp.i18n.php:10 views/users_hook.php:47
+#: ucp.i18n.php:10 views/users_hook.php:19
 msgid "UCP"
 msgstr "UCP"
 
@@ -382,21 +378,20 @@ msgstr "UCPの言語"
 msgid "UCP Password"
 msgstr "UCPパスワード"
 
-#: htdocs/index.php:43
+#: htdocs/index.php:25
 msgid "UCP is currently disabled. Please talk to your system Administrator"
 msgstr "UCPは無効です。システムの管理者にご相談ください"
 
-#: htdocs/assets/js/ucp.js:877
+#: htdocs/assets/js/ucp.js:884
 msgid "UCP needs to reload, ok?"
 msgstr "UCPを再読み込みします。よろしいですか？"
 
-#: htdocs/index.php:189
+#: htdocs/index.php:171
 #, php-format
 msgid "Unknown Module %s"
 msgstr "不明モジュール %s"
 
-#: htdocs/views/forgot.php:5 htdocs/views/header.php:4
-#: htdocs/views/login.php:4 ucp.i18n.php:4
+#: htdocs/views/forgot.php:5 htdocs/views/login.php:4 ucp.i18n.php:4
 #: /usr/src/freepbx/ucp/ucp.i18n.php:22
 msgid "User Control Panel"
 msgstr "ユーザーコントロールパネル"
@@ -442,11 +437,7 @@ msgstr "こんにちは %s"
 msgid "Work Phone"
 msgstr "オフィス電話"
 
-#: views/users_hook.php:61
-msgid "Yes"
-msgstr ""
-
-#: htdocs/assets/js/ucp.js:429
+#: htdocs/assets/js/ucp.js:436
 msgid "You are currently working in offline mode."
 msgstr "オフラインモードを利用中です。"
 
@@ -508,7 +499,7 @@ msgid ""
 "advanced layout changes"
 msgstr ""
 
-#: htdocs/index.php:121
+#: htdocs/index.php:103
 #, php-format
 msgid ""
 "htaccess files help protect the integrity of your server. Please make sure "
@@ -521,9 +512,6 @@ msgstr ""
 #: htdocs/views/login.php:24
 msgid "or"
 msgstr "もしくは"
-
-#~ msgid "Module Settings"
-#~ msgstr "モジュール設定"
 
 #~ msgid "You Title"
 #~ msgstr "あなたの肩書"
