@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-03-19 12:18-0400\n"
-"PO-Revision-Date: 2015-03-22 01:03+0200\n"
+"PO-Revision-Date: 2015-03-22 01:04+0200\n"
 "Last-Translator: Ernesto <ecasas@sangoma.com>\n"
 "Language-Team: Spanish <http://weblate.freepbx.org/projects/freepbx/ucp/es/>"
 "\n"
@@ -218,7 +218,7 @@ msgstr "Login"
 
 #: htdocs/index.php:206
 msgid "Logout"
-msgstr "Logout"
+msgstr "Salir"
 
 #: htdocs/views/templates/phone.php:59
 msgid "MNO"
@@ -373,7 +373,7 @@ msgstr "UCP"
 
 #: views/header.php:1
 msgid "UCP Admin"
-msgstr "UCP Admin"
+msgstr "Admin UCP"
 
 #: htdocs/views/settings.php:68
 msgid "UCP Language"
@@ -414,7 +414,7 @@ msgstr "UCP ha sido liberado como %s o mas nuevo"
 #: Ucp.class.php:113 Ucp.class.php:123
 #, php-format
 msgid "User Control Panel: %s"
-msgstr "User Control Panel: %s"
+msgstr "Panel de Control del Usuariol: %s"
 
 #: ucp.i18n.php:12
 msgid "User Panel"
