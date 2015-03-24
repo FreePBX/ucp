@@ -153,6 +153,7 @@ switch($display) {
 				$l = basename($langDir);
 				$displayvars['languages'][$l] = function_exists('locale_get_display_name') ? locale_get_display_name($l, $lang) : $l;
 			}
+			$displayvars['username'] = $user['username'];
 			$dashboard_content = $ucp->View->load_view(__DIR__.'/views/settings.php',$displayvars);
 			$displayvars['active_module'] = 'ucpsettings';
 			$ucp->Modgettext->pop_textdomain();

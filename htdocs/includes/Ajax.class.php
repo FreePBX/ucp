@@ -52,6 +52,16 @@ class Ajax extends UCP {
 					break;
 					case 'notifications':
 					break;
+					case 'usernamecheck':
+						$ret = array(
+							"status" => true
+						);
+					break;
+					case 'username':
+						$ret = array(
+							"status" => true
+						);
+					break;
 					case 'password':
 						$this->UCP->FreePBX->Userman->updateUser($user['username'], $user['username'], $user['default_extension'], $user['description'], array(), $_POST['value']);
 						$ret = array(
