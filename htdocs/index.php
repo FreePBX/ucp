@@ -120,6 +120,7 @@ try {
 
 if(!isset($_SERVER['HTTP_X_PJAX'])) {
 	$displayvars['version'] = $ucp->getVersion();
+	$displayvars['iconsdir'] = FreePBX::Config()->get('VIEW_UCP_ICONS_FOLDER');
 	//TODO: needs to not be global
 	$ucp->View->show_view(__DIR__.'/views/header.php',$displayvars);
 }
