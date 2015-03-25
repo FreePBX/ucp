@@ -12,8 +12,7 @@ msgstr ""
 "POT-Creation-Date: 2015-03-19 12:20-0400\n"
 "PO-Revision-Date: 2015-02-28 11:22+0200\n"
 "Last-Translator: Kevin <kevin@qloog.com>\n"
-"Language-Team: Japanese <http://weblate.freepbx.org/projects/freepbx/ucp/"
-"ja_JP/>\n"
+"Language-Team: Japanese <http://weblate.freepbx.org/projects/freepbx/ucp/ja_JP/>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -23,8 +22,7 @@ msgstr ""
 
 #: htdocs/index.php:89
 msgid ".htaccess files are disabled on this webserver. Please enable them"
-msgstr ""
-"このサーバーでは .htaccess ファイルが無効化されています。有効にしてください"
+msgstr "このサーバーでは .htaccess ファイルが無効化されています。有効にしてください"
 
 #: htdocs/index.php:102
 msgid ".htaccess files are not supported on this webserver."
@@ -132,8 +130,7 @@ msgstr "パスワードお忘れの場合"
 
 #: ucp.i18n.php:8
 msgid "Formerly ARI, now called User Control Panel"
-msgstr ""
-"かつてARIと呼ばれたモジュールに代わる「ユーザーコントロールパネル」です。"
+msgstr "かつてARIと呼ばれたモジュールに代わる「ユーザーコントロールパネル」です。"
 
 #: htdocs/views/templates/phone.php:51
 msgid "GHI"
@@ -169,8 +166,7 @@ msgid "Home Phone"
 msgstr "自宅電話"
 
 #: htdocs/views/settings.php:9
-msgid ""
-"How you would like your name displayed throughout UCP and Contact Manager"
+msgid "How you would like your name displayed throughout UCP and Contact Manager"
 msgstr "UCPとコンタクトマネージャーで使う表示名"
 
 #: htdocs/includes/User.class.php:86
@@ -346,9 +342,7 @@ msgid "There was an error trying to load UCP"
 msgstr "UCPをロード中にエラーが発生しました"
 
 #: views/users_hook.php:95
-msgid ""
-"These are the assigned and active extensions which will show up for this "
-"user to control and edit in UCP"
+msgid "These are the assigned and active extensions which will show up for this user to control and edit in UCP"
 msgstr "UCPでこのユーザーが使える内線を設定します"
 
 #: htdocs/views/settings.php:32
@@ -357,14 +351,8 @@ msgstr "タイトル"
 
 #: htdocs/index.php:90
 #, php-format
-msgid ""
-"To protect the integrity of your server, you must allow overrides in your "
-"webserver's configuration file for the User Control Panel. For more "
-"information see: %s"
-msgstr ""
-"ユーザー・コントロール・パネルを使用するには、サーバーの整合性を保つために"
-"ウェブサーバーの設定ファイルにオーバーライドを許可する必要があります。詳しく"
-"はこちら： %s"
+msgid "To protect the integrity of your server, you must allow overrides in your webserver's configuration file for the User Control Panel. For more information see: %s"
+msgstr "ユーザー・コントロール・パネルを使用するには、サーバーの整合性を保つためにウェブサーバーの設定ファイルにオーバーライドを許可する必要があります。詳しくはこちら： %s"
 
 #: ucp.i18n.php:10 views/users_hook.php:47
 msgid "UCP"
@@ -408,9 +396,7 @@ msgstr "ユーザーコントロールパネル設定"
 #: htdocs/views/dashfootercontent.php:7
 #, php-format
 msgid "User Control Panel is released as %s or newer"
-msgstr ""
-"ユーザーコントロールパネルのライセンスは %s もしくは最新のライセンスで提供さ"
-"れています"
+msgstr "ユーザーコントロールパネルのライセンスは %s もしくは最新のライセンスで提供されています"
 
 #: Ucp.class.php:113 Ucp.class.php:123
 #, php-format
@@ -491,42 +477,31 @@ msgid "Your Work Number"
 msgstr "あなたの勤務先電話番号"
 
 #: htdocs/assets/js/ucp.js:145
-msgid ""
-"Your browser is unsupported at this time. Please upgrade or talk to your "
-"system administrator"
-msgstr ""
-"ご利用のブラウザはサポートされていません。アップグレードするか、システムの管"
-"理者にご相談ください"
+msgid "Your browser is unsupported at this time. Please upgrade or talk to your system administrator"
+msgstr "ご利用のブラウザはサポートされていません。アップグレードするか、システムの管理者にご相談ください"
 
 #: htdocs/assets/js/ucp.js:81
 msgid "Your reset link is in the mail!"
 msgstr "リセットリンクはメールで送信しました！"
 
 #: ucp.i18n.php:18
-msgid ""
-"dashfootercontent.php view. This should never be changed except for very "
-"advanced layout changes"
+msgid "dashfootercontent.php view. This should never be changed except for very advanced layout changes"
 msgstr ""
 
 #: htdocs/index.php:103
 #, php-format
-msgid ""
-"htaccess files help protect the integrity of your server. Please make sure "
-"file paths and directories are locked down properly. For more information "
-"see: %s"
-msgstr ""
-"htaccessファイルはサーバーの整合性を保つために重要なファイルです。関連するパ"
-"スとディレクトリのセキュリティ設定をご確認ください。詳しくはこちら： %s"
+msgid "htaccess files help protect the integrity of your server. Please make sure file paths and directories are locked down properly. For more information see: %s"
+msgstr "htaccessファイルはサーバーの整合性を保つために重要なファイルです。関連するパスとディレクトリのセキュリティ設定をご確認ください。詳しくはこちら： %s"
 
 #: htdocs/views/login.php:24
 msgid "or"
 msgstr "もしくは"
+
+#~ msgid "Copyright 2013-%s Schmooze Com Inc"
+#~ msgstr "Copyright 2013-%s Schmooze Com Inc"
 
 #~ msgid "Module Settings"
 #~ msgstr "モジュール設定"
 
 #~ msgid "You Title"
 #~ msgstr "あなたの肩書"
-
-#~ msgid "Copyright 2013-%s Schmooze Com Inc"
-#~ msgstr "Copyright 2013-%s Schmooze Com Inc"

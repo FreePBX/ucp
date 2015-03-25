@@ -14,7 +14,7 @@ msgstr ""
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
 #: htdocs/index.php:89
@@ -53,8 +53,7 @@ msgstr ""
 msgid "Allowed Settings"
 msgstr ""
 
-#: htdocs/views/templates/phone.php:7
-#: htdocs/views/templates/phone.php:95
+#: htdocs/views/templates/phone.php:7 htdocs/views/templates/phone.php:95
 msgid "Call"
 msgstr ""
 
@@ -78,8 +77,7 @@ msgstr ""
 msgid "Deleted Session"
 msgstr ""
 
-#: Ucp.class.php:64
-#: Ucp.class.php:424
+#: Ucp.class.php:64 Ucp.class.php:424
 msgid "Deleted User Session"
 msgstr ""
 
@@ -87,15 +85,11 @@ msgstr ""
 msgid "Display Name"
 msgstr ""
 
-#: Ucp.class.php:636
-#: Ucp.class.php:640
-#: Ucp.class.php:644
-#: Ucp.class.php:648
+#: Ucp.class.php:636 Ucp.class.php:640 Ucp.class.php:644 Ucp.class.php:648
 msgid "Done"
 msgstr ""
 
-#: htdocs/views/login.php:29
-#: htdocs/views/settings.php:12
+#: htdocs/views/login.php:29 htdocs/views/settings.php:12
 msgid "Email"
 msgstr ""
 
@@ -159,8 +153,7 @@ msgstr ""
 msgid "Hold"
 msgstr ""
 
-#: htdocs/modules/Home/Home.class.php:149
-#: htdocs/views/dashboard.php:32
+#: htdocs/modules/Home/Home.class.php:149 htdocs/views/dashboard.php:32
 #: htdocs/assets/js/ucp.js:729
 msgid "Home"
 msgstr ""
@@ -170,8 +163,7 @@ msgid "Home Phone"
 msgstr ""
 
 #: htdocs/views/settings.php:9
-msgid ""
-"How you would like your name displayed throughout UCP and Contact Manager"
+msgid "How you would like your name displayed throughout UCP and Contact Manager"
 msgstr ""
 
 #: htdocs/includes/User.class.php:86
@@ -206,15 +198,12 @@ msgstr ""
 msgid "Loading"
 msgstr ""
 
-#: htdocs/views/forgot.php:61
-#: htdocs/views/login.php:53
+#: htdocs/views/forgot.php:61 htdocs/views/login.php:53
 msgid "Loading..."
 msgstr ""
 
-#: htdocs/views/forgot.php:45
-#: htdocs/views/login.php:37
-#: htdocs/assets/js/ucp.js:125
-#: htdocs/assets/js/ucp.js:138
+#: htdocs/views/forgot.php:45 htdocs/views/login.php:37
+#: htdocs/assets/js/ucp.js:125 htdocs/assets/js/ucp.js:138
 msgid "Login"
 msgstr ""
 
@@ -266,8 +255,7 @@ msgstr ""
 msgid "Password Confirmation Didn't Match!"
 msgstr ""
 
-#: Ucp.class.php:117
-#: Ucp.class.php:127
+#: Ucp.class.php:117 Ucp.class.php:127
 #, php-format
 msgid "Password Reset Link (Valid Until: %s): %s"
 msgstr ""
@@ -293,8 +281,7 @@ msgstr ""
 msgid "Please enter either a username or email address"
 msgstr ""
 
-#: htdocs/assets/js/ucp.js:69
-#: htdocs/assets/js/ucp.js:118
+#: htdocs/assets/js/ucp.js:69 htdocs/assets/js/ucp.js:118
 msgid "Processing..."
 msgstr ""
 
@@ -310,8 +297,7 @@ msgstr ""
 msgid "Refreshing all UCP Assets, this could take a while..."
 msgstr ""
 
-#: htdocs/views/forgot.php:48
-#: htdocs/views/login.php:40
+#: htdocs/views/forgot.php:48 htdocs/views/login.php:40
 msgid "Remember Me"
 msgstr ""
 
@@ -319,8 +305,7 @@ msgstr ""
 msgid "Reset Password"
 msgstr ""
 
-#: htdocs/assets/js/ucp.js:900
-#: htdocs/assets/js/ucp.js:918
+#: htdocs/assets/js/ucp.js:900 htdocs/assets/js/ucp.js:918
 msgid "Saved!"
 msgstr ""
 
@@ -328,10 +313,8 @@ msgstr ""
 msgid "Send Me A Password Reset Link"
 msgstr ""
 
-#: htdocs/index.php:206
-#: htdocs/modules/Settings/Settings.class.php:83
-#: htdocs/views/dashboard.php:39
-#: htdocs/assets/js/ucp.js:770
+#: htdocs/index.php:206 htdocs/modules/Settings/Settings.class.php:83
+#: htdocs/views/dashboard.php:39 htdocs/assets/js/ucp.js:770
 msgid "Settings"
 msgstr ""
 
@@ -356,9 +339,7 @@ msgid "There was an error trying to load UCP"
 msgstr ""
 
 #: views/users_hook.php:95
-msgid ""
-"These are the assigned and active extensions which will show up for this "
-"user to control and edit in UCP"
+msgid "These are the assigned and active extensions which will show up for this user to control and edit in UCP"
 msgstr ""
 
 #: htdocs/views/settings.php:32
@@ -367,14 +348,10 @@ msgstr ""
 
 #: htdocs/index.php:90
 #, php-format
-msgid ""
-"To protect the integrity of your server, you must allow overrides in your "
-"webserver's configuration file for the User Control Panel. For more "
-"information see: %s"
+msgid "To protect the integrity of your server, you must allow overrides in your webserver's configuration file for the User Control Panel. For more information see: %s"
 msgstr ""
 
-#: ucp.i18n.php:10
-#: views/users_hook.php:47
+#: ucp.i18n.php:10 views/users_hook.php:47
 msgid "UCP"
 msgstr ""
 
@@ -403,10 +380,9 @@ msgstr ""
 msgid "Unknown Module %s"
 msgstr ""
 
-#: htdocs/views/forgot.php:5
-#: htdocs/views/header.php:4
-#: htdocs/views/login.php:4
-#: ucp.i18n.php:4 /usr/src/freepbx/ucp/ucp.i18n.php:22
+#: htdocs/views/forgot.php:5 htdocs/views/header.php:4
+#: htdocs/views/login.php:4 ucp.i18n.php:4
+#: /usr/src/freepbx/ucp/ucp.i18n.php:22
 msgid "User Control Panel"
 msgstr ""
 
@@ -419,8 +395,7 @@ msgstr ""
 msgid "User Control Panel is released as %s or newer"
 msgstr ""
 
-#: Ucp.class.php:113
-#: Ucp.class.php:123
+#: Ucp.class.php:113 Ucp.class.php:123
 #, php-format
 msgid "User Control Panel: %s"
 msgstr ""
@@ -499,9 +474,7 @@ msgid "Your Work Number"
 msgstr ""
 
 #: htdocs/assets/js/ucp.js:145
-msgid ""
-"Your browser is unsupported at this time. Please upgrade or talk to your "
-"system administrator"
+msgid "Your browser is unsupported at this time. Please upgrade or talk to your system administrator"
 msgstr ""
 
 #: htdocs/assets/js/ucp.js:81
@@ -509,19 +482,18 @@ msgid "Your reset link is in the mail!"
 msgstr ""
 
 #: ucp.i18n.php:18
-msgid ""
-"dashfootercontent.php view. This should never be changed except for very "
-"advanced layout changes"
+msgid "dashfootercontent.php view. This should never be changed except for very advanced layout changes"
 msgstr ""
 
 #: htdocs/index.php:103
 #, php-format
-msgid ""
-"htaccess files help protect the integrity of your server. Please make sure "
-"file paths and directories are locked down properly. For more information "
-"see: %s"
+msgid "htaccess files help protect the integrity of your server. Please make sure file paths and directories are locked down properly. For more information see: %s"
 msgstr ""
 
 #: htdocs/views/login.php:24
 msgid "or"
+msgstr ""
+
+#: views/users_hook.php:35
+msgid "Module Settings"
 msgstr ""

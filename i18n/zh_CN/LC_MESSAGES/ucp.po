@@ -12,8 +12,7 @@ msgstr ""
 "POT-Creation-Date: 2015-03-19 12:20-0400\n"
 "PO-Revision-Date: 2015-02-26 16:28+0200\n"
 "Last-Translator: james <zhulizhong@gmail.com>\n"
-"Language-Team: Simplified Chinese <http://weblate.freepbx.org/projects/"
-"freepbx/ucp/zh_CN/>\n"
+"Language-Team: Simplified Chinese <http://weblate.freepbx.org/projects/freepbx/ucp/zh_CN/>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -167,8 +166,7 @@ msgid "Home Phone"
 msgstr ""
 
 #: htdocs/views/settings.php:9
-msgid ""
-"How you would like your name displayed throughout UCP and Contact Manager"
+msgid "How you would like your name displayed throughout UCP and Contact Manager"
 msgstr ""
 
 #: htdocs/includes/User.class.php:86
@@ -344,9 +342,7 @@ msgid "There was an error trying to load UCP"
 msgstr ""
 
 #: views/users_hook.php:95
-msgid ""
-"These are the assigned and active extensions which will show up for this "
-"user to control and edit in UCP"
+msgid "These are the assigned and active extensions which will show up for this user to control and edit in UCP"
 msgstr ""
 
 #: htdocs/views/settings.php:32
@@ -355,10 +351,7 @@ msgstr ""
 
 #: htdocs/index.php:90
 #, php-format
-msgid ""
-"To protect the integrity of your server, you must allow overrides in your "
-"webserver's configuration file for the User Control Panel. For more "
-"information see: %s"
+msgid "To protect the integrity of your server, you must allow overrides in your webserver's configuration file for the User Control Panel. For more information see: %s"
 msgstr ""
 
 #: ucp.i18n.php:10 views/users_hook.php:47
@@ -484,9 +477,7 @@ msgid "Your Work Number"
 msgstr ""
 
 #: htdocs/assets/js/ucp.js:145
-msgid ""
-"Your browser is unsupported at this time. Please upgrade or talk to your "
-"system administrator"
+msgid "Your browser is unsupported at this time. Please upgrade or talk to your system administrator"
 msgstr ""
 
 #: htdocs/assets/js/ucp.js:81
@@ -494,19 +485,18 @@ msgid "Your reset link is in the mail!"
 msgstr ""
 
 #: ucp.i18n.php:18
-msgid ""
-"dashfootercontent.php view. This should never be changed except for very "
-"advanced layout changes"
+msgid "dashfootercontent.php view. This should never be changed except for very advanced layout changes"
 msgstr ""
 
 #: htdocs/index.php:103
 #, php-format
-msgid ""
-"htaccess files help protect the integrity of your server. Please make sure "
-"file paths and directories are locked down properly. For more information "
-"see: %s"
+msgid "htaccess files help protect the integrity of your server. Please make sure file paths and directories are locked down properly. For more information see: %s"
 msgstr ""
 
 #: htdocs/views/login.php:24
 msgid "or"
+msgstr ""
+
+#: views/users_hook.php:35
+msgid "Module Settings"
 msgstr ""
