@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-19 12:18-0400\n"
+"POT-Creation-Date: 2015-03-24 20:49-0400\n"
 "PO-Revision-Date: 2015-02-26 16:28+0200\n"
 "Last-Translator: james <zhulizhong@gmail.com>\n"
 "Language-Team: Simplified Chinese <http://weblate.freepbx.org/projects/"
@@ -97,7 +97,7 @@ msgstr "完成"
 msgid "Email"
 msgstr ""
 
-#: htdocs/index.php:150
+#: htdocs/index.php:151
 msgid "English"
 msgstr ""
 
@@ -179,7 +179,7 @@ msgstr ""
 msgid "Invalid Login Credentials"
 msgstr ""
 
-#: htdocs/index.php:219
+#: htdocs/index.php:220
 msgid "Invalid Token"
 msgstr ""
 
@@ -212,7 +212,7 @@ msgstr "装载中。。。"
 msgid "Login"
 msgstr "登录"
 
-#: htdocs/index.php:206
+#: htdocs/index.php:207
 msgid "Logout"
 msgstr "退出"
 
@@ -240,7 +240,7 @@ msgstr ""
 msgid "ON"
 msgstr ""
 
-#: htdocs/index.php:200
+#: htdocs/index.php:201
 msgid "Originate Call"
 msgstr "发起呼叫"
 
@@ -314,7 +314,7 @@ msgstr ""
 msgid "Send Me A Password Reset Link"
 msgstr ""
 
-#: htdocs/index.php:206 htdocs/modules/Settings/Settings.class.php:83
+#: htdocs/index.php:207 htdocs/modules/Settings/Settings.class.php:83
 #: htdocs/views/dashboard.php:39 htdocs/assets/js/ucp.js:777
 msgid "Settings"
 msgstr "设置"
@@ -381,7 +381,7 @@ msgstr ""
 msgid "UCP needs to reload, ok?"
 msgstr ""
 
-#: htdocs/index.php:171
+#: htdocs/index.php:172
 #, php-format
 msgid "Unknown Module %s"
 msgstr ""

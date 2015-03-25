@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-19 12:18-0400\n"
+"POT-Creation-Date: 2015-03-24 20:49-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -99,7 +99,7 @@ msgstr ""
 msgid "Email"
 msgstr ""
 
-#: htdocs/index.php:150
+#: htdocs/index.php:151
 msgid "English"
 msgstr ""
 
@@ -182,7 +182,7 @@ msgstr ""
 msgid "Invalid Login Credentials"
 msgstr ""
 
-#: htdocs/index.php:219
+#: htdocs/index.php:220
 msgid "Invalid Token"
 msgstr ""
 
@@ -218,7 +218,7 @@ msgstr ""
 msgid "Login"
 msgstr ""
 
-#: htdocs/index.php:206
+#: htdocs/index.php:207
 msgid "Logout"
 msgstr ""
 
@@ -246,7 +246,7 @@ msgstr ""
 msgid "ON"
 msgstr ""
 
-#: htdocs/index.php:200
+#: htdocs/index.php:201
 msgid "Originate Call"
 msgstr ""
 
@@ -324,7 +324,7 @@ msgstr ""
 msgid "Send Me A Password Reset Link"
 msgstr ""
 
-#: htdocs/index.php:206
+#: htdocs/index.php:207
 #: htdocs/modules/Settings/Settings.class.php:83
 #: htdocs/views/dashboard.php:39
 #: htdocs/assets/js/ucp.js:777
@@ -394,7 +394,7 @@ msgstr ""
 msgid "UCP needs to reload, ok?"
 msgstr ""
 
-#: htdocs/index.php:171
+#: htdocs/index.php:172
 #, php-format
 msgid "Unknown Module %s"
 msgstr ""

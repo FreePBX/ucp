@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-19 12:18-0400\n"
+"POT-Creation-Date: 2015-03-24 20:49-0400\n"
 "PO-Revision-Date: 2015-02-28 11:22+0200\n"
 "Last-Translator: Kevin <kevin@qloog.com>\n"
 "Language-Team: Japanese <http://weblate.freepbx.org/projects/freepbx/ucp/"
@@ -98,7 +98,7 @@ msgstr "完了"
 msgid "Email"
 msgstr "メール"
 
-#: htdocs/index.php:150
+#: htdocs/index.php:151
 msgid "English"
 msgstr "英語"
 
@@ -181,7 +181,7 @@ msgstr "不正"
 msgid "Invalid Login Credentials"
 msgstr "ログイン情報が間違っています"
 
-#: htdocs/index.php:219
+#: htdocs/index.php:220
 msgid "Invalid Token"
 msgstr "不正トーケン"
 
@@ -214,7 +214,7 @@ msgstr "読み込み中..."
 msgid "Login"
 msgstr "ログイン"
 
-#: htdocs/index.php:206
+#: htdocs/index.php:207
 msgid "Logout"
 msgstr "ログアウト"
 
@@ -242,7 +242,7 @@ msgstr "オフ"
 msgid "ON"
 msgstr "オン"
 
-#: htdocs/index.php:200
+#: htdocs/index.php:201
 msgid "Originate Call"
 msgstr "発信する"
 
@@ -316,7 +316,7 @@ msgstr "保存しました！"
 msgid "Send Me A Password Reset Link"
 msgstr "パスワードリセットリンクを送信する"
 
-#: htdocs/index.php:206 htdocs/modules/Settings/Settings.class.php:83
+#: htdocs/index.php:207 htdocs/modules/Settings/Settings.class.php:83
 #: htdocs/views/dashboard.php:39 htdocs/assets/js/ucp.js:777
 msgid "Settings"
 msgstr "設定"
@@ -386,7 +386,7 @@ msgstr "UCPは無効です。システムの管理者にご相談ください"
 msgid "UCP needs to reload, ok?"
 msgstr "UCPを再読み込みします。よろしいですか？"
 
-#: htdocs/index.php:171
+#: htdocs/index.php:172
 #, php-format
 msgid "Unknown Module %s"
 msgstr "不明モジュール %s"
