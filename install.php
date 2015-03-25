@@ -93,3 +93,18 @@ $set['name'] = 'RSS Feeds';
 $set['description'] = 'RSS Feeds that are displayed in UCP. This overrides "System Setup" for UCP. If this is blank then the feeds will be taken from RSS Feeds under "System Setup". Separate each feed by a new line';
 $set['type'] = CONF_TYPE_TEXTAREA;
 FreePBX::Config()->define_conf_setting('UCPRSSFEEDS',$set);
+
+// VIEW_UCP_FOOTER_CONTENT
+$set['value'] = 'assets/icons';
+$set['defaultval'] =& $set['value'];
+$set['readonly'] = 1;
+$set['hidden'] = 1;
+$set['level'] = 1;
+$set['sortorder'] = 355;
+$set['module'] = 'ucp'; //This will help delete the settings when module is uninstalled
+$set['category'] = 'Styling and Logos';
+$set['emptyok'] = 0;
+$set['name'] = 'View: UCP icons';
+$set['description'] = 'UCP icons folder. This should never be changed except for very advanced layout changes';
+$set['type'] = CONF_TYPE_TEXT;
+FreePBX::Config()->define_conf_setting('VIEW_UCP_ICONS_FOLDER',$set,true);

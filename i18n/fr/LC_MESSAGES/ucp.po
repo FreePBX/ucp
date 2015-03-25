@@ -13,18 +13,16 @@ msgstr ""
 "PO-Revision-Date: 2015-03-24 19:13+0200\n"
 "Last-Translator: philippebolduc <philippe@florenceinc.com>\n"
 "Language-Team: French <http://weblate.freepbx.org/projects/freepbx/ucp/fr/>\n"
-"Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: fr\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
 "X-Generator: Weblate 2.2-dev\n"
 
 #: htdocs/index.php:89
 msgid ".htaccess files are disabled on this webserver. Please enable them"
-msgstr ""
-"Les fichiers .htaccess sont désactivées sur ce serveur web. Veuillez les "
-"activer"
+msgstr "Les fichiers .htaccess sont désactivées sur ce serveur web. Veuillez les activer"
 
 #: htdocs/index.php:102
 msgid ".htaccess files are not supported on this webserver."
@@ -52,9 +50,7 @@ msgstr "Permettre la connexion"
 
 #: htdocs/views/settings.php:80
 msgid "Allow browser desktop notifications from UCP modules."
-msgstr ""
-"Autoriser les notifications sur le bureau du navigateur provenant des "
-"modules UCP."
+msgstr "Autoriser les notifications sur le bureau du navigateur provenant des modules UCP."
 
 #: views/users_hook.php:39
 msgid "Allowed Settings"
@@ -170,11 +166,8 @@ msgid "Home Phone"
 msgstr "Numéro à la maison"
 
 #: htdocs/views/settings.php:9
-msgid ""
-"How you would like your name displayed throughout UCP and Contact Manager"
-msgstr ""
-"Comment vous voulez que votre nom soit affiché dans UCP et le gestionnaire "
-"de contact"
+msgid "How you would like your name displayed throughout UCP and Contact Manager"
+msgstr "Comment vous voulez que votre nom soit affiché dans UCP et le gestionnaire de contact"
 
 #: htdocs/includes/User.class.php:86
 msgid "Invalid"
@@ -301,8 +294,7 @@ msgstr "Flux RSS qui sont affichés dans UCP . Ceci remplace "
 
 #: Ucp.class.php:37
 msgid "Refreshing all UCP Assets, this could take a while..."
-msgstr ""
-"Actualisation de tous les assets, cela pourrait prendre un certain temps ..."
+msgstr "Actualisation de tous les assets, cela pourrait prendre un certain temps ..."
 
 #: htdocs/views/forgot.php:48 htdocs/views/login.php:40
 msgid "Remember Me"
@@ -335,9 +327,7 @@ msgstr "TUV"
 
 #: htdocs/views/settings.php:19
 msgid "The password used to login to User Control Panel and other services"
-msgstr ""
-"Le mot de passe permettant de se connecter au panneau de l'utilisateur et "
-"d'autres services"
+msgstr "Le mot de passe permettant de se connecter au panneau de l'utilisateur et d'autres services"
 
 #: htdocs/views/dashfootercontent.php:10
 msgid "The removal of this copyright notice is stricly prohibited"
@@ -348,12 +338,8 @@ msgid "There was an error trying to load UCP"
 msgstr "Il y eu une erreur en essayant de charger UCP"
 
 #: views/users_hook.php:39
-msgid ""
-"These are the assigned and active extensions which will show up for this "
-"user to control and edit in UCP"
-msgstr ""
-"Ce sont les postes assignées et actifs qui s'afficheront pour cet "
-"utilisateur et qu'il pourra contrôler et modifier dans UCP"
+msgid "These are the assigned and active extensions which will show up for this user to control and edit in UCP"
+msgstr "Ce sont les postes assignées et actifs qui s'afficheront pour cet utilisateur et qu'il pourra contrôler et modifier dans UCP"
 
 #: htdocs/views/settings.php:32
 msgid "Title"
@@ -361,14 +347,8 @@ msgstr "Titre"
 
 #: htdocs/index.php:90
 #, php-format
-msgid ""
-"To protect the integrity of your server, you must allow overrides in your "
-"webserver's configuration file for the User Control Panel. For more "
-"information see: %s"
-msgstr ""
-"Pour protéger l'intégrité de votre serveur, vous devez autoriser \"allow "
-"overrides\" dans le fichier de configuration de votre serveur web pour le "
-"Panneau de l'utilisateur. Pour plus d'informations, voir:%s"
+msgid "To protect the integrity of your server, you must allow overrides in your webserver's configuration file for the User Control Panel. For more information see: %s"
+msgstr "Pour protéger l'intégrité de votre serveur, vous devez autoriser \"allow overrides\" dans le fichier de configuration de votre serveur web pour le Panneau de l'utilisateur. Pour plus d'informations, voir:%s"
 
 #: ucp.i18n.php:10 views/users_hook.php:19
 msgid "UCP"
@@ -388,9 +368,7 @@ msgstr "Mot de passe UCP"
 
 #: htdocs/index.php:25
 msgid "UCP is currently disabled. Please talk to your system Administrator"
-msgstr ""
-"UCP est actuellement désactivé. Veuillez parler à votre administrateur "
-"système"
+msgstr "UCP est actuellement désactivé. Veuillez parler à votre administrateur système"
 
 #: htdocs/assets/js/ucp.js:884
 msgid "UCP needs to reload, ok?"
@@ -490,35 +468,21 @@ msgid "Your Work Number"
 msgstr "Votre numéro de téléphone au travail"
 
 #: htdocs/assets/js/ucp.js:145
-msgid ""
-"Your browser is unsupported at this time. Please upgrade or talk to your "
-"system administrator"
-msgstr ""
-"Votre navigateur n'est pas supporté pour le moment. Veuillez le mettre à "
-"jour ou parlez avec votre administrateur système"
+msgid "Your browser is unsupported at this time. Please upgrade or talk to your system administrator"
+msgstr "Votre navigateur n'est pas supporté pour le moment. Veuillez le mettre à jour ou parlez avec votre administrateur système"
 
 #: htdocs/assets/js/ucp.js:81
 msgid "Your reset link is in the mail!"
 msgstr "Votre lien de réinitialisation est dans le courriel !"
 
 #: ucp.i18n.php:18
-msgid ""
-"dashfootercontent.php view. This should never be changed except for very "
-"advanced layout changes"
-msgstr ""
-"vue dashfootercontent.php. Cela ne devrait jamais être modifié, sauf pour "
-"les modifications de mise en page très avancées"
+msgid "dashfootercontent.php view. This should never be changed except for very advanced layout changes"
+msgstr "vue dashfootercontent.php. Cela ne devrait jamais être modifié, sauf pour les modifications de mise en page très avancées"
 
 #: htdocs/index.php:103
 #, php-format
-msgid ""
-"htaccess files help protect the integrity of your server. Please make sure "
-"file paths and directories are locked down properly. For more information "
-"see: %s"
-msgstr ""
-"Les fichiers .htaccess aident à protéger l'intégrité de votre serveur. "
-"Veuillez vous assurez que les chemins de fichiers et répertoires sont "
-"verrouillés correctement. Pour plus d'informations, voir: %s"
+msgid "htaccess files help protect the integrity of your server. Please make sure file paths and directories are locked down properly. For more information see: %s"
+msgstr "Les fichiers .htaccess aident à protéger l'intégrité de votre serveur. Veuillez vous assurez que les chemins de fichiers et répertoires sont verrouillés correctement. Pour plus d'informations, voir: %s"
 
 #: htdocs/views/login.php:24
 msgid "or"
