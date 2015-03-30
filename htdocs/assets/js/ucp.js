@@ -907,6 +907,7 @@ var UCPC = Class.extend({
 		$("#ucp-settings input[type!=\"checkbox\"]").change(function() {
 			var password = $(this).val();
 			$(this).blur(function() {
+				$(this).off("blur");
 				if ($(this).prop("type") == "password") {
 					UCP.showDialog(_("Confirm Password"), "<label for='ucppass' class='control-label'>" + _('Please Reconfirm Your Password') + "</label><input type='password' class='form-control' id='ucppass'></input><button id='passsub' class='btn btn-default'>" + _('Submit') + "</button>");
 					$("#passsub").click(function() {
@@ -929,7 +930,6 @@ var UCPC = Class.extend({
 										$("#message").addClass("alert-danger");
 										$("#message").text(data.message);
 									}
-									$(this).off("blur");
 								});
 							}
 						}
@@ -939,9 +939,16 @@ var UCPC = Class.extend({
 					if($(this).val() != $(this).data("prevusername")) {
 						//do ajax
 						if($(this).parents(".form-group").hasClass("has-success")) {
-							alert("change!");
-							$.post( "?quietmode=1&command=ucpsettings", { key: "username", value: $(this).val() }, function( data ) {
-							});
+							if(confirm(_("Are you sure you wish to change your username?"))) {
+								$.post( "?quietmode=1&command=ucpsettings", { key: "username", value: $(this).val() }, function( data ) {
+									if(data.status) {
+										alert(_("Username has been changed, reloading"));
+										location.reload();
+									} else {
+										alert(data.message);
+									}
+								});
+							}
 						} else {
 
 						}

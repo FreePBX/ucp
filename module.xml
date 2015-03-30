@@ -2,7 +2,7 @@
 	<rawname>ucp</rawname>
 	<name>User Control Panel</name>
 	<repo>standard</repo>
-	<version>12.0.12</version>
+	<version>12.0.13</version>
 	<publisher>FreePBX</publisher>
 	<license>AGPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/agpl-3.0.txt</licenselink>
@@ -10,6 +10,7 @@
 		Formerly ARI, now called User Control Panel
 	</description>
 	<changelog>
+		*12.0.13* FREEPBX-8829 Allow username changing in UCP
 		*12.0.12* Styling updates
 		*12.0.11* Language selections are done in boostrap now
 		*12.0.10* FREEPBX-8489 Allow setting different RSS feeds for UCP only in Advanced Settings

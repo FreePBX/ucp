@@ -33,7 +33,7 @@ class Ajax extends UCP {
 			case 'ucpsettings':
 				$this->addHeader('HTTP/1.0','200');
 				$user = $this->UCP->User->getUser();
-				if(!$this->UCP->User->canChange($_POST['key'])) {
+				if(($_POST['key'] == 'username' || $_POST['key'] == 'password') && !$this->UCP->User->canChange($_POST['key'])) {
 					return array(
 						"status" => false
 					);
