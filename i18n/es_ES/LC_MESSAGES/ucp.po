@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-03-24 20:49-0400\n"
-"PO-Revision-Date: 2015-03-30 10:47+0200\n"
+"PO-Revision-Date: 2015-03-30 10:56+0200\n"
 "Last-Translator: Ernesto <ecasas@sangoma.com>\n"
 "Language-Team: Spanish "
 "<http://weblate.freepbx.org/projects/freepbx/ucp/es_ES/>\n"
@@ -322,7 +322,7 @@ msgstr "Envíeme un enlace de reinicio de Password"
 #: htdocs/index.php:207 htdocs/modules/Settings/Settings.class.php:83
 #: htdocs/views/dashboard.php:39 htdocs/assets/js/ucp.js:777
 msgid "Settings"
-msgstr "Configuración"
+msgstr "Configuracion"
 
 #: ucp.i18n.php:16
 msgid "Styling and Logos"
