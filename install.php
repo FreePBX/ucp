@@ -108,3 +108,29 @@ $set['name'] = 'View: UCP icons';
 $set['description'] = 'UCP icons folder. This should never be changed except for very advanced layout changes';
 $set['type'] = CONF_TYPE_TEXT;
 FreePBX::Config()->define_conf_setting('VIEW_UCP_ICONS_FOLDER',$set,true);
+
+$set['value'] = false;
+$set['defaultval'] =& $set['value'];
+$set['readonly'] = 0;
+$set['hidden'] = 0;
+$set['level'] = 1;
+$set['module'] = 'ucp'; //This will help delete the settings when module is uninstalled
+$set['category'] = 'User Control Panel';
+$set['emptyok'] = 0;
+$set['name'] = 'Allow Username Changes';
+$set['description'] = 'Allow users to change thier username in UCP';
+$set['type'] = CONF_TYPE_BOOL;
+FreePBX::Config()->define_conf_setting('UCPCHANGEUSERNAME',$set,true);
+
+$set['value'] = true;
+$set['defaultval'] =& $set['value'];
+$set['readonly'] = 0;
+$set['hidden'] = 0;
+$set['level'] = 1;
+$set['module'] = 'ucp'; //This will help delete the settings when module is uninstalled
+$set['category'] = 'User Control Panel';
+$set['emptyok'] = 0;
+$set['name'] = 'Allow Password Changes';
+$set['description'] = 'Allow users to change thier password in UCP';
+$set['type'] = CONF_TYPE_BOOL;
+FreePBX::Config()->define_conf_setting('UCPCHANGEPASSWORD',$set,true);

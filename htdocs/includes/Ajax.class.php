@@ -33,6 +33,11 @@ class Ajax extends UCP {
 			case 'ucpsettings':
 				$this->addHeader('HTTP/1.0','200');
 				$user = $this->UCP->User->getUser();
+				if(!$this->UCP->User->canChange($_POST['key'])) {
+					return array(
+						"status" => false
+					);
+				}
 				$this->UCP->Modgettext->push_textdomain("ucp");
 				switch($_POST['key']) {
 					case 'fname':
@@ -52,10 +57,22 @@ class Ajax extends UCP {
 					break;
 					case 'notifications':
 					break;
-					case 'password':
-						$this->UCP->FreePBX->Userman->updateUser($user['username'], $user['username'], $user['default_extension'], $user['description'], array(), $_POST['value']);
+					case 'usernamecheck':
+						$user = $this->UCP->FreePBX->Userman->getUserByUsername($_POST['value']);
 						$ret = array(
-							"status" => true
+							"status" => empty($user)
+						);
+					break;
+					case 'username':
+						$status = $this->UCP->FreePBX->Userman->updateUser($user['username'], $_POST['value'], $user['default_extension'], $user['description']);
+						$ret = array(
+							"status" => $status['status']
+						);
+					break;
+					case 'password':
+						$status = $this->UCP->FreePBX->Userman->updateUser($user['username'], $user['username'], $user['default_extension'], $user['description'], array(), $_POST['value']);
+						$ret = array(
+							"status" => $status['status']
 						);
 					break;
 					break;
