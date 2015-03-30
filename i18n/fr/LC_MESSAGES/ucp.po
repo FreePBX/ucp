@@ -22,7 +22,7 @@ msgstr ""
 
 #: htdocs/index.php:89
 msgid ".htaccess files are disabled on this webserver. Please enable them"
-msgstr "Les fichiers .htaccess sont désactivées sur ce serveur web. Veuillez les activer S.V.P. ."
+msgstr "Les fichiers .htaccess sont désactivées sur ce serveur web. Veuillez les activer"
 
 #: htdocs/index.php:102
 msgid ".htaccess files are not supported on this webserver."
@@ -157,7 +157,7 @@ msgid "Hold"
 msgstr "Attente"
 
 #: htdocs/modules/Home/Home.class.php:149 htdocs/views/dashboard.php:32
-#: htdocs/assets/js/ucp.js:729
+#: htdocs/assets/js/ucp.js:736
 #, fuzzy
 msgid "Home"
 msgstr "Maison"
