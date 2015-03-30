@@ -219,6 +219,10 @@ msgstr ""
 msgid "May this user log in to UCP"
 msgstr ""
 
+#: views/users_hook.php:35
+msgid "Module Settings"
+msgstr ""
+
 #: htdocs/includes/Ajax.class.php:114
 msgid "Module or Command were null. Check your code."
 msgstr ""
@@ -494,6 +498,50 @@ msgstr ""
 msgid "or"
 msgstr ""
 
-#: views/users_hook.php:35
-msgid "Module Settings"
+#: ucp.i18n.php:28
+msgid "All users to change thier password in UCP"
+msgstr ""
+
+#: ucp.i18n.php:32
+msgid "All users to change thier username in UCP"
+msgstr ""
+
+#: ucp.i18n.php:24
+msgid "Allow Password Changes"
+msgstr ""
+
+#: ucp.i18n.php:30
+msgid "Allow Username Changes"
+msgstr ""
+
+#: htdocs/assets/js/ucp.js:942
+msgid "Are you sure you wish to change your username?"
+msgstr ""
+
+#: htdocs/assets/js/ucp.js:912
+msgid "Confirm Password"
+msgstr ""
+
+#: htdocs/assets/js/ucp.js:912
+msgid "Please Reconfirm Your Password"
+msgstr ""
+
+#: htdocs/assets/js/ucp.js:912
+msgid "Submit"
+msgstr ""
+
+#: htdocs/views/settings.php:10
+msgid "The username used to login to User Control Panel and other services"
+msgstr ""
+
+#: ucp.i18n.php:22
+msgid "UCP icons folder. This should never be changed except for very advanced layout changes"
+msgstr ""
+
+#: htdocs/assets/js/ucp.js:945
+msgid "Username has been changed, reloading"
+msgstr ""
+
+#: ucp.i18n.php:20
+msgid "View: UCP icons"
 msgstr ""
