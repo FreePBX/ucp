@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-31 14:21-0400\n"
+"POT-Creation-Date: 2015-03-31 16:26-0400\n"
 "PO-Revision-Date: 2015-03-30 14:57-0400\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -97,11 +97,11 @@ msgstr ""
 msgid "DEF"
 msgstr ""
 
-#: Ucp.class.php:526
+#: Ucp.class.php:529
 msgid "Deleted Session"
 msgstr ""
 
-#: Ucp.class.php:64 Ucp.class.php:424
+#: Ucp.class.php:64 Ucp.class.php:427
 msgid "Deleted User Session"
 msgstr ""
 
@@ -109,7 +109,7 @@ msgstr ""
 msgid "Display Name"
 msgstr ""
 
-#: Ucp.class.php:636 Ucp.class.php:640 Ucp.class.php:644 Ucp.class.php:648
+#: Ucp.class.php:639 Ucp.class.php:643 Ucp.class.php:647 Ucp.class.php:651
 msgid "Done"
 msgstr ""
 
@@ -157,19 +157,19 @@ msgstr ""
 msgid "GHI"
 msgstr ""
 
-#: Ucp.class.php:646
+#: Ucp.class.php:649
 msgid "Generating Main CSS..."
 msgstr ""
 
-#: Ucp.class.php:642
+#: Ucp.class.php:645
 msgid "Generating Main Scripts..."
 msgstr ""
 
-#: Ucp.class.php:638
+#: Ucp.class.php:641
 msgid "Generating Module CSS..."
 msgstr ""
 
-#: Ucp.class.php:634
+#: Ucp.class.php:637
 msgid "Generating Module Scripts..."
 msgstr ""
 

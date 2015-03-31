@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-31 14:21-0400\n"
+"POT-Creation-Date: 2015-03-31 16:26-0400\n"
 "PO-Revision-Date: 2015-02-28 11:22+0200\n"
 "Last-Translator: Kevin <kevin@qloog.com>\n"
 "Language-Team: Japanese <http://weblate.freepbx.org/projects/freepbx/ucp/"
@@ -102,11 +102,11 @@ msgstr "接続中...."
 msgid "DEF"
 msgstr "DEF"
 
-#: Ucp.class.php:526
+#: Ucp.class.php:529
 msgid "Deleted Session"
 msgstr "セッションを削除しました"
 
-#: Ucp.class.php:64 Ucp.class.php:424
+#: Ucp.class.php:64 Ucp.class.php:427
 msgid "Deleted User Session"
 msgstr "ユーザーのセッションを削除しました"
 
@@ -114,7 +114,7 @@ msgstr "ユーザーのセッションを削除しました"
 msgid "Display Name"
 msgstr "表示名"
 
-#: Ucp.class.php:636 Ucp.class.php:640 Ucp.class.php:644 Ucp.class.php:648
+#: Ucp.class.php:639 Ucp.class.php:643 Ucp.class.php:647 Ucp.class.php:651
 msgid "Done"
 msgstr "完了"
 
@@ -163,19 +163,19 @@ msgstr ""
 msgid "GHI"
 msgstr "GHI"
 
-#: Ucp.class.php:646
+#: Ucp.class.php:649
 msgid "Generating Main CSS..."
 msgstr "メインCSSを生成中..."
 
-#: Ucp.class.php:642
+#: Ucp.class.php:645
 msgid "Generating Main Scripts..."
 msgstr "メインスクリプトを生成中..."
 
-#: Ucp.class.php:638
+#: Ucp.class.php:641
 msgid "Generating Module CSS..."
 msgstr "モジュールCSSを生成中..."
 
-#: Ucp.class.php:634
+#: Ucp.class.php:637
 msgid "Generating Module Scripts..."
 msgstr "モジュールスクリプトを生成中..."
 
