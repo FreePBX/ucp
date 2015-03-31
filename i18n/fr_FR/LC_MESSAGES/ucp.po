@@ -9,23 +9,23 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-30 14:57-0400\n"
+"POT-Creation-Date: 2015-03-31 14:21-0400\n"
 "PO-Revision-Date: 2015-03-30 14:57-0400\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
-"Language: fr_FR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: fr_FR\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-#: htdocs/index.php:89
+#: htdocs/index.php:91
 msgid ".htaccess files are disabled on this webserver. Please enable them"
 msgstr ""
 "Les fichiers .htaccess sont désactivées sur ce serveur web. Veuillez les "
 "activer"
 
-#: htdocs/index.php:102
+#: htdocs/index.php:104
 msgid ".htaccess files are not supported on this webserver."
 msgstr "Les fichiers .htaccess ne sont pas supportés sur ce serveur web."
 
@@ -40,14 +40,6 @@ msgstr "Sessions actives"
 #: ucp.i18n.php:6
 msgid "Admin"
 msgstr "Administrateur"
-
-#: ucp.i18n.php:28
-msgid "All users to change thier password in UCP"
-msgstr "Tous les utilisateurs doivent changer leur mot de passe dans UCP"
-
-#: ucp.i18n.php:32
-msgid "All users to change thier username in UCP"
-msgstr "Tous les utilisateurs doivent changer leur nom d'utilisateur dans UCP"
 
 #: htdocs/views/settings.php:81
 msgid "Allow Desktop Notifications"
@@ -70,6 +62,14 @@ msgid "Allow browser desktop notifications from UCP modules."
 msgstr ""
 "Autoriser les notifications sur le bureau du navigateur provenant des "
 "modules UCP."
+
+#: ucp.i18n.php:28
+msgid "Allow users to change thier password in UCP"
+msgstr ""
+
+#: ucp.i18n.php:32
+msgid "Allow users to change thier username in UCP"
+msgstr ""
 
 #: views/users_hook.php:39
 msgid "Allowed Settings"
@@ -123,7 +123,7 @@ msgstr "Terminé"
 msgid "Email"
 msgstr "Courriel"
 
-#: htdocs/index.php:151
+#: htdocs/index.php:153
 msgid "English"
 msgstr "Anglais"
 
@@ -207,7 +207,7 @@ msgstr "Invalide"
 msgid "Invalid Login Credentials"
 msgstr "Nom d'utilisateur ou mot de passe invalide"
 
-#: htdocs/index.php:224
+#: htdocs/index.php:226
 msgid "Invalid Token"
 msgstr "Jeton invalide"
 
@@ -240,7 +240,7 @@ msgstr "Chargement..."
 msgid "Login"
 msgstr "Nom d'utilisateur"
 
-#: htdocs/index.php:211
+#: htdocs/index.php:213
 msgid "Logout"
 msgstr "Déconnexion"
 
@@ -268,7 +268,7 @@ msgstr "Désactivé"
 msgid "ON"
 msgstr "Activé"
 
-#: htdocs/index.php:205
+#: htdocs/index.php:207
 msgid "Originate Call"
 msgstr "Faire un appel"
 
@@ -347,7 +347,7 @@ msgstr "Enregistré !"
 msgid "Send Me A Password Reset Link"
 msgstr "Envoyez-moi un lien pour réinitialiser mot de passe"
 
-#: htdocs/index.php:211 htdocs/modules/Settings/Settings.class.php:83
+#: htdocs/index.php:213 htdocs/modules/Settings/Settings.class.php:83
 #: htdocs/views/dashboard.php:39 htdocs/assets/js/ucp.js:777
 msgid "Settings"
 msgstr "Paramètres"
@@ -380,7 +380,7 @@ msgstr ""
 "Le nom d'utilisateur utilisé pour vous connecter au panneau de l'utilisateur "
 "et autres services"
 
-#: htdocs/index.php:117
+#: htdocs/index.php:119
 msgid "There was an error trying to load UCP"
 msgstr "Il y eu une erreur en essayant de charger UCP"
 
@@ -396,7 +396,7 @@ msgstr ""
 msgid "Title"
 msgstr "Titre"
 
-#: htdocs/index.php:90
+#: htdocs/index.php:92
 #, php-format
 msgid ""
 "To protect the integrity of your server, you must allow overrides in your "
@@ -427,7 +427,7 @@ msgstr ""
 "Dossier icônes UCP . Cela ne devrait jamais être modifié , sauf pour les "
 "modifications de mise en page très avancées"
 
-#: htdocs/index.php:25
+#: htdocs/index.php:27
 msgid "UCP is currently disabled. Please talk to your system Administrator"
 msgstr ""
 "UCP est actuellement désactivé. Veuillez parler à votre administrateur "
@@ -437,7 +437,7 @@ msgstr ""
 msgid "UCP needs to reload, ok?"
 msgstr "UCP doit recharger, ok ?"
 
-#: htdocs/index.php:176
+#: htdocs/index.php:178
 #, php-format
 msgid "Unknown Module %s"
 msgstr "Module inconnu %s"
@@ -558,7 +558,7 @@ msgstr ""
 "vue dashfootercontent.php. Cela ne devrait jamais être modifié, sauf pour "
 "les modifications de mise en page très avancées"
 
-#: htdocs/index.php:103
+#: htdocs/index.php:105
 #, php-format
 msgid ""
 "htaccess files help protect the integrity of your server. Please make sure "
@@ -572,3 +572,10 @@ msgstr ""
 #: htdocs/views/login.php:24
 msgid "or"
 msgstr "ou"
+
+#~ msgid "All users to change thier password in UCP"
+#~ msgstr "Tous les utilisateurs doivent changer leur mot de passe dans UCP"
+
+#~ msgid "All users to change thier username in UCP"
+#~ msgstr ""
+#~ "Tous les utilisateurs doivent changer leur nom d'utilisateur dans UCP"

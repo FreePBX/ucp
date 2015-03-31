@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-30 14:57-0400\n"
+"POT-Creation-Date: 2015-03-31 14:21-0400\n"
 "PO-Revision-Date: 2015-02-26 16:28+0200\n"
 "Last-Translator: james <zhulizhong@gmail.com>\n"
 "Language-Team: Simplified Chinese <http://weblate.freepbx.org/projects/"
@@ -21,11 +21,11 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Weblate 2.2-dev\n"
 
-#: htdocs/index.php:89
+#: htdocs/index.php:91
 msgid ".htaccess files are disabled on this webserver. Please enable them"
 msgstr ""
 
-#: htdocs/index.php:102
+#: htdocs/index.php:104
 msgid ".htaccess files are not supported on this webserver."
 msgstr ""
 
@@ -40,14 +40,6 @@ msgstr ""
 #: ucp.i18n.php:6
 msgid "Admin"
 msgstr "管理"
-
-#: ucp.i18n.php:28
-msgid "All users to change thier password in UCP"
-msgstr ""
-
-#: ucp.i18n.php:32
-msgid "All users to change thier username in UCP"
-msgstr ""
 
 #: htdocs/views/settings.php:81
 msgid "Allow Desktop Notifications"
@@ -67,6 +59,14 @@ msgstr ""
 
 #: htdocs/views/settings.php:89
 msgid "Allow browser desktop notifications from UCP modules."
+msgstr ""
+
+#: ucp.i18n.php:28
+msgid "Allow users to change thier password in UCP"
+msgstr ""
+
+#: ucp.i18n.php:32
+msgid "Allow users to change thier username in UCP"
 msgstr ""
 
 #: views/users_hook.php:39
@@ -121,7 +121,7 @@ msgstr "完成"
 msgid "Email"
 msgstr ""
 
-#: htdocs/index.php:151
+#: htdocs/index.php:153
 msgid "English"
 msgstr ""
 
@@ -203,7 +203,7 @@ msgstr ""
 msgid "Invalid Login Credentials"
 msgstr ""
 
-#: htdocs/index.php:224
+#: htdocs/index.php:226
 msgid "Invalid Token"
 msgstr ""
 
@@ -236,7 +236,7 @@ msgstr "装载中。。。"
 msgid "Login"
 msgstr "登录"
 
-#: htdocs/index.php:211
+#: htdocs/index.php:213
 msgid "Logout"
 msgstr "退出"
 
@@ -264,7 +264,7 @@ msgstr ""
 msgid "ON"
 msgstr ""
 
-#: htdocs/index.php:205
+#: htdocs/index.php:207
 msgid "Originate Call"
 msgstr "发起呼叫"
 
@@ -342,7 +342,7 @@ msgstr ""
 msgid "Send Me A Password Reset Link"
 msgstr ""
 
-#: htdocs/index.php:211 htdocs/modules/Settings/Settings.class.php:83
+#: htdocs/index.php:213 htdocs/modules/Settings/Settings.class.php:83
 #: htdocs/views/dashboard.php:39 htdocs/assets/js/ucp.js:777
 msgid "Settings"
 msgstr "设置"
@@ -371,7 +371,7 @@ msgstr ""
 msgid "The username used to login to User Control Panel and other services"
 msgstr ""
 
-#: htdocs/index.php:117
+#: htdocs/index.php:119
 msgid "There was an error trying to load UCP"
 msgstr ""
 
@@ -385,7 +385,7 @@ msgstr ""
 msgid "Title"
 msgstr ""
 
-#: htdocs/index.php:90
+#: htdocs/index.php:92
 #, php-format
 msgid ""
 "To protect the integrity of your server, you must allow overrides in your "
@@ -411,7 +411,7 @@ msgid ""
 "layout changes"
 msgstr ""
 
-#: htdocs/index.php:25
+#: htdocs/index.php:27
 msgid "UCP is currently disabled. Please talk to your system Administrator"
 msgstr ""
 
@@ -419,7 +419,7 @@ msgstr ""
 msgid "UCP needs to reload, ok?"
 msgstr ""
 
-#: htdocs/index.php:176
+#: htdocs/index.php:178
 #, php-format
 msgid "Unknown Module %s"
 msgstr ""
@@ -536,7 +536,7 @@ msgid ""
 "advanced layout changes"
 msgstr ""
 
-#: htdocs/index.php:103
+#: htdocs/index.php:105
 #, php-format
 msgid ""
 "htaccess files help protect the integrity of your server. Please make sure "
