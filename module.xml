@@ -2,7 +2,7 @@
 	<rawname>ucp</rawname>
 	<name>User Control Panel</name>
 	<repo>standard</repo>
-	<version>12.0.14</version>
+	<version>12.0.15</version>
 	<publisher>FreePBX</publisher>
 	<license>AGPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/agpl-3.0.txt</licenselink>
@@ -10,6 +10,7 @@
 		Formerly ARI, now called User Control Panel
 	</description>
 	<changelog>
+		*12.0.15* FREEPBX-8999 Dont process the page if user is null
 		*12.0.14* Fix language settings
 		*12.0.13* FREEPBX-8829 Allow username changing in UCP
 		*12.0.12* Styling updates

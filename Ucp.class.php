@@ -295,6 +295,9 @@ class Ucp implements BMO {
 	 * @param {array} $user The userman user array
 	 */
 	function processModuleConfigPages($user) {
+		if(empty($user)){
+			return;
+		}
 		$modulef =& module_functions::create();
 		$modules = $modulef->getinfo(false);
 		$path = $this->FreePBX->Config->get_conf_setting('AMPWEBROOT');
