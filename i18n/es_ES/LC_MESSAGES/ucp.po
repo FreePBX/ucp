@@ -38,7 +38,7 @@ msgstr "Sesiones Activas"
 
 #: ucp.i18n.php:6
 msgid "Admin"
-msgstr "Administrador"
+msgstr "Administración"
 
 #: ucp.i18n.php:28
 msgid "All users to change thier password in UCP"
@@ -347,8 +347,9 @@ msgstr "Envíeme un enlace de reinicio de Password"
 
 #: htdocs/index.php:209 htdocs/modules/Settings/Settings.class.php:83
 #: htdocs/views/dashboard.php:39 htdocs/assets/js/ucp.js:770
+#, fuzzy
 msgid "Settings"
-msgstr "Configuracion"
+msgstr "Configuración"
 
 #: ucp.i18n.php:16
 msgid "Styling and Logos"
@@ -543,8 +544,8 @@ msgstr "Los ficheros htaccess  ayudan a proteger la integridad de su servidor. P
 msgid "or"
 msgstr "o"
 
-#~ msgid "UCP Password"
-#~ msgstr "Password UCP"
-
 #~ msgid "Module Settings"
 #~ msgstr "Configuración de Módulo"
+
+#~ msgid "UCP Password"
+#~ msgstr "Password UCP"
