@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-24 20:49-0400\n"
+"POT-Creation-Date: 2015-03-30 14:57-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -37,7 +37,15 @@ msgstr ""
 msgid "Admin"
 msgstr ""
 
-#: htdocs/views/settings.php:72
+#: ucp.i18n.php:28
+msgid "All users to change thier password in UCP"
+msgstr ""
+
+#: ucp.i18n.php:32
+msgid "All users to change thier username in UCP"
+msgstr ""
+
+#: htdocs/views/settings.php:81
 msgid "Allow Desktop Notifications"
 msgstr ""
 
@@ -45,7 +53,15 @@ msgstr ""
 msgid "Allow Login"
 msgstr ""
 
-#: htdocs/views/settings.php:80
+#: ucp.i18n.php:24
+msgid "Allow Password Changes"
+msgstr ""
+
+#: ucp.i18n.php:30
+msgid "Allow Username Changes"
+msgstr ""
+
+#: htdocs/views/settings.php:89
 msgid "Allow browser desktop notifications from UCP modules."
 msgstr ""
 
@@ -53,17 +69,25 @@ msgstr ""
 msgid "Allowed Settings"
 msgstr ""
 
+#: htdocs/assets/js/ucp.js:942
+msgid "Are you sure you wish to change your username?"
+msgstr ""
+
 #: htdocs/views/templates/phone.php:7
 #: htdocs/views/templates/phone.php:95
 msgid "Call"
 msgstr ""
 
-#: htdocs/views/settings.php:42
+#: htdocs/views/settings.php:51
 msgid "Cell Phone"
 msgstr ""
 
-#: htdocs/views/settings.php:37
+#: htdocs/views/settings.php:46
 msgid "Company"
+msgstr ""
+
+#: htdocs/assets/js/ucp.js:912
+msgid "Confirm Password"
 msgstr ""
 
 #: htdocs/assets/js/ucp.js:408
@@ -83,7 +107,7 @@ msgstr ""
 msgid "Deleted User Session"
 msgstr ""
 
-#: htdocs/views/settings.php:7
+#: htdocs/views/settings.php:21
 msgid "Display Name"
 msgstr ""
 
@@ -95,7 +119,7 @@ msgid "Done"
 msgstr ""
 
 #: htdocs/views/login.php:29
-#: htdocs/views/settings.php:12
+#: htdocs/views/settings.php:26
 msgid "Email"
 msgstr ""
 
@@ -111,7 +135,7 @@ msgstr ""
 msgid "Failed to install "
 msgstr ""
 
-#: htdocs/views/settings.php:57
+#: htdocs/views/settings.php:66
 msgid "Fax"
 msgstr ""
 
@@ -119,7 +143,7 @@ msgstr ""
 msgid "First"
 msgstr ""
 
-#: htdocs/views/settings.php:22
+#: htdocs/views/settings.php:31
 msgid "First Name"
 msgstr ""
 
@@ -165,11 +189,11 @@ msgstr ""
 msgid "Home"
 msgstr ""
 
-#: htdocs/views/settings.php:52
+#: htdocs/views/settings.php:61
 msgid "Home Phone"
 msgstr ""
 
-#: htdocs/views/settings.php:9
+#: htdocs/views/settings.php:23
 msgid ""
 "How you would like your name displayed throughout UCP and Contact Manager"
 msgstr ""
@@ -182,7 +206,7 @@ msgstr ""
 msgid "Invalid Login Credentials"
 msgstr ""
 
-#: htdocs/index.php:220
+#: htdocs/index.php:224
 msgid "Invalid Token"
 msgstr ""
 
@@ -190,7 +214,7 @@ msgstr ""
 msgid "JKL"
 msgstr ""
 
-#: htdocs/views/settings.php:62
+#: htdocs/views/settings.php:71
 msgid "Language"
 msgstr ""
 
@@ -198,7 +222,7 @@ msgstr ""
 msgid "Last"
 msgstr ""
 
-#: htdocs/views/settings.php:27
+#: htdocs/views/settings.php:36
 msgid "Last Name"
 msgstr ""
 
@@ -218,7 +242,7 @@ msgstr ""
 msgid "Login"
 msgstr ""
 
-#: htdocs/index.php:207
+#: htdocs/index.php:211
 msgid "Logout"
 msgstr ""
 
@@ -230,7 +254,7 @@ msgstr ""
 msgid "Module Settings"
 msgstr ""
 
-#: htdocs/includes/Ajax.class.php:114
+#: htdocs/includes/Ajax.class.php:131
 msgid "Module or Command were null. Check your code."
 msgstr ""
 
@@ -246,7 +270,7 @@ msgstr ""
 msgid "ON"
 msgstr ""
 
-#: htdocs/index.php:201
+#: htdocs/index.php:205
 msgid "Originate Call"
 msgstr ""
 
@@ -255,10 +279,11 @@ msgid "PQRS"
 msgstr ""
 
 #: htdocs/views/login.php:20
+#: htdocs/views/settings.php:15
 msgid "Password"
 msgstr ""
 
-#: htdocs/assets/js/ucp.js:900
+#: htdocs/assets/js/ucp.js:918
 msgid "Password Confirmation Didn't Match!"
 msgstr ""
 
@@ -285,6 +310,10 @@ msgstr ""
 msgid "Passwords do not match"
 msgstr ""
 
+#: htdocs/assets/js/ucp.js:912
+msgid "Please Reconfirm Your Password"
+msgstr ""
+
 #: htdocs/assets/js/ucp.js:71
 msgid "Please enter either a username or email address"
 msgstr ""
@@ -294,11 +323,11 @@ msgstr ""
 msgid "Processing..."
 msgstr ""
 
-#: ucp.i18n.php:20
+#: ucp.i18n.php:34
 msgid "RSS Feeds"
 msgstr ""
 
-#: ucp.i18n.php:24
+#: ucp.i18n.php:36
 msgid "RSS Feeds that are displayed in UCP. This overrides "
 msgstr ""
 
@@ -315,8 +344,8 @@ msgstr ""
 msgid "Reset Password"
 msgstr ""
 
-#: htdocs/assets/js/ucp.js:907
 #: htdocs/assets/js/ucp.js:925
+#: htdocs/assets/js/ucp.js:960
 msgid "Saved!"
 msgstr ""
 
@@ -324,7 +353,7 @@ msgstr ""
 msgid "Send Me A Password Reset Link"
 msgstr ""
 
-#: htdocs/index.php:207
+#: htdocs/index.php:211
 #: htdocs/modules/Settings/Settings.class.php:83
 #: htdocs/views/dashboard.php:39
 #: htdocs/assets/js/ucp.js:777
@@ -335,16 +364,24 @@ msgstr ""
 msgid "Styling and Logos"
 msgstr ""
 
+#: htdocs/assets/js/ucp.js:912
+msgid "Submit"
+msgstr ""
+
 #: htdocs/views/templates/phone.php:69
 msgid "TUV"
 msgstr ""
 
-#: htdocs/views/settings.php:19
+#: htdocs/views/settings.php:17
 msgid "The password used to login to User Control Panel and other services"
 msgstr ""
 
 #: htdocs/views/dashfootercontent.php:10
 msgid "The removal of this copyright notice is stricly prohibited"
+msgstr ""
+
+#: htdocs/views/settings.php:10
+msgid "The username used to login to User Control Panel and other services"
 msgstr ""
 
 #: htdocs/index.php:117
@@ -357,7 +394,7 @@ msgid ""
 "user to control and edit in UCP"
 msgstr ""
 
-#: htdocs/views/settings.php:32
+#: htdocs/views/settings.php:41
 msgid "Title"
 msgstr ""
 
@@ -378,12 +415,14 @@ msgstr ""
 msgid "UCP Admin"
 msgstr ""
 
-#: htdocs/views/settings.php:68
+#: htdocs/views/settings.php:77
 msgid "UCP Language"
 msgstr ""
 
-#: htdocs/views/settings.php:17
-msgid "UCP Password"
+#: ucp.i18n.php:22
+msgid ""
+"UCP icons folder. This should never be changed except for very advanced "
+"layout changes"
 msgstr ""
 
 #: htdocs/index.php:25
@@ -394,14 +433,14 @@ msgstr ""
 msgid "UCP needs to reload, ok?"
 msgstr ""
 
-#: htdocs/index.php:172
+#: htdocs/index.php:176
 #, php-format
 msgid "Unknown Module %s"
 msgstr ""
 
 #: htdocs/views/forgot.php:5
 #: htdocs/views/login.php:4
-#: ucp.i18n.php:4 /usr/src/freepbx/ucp/ucp.i18n.php:22
+#: ucp.i18n.php:4 /usr/src/freepbx/ucp/ucp.i18n.php:26
 msgid "User Control Panel"
 msgstr ""
 
@@ -425,11 +464,20 @@ msgid "User Panel"
 msgstr ""
 
 #: htdocs/views/login.php:15
+#: htdocs/views/settings.php:8
 msgid "Username"
+msgstr ""
+
+#: htdocs/assets/js/ucp.js:945
+msgid "Username has been changed, reloading"
 msgstr ""
 
 #: ucp.i18n.php:14
 msgid "View: UCP dashfootercontent.php"
+msgstr ""
+
+#: ucp.i18n.php:20
+msgid "View: UCP icons"
 msgstr ""
 
 #: htdocs/views/templates/phone.php:73
@@ -441,7 +489,7 @@ msgstr ""
 msgid "Welcome %s"
 msgstr ""
 
-#: htdocs/views/settings.php:47
+#: htdocs/views/settings.php:56
 msgid "Work Phone"
 msgstr ""
 
@@ -453,39 +501,39 @@ msgstr ""
 msgid "Your Browser is unsupported at this time."
 msgstr ""
 
-#: htdocs/views/settings.php:44
+#: htdocs/views/settings.php:53
 msgid "Your Cell Phone Number"
 msgstr ""
 
-#: htdocs/views/settings.php:39
+#: htdocs/views/settings.php:48
 msgid "Your Company"
 msgstr ""
 
-#: htdocs/views/settings.php:14
+#: htdocs/views/settings.php:28
 msgid "Your Email Address"
 msgstr ""
 
-#: htdocs/views/settings.php:59
+#: htdocs/views/settings.php:68
 msgid "Your Fax Number"
 msgstr ""
 
-#: htdocs/views/settings.php:24
+#: htdocs/views/settings.php:33
 msgid "Your First Name"
 msgstr ""
 
-#: htdocs/views/settings.php:54
+#: htdocs/views/settings.php:63
 msgid "Your Home Number"
 msgstr ""
 
-#: htdocs/views/settings.php:29
+#: htdocs/views/settings.php:38
 msgid "Your Last Name"
 msgstr ""
 
-#: htdocs/views/settings.php:34
+#: htdocs/views/settings.php:43
 msgid "Your Title"
 msgstr ""
 
-#: htdocs/views/settings.php:49
+#: htdocs/views/settings.php:58
 msgid "Your Work Number"
 msgstr ""
 

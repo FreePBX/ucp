@@ -3,6 +3,20 @@
 	<div class="vmsettings">
 		<div id="message" class="alert" style="display:none;"></div>
 		<form role="form">
+			<?php if($changeusername) {?>
+				<div class="form-group">
+					<label for="username" class="help"><?php echo _('Username')?> <i class="fa fa-question-circle"></i></label>
+					<input name="username" type="username" class="form-control" id="username" value="<?php echo $username?>" data-prevusername="<?php echo $username?>" autocapitalize="off" autocorrect="off" autocomplete="off">
+					<span class="help-block help-hidden" data-for="username"><?php echo _('The username used to login to User Control Panel and other services')?></span>
+				</div>
+			<?php }?>
+			<?php if($changepassword) {?>
+				<div class="form-group">
+					<label for="pwd" class="help"><?php echo _('Password')?> <i class="fa fa-question-circle"></i></label>
+					<input name="pwd" type="password" class="form-control" id="pwd" value="******" autocapitalize="off" autocorrect="off" autocomplete="off">
+					<span class="help-block help-hidden" data-for="pwd"><?php echo _('The password used to login to User Control Panel and other services')?></span>
+				</div>
+			<?php }?>
 			<div class="form-group">
 				<label for="displayname" class="help"><?php echo _('Display Name')?> <i class="fa fa-question-circle"></i></label>
 				<input name="displayname" type="text" class="form-control" id="displayname" value="<?php echo $user['displayname']?>" autocapitalize="off" autocorrect="off" autocomplete="off">
@@ -12,11 +26,6 @@
 				<label for="email" class="help"><?php echo _('Email')?> <i class="fa fa-question-circle"></i></label>
 				<input name="email" type="text" class="form-control" id="email" value="<?php echo $user['email']?>" autocapitalize="off" autocorrect="off" autocomplete="off">
 				<span class="help-block help-hidden" data-for="email"><?php echo _('Your Email Address')?></span>
-			</div>
-			<div class="form-group">
-				<label for="pwd" class="help"><?php echo _('UCP Password')?> <i class="fa fa-question-circle"></i></label>
-				<input name="pwd" type="password" class="form-control" id="pwd" value="******" autocapitalize="off" autocorrect="off" autocomplete="off">
-				<span class="help-block help-hidden" data-for="pwd"><?php echo _('The password used to login to User Control Panel and other services')?></span>
 			</div>
 			<div class="form-group">
 				<label for="fname" class="help"><?php echo _('First Name')?> <i class="fa fa-question-circle"></i></label>

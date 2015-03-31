@@ -128,6 +128,19 @@ class User extends UCP {
 		return $this->FreePBX->UCP->validatePasswordResetToken($token);
 	}
 
+	public function canChange($setting) {
+		switch($setting) {
+			case "username":
+				return $this->UCP->FreePBX->Config->get('UCPCHANGEUSERNAME');
+			break;
+			case "password":
+				return $this->UCP->FreePBX->Config->get('UCPCHANGEPASSWORD');
+			break;
+			default:
+				return false;
+		}
+	}
+
 	/**
 	 * Get Logged in user information
 	 *

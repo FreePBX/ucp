@@ -887,11 +887,29 @@ var UCPC = Class.extend({
 		});
 
 		$("#ucp-settings input[type!=\"checkbox\"]").off();
+		$("#ucp-settings input[name=username]").keyup(function() {
+			var parent = $(this).parents(".form-group"), green = "rgba(60, 118, 61, 0.11)", red = 'rgba(169, 68, 66, 0.11)', $this = this;
+			parent.removeClass("has-success has-error");
+			$(this).css("background-color","");
+			//check username input
+			if($(this).val() != $(this).data("prevusername")) {
+				$.post( "?quietmode=1&command=ucpsettings", { key: "usernamecheck", value: $(this).val() }, function( data ) {
+					if(data.status) {
+						parent.addClass("has-success");
+						$($this).css("background-color",green);
+					} else {
+						parent.addClass("has-error");
+						$($this).css("background-color",red);
+					}
+				});
+			}
+		});
 		$("#ucp-settings input[type!=\"checkbox\"]").change(function() {
 			var password = $(this).val();
 			$(this).blur(function() {
+				$(this).off("blur");
 				if ($(this).prop("type") == "password") {
-					UCP.showDialog("Confirm Password", "<label for='ucppass' class='control-label'>Please Reconfirm Your Password</label><input type='password' class='form-control' id='ucppass'></input><button id='passsub' class='btn btn-default'>Submit</button>");
+					UCP.showDialog(_("Confirm Password"), "<label for='ucppass' class='control-label'>" + _('Please Reconfirm Your Password') + "</label><input type='password' class='form-control' id='ucppass'></input><button id='passsub' class='btn btn-default'>" + _('Submit') + "</button>");
 					$("#passsub").click(function() {
 						if ($("#ucppass").val() !== "") {
 							var np = $("#ucppass").val();
@@ -912,12 +930,29 @@ var UCPC = Class.extend({
 										$("#message").addClass("alert-danger");
 										$("#message").text(data.message);
 									}
-									$(this).off("blur");
 								});
 							}
 						}
 					});
 					return 0;
+				} else if($(this).prop("name") == "username") {
+					if($(this).val() != $(this).data("prevusername")) {
+						//do ajax
+						if($(this).parents(".form-group").hasClass("has-success")) {
+							if(confirm(_("Are you sure you wish to change your username?"))) {
+								$.post( "?quietmode=1&command=ucpsettings", { key: "username", value: $(this).val() }, function( data ) {
+									if(data.status) {
+										alert(_("Username has been changed, reloading"));
+										location.reload();
+									} else {
+										alert(data.message);
+									}
+								});
+							}
+						} else {
+
+						}
+					}
 				} else {
 					$.post( "?quietmode=1&command=ucpsettings", { key: $(this).prop("name"), value: $(this).val() }, function( data ) {
 						if (data.status) {
