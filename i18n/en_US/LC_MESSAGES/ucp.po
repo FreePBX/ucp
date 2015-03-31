@@ -243,6 +243,10 @@ msgstr ""
 msgid "May this user log in to UCP"
 msgstr ""
 
+#: views/users_hook.php:35
+msgid "Module Settings"
+msgstr ""
+
 #: htdocs/includes/Ajax.class.php:131
 msgid "Module or Command were null. Check your code."
 msgstr ""
@@ -540,6 +544,10 @@ msgstr ""
 msgid "or"
 msgstr ""
 
-#: views/users_hook.php:35
-msgid "Module Settings"
+#: ucp.i18n.php:28
+msgid "Allow users to change thier password in UCP"
+msgstr ""
+
+#: ucp.i18n.php:32
+msgid "Allow users to change thier username in UCP"
 msgstr ""

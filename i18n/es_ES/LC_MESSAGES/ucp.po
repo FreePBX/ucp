@@ -345,9 +345,8 @@ msgstr "Guardado!"
 msgid "Send Me A Password Reset Link"
 msgstr "Envíeme un enlace de reinicio de Password"
 
-#: htdocs/index.php:209 htdocs/modules/Settings/Settings.class.php:83
-#: htdocs/views/dashboard.php:39 htdocs/assets/js/ucp.js:770
-#, fuzzy
+#: htdocs/index.php:213 htdocs/modules/Settings/Settings.class.php:83
+#: htdocs/views/dashboard.php:39 htdocs/assets/js/ucp.js:777
 msgid "Settings"
 msgstr "Configuración"
 
@@ -543,6 +542,14 @@ msgstr "Los ficheros htaccess  ayudan a proteger la integridad de su servidor. P
 #: htdocs/views/login.php:24
 msgid "or"
 msgstr "o"
+
+#: ucp.i18n.php:28
+msgid "Allow users to change thier password in UCP"
+msgstr ""
+
+#: ucp.i18n.php:32
+msgid "Allow users to change thier username in UCP"
+msgstr ""
 
 #~ msgid "Module Settings"
 #~ msgstr "Configuración de Módulo"
