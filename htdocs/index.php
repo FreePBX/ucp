@@ -146,13 +146,13 @@ switch($display) {
 		if($display == "settings") {
 			$ucp->Modgettext->push_textdomain("ucp");
 			$displayvars['desktop'] = (!$ucp->Session->isMobile && !$ucp->Session->isTablet);
-			$displayvars['lang'] = $lang;
+			$displayvars['lang'] = $_COOKIE['lang'];
 			$displayvars['languages'] = array(
 				'en_US' => _('English'). " (US)"
 			);
 			foreach(glob(FreePBX::Config()->get('AMPWEBROOT')."/admin/modules/ucp/i18n/*",GLOB_ONLYDIR) as $langDir) {
 				$l = basename($langDir);
-				$displayvars['languages'][$l] = function_exists('locale_get_display_name') ? locale_get_display_name($l, $lang) : $l;
+				$displayvars['languages'][$l] = function_exists('locale_get_display_name') ? locale_get_display_name($l, $displayvars['lang']) : $l;
 			}
 
 			$displayvars['username'] = $user['username'];
@@ -232,7 +232,7 @@ switch($display) {
 }
 
 if(!isset($_SERVER['HTTP_X_PJAX'])) {
-	$displayvars['language'] = $ucp->Modules->getGlobalLanguageJSON($lang);
+	$displayvars['language'] = $ucp->Modules->getGlobalLanguageJSON($displayvars['lang']);
 	$displayvars['ucpserver'] = json_encode($ucp->getServerSettings());
 	$displayvars['modules'] = json_encode($active_modules);
 	$displayvars['gScripts'] = $ucp->getScripts();
