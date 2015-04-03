@@ -10,8 +10,8 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-03-31 16:26-0400\n"
-"PO-Revision-Date: 2015-04-01 08:21+0200\n"
-"Last-Translator: Ernesto <ecasas@sangoma.com>\n"
+"PO-Revision-Date: 2015-04-03 10:11+0200\n"
+"Last-Translator: Daver <daverjorge46@gmail.com>\n"
 "Language-Team: Spanish "
 "<http://weblate.freepbx.org/projects/freepbx/ucp/es_ES/>\n"
 "Language: es_ES\n"
@@ -29,7 +29,7 @@ msgstr ""
 
 #: htdocs/index.php:104
 msgid ".htaccess files are not supported on this webserver."
-msgstr "Los ficheros .htaccess no son soportados en este webserver."
+msgstr "archivos .htaccess no son compatibles con este servidor web."
 
 #: htdocs/views/templates/phone.php:41
 msgid "ABC"
@@ -41,7 +41,7 @@ msgstr "Sesiones Activas"
 
 #: ucp.i18n.php:6
 msgid "Admin"
-msgstr "Administración"
+msgstr "Administrador"
 
 #: htdocs/views/settings.php:81
 msgid "Allow Desktop Notifications"
