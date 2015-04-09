@@ -7,7 +7,7 @@ var HomeC = UCPMC.extend({
 		//console.log(data)
 	},
 	display: function(event) {
-		$(window).on("resize.Home", Home.resize);
+		$(window).on("resize.Home", this.resize);
 		this.resize();
 	},
 	hide: function(event) {
@@ -21,6 +21,21 @@ var HomeC = UCPMC.extend({
 			$("#" + module + "-title-" + id + " i.fa-refresh").removeClass("fa-spin");
 			$("#" + module + "-content-" + id).html(data.content);
 		});
+	},
+	originate: function() {
+		if ($("#originateTo").val() !== null && $("#originateTo").val()[0] === "") {
+			alert(_("Nothing Entered"));
+			return;
+		}
+		$.post( "index.php?quietmode=1&module=home&command=originate",
+						{ from: $("#originateFrom").val(),
+						to: $("#originateTo").val()[0] },
+						function( data ) {
+							if (data.status) {
+								UCP.closeDialog();
+							}
+						}
+		);
 	},
 	resize: function() {
 		var wasPackeryEnabled = this.packery;
@@ -48,4 +63,34 @@ var HomeC = UCPMC.extend({
 			$(".widget").css("margin-bottom", "10px");
 		}
 	}
-}), Home = new HomeC();
+});
+
+$(document).bind("logIn", function( event ) {
+	$("#settings-menu a.originate").on("click", function() {
+		var sfrom = "";
+		$.each(UCP.Modules.Home.staticsettings.extensions, function(i, v) {
+			sfrom = sfrom + "<option>" + v + "</option>";
+		});
+
+		UCP.showDialog(_("Originate Call"),
+			"<label for=\"originateFrom\">From:</label> <select id=\"originateFrom\" class=\"form-control\">" + sfrom + "</select><label for=\"originateTo\">To:</label><select class=\"form-control Tokenize Fill\" id=\"originateTo\" multiple></select><button class=\"btn btn-default\" id=\"originateCall\" style=\"margin-left: 72px;\">" + _("Originate") + "</button>",
+			200,
+			250,
+			function() {
+				$("#originateTo").tokenize({ maxElements: 1, datas: "index.php?quietmode=1&module=home&command=contacts" });
+				$("#originateCall").click(function() {
+					setTimeout(function() {
+						UCP.Modules.Home.originate();
+					}, 50);
+				});
+				$("#originateTo").keypress(function(event) {
+					if (event.keyCode == 13) {
+						setTimeout(function() {
+							UCP.Modules.Home.originate();
+						}, 50);
+					}
+				});
+			}
+		);
+	});
+});

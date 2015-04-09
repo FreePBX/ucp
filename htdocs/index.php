@@ -207,7 +207,7 @@ switch($display) {
 				}
 			}
 		}
-		$o = $ucp->getSetting($user['username'],'Webrtc','originate');
+		$o = FreePBX::Userman()->getModuleSettingByID($user['id'],'ucp|Global','originate');
 		$originate = !empty($o) ? '<a class="originate">'._("Originate Call").'</a>' : '';
 		$displayvars['navItems']['settings'] = array(
 			"rawname" => "settings",

@@ -37,6 +37,9 @@ class Ucp implements BMO {
 		out(_("Refreshing all UCP Assets, this could take a while..."));
 		$this->generateUCP(true);
 		out("Done!");
+
+		//$originate = $this->freepbx->Ucp->getSetting($user['username'],'Webrtc','originate');
+		//FreePBX::create()->Userman->getModuleSettingByID($_REQUEST['user'],'ucp|Global','originate')
 	}
 	public function uninstall() {
 		$path = $this->FreePBX->Config->get_conf_setting('AMPWEBROOT');
@@ -72,10 +75,7 @@ class Ucp implements BMO {
 					}
 					$sassigned = $this->getSetting($user['username'],'Settings','assigned');
 					$sassigned = !empty($sassigned) ? $sassigned : array();
-					foreach($user['assigned'] as $assigned) {
-						$fpbxusers[] = array("ext" => $assigned, "data" => $cul[$assigned], "selected" => in_array($assigned,$sassigned));
-					}
-					return load_view(dirname(__FILE__).'/views/users_hook.php',array("fpbxusers" => $fpbxusers, "mHtml" => $this->constructModuleConfigPages($user), "user" => $user, "allowLogin" => FreePBX::create()->Userman->getModuleSettingByID($_REQUEST['user'],'ucp|Global','allowLogin'), "sessions" => $this->getUserSessions($user['id'])));
+					return load_view(dirname(__FILE__).'/views/users_hook.php',array("sassigned" => $sassigned, "mHtml" => $this->constructModuleConfigPages($user), "user" => $user, "allowLogin" => FreePBX::create()->Userman->getModuleSettingByID($_REQUEST['user'],'ucp|Global','allowLogin'), "originate" => FreePBX::create()->Userman->getModuleSettingByID($_REQUEST['user'],'ucp|Global','originate'), "sessions" => $this->getUserSessions($user['id'])));
 				break;
 				case 'adduser':
 					if(isset($_POST['submit'])) {
@@ -90,7 +90,7 @@ class Ucp implements BMO {
 						);
 					}
 
-					return load_view(dirname(__FILE__).'/views/users_hook.php',array("fpbxusers" => $fpbxusers, "mHtml" => $this->constructModuleConfigPages($user), "user" => array(), "allowLogin" => true, "sessions" => array()));
+					return load_view(dirname(__FILE__).'/views/users_hook.php',array("fpbxusers" => $fpbxusers, "mHtml" => $this->constructModuleConfigPages($user), "user" => array(), "allowLogin" => true, "originate" => false, "sessions" => array()));
 				break;
 				default:
 				break;
@@ -221,17 +221,22 @@ class Ucp implements BMO {
 	 */
 	public function usermanUpdateUser($id, $display, $data) {
 		if($display == 'userman') {
-			if(isset($_POST['ucp|login'])) {
-				if($_POST['ucp|login'] == 'true') {
+			if(isset($_POST['ucp_login'])) {
+				if($_POST['ucp_login'] == 'true') {
 					$this->FreePBX->Userman->setModuleSettingByID($id,'ucp|Global','allowLogin',true);
 				} else {
 					$this->FreePBX->Userman->setModuleSettingByID($id,'ucp|Global','allowLogin',false);
 				}
 				$user = $this->getUserByID($id);
-				if(isset($_POST['ucp|settings'])) {
-					$this->setSetting($user['username'],'Settings','assigned',$_POST['ucp|settings']);
+				if(isset($_POST['ucp_settings'])) {
+					$this->setSetting($user['username'],'Settings','assigned',$_POST['ucp_settings']);
 				} else {
 					$this->setSetting($user['username'],'Settings','assigned',array());
+				}
+				if($_POST['ucp_originate'] == 'yes') {
+					$this->FreePBX->Userman->setModuleSettingByID($id,'ucp|Global','originate',true);
+				} else {
+					$this->FreePBX->Userman->setModuleSettingByID($id,'ucp|Global','originate',false);
 				}
 			}
 		} else {
@@ -335,17 +340,9 @@ class Ucp implements BMO {
 				if(file_exists($location."/".$rawname."/".$mod.".class.php")) {
 					if(method_exists(FreePBX::create()->$mod,'getUCPAdminDisplay')) {
 						$data = FreePBX::create()->$mod->getUCPAdminDisplay($user);
-						if(isset($data['content'])) {
-							$html[] = array(
-								'description' => $data['description'],
-								'content' => $data['content']
-							);
-						} elseif(isset($data[0]['content'])) {
+						if(!empty($data)) {
 							foreach($data as $item) {
-								$html[] = array(
-									'description' => $item['description'],
-									'content' => $item['content']
-								);
+								$html[$mod] = $item;
 							}
 						}
 					}

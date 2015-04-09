@@ -30,6 +30,8 @@ class Home extends Modules{
 
 	function __construct($Modules) {
 		$this->Modules = $Modules;
+		$this->astman = $this->UCP->FreePBX->astman;
+		$this->user = $this->UCP->User->getUser();
 	}
 
 	function getDisplay() {
@@ -115,10 +117,18 @@ class Home extends Modules{
 	*/
 	function ajaxRequest($command, $settings) {
 		switch($command) {
+			case 'contacts':
+				return true;
+			break;
 			case 'homeRefresh':
-			return true;
+				return true;
+			break;
+			case 'originate':
+				$o = $this->UCP->FreePBX->Userman->getModuleSettingByID($this->user['id'],'ucp|Global','originate');
+				return !empty($o) ? true : false;
+			break;
 			default:
-			return false;
+				return false;
 			break;
 		}
 	}
@@ -134,13 +144,68 @@ class Home extends Modules{
 		$return = array("status" => false, "message" => "");
 		switch($_REQUEST['command']) {
 			case 'homeRefresh':
-			$data = $this->getHomeWidgets($_REQUEST['id']);
-			return array("status" => true, "content" => $data[0]['content']);
+				$data = $this->getHomeWidgets($_REQUEST['id']);
+				return array("status" => true, "content" => $data[0]['content']);
+			break;
+			case "originate":
+				if($this->_checkExtension($_REQUEST['from'])) {
+					$data = $this->UCP->FreePBX->Core->getDevice($_REQUEST['from']);
+					if(!empty($data)) {
+						$this->astman->originate(array(
+							"Channel" => "Local/".$data['id']."@from-internal",
+							"Exten" => $_REQUEST['to'],
+							"Context" => "from-internal",
+							"Priority" => 1,
+							"Async" => "yes",
+							"CallerID" => "UCP <".$data['id'].">"
+						));
+					}
+					$return['status'] = true;
+				}
+				return $return;
+			break;
+			case "contacts":
+				if($this->Modules->moduleHasMethod('Contactmanager','lookupMultiple')) {
+					$search = !empty($_REQUEST['search']) ? $_REQUEST['search'] : "";
+					$results = $this->Modules->Contactmanager->lookupMultiple($search);
+					if(!empty($results)) {
+						$return = array();
+						foreach($results as $res) {
+							foreach($res['numbers'] as $type => $num) {
+								if(!empty($num)) {
+									$return[] = array(
+										"value" => $num,
+										"text" => $res['displayname'] . " (".$type.")"
+									);
+								}
+							}
+						}
+					} else {
+						return array();
+					}
+				}
+				return $return;
 			break;
 			default:
-			return false;
+				return false;
 			break;
 		}
+	}
+
+	/**
+	* Send settings to UCP upon initalization
+	*/
+	function getStaticSettings() {
+		$extensions = $this->UCP->getSetting($this->user['username'],'Settings','assigned');
+		//force default extension to the top.
+		if(!empty($this->user['default_extension'])) {
+			$extensions = array_diff($extensions, array($this->user['default_extension']));
+			array_unshift($extensions,$this->user['default_extension']);
+		}
+		return array(
+			'extensions' => $extensions,
+			'enableOriginate' => 1
+		);
 	}
 
 	public function getMenuItems() {
@@ -150,5 +215,11 @@ class Home extends Modules{
 			"badge" => false,
 			"menu" => false
 		);
+	}
+
+	private function _checkExtension($extension) {
+		$user = $this->UCP->User->getUser();
+		$extensions = $this->UCP->getSetting($this->user['username'],'Settings','assigned');
+		return in_array($extension,$extensions);
 	}
 }
