@@ -75,7 +75,6 @@ class Ajax extends UCP {
 							"status" => $status['status']
 						);
 					break;
-					break;
 					default:
 						$ret = array(
 							"status" => false,
