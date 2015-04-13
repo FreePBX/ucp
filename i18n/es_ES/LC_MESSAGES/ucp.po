@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-03-31 16:26-0400\n"
-"PO-Revision-Date: 2015-04-12 05:56+0200\n"
+"PO-Revision-Date: 2015-04-12 23:04+0200\n"
 "Last-Translator: Ernesto <ecasas@sangoma.com>\n"
 "Language-Team: Spanish "
 "<http://weblate.freepbx.org/projects/freepbx/ucp/es_ES/>\n"
@@ -121,11 +121,11 @@ msgstr "Hecho"
 
 #: htdocs/views/login.php:29 htdocs/views/settings.php:26
 msgid "Email"
-msgstr "Email"
+msgstr "Correo"
 
 #: htdocs/index.php:153
 msgid "English"
-msgstr "Ingles"
+msgstr "Inglés"
 
 #: htdocs/views/dashboard.php:90
 msgid "Excuse us while we try to retrieve your content"
