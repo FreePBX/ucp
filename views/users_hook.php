@@ -1,13 +1,3 @@
-<?php
-$ausers = array();
-foreach(core_users_list() as $list) {
-	$cul[$list[0]] = array(
-		"name" => $list[1],
-		"vmcontext" => $list[2]
-	);
-	$ausers[$list[0]] = $list[1] . " &#60;".$list[0]."&#62;";
-}
-?>
 <div class="panel panel-info">
 	<div class="panel-heading">
 		<div class="panel-title">
@@ -20,21 +10,26 @@ foreach(core_users_list() as $list) {
 	</div>
 </div>
 <ul class="nav nav-tabs" role="tablist">
-	<li role="presentation" data-name="pjsgeneral" class="change-tab active">
-		<a href="#pjsgeneral" aria-controls="pjsgeneral" role="tab" data-toggle="tab">
+	<li role="presentation" data-name="ucp-general" class="change-tab active">
+		<a href="#ucp-general" aria-controls="ucp-general" role="tab" data-toggle="tab">
 			<?php echo _("General")?>
 		</a>
 	</li>
-	<?php foreach(array_keys($mHtml) as $mod) {?>
-		<li role="presentation" data-name="ucp-<?php echo $mod?>" class="change-tab">
-			<a href="#ucp-<?php echo $mod?>" aria-controls="ucp-<?php echo $mod?>" role="tab" data-toggle="tab">
-				<?php echo ucfirst(strtolower($mod))?>
+	<li role="presentation" data-name="ucp-miscellaneous" class="change-tab">
+		<a href="#ucp-miscellaneous" aria-controls="ucp-miscellaneous" role="tab" data-toggle="tab">
+			<?php echo _("Miscellaneous")?>
+		</a>
+	</li>
+	<?php foreach($mHtml as $mod) {?>
+		<li role="presentation" data-name="ucp-<?php echo $mod['rawname']?>" class="change-tab">
+			<a href="#ucp-<?php echo $mod['rawname']?>" aria-controls="ucp-<?php echo $mod['rawname']?>" role="tab" data-toggle="tab">
+				<?php echo $mod['title']?>
 			</a>
 		</li>
 	<?php } ?>
 </ul>
 <div class="tab-content display">
-	<div role="tabpanel" id="pjsgeneral" class="tab-pane active">
+	<div role="tabpanel" id="ucp-general" class="tab-pane active">
 		<!--UCP LOGIN-->
 		<div class="element-container">
 			<div class="row">
@@ -62,6 +57,45 @@ foreach(core_users_list() as $list) {
 			</div>
 		</div>
 		<!--END UCP LOGIN-->
+		<!--UCP Sessions-->
+		<div class="element-container">
+			<div class="row">
+				<div class="col-md-12">
+					<div class="row">
+						<div class="form-group">
+							<div class="col-md-3">
+								<label class="control-label" for="sessions"><?php echo _("Active Sessions")?></label>
+							</div>
+							<div class="col-md-9">
+								<table class="table table-condensed">
+									<thead>
+										<tr>
+											<th>Session IP</th>
+											<th>Actions</th>
+										</tr>
+									</thead>
+									<tbody>
+										<?php foreach($sessions as $session) { ?>
+											<tr>
+												<td><?php echo $session['address']?></td>
+												<td><a href="?display=userman&amp;action=showuser&amp;user=<?php echo $user['id'] ?>&amp;deletesession=<?php echo $session['session'] ?>"><i class="fa fa-trash-o"></i></a></td>
+											</tr>
+										<?php } ?>
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+				</div>
+			</div>
+		</div>
+		<!--END UCP ALLOWED SETTINGS-->
+	</div>
+	<div role="tabpanel" id="ucp-miscellaneous" class="tab-pane">
 		<!--UCP ALLOWED SETTINGS-->
 		<div class="element-container">
 			<div class="row">
@@ -115,47 +149,10 @@ foreach(core_users_list() as $list) {
 			</div>
 		</div>
 		<!--END UCP ALLOWED SETTINGS-->
-		<!--UCP Sessions-->
-		<div class="element-container">
-			<div class="row">
-				<div class="col-md-12">
-					<div class="row">
-						<div class="form-group">
-							<div class="col-md-3">
-								<label class="control-label" for="sessions"><?php echo _("Active Sessions")?></label>
-							</div>
-							<div class="col-md-9">
-								<table class="table table-condensed">
-									<thead>
-										<tr>
-											<th>Session IP</th>
-											<th>Actions</th>
-										</tr>
-									</thead>
-									<tbody>
-										<?php foreach($sessions as $session) { ?>
-											<tr>
-												<td><?php echo $session['address']?></td>
-												<td><a href="?display=userman&amp;action=showuser&amp;user=<?php echo $user['id'] ?>&amp;deletesession=<?php echo $session['session'] ?>"><i class="fa fa-trash-o"></i></a></td>
-											</tr>
-										<?php } ?>
-									</tbody>
-								</table>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-md-12">
-				</div>
-			</div>
-		</div>
-		<!--END UCP ALLOWED SETTINGS-->
 	</div>
-	<?php foreach($mHtml as $mod => $html) {?>
-		<div role="tabpanel" id="ucp-<?php echo $mod?>" class="tab-pane">
-			<?php echo $html?>
+	<?php foreach($mHtml as $mod) {?>
+		<div role="tabpanel" id="ucp-<?php echo $mod['rawname']?>" class="tab-pane">
+			<?php echo $mod['content']?>
 		</div>
 	<?php } ?>
 </div>

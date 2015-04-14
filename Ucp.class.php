@@ -56,6 +56,7 @@ class Ucp implements BMO {
 	public function usermanShowPage() {
 		if(isset($_REQUEST['action'])) {
 			switch($_REQUEST['action']) {
+				case 'showgroup':
 				case 'showuser':
 					$user = $this->getUserByID($_REQUEST['user']);
 					if(isset($_POST['submit']) || isset($_POST['submittype'])) {
@@ -66,31 +67,43 @@ class Ucp implements BMO {
 						$this->expireUserSession($_REQUEST['deletesession']);
 						$this->setUsermanMessage(_('Deleted User Session'),'success');
 					}
-					$fpbxusers = array();
-					$cul = array();
-					foreach(core_users_list() as $list) {
-						$cul[$list[0]] = array(
-							"name" => $list[1],
-						);
-					}
+					$ausers = array();
 					$sassigned = $this->getSetting($user['username'],'Settings','assigned');
+					if($_REQUEST['action'] == "showgroup") {
+						$ausers['self'] = _("User Primary Extension");
+					}
+					foreach(core_users_list() as $list) {
+						$ausers[$list[0]] = $list[1] . " &#60;".$list[0]."&#62;";
+					}
 					$sassigned = !empty($sassigned) ? $sassigned : array();
-					return load_view(dirname(__FILE__).'/views/users_hook.php',array("sassigned" => $sassigned, "mHtml" => $this->constructModuleConfigPages($user), "user" => $user, "allowLogin" => FreePBX::create()->Userman->getModuleSettingByID($_REQUEST['user'],'ucp|Global','allowLogin'), "originate" => FreePBX::create()->Userman->getModuleSettingByID($_REQUEST['user'],'ucp|Global','originate'), "sessions" => $this->getUserSessions($user['id'])));
+					return array(
+						array(
+							"title" => "UCP",
+							"rawname" => "ucp",
+							"content" => load_view(dirname(__FILE__).'/views/users_hook.php',array("ausers" => $ausers, "sassigned" => $sassigned, "mHtml" => $this->constructModuleConfigPages($user,$_REQUEST['action']), "user" => $user, "allowLogin" => FreePBX::create()->Userman->getModuleSettingByID($_REQUEST['user'],'ucp|Global','allowLogin'), "originate" => FreePBX::create()->Userman->getModuleSettingByID($_REQUEST['user'],'ucp|Global','originate'), "sessions" => $this->getUserSessions($user['id'])))
+						)
+					);
 				break;
+				case 'addgroup':
 				case 'adduser':
 					if(isset($_POST['submit'])) {
 						$user = $this->getUserByUsername($_REQUEST['username']);
 						$this->processModuleConfigPages($user);
 					}
-					$fpbxusers = array();
-					$cul = array();
-					foreach(core_users_list() as $list) {
-						$cul[$list[0]] = array(
-							"name" => $list[1],
-						);
+					$ausers = array();
+					if($_REQUEST['action'] == "addgroup") {
+						$ausers['self'] = _("User Primary Extension");
 					}
-
-					return load_view(dirname(__FILE__).'/views/users_hook.php',array("fpbxusers" => $fpbxusers, "mHtml" => $this->constructModuleConfigPages($user), "user" => array(), "allowLogin" => true, "originate" => false, "sessions" => array()));
+					foreach(core_users_list() as $list) {
+						$ausers[$list[0]] = $list[1] . " &#60;".$list[0]."&#62;";
+					}
+					return array(
+						array(
+							"title" => "UCP",
+							"rawname" => "ucp",
+							"content" => load_view(dirname(__FILE__).'/views/users_hook.php',array("ausers" => $ausers, "sassigned" => array('self'), "mHtml" => $this->constructModuleConfigPages($user,$_REQUEST['action']), "user" => array(), "allowLogin" => true, "originate" => false, "sessions" => array()))
+						)
+					);
 				break;
 				default:
 				break;
@@ -326,7 +339,7 @@ class Ucp implements BMO {
 	 * in User Manager
 	 * @param {array} $user The user array
 	 */
-	function constructModuleConfigPages($user) {
+	function constructModuleConfigPages($user, $action) {
 		//module with no module folder
 		$html = '';
 		$modulef =& module_functions::create();
@@ -339,10 +352,33 @@ class Ucp implements BMO {
 				$mod = ucfirst(strtolower($module['rawname']));
 				if(file_exists($location."/".$rawname."/".$mod.".class.php")) {
 					if(method_exists(FreePBX::create()->$mod,'getUCPAdminDisplay')) {
-						$data = FreePBX::create()->$mod->getUCPAdminDisplay($user);
+						$data = FreePBX::create()->$mod->getUCPAdminDisplay($user, $action);
 						if(!empty($data)) {
 							foreach($data as $item) {
-								$html[$mod] = $item;
+								if(empty($item)) {
+									continue;
+								}
+								if(is_array($item)) {
+									if(!isset($html[$item['rawname']])) {
+										$html[$item['rawname']] = array(
+											"title" => $item['title'],
+											"rawname" => $item['rawname'],
+											"content" => $item['content']
+										);
+									} else {
+										$item['rawname']['content'] .= $item['content'];
+									}
+								} else {
+									if(!isset($html[$mod])) {
+										$html[$mod] = array(
+											"title" => ucfirst(strtolower($mod)),
+											"rawname" => $mod,
+											"content" => $item
+										);
+									} else {
+										$item[$mod]['content'] .= $item;
+									}
+								}
 							}
 						}
 					}
