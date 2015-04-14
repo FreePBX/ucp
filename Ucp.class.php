@@ -508,7 +508,7 @@ class Ucp implements BMO {
 	}
 
 	public function getUserByEmail($email) {
-		$user = $this->FreePBX->Userman->getUserByUsername($username);
+		$user = $this->FreePBX->Userman->getUserByEmail($email);
 		if(!empty($user)) {
 			$assigned = $this->FreePBX->Userman->getGlobalSettingByID($user['id'],'assigned');
 			$user['assigned'] = !empty($assigned) ? $assigned : array();
