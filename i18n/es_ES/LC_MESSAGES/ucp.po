@@ -341,6 +341,14 @@ msgstr "Recuerdeme"
 msgid "Reset Password"
 msgstr "Reiniciar Password"
 
+#: htdocs/index.php:118
+msgid "SOX is not installed on this server but is required by UCP. Please install it"
+msgstr ""
+
+#: htdocs/index.php:119
+msgid "SOX is required for UCP to be able to do transcoding of playback for browser playback of files. Without it files will not playback within UCP"
+msgstr ""
+
 #: htdocs/assets/js/ucp.js:918 htdocs/assets/js/ucp.js:953
 msgid "Saved!"
 msgstr "Guardado!"
@@ -547,14 +555,6 @@ msgstr "Los ficheros htaccess  ayudan a proteger la integridad de su servidor. P
 #: htdocs/views/login.php:24
 msgid "or"
 msgstr "o"
-
-#: htdocs/index.php:118
-msgid "SOX is not installed on this server but is required by UCP. Please install it"
-msgstr ""
-
-#: htdocs/index.php:119
-msgid "SOX is required for UCP to be able to do transcoding of playback for browser playback of files. Without it files will not playback within UCP"
-msgstr ""
 
 #~ msgid "Module Settings"
 #~ msgstr "Configuración de Módulo"
