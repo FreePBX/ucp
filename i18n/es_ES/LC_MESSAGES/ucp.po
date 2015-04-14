@@ -10,14 +10,14 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-03-31 16:26-0400\n"
-"PO-Revision-Date: 2015-03-31 09:50+0200\n"
-"Last-Translator: Ernesto <ecasas@sangoma.com>\n"
-"Language-Team: Spanish <http://weblate.freepbx.org/projects/freepbx/ucp/"
-"es_ES/>\n"
+"PO-Revision-Date: 2015-04-14 09:15+0200\n"
+"Last-Translator: Daver <daverjorge46@gmail.com>\n"
+"Language-Team: Spanish "
+"<http://weblate.freepbx.org/projects/freepbx/ucp/es_ES/>\n"
+"Language: es_ES\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: es_ES\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 2.2-dev\n"
 
@@ -29,7 +29,7 @@ msgstr ""
 
 #: htdocs/index.php:104
 msgid ".htaccess files are not supported on this webserver."
-msgstr "Los ficheros .htaccess no son soportados en este webserver."
+msgstr "archivos .htaccess no son compatibles con este servidor web."
 
 #: htdocs/views/templates/phone.php:41
 msgid "ABC"
@@ -41,7 +41,7 @@ msgstr "Sesiones Activas"
 
 #: ucp.i18n.php:6
 msgid "Admin"
-msgstr "Administración"
+msgstr "Administrador"
 
 #: htdocs/views/settings.php:81
 msgid "Allow Desktop Notifications"
@@ -53,11 +53,11 @@ msgstr "Permitir Login"
 
 #: ucp.i18n.php:24
 msgid "Allow Password Changes"
-msgstr ""
+msgstr "Permitir Cambios de Contraseña"
 
 #: ucp.i18n.php:30
 msgid "Allow Username Changes"
-msgstr ""
+msgstr "Permitir Cambios de Nombre de Usuario"
 
 #: htdocs/views/settings.php:89
 msgid "Allow browser desktop notifications from UCP modules."
@@ -65,11 +65,11 @@ msgstr "Permitir notificaciones de escritorio desde los módulos UCP."
 
 #: ucp.i18n.php:28
 msgid "Allow users to change thier password in UCP"
-msgstr ""
+msgstr "Permitir a usuarios cambiar su contraseña en UCP"
 
 #: ucp.i18n.php:32
 msgid "Allow users to change thier username in UCP"
-msgstr ""
+msgstr "Permitir a usuarios cambiar su nombre en UCP"
 
 #: views/users_hook.php:39
 msgid "Allowed Settings"
@@ -77,7 +77,7 @@ msgstr "Configuraciones Permitidas"
 
 #: htdocs/assets/js/ucp.js:942
 msgid "Are you sure you wish to change your username?"
-msgstr ""
+msgstr "Esta seguro que desea cambiar su nombre de usuario?"
 
 #: htdocs/views/templates/phone.php:7 htdocs/views/templates/phone.php:95
 msgid "Call"
@@ -89,11 +89,11 @@ msgstr "Teléfono Móvil"
 
 #: htdocs/views/settings.php:46
 msgid "Company"
-msgstr "Compañía"
+msgstr "Empresa"
 
 #: htdocs/assets/js/ucp.js:912
 msgid "Confirm Password"
-msgstr ""
+msgstr "Confirmar Contraseña"
 
 #: htdocs/assets/js/ucp.js:408
 msgid "Connecting...."
@@ -113,7 +113,7 @@ msgstr "Sesión de usuario borrada"
 
 #: htdocs/views/settings.php:21
 msgid "Display Name"
-msgstr "Desplegar Nombre"
+msgstr "Nombre a Mostrar"
 
 #: Ucp.class.php:639 Ucp.class.php:643 Ucp.class.php:647 Ucp.class.php:651
 msgid "Done"
@@ -121,11 +121,11 @@ msgstr "Hecho"
 
 #: htdocs/views/login.php:29 htdocs/views/settings.php:26
 msgid "Email"
-msgstr "Email"
+msgstr "Correo"
 
 #: htdocs/index.php:153
 msgid "English"
-msgstr "Ingles"
+msgstr "Inglés"
 
 #: htdocs/views/dashboard.php:90
 msgid "Excuse us while we try to retrieve your content"
@@ -217,7 +217,7 @@ msgstr "JKL"
 
 #: htdocs/views/settings.php:71
 msgid "Language"
-msgstr "Idioma"
+msgstr "Lenguaje"
 
 #: htdocs/views/templates/pagnation.php:20
 msgid "Last"
@@ -238,7 +238,7 @@ msgstr "Cargando..."
 #: htdocs/views/forgot.php:45 htdocs/views/login.php:37
 #: htdocs/assets/js/ucp.js:125 htdocs/assets/js/ucp.js:138
 msgid "Login"
-msgstr "Login"
+msgstr "Usuario"
 
 #: htdocs/index.php:213
 msgid "Logout"
@@ -278,7 +278,7 @@ msgstr "PQRS"
 
 #: htdocs/views/login.php:20 htdocs/views/settings.php:15
 msgid "Password"
-msgstr "Password"
+msgstr "Contraseña"
 
 #: htdocs/assets/js/ucp.js:918
 msgid "Password Confirmation Didn't Match!"
@@ -308,7 +308,7 @@ msgstr "Passwords no coinciden"
 
 #: htdocs/assets/js/ucp.js:912
 msgid "Please Reconfirm Your Password"
-msgstr ""
+msgstr "Por favor reconfirme su Contraseña"
 
 #: htdocs/assets/js/ucp.js:71
 msgid "Please enter either a username or email address"
@@ -358,7 +358,7 @@ msgstr "Logos y Estilos"
 
 #: htdocs/assets/js/ucp.js:912
 msgid "Submit"
-msgstr ""
+msgstr "Enviar"
 
 #: htdocs/views/templates/phone.php:69
 msgid "TUV"
@@ -375,6 +375,8 @@ msgstr "Remover estos  derechos de autor esta estrictamente prohibido"
 #: htdocs/views/settings.php:10
 msgid "The username used to login to User Control Panel and other services"
 msgstr ""
+"El nombre de usuario para entrar al Panel de Control del Usuario y otros "
+"servicios"
 
 #: htdocs/index.php:119
 msgid "There was an error trying to load UCP"
@@ -390,7 +392,7 @@ msgstr ""
 
 #: htdocs/views/settings.php:41
 msgid "Title"
-msgstr "Título"
+msgstr "Titulo"
 
 #: htdocs/index.php:92
 #, php-format
@@ -420,6 +422,8 @@ msgid ""
 "UCP icons folder. This should never be changed except for very advanced "
 "layout changes"
 msgstr ""
+"Icono de carpetas UCP. Esto no debe ser cambiado nunca excepto en cambios "
+"muy avanzados del diseño"
 
 #: htdocs/index.php:27
 msgid "UCP is currently disabled. Please talk to your system Administrator"
@@ -460,11 +464,11 @@ msgstr "Panel de usuario"
 
 #: htdocs/views/login.php:15 htdocs/views/settings.php:8
 msgid "Username"
-msgstr "Nombre de usuario"
+msgstr "Nombre Usuario"
 
 #: htdocs/assets/js/ucp.js:945
 msgid "Username has been changed, reloading"
-msgstr ""
+msgstr "El Nombre de Usuario a sido cambiado, recargando"
 
 #: ucp.i18n.php:14
 msgid "View: UCP dashfootercontent.php"
@@ -472,7 +476,7 @@ msgstr "Vista: UCP dashfootercontent.php"
 
 #: ucp.i18n.php:20
 msgid "View: UCP icons"
-msgstr ""
+msgstr "Ver: Iconos de UCP"
 
 #: htdocs/views/templates/phone.php:73
 msgid "WXYZ"
