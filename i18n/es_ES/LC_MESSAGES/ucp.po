@@ -84,7 +84,7 @@ msgstr "Llamada"
 msgid "Cell Phone"
 msgstr "Teléfono Móvil"
 
-#: htdocs/views/settings.php:56
+#: htdocs/views/settings.php:46
 #, fuzzy
 msgid "Company"
 msgstr "Empresa"
@@ -109,7 +109,7 @@ msgstr "Sesión borrada"
 msgid "Deleted User Session"
 msgstr "Sesión de usuario borrada"
 
-#: htdocs/views/settings.php:31
+#: htdocs/views/settings.php:21
 #, fuzzy
 msgid "Display Name"
 msgstr "Nombre a Mostrar"
@@ -118,7 +118,7 @@ msgstr "Nombre a Mostrar"
 msgid "Done"
 msgstr "Hecho"
 
-#: htdocs/views/login.php:29 htdocs/views/settings.php:36
+#: htdocs/views/login.php:29 htdocs/views/settings.php:26
 #, fuzzy
 msgid "Email"
 msgstr "Correo"
@@ -212,7 +212,7 @@ msgstr "Llave inválida"
 msgid "JKL"
 msgstr "JKL"
 
-#: htdocs/views/settings.php:81
+#: htdocs/views/settings.php:71
 #, fuzzy
 msgid "Language"
 msgstr "Lenguaje"
@@ -279,7 +279,6 @@ msgid "PQRS"
 msgstr "PQRS"
 
 #: htdocs/views/login.php:20 htdocs/views/settings.php:15
-#: htdocs/views/settings.php:26
 #, fuzzy
 msgid "Password"
 msgstr "Contraseña"
@@ -387,7 +386,7 @@ msgstr "Hubo un error tratando de cargar el UCP"
 msgid "These are the assigned and active extensions which will show up for this user to control and edit in UCP"
 msgstr "Estas son las extensiones asignadas y activas que se mostrará para este usuario controlar y editar en UCP"
 
-#: htdocs/views/settings.php:51
+#: htdocs/views/settings.php:41
 #, fuzzy
 msgid "Title"
 msgstr "Titulo"
@@ -451,7 +450,6 @@ msgid "User Panel"
 msgstr "Panel de usuario"
 
 #: htdocs/views/login.php:15 htdocs/views/settings.php:8
-#: htdocs/views/settings.php:21
 #, fuzzy
 msgid "Username"
 msgstr "Nombre Usuario"
@@ -549,6 +547,14 @@ msgstr "Los ficheros htaccess  ayudan a proteger la integridad de su servidor. P
 #: htdocs/views/login.php:24
 msgid "or"
 msgstr "o"
+
+#: htdocs/index.php:118
+msgid "SOX is not installed on this server but is required by UCP. Please install it"
+msgstr ""
+
+#: htdocs/index.php:119
+msgid "SOX is required for UCP to be able to do transcoding of playback for browser playback of files. Without it files will not playback within UCP"
+msgstr ""
 
 #~ msgid "Module Settings"
 #~ msgstr "Configuración de Módulo"

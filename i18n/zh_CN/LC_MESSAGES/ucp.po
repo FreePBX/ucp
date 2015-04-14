@@ -246,6 +246,10 @@ msgstr ""
 msgid "May this user log in to UCP"
 msgstr ""
 
+#: views/users_hook.php:35
+msgid "Module Settings"
+msgstr ""
+
 #: htdocs/includes/Ajax.class.php:131
 msgid "Module or Command were null. Check your code."
 msgstr ""
@@ -543,6 +547,10 @@ msgstr ""
 msgid "or"
 msgstr ""
 
-#: views/users_hook.php:35
-msgid "Module Settings"
+#: htdocs/index.php:118
+msgid "SOX is not installed on this server but is required by UCP. Please install it"
+msgstr ""
+
+#: htdocs/index.php:119
+msgid "SOX is required for UCP to be able to do transcoding of playback for browser playback of files. Without it files will not playback within UCP"
 msgstr ""
