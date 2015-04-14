@@ -105,20 +105,31 @@ class Ucp implements BMO {
 	 * @param {array} $data    Array of data to be able to use
 	 */
 	public function usermanSendEmail($id, $display, $data) {
-		if(function_exists('sysadmin_get_portmgmt')) {
-			$ports = sysadmin_get_portmgmt();
-			if(!empty($ports['ucp'])) {
-				$data['host'] = $data['host'].":".$ports['ucp'];
-				$final = array(
-					"\t".sprintf(_('User Control Panel: %s'),$data['host']),
-				);
-				if(!$data['password']) {
-					$token = $this->FreePBX->Userman->generatePasswordResetToken($id,"1 hour",true);
-					$final[] = "\n".sprintf(_('Password Reset Link (Valid Until: %s): %s'),date("h:i:s A", $token['valid']),$data['host']."/?forgot=".$token['token']);
-				}
-				return $final;
+		$ports = array();
+		if($this->FreePBX->Modules->moduleHasMethod("sysadmin","getPorts")) {
+			$ports = \FreePBX::Sysadmin()->getPorts();
+		} else {
+			if(!function_exists('sysadmin_get_portmgmt') && $this->FreePBX->Modules->checkStatus('sysadmin') && file_exists($this->FreePBX->Config()->get('AMPWEBROOT').'/admin/modules/sysadmin/functions.inc.php')) {
+				include $this->FreePBX->Config()->get('AMPWEBROOT').'/admin/modules/sysadmin/functions.inc.php';
+			}
+
+			if(function_exists('sysadmin_get_portmgmt')) {
+				$ports = sysadmin_get_portmgmt();
 			}
 		}
+
+		if(!empty($ports['ucp'])) {
+			$data['host'] = $data['host'].":".$ports['ucp'];
+			$final = array(
+				"\t".sprintf(_('User Control Panel: %s'),$data['host']),
+			);
+			if(!$data['password']) {
+				$token = $this->FreePBX->Userman->generatePasswordResetToken($id,"1 hour",true);
+				$final[] = "\n".sprintf(_('Password Reset Link (Valid Until: %s): %s'),date("h:i:s A", $token['valid']),$data['host']."/?forgot=".$token['token']);
+			}
+			return $final;
+		}
+
 		$final = array(
 			"\t".sprintf(_('User Control Panel: %s'),$data['host']."/ucp"),
 		);
@@ -160,17 +171,22 @@ class Ucp implements BMO {
 		$user['link'] = $user['host'] . "/ucp/?forgot=".$user['token'];
 		$user['valid'] = date("h:i:s A", $token['valid']);
 
-		//TODO: Stop gap until sysadmin becomes a full class
-		if(!function_exists('sysadmin_get_portmgmt') && $this->FreePBX->Modules->checkStatus('sysadmin') && file_exists($this->FreePBX->Config()->get('AMPWEBROOT').'/admin/modules/sysadmin/functions.inc.php')) {
-			include $this->FreePBX->Config()->get('AMPWEBROOT').'/admin/modules/sysadmin/functions.inc.php';
+		$ports = array();
+		if($this->FreePBX->Modules->moduleHasMethod("sysadmin","getPorts")) {
+			$ports = \FreePBX::Sysadmin()->getPorts();
+		} else {
+			if(!function_exists('sysadmin_get_portmgmt') && $this->FreePBX->Modules->checkStatus('sysadmin') && file_exists($this->FreePBX->Config()->get('AMPWEBROOT').'/admin/modules/sysadmin/functions.inc.php')) {
+				include $this->FreePBX->Config()->get('AMPWEBROOT').'/admin/modules/sysadmin/functions.inc.php';
+			}
+
+			if(function_exists('sysadmin_get_portmgmt')) {
+				$ports = sysadmin_get_portmgmt();
+			}
 		}
 
-		if(function_exists('sysadmin_get_portmgmt')) {
-			$ports = sysadmin_get_portmgmt();
-			if(!empty($ports['ucp'])) {
-				$user['host'] = $user['host'].":".$ports['ucp'];
-				$user['link'] = $user['host'] . "/?forgot=".$user['token'];
-			}
+		if(!empty($ports['ucp'])) {
+			$user['host'] = $user['host'].":".$ports['ucp'];
+			$user['link'] = $user['host'] . "/?forgot=".$user['token'];
 		}
 
 		$template = file_get_contents(__DIR__.'/views/emails/reset_text.tpl');
