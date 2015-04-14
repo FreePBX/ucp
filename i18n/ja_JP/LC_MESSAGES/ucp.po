@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-31 16:26-0400\n"
+"POT-Creation-Date: 2015-04-14 13:44-0400\n"
 "PO-Revision-Date: 2015-02-28 11:22+0200\n"
 "Last-Translator: Kevin <kevin@qloog.com>\n"
 "Language-Team: Japanese <http://weblate.freepbx.org/projects/freepbx/ucp/"
@@ -122,7 +122,7 @@ msgstr "完了"
 msgid "Email"
 msgstr "メール"
 
-#: htdocs/index.php:153
+#: htdocs/index.php:159
 msgid "English"
 msgstr "英語"
 
@@ -205,7 +205,7 @@ msgstr "不正"
 msgid "Invalid Login Credentials"
 msgstr "ログイン情報が間違っています"
 
-#: htdocs/index.php:226
+#: htdocs/index.php:232
 msgid "Invalid Token"
 msgstr "不正トーケン"
 
@@ -238,7 +238,7 @@ msgstr "読み込み中..."
 msgid "Login"
 msgstr "ログイン"
 
-#: htdocs/index.php:213
+#: htdocs/index.php:219
 msgid "Logout"
 msgstr "ログアウト"
 
@@ -266,7 +266,7 @@ msgstr "オフ"
 msgid "ON"
 msgstr "オン"
 
-#: htdocs/index.php:207
+#: htdocs/index.php:213
 msgid "Originate Call"
 msgstr "発信する"
 
@@ -336,6 +336,17 @@ msgstr "保存する"
 msgid "Reset Password"
 msgstr "パスワードをリセット"
 
+#: htdocs/index.php:118
+msgid ""
+"SOX is not installed on this server but is required by UCP. Please install it"
+msgstr ""
+
+#: htdocs/index.php:119
+msgid ""
+"SOX is required for UCP to be able to do transcoding of playback for browser "
+"playback of files. Without it files will not playback within UCP"
+msgstr ""
+
 #: htdocs/assets/js/ucp.js:925 htdocs/assets/js/ucp.js:960
 msgid "Saved!"
 msgstr "保存しました！"
@@ -344,7 +355,7 @@ msgstr "保存しました！"
 msgid "Send Me A Password Reset Link"
 msgstr "パスワードリセットリンクを送信する"
 
-#: htdocs/index.php:213 htdocs/modules/Settings/Settings.class.php:83
+#: htdocs/index.php:219 htdocs/modules/Settings/Settings.class.php:83
 #: htdocs/views/dashboard.php:39 htdocs/assets/js/ucp.js:777
 msgid "Settings"
 msgstr "設定"
@@ -373,7 +384,7 @@ msgstr "著作権情報の削除は禁止されています"
 msgid "The username used to login to User Control Panel and other services"
 msgstr ""
 
-#: htdocs/index.php:119
+#: htdocs/index.php:125
 msgid "There was an error trying to load UCP"
 msgstr "UCPをロード中にエラーが発生しました"
 
@@ -424,7 +435,7 @@ msgstr "UCPは無効です。システムの管理者にご相談ください"
 msgid "UCP needs to reload, ok?"
 msgstr "UCPを再読み込みします。よろしいですか？"
 
-#: htdocs/index.php:178
+#: htdocs/index.php:184
 #, php-format
 msgid "Unknown Module %s"
 msgstr "不明モジュール %s"

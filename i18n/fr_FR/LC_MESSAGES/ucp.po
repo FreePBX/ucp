@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-31 16:26-0400\n"
+"POT-Creation-Date: 2015-04-14 13:44-0400\n"
 "PO-Revision-Date: 2015-03-30 14:57-0400\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -123,7 +123,7 @@ msgstr "Terminé"
 msgid "Email"
 msgstr "Courriel"
 
-#: htdocs/index.php:153
+#: htdocs/index.php:159
 msgid "English"
 msgstr "Anglais"
 
@@ -207,7 +207,7 @@ msgstr "Invalide"
 msgid "Invalid Login Credentials"
 msgstr "Nom d'utilisateur ou mot de passe invalide"
 
-#: htdocs/index.php:226
+#: htdocs/index.php:232
 msgid "Invalid Token"
 msgstr "Jeton invalide"
 
@@ -240,7 +240,7 @@ msgstr "Chargement..."
 msgid "Login"
 msgstr "Nom d'utilisateur"
 
-#: htdocs/index.php:213
+#: htdocs/index.php:219
 msgid "Logout"
 msgstr "Déconnexion"
 
@@ -268,7 +268,7 @@ msgstr "Désactivé"
 msgid "ON"
 msgstr "Activé"
 
-#: htdocs/index.php:207
+#: htdocs/index.php:213
 msgid "Originate Call"
 msgstr "Faire un appel"
 
@@ -339,6 +339,17 @@ msgstr "Se souvenir de moi"
 msgid "Reset Password"
 msgstr "Réinitialiser le mot de passe"
 
+#: htdocs/index.php:118
+msgid ""
+"SOX is not installed on this server but is required by UCP. Please install it"
+msgstr ""
+
+#: htdocs/index.php:119
+msgid ""
+"SOX is required for UCP to be able to do transcoding of playback for browser "
+"playback of files. Without it files will not playback within UCP"
+msgstr ""
+
 #: htdocs/assets/js/ucp.js:925 htdocs/assets/js/ucp.js:960
 msgid "Saved!"
 msgstr "Enregistré !"
@@ -347,7 +358,7 @@ msgstr "Enregistré !"
 msgid "Send Me A Password Reset Link"
 msgstr "Envoyez-moi un lien pour réinitialiser mot de passe"
 
-#: htdocs/index.php:213 htdocs/modules/Settings/Settings.class.php:83
+#: htdocs/index.php:219 htdocs/modules/Settings/Settings.class.php:83
 #: htdocs/views/dashboard.php:39 htdocs/assets/js/ucp.js:777
 msgid "Settings"
 msgstr "Paramètres"
@@ -380,7 +391,7 @@ msgstr ""
 "Le nom d'utilisateur utilisé pour vous connecter au panneau de l'utilisateur "
 "et autres services"
 
-#: htdocs/index.php:119
+#: htdocs/index.php:125
 msgid "There was an error trying to load UCP"
 msgstr "Il y eu une erreur en essayant de charger UCP"
 
@@ -437,7 +448,7 @@ msgstr ""
 msgid "UCP needs to reload, ok?"
 msgstr "UCP doit recharger, ok ?"
 
-#: htdocs/index.php:178
+#: htdocs/index.php:184
 #, php-format
 msgid "Unknown Module %s"
 msgstr "Module inconnu %s"

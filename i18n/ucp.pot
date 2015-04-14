@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-31 16:26-0400\n"
+"POT-Creation-Date: 2015-04-14 13:44-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -123,7 +123,7 @@ msgstr ""
 msgid "Email"
 msgstr ""
 
-#: htdocs/index.php:153
+#: htdocs/index.php:159
 msgid "English"
 msgstr ""
 
@@ -206,7 +206,7 @@ msgstr ""
 msgid "Invalid Login Credentials"
 msgstr ""
 
-#: htdocs/index.php:226
+#: htdocs/index.php:232
 msgid "Invalid Token"
 msgstr ""
 
@@ -242,7 +242,7 @@ msgstr ""
 msgid "Login"
 msgstr ""
 
-#: htdocs/index.php:213
+#: htdocs/index.php:219
 msgid "Logout"
 msgstr ""
 
@@ -270,7 +270,7 @@ msgstr ""
 msgid "ON"
 msgstr ""
 
-#: htdocs/index.php:207
+#: htdocs/index.php:213
 msgid "Originate Call"
 msgstr ""
 
@@ -344,6 +344,17 @@ msgstr ""
 msgid "Reset Password"
 msgstr ""
 
+#: htdocs/index.php:118
+msgid ""
+"SOX is not installed on this server but is required by UCP. Please install it"
+msgstr ""
+
+#: htdocs/index.php:119
+msgid ""
+"SOX is required for UCP to be able to do transcoding of playback for browser "
+"playback of files. Without it files will not playback within UCP"
+msgstr ""
+
 #: htdocs/assets/js/ucp.js:925
 #: htdocs/assets/js/ucp.js:960
 msgid "Saved!"
@@ -353,7 +364,7 @@ msgstr ""
 msgid "Send Me A Password Reset Link"
 msgstr ""
 
-#: htdocs/index.php:213
+#: htdocs/index.php:219
 #: htdocs/modules/Settings/Settings.class.php:83
 #: htdocs/views/dashboard.php:39
 #: htdocs/assets/js/ucp.js:777
@@ -384,7 +395,7 @@ msgstr ""
 msgid "The username used to login to User Control Panel and other services"
 msgstr ""
 
-#: htdocs/index.php:119
+#: htdocs/index.php:125
 msgid "There was an error trying to load UCP"
 msgstr ""
 
@@ -433,7 +444,7 @@ msgstr ""
 msgid "UCP needs to reload, ok?"
 msgstr ""
 
-#: htdocs/index.php:178
+#: htdocs/index.php:184
 #, php-format
 msgid "Unknown Module %s"
 msgstr ""
