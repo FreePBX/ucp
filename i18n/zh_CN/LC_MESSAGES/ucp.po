@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-04-14 13:44-0400\n"
+"POT-Creation-Date: 2015-04-14 15:08-0400\n"
 "PO-Revision-Date: 2015-04-09 20:39+0200\n"
 "Last-Translator: james <zhulizhong@gmail.com>\n"
 "Language-Team: Simplified Chinese <http://weblate.freepbx.org/projects/"
@@ -101,11 +101,11 @@ msgstr "连接。。。"
 msgid "DEF"
 msgstr ""
 
-#: Ucp.class.php:529
+#: Ucp.class.php:545
 msgid "Deleted Session"
 msgstr "已删除的会话"
 
-#: Ucp.class.php:64 Ucp.class.php:427
+#: Ucp.class.php:64 Ucp.class.php:443
 msgid "Deleted User Session"
 msgstr "已删除的用户会话"
 
@@ -113,7 +113,7 @@ msgstr "已删除的用户会话"
 msgid "Display Name"
 msgstr "显示名"
 
-#: Ucp.class.php:639 Ucp.class.php:643 Ucp.class.php:647 Ucp.class.php:651
+#: Ucp.class.php:655 Ucp.class.php:659 Ucp.class.php:663 Ucp.class.php:667
 msgid "Done"
 msgstr "完成"
 
@@ -161,19 +161,19 @@ msgstr ""
 msgid "GHI"
 msgstr ""
 
-#: Ucp.class.php:649
+#: Ucp.class.php:665
 msgid "Generating Main CSS..."
 msgstr ""
 
-#: Ucp.class.php:645
+#: Ucp.class.php:661
 msgid "Generating Main Scripts..."
 msgstr ""
 
-#: Ucp.class.php:641
+#: Ucp.class.php:657
 msgid "Generating Module CSS..."
 msgstr ""
 
-#: Ucp.class.php:637
+#: Ucp.class.php:653
 msgid "Generating Module Scripts..."
 msgstr ""
 
@@ -280,7 +280,7 @@ msgstr ""
 msgid "Password Confirmation Didn't Match!"
 msgstr ""
 
-#: Ucp.class.php:117 Ucp.class.php:127
+#: Ucp.class.php:128 Ucp.class.php:138
 #, php-format
 msgid "Password Reset Link (Valid Until: %s): %s"
 msgstr ""
@@ -449,7 +449,7 @@ msgstr ""
 msgid "User Control Panel is released as %s or newer"
 msgstr ""
 
-#: Ucp.class.php:113 Ucp.class.php:123
+#: Ucp.class.php:124 Ucp.class.php:134
 #, php-format
 msgid "User Control Panel: %s"
 msgstr ""
