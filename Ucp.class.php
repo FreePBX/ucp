@@ -646,10 +646,10 @@ class Ucp implements BMO {
 	/**
 	 * Check credentials through userman
 	 * @param {string} $username      The username
-	 * @param {string} $password_sha1 The sha1 password hash
+	 * @param {string} $password      The password
 	 */
-	public function checkCredentials($username, $password_sha1) {
-		return $this->FreePBX->Userman->checkCredentials($username, $password_sha1);
+	public function checkCredentials($username, $password) {
+		return $this->FreePBX->Userman->checkCredentials($username, $password);
 	}
 
 	/**

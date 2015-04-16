@@ -322,7 +322,7 @@ class User extends UCP {
 	 * @return bool True if credentials were valid, otherwise false
 	 */
 	private function _authenticate($username, $password) {
-		$result = $this->UCP->FreePBX->Ucp->checkCredentials($username, sha1($password));
+		$result = $this->UCP->FreePBX->Ucp->checkCredentials($username, $password);
 		if(!empty($result) && $this->_allowed($result)) {
 			$this->uid = $result;
 			return true;

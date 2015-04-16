@@ -2,7 +2,7 @@
 	<rawname>ucp</rawname>
 	<name>User Control Panel</name>
 	<repo>standard</repo>
-	<version>13.0.1alpha7</version>
+	<version>13.0.1alpha8</version>
 	<publisher>FreePBX</publisher>
 	<license>AGPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/agpl-3.0.txt</licenselink>
@@ -16,7 +16,7 @@
 		*13.0.1alpha4* FREEPBX-8829 Allow username changing in UCP
 		*13.0.1alpha3* Styling updates
 		*13.0.1alpha1* Visual Changes
-		*12.0.0beta34* Support for auto complete lib and new class module 
+		*12.0.0beta34* Support for auto complete lib and new class module
 		*12.0.0beta33* Close menu when clicked on
 		*12.0.0beta32* Captialize Module object
 		*12.0.0beta31* Wrong method name
