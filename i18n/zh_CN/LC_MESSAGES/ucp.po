@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-04-14 15:08-0400\n"
+"POT-Creation-Date: 2015-04-20 18:16-0400\n"
 "PO-Revision-Date: 2015-04-09 20:39+0200\n"
 "Last-Translator: james <zhulizhong@gmail.com>\n"
 "Language-Team: Simplified Chinese <http://weblate.freepbx.org/projects/"
@@ -101,11 +101,11 @@ msgstr "连接。。。"
 msgid "DEF"
 msgstr ""
 
-#: Ucp.class.php:545
+#: Ucp.class.php:549
 msgid "Deleted Session"
 msgstr "已删除的会话"
 
-#: Ucp.class.php:64 Ucp.class.php:443
+#: Ucp.class.php:64 Ucp.class.php:447
 msgid "Deleted User Session"
 msgstr "已删除的用户会话"
 
@@ -113,7 +113,7 @@ msgstr "已删除的用户会话"
 msgid "Display Name"
 msgstr "显示名"
 
-#: Ucp.class.php:655 Ucp.class.php:659 Ucp.class.php:663 Ucp.class.php:667
+#: Ucp.class.php:659 Ucp.class.php:663 Ucp.class.php:667 Ucp.class.php:671
 msgid "Done"
 msgstr "完成"
 
@@ -161,19 +161,19 @@ msgstr ""
 msgid "GHI"
 msgstr ""
 
-#: Ucp.class.php:665
+#: Ucp.class.php:669
 msgid "Generating Main CSS..."
 msgstr ""
 
-#: Ucp.class.php:661
+#: Ucp.class.php:665
 msgid "Generating Main Scripts..."
 msgstr ""
 
-#: Ucp.class.php:657
+#: Ucp.class.php:661
 msgid "Generating Module CSS..."
 msgstr ""
 
-#: Ucp.class.php:653
+#: Ucp.class.php:657
 msgid "Generating Module Scripts..."
 msgstr ""
 
