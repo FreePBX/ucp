@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-04-20 18:16-0400\n"
+"POT-Creation-Date: 2015-04-20 19:34-0400\n"
 "PO-Revision-Date: 2015-04-18 04:11+0200\n"
 "Last-Translator: Ernesto <ecasas@sangoma.com>\n"
 "Language-Team: Spanish <http://weblate.freepbx.org/projects/freepbx/ucp/"
@@ -75,7 +75,7 @@ msgstr "Permitir a usuarios cambiar su nombre en UCP"
 msgid "Allowed Settings"
 msgstr "Configuraciones Permitidas"
 
-#: htdocs/assets/js/ucp.js:942
+#: htdocs/assets/js/ucp.js:950
 msgid "Are you sure you wish to change your username?"
 msgstr "Esta seguro que desea cambiar su nombre de usuario?"
 
@@ -91,11 +91,11 @@ msgstr "Teléfono Móvil"
 msgid "Company"
 msgstr "Empresa"
 
-#: htdocs/assets/js/ucp.js:912
+#: htdocs/assets/js/ucp.js:920
 msgid "Confirm Password"
 msgstr "Confirmar Contraseña"
 
-#: htdocs/assets/js/ucp.js:408
+#: htdocs/assets/js/ucp.js:416
 msgid "Connecting...."
 msgstr "Conectando...."
 
@@ -185,7 +185,7 @@ msgid "Hold"
 msgstr "Espere"
 
 #: htdocs/modules/Home/Home.class.php:149 htdocs/views/dashboard.php:32
-#: htdocs/assets/js/ucp.js:736
+#: htdocs/assets/js/ucp.js:744
 msgid "Home"
 msgstr "Residencia"
 
@@ -236,7 +236,7 @@ msgid "Loading..."
 msgstr "Cargando..."
 
 #: htdocs/views/forgot.php:45 htdocs/views/login.php:37
-#: htdocs/assets/js/ucp.js:125 htdocs/assets/js/ucp.js:138
+#: htdocs/assets/js/ucp.js:126 htdocs/assets/js/ucp.js:139
 msgid "Login"
 msgstr "Usuario"
 
@@ -280,7 +280,7 @@ msgstr "PQRS"
 msgid "Password"
 msgstr "Contraseña"
 
-#: htdocs/assets/js/ucp.js:918
+#: htdocs/assets/js/ucp.js:926
 msgid "Password Confirmation Didn't Match!"
 msgstr "La confirmación del Password no coincide!!"
 
@@ -294,28 +294,28 @@ msgstr "Enlace para restablecer Password (Valido hasta: %s): %s"
 msgid "Password Reset for: %s"
 msgstr "Restablece Password para: %s"
 
-#: htdocs/assets/js/ucp.js:96
+#: htdocs/assets/js/ucp.js:97
 msgid "Passwords can't be blank!"
 msgstr "EL Password no puede estar en blanco!!!"
 
-#: htdocs/assets/js/ucp.js:105
+#: htdocs/assets/js/ucp.js:106
 msgid "Passwords changed!"
 msgstr "Password ha sido cambiado!"
 
-#: htdocs/assets/js/ucp.js:93
+#: htdocs/assets/js/ucp.js:94
 msgid "Passwords do not match"
 msgstr "Passwords no coinciden"
 
-#: htdocs/assets/js/ucp.js:912
+#: htdocs/assets/js/ucp.js:920
 msgid "Please Reconfirm Your Password"
 msgstr "Por favor reconfirme su Contraseña"
 
-#: htdocs/assets/js/ucp.js:71
+#: htdocs/assets/js/ucp.js:72
 msgid "Please enter either a username or email address"
 msgstr ""
 "Por favor introduzca ya sea un nombre de usuario o una dirección de email"
 
-#: htdocs/assets/js/ucp.js:69 htdocs/assets/js/ucp.js:118
+#: htdocs/assets/js/ucp.js:70 htdocs/assets/js/ucp.js:119
 msgid "Processing..."
 msgstr "Procesando..."
 
@@ -355,7 +355,7 @@ msgstr ""
 "Grabaciones en el navegador. Sin ella los archivos no se reproducirá dentro "
 "de UCP"
 
-#: htdocs/assets/js/ucp.js:925 htdocs/assets/js/ucp.js:960
+#: htdocs/assets/js/ucp.js:933 htdocs/assets/js/ucp.js:968
 msgid "Saved!"
 msgstr "Guardado!"
 
@@ -364,7 +364,7 @@ msgid "Send Me A Password Reset Link"
 msgstr "Envíeme un enlace de reinicio de Password"
 
 #: htdocs/index.php:219 htdocs/modules/Settings/Settings.class.php:83
-#: htdocs/views/dashboard.php:39 htdocs/assets/js/ucp.js:777
+#: htdocs/views/dashboard.php:39 htdocs/assets/js/ucp.js:785
 msgid "Settings"
 msgstr "Configuraciones"
 
@@ -372,7 +372,7 @@ msgstr "Configuraciones"
 msgid "Styling and Logos"
 msgstr "Logos y Estilos"
 
-#: htdocs/assets/js/ucp.js:912
+#: htdocs/assets/js/ucp.js:920
 msgid "Submit"
 msgstr "Enviar"
 
@@ -446,7 +446,7 @@ msgid "UCP is currently disabled. Please talk to your system Administrator"
 msgstr ""
 "UCP esta actualmente deshabilitado. Hable con su Administrador del Sistema"
 
-#: htdocs/assets/js/ucp.js:884
+#: htdocs/assets/js/ucp.js:892
 msgid "UCP needs to reload, ok?"
 msgstr "UCP necesita ser reiniciado, ok?"
 
@@ -482,7 +482,7 @@ msgstr "Panel de usuario"
 msgid "Username"
 msgstr "Nombre Usuario"
 
-#: htdocs/assets/js/ucp.js:945
+#: htdocs/assets/js/ucp.js:953
 msgid "Username has been changed, reloading"
 msgstr "El Nombre de Usuario a sido cambiado, recargando"
 
@@ -507,11 +507,11 @@ msgstr "Bienvenido: %s"
 msgid "Work Phone"
 msgstr "teléfono Oficina"
 
-#: htdocs/assets/js/ucp.js:436
+#: htdocs/assets/js/ucp.js:444
 msgid "You are currently working in offline mode."
 msgstr "Usted esta en modo fuera de línea."
 
-#: htdocs/assets/js/ucp.js:143
+#: htdocs/assets/js/ucp.js:144
 msgid "Your Browser is unsupported at this time."
 msgstr "Su navegador no es soportado actualmente."
 
@@ -551,7 +551,7 @@ msgstr "Su Título"
 msgid "Your Work Number"
 msgstr "Su número de Oficina"
 
-#: htdocs/assets/js/ucp.js:145
+#: htdocs/assets/js/ucp.js:146
 msgid ""
 "Your browser is unsupported at this time. Please upgrade or talk to your "
 "system administrator"
@@ -559,7 +559,7 @@ msgstr ""
 "Su Navegador no es soportado actualmente, Por favor actualícelo o hable con "
 "su Administrador"
 
-#: htdocs/assets/js/ucp.js:81
+#: htdocs/assets/js/ucp.js:82
 msgid "Your reset link is in the mail!"
 msgstr "Su enlace de restauración esta en su correo!"
 

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-04-20 18:16-0400\n"
+"POT-Creation-Date: 2015-04-20 19:34-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -69,7 +69,7 @@ msgstr ""
 msgid "Allowed Settings"
 msgstr ""
 
-#: htdocs/assets/js/ucp.js:942
+#: htdocs/assets/js/ucp.js:950
 msgid "Are you sure you wish to change your username?"
 msgstr ""
 
@@ -86,11 +86,11 @@ msgstr ""
 msgid "Company"
 msgstr ""
 
-#: htdocs/assets/js/ucp.js:912
+#: htdocs/assets/js/ucp.js:920
 msgid "Confirm Password"
 msgstr ""
 
-#: htdocs/assets/js/ucp.js:408
+#: htdocs/assets/js/ucp.js:416
 msgid "Connecting...."
 msgstr ""
 
@@ -185,7 +185,7 @@ msgstr ""
 
 #: htdocs/modules/Home/Home.class.php:149
 #: htdocs/views/dashboard.php:32
-#: htdocs/assets/js/ucp.js:736
+#: htdocs/assets/js/ucp.js:744
 msgid "Home"
 msgstr ""
 
@@ -237,8 +237,8 @@ msgstr ""
 
 #: htdocs/views/forgot.php:45
 #: htdocs/views/login.php:37
-#: htdocs/assets/js/ucp.js:125
-#: htdocs/assets/js/ucp.js:138
+#: htdocs/assets/js/ucp.js:126
+#: htdocs/assets/js/ucp.js:139
 msgid "Login"
 msgstr ""
 
@@ -283,7 +283,7 @@ msgstr ""
 msgid "Password"
 msgstr ""
 
-#: htdocs/assets/js/ucp.js:918
+#: htdocs/assets/js/ucp.js:926
 msgid "Password Confirmation Didn't Match!"
 msgstr ""
 
@@ -298,28 +298,28 @@ msgstr ""
 msgid "Password Reset for: %s"
 msgstr ""
 
-#: htdocs/assets/js/ucp.js:96
+#: htdocs/assets/js/ucp.js:97
 msgid "Passwords can't be blank!"
 msgstr ""
 
-#: htdocs/assets/js/ucp.js:105
+#: htdocs/assets/js/ucp.js:106
 msgid "Passwords changed!"
 msgstr ""
 
-#: htdocs/assets/js/ucp.js:93
+#: htdocs/assets/js/ucp.js:94
 msgid "Passwords do not match"
 msgstr ""
 
-#: htdocs/assets/js/ucp.js:912
+#: htdocs/assets/js/ucp.js:920
 msgid "Please Reconfirm Your Password"
 msgstr ""
 
-#: htdocs/assets/js/ucp.js:71
+#: htdocs/assets/js/ucp.js:72
 msgid "Please enter either a username or email address"
 msgstr ""
 
-#: htdocs/assets/js/ucp.js:69
-#: htdocs/assets/js/ucp.js:118
+#: htdocs/assets/js/ucp.js:70
+#: htdocs/assets/js/ucp.js:119
 msgid "Processing..."
 msgstr ""
 
@@ -355,8 +355,8 @@ msgid ""
 "playback of files. Without it files will not playback within UCP"
 msgstr ""
 
-#: htdocs/assets/js/ucp.js:925
-#: htdocs/assets/js/ucp.js:960
+#: htdocs/assets/js/ucp.js:933
+#: htdocs/assets/js/ucp.js:968
 msgid "Saved!"
 msgstr ""
 
@@ -367,7 +367,7 @@ msgstr ""
 #: htdocs/index.php:219
 #: htdocs/modules/Settings/Settings.class.php:83
 #: htdocs/views/dashboard.php:39
-#: htdocs/assets/js/ucp.js:777
+#: htdocs/assets/js/ucp.js:785
 msgid "Settings"
 msgstr ""
 
@@ -375,7 +375,7 @@ msgstr ""
 msgid "Styling and Logos"
 msgstr ""
 
-#: htdocs/assets/js/ucp.js:912
+#: htdocs/assets/js/ucp.js:920
 msgid "Submit"
 msgstr ""
 
@@ -440,7 +440,7 @@ msgstr ""
 msgid "UCP is currently disabled. Please talk to your system Administrator"
 msgstr ""
 
-#: htdocs/assets/js/ucp.js:884
+#: htdocs/assets/js/ucp.js:892
 msgid "UCP needs to reload, ok?"
 msgstr ""
 
@@ -479,7 +479,7 @@ msgstr ""
 msgid "Username"
 msgstr ""
 
-#: htdocs/assets/js/ucp.js:945
+#: htdocs/assets/js/ucp.js:953
 msgid "Username has been changed, reloading"
 msgstr ""
 
@@ -504,11 +504,11 @@ msgstr ""
 msgid "Work Phone"
 msgstr ""
 
-#: htdocs/assets/js/ucp.js:436
+#: htdocs/assets/js/ucp.js:444
 msgid "You are currently working in offline mode."
 msgstr ""
 
-#: htdocs/assets/js/ucp.js:143
+#: htdocs/assets/js/ucp.js:144
 msgid "Your Browser is unsupported at this time."
 msgstr ""
 
@@ -548,13 +548,13 @@ msgstr ""
 msgid "Your Work Number"
 msgstr ""
 
-#: htdocs/assets/js/ucp.js:145
+#: htdocs/assets/js/ucp.js:146
 msgid ""
 "Your browser is unsupported at this time. Please upgrade or talk to your "
 "system administrator"
 msgstr ""
 
-#: htdocs/assets/js/ucp.js:81
+#: htdocs/assets/js/ucp.js:82
 msgid "Your reset link is in the mail!"
 msgstr ""
 
