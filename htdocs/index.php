@@ -14,7 +14,7 @@ if (!@include_once(getenv('FREEPBX_CONF') ? getenv('FREEPBX_CONF') : '/etc/freep
 	include_once('/etc/asterisk/freepbx.conf');
 }
 
-$lang = !empty($_COOKIE['lang']) ? $_COOKIE['lang'] : 'en_US';
+$lang = function_exists('set_language') ? set_language() : 'en_US';
 
 include(dirname(__FILE__).'/includes/bootstrap.php');
 try {
