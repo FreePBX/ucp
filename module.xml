@@ -2,7 +2,7 @@
 	<rawname>ucp</rawname>
 	<name>User Control Panel</name>
 	<repo>standard</repo>
-	<version>12.0.17</version>
+	<version>12.0.18</version>
 	<publisher>FreePBX</publisher>
 	<license>AGPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/agpl-3.0.txt</licenselink>
@@ -10,6 +10,7 @@
 		Formerly ARI, now called User Control Panel
 	</description>
 	<changelog>
+		*12.0.18* FREEPBX-9112 UCP Subsections need to support localization
 		*12.0.17* Regression from sysadmin for UCP ports
 		*12.0.16* FREEPBX-9077 UCP Forgot password does not send reset link
 		*12.0.15* FREEPBX-8999 Dont process the page if user is null
