@@ -342,7 +342,9 @@ class Ucp implements BMO {
 				$mod = ucfirst(strtolower($module['rawname']));
 				if(file_exists($location."/".$rawname."/".$mod.".class.php")) {
 					if(method_exists(FreePBX::create()->$mod,'processUCPAdminDisplay')) {
+						\modgettext::push_textdomain(strtolower($mod));
 						FreePBX::create()->$mod->processUCPAdminDisplay($user);
+						\modgettext::pop_textdomain();
 					}
 				}
 			}
@@ -368,7 +370,9 @@ class Ucp implements BMO {
 				$mod = ucfirst(strtolower($module['rawname']));
 				if(file_exists($location."/".$rawname."/".$mod.".class.php")) {
 					if(method_exists(FreePBX::create()->$mod,'getUCPAdminDisplay')) {
+						\modgettext::push_textdomain(strtolower($mod));
 						$data = FreePBX::create()->$mod->getUCPAdminDisplay($user, $action);
+						\modgettext::pop_textdomain();
 						if(!empty($data)) {
 							foreach($data as $item) {
 								if(empty($item)) {

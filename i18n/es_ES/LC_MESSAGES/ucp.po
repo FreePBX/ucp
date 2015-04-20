@@ -343,11 +343,11 @@ msgstr "Reiniciar Password"
 
 #: htdocs/index.php:118
 msgid "SOX is not installed on this server but is required by UCP. Please install it"
-msgstr ""
+msgstr "SOX no está instalado en este servidor, pero es requerido por la UCP . Instálelo"
 
 #: htdocs/index.php:119
 msgid "SOX is required for UCP to be able to do transcoding of playback for browser playback of files. Without it files will not playback within UCP"
-msgstr ""
+msgstr "SOX se requiere para que la UCP sea capaz de hacer la transcodificación de Grabaciones en el navegador. Sin ella los archivos no se reproducirá dentro de UCP"
 
 #: htdocs/assets/js/ucp.js:918 htdocs/assets/js/ucp.js:953
 msgid "Saved!"
@@ -359,8 +359,9 @@ msgstr "Envíeme un enlace de reinicio de Password"
 
 #: htdocs/index.php:211 htdocs/modules/Settings/Settings.class.php:83
 #: htdocs/views/dashboard.php:39 htdocs/assets/js/ucp.js:770
+#, fuzzy
 msgid "Settings"
-msgstr "Configuración"
+msgstr "Configuraciones"
 
 #: ucp.i18n.php:16
 msgid "Styling and Logos"
