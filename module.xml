@@ -2,7 +2,7 @@
 	<rawname>ucp</rawname>
 	<name>User Control Panel</name>
 	<repo>standard</repo>
-	<version>12.0.20</version>
+	<version>12.0.21</version>
 	<publisher>FreePBX</publisher>
 	<license>AGPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/agpl-3.0.txt</licenselink>
@@ -10,6 +10,7 @@
 		Formerly ARI, now called User Control Panel
 	</description>
 	<changelog>
+		*12.0.21* Language adjustments
 		*12.0.20* Block extra menu loads FREEPBX-9028
 		*12.0.19* Base language fixes, ask Framework first
 		*12.0.18* FREEPBX-9112 UCP Subsections need to support localization

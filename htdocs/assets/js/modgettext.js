@@ -17,6 +17,7 @@ var langDomain,
  * short translates a string given the string
  *
  * @param	string
+ * @param string module
  * @return string
  *
  * Given a string, this function will attempt to translate the string
@@ -24,12 +25,13 @@ var langDomain,
  * is the same as the original text AND the domain is NOT ucp
  * then it will make a last attempt to lookup a translation in ucp
  */
-function _(string) {
+function _(string, module) {
+	var domain = (typeof module !== "undefined") ? module : textdomain(null);
 	try {
 		var tstring = "";
-		tstring = UCP.i18n.dgettext( textdomain(null), string );
+		tstring = UCP.i18n.dgettext( domain, string );
 		// if our translation didn't change and we aren't already using 'ucp' then try with ucp
-		if (tstring == string && textdomain(null) != "ucp") {
+		if (tstring == string && domain != "ucp") {
 			tstring = UCP.i18n.dgettext("ucp", string);
 		}
 		return tstring;
