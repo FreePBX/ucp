@@ -357,9 +357,8 @@ msgstr "Guardado!"
 msgid "Send Me A Password Reset Link"
 msgstr "Envíeme un enlace de reinicio de Password"
 
-#: htdocs/index.php:211 htdocs/modules/Settings/Settings.class.php:83
-#: htdocs/views/dashboard.php:39 htdocs/assets/js/ucp.js:770
-#, fuzzy
+#: htdocs/index.php:219 htdocs/modules/Settings/Settings.class.php:83
+#: htdocs/views/dashboard.php:39 htdocs/assets/js/ucp.js:785
 msgid "Settings"
 msgstr "Configuraciones"
 

@@ -61,11 +61,11 @@ msgstr "Autoriser les notifications sur le bureau du navigateur provenant des mo
 
 #: ucp.i18n.php:28
 msgid "Allow users to change thier password in UCP"
-msgstr ""
+msgstr "Permettre aux utilisateurs de modifier leur mot de passe dans UCP"
 
 #: ucp.i18n.php:32
 msgid "Allow users to change thier username in UCP"
-msgstr ""
+msgstr "Permettre aux utilisateurs de modifier leur nom d'usager dans UCP"
 
 #: views/users_hook.php:83
 msgid "Allowed Settings"
@@ -338,11 +338,11 @@ msgstr "Réinitialiser le mot de passe"
 
 #: htdocs/index.php:118
 msgid "SOX is not installed on this server but is required by UCP. Please install it"
-msgstr ""
+msgstr "SOX n'est pas installé sur ce serveur mais est requis par UCP. Veuillez l'installer"
 
 #: htdocs/index.php:119
 msgid "SOX is required for UCP to be able to do transcoding of playback for browser playback of files. Without it files will not playback within UCP"
-msgstr ""
+msgstr "SOX est requis par UCP  pour être en mesure de faire le transcodage pour écouter le fichier dans le navigateur . Sans SOX les fichiers ne joueront pas dans UCP"
 
 #: htdocs/assets/js/ucp.js:918 htdocs/assets/js/ucp.js:953
 msgid "Saved!"

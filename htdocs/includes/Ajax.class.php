@@ -110,7 +110,9 @@ class Ajax extends UCP {
 				$mods = $this->UCP->Modules->getModulesByMethod('getStaticSettings');
 				$settings = array();
 				foreach($mods as $m) {
+					$this->UCP->Modgettext->push_textdomain(strtolower($m));
 					$settings[$m] = $this->UCP->Modules->$m->getStaticSettings();
+					$this->UCP->Modgettext->pop_textdomain();
 				}
 				$ret = array(
 					"status" => true,

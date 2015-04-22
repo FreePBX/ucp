@@ -22,6 +22,7 @@ var UCPC = Class.extend({
 		this.token = null;
 		this.lastIO = null;
 		this.Modules = {};
+		this.calibrating = false;
 
 		textdomain("ucp");
 	},
@@ -290,6 +291,12 @@ var UCPC = Class.extend({
 		$("#loading-container").fadeOut("fast");
 	},
 	calibrateMenus: function() {
+		//If we are currently calibrating or a menu is being displayed
+		//then dont calibrate
+		if(this.calibrating || $(".nav-btn-menu.active").length > 0) {
+			return;
+		}
+		this.calibrating = true;
 		//Menu adjustments
 		//$("#presence-box2").css("right", $(".nav-btns").width() + "px");
 		//$("#presence-menu2").css("right", $(".nav-btns").width() + "px");
@@ -341,6 +348,7 @@ var UCPC = Class.extend({
 				});
 			}
 		});
+		this.calibrating = false;
 	},
 	onchange: function(evt) {
 		var v = "visible", h = "hidden",
