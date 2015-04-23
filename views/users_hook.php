@@ -58,6 +58,7 @@
 		</div>
 		<!--END UCP LOGIN-->
 		<!--UCP Sessions-->
+		<?php if($mode == "user") { ?>
 		<div class="element-container">
 			<div class="row">
 				<div class="col-md-12">
@@ -93,6 +94,7 @@
 				</div>
 			</div>
 		</div>
+		<?php } ?>
 		<!--END UCP ALLOWED SETTINGS-->
 	</div>
 	<div role="tabpanel" id="ucp-miscellaneous" class="tab-pane">

@@ -78,9 +78,12 @@
 			<method class="Ucp" callingMethod="getSummary">dashboardService</method>
 		</dashboard>
 		<userman namespace="FreePBX\modules" class="Userman">
-			<method class="Ucp" callingMethod="delUser">usermanDelUser</method>
-			<method class="Ucp" callingMethod="addUser">usermanAddUser</method>
-			<method class="Ucp" callingMethod="updateUser">usermanUpdateUser</method>
+			<method class="Ucp" callingMethod="delGroup">delGroup</method>
+			<method class="Ucp" callingMethod="addGroup">addGroup</method>
+			<method class="Ucp" callingMethod="updateGroup">updateGroup</method>
+			<method class="Ucp" callingMethod="delUser">delUser</method>
+			<method class="Ucp" callingMethod="addUser">addUser</method>
+			<method class="Ucp" callingMethod="updateUser">updateUser</method>
 			<method class="Ucp" callingMethod="sendWelcomeEmail">usermanSendEmail</method>
 			<method class="Ucp" callingMethod="myShowPage">usermanShowPage</method>
 		</userman>
