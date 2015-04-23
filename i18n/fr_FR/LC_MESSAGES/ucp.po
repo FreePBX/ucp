@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-04-21 15:08-0400\n"
-"PO-Revision-Date: 2015-04-22 19:30+0200\n"
+"PO-Revision-Date: 2015-04-23 01:11+0200\n"
 "Last-Translator: philippebolduc <philippe@florenceinc.com>\n"
 "Language-Team: French "
 "<http://weblate.freepbx.org/projects/freepbx/ucp/fr_FR/>\n"
@@ -264,11 +264,11 @@ msgstr "Rien n'a été fourni !"
 
 #: htdocs/views/header.php:57
 msgid "OFF"
-msgstr "Désactivé"
+msgstr "Non"
 
 #: htdocs/views/header.php:54
 msgid "ON"
-msgstr "Activé"
+msgstr "Oui"
 
 #: htdocs/index.php:213
 msgid "Originate Call"
