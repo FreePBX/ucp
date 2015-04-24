@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-04-21 15:08-0400\n"
+"POT-Creation-Date: 2015-04-24 17:11-0400\n"
 "PO-Revision-Date: 2015-02-28 11:22+0200\n"
 "Last-Translator: Kevin <kevin@qloog.com>\n"
 "Language-Team: Japanese <http://weblate.freepbx.org/projects/freepbx/ucp/"
@@ -250,7 +250,7 @@ msgstr "MNO"
 msgid "Module Settings"
 msgstr "モジュール設定"
 
-#: htdocs/includes/Ajax.class.php:133
+#: htdocs/includes/Ajax.class.php:137
 msgid "Module or Command were null. Check your code."
 msgstr "モジュールかコマンドはnull。コードを確認してください。"
 
@@ -354,6 +354,11 @@ msgstr "保存しました！"
 #: htdocs/views/login.php:54
 msgid "Send Me A Password Reset Link"
 msgstr "パスワードリセットリンクを送信する"
+
+#: htdocs/views/templates/chat.php:25
+#, php-format
+msgid "Sent at %s"
+msgstr ""
 
 #: htdocs/index.php:219 htdocs/modules/Settings/Settings.class.php:83
 #: htdocs/views/dashboard.php:39 htdocs/assets/js/ucp.js:785
