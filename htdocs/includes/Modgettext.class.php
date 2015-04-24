@@ -127,7 +127,7 @@ class Modgettext extends \UCP {
 				case "ucp":
 					bindtextdomain('ucp', $this->root. '/admin/modules/ucp/i18n');
 					bind_textdomain_codeset('ucp', 'utf8');
-					$this->tdhash[$module] = '';
+					$this->tdhash[$module] = 'ucp';
 				break;
 				default:
 					if (isset($_COOKIE['lang']) && is_dir($this->root. '/admin/modules/' . $module . '/i18n')) {

@@ -229,7 +229,7 @@ msgid "Loading..."
 msgstr "Chargement..."
 
 #: htdocs/views/forgot.php:45 htdocs/views/login.php:37
-#: htdocs/assets/js/ucp.js:125 htdocs/assets/js/ucp.js:138
+#: htdocs/assets/js/ucp.js:126 htdocs/assets/js/ucp.js:139
 #, fuzzy
 msgid "Login"
 msgstr "Se connecter"
@@ -362,7 +362,7 @@ msgstr "Paramètres"
 msgid "Styling and Logos"
 msgstr "Style et Logos"
 
-#: htdocs/assets/js/ucp.js:905
+#: htdocs/assets/js/ucp.js:920
 #, fuzzy
 msgid "Submit"
 msgstr "Soumettre"
@@ -387,7 +387,7 @@ msgstr "Le nom d'utilisateur utilisé pour vous connecter au panneau de l'utilis
 msgid "There was an error trying to load UCP"
 msgstr "Il y eu une erreur en essayant de charger UCP"
 
-#: views/users_hook.php:95
+#: views/users_hook.php:39
 #, fuzzy
 msgid "These are the assigned and active extensions which will show up for this user to control and edit in UCP"
 msgstr "Ce sont les postes assignés et actifs qui s'afficheront pour cet utilisateur et qu'il pourra contrôler et modifier de UCP"
@@ -552,6 +552,11 @@ msgstr "Les fichiers .htaccess aident à protéger l'intégrité de votre serveu
 #: htdocs/views/login.php:24
 msgid "or"
 msgstr "ou"
+
+#: htdocs/views/templates/chat.php:25
+#, php-format
+msgid "Sent at %s"
+msgstr ""
 
 #~ msgid "All users to change thier password in UCP"
 #~ msgstr "Tous les utilisateurs doivent changer leur mot de passe dans UCP"

@@ -551,3 +551,8 @@ msgstr ""
 #: htdocs/views/login.php:24
 msgid "or"
 msgstr ""
+
+#: htdocs/views/templates/chat.php:25
+#, php-format
+msgid "Sent at %s"
+msgstr ""

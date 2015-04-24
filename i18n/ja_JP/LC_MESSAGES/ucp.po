@@ -551,6 +551,11 @@ msgstr "htaccessファイルはサーバーの整合性を保つために重要�
 msgid "or"
 msgstr "もしくは"
 
+#: htdocs/views/templates/chat.php:25
+#, php-format
+msgid "Sent at %s"
+msgstr ""
+
 #~ msgid "Copyright 2013-%s Schmooze Com Inc"
 #~ msgstr "Copyright 2013-%s Schmooze Com Inc"
 
