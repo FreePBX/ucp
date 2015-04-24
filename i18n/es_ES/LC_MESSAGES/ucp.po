@@ -556,6 +556,7 @@ msgstr "Los ficheros htaccess  ayudan a proteger la integridad de su servidor. P
 msgid "or"
 msgstr "o"
 
+#, fuzzy
 #~ msgid "Module Settings"
 #~ msgstr "Configuración de Módulo"
 

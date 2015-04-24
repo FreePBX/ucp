@@ -230,8 +230,9 @@ msgstr "Chargement..."
 
 #: htdocs/views/forgot.php:45 htdocs/views/login.php:37
 #: htdocs/assets/js/ucp.js:125 htdocs/assets/js/ucp.js:138
+#, fuzzy
 msgid "Login"
-msgstr "Nom d'utilisateur"
+msgstr "Se connecter"
 
 #: htdocs/index.php:211
 msgid "Logout"
@@ -259,11 +260,11 @@ msgstr "Rien n'a été fourni !"
 
 #: htdocs/views/header.php:57
 msgid "OFF"
-msgstr "Désactivé"
+msgstr "Non"
 
 #: htdocs/views/header.php:54
 msgid "ON"
-msgstr "Activé"
+msgstr "Oui"
 
 #: htdocs/index.php:205
 msgid "Originate Call"
@@ -362,8 +363,9 @@ msgid "Styling and Logos"
 msgstr "Style et Logos"
 
 #: htdocs/assets/js/ucp.js:905
+#, fuzzy
 msgid "Submit"
-msgstr "Envoyer"
+msgstr "Soumettre"
 
 #: htdocs/views/templates/phone.php:69
 msgid "TUV"
@@ -386,8 +388,9 @@ msgid "There was an error trying to load UCP"
 msgstr "Il y eu une erreur en essayant de charger UCP"
 
 #: views/users_hook.php:95
+#, fuzzy
 msgid "These are the assigned and active extensions which will show up for this user to control and edit in UCP"
-msgstr "Ce sont les postes assignées et actifs qui s'afficheront pour cet utilisateur et qu'il pourra contrôler et modifier dans UCP"
+msgstr "Ce sont les postes assignés et actifs qui s'afficheront pour cet utilisateur et qu'il pourra contrôler et modifier de UCP"
 
 #: htdocs/views/settings.php:51
 msgid "Title"
