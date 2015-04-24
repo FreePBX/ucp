@@ -26,6 +26,7 @@ class Template extends UCP {
 	 * @param {int} $break=10 How many page links to display to the user
 	 */
 	public function generatePagnation($total,$current,$link,$break=10) {
+		$this->UCP->Modgettext->push_textdomain("ucp");
 		$start = (ceil($current / $break) * $break) - ($break -1);
 		$end = ceil($current / $break) * $break;
 		$data = array(
@@ -35,6 +36,8 @@ class Template extends UCP {
 			'totalPages' => $total,
 			'link' => $link
 		);
-		return $this->UCP->View->load_view(dirname(__DIR__).'/views/templates/pagnation.php', $data);
+		$html = $this->UCP->View->load_view(dirname(__DIR__).'/views/templates/pagnation.php', $data);
+		$this->UCP->Modgettext->pop_textdomain();
+		return $html;
 	}
 }

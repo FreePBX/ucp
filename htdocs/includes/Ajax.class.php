@@ -94,13 +94,17 @@ class Ajax extends UCP {
 						$mods = $this->UCP->Modules->getModulesByMethod('getChatHistory');
 						$template['history'] = array();
 						foreach($mods as $m) {
+							$this->UCP->Modgettext->push_textdomain(strtolower($m));
 							$template['history'] = $this->UCP->Modules->$m->getChatHistory($_POST['template']['from'],$_POST['template']['to'],$_POST['newWindow']);
+							$this->UCP->Modgettext->pop_textdomain();
 						}
 					}
+					$this->UCP->Modgettext->push_textdomain("ucp");
 					$ret = array(
 						"status" => true,
 						"contents" => $this->UCP->View->load_view($file, $template)
 					);
+					$this->UCP->Modgettext->pop_textdomain();
 				} else {
 					$this->triggerFatal();
 				}
