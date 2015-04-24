@@ -10,14 +10,14 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-04-21 15:08-0400\n"
-"PO-Revision-Date: 2015-04-21 19:21+0200\n"
+"PO-Revision-Date: 2015-04-25 00:13+0200\n"
 "Last-Translator: philippebolduc <philippe@florenceinc.com>\n"
-"Language-Team: French <http://weblate.freepbx.org/projects/freepbx/ucp/fr_FR/"
-">\n"
+"Language-Team: French "
+"<http://weblate.freepbx.org/projects/freepbx/ucp/fr_FR/>\n"
+"Language: fr_FR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: fr_FR\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
 "X-Generator: Weblate 2.2-dev\n"
 
@@ -240,7 +240,7 @@ msgstr "Chargement..."
 #: htdocs/views/forgot.php:45 htdocs/views/login.php:37
 #: htdocs/assets/js/ucp.js:126 htdocs/assets/js/ucp.js:139
 msgid "Login"
-msgstr "Nom d'utilisateur"
+msgstr "Se connecter"
 
 #: htdocs/index.php:219
 msgid "Logout"
@@ -264,11 +264,11 @@ msgstr "Rien n'a été fourni !"
 
 #: htdocs/views/header.php:57
 msgid "OFF"
-msgstr "Désactivé"
+msgstr "Non"
 
 #: htdocs/views/header.php:54
 msgid "ON"
-msgstr "Activé"
+msgstr "Oui"
 
 #: htdocs/index.php:213
 msgid "Originate Call"
@@ -376,7 +376,7 @@ msgstr "Style et Logos"
 
 #: htdocs/assets/js/ucp.js:920
 msgid "Submit"
-msgstr "Envoyer"
+msgstr "Soumettre"
 
 #: htdocs/views/templates/phone.php:69
 msgid "TUV"
@@ -407,8 +407,8 @@ msgid ""
 "These are the assigned and active extensions which will show up for this "
 "user to control and edit in UCP"
 msgstr ""
-"Ce sont les postes assignées et actifs qui s'afficheront pour cet "
-"utilisateur et qu'il pourra contrôler et modifier dans UCP"
+"Ce sont les postes assignés et actifs qui s'afficheront pour cet utilisateur "
+"et qu'il pourra contrôler et modifier de UCP"
 
 #: htdocs/views/settings.php:41
 msgid "Title"
