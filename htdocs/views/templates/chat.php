@@ -22,7 +22,7 @@
 						</div>
 					<?php } ?>
 					<?php if(!empty($history)) {?>
-						<div class="status" data-type="date">Sent at <?php echo date('g:i A \\o\\n l', $h['date'])?></div>
+						<div class="status" data-type="date"><?php sprintf(_('Sent at %s'),date('g:i A \\o\\n l', $h['date']));?></div>
 					<?php } ?>
 				<?php } ?>
 			</div>
