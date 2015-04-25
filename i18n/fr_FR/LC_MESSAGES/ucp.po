@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-04-21 15:08-0400\n"
-"PO-Revision-Date: 2015-04-23 01:11+0200\n"
+"PO-Revision-Date: 2015-04-24 19:18+0200\n"
 "Last-Translator: philippebolduc <philippe@florenceinc.com>\n"
 "Language-Team: French "
 "<http://weblate.freepbx.org/projects/freepbx/ucp/fr_FR/>\n"
@@ -240,7 +240,7 @@ msgstr "Chargement..."
 #: htdocs/views/forgot.php:45 htdocs/views/login.php:37
 #: htdocs/assets/js/ucp.js:126 htdocs/assets/js/ucp.js:139
 msgid "Login"
-msgstr "Nom d'utilisateur"
+msgstr "Se connecter"
 
 #: htdocs/index.php:219
 msgid "Logout"
