@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-04-24 17:11-0400\n"
-"PO-Revision-Date: 2015-04-27 22:34+0200\n"
+"PO-Revision-Date: 2015-04-28 00:57+0200\n"
 "Last-Translator: Renato <fiuza@tecnologia.inf.br>\n"
 "Language-Team: Portuguese (Brazil) "
 "<http://weblate.freepbx.org/projects/freepbx/ucp/pt_BR/>\n"
@@ -255,146 +255,153 @@ msgstr "Configurações de Módulo"
 
 #: htdocs/includes/Ajax.class.php:137
 msgid "Module or Command were null. Check your code."
-msgstr ""
+msgstr "Módulo ou Commando foi nulo. Verifique seu código."
 
 #: htdocs/includes/User.class.php:74
 msgid "Nothing was Provided!"
-msgstr ""
+msgstr "Nada Foi Fornecido!"
 
 #: htdocs/views/header.php:57
 msgid "OFF"
-msgstr ""
+msgstr "DESLIGADO"
 
 #: htdocs/views/header.php:54
 msgid "ON"
-msgstr ""
+msgstr "LIGADO"
 
 #: htdocs/index.php:213
 msgid "Originate Call"
-msgstr ""
+msgstr "Originar Chamada"
 
 #: htdocs/views/templates/phone.php:65
 msgid "PQRS"
-msgstr ""
+msgstr "PQRS"
 
 #: htdocs/views/login.php:20 htdocs/views/settings.php:15
 msgid "Password"
-msgstr ""
+msgstr "Senha"
 
 #: htdocs/assets/js/ucp.js:926
 msgid "Password Confirmation Didn't Match!"
-msgstr ""
+msgstr "Confirmação De Senha Não Conferiu!"
 
 #: Ucp.class.php:128 Ucp.class.php:138
 #, php-format
 msgid "Password Reset Link (Valid Until: %s): %s"
-msgstr ""
+msgstr "Link de Redefinição de Senha (Válido Até: %s): %s"
 
 #: htdocs/views/forgot.php:27
 #, php-format
 msgid "Password Reset for: %s"
-msgstr ""
+msgstr "Redefinição de Senha para: %s"
 
 #: htdocs/assets/js/ucp.js:97
 msgid "Passwords can't be blank!"
-msgstr ""
+msgstr "Senhas não podem ser vazias!"
 
 #: htdocs/assets/js/ucp.js:106
 msgid "Passwords changed!"
-msgstr ""
+msgstr "Senha trocada!"
 
 #: htdocs/assets/js/ucp.js:94
 msgid "Passwords do not match"
-msgstr ""
+msgstr "Senhas não conferem"
 
 #: htdocs/assets/js/ucp.js:920
 msgid "Please Reconfirm Your Password"
-msgstr ""
+msgstr "Por favor Re-confirme Sua Senha"
 
 #: htdocs/assets/js/ucp.js:72
 msgid "Please enter either a username or email address"
-msgstr ""
+msgstr "Por favor entre com seu usuário ou endereço de email"
 
 #: htdocs/assets/js/ucp.js:70 htdocs/assets/js/ucp.js:119
 msgid "Processing..."
-msgstr ""
+msgstr "Processando…"
 
 #: ucp.i18n.php:34
 msgid "RSS Feeds"
-msgstr ""
+msgstr "Feeds RSS"
 
 #: ucp.i18n.php:36
 msgid "RSS Feeds that are displayed in UCP. This overrides "
-msgstr ""
+msgstr "Feeds RSS que são mostrados no PCU. Isto substitui "
 
 #: Ucp.class.php:37
 msgid "Refreshing all UCP Assets, this could take a while..."
-msgstr ""
+msgstr "Atualizando todos os recursos do PCU, isso pode levar algum tempo…"
 
 #: htdocs/views/forgot.php:48 htdocs/views/login.php:40
 msgid "Remember Me"
-msgstr ""
+msgstr "Lembrar Me"
 
 #: htdocs/views/forgot.php:62
 msgid "Reset Password"
-msgstr ""
+msgstr "Redefinir Senha"
 
 #: htdocs/index.php:118
 msgid ""
 "SOX is not installed on this server but is required by UCP. Please install it"
 msgstr ""
+"O SOX não está instalado neste servidor mas é necessário pelo PCU. Por favor "
+"instale-o"
 
 #: htdocs/index.php:119
 msgid ""
 "SOX is required for UCP to be able to do transcoding of playback for browser "
 "playback of files. Without it files will not playback within UCP"
 msgstr ""
+"O SOX é necessário para o PCU conseguir fazer a transcodificação de "
+"reprodução para reproduções de arquivos no navegador. Sem ele os arquivos "
+"não serão reproduzidos no PCU"
 
 #: htdocs/assets/js/ucp.js:933 htdocs/assets/js/ucp.js:968
 msgid "Saved!"
-msgstr ""
+msgstr "Salvo!"
 
 #: htdocs/views/login.php:54
 msgid "Send Me A Password Reset Link"
-msgstr ""
+msgstr "Envie-me Um Link de Redefinição de Senha"
 
 #: htdocs/views/templates/chat.php:25
 #, php-format
 msgid "Sent at %s"
-msgstr ""
+msgstr "Enviado para %s"
 
 #: htdocs/index.php:219 htdocs/modules/Settings/Settings.class.php:83
 #: htdocs/views/dashboard.php:39 htdocs/assets/js/ucp.js:785
 msgid "Settings"
-msgstr ""
+msgstr "Configurações"
 
 #: ucp.i18n.php:16
 msgid "Styling and Logos"
-msgstr ""
+msgstr "Estilo e Logos"
 
 #: htdocs/assets/js/ucp.js:920
 msgid "Submit"
-msgstr ""
+msgstr "Enviar"
 
 #: htdocs/views/templates/phone.php:69
 msgid "TUV"
-msgstr ""
+msgstr "TUV"
 
 #: htdocs/views/settings.php:17
 msgid "The password used to login to User Control Panel and other services"
 msgstr ""
+"A senha usada para logar no Painel de Controle do Usuário e outros serviços"
 
 #: htdocs/views/dashfootercontent.php:10
 msgid "The removal of this copyright notice is stricly prohibited"
-msgstr ""
+msgstr "A remoção deste aviso de direitos autorais é estritamente proibida"
 
 #: htdocs/views/settings.php:10
 msgid "The username used to login to User Control Panel and other services"
 msgstr ""
+"O usuário usado para logar no Painel de Controle do Usuário e outros serviços"
 
 #: htdocs/index.php:125
 msgid "There was an error trying to load UCP"
-msgstr ""
+msgstr "Houve um erro ao tentar carregar o PCU"
 
 #: views/users_hook.php:39
 msgid ""
