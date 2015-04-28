@@ -250,6 +250,11 @@ msgstr "MNO"
 msgid "May this user log in to UCP"
 msgstr ""
 
+#: views/users_hook.php:35
+#, fuzzy
+msgid "Module Settings"
+msgstr "Configuración de Módulo"
+
 #: htdocs/includes/Ajax.class.php:131
 msgid "Module or Command were null. Check your code."
 msgstr "El Modulo o Comando fue nulo. Revise su código."
@@ -356,6 +361,11 @@ msgstr "Guardado!"
 #: htdocs/views/login.php:54
 msgid "Send Me A Password Reset Link"
 msgstr "Envíeme un enlace de reinicio de Password"
+
+#: htdocs/views/templates/chat.php:25
+#, php-format
+msgid "Sent at %s"
+msgstr "Enviado a %s"
 
 #: htdocs/index.php:219 htdocs/modules/Settings/Settings.class.php:83
 #: htdocs/views/dashboard.php:39 htdocs/assets/js/ucp.js:785
@@ -555,16 +565,6 @@ msgstr "Los ficheros htaccess  ayudan a proteger la integridad de su servidor. P
 #: htdocs/views/login.php:24
 msgid "or"
 msgstr "o"
-
-#: views/users_hook.php:35
-#, fuzzy
-msgid "Module Settings"
-msgstr "Configuración de Módulo"
-
-#: htdocs/views/templates/chat.php:25
-#, php-format
-msgid "Sent at %s"
-msgstr ""
 
 #~ msgid "UCP Password"
 #~ msgstr "Password UCP"

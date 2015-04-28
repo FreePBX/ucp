@@ -113,8 +113,8 @@ if ( !isset($_SERVER['HTACCESS']) && preg_match("/apache/i", $_SERVER['SERVER_SO
 	}
 }
 
-exec('/bin/env sox --version',$output);
-if(!preg_match('/sox: SoX v(.*)/',$output[0])) {
+exec('/usr/bin/env sox --version',$output);
+if(!preg_match('/sox:\s*SoX v(.*)/',$output[0])) {
 	$nt->add_warning('ucp', 'sox', _('SOX is not installed on this server but is required by UCP. Please install it'),
 	_("SOX is required for UCP to be able to do transcoding of playback for browser playback of files. Without it files will not playback within UCP"),"",true,true);
 }
