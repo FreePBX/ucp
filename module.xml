@@ -74,9 +74,6 @@
 		<version>13.0</version>
 	</supported>
 	<hooks>
-		<dashboard namespace="FreePBX\modules\Dashboard\Sections" class="Overview">
-			<method class="Ucp" callingMethod="getSummary">dashboardService</method>
-		</dashboard>
 		<userman namespace="FreePBX\modules" class="Userman">
 			<method class="Ucp" callingMethod="delGroup">delGroup</method>
 			<method class="Ucp" callingMethod="addGroup">addGroup</method>
