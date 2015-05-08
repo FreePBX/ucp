@@ -43,8 +43,12 @@
 							<div class="col-md-9 radioset">
 								<input type="radio" id="ucp1" name="ucp_login" value="true" <?php echo ($allowLogin) ? 'checked' : ''?>>
 								<label for="ucp1"><?php echo _("Yes")?></label>
-								<input type="radio" id="ucp2" name="ucp_login" value="false" <?php echo (!$allowLogin) ? 'checked' : ''?>>
+								<input type="radio" id="ucp2" name="ucp_login" value="false" <?php echo (!is_null($allowLogin) && !$allowLogin) ? 'checked' : ''?>>
 								<label for="ucp2"><?php echo _("No")?></label>
+								<?php if($mode == "user") {?>
+									<input type="radio" id="ucp3" name="ucp_login" value='inherit' <?php echo is_null($allowLogin) ? 'checked' : ''?>>
+									<label for="ucp3"><?php echo _('Inherit')?></label>
+								<?php } ?>
 							</div>
 						</div>
 					</div>
@@ -137,8 +141,12 @@
 							<div class="col-md-9 radioset">
 								<input type="radio" name="ucp_originate" id="ucp_originate_yes" value="yes" <?php echo ($originate) ? 'checked' : ''?>>
 								<label for="ucp_originate_yes"><?php echo _("Yes")?></label>
-								<input type="radio" name="ucp_originate" id="ucp_originate_no" value="no" <?php echo !($originate) ? 'checked' : ''?>>
+								<input type="radio" name="ucp_originate" id="ucp_originate_no" value="no" <?php echo (!is_null($originate) && !$originate) ? 'checked' : ''?>>
 								<label for="ucp_originate_no"><?php echo _("No")?></label>
+								<?php if($mode == "user") {?>
+									<input type="radio" id="ucp_originate_inherit" name="ucp_originate" value='inherit' <?php echo is_null($originate) ? 'checked' : ''?>>
+									<label for="ucp_originate_inherit"><?php echo _('Inherit')?></label>
+								<?php } ?>
 							</div>
 						</div>
 					</div>

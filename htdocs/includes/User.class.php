@@ -211,8 +211,7 @@ class User extends UCP {
 			$this->uid = null;
 			$this->user = null;
 			unset($_SESSION['id']);
-			session_regenerate_id();
-			session_destroy();
+			session_regenerate_id(true);
 		}
 		return true;
 	}
@@ -339,8 +338,7 @@ class User extends UCP {
 	 * @return {bool}      True if allowed
 	 */
 	private function _allowed($uid) {
-		$this->user = $this->UCP->FreePBX->Ucp->getUserByID($uid);
-		$status = $this->UCP->getSetting($this->user['username'],'Global','allowLogin');
+		$status = $this->UCP->getCombinedSettingByID($uid,'Global','allowLogin');
 		return !empty($status) ? $status : false;
 	}
 }

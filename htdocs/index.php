@@ -207,7 +207,7 @@ switch($display) {
 				}
 			}
 		}
-		$o = FreePBX::Userman()->getModuleSettingByID($user['id'],'ucp|Global','originate');
+		$o = FreePBX::Userman()->getCombinedModuleSettingByID($user['id'],'ucp|Global','originate');
 		$originate = !empty($o) ? '<a class="originate">'._("Originate Call").'</a>' : '';
 		$displayvars['navItems']['settings'] = array(
 			"rawname" => "settings",

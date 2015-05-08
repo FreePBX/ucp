@@ -73,6 +73,16 @@ class UCP extends UCP_Helpers {
 	}
 
 	/**
+	* Get a UCP Setting
+	* @param string $username The username
+	* @param string $module   The module name
+	* @param string $setting  The setting key
+	*/
+	function getCombinedSettingByID($uid,$module,$setting) {
+		return $this->FreePBX->UCP->getCombinedSettingByID($uid,$module,$setting);
+	}
+
+	/**
 	 * Get a UCP Setting
 	 * @param string $username The username
 	 * @param string $module   The module name

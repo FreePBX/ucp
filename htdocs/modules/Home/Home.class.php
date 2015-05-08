@@ -124,7 +124,7 @@ class Home extends Modules{
 				return true;
 			break;
 			case 'originate':
-				$o = $this->UCP->FreePBX->Userman->getModuleSettingByID($this->user['id'],'ucp|Global','originate');
+				$o = $this->UCP->FreePBX->Userman->getCombinedSettingByID($this->user['id'],'ucp|Global','originate');
 				return !empty($o) ? true : false;
 			break;
 			default:
@@ -198,9 +198,11 @@ class Home extends Modules{
 	function getStaticSettings() {
 		$extensions = $this->UCP->getSetting($this->user['username'],'Settings','assigned');
 		//force default extension to the top.
-		if(!empty($this->user['default_extension'])) {
+		if(!empty($this->user['default_extension']) && is_array($extensions)) {
 			$extensions = array_diff($extensions, array($this->user['default_extension']));
 			array_unshift($extensions,$this->user['default_extension']);
+		} elseif(empty($extensions)) {
+			$extensions = array($this->user['default_extension']);
 		}
 		return array(
 			'extensions' => $extensions,
