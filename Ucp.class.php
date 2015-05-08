@@ -261,36 +261,50 @@ class Ucp implements BMO {
 
 	public function delGroup($id,$display,$data) {
 		$this->FreePBX->Hooks->processHooks($id,$display,false,$data);
+		$group = $this->Userman->getGroupByGID($id);
+		foreach($group['users'] as $user) {
+			$this->expireUserSessions($user);
+		}
 	}
 
 	public function addGroup($id, $display, $data) {
 		if($_POST['ucp_login'] == 'true') {
 			$this->Userman->setModuleSettingByGID($id,'ucp|Global','allowLogin', true);
 		} else {
-			$this->Userman->setModuleSettingByGID($id,'ucp|Global','allowLogin', null);
+			$this->Userman->setModuleSettingByGID($id,'ucp|Global','allowLogin', false);
 		}
 		if($_POST['ucp_originate'] == 'yes') {
 			$this->Userman->setModuleSettingByGID($id,'ucp|Global','originate', true);
 		} else {
-			$this->Userman->setModuleSettingByGID($id,'ucp|Global','originate', null);
+			$this->Userman->setModuleSettingByGID($id,'ucp|Global','originate', false);
 		}
 		$this->Userman->setModuleSettingByGID($id,'ucp|Settings','assigned', $_POST['ucp_settings']);
 		$this->FreePBX->Hooks->processHooks($id,$display,($_POST['ucp_login'] == 'true'),$data);
+
+		$group = $this->Userman->getGroupByGID($id);
+		foreach($group['users'] as $user) {
+			$this->expireUserSessions($user);
+		}
 	}
 
 	public function updateGroup($id,$display,$data) {
 		if($_POST['ucp_login'] == 'true') {
 			$this->Userman->setModuleSettingByGID($id,'ucp|Global','allowLogin', true);
 		} else {
-			$this->Userman->setModuleSettingByGID($id,'ucp|Global','allowLogin', null);
+			$this->Userman->setModuleSettingByGID($id,'ucp|Global','allowLogin', false);
 		}
 		if($_POST['ucp_originate'] == 'yes') {
 			$this->Userman->setModuleSettingByGID($id,'ucp|Global','originate', true);
 		} else {
-			$this->Userman->setModuleSettingByGID($id,'ucp|Global','originate', null);
+			$this->Userman->setModuleSettingByGID($id,'ucp|Global','originate', false);
 		}
 		$this->Userman->setModuleSettingByGID($id,'ucp|Settings','assigned', $_POST['ucp_settings']);
 		$this->FreePBX->Hooks->processHooks($id,$display,($_POST['ucp_login'] == 'true'),$data);
+
+		$group = $this->Userman->getGroupByGID($id);
+		foreach($group['users'] as $user) {
+			$this->expireUserSessions($user);
+		}
 	}
 
 	/**
