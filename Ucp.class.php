@@ -423,30 +423,34 @@ class Ucp implements BMO {
 	function constructModuleConfigPages($mode, $user, $action) {
 		$mods = $this->FreePBX->Hooks->processHooks($mode, $user, $action);
 		$html = '';
-		foreach($mods as $module) {
-			foreach($module as $item) {
-				if(empty($item)) {
-					continue;
-				}
-				if(is_array($item)) {
-					if(!isset($html[$item['rawname']])) {
-						$html[$item['rawname']] = array(
-							"title" => $item['title'],
-							"rawname" => $item['rawname'],
-							"content" => $item['content']
-						);
-					} else {
-						$item['rawname']['content'] .= $item['content'];
-					}
-				} else {
-					if(!isset($html[$mod])) {
-						$html[$mod] = array(
-							"title" => ucfirst(strtolower($mod)),
-							"rawname" => $mod,
-							"content" => $item
-						);
-					} else {
-						$item[$mod]['content'] .= $item;
+		if(!empty($mods) && is_array($mods)) {
+			foreach($mods as $module) {
+				if(!empty($module) && is_array($module)) {
+					foreach($module as $item) {
+						if(empty($item)) {
+							continue;
+						}
+						if(is_array($item)) {
+							if(!isset($html[$item['rawname']])) {
+								$html[$item['rawname']] = array(
+									"title" => $item['title'],
+									"rawname" => $item['rawname'],
+									"content" => $item['content']
+								);
+							} else {
+								$item['rawname']['content'] .= $item['content'];
+							}
+						} else {
+							if(!isset($html[$mod])) {
+								$html[$mod] = array(
+									"title" => ucfirst(strtolower($mod)),
+									"rawname" => $mod,
+									"content" => $item
+								);
+							} else {
+								$item[$mod]['content'] .= $item;
+							}
+						}
 					}
 				}
 			}
