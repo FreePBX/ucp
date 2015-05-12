@@ -52,8 +52,11 @@ class Ucp implements BMO {
 					$ausers = array(
 						'self' => _("User Primary Extension")
 					);
-					foreach(core_users_list() as $list) {
-						$ausers[$list[0]] = $list[1] . " &#60;".$list[0]."&#62;";
+					$users = core_users_list();
+					if(!empty($users) && is_array($users)) {
+						foreach($users as $list) {
+							$ausers[$list[0]] = $list[1] . " &#60;".$list[0]."&#62;";
+						}
 					}
 					$sassigned = $this->Userman->getModuleSettingByGID($_REQUEST['group'],'ucp|Settings','assigned');
 					$sassigned = !empty($sassigned) ? $sassigned : array();
@@ -77,8 +80,11 @@ class Ucp implements BMO {
 					$ausers = array(
 						'self' => _("User Primary Extension")
 					);
-					foreach(core_users_list() as $list) {
-						$ausers[$list[0]] = $list[1] . " &#60;".$list[0]."&#62;";
+					$users = core_users_list();
+					if(!empty($users) && is_array($users)) {
+						foreach($users as $list) {
+							$ausers[$list[0]] = $list[1] . " &#60;".$list[0]."&#62;";
+						}
 					}
 					return array(
 						array(
@@ -107,8 +113,11 @@ class Ucp implements BMO {
 					}
 					$ausers = array();
 					$sassigned = $this->getSetting($user['username'],'Settings','assigned');
-					foreach(core_users_list() as $list) {
-						$ausers[$list[0]] = $list[1] . " &#60;".$list[0]."&#62;";
+					$users = core_users_list();
+					if(!empty($users) && is_array($users)) {
+						foreach($users as $list) {
+							$ausers[$list[0]] = $list[1] . " &#60;".$list[0]."&#62;";
+						}
 					}
 					$sassigned = !empty($sassigned) ? $sassigned : array();
 					return array(
@@ -131,8 +140,11 @@ class Ucp implements BMO {
 				break;
 				case 'adduser':
 					$ausers = array();
-					foreach(core_users_list() as $list) {
-						$ausers[$list[0]] = $list[1] . " &#60;".$list[0]."&#62;";
+					$users = core_users_list();
+					if(!empty($users) && is_array($users)) {
+						foreach($users as $list) {
+							$ausers[$list[0]] = $list[1] . " &#60;".$list[0]."&#62;";
+						}
 					}
 					return array(
 						array(
