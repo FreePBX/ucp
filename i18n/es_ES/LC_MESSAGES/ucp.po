@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-11 13:44-0400\n"
+"POT-Creation-Date: 2015-05-12 13:36-0400\n"
 "PO-Revision-Date: 2015-03-30 10:56+0200\n"
 "Last-Translator: Ernesto <ecasas@sangoma.com>\n"
 "Language-Team: Spanish <http://weblate.freepbx.org/projects/freepbx/ucp/"
@@ -90,11 +90,11 @@ msgstr "Conectando...."
 msgid "DEF"
 msgstr "DEF"
 
-#: Ucp.class.php:679
+#: Ucp.class.php:691
 msgid "Deleted Session"
 msgstr "Sesión borrada"
 
-#: Ucp.class.php:106 Ucp.class.php:529
+#: Ucp.class.php:112 Ucp.class.php:541
 msgid "Deleted User Session"
 msgstr "Sesión de usuario borrada"
 
@@ -103,7 +103,7 @@ msgstr "Sesión de usuario borrada"
 msgid "Display Name"
 msgstr "Nombre a Mostrar"
 
-#: Ucp.class.php:789 Ucp.class.php:793 Ucp.class.php:797 Ucp.class.php:801
+#: Ucp.class.php:801 Ucp.class.php:805 Ucp.class.php:809 Ucp.class.php:813
 msgid "Done"
 msgstr "Hecho"
 
@@ -156,19 +156,19 @@ msgstr "GHI"
 msgid "General"
 msgstr ""
 
-#: Ucp.class.php:799
+#: Ucp.class.php:811
 msgid "Generating Main CSS..."
 msgstr "Generando el CSS principal...."
 
-#: Ucp.class.php:795
+#: Ucp.class.php:807
 msgid "Generating Main Scripts..."
 msgstr "Generando los Scripts Principales...."
 
-#: Ucp.class.php:791
+#: Ucp.class.php:803
 msgid "Generating Module CSS..."
 msgstr "Generando Modulo CSS..."
 
-#: Ucp.class.php:787
+#: Ucp.class.php:799
 msgid "Generating Module Scripts..."
 msgstr "Generando Modulo de Scripts..."
 
@@ -299,7 +299,7 @@ msgstr "Contraseña"
 msgid "Password Confirmation Didn't Match!"
 msgstr "La confirmación del Password no coincide!!"
 
-#: Ucp.class.php:188 Ucp.class.php:198
+#: Ucp.class.php:200 Ucp.class.php:210
 #, php-format
 msgid "Password Reset Link (Valid Until: %s): %s"
 msgstr "Enlace para restablecer Password (Valido hasta: %s): %s"
@@ -471,12 +471,12 @@ msgstr "Configuración UCP"
 msgid "User Control Panel is released as %s or newer"
 msgstr "UCP ha sido liberado como %s o mas nuevo"
 
-#: Ucp.class.php:184 Ucp.class.php:194
+#: Ucp.class.php:196 Ucp.class.php:206
 #, php-format
 msgid "User Control Panel: %s"
 msgstr "Panel de Control del Usuariol: %s"
 
-#: Ucp.class.php:53 /usr/src/freepbx/ucp/Ucp.class.php:78
+#: Ucp.class.php:53 /usr/src/freepbx/ucp/Ucp.class.php:81
 msgid "User Primary Extension"
 msgstr ""
 
