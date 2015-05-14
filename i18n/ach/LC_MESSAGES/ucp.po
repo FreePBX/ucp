@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-04-24 17:11-0400\n"
+"POT-Creation-Date: 2015-05-14 18:52-0400\n"
 "PO-Revision-Date: 2015-03-30 14:57-0400\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -33,10 +33,6 @@ msgstr ""
 msgid "Active Sessions"
 msgstr ""
 
-#: ucp.i18n.php:6
-msgid "Admin"
-msgstr ""
-
 #: htdocs/views/settings.php:81
 msgid "Allow Desktop Notifications"
 msgstr ""
@@ -45,24 +41,8 @@ msgstr ""
 msgid "Allow Login"
 msgstr ""
 
-#: ucp.i18n.php:24
-msgid "Allow Password Changes"
-msgstr ""
-
-#: ucp.i18n.php:30
-msgid "Allow Username Changes"
-msgstr ""
-
 #: htdocs/views/settings.php:89
 msgid "Allow browser desktop notifications from UCP modules."
-msgstr ""
-
-#: ucp.i18n.php:28
-msgid "Allow users to change thier password in UCP"
-msgstr ""
-
-#: ucp.i18n.php:32
-msgid "Allow users to change thier username in UCP"
 msgstr ""
 
 #: views/users_hook.php:39
@@ -147,10 +127,6 @@ msgstr ""
 
 #: htdocs/views/login.php:36
 msgid "Forgot Password"
-msgstr ""
-
-#: ucp.i18n.php:8
-msgid "Formerly ARI, now called User Control Panel"
 msgstr ""
 
 #: htdocs/views/templates/phone.php:51
@@ -310,14 +286,6 @@ msgstr ""
 msgid "Processing..."
 msgstr ""
 
-#: ucp.i18n.php:34
-msgid "RSS Feeds"
-msgstr ""
-
-#: ucp.i18n.php:36
-msgid "RSS Feeds that are displayed in UCP. This overrides "
-msgstr ""
-
 #: Ucp.class.php:37
 msgid "Refreshing all UCP Assets, this could take a while..."
 msgstr ""
@@ -357,10 +325,6 @@ msgstr ""
 #: htdocs/index.php:219 htdocs/modules/Settings/Settings.class.php:83
 #: htdocs/views/dashboard.php:39 htdocs/assets/js/ucp.js:785
 msgid "Settings"
-msgstr ""
-
-#: ucp.i18n.php:16
-msgid "Styling and Logos"
 msgstr ""
 
 #: htdocs/assets/js/ucp.js:920
@@ -405,7 +369,7 @@ msgid ""
 "information see: %s"
 msgstr ""
 
-#: ucp.i18n.php:10 views/users_hook.php:19
+#: views/users_hook.php:19
 msgid "UCP"
 msgstr ""
 
@@ -415,12 +379,6 @@ msgstr ""
 
 #: htdocs/views/settings.php:77
 msgid "UCP Language"
-msgstr ""
-
-#: ucp.i18n.php:22
-msgid ""
-"UCP icons folder. This should never be changed except for very advanced "
-"layout changes"
 msgstr ""
 
 #: htdocs/index.php:27
@@ -436,8 +394,7 @@ msgstr ""
 msgid "Unknown Module %s"
 msgstr ""
 
-#: htdocs/views/forgot.php:5 htdocs/views/login.php:4 ucp.i18n.php:4
-#: /usr/src/freepbx/ucp/ucp.i18n.php:26
+#: htdocs/views/forgot.php:5 htdocs/views/login.php:4
 msgid "User Control Panel"
 msgstr ""
 
@@ -455,24 +412,12 @@ msgstr ""
 msgid "User Control Panel: %s"
 msgstr ""
 
-#: ucp.i18n.php:12
-msgid "User Panel"
-msgstr ""
-
 #: htdocs/views/login.php:15 htdocs/views/settings.php:8
 msgid "Username"
 msgstr ""
 
 #: htdocs/assets/js/ucp.js:953
 msgid "Username has been changed, reloading"
-msgstr ""
-
-#: ucp.i18n.php:14
-msgid "View: UCP dashfootercontent.php"
-msgstr ""
-
-#: ucp.i18n.php:20
-msgid "View: UCP icons"
 msgstr ""
 
 #: htdocs/views/templates/phone.php:73
@@ -540,12 +485,6 @@ msgstr ""
 
 #: htdocs/assets/js/ucp.js:82
 msgid "Your reset link is in the mail!"
-msgstr ""
-
-#: ucp.i18n.php:18
-msgid ""
-"dashfootercontent.php view. This should never be changed except for very "
-"advanced layout changes"
 msgstr ""
 
 #: htdocs/index.php:105

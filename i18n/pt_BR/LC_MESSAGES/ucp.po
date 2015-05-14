@@ -9,15 +9,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-04-24 17:11-0400\n"
+"POT-Creation-Date: 2015-05-14 18:52-0400\n"
 "PO-Revision-Date: 2015-05-02 20:55+0200\n"
 "Last-Translator: Renato <fiuza@tecnologia.inf.br>\n"
-"Language-Team: Portuguese (Brazil) "
-"<http://weblate.freepbx.org/projects/freepbx/ucp/pt_BR/>\n"
-"Language: pt_BR\n"
+"Language-Team: Portuguese (Brazil) <http://weblate.freepbx.org/projects/"
+"freepbx/ucp/pt_BR/>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: pt_BR\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 2.2-dev\n"
 
@@ -39,10 +39,6 @@ msgstr "ABC"
 msgid "Active Sessions"
 msgstr "Sessões Ativas"
 
-#: ucp.i18n.php:6
-msgid "Admin"
-msgstr "Admin"
-
 #: htdocs/views/settings.php:81
 msgid "Allow Desktop Notifications"
 msgstr "Permitir Notificações Desktop"
@@ -51,25 +47,9 @@ msgstr "Permitir Notificações Desktop"
 msgid "Allow Login"
 msgstr "Permitir Logar-se"
 
-#: ucp.i18n.php:24
-msgid "Allow Password Changes"
-msgstr "Permitir Mudar Senha"
-
-#: ucp.i18n.php:30
-msgid "Allow Username Changes"
-msgstr "Permitir Mudar Usuário"
-
 #: htdocs/views/settings.php:89
 msgid "Allow browser desktop notifications from UCP modules."
 msgstr "Permitir navegar notificações de desktop dos módulos PCU."
-
-#: ucp.i18n.php:28
-msgid "Allow users to change thier password in UCP"
-msgstr "Permitir usuários mudarem suas senhas no PCU"
-
-#: ucp.i18n.php:32
-msgid "Allow users to change thier username in UCP"
-msgstr "Permitir usuários mudarem seus usuários no PCU"
 
 #: views/users_hook.php:39
 msgid "Allowed Settings"
@@ -154,10 +134,6 @@ msgstr "Proibido"
 #: htdocs/views/login.php:36
 msgid "Forgot Password"
 msgstr "Senha Esquecida"
-
-#: ucp.i18n.php:8
-msgid "Formerly ARI, now called User Control Panel"
-msgstr "Anteriormente ARI, agora chamado Painel de Controle do Usuário"
 
 #: htdocs/views/templates/phone.php:51
 msgid "GHI"
@@ -318,14 +294,6 @@ msgstr "Por favor entre com seu usuário ou endereço de email"
 msgid "Processing..."
 msgstr "Processando…"
 
-#: ucp.i18n.php:34
-msgid "RSS Feeds"
-msgstr "Feeds RSS"
-
-#: ucp.i18n.php:36
-msgid "RSS Feeds that are displayed in UCP. This overrides "
-msgstr "Feeds RSS que são mostrados no PCU. Isto substitui "
-
 #: Ucp.class.php:37
 msgid "Refreshing all UCP Assets, this could take a while..."
 msgstr "Atualizando todos os recursos do PCU, isso pode levar algum tempo…"
@@ -371,10 +339,6 @@ msgstr "Enviado para %s"
 #: htdocs/views/dashboard.php:39 htdocs/assets/js/ucp.js:785
 msgid "Settings"
 msgstr "Configurações"
-
-#: ucp.i18n.php:16
-msgid "Styling and Logos"
-msgstr "Estilo e Logos"
 
 #: htdocs/assets/js/ucp.js:920
 msgid "Submit"
@@ -425,7 +389,7 @@ msgstr ""
 "substituições no arquivo de configuração de seu servidor web para Painel de "
 "Controle do Usuário. Para mais informações veja: %s"
 
-#: ucp.i18n.php:10 views/users_hook.php:19
+#: views/users_hook.php:19
 msgid "UCP"
 msgstr "PCU"
 
@@ -436,14 +400,6 @@ msgstr "Admin. PCU"
 #: htdocs/views/settings.php:77
 msgid "UCP Language"
 msgstr "Idioma PCU"
-
-#: ucp.i18n.php:22
-msgid ""
-"UCP icons folder. This should never be changed except for very advanced "
-"layout changes"
-msgstr ""
-"Pasta de ícones do PCU. Isto não deve ser nunca alterado exceto para "
-"alterações de layout muito avançadas"
 
 #: htdocs/index.php:27
 msgid "UCP is currently disabled. Please talk to your system Administrator"
@@ -460,8 +416,7 @@ msgstr "O PCU precisa ser recarregado, ok?"
 msgid "Unknown Module %s"
 msgstr "Módulo Desconhecido %s"
 
-#: htdocs/views/forgot.php:5 htdocs/views/login.php:4 ucp.i18n.php:4
-#: /usr/src/freepbx/ucp/ucp.i18n.php:26
+#: htdocs/views/forgot.php:5 htdocs/views/login.php:4
 msgid "User Control Panel"
 msgstr "Painel de Controle do Usuário"
 
@@ -479,10 +434,6 @@ msgstr "Painel de Controle do Usuário está liberado como %s ou mais novo"
 msgid "User Control Panel: %s"
 msgstr "Painel de Controle do Usuário: %s"
 
-#: ucp.i18n.php:12
-msgid "User Panel"
-msgstr "Painel do Usuário"
-
 #: htdocs/views/login.php:15 htdocs/views/settings.php:8
 msgid "Username"
 msgstr "Usuário"
@@ -490,14 +441,6 @@ msgstr "Usuário"
 #: htdocs/assets/js/ucp.js:953
 msgid "Username has been changed, reloading"
 msgstr "Usuário foi mudado, recarregando"
-
-#: ucp.i18n.php:14
-msgid "View: UCP dashfootercontent.php"
-msgstr "Ver: dashfootercontent.php PCU"
-
-#: ucp.i18n.php:20
-msgid "View: UCP icons"
-msgstr "Ver: Ícones PCU"
 
 #: htdocs/views/templates/phone.php:73
 msgid "WXYZ"
@@ -568,14 +511,6 @@ msgstr ""
 msgid "Your reset link is in the mail!"
 msgstr "Seu link de redefinição está no email!"
 
-#: ucp.i18n.php:18
-msgid ""
-"dashfootercontent.php view. This should never be changed except for very "
-"advanced layout changes"
-msgstr ""
-"visualização dashfootercontent.php. Isto não deve nunca ser mudado exceto "
-"para mudanças de layout muito avançadas"
-
 #: htdocs/index.php:105
 #, php-format
 msgid ""
@@ -590,3 +525,53 @@ msgstr ""
 #: htdocs/views/login.php:24
 msgid "or"
 msgstr "ou"
+
+#~ msgid "Admin"
+#~ msgstr "Admin"
+
+#~ msgid "Allow Password Changes"
+#~ msgstr "Permitir Mudar Senha"
+
+#~ msgid "Allow Username Changes"
+#~ msgstr "Permitir Mudar Usuário"
+
+#~ msgid "Allow users to change thier password in UCP"
+#~ msgstr "Permitir usuários mudarem suas senhas no PCU"
+
+#~ msgid "Allow users to change thier username in UCP"
+#~ msgstr "Permitir usuários mudarem seus usuários no PCU"
+
+#~ msgid "Formerly ARI, now called User Control Panel"
+#~ msgstr "Anteriormente ARI, agora chamado Painel de Controle do Usuário"
+
+#~ msgid "RSS Feeds"
+#~ msgstr "Feeds RSS"
+
+#~ msgid "RSS Feeds that are displayed in UCP. This overrides "
+#~ msgstr "Feeds RSS que são mostrados no PCU. Isto substitui "
+
+#~ msgid "Styling and Logos"
+#~ msgstr "Estilo e Logos"
+
+#~ msgid ""
+#~ "UCP icons folder. This should never be changed except for very advanced "
+#~ "layout changes"
+#~ msgstr ""
+#~ "Pasta de ícones do PCU. Isto não deve ser nunca alterado exceto para "
+#~ "alterações de layout muito avançadas"
+
+#~ msgid "User Panel"
+#~ msgstr "Painel do Usuário"
+
+#~ msgid "View: UCP dashfootercontent.php"
+#~ msgstr "Ver: dashfootercontent.php PCU"
+
+#~ msgid "View: UCP icons"
+#~ msgstr "Ver: Ícones PCU"
+
+#~ msgid ""
+#~ "dashfootercontent.php view. This should never be changed except for very "
+#~ "advanced layout changes"
+#~ msgstr ""
+#~ "visualização dashfootercontent.php. Isto não deve nunca ser mudado exceto "
+#~ "para mudanças de layout muito avançadas"
