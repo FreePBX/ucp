@@ -131,10 +131,10 @@ class User extends UCP {
 	public function canChange($setting) {
 		switch($setting) {
 			case "username":
-				return $this->UCP->FreePBX->Config->get('UCPCHANGEUSERNAME');
+				return $this->UCP->FreePBX->Config->get('UCPCHANGEUSERNAME') && $this->UCP->FreePBX->Userman->getAuthPermission('modifyUser');
 			break;
 			case "password":
-				return $this->UCP->FreePBX->Config->get('UCPCHANGEPASSWORD');
+				return $this->UCP->FreePBX->Config->get('UCPCHANGEPASSWORD') && $this->UCP->FreePBX->Userman->getAuthPermission('changePassword');
 			break;
 			default:
 				return false;
