@@ -109,7 +109,7 @@ $set['description'] = 'UCP icons folder. This should never be changed except for
 $set['type'] = CONF_TYPE_TEXT;
 FreePBX::Config()->define_conf_setting('VIEW_UCP_ICONS_FOLDER',$set,true);
 
-$set['value'] = false;
+$set['value'] = true;
 $set['defaultval'] =& $set['value'];
 $set['readonly'] = 0;
 $set['hidden'] = 0;
