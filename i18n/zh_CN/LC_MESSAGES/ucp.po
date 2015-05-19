@@ -333,7 +333,7 @@ msgstr "设置"
 
 #: htdocs/assets/js/ucp.js:920
 msgid "Submit"
-msgstr ""
+msgstr "提交"
 
 #: htdocs/views/templates/phone.php:69
 msgid "TUV"
