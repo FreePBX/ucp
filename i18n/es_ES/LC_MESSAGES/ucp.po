@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-05-14 18:52-0400\n"
-"PO-Revision-Date: 2015-05-25 00:35+0200\n"
+"PO-Revision-Date: 2015-05-25 01:35+0200\n"
 "Last-Translator: Ernesto <ecasas@sangoma.com>\n"
 "Language-Team: Spanish "
 "<http://weblate.freepbx.org/projects/freepbx/ucp/es_ES/>\n"
@@ -435,7 +435,7 @@ msgstr "Panel de Control del Usuariol: %s"
 
 #: htdocs/views/login.php:15 htdocs/views/settings.php:8
 msgid "Username"
-msgstr "Nombre Usuario"
+msgstr "Usuario"
 
 #: htdocs/assets/js/ucp.js:953
 msgid "Username has been changed, reloading"
