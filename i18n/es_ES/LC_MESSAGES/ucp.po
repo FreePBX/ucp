@@ -10,14 +10,14 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-05-14 18:52-0400\n"
-"PO-Revision-Date: 2015-04-25 08:06+0200\n"
+"PO-Revision-Date: 2015-05-25 00:35+0200\n"
 "Last-Translator: Ernesto <ecasas@sangoma.com>\n"
-"Language-Team: Spanish <http://weblate.freepbx.org/projects/freepbx/ucp/"
-"es_ES/>\n"
+"Language-Team: Spanish "
+"<http://weblate.freepbx.org/projects/freepbx/ucp/es_ES/>\n"
+"Language: es_ES\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: es_ES\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 2.2-dev\n"
 
@@ -162,11 +162,11 @@ msgstr "Espere"
 #: htdocs/modules/Home/Home.class.php:149 htdocs/views/dashboard.php:32
 #: htdocs/assets/js/ucp.js:744
 msgid "Home"
-msgstr "Residencia"
+msgstr "Inicio"
 
 #: htdocs/views/settings.php:61
 msgid "Home Phone"
-msgstr "Teléfono Residencia"
+msgstr "Teléfono de Casa"
 
 #: htdocs/views/settings.php:23
 msgid ""
@@ -192,7 +192,7 @@ msgstr "JKL"
 
 #: htdocs/views/settings.php:71
 msgid "Language"
-msgstr "Lenguaje"
+msgstr "Indioma"
 
 #: htdocs/views/templates/pagnation.php:20
 msgid "Last"
