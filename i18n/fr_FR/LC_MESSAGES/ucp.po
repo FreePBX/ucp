@@ -10,14 +10,14 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-05-14 18:52-0400\n"
-"PO-Revision-Date: 2015-04-25 00:13+0200\n"
+"PO-Revision-Date: 2015-06-01 19:51+0200\n"
 "Last-Translator: philippebolduc <philippe@florenceinc.com>\n"
-"Language-Team: French <http://weblate.freepbx.org/projects/freepbx/ucp/fr_FR/"
-">\n"
+"Language-Team: French "
+"<http://weblate.freepbx.org/projects/freepbx/ucp/fr_FR/>\n"
+"Language: fr_FR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: fr_FR\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
 "X-Generator: Weblate 2.2-dev\n"
 
@@ -336,7 +336,7 @@ msgstr "Envoyez-moi un lien pour réinitialiser mot de passe"
 #: htdocs/views/templates/chat.php:25
 #, php-format
 msgid "Sent at %s"
-msgstr ""
+msgstr "Envoyé à %s"
 
 #: htdocs/index.php:219 htdocs/modules/Settings/Settings.class.php:83
 #: htdocs/views/dashboard.php:39 htdocs/assets/js/ucp.js:785
