@@ -9,25 +9,31 @@
 		<p><?php echo _('UCP, otherwise known as the User Control Panel, is a user interface for FreePBX.')?></p>
 	</div>
 </div>
-<ul class="nav nav-tabs" role="tablist">
-	<li role="presentation" data-name="ucp-general" class="change-tab active">
-		<a href="#ucp-general" aria-controls="ucp-general" role="tab" data-toggle="tab">
-			<?php echo _("General")?>
-		</a>
-	</li>
-	<li role="presentation" data-name="ucp-miscellaneous" class="change-tab">
-		<a href="#ucp-miscellaneous" aria-controls="ucp-miscellaneous" role="tab" data-toggle="tab">
-			<?php echo _("Miscellaneous")?>
-		</a>
-	</li>
-	<?php foreach($mHtml as $mod) {?>
-		<li role="presentation" data-name="ucp-<?php echo $mod['rawname']?>" class="change-tab">
-			<a href="#ucp-<?php echo $mod['rawname']?>" aria-controls="ucp-<?php echo $mod['rawname']?>" role="tab" data-toggle="tab">
-				<?php echo $mod['title']?>
-			</a>
-		</li>
-	<?php } ?>
-</ul>
+<div class="nav-container ucp-navs">
+	<div class="scroller scroller-left"><i class="glyphicon glyphicon-chevron-left"></i></div>
+	<div class="scroller scroller-right"><i class="glyphicon glyphicon-chevron-right"></i></div>
+	<div class="wrapper">
+		<ul class="nav nav-tabs list" role="tablist">
+			<li role="presentation" data-name="ucp-general" class="change-tab active">
+				<a href="#ucp-general" aria-controls="ucp-general" role="tab" data-toggle="tab">
+					<?php echo _("General")?>
+				</a>
+			</li>
+			<li role="presentation" data-name="ucp-miscellaneous" class="change-tab">
+				<a href="#ucp-miscellaneous" aria-controls="ucp-miscellaneous" role="tab" data-toggle="tab">
+					<?php echo _("Miscellaneous")?>
+				</a>
+			</li>
+			<?php foreach($mHtml as $mod) {?>
+				<li role="presentation" data-name="ucp-<?php echo $mod['rawname']?>" class="change-tab">
+					<a href="#ucp-<?php echo $mod['rawname']?>" aria-controls="ucp-<?php echo $mod['rawname']?>" role="tab" data-toggle="tab">
+						<?php echo $mod['title']?>
+					</a>
+				</li>
+			<?php } ?>
+		</ul>
+	</div>
+</div>
 <div class="tab-content display">
 	<div role="tabpanel" id="ucp-general" class="tab-pane active">
 		<!--UCP LOGIN-->
@@ -166,3 +172,11 @@
 		</div>
 	<?php } ?>
 </div>
+<style>
+.ucp-navs .scroller-left {
+	left: 26px;
+}
+.ucp-navs .scroller-right {
+	right: 23px;
+}
+</style>
