@@ -2,7 +2,7 @@
 	<rawname>ucp</rawname>
 	<name>User Control Panel</name>
 	<repo>standard</repo>
-	<version>13.0.1alpha11</version>
+	<version>13.0.2</version>
 	<publisher>FreePBX</publisher>
 	<license>AGPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/agpl-3.0.txt</licenselink>
@@ -10,6 +10,7 @@
 		Formerly ARI, now called User Control Panel
 	</description>
 	<changelog>
+		*13.0.2* Version bump Beta
 		*13.0.1alpha11* Tab scrolling additions
 		*13.0.1alpha7* FREEPBX-9077 UCP Forgot password does not send reset link
 		*13.0.1alpha6* FREEPBX-8999 dont fatal is user is null
@@ -60,13 +61,7 @@
 	</changelog>
 	<category>Admin</category>
 	<menuitems>
-		<ucptab
-			category="User Panel"
-			href="/ucp"
-			target="ucp"
-			access="all"
-			requires_auth="false"
-			>UCP</ucptab>
+		<ucptab access="all" category="User Panel" href="/ucp" requires_auth="false" target="ucp">UCP</ucptab>
 	</menuitems>
 	<fileinclude>
 	    <install>install.inc.php</install>
@@ -75,15 +70,15 @@
 		<version>13.0</version>
 	</supported>
 	<hooks>
-		<userman namespace="FreePBX\modules" class="Userman">
-			<method class="Ucp" callingMethod="delGroup">delGroup</method>
-			<method class="Ucp" callingMethod="addGroup">addGroup</method>
-			<method class="Ucp" callingMethod="updateGroup">updateGroup</method>
-			<method class="Ucp" callingMethod="delUser">delUser</method>
-			<method class="Ucp" callingMethod="addUser">addUser</method>
-			<method class="Ucp" callingMethod="updateUser">updateUser</method>
-			<method class="Ucp" callingMethod="sendWelcomeEmail">usermanSendEmail</method>
-			<method class="Ucp" callingMethod="myShowPage">usermanShowPage</method>
+		<userman class="Userman" namespace="FreePBX\modules">
+			<method callingMethod="delGroup" class="Ucp">delGroup</method>
+			<method callingMethod="addGroup" class="Ucp">addGroup</method>
+			<method callingMethod="updateGroup" class="Ucp">updateGroup</method>
+			<method callingMethod="delUser" class="Ucp">delUser</method>
+			<method callingMethod="addUser" class="Ucp">addUser</method>
+			<method callingMethod="updateUser" class="Ucp">updateUser</method>
+			<method callingMethod="sendWelcomeEmail" class="Ucp">usermanSendEmail</method>
+			<method callingMethod="myShowPage" class="Ucp">usermanShowPage</method>
 		</userman>
 	</hooks>
 	<depends>
