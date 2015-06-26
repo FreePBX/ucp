@@ -376,6 +376,7 @@ class Ucp implements BMO {
 				$this->FreePBX->Userman->setModuleSettingByID($id,'ucp|Global','allowLogin',false);
 			}
 		}
+		$_POST['ucp_login'] = isset($_POST['ucp_login'])?$_POST['ucp_login']:'';
 		$this->FreePBX->Hooks->processHooks($id,$display,($_POST['ucp_login'] == 'true'),$data);
 		return true;
 	}
