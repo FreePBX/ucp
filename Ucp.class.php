@@ -794,7 +794,9 @@ class Ucp implements BMO {
 	}
 
 	public function refreshAssets() {
-		include(dirname(__FILE__).'/htdocs/includes/bootstrap.php');
+		if(!class_exists('UCP\UCP',false)) {
+			include(dirname(__FILE__).'/htdocs/includes/bootstrap.php');
+		}
 		$ucp = \UCP\UCP::create();
 
 		outn(_("Generating Module Scripts..."));
@@ -812,7 +814,5 @@ class Ucp implements BMO {
 		outn(_("Generating Main CSS..."));
 		$ucp->getScripts(true);
 		out(_("Done"));
-
-		exec("amportal chown");
 	}
 }
