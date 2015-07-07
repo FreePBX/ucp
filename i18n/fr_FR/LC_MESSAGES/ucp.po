@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-30 14:44-0400\n"
+"POT-Creation-Date: 2015-07-07 13:03-0400\n"
 "PO-Revision-Date: 2015-03-30 14:57-0400\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -173,7 +173,7 @@ msgstr "Génération des scripts module ..."
 msgid "Hold"
 msgstr "Attente"
 
-#: htdocs/modules/Home/Home.class.php:216 htdocs/views/dashboard.php:32
+#: htdocs/modules/Home/Home.class.php:217 htdocs/views/dashboard.php:32
 #: htdocs/assets/js/ucp.js:737
 msgid "Home"
 msgstr "Accueil"

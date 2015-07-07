@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-30 14:44-0400\n"
+"POT-Creation-Date: 2015-07-07 13:03-0400\n"
 "PO-Revision-Date: 2015-05-26 07:41+0200\n"
 "Last-Translator: Ernesto <ecasas@sangoma.com>\n"
 "Language-Team: Spanish <http://weblate.freepbx.org/projects/freepbx/ucp/"
@@ -173,7 +173,7 @@ msgstr "Generando Modulo de Scripts..."
 msgid "Hold"
 msgstr "Espere"
 
-#: htdocs/modules/Home/Home.class.php:216 htdocs/views/dashboard.php:32
+#: htdocs/modules/Home/Home.class.php:217 htdocs/views/dashboard.php:32
 #: htdocs/assets/js/ucp.js:737
 msgid "Home"
 msgstr "Inicio"
