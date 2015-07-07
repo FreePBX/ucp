@@ -43,7 +43,7 @@ class Home extends Modules{
 			$this->UCP->Modgettext->pop_textdomain();
 			foreach($widgets as $data) {
 				$html .= '<div id="'.$module.'-widget-'.$data['id'].'" class="widget" style="width:'.$data['size'].';">';
-				$html .= '<div id="'.$module.'-title-'.$data['id'].'" class="title">'.$data['title'].'<a onclick="Home.refresh(\''.$module.'\',\''.$data['id'].'\')"><i class="fa fa-refresh"></i></a></div>';
+				$html .= '<div id="'.$module.'-title-'.$data['id'].'" class="title">'.$data['title'].'<a onclick="UCP.Modules.Home.refresh(\''.$module.'\',\''.$data['id'].'\')"><i class="fa fa-refresh"></i></a></div>';
 				$html .= '<div id="'.$module.'-content-'.$data['id'].'" class="content">';
 				$html .= $data['content'];
 				$html .= '</div></div>';
@@ -78,6 +78,7 @@ class Home extends Modules{
 		foreach($feeds as $k => $feed) {
 			$curl = curl_init();
 			curl_setopt($curl, CURLOPT_URL, $feed);
+			curl_setopt($curl, CURLOPT_FOLLOWLOCATION, true);
 			curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
 			curl_setopt($curl, CURLOPT_HEADER, false);
 			curl_setopt($curl, CURLOPT_CONNECTTIMEOUT ,1);
