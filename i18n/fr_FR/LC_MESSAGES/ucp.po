@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-07-07 13:03-0400\n"
+"POT-Creation-Date: 2015-07-21 21:02-0400\n"
 "PO-Revision-Date: 2015-03-30 14:57-0400\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -89,11 +89,11 @@ msgstr "Connexion ...."
 msgid "DEF"
 msgstr "DEF"
 
-#: Ucp.class.php:692
+#: Ucp.class.php:694
 msgid "Deleted Session"
 msgstr "Session supprimée"
 
-#: Ucp.class.php:112 Ucp.class.php:542
+#: Ucp.class.php:112 Ucp.class.php:544
 msgid "Deleted User Session"
 msgstr "Session de l'utilisateur supprimée"
 
@@ -101,7 +101,7 @@ msgstr "Session de l'utilisateur supprimée"
 msgid "Display Name"
 msgstr "Nom"
 
-#: Ucp.class.php:804 Ucp.class.php:808 Ucp.class.php:812 Ucp.class.php:816
+#: Ucp.class.php:806 Ucp.class.php:810 Ucp.class.php:814 Ucp.class.php:818
 msgid "Done"
 msgstr "Terminé"
 
@@ -153,19 +153,19 @@ msgstr "GHI"
 msgid "General"
 msgstr ""
 
-#: Ucp.class.php:814
+#: Ucp.class.php:816
 msgid "Generating Main CSS..."
 msgstr "Génération du CSS principal ..."
 
-#: Ucp.class.php:810
+#: Ucp.class.php:812
 msgid "Generating Main Scripts..."
 msgstr "Génération des scripts principaux ..."
 
-#: Ucp.class.php:806
+#: Ucp.class.php:808
 msgid "Generating Module CSS..."
 msgstr "Génération du CSS Module ..."
 
-#: Ucp.class.php:802
+#: Ucp.class.php:804
 msgid "Generating Module Scripts..."
 msgstr "Génération des scripts module ..."
 
