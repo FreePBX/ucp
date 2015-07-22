@@ -274,8 +274,10 @@ class Ucp implements BMO {
 	public function delGroup($id,$display,$data) {
 		$this->FreePBX->Hooks->processHooks($id,$display,false,$data);
 		$group = $this->Userman->getGroupByGID($id);
-		foreach($group['users'] as $user) {
-			$this->expireUserSessions($user);
+		if(is_array($group['users'])) {
+			foreach($group['users'] as $user) {
+				$this->expireUserSessions($user);
+			}
 		}
 	}
 
