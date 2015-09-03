@@ -190,12 +190,14 @@ class Ucp implements BMO {
 			}
 		}
 
+		$usettings = $this->FreePBX->Userman->getAuthAllPermissions();
+
 		if(!empty($ports['ucp'])) {
 			$data['host'] = $data['host'].":".$ports['ucp'];
 			$final = array(
 				"\t".sprintf(_('User Control Panel: %s'),$data['host']),
 			);
-			if(!$data['password']) {
+			if(!$data['password'] && $usettings['changePassword']) {
 				$token = $this->FreePBX->Userman->generatePasswordResetToken($id,"1 hour",true);
 				$final[] = "\n".sprintf(_('Password Reset Link (Valid Until: %s): %s'),date("h:i:s A", $token['valid']),$data['host']."/?forgot=".$token['token']);
 			}
@@ -205,7 +207,7 @@ class Ucp implements BMO {
 		$final = array(
 			"\t".sprintf(_('User Control Panel: %s'),$data['host']."/ucp"),
 		);
-		if(!$data['password']) {
+		if(!$data['password'] && $usettings['changePassword']) {
 			$token = $this->FreePBX->Userman->generatePasswordResetToken($id,"1 hour",true);
 			$final[] = "\n".sprintf(_('Password Reset Link (Valid Until: %s): %s'),date("h:i:s A", $token['valid']),$data['host']."/ucp/?forgot=".$token['token']);
 		}
@@ -234,6 +236,7 @@ class Ucp implements BMO {
 		$token = $this->Userman->generatePasswordResetToken($id);
 
 		if(empty($token)) {
+			freepbx_log(FPBX_LOG_NOTICE,sprintf(_("A token has already been generated for %s, not sending email again"),$user['username']));
 			return false;
 		}
 
@@ -340,7 +343,7 @@ class Ucp implements BMO {
 	 * @param {array} $data    Array of data to be able to use
 	 */
 	public function addUser($id, $display, $data) {
-		$this->FreePBX->Hooks->processHooks($id,$display,($_POST['ucp_login'] == 'true'),$data);
+		$this->FreePBX->Hooks->processHooks($id,$display,(isset($_POST['ucp_login']) && $_POST['ucp_login'] == 'true'),$data);
 	}
 
 	/**
@@ -766,33 +769,6 @@ class Ucp implements BMO {
 	 */
 	public function checkCredentials($username, $password) {
 		return $this->FreePBX->Userman->checkCredentials($username, $password);
-	}
-
-	/**
-	 * Enable and Allow all users in User Manager to login to UCP
-	 */
-	public function enableAllUsers() {
-		$userman = $this->FreePBX->Userman;
-		foreach($userman->getAllUsers() as $user) {
-			if(!empty($user['default_extension']) && $user['default_extension'] != 'none') {
-				$ext = $user['default_extension'];
-				$userman->setModuleSettingByID($user['id'],'ucp|Global','allowLogin',true);
-				$sassigned = $this->getSetting($user['username'],'Settings','assigned');
-				if(!in_array($ext, $sassigned)) {
-					$this->setSetting($user['username'],'Settings','assigned',array($ext));
-				}
-				$vassigned = $this->getSetting($user['username'],'Voicemail','assigned');
-				if(!in_array($ext, $vassigned)) {
-					$this->setSetting($user['username'],'Voicemail','assigned',array($ext));
-				}
-
-				$this->setSetting($user['username'],'Presencestate','enabled',true);
-				if($this->FreePBX->Modules->moduleHasMethod('webrtc','migrationEnable')) {
-					$this->FreePBX->Webrtc->migrationEnable($user['username']);
-				}
-			}
-		}
-		return true;
 	}
 
 	public function refreshAssets() {

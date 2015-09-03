@@ -57,14 +57,6 @@ if ($db->getAll('SHOW TABLES LIKE "ucp_users"')) {
 	$result = $db->query($sql);
 }
 
-switch(true) {
-	case FreePBX::Modules()->checkStatus('ucp',MODULE_STATUS_NOTINSTALLED):
-		//ok so auto enable UCP for all users
-		$ucp = FreePBX::create()->Ucp;
-		$ucp->enableAllUsers();
-	break;
-}
-
 // VIEW_UCP_FOOTER_CONTENT
 $set['value'] = 'views/dashfootercontent.php';
 $set['defaultval'] =& $set['value'];
