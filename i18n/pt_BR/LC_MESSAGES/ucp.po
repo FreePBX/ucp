@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-07-21 21:02-0400\n"
+"POT-Creation-Date: 2015-09-03 10:30-0700\n"
 "PO-Revision-Date: 2015-05-02 20:55+0200\n"
 "Last-Translator: Renato <fiuza@tecnologia.inf.br>\n"
 "Language-Team: Portuguese (Brazil) <http://weblate.freepbx.org/projects/"
@@ -30,6 +30,11 @@ msgstr ""
 #: htdocs/index.php:104
 msgid ".htaccess files are not supported on this webserver."
 msgstr "arquivos .htaccess não são suportados neste servidor web."
+
+#: Ucp.class.php:239
+#, php-format
+msgid "A token has already been generated for %s, not sending email again"
+msgstr ""
 
 #: htdocs/views/templates/phone.php:41
 msgid "ABC"
@@ -89,11 +94,11 @@ msgstr "Conectando…"
 msgid "DEF"
 msgstr "DEF"
 
-#: Ucp.class.php:694
+#: Ucp.class.php:697
 msgid "Deleted Session"
 msgstr "Sessão Apagada"
 
-#: Ucp.class.php:112 Ucp.class.php:544
+#: Ucp.class.php:112 Ucp.class.php:547
 msgid "Deleted User Session"
 msgstr "Sessão do Usuário Apagada"
 
@@ -101,7 +106,7 @@ msgstr "Sessão do Usuário Apagada"
 msgid "Display Name"
 msgstr "Nome de Exibição"
 
-#: Ucp.class.php:806 Ucp.class.php:810 Ucp.class.php:814 Ucp.class.php:818
+#: Ucp.class.php:782 Ucp.class.php:786 Ucp.class.php:790 Ucp.class.php:794
 msgid "Done"
 msgstr "Feito"
 
@@ -153,19 +158,19 @@ msgstr "GHI"
 msgid "General"
 msgstr ""
 
-#: Ucp.class.php:816
+#: Ucp.class.php:792
 msgid "Generating Main CSS..."
 msgstr "Gerando CSS Principal..."
 
-#: Ucp.class.php:812
+#: Ucp.class.php:788
 msgid "Generating Main Scripts..."
 msgstr "Gerando Scripts Principais…"
 
-#: Ucp.class.php:808
+#: Ucp.class.php:784
 msgid "Generating Module CSS..."
 msgstr "Gerando CSS de Módulo…"
 
-#: Ucp.class.php:804
+#: Ucp.class.php:780
 msgid "Generating Module Scripts..."
 msgstr "Gerando Scripts de Módulos…"
 
@@ -295,7 +300,7 @@ msgstr "Senha"
 msgid "Password Confirmation Didn't Match!"
 msgstr "Confirmação De Senha Não Conferiu!"
 
-#: Ucp.class.php:200 Ucp.class.php:210
+#: Ucp.class.php:202 Ucp.class.php:212
 #, php-format
 msgid "Password Reset Link (Valid Until: %s): %s"
 msgstr "Link de Redefinição de Senha (Válido Até: %s): %s"
@@ -466,7 +471,7 @@ msgstr "Configurações Painel de Controle do Usuário"
 msgid "User Control Panel is released as %s or newer"
 msgstr "Painel de Controle do Usuário está liberado como %s ou mais novo"
 
-#: Ucp.class.php:196 Ucp.class.php:206
+#: Ucp.class.php:198 Ucp.class.php:208
 #, php-format
 msgid "User Control Panel: %s"
 msgstr "Painel de Controle do Usuário: %s"

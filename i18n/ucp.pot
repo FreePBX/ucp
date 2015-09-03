@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-07-21 21:02-0400\n"
+"POT-Creation-Date: 2015-09-03 10:30-0700\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -23,6 +23,11 @@ msgstr ""
 
 #: htdocs/index.php:104
 msgid ".htaccess files are not supported on this webserver."
+msgstr ""
+
+#: Ucp.class.php:239
+#, php-format
+msgid "A token has already been generated for %s, not sending email again"
 msgstr ""
 
 #: htdocs/views/templates/phone.php:41
@@ -84,12 +89,12 @@ msgstr ""
 msgid "DEF"
 msgstr ""
 
-#: Ucp.class.php:694
+#: Ucp.class.php:697
 msgid "Deleted Session"
 msgstr ""
 
 #: Ucp.class.php:112
-#: Ucp.class.php:544
+#: Ucp.class.php:547
 msgid "Deleted User Session"
 msgstr ""
 
@@ -97,10 +102,10 @@ msgstr ""
 msgid "Display Name"
 msgstr ""
 
-#: Ucp.class.php:806
-#: Ucp.class.php:810
-#: Ucp.class.php:814
-#: Ucp.class.php:818
+#: Ucp.class.php:782
+#: Ucp.class.php:786
+#: Ucp.class.php:790
+#: Ucp.class.php:794
 msgid "Done"
 msgstr ""
 
@@ -153,19 +158,19 @@ msgstr ""
 msgid "General"
 msgstr ""
 
-#: Ucp.class.php:816
+#: Ucp.class.php:792
 msgid "Generating Main CSS..."
 msgstr ""
 
-#: Ucp.class.php:812
+#: Ucp.class.php:788
 msgid "Generating Main Scripts..."
 msgstr ""
 
-#: Ucp.class.php:808
+#: Ucp.class.php:784
 msgid "Generating Module CSS..."
 msgstr ""
 
-#: Ucp.class.php:804
+#: Ucp.class.php:780
 msgid "Generating Module Scripts..."
 msgstr ""
 
@@ -301,8 +306,8 @@ msgstr ""
 msgid "Password Confirmation Didn't Match!"
 msgstr ""
 
-#: Ucp.class.php:200
-#: Ucp.class.php:210
+#: Ucp.class.php:202
+#: Ucp.class.php:212
 #, php-format
 msgid "Password Reset Link (Valid Until: %s): %s"
 msgstr ""
@@ -469,8 +474,8 @@ msgstr ""
 msgid "User Control Panel is released as %s or newer"
 msgstr ""
 
-#: Ucp.class.php:196
-#: Ucp.class.php:206
+#: Ucp.class.php:198
+#: Ucp.class.php:208
 #, php-format
 msgid "User Control Panel: %s"
 msgstr ""
