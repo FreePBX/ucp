@@ -125,7 +125,7 @@ class Home extends Modules{
 				return true;
 			break;
 			case 'originate':
-				$o = $this->UCP->FreePBX->Userman->getCombinedSettingByID($this->user['id'],'ucp|Global','originate');
+				$o = $this->UCP->FreePBX->Userman->getCombinedModuleSettingByID($this->user['id'],'ucp|Global','originate');
 				return !empty($o) ? true : false;
 			break;
 			default:

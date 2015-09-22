@@ -2,7 +2,7 @@
 	<rawname>ucp</rawname>
 	<name>User Control Panel</name>
 	<repo>standard</repo>
-	<version>13.0.6</version>
+	<version>13.0.7</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>AGPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/agpl-3.0.txt</licenselink>
@@ -10,6 +10,7 @@
 		Formerly ARI, now called User Control Panel
 	</description>
 	<changelog>
+		*13.0.7* FREEPBX-10287 originate call causes 'You are currently working in offline mode'
 		*13.0.6* Updates, cleanup and fixes
 		*13.0.5* Make sure the group has users in it
 		*13.0.4* Follow redirects for RSS feeds
