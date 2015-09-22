@@ -285,18 +285,22 @@ class Ucp implements BMO {
 	}
 
 	public function addGroup($id, $display, $data) {
-		if($_POST['ucp_login'] == 'true') {
-			$this->Userman->setModuleSettingByGID($id,'ucp|Global','allowLogin', true);
-		} else {
-			$this->Userman->setModuleSettingByGID($id,'ucp|Global','allowLogin', false);
+		if($display == 'userman' && isset($_POST['type']) && $_POST['type'] == 'group') {
+			if($_POST['ucp_login'] == 'true') {
+				$this->Userman->setModuleSettingByGID($id,'ucp|Global','allowLogin', true);
+			} else {
+				$this->Userman->setModuleSettingByGID($id,'ucp|Global','allowLogin', false);
+			}
+			if($_POST['ucp_originate'] == 'yes') {
+				$this->Userman->setModuleSettingByGID($id,'ucp|Global','originate', true);
+			} else {
+				$this->Userman->setModuleSettingByGID($id,'ucp|Global','originate', false);
+			}
+			$this->Userman->setModuleSettingByGID($id,'ucp|Settings','assigned', $_POST['ucp_settings']);
 		}
-		if($_POST['ucp_originate'] == 'yes') {
-			$this->Userman->setModuleSettingByGID($id,'ucp|Global','originate', true);
-		} else {
-			$this->Userman->setModuleSettingByGID($id,'ucp|Global','originate', false);
-		}
-		$this->Userman->setModuleSettingByGID($id,'ucp|Settings','assigned', $_POST['ucp_settings']);
-		$this->FreePBX->Hooks->processHooks($id,$display,($_POST['ucp_login'] == 'true'),$data);
+
+		$login = $this->Userman->getModuleSettingByGID($id,'ucp|Global','originate');
+		$this->FreePBX->Hooks->processHooks($id,$display,$login,$data);
 
 		$group = $this->Userman->getGroupByGID($id);
 		foreach($group['users'] as $user) {
@@ -305,18 +309,22 @@ class Ucp implements BMO {
 	}
 
 	public function updateGroup($id,$display,$data) {
-		if($_POST['ucp_login'] == 'true') {
-			$this->Userman->setModuleSettingByGID($id,'ucp|Global','allowLogin', true);
-		} else {
-			$this->Userman->setModuleSettingByGID($id,'ucp|Global','allowLogin', false);
+		if($display == 'userman' && isset($_POST['type']) && $_POST['type'] == 'group') {
+			if($_POST['ucp_login'] == 'true') {
+				$this->Userman->setModuleSettingByGID($id,'ucp|Global','allowLogin', true);
+			} else {
+				$this->Userman->setModuleSettingByGID($id,'ucp|Global','allowLogin', false);
+			}
+			if($_POST['ucp_originate'] == 'yes') {
+				$this->Userman->setModuleSettingByGID($id,'ucp|Global','originate', true);
+			} else {
+				$this->Userman->setModuleSettingByGID($id,'ucp|Global','originate', false);
+			}
+			$this->Userman->setModuleSettingByGID($id,'ucp|Settings','assigned', $_POST['ucp_settings']);
 		}
-		if($_POST['ucp_originate'] == 'yes') {
-			$this->Userman->setModuleSettingByGID($id,'ucp|Global','originate', true);
-		} else {
-			$this->Userman->setModuleSettingByGID($id,'ucp|Global','originate', false);
-		}
-		$this->Userman->setModuleSettingByGID($id,'ucp|Settings','assigned', $_POST['ucp_settings']);
-		$this->FreePBX->Hooks->processHooks($id,$display,($_POST['ucp_login'] == 'true'),$data);
+
+		$login = $this->Userman->getModuleSettingByGID($id,'ucp|Global','originate');
+		$this->FreePBX->Hooks->processHooks($id,$display,$login,$data);
 
 		$group = $this->Userman->getGroupByGID($id);
 		foreach($group['users'] as $user) {
@@ -343,17 +351,7 @@ class Ucp implements BMO {
 	 * @param {array} $data    Array of data to be able to use
 	 */
 	public function addUser($id, $display, $data) {
-		$this->FreePBX->Hooks->processHooks($id,$display,(isset($_POST['ucp_login']) && $_POST['ucp_login'] == 'true'),$data);
-	}
-
-	/**
-	 * Hook functionality from userman when a user is updated
-	 * @param {int} $id      The userman user id
-	 * @param {string} $display The display page name where this was executed
-	 * @param {array} $data    Array of data to be able to use
-	 */
-	public function updateUser($id, $display, $data) {
-		if($display == 'userman') {
+		if($display == 'userman' && isset($_POST['type']) && $_POST['type'] == 'user') {
 			if(isset($_POST['ucp_login'])) {
 				if($_POST['ucp_login'] == 'true') {
 					$this->FreePBX->Userman->setModuleSettingByID($id,'ucp|Global','allowLogin',true);
@@ -375,14 +373,43 @@ class Ucp implements BMO {
 					$this->FreePBX->Userman->setModuleSettingByID($id,'ucp|Global','originate',null);
 				}
 			}
-		} else {
-			$allowed = $this->FreePBX->Userman->getModuleSettingByID($id,'ucp|Global','allowLogin');
-			if(empty($allowed)) {
-				$this->FreePBX->Userman->setModuleSettingByID($id,'ucp|Global','allowLogin',false);
+		}
+		$login = $this->FreePBX->Userman->getModuleSettingByID($id,'ucp|Global','allowLogin');
+		$this->FreePBX->Hooks->processHooks($id,$display,$login,$data);
+	}
+
+	/**
+	 * Hook functionality from userman when a user is updated
+	 * @param {int} $id      The userman user id
+	 * @param {string} $display The display page name where this was executed
+	 * @param {array} $data    Array of data to be able to use
+	 */
+	public function updateUser($id, $display, $data) {
+		if($display == 'userman' && isset($_POST['type']) && $_POST['type'] == 'user') {
+			if(isset($_POST['ucp_login'])) {
+				if($_POST['ucp_login'] == 'true') {
+					$this->FreePBX->Userman->setModuleSettingByID($id,'ucp|Global','allowLogin',true);
+				} elseif($_POST['ucp_login'] == 'false') {
+					$this->FreePBX->Userman->setModuleSettingByID($id,'ucp|Global','allowLogin',false);
+				} else {
+					$this->FreePBX->Userman->setModuleSettingByID($id,'ucp|Global','allowLogin',null);
+				}
+				if(isset($_POST['ucp_settings'])) {
+					$this->setSettingByID($id,'Settings','assigned',$_POST['ucp_settings']);
+				} else {
+					$this->setSettingByID($id,'Settings','assigned',null);
+				}
+				if($_POST['ucp_originate'] == 'yes') {
+					$this->FreePBX->Userman->setModuleSettingByID($id,'ucp|Global','originate',true);
+				} elseif($_POST['ucp_originate'] == 'no') {
+					$this->FreePBX->Userman->setModuleSettingByID($id,'ucp|Global','originate',false);
+				} else {
+					$this->FreePBX->Userman->setModuleSettingByID($id,'ucp|Global','originate',null);
+				}
 			}
 		}
-		$_POST['ucp_login'] = isset($_POST['ucp_login'])?$_POST['ucp_login']:'';
-		$this->FreePBX->Hooks->processHooks($id,$display,($_POST['ucp_login'] == 'true'),$data);
+		$login = $this->FreePBX->Userman->getModuleSettingByID($id,'ucp|Global','allowLogin');
+		$this->FreePBX->Hooks->processHooks($id,$display,$login,$data);
 		return true;
 	}
 
