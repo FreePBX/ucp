@@ -1,3 +1,8 @@
+/**
+ * http://jacwright.com/projects/javascript/date_format/
+ * @param  {[type]} function( [description]
+ * @return {[type]}           [description]
+ */
 (function() {
 
     Date.shortMonths = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];

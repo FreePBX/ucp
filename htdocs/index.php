@@ -239,6 +239,7 @@ switch($display) {
 
 if(!isset($_SERVER['HTTP_X_PJAX'])) {
 	$displayvars['language'] = $ucp->Modules->getGlobalLanguageJSON($lang);
+	$displayvars['lang'] = $lang;
 	$displayvars['ucpserver'] = json_encode($ucp->getServerSettings());
 	$displayvars['modules'] = json_encode($active_modules);
 	$displayvars['gScripts'] = $ucp->getScripts();

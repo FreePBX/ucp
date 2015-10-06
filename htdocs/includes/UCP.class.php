@@ -132,7 +132,9 @@ class UCP extends UCP_Helpers {
 		//Loading order is important here
 		$globalJavascripts = array(
 			"socket.io.js",
-			"bootstrap-3.1.1.custom.min.js",
+			"bootstrap-3.3.5.custom.min.js",
+			"bootstrap-table-1.8.1.js",
+			"bootstrap-table-cookie.min.js",
 			"jquery-ui-1.10.4.custom.min.js",
 			/*"jquery.keyframes.min.js",*/
 			"fileinput.js",
@@ -205,17 +207,17 @@ class UCP extends UCP_Helpers {
 		$final = array();
 		//Needs to be one unified LESS file along with the module LESS file
 		$btfiles = array();
-		$vars = array("icon-font-path" => '"../../../fonts/"');
-		$btfiles[dirname(__DIR__).'/assets/less/bootstrap.less'] = '../../../../';
+		$vars = array("icon-font-path" => '"fonts/"');
+		$btfiles[dirname(__DIR__).'/assets/less/bootstrap/bootstrap.less'] = '../../../';
 		$final['bootstrapcssless'] = \Less_Cache::Get( $btfiles, $options, $vars );
 
 		$ucpfiles = array();
-		$ucpfiles[dirname(__DIR__).'/assets/less/UCP.less'] = '../../../../';
+		$ucpfiles[dirname(__DIR__).'/assets/less/ucp/ucp.less'] = '../../../../';
 		$final['ucpcssless'] = \Less_Cache::Get( $ucpfiles, $options );
 
 		$ucpfiles = array();
-		$ucpfiles[dirname(__DIR__).'/assets/less/font-awesome/font-awesome.less'] = '../../../../';
 		$vars = array("fa-font-path" => '"../../../fonts"');
+		$ucpfiles[dirname(__DIR__).'/assets/less/font-awesome/font-awesome.less'] = '../../../../';
 		$final['facssless'] = \Less_Cache::Get( $ucpfiles, $options, $vars );
 
 		$ucpfiles = array();
