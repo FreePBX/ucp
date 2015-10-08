@@ -216,8 +216,8 @@ class UCP extends UCP_Helpers {
 		$final['ucpcssless'] = \Less_Cache::Get( $ucpfiles, $options );
 
 		$ucpfiles = array();
-		$vars = array("fa-font-path" => '"../../../fonts"');
-		$ucpfiles[dirname(__DIR__).'/assets/less/font-awesome/font-awesome.less'] = '../../../../';
+		$vars = array("fa-font-path" => '"fonts"');
+		$ucpfiles[dirname(__DIR__).'/assets/less/font-awesome/font-awesome.less'] = '../../../';
 		$final['facssless'] = \Less_Cache::Get( $ucpfiles, $options, $vars );
 
 		$ucpfiles = array();
