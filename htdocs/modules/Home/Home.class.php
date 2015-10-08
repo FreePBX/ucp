@@ -24,6 +24,7 @@
 */
 namespace UCP\Modules;
 use \UCP\Modules as Modules;
+use PicoFeed\Reader\Reader;
 
 class Home extends Modules{
 	protected $module = 'Home';
@@ -75,31 +76,59 @@ class Home extends Modules{
 			$feeds = array($feeds[$feed]);
 		}
 		$out = array();
+		$reader = new Reader;
+
+		//Check if dashboard is installed and enabled,
+		//if so then we will use the same cache engine dashboard uses
+		if($this->UCP->FreePBX->Modules->moduleHasMethod("dashboard","getConfig")) {
+			$storage = $this->UCP->FreePBX->Dashboard;
+		} else {
+			$storage = $this->UCP->FreePBX->Ucp;
+		}
 		foreach($feeds as $k => $feed) {
-			$curl = curl_init();
-			curl_setopt($curl, CURLOPT_URL, $feed);
-			curl_setopt($curl, CURLOPT_FOLLOWLOCATION, true);
-			curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
-			curl_setopt($curl, CURLOPT_HEADER, false);
-			curl_setopt($curl, CURLOPT_CONNECTTIMEOUT ,1);
-			curl_setopt($curl, CURLOPT_TIMEOUT, 5);
-			$feed = curl_exec($curl);
-			curl_close($curl);
-			$xml = simplexml_load_string($feed);
-			$content = '<ul>';
+			$etag = $storage->getConfig($feed, "etag");
+			$last_modified = $storage->getConfig($feed, "last_modified");
+			$content = '';
+			try {
+				$resource = $reader->download($feed, $last_modified, $etag);
+				if ($resource->isModified()) {
+
+					$parser = $reader->getParser(
+						$resource->getUrl(),
+						$resource->getContent(),
+						$resource->getEncoding()
+					);
+
+					$content = $parser->execute();
+					$etag = $resource->getEtag();
+					$last_modified = $resource->getLastModified();
+
+					$storage->setConfig($feed, $content, "content");
+					$storage->setConfig($feed, $etag, "etag");
+					$storage->setConfig($feed, $last_modified, "last_modified");
+				} else {
+					$content = $storage->getConfig($feed, "content");
+				}
+			}	catch (\PicoFeed\PicoFeedException $e) {
+				$content = $storage->getConfig($feed, "content");
+			}
+			if(empty($content)) {
+				continue;
+			}
+			$htmlcontent = '<ul>';
 			$i = 1;
-			foreach($xml->channel->item as $item) {
-				if($i > 10) {
+			foreach($content->items as $item) {
+				if($i > 5) {
 					break;
 				}
-				$content .= '<li><a href="'.$item->link.'" target="_blank">'.$item->title.'</a></li>';
+				$htmlcontent .= '<li><a href="'.$item->url.'" target="_blank">'.$item->title.'</a></li>';
 				$i++;
 			}
-			$content .= '</ul>';
+			$htmlcontent .= '</ul>';
 			$out[] = array(
 				"id" => $k,
-				"title" => '<a href="'.$xml->channel->link.'" target="_blank">'.$xml->channel->title.'</a>',
-				"content" => $content,
+				"title" => '<a href="'.$content->site_url.'" target="_blank">'.$content->title.'</a>',
+				"content" => $htmlcontent,
 				"size" => '33.33%'
 			);
 		}

@@ -7,7 +7,7 @@
  * Copyright 2006-2014 Schmooze Com Inc.
  */
 
-class Ucp implements BMO {
+class Ucp extends \FreePBX_Helpers implements \BMO {
 	private $message;
 	private $registeredHooks = array();
 	private $brand = 'FreePBX';

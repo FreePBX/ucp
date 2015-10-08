@@ -70,7 +70,9 @@
 					<?php foreach($menu as $module) {?>
 						<li data-mod="<?php echo $module['rawname']?>" class="menu-<?php echo $module['rawname']?> <?php echo ($module['rawname'] == $active_module) ? 'active' : ''?>">
 							<?php if(empty($module['menu'])) {?>
-   								<a data-mod="<?php echo $module['rawname']?>" data-pjax href="?display=dashboard&amp;mod=<?php echo $module['rawname']?>"><?php echo $module['name']?> <?php if(isset($module['badge'])) {?><span id="<?php echo $module['rawname']?>-badge" class="badge"><?php echo $module['badge']?></span><?php } ?></a>
+								<a data-mod="<?php echo $module['rawname']?>" data-pjax href="?display=dashboard&amp;mod=<?php echo $module['rawname']?>"><?php echo $module['name']?> <?php if(isset($module['badge'])) {?><span id="<?php echo $module['rawname']?>-badge" class="badge"><?php echo $module['badge']?></span><?php } ?></a>
+							<?php } elseif(!empty($module['menu']) && count($module['menu']) == 1) {?>
+								<a data-mod="<?php echo $module['rawname']?>" data-pjax href="?display=dashboard&amp;mod=<?php echo $module['rawname']?>&amp;sub=<?php echo $module['menu'][0]['rawname']?>"><?php echo $module['name']?> <?php if(isset($module['badge'])) {?><span id="<?php echo $module['rawname']?>-badge" class="badge"><?php echo $module['badge']?></span><?php } ?></a>
 							<?php } else {?>
 								<a class="dropdown-toggle <?php echo ($module['rawname'] == $active_module) ? 'active' : ''?>" data-toggle="dropdown" href="#"><?php echo $module['name']?> <?php if(isset($module['badge'])) {?><span id="<?php echo $module['rawname']?>-badge" class="badge"><?php echo $module['badge']?></span><?php } ?> <span class="caret"></span></a>
 								<ul class="dropdown-menu">
