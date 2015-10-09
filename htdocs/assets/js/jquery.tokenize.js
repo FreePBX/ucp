@@ -237,7 +237,7 @@
 
         resizeSearchInput: function(){
 
-            this.searchInput.attr('size', (this.searchInput.val().length > 1 ? (this.searchInput.val().length) : 5));
+            this.searchInput.attr('size', (this.searchInput.val().length > 1 ? Math.ceil(this.searchInput.val().length * 1.25) : 5));
             this.updatePlaceholder();
 
         },
