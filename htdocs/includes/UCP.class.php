@@ -133,8 +133,10 @@ class UCP extends UCP_Helpers {
 		$globalJavascripts = array(
 			"socket.io.js",
 			"bootstrap-3.3.5.custom.min.js",
-			"bootstrap-table-1.8.1.js",
-			"bootstrap-table-cookie.min.js",
+			"bootstrap-table-1.9.0.js",
+			"bootstrap-table-cookie.js",
+			"bootstrap-table-toolbar.js",
+			"bootstrap-table-mobile.js",
 			"jquery-ui-1.10.4.custom.min.js",
 			/*"jquery.keyframes.min.js",*/
 			"fileinput.js",

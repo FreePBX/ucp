@@ -501,14 +501,14 @@ var UCPC = Class.extend({
 		if($(window).width() < 992) {
 			$('table[data-toggle=table]').each(function() {
 				if(!$(this).bootstrapTable('getOptions').cardView) {
-					$(this).bootstrapTable('toggleView');
+					//$(this).bootstrapTable('toggleView');
 				}
 			});
 			resizeMode = 'mobile';
 		} else {
 			$('table[data-toggle=table]').each(function() {
 				if($(this).bootstrapTable('getOptions').cardView) {
-					$(this).bootstrapTable('toggleView');
+					//$(this).bootstrapTable('toggleView');
 				}
 			});
 			resizeMode = 'desktop';
