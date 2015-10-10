@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-09-22 13:06-0700\n"
+"POT-Creation-Date: 2015-10-10 12:17-0700\n"
 "PO-Revision-Date: 2015-05-26 07:41+0200\n"
 "Last-Translator: Ernesto <ecasas@sangoma.com>\n"
 "Language-Team: Spanish <http://weblate.freepbx.org/projects/freepbx/ucp/"
@@ -20,6 +20,24 @@ msgstr ""
 "Language: es_ES\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 2.2-dev\n"
+
+#: htdocs/assets/js/bootstrap-table-1.9.0.js:635
+#: htdocs/assets/js/bootstrap-table-1.9.0.js:636
+#: htdocs/assets/js/bootstrap-table-1.9.0.js:637
+#: htdocs/assets/js/bootstrap-table-1.9.0.js:638
+#: htdocs/assets/js/bootstrap-table-1.9.0.js:639
+#: htdocs/assets/js/bootstrap-table-1.9.0.js:1454
+#: htdocs/assets/js/bootstrap-table-1.9.0.js:1455
+#: htdocs/assets/js/bootstrap-table-1.9.0.js:1457
+#: htdocs/assets/js/bootstrap-table-1.9.0.js:1458
+#: htdocs/assets/js/bootstrap-table-1.9.0.js:1460
+#: htdocs/assets/js/bootstrap-table-1.9.0.js:1461
+#: htdocs/assets/js/bootstrap-table-1.9.0.js:1463
+#: htdocs/assets/js/bootstrap-table-1.9.0.js:1464
+#: htdocs/assets/js/bootstrap-table-1.9.0.js:1479
+#: htdocs/assets/js/bootstrap-table-1.9.0.js:1480
+msgid " + field + "
+msgstr ""
 
 #: htdocs/index.php:91
 msgid ".htaccess files are disabled on this webserver. Please enable them"
@@ -66,7 +84,7 @@ msgstr ""
 msgid "Allowed Extension Settings"
 msgstr ""
 
-#: htdocs/assets/js/ucp.js:943
+#: htdocs/assets/js/ucp.js:958
 msgid "Are you sure you wish to change your username?"
 msgstr "Esta seguro que desea cambiar su nombre de usuario?"
 
@@ -82,7 +100,7 @@ msgstr "Teléfono Móvil"
 msgid "Company"
 msgstr "Empresa"
 
-#: htdocs/assets/js/ucp.js:913
+#: htdocs/assets/js/ucp.js:928
 msgid "Confirm Password"
 msgstr "Confirmar Contraseña"
 
@@ -122,7 +140,7 @@ msgstr ""
 msgid "English"
 msgstr "Inglés"
 
-#: htdocs/views/dashboard.php:90
+#: htdocs/views/dashboard.php:92
 msgid "Excuse us while we try to retrieve your content"
 msgstr "Discúlpenos mientras tratamos de recuperar su contenido"
 
@@ -178,8 +196,8 @@ msgstr "Generando Modulo de Scripts..."
 msgid "Hold"
 msgstr "Espere"
 
-#: htdocs/modules/Home/Home.class.php:217 htdocs/views/dashboard.php:32
-#: htdocs/assets/js/ucp.js:737
+#: htdocs/modules/Home/Home.class.php:246 htdocs/views/dashboard.php:32
+#: htdocs/assets/js/ucp.js:752
 msgid "Home"
 msgstr "Inicio"
 
@@ -295,7 +313,7 @@ msgstr "PQRS"
 msgid "Password"
 msgstr "Contraseña"
 
-#: htdocs/assets/js/ucp.js:919
+#: htdocs/assets/js/ucp.js:934
 msgid "Password Confirmation Didn't Match!"
 msgstr "La confirmación del Password no coincide!!"
 
@@ -321,7 +339,7 @@ msgstr "Password ha sido cambiado!"
 msgid "Passwords do not match"
 msgstr "Passwords no coinciden"
 
-#: htdocs/assets/js/ucp.js:913
+#: htdocs/assets/js/ucp.js:928
 msgid "Please Reconfirm Your Password"
 msgstr "Por favor reconfirme su Contraseña"
 
@@ -362,7 +380,7 @@ msgstr ""
 "Grabaciones en el navegador. Sin ella los archivos no se reproducirá dentro "
 "de UCP"
 
-#: htdocs/assets/js/ucp.js:926 htdocs/assets/js/ucp.js:961
+#: htdocs/assets/js/ucp.js:941 htdocs/assets/js/ucp.js:976
 msgid "Saved!"
 msgstr "Guardado!"
 
@@ -376,11 +394,11 @@ msgid "Sent at %s"
 msgstr "Enviado a %s"
 
 #: htdocs/index.php:217 htdocs/modules/Settings/Settings.class.php:83
-#: htdocs/views/dashboard.php:39 htdocs/assets/js/ucp.js:778
+#: htdocs/views/dashboard.php:39 htdocs/assets/js/ucp.js:793
 msgid "Settings"
 msgstr "Configuraciones"
 
-#: htdocs/assets/js/ucp.js:913
+#: htdocs/assets/js/ucp.js:928
 msgid "Submit"
 msgstr "Enviar"
 
@@ -441,7 +459,7 @@ msgid "UCP is currently disabled. Please talk to your system Administrator"
 msgstr ""
 "UCP esta actualmente deshabilitado. Hable con su Administrador del Sistema"
 
-#: htdocs/assets/js/ucp.js:885
+#: htdocs/assets/js/ucp.js:900
 msgid "UCP needs to reload, ok?"
 msgstr "UCP necesita ser reiniciado, ok?"
 
@@ -484,7 +502,7 @@ msgstr ""
 msgid "Username"
 msgstr "Usuario"
 
-#: htdocs/assets/js/ucp.js:946
+#: htdocs/assets/js/ucp.js:961
 msgid "Username has been changed, reloading"
 msgstr "El Nombre de Usuario a sido cambiado, recargando"
 

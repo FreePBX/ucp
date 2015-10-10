@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-09-22 13:06-0700\n"
+"POT-Creation-Date: 2015-10-10 12:17-0700\n"
 "PO-Revision-Date: 2015-05-02 20:55+0200\n"
 "Last-Translator: Renato <fiuza@tecnologia.inf.br>\n"
 "Language-Team: Portuguese (Brazil) <http://weblate.freepbx.org/projects/"
@@ -20,6 +20,24 @@ msgstr ""
 "Language: pt_BR\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 2.2-dev\n"
+
+#: htdocs/assets/js/bootstrap-table-1.9.0.js:635
+#: htdocs/assets/js/bootstrap-table-1.9.0.js:636
+#: htdocs/assets/js/bootstrap-table-1.9.0.js:637
+#: htdocs/assets/js/bootstrap-table-1.9.0.js:638
+#: htdocs/assets/js/bootstrap-table-1.9.0.js:639
+#: htdocs/assets/js/bootstrap-table-1.9.0.js:1454
+#: htdocs/assets/js/bootstrap-table-1.9.0.js:1455
+#: htdocs/assets/js/bootstrap-table-1.9.0.js:1457
+#: htdocs/assets/js/bootstrap-table-1.9.0.js:1458
+#: htdocs/assets/js/bootstrap-table-1.9.0.js:1460
+#: htdocs/assets/js/bootstrap-table-1.9.0.js:1461
+#: htdocs/assets/js/bootstrap-table-1.9.0.js:1463
+#: htdocs/assets/js/bootstrap-table-1.9.0.js:1464
+#: htdocs/assets/js/bootstrap-table-1.9.0.js:1479
+#: htdocs/assets/js/bootstrap-table-1.9.0.js:1480
+msgid " + field + "
+msgstr ""
 
 #: htdocs/index.php:91
 msgid ".htaccess files are disabled on this webserver. Please enable them"
@@ -66,7 +84,7 @@ msgstr ""
 msgid "Allowed Extension Settings"
 msgstr ""
 
-#: htdocs/assets/js/ucp.js:943
+#: htdocs/assets/js/ucp.js:958
 msgid "Are you sure you wish to change your username?"
 msgstr "Você tem certeza que deseja mudar seu usuário?"
 
@@ -82,7 +100,7 @@ msgstr "Celular"
 msgid "Company"
 msgstr "Empresa"
 
-#: htdocs/assets/js/ucp.js:913
+#: htdocs/assets/js/ucp.js:928
 msgid "Confirm Password"
 msgstr "Confirmar Senha"
 
@@ -122,7 +140,7 @@ msgstr ""
 msgid "English"
 msgstr "Inglês"
 
-#: htdocs/views/dashboard.php:90
+#: htdocs/views/dashboard.php:92
 msgid "Excuse us while we try to retrieve your content"
 msgstr "Desculpe-nos enquanto tentamos recuperar seu conteúdo"
 
@@ -178,8 +196,8 @@ msgstr "Gerando Scripts de Módulos…"
 msgid "Hold"
 msgstr "Segurar"
 
-#: htdocs/modules/Home/Home.class.php:217 htdocs/views/dashboard.php:32
-#: htdocs/assets/js/ucp.js:737
+#: htdocs/modules/Home/Home.class.php:246 htdocs/views/dashboard.php:32
+#: htdocs/assets/js/ucp.js:752
 msgid "Home"
 msgstr "Início"
 
@@ -296,7 +314,7 @@ msgstr "PQRS"
 msgid "Password"
 msgstr "Senha"
 
-#: htdocs/assets/js/ucp.js:919
+#: htdocs/assets/js/ucp.js:934
 msgid "Password Confirmation Didn't Match!"
 msgstr "Confirmação De Senha Não Conferiu!"
 
@@ -322,7 +340,7 @@ msgstr "Senha mudada!"
 msgid "Passwords do not match"
 msgstr "Senhas não conferem"
 
-#: htdocs/assets/js/ucp.js:913
+#: htdocs/assets/js/ucp.js:928
 msgid "Please Reconfirm Your Password"
 msgstr "Por favor Re-confirme Sua Senha"
 
@@ -362,7 +380,7 @@ msgstr ""
 "reprodução para reproduções de arquivos no navegador. Sem ele os arquivos "
 "não serão reproduzidos no PCU"
 
-#: htdocs/assets/js/ucp.js:926 htdocs/assets/js/ucp.js:961
+#: htdocs/assets/js/ucp.js:941 htdocs/assets/js/ucp.js:976
 msgid "Saved!"
 msgstr "Salvo!"
 
@@ -376,11 +394,11 @@ msgid "Sent at %s"
 msgstr "Enviado para %s"
 
 #: htdocs/index.php:217 htdocs/modules/Settings/Settings.class.php:83
-#: htdocs/views/dashboard.php:39 htdocs/assets/js/ucp.js:778
+#: htdocs/views/dashboard.php:39 htdocs/assets/js/ucp.js:793
 msgid "Settings"
 msgstr "Configurações"
 
-#: htdocs/assets/js/ucp.js:913
+#: htdocs/assets/js/ucp.js:928
 msgid "Submit"
 msgstr "Enviar"
 
@@ -442,7 +460,7 @@ msgstr ""
 "PCU está desabilitado atualmente. Por favor fale com seu Administrador de "
 "sistema"
 
-#: htdocs/assets/js/ucp.js:885
+#: htdocs/assets/js/ucp.js:900
 msgid "UCP needs to reload, ok?"
 msgstr "O PCU precisa ser recarregado, ok?"
 
@@ -485,7 +503,7 @@ msgstr ""
 msgid "Username"
 msgstr "Usuário"
 
-#: htdocs/assets/js/ucp.js:946
+#: htdocs/assets/js/ucp.js:961
 msgid "Username has been changed, reloading"
 msgstr "Usuário foi mudado, recarregando"
 
