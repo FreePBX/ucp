@@ -11,7 +11,7 @@
 	</description>
 	<changelog>
 		*13.0.10* Use bootstrap tables moving forward, update assets. Tweaks and fixes
-		*13.0.9* FREEPBX-9288 Recognize and emit HTTPS for password reset links			
+		*13.0.9* FREEPBX-9288 Recognize and emit HTTPS for password reset links
 		*13.0.8* Fix permission management in User Manager
 		*13.0.7* FREEPBX-10287 originate call causes 'You are currently working in offline mode'
 		*13.0.6* Updates, cleanup and fixes
@@ -91,8 +91,8 @@
 	</hooks>
 	<depends>
 		<phpversion>5.3.3</phpversion>
-		<module>userman ge 12.0.5</module>
+		<module>userman ge 13.0.32</module>
 		<module>core ge 12.0.1alpha25</module>
-		<version>13.0.1alpha25</version>
+		<version>13.0.1RC1.27</version>
 	</depends>
 </module>
