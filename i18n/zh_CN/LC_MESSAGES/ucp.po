@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-10-10 12:17-0700\n"
-"PO-Revision-Date: 2015-10-16 08:22+0200\n"
+"PO-Revision-Date: 2015-10-19 14:55+0200\n"
 "Last-Translator: james <zhulizhong@gmail.com>\n"
 "Language-Team: Simplified Chinese "
 "<http://weblate.freepbx.org/projects/freepbx/ucp/zh_CN/>\n"
@@ -152,7 +152,7 @@ msgstr "传真"
 
 #: htdocs/views/templates/pagnation.php:4
 msgid "First"
-msgstr ""
+msgstr "第一个"
 
 #: htdocs/views/settings.php:41
 msgid "First Name"
