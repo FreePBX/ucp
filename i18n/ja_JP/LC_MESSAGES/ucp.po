@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-10-10 12:17-0700\n"
-"PO-Revision-Date: 2015-10-27 11:13+0200\n"
+"PO-Revision-Date: 2015-10-30 06:23+0200\n"
 "Last-Translator: Kevin <kevin@qloog.com>\n"
 "Language-Team: Japanese "
 "<http://weblate.freepbx.org/projects/freepbx/ucp/ja_JP/>\n"
@@ -211,7 +211,7 @@ msgstr "UCPとコンタクトマネージャーで使う表示名"
 
 #: views/users_hook.php:56 views/users_hook.php:154
 msgid "Inherit"
-msgstr ""
+msgstr "引き継ぐ"
 
 #: htdocs/includes/User.class.php:86
 msgid "Invalid"
