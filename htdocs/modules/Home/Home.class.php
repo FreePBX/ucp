@@ -181,16 +181,27 @@ class Home extends Modules{
 				if($this->_checkExtension($_REQUEST['from'])) {
 					$data = $this->UCP->FreePBX->Core->getDevice($_REQUEST['from']);
 					if(!empty($data)) {
-						$this->astman->originate(array(
-							"Channel" => "Local/".$data['id']."@from-internal",
+						$out = $this->astman->originate(array(
+							"Channel" => "Local/".$data['id']."@originate-skipvm",
 							"Exten" => $_REQUEST['to'],
 							"Context" => "from-internal",
 							"Priority" => 1,
 							"Async" => "yes",
 							"CallerID" => "UCP <".$data['id'].">"
 						));
+						if($out['Response'] == "Error") {
+							$return['status'] = false;
+							$return['message'] = $out['Message'];
+						} else {
+							$return['status'] = true;
+						}
+					} else {
+						$return['status'] = false;
+						$return['message'] = _('Invalid Device');
 					}
-					$return['status'] = true;
+				} else {
+					$return['status'] = false;
+					$return['message'] = _('Invalid Device');
 				}
 				return $return;
 			break;
@@ -226,17 +237,11 @@ class Home extends Modules{
 	* Send settings to UCP upon initalization
 	*/
 	function getStaticSettings() {
-		$extensions = $this->UCP->getSetting($this->user['username'],'Settings','assigned');
-		//force default extension to the top.
-		if(!empty($this->user['default_extension']) && is_array($extensions)) {
-			$extensions = array_diff($extensions, array($this->user['default_extension']));
-			array_unshift($extensions,$this->user['default_extension']);
-		} elseif(empty($extensions)) {
-			$extensions = array($this->user['default_extension']);
-		}
+		$user = $this->UCP->User->getUser();
+		$extensions = array($this->user['default_extension']);
 		return array(
 			'extensions' => $extensions,
-			'enableOriginate' => 1
+			'enableOriginate' => $this->UCP->getCombinedSettingByID($user['id'],'Global','originate')
 		);
 	}
 
@@ -251,7 +256,6 @@ class Home extends Modules{
 
 	private function _checkExtension($extension) {
 		$user = $this->UCP->User->getUser();
-		$extensions = $this->UCP->getSetting($this->user['username'],'Settings','assigned');
-		return in_array($extension,$extensions);
+		return $this->UCP->getCombinedSettingByID($user['id'],'Global','originate');
 	}
 }
