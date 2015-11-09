@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-10-10 12:17-0700\n"
-"PO-Revision-Date: 2015-10-19 14:55+0200\n"
+"PO-Revision-Date: 2015-11-09 14:03+0200\n"
 "Last-Translator: james <zhulizhong@gmail.com>\n"
 "Language-Team: Simplified Chinese "
 "<http://weblate.freepbx.org/projects/freepbx/ucp/zh_CN/>\n"
@@ -45,7 +45,7 @@ msgstr ".htaccess 文件已经关闭，请开启此功能"
 
 #: htdocs/index.php:104
 msgid ".htaccess files are not supported on this webserver."
-msgstr ".htaccess 不支持此页面服务器。"
+msgstr "页面服务器不支持.htaccess 文件。"
 
 #: Ucp.class.php:239
 #, php-format
