@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-10-10 12:17-0700\n"
-"PO-Revision-Date: 2015-11-09 14:03+0200\n"
+"PO-Revision-Date: 2015-11-10 07:38+0200\n"
 "Last-Translator: james <zhulizhong@gmail.com>\n"
 "Language-Team: Simplified Chinese "
 "<http://weblate.freepbx.org/projects/freepbx/ucp/zh_CN/>\n"
@@ -100,7 +100,7 @@ msgstr "公司"
 
 #: htdocs/assets/js/ucp.js:928
 msgid "Confirm Password"
-msgstr "再次确认密码"
+msgstr "确认密码"
 
 #: htdocs/assets/js/ucp.js:409
 msgid "Connecting...."
