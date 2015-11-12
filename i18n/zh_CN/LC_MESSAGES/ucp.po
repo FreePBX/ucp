@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-10-10 12:17-0700\n"
-"PO-Revision-Date: 2015-11-10 07:38+0200\n"
+"PO-Revision-Date: 2015-11-12 12:42+0200\n"
 "Last-Translator: james <zhulizhong@gmail.com>\n"
 "Language-Team: Simplified Chinese "
 "<http://weblate.freepbx.org/projects/freepbx/ucp/zh_CN/>\n"
@@ -275,7 +275,7 @@ msgstr ""
 
 #: views/users_hook.php:53 views/users_hook.php:151
 msgid "No"
-msgstr ""
+msgstr "无"
 
 #: htdocs/modules/Home/assets/js/global.js:27
 msgid "Nothing Entered"
@@ -295,7 +295,7 @@ msgstr ""
 
 #: htdocs/modules/Home/assets/js/global.js:76
 msgid "Originate"
-msgstr ""
+msgstr "发起"
 
 #: htdocs/index.php:211 htdocs/modules/Home/assets/js/global.js:75
 msgid "Originate Call"
@@ -510,7 +510,7 @@ msgstr ""
 
 #: views/users_hook.php:51 views/users_hook.php:149
 msgid "Yes"
-msgstr ""
+msgstr "是"
 
 #: htdocs/assets/js/ucp.js:437
 msgid "You are currently working in offline mode."
