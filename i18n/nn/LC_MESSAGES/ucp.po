@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-10-10 12:17-0700\n"
+"POT-Creation-Date: 2015-11-13 13:28-0800\n"
 "PO-Revision-Date: 2015-08-31 03:35+0200\n"
 "Last-Translator: Vidar Skjelanger <vidar@unimicro.no>\n"
 "Language-Team: Norwegian Nynorsk <http://weblate.freepbx.org/projects/"
@@ -60,7 +60,11 @@ msgstr "ABC"
 msgid "Active Sessions"
 msgstr "Aktive sesjonar"
 
-#: htdocs/views/settings.php:90
+#: ucp.i18n.php:6
+msgid "Admin"
+msgstr ""
+
+#: htdocs/views/settings.php:82
 msgid "Allow Desktop Notifications"
 msgstr "Tillat meldingar på skrivebordet"
 
@@ -68,7 +72,7 @@ msgstr "Tillat meldingar på skrivebordet"
 msgid "Allow Login"
 msgstr "Tillat pålogging"
 
-#: htdocs/views/settings.php:98
+#: htdocs/views/settings.php:90
 msgid "Allow browser desktop notifications from UCP modules."
 msgstr "Tillat meldingar på skrivebordet frå UCP-modular."
 
@@ -90,11 +94,11 @@ msgstr "Er du sikker på at du ønskjer å endre brukarnamnet ditt?"
 msgid "Call"
 msgstr "Ring"
 
-#: htdocs/views/settings.php:61
+#: htdocs/views/settings.php:52
 msgid "Cell Phone"
 msgstr "Mobiltelefon"
 
-#: htdocs/views/settings.php:56
+#: htdocs/views/settings.php:47
 msgid "Company"
 msgstr "Bedrift"
 
@@ -118,7 +122,7 @@ msgstr "Sletta sesjon"
 msgid "Deleted User Session"
 msgstr "Sletta brukarsesjon"
 
-#: htdocs/views/settings.php:31
+#: htdocs/views/settings.php:22
 msgid "Display Name"
 msgstr "Namnet som skal synast"
 
@@ -126,7 +130,7 @@ msgstr "Namnet som skal synast"
 msgid "Done"
 msgstr "Ferdig"
 
-#: htdocs/views/login.php:29 htdocs/views/settings.php:36
+#: htdocs/views/login.php:29 htdocs/views/settings.php:27
 msgid "Email"
 msgstr "Epost"
 
@@ -146,7 +150,7 @@ msgstr "Vent medan ditt innhald vert henta"
 msgid "Failed to install "
 msgstr "Feil ved installasjon "
 
-#: htdocs/views/settings.php:76
+#: htdocs/views/settings.php:67
 msgid "Fax"
 msgstr "Fax"
 
@@ -154,7 +158,7 @@ msgstr "Fax"
 msgid "First"
 msgstr "Første"
 
-#: htdocs/views/settings.php:41
+#: htdocs/views/settings.php:32
 msgid "First Name"
 msgstr "Fornamn"
 
@@ -165,6 +169,10 @@ msgstr "Forbode"
 #: htdocs/views/login.php:36
 msgid "Forgot Password"
 msgstr "Gløymt passord"
+
+#: ucp.i18n.php:8
+msgid "Formerly ARI, now called User Control Panel"
+msgstr ""
 
 #: htdocs/views/templates/phone.php:51
 msgid "GHI"
@@ -194,16 +202,16 @@ msgstr "Genererer modulscript..."
 msgid "Hold"
 msgstr "Parker"
 
-#: htdocs/modules/Home/Home.class.php:246 htdocs/views/dashboard.php:32
+#: htdocs/modules/Home/Home.class.php:251 htdocs/views/dashboard.php:32
 #: htdocs/assets/js/ucp.js:752
 msgid "Home"
 msgstr "Heim"
 
-#: htdocs/views/settings.php:71
+#: htdocs/views/settings.php:62
 msgid "Home Phone"
 msgstr "Fasttelefon"
 
-#: htdocs/views/settings.php:33
+#: htdocs/views/settings.php:24
 msgid ""
 "How you would like your name displayed throughout UCP and Contact Manager"
 msgstr ""
@@ -218,11 +226,16 @@ msgstr ""
 msgid "Invalid"
 msgstr "Ugyldig"
 
+#: htdocs/modules/Home/Home.class.php:200
+#: htdocs/modules/Home/Home.class.php:204
+msgid "Invalid Device"
+msgstr ""
+
 #: htdocs/includes/User.class.php:94
 msgid "Invalid Login Credentials"
 msgstr "Ugyldig påloggingsinfo"
 
-#: htdocs/index.php:230
+#: htdocs/index.php:233
 msgid "Invalid Token"
 msgstr "Ugyldig token"
 
@@ -230,7 +243,7 @@ msgstr "Ugyldig token"
 msgid "JKL"
 msgstr "JKL"
 
-#: htdocs/views/settings.php:81
+#: htdocs/views/settings.php:73
 msgid "Language"
 msgstr "Språk"
 
@@ -238,7 +251,7 @@ msgstr "Språk"
 msgid "Last"
 msgstr "Siste"
 
-#: htdocs/views/settings.php:46
+#: htdocs/views/settings.php:37
 msgid "Last Name"
 msgstr "Etternamn"
 
@@ -255,7 +268,7 @@ msgstr "Lastar..."
 msgid "Login"
 msgstr "Brukarnamn"
 
-#: htdocs/index.php:217
+#: htdocs/index.php:220
 msgid "Logout"
 msgstr "Logg ut"
 
@@ -299,7 +312,7 @@ msgstr "PÅ"
 msgid "Originate"
 msgstr ""
 
-#: htdocs/index.php:211 htdocs/modules/Home/assets/js/global.js:75
+#: htdocs/index.php:214 htdocs/modules/Home/assets/js/global.js:75
 msgid "Originate Call"
 msgstr "Opprett samtale"
 
@@ -308,7 +321,6 @@ msgid "PQRS"
 msgstr "PQRS"
 
 #: htdocs/views/login.php:20 htdocs/views/settings.php:15
-#: htdocs/views/settings.php:26
 msgid "Password"
 msgstr "Passord"
 
@@ -390,7 +402,7 @@ msgstr "Send meg ein link for nullstilling av passord"
 msgid "Sent at %s"
 msgstr "Sendt %s"
 
-#: htdocs/index.php:217 htdocs/modules/Settings/Settings.class.php:83
+#: htdocs/index.php:220 htdocs/modules/Settings/Settings.class.php:83
 #: htdocs/views/dashboard.php:39 htdocs/assets/js/ucp.js:793
 msgid "Settings"
 msgstr "Innstillingar"
@@ -403,7 +415,7 @@ msgstr "Logg inn"
 msgid "TUV"
 msgstr "TUV"
 
-#: htdocs/views/settings.php:17 htdocs/views/settings.php:28
+#: htdocs/views/settings.php:17
 msgid "The password used to login to User Control Panel and other services"
 msgstr "Passordet som vert brukt for å logga inn i UCP og andre tenester"
 
@@ -411,7 +423,7 @@ msgstr "Passordet som vert brukt for å logga inn i UCP og andre tenester"
 msgid "The removal of this copyright notice is stricly prohibited"
 msgstr "Å fjerne dette varselet om opphavsrett er ikkje tillete"
 
-#: htdocs/views/settings.php:10 htdocs/views/settings.php:23
+#: htdocs/views/settings.php:10
 msgid "The username used to login to User Control Panel and other services"
 msgstr "Brukarnamnet som vert brukt for å logga inn i UCP og andre tenester"
 
@@ -426,7 +438,7 @@ msgid ""
 "and others"
 msgstr ""
 
-#: htdocs/views/settings.php:51
+#: htdocs/views/settings.php:42
 msgid "Title"
 msgstr "Tittel"
 
@@ -440,11 +452,15 @@ msgstr ""
 "For å verna integriteten til serveren din må du tillata overstyring i "
 "webserveren sin konfigurasjonsfil for UCP. For meir informasjon sjå: %s"
 
+#: ucp.i18n.php:10
+msgid "UCP"
+msgstr "UCP"
+
 #: views/header.php:1
 msgid "UCP Admin"
 msgstr "UCP Admin"
 
-#: htdocs/views/settings.php:87
+#: htdocs/views/settings.php:79
 msgid "UCP Language"
 msgstr "UCP språk"
 
@@ -462,13 +478,13 @@ msgid ""
 "FreePBX."
 msgstr ""
 
-#: htdocs/index.php:182
+#: htdocs/index.php:185
 #, php-format
 msgid "Unknown Module %s"
 msgstr "Ukjend modul %s"
 
 #: htdocs/views/forgot.php:5 htdocs/views/header.php:4
-#: htdocs/views/login.php:4
+#: htdocs/views/login.php:4 ucp.i18n.php:4
 msgid "User Control Panel"
 msgstr "Kontrollpanel for brukarar"
 
@@ -486,12 +502,15 @@ msgstr "UCP er distribuert som %s eller nyare"
 msgid "User Control Panel: %s"
 msgstr "Kontrollpanel for brukarar: %s"
 
+#: ucp.i18n.php:12
+msgid "User Panel"
+msgstr ""
+
 #: Ucp.class.php:53 /usr/src/freepbx/ucp/Ucp.class.php:81
 msgid "User Primary Extension"
 msgstr ""
 
 #: htdocs/views/login.php:15 htdocs/views/settings.php:8
-#: htdocs/views/settings.php:21
 msgid "Username"
 msgstr "Brukarnamn"
 
@@ -512,7 +531,7 @@ msgstr "Velkomen %s"
 msgid "What is UCP"
 msgstr ""
 
-#: htdocs/views/settings.php:66
+#: htdocs/views/settings.php:57
 msgid "Work Phone"
 msgstr "Telefon arbeid"
 
@@ -528,39 +547,39 @@ msgstr "Du arbeidar no i fråkopla modus."
 msgid "Your Browser is unsupported at this time."
 msgstr "Din nettlesar er ikkje støtta på dette tidspunktet."
 
-#: htdocs/views/settings.php:63
+#: htdocs/views/settings.php:54
 msgid "Your Cell Phone Number"
 msgstr "Ditt mobilnummer"
 
-#: htdocs/views/settings.php:58
+#: htdocs/views/settings.php:49
 msgid "Your Company"
 msgstr "Din bedrift"
 
-#: htdocs/views/settings.php:38
+#: htdocs/views/settings.php:29
 msgid "Your Email Address"
 msgstr "Di epostadresse"
 
-#: htdocs/views/settings.php:78
+#: htdocs/views/settings.php:69
 msgid "Your Fax Number"
 msgstr "Ditt faxnummer"
 
-#: htdocs/views/settings.php:43
+#: htdocs/views/settings.php:34
 msgid "Your First Name"
 msgstr "Ditt førenamn"
 
-#: htdocs/views/settings.php:73
+#: htdocs/views/settings.php:64
 msgid "Your Home Number"
 msgstr "Ditt heimenummer"
 
-#: htdocs/views/settings.php:48
+#: htdocs/views/settings.php:39
 msgid "Your Last Name"
 msgstr "Ditt etternamn"
 
-#: htdocs/views/settings.php:53
+#: htdocs/views/settings.php:44
 msgid "Your Title"
 msgstr "Din tittel"
 
-#: htdocs/views/settings.php:68
+#: htdocs/views/settings.php:59
 msgid "Your Work Number"
 msgstr "Ditt telefonnummer (arbeid)"
 
@@ -602,6 +621,3 @@ msgstr "eller"
 #~ msgstr ""
 #~ "Dette er dei tildelte og aktive extensions som denne brukaren vil kunna "
 #~ "sjå, kontrollere og endre i UCP"
-
-#~ msgid "UCP"
-#~ msgstr "UCP"

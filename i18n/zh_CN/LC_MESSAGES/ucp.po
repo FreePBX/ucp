@@ -9,15 +9,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-10-10 12:17-0700\n"
+"POT-Creation-Date: 2015-11-13 13:28-0800\n"
 "PO-Revision-Date: 2015-11-12 12:42+0200\n"
 "Last-Translator: james <zhulizhong@gmail.com>\n"
-"Language-Team: Simplified Chinese "
-"<http://weblate.freepbx.org/projects/freepbx/ucp/zh_CN/>\n"
-"Language: zh_CN\n"
+"Language-Team: Simplified Chinese <http://weblate.freepbx.org/projects/"
+"freepbx/ucp/zh_CN/>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: zh_CN\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Weblate 2.2-dev\n"
 
@@ -60,7 +60,11 @@ msgstr ""
 msgid "Active Sessions"
 msgstr "活动的会话"
 
-#: htdocs/views/settings.php:90
+#: ucp.i18n.php:6
+msgid "Admin"
+msgstr "管理"
+
+#: htdocs/views/settings.php:82
 msgid "Allow Desktop Notifications"
 msgstr "支持桌面提示"
 
@@ -68,7 +72,7 @@ msgstr "支持桌面提示"
 msgid "Allow Login"
 msgstr "允许登录"
 
-#: htdocs/views/settings.php:98
+#: htdocs/views/settings.php:90
 msgid "Allow browser desktop notifications from UCP modules."
 msgstr "支持通过UCP模块查询桌面提示"
 
@@ -90,11 +94,11 @@ msgstr "确认要修改用户名称？"
 msgid "Call"
 msgstr "呼叫"
 
-#: htdocs/views/settings.php:61
+#: htdocs/views/settings.php:52
 msgid "Cell Phone"
 msgstr "手机"
 
-#: htdocs/views/settings.php:56
+#: htdocs/views/settings.php:47
 msgid "Company"
 msgstr "公司"
 
@@ -118,7 +122,7 @@ msgstr "已删除的会话"
 msgid "Deleted User Session"
 msgstr "已删除的用户会话"
 
-#: htdocs/views/settings.php:31
+#: htdocs/views/settings.php:22
 msgid "Display Name"
 msgstr "显示名称"
 
@@ -126,7 +130,7 @@ msgstr "显示名称"
 msgid "Done"
 msgstr "完成"
 
-#: htdocs/views/login.php:29 htdocs/views/settings.php:36
+#: htdocs/views/login.php:29 htdocs/views/settings.php:27
 msgid "Email"
 msgstr "邮件"
 
@@ -146,7 +150,7 @@ msgstr ""
 msgid "Failed to install "
 msgstr "安装失败 "
 
-#: htdocs/views/settings.php:76
+#: htdocs/views/settings.php:67
 msgid "Fax"
 msgstr "传真"
 
@@ -154,7 +158,7 @@ msgstr "传真"
 msgid "First"
 msgstr "第一个"
 
-#: htdocs/views/settings.php:41
+#: htdocs/views/settings.php:32
 msgid "First Name"
 msgstr "姓"
 
@@ -165,6 +169,10 @@ msgstr "禁止"
 #: htdocs/views/login.php:36
 msgid "Forgot Password"
 msgstr "文件密码"
+
+#: ucp.i18n.php:8
+msgid "Formerly ARI, now called User Control Panel"
+msgstr ""
 
 #: htdocs/views/templates/phone.php:51
 msgid "GHI"
@@ -194,16 +202,16 @@ msgstr ""
 msgid "Hold"
 msgstr "保持"
 
-#: htdocs/modules/Home/Home.class.php:246 htdocs/views/dashboard.php:32
+#: htdocs/modules/Home/Home.class.php:251 htdocs/views/dashboard.php:32
 #: htdocs/assets/js/ucp.js:752
 msgid "Home"
 msgstr "主页"
 
-#: htdocs/views/settings.php:71
+#: htdocs/views/settings.php:62
 msgid "Home Phone"
 msgstr ""
 
-#: htdocs/views/settings.php:33
+#: htdocs/views/settings.php:24
 msgid ""
 "How you would like your name displayed throughout UCP and Contact Manager"
 msgstr ""
@@ -216,11 +224,16 @@ msgstr "继承"
 msgid "Invalid"
 msgstr ""
 
+#: htdocs/modules/Home/Home.class.php:200
+#: htdocs/modules/Home/Home.class.php:204
+msgid "Invalid Device"
+msgstr ""
+
 #: htdocs/includes/User.class.php:94
 msgid "Invalid Login Credentials"
 msgstr ""
 
-#: htdocs/index.php:230
+#: htdocs/index.php:233
 msgid "Invalid Token"
 msgstr ""
 
@@ -228,7 +241,7 @@ msgstr ""
 msgid "JKL"
 msgstr ""
 
-#: htdocs/views/settings.php:81
+#: htdocs/views/settings.php:73
 msgid "Language"
 msgstr "界面语言设置"
 
@@ -236,7 +249,7 @@ msgstr "界面语言设置"
 msgid "Last"
 msgstr ""
 
-#: htdocs/views/settings.php:46
+#: htdocs/views/settings.php:37
 msgid "Last Name"
 msgstr ""
 
@@ -253,7 +266,7 @@ msgstr "装载中。。。"
 msgid "Login"
 msgstr "登录"
 
-#: htdocs/index.php:217
+#: htdocs/index.php:220
 msgid "Logout"
 msgstr "退出"
 
@@ -297,7 +310,7 @@ msgstr ""
 msgid "Originate"
 msgstr "发起"
 
-#: htdocs/index.php:211 htdocs/modules/Home/assets/js/global.js:75
+#: htdocs/index.php:214 htdocs/modules/Home/assets/js/global.js:75
 msgid "Originate Call"
 msgstr "发起呼叫"
 
@@ -306,7 +319,6 @@ msgid "PQRS"
 msgstr ""
 
 #: htdocs/views/login.php:20 htdocs/views/settings.php:15
-#: htdocs/views/settings.php:26
 msgid "Password"
 msgstr ""
 
@@ -384,7 +396,7 @@ msgstr ""
 msgid "Sent at %s"
 msgstr ""
 
-#: htdocs/index.php:217 htdocs/modules/Settings/Settings.class.php:83
+#: htdocs/index.php:220 htdocs/modules/Settings/Settings.class.php:83
 #: htdocs/views/dashboard.php:39 htdocs/assets/js/ucp.js:793
 msgid "Settings"
 msgstr "设置"
@@ -397,7 +409,7 @@ msgstr "提交"
 msgid "TUV"
 msgstr ""
 
-#: htdocs/views/settings.php:17 htdocs/views/settings.php:28
+#: htdocs/views/settings.php:17
 msgid "The password used to login to User Control Panel and other services"
 msgstr ""
 
@@ -405,7 +417,7 @@ msgstr ""
 msgid "The removal of this copyright notice is stricly prohibited"
 msgstr ""
 
-#: htdocs/views/settings.php:10 htdocs/views/settings.php:23
+#: htdocs/views/settings.php:10
 msgid "The username used to login to User Control Panel and other services"
 msgstr ""
 
@@ -420,7 +432,7 @@ msgid ""
 "and others"
 msgstr ""
 
-#: htdocs/views/settings.php:51
+#: htdocs/views/settings.php:42
 msgid "Title"
 msgstr ""
 
@@ -432,11 +444,15 @@ msgid ""
 "information see: %s"
 msgstr ""
 
+#: ucp.i18n.php:10
+msgid "UCP"
+msgstr ""
+
 #: views/header.php:1
 msgid "UCP Admin"
 msgstr ""
 
-#: htdocs/views/settings.php:87
+#: htdocs/views/settings.php:79
 msgid "UCP Language"
 msgstr ""
 
@@ -454,13 +470,13 @@ msgid ""
 "FreePBX."
 msgstr ""
 
-#: htdocs/index.php:182
+#: htdocs/index.php:185
 #, php-format
 msgid "Unknown Module %s"
 msgstr ""
 
 #: htdocs/views/forgot.php:5 htdocs/views/header.php:4
-#: htdocs/views/login.php:4
+#: htdocs/views/login.php:4 ucp.i18n.php:4
 msgid "User Control Panel"
 msgstr "用户控制界面"
 
@@ -478,12 +494,15 @@ msgstr ""
 msgid "User Control Panel: %s"
 msgstr ""
 
+#: ucp.i18n.php:12
+msgid "User Panel"
+msgstr ""
+
 #: Ucp.class.php:53 /usr/src/freepbx/ucp/Ucp.class.php:81
 msgid "User Primary Extension"
 msgstr ""
 
 #: htdocs/views/login.php:15 htdocs/views/settings.php:8
-#: htdocs/views/settings.php:21
 msgid "Username"
 msgstr ""
 
@@ -504,7 +523,7 @@ msgstr ""
 msgid "What is UCP"
 msgstr ""
 
-#: htdocs/views/settings.php:66
+#: htdocs/views/settings.php:57
 msgid "Work Phone"
 msgstr ""
 
@@ -520,39 +539,39 @@ msgstr ""
 msgid "Your Browser is unsupported at this time."
 msgstr ""
 
-#: htdocs/views/settings.php:63
+#: htdocs/views/settings.php:54
 msgid "Your Cell Phone Number"
 msgstr ""
 
-#: htdocs/views/settings.php:58
+#: htdocs/views/settings.php:49
 msgid "Your Company"
 msgstr ""
 
-#: htdocs/views/settings.php:38
+#: htdocs/views/settings.php:29
 msgid "Your Email Address"
 msgstr ""
 
-#: htdocs/views/settings.php:78
+#: htdocs/views/settings.php:69
 msgid "Your Fax Number"
 msgstr ""
 
-#: htdocs/views/settings.php:43
+#: htdocs/views/settings.php:34
 msgid "Your First Name"
 msgstr ""
 
-#: htdocs/views/settings.php:73
+#: htdocs/views/settings.php:64
 msgid "Your Home Number"
 msgstr ""
 
-#: htdocs/views/settings.php:48
+#: htdocs/views/settings.php:39
 msgid "Your Last Name"
 msgstr ""
 
-#: htdocs/views/settings.php:53
+#: htdocs/views/settings.php:44
 msgid "Your Title"
 msgstr ""
 
-#: htdocs/views/settings.php:68
+#: htdocs/views/settings.php:59
 msgid "Your Work Number"
 msgstr ""
 
@@ -577,9 +596,6 @@ msgstr ""
 #: htdocs/views/login.php:24
 msgid "or"
 msgstr ""
-
-#~ msgid "Admin"
-#~ msgstr "管理"
 
 #~ msgid "Allow Password Changes"
 #~ msgstr "允许密码修改"
