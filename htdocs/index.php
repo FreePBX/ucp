@@ -163,6 +163,9 @@ switch($display) {
 				$displayvars['languages'][$l] = function_exists('locale_get_display_name') ? locale_get_display_name($l, $lang) : $l;
 			}
 
+			$displayvars['changepassword'] = $ucp->User->canChange("password");
+			$displayvars['changeusername'] = $ucp->User->canChange("username");
+			$displayvars['changedetails'] = $ucp->User->canChange("details");
 			$displayvars['username'] = $user['username'];
 			$dashboard_content = $ucp->View->load_view(__DIR__.'/views/settings.php',$displayvars);
 			$displayvars['active_module'] = 'ucpsettings';

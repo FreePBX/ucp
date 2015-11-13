@@ -136,6 +136,9 @@ class User extends UCP {
 			case "password":
 				return $this->UCP->FreePBX->Config->get('UCPCHANGEPASSWORD') && $this->UCP->FreePBX->Userman->getAuthPermission('changePassword');
 			break;
+			case "details":
+				return $this->UCP->FreePBX->Userman->getAuthPermission('modifyUser');
+			break;
 			default:
 				return false;
 		}
