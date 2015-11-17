@@ -320,7 +320,7 @@ msgstr ""
 
 #: htdocs/views/login.php:20 htdocs/views/settings.php:15
 msgid "Password"
-msgstr ""
+msgstr "密码"
 
 #: htdocs/assets/js/ucp.js:934
 msgid "Password Confirmation Didn't Match!"
