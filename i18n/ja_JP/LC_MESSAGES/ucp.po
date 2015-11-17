@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-11-13 13:28-0800\n"
+"POT-Creation-Date: 2015-11-17 10:23-0800\n"
 "PO-Revision-Date: 2015-10-30 06:23+0200\n"
 "Last-Translator: Kevin <kevin@qloog.com>\n"
 "Language-Team: Japanese <http://weblate.freepbx.org/projects/freepbx/ucp/"
@@ -48,7 +48,7 @@ msgstr ""
 msgid ".htaccess files are not supported on this webserver."
 msgstr "このサーバーは .htaccess ファイルをサポートしていません。"
 
-#: Ucp.class.php:239
+#: Ucp.class.php:236
 #, php-format
 msgid "A token has already been generated for %s, not sending email again"
 msgstr ""
@@ -115,11 +115,11 @@ msgstr "接続中...."
 msgid "DEF"
 msgstr "DEF"
 
-#: Ucp.class.php:724
+#: Ucp.class.php:722
 msgid "Deleted Session"
 msgstr "セッションを削除しました"
 
-#: Ucp.class.php:112 Ucp.class.php:574
+#: Ucp.class.php:109 Ucp.class.php:572
 msgid "Deleted User Session"
 msgstr "ユーザーのセッションを削除しました"
 
@@ -127,7 +127,7 @@ msgstr "ユーザーのセッションを削除しました"
 msgid "Display Name"
 msgstr "表示名"
 
-#: Ucp.class.php:809 Ucp.class.php:813 Ucp.class.php:817 Ucp.class.php:821
+#: Ucp.class.php:807 Ucp.class.php:811 Ucp.class.php:815 Ucp.class.php:819
 msgid "Done"
 msgstr "完了"
 
@@ -184,19 +184,19 @@ msgstr "GHI"
 msgid "General"
 msgstr ""
 
-#: Ucp.class.php:819
+#: Ucp.class.php:817
 msgid "Generating Main CSS..."
 msgstr "メインCSSを生成中..."
 
-#: Ucp.class.php:815
+#: Ucp.class.php:813
 msgid "Generating Main Scripts..."
 msgstr "メインスクリプトを生成中..."
 
-#: Ucp.class.php:811
+#: Ucp.class.php:809
 msgid "Generating Module CSS..."
 msgstr "モジュールCSSを生成中..."
 
-#: Ucp.class.php:807
+#: Ucp.class.php:805
 msgid "Generating Module Scripts..."
 msgstr "モジュールスクリプトを生成中..."
 
@@ -328,7 +328,7 @@ msgstr "パスワード"
 msgid "Password Confirmation Didn't Match!"
 msgstr "パスワードは一致しません！"
 
-#: Ucp.class.php:202 Ucp.class.php:212
+#: Ucp.class.php:199 Ucp.class.php:209
 #, php-format
 msgid "Password Reset Link (Valid Until: %s): %s"
 msgstr "パスワードリセットリンク（%sまで有効）: %s"
@@ -496,7 +496,7 @@ msgstr ""
 "ユーザーコントロールパネルのライセンスは %s もしくは最新のライセンスで提供さ"
 "れています"
 
-#: Ucp.class.php:198 Ucp.class.php:208
+#: Ucp.class.php:195 Ucp.class.php:205
 #, php-format
 msgid "User Control Panel: %s"
 msgstr "ユーザーコントロールパネル： %s"
