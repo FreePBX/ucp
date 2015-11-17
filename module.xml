@@ -2,7 +2,7 @@
 	<rawname>ucp</rawname>
 	<name>User Control Panel</name>
 	<repo>standard</repo>
-	<version>13.0.11</version>
+	<version>13.0.12</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>AGPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/agpl-3.0.txt</licenselink>
@@ -10,6 +10,7 @@
 		Formerly ARI, now called User Control Panel
 	</description>
 	<changelog>
+		*13.0.12* Add back missing buttons js
 		*13.0.11* FREEPBX-10621 also stop blocking woff2 files
 		*13.0.10* Use bootstrap tables moving forward, update assets. Tweaks and fixes
 		*13.0.9* FREEPBX-9288 Recognize and emit HTTPS for password reset links

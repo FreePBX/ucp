@@ -104,9 +104,6 @@ class Ucp extends \FreePBX_Helpers implements \BMO {
 				break;
 				case 'showuser':
 					$user = $this->getUserByID($_REQUEST['user']);
-					if(isset($_POST['submit']) || isset($_POST['submittype'])) {
-						$this->expireUserSessions($_REQUEST['user']);
-					}
 					if(!empty($_REQUEST['deletesession'])) {
 						$this->expireUserSession($_REQUEST['deletesession']);
 						$this->setUsermanMessage(_('Deleted User Session'),'success');
@@ -410,6 +407,7 @@ class Ucp extends \FreePBX_Helpers implements \BMO {
 		}
 		$login = $this->FreePBX->Userman->getModuleSettingByID($id,'ucp|Global','allowLogin');
 		$this->FreePBX->Hooks->processHooks($id,$display,$login,$data);
+		$this->expireUserSessions($id);
 		return true;
 	}
 
