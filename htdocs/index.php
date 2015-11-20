@@ -130,6 +130,10 @@ if(!isset($_SERVER['HTTP_X_PJAX'])) {
 	$displayvars['version'] = $ucp->getVersion();
 	$displayvars['iconsdir'] = FreePBX::Config()->get('VIEW_UCP_ICONS_FOLDER');
 	//TODO: needs to not be global
+	$browser = new \Sinergi\BrowserDetector\Browser();
+
+	$ie = 10;
+	$displayvars['shiv'] = ($browser->getName() === \Sinergi\BrowserDetector\Browser::IE && $browser->getVersion() < $ie);
 	$ucp->View->show_view(__DIR__.'/views/header.php',$displayvars);
 }
 

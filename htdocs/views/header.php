@@ -3,9 +3,11 @@
 	<head>
 		<title><?php echo _('User Control Panel')?></title>
 		<meta http-equiv="x-pjax-version" content="<?php echo $version?>">
+		<?php if($shiv) {?>
 		<!--[if lt IE 9]>
 			<script src="assets/js/html5shiv.js"></script>
 		<![endif]-->
+		<?php } ?>
 
 		<link href="assets/css/compiled/main/<?php echo $bootstrapcssless?>" rel="stylesheet" type="text/css">
 		<link href="assets/css/compiled/main/<?php echo $facssless?>" rel="stylesheet" type="text/css">
@@ -39,7 +41,7 @@
 		<link rel="apple-touch-icon" sizes="128x128" href="<?php echo $iconsdir?>/128x128.png">
 
 		<meta name="mobile-web-app-capable" content="yes">
-
+		<?php if($shiv) {?>
 		<!--[if gte IE 9]>
 		  <style type="text/css">
 		    .gradient {
@@ -47,6 +49,7 @@
 		    }
 		  </style>
 		<![endif]-->
+		<?php } ?>
 		<script type="text/javascript" src="assets/js/jquery-1.11.3.min.js"></script>
 		<!-- Display hack for localization on checkbox switches -->
 		<style>
