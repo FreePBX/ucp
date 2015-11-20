@@ -684,8 +684,12 @@ var UCPC = Class.extend({
 		});
 	},
 	addChatMessage: function(id, sender, msgid, message, colorNew) {
-		message = emojione.toImage(htmlEncode(message));
+		var emailre = /([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})/ig,
+				urlre = /((([A-Za-z]{3,9}:(?:\/\/)?)(?:[\-;:&=\+\$,\w]+@)?[A-Za-z0-9\.\-]+|(?:www\.|[\-;:&=\+\$,\w]+@)[A-Za-z0-9\.\-]+)((?:\/[\+~%\/\.\w\-_]*)?\??(?:[\-\+=&;%@\.\w_]*)#?(?:[\.\!\/\\\w]*))?)/ig;
 
+		message = emojione.toImage(htmlEncode(message));
+		message = message.replace(urlre,"<a href='$1' target='_blank'>$1</a>");
+		message = message.replace(emailre,"<a href='mailto:$1@$2.$3' target='_blank'>$1@$2.$3</a>");
 		if ($( "#messages-container .message-box[data-id=\"" + id + "\"]" ).length) {
 			if (!$( "#messages-container .message-box[data-id=\"" + id + "\"]" ).hasClass("expand")) {
 				$( "#messages-container .message-box[data-id=\"" + id + "\"]" ).addClass("expand");
