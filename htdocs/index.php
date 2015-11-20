@@ -236,6 +236,13 @@ switch($display) {
 	break;
 	default:
 		$displayvars['token'] = $ucp->Session->generateToken('login');
+
+		$browser = new \Sinergi\BrowserDetector\Browser();
+
+		$ie = 10;
+		if ($browser->getName() === \Sinergi\BrowserDetector\Browser::IE && $browser->getVersion() < $ie) {
+			$displayvars['error_danger'] = sprintf(_("Internet Explorer %s is not supported. Functionality will be deteriorated until you upgrade to %s or higher"),$browser->getVersion(), $ie);
+		}
 		$ucp->View->show_view(dirname(__FILE__).'/views/login.php',$displayvars);
 	break;
 }
