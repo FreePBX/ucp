@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-11-17 10:23-0800\n"
+"POT-Creation-Date: 2015-11-19 17:40-0800\n"
 "PO-Revision-Date: 2015-08-30 14:46+0200\n"
 "Last-Translator: Vidar Skjelanger <vidar@unimicro.no>\n"
 "Language-Team: Norwegian Bokmål <http://weblate.freepbx.org/projects/freepbx/"
@@ -221,6 +221,13 @@ msgstr ""
 
 #: views/users_hook.php:56 views/users_hook.php:154
 msgid "Inherit"
+msgstr ""
+
+#: htdocs/index.php:244
+#, php-format
+msgid ""
+"Internet Explorer %s is not supported. Functionality will be deteriorated "
+"until you upgrade to %s or higher"
 msgstr ""
 
 #: htdocs/includes/User.class.php:86
