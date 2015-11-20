@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-11-19 17:40-0800\n"
+"POT-Creation-Date: 2015-11-19 17:45-0800\n"
 "PO-Revision-Date: 2015-11-16 00:22+0200\n"
 "Last-Translator: Matthias <it@mitterhuemer.at>\n"
 "Language-Team: German <http://weblate.freepbx.org/projects/freepbx/ucp/de_DE/"
@@ -142,7 +142,7 @@ msgstr "Email"
 msgid "Enable Originating Calls"
 msgstr "Aktiviere ursprüngliche Gespräche"
 
-#: htdocs/index.php:159
+#: htdocs/index.php:163
 msgid "English"
 msgstr "Englisch"
 
@@ -226,7 +226,7 @@ msgstr ""
 msgid "Inherit"
 msgstr "Inherit"
 
-#: htdocs/index.php:244
+#: htdocs/index.php:248
 #, php-format
 msgid ""
 "Internet Explorer %s is not supported. Functionality will be deteriorated "
@@ -246,7 +246,7 @@ msgstr "Ungültiges Gerät"
 msgid "Invalid Login Credentials"
 msgstr "Ungültige Login Zugangsdaten"
 
-#: htdocs/index.php:233
+#: htdocs/index.php:237
 msgid "Invalid Token"
 msgstr "Ungültiger Token"
 
@@ -266,7 +266,7 @@ msgstr "Letzter"
 msgid "Last Name"
 msgstr "Nachname"
 
-#: htdocs/views/header.php:64
+#: htdocs/views/header.php:67
 msgid "Loading"
 msgstr "Laden"
 
@@ -279,7 +279,7 @@ msgstr "Laden..."
 msgid "Login"
 msgstr "Login"
 
-#: htdocs/index.php:220
+#: htdocs/index.php:224
 msgid "Logout"
 msgstr "Logout"
 
@@ -311,11 +311,11 @@ msgstr "Nichts eingegeben"
 msgid "Nothing was Provided!"
 msgstr "Nichts wurde zur Verfügung gestellt!"
 
-#: htdocs/views/header.php:57
+#: htdocs/views/header.php:60
 msgid "OFF"
 msgstr "AUS"
 
-#: htdocs/views/header.php:54
+#: htdocs/views/header.php:57
 msgid "ON"
 msgstr "EIN"
 
@@ -323,7 +323,7 @@ msgstr "EIN"
 msgid "Originate"
 msgstr "Mache"
 
-#: htdocs/index.php:214 htdocs/modules/Home/assets/js/global.js:75
+#: htdocs/index.php:218 htdocs/modules/Home/assets/js/global.js:75
 msgid "Originate Call"
 msgstr "Mache einen Anruf"
 
@@ -414,7 +414,7 @@ msgstr "Senden Sie mir einen Passwort Reset Link"
 msgid "Sent at %s"
 msgstr "Gesendet um %s"
 
-#: htdocs/index.php:220 htdocs/modules/Settings/Settings.class.php:83
+#: htdocs/index.php:224 htdocs/modules/Settings/Settings.class.php:83
 #: htdocs/views/dashboard.php:39 htdocs/assets/js/ucp.js:793
 msgid "Settings"
 msgstr "Einstellungen"
@@ -499,7 +499,7 @@ msgstr ""
 "UCP, bekannt als das User Control Panel, ist die Benutzer Schnittstelle für "
 "FreePBX."
 
-#: htdocs/index.php:185
+#: htdocs/index.php:189
 #, php-format
 msgid "Unknown Module %s"
 msgstr "Unbekanntes Modul %s"

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-11-19 17:40-0800\n"
+"POT-Creation-Date: 2015-11-19 17:45-0800\n"
 "PO-Revision-Date: 2015-11-12 12:42+0200\n"
 "Last-Translator: james <zhulizhong@gmail.com>\n"
 "Language-Team: Simplified Chinese <http://weblate.freepbx.org/projects/"
@@ -138,7 +138,7 @@ msgstr "邮件"
 msgid "Enable Originating Calls"
 msgstr "开启发起呼叫功能"
 
-#: htdocs/index.php:159
+#: htdocs/index.php:163
 msgid "English"
 msgstr "英文"
 
@@ -220,7 +220,7 @@ msgstr ""
 msgid "Inherit"
 msgstr "继承"
 
-#: htdocs/index.php:244
+#: htdocs/index.php:248
 #, php-format
 msgid ""
 "Internet Explorer %s is not supported. Functionality will be deteriorated "
@@ -240,7 +240,7 @@ msgstr ""
 msgid "Invalid Login Credentials"
 msgstr ""
 
-#: htdocs/index.php:233
+#: htdocs/index.php:237
 msgid "Invalid Token"
 msgstr ""
 
@@ -260,7 +260,7 @@ msgstr ""
 msgid "Last Name"
 msgstr ""
 
-#: htdocs/views/header.php:64
+#: htdocs/views/header.php:67
 msgid "Loading"
 msgstr ""
 
@@ -273,7 +273,7 @@ msgstr "装载中。。。"
 msgid "Login"
 msgstr "登录"
 
-#: htdocs/index.php:220
+#: htdocs/index.php:224
 msgid "Logout"
 msgstr "退出"
 
@@ -305,11 +305,11 @@ msgstr ""
 msgid "Nothing was Provided!"
 msgstr ""
 
-#: htdocs/views/header.php:57
+#: htdocs/views/header.php:60
 msgid "OFF"
 msgstr ""
 
-#: htdocs/views/header.php:54
+#: htdocs/views/header.php:57
 msgid "ON"
 msgstr ""
 
@@ -317,7 +317,7 @@ msgstr ""
 msgid "Originate"
 msgstr "发起"
 
-#: htdocs/index.php:214 htdocs/modules/Home/assets/js/global.js:75
+#: htdocs/index.php:218 htdocs/modules/Home/assets/js/global.js:75
 msgid "Originate Call"
 msgstr "发起呼叫"
 
@@ -403,7 +403,7 @@ msgstr ""
 msgid "Sent at %s"
 msgstr ""
 
-#: htdocs/index.php:220 htdocs/modules/Settings/Settings.class.php:83
+#: htdocs/index.php:224 htdocs/modules/Settings/Settings.class.php:83
 #: htdocs/views/dashboard.php:39 htdocs/assets/js/ucp.js:793
 msgid "Settings"
 msgstr "设置"
@@ -477,7 +477,7 @@ msgid ""
 "FreePBX."
 msgstr ""
 
-#: htdocs/index.php:185
+#: htdocs/index.php:189
 #, php-format
 msgid "Unknown Module %s"
 msgstr ""

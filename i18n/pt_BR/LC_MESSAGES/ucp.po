@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-11-19 17:40-0800\n"
+"POT-Creation-Date: 2015-11-19 17:45-0800\n"
 "PO-Revision-Date: 2015-05-02 20:55+0200\n"
 "Last-Translator: Renato <fiuza@tecnologia.inf.br>\n"
 "Language-Team: Portuguese (Brazil) <http://weblate.freepbx.org/projects/"
@@ -140,7 +140,7 @@ msgstr "Email"
 msgid "Enable Originating Calls"
 msgstr ""
 
-#: htdocs/index.php:159
+#: htdocs/index.php:163
 msgid "English"
 msgstr "Inglês"
 
@@ -224,7 +224,7 @@ msgstr ""
 msgid "Inherit"
 msgstr ""
 
-#: htdocs/index.php:244
+#: htdocs/index.php:248
 #, php-format
 msgid ""
 "Internet Explorer %s is not supported. Functionality will be deteriorated "
@@ -244,7 +244,7 @@ msgstr ""
 msgid "Invalid Login Credentials"
 msgstr "Credenciais de login Inválidas"
 
-#: htdocs/index.php:233
+#: htdocs/index.php:237
 msgid "Invalid Token"
 msgstr "Token Inválido"
 
@@ -264,7 +264,7 @@ msgstr "Último"
 msgid "Last Name"
 msgstr "Último Nome"
 
-#: htdocs/views/header.php:64
+#: htdocs/views/header.php:67
 msgid "Loading"
 msgstr "Carregando"
 
@@ -277,7 +277,7 @@ msgstr "Carregando…"
 msgid "Login"
 msgstr "Login"
 
-#: htdocs/index.php:220
+#: htdocs/index.php:224
 msgid "Logout"
 msgstr "Sair"
 
@@ -309,11 +309,11 @@ msgstr ""
 msgid "Nothing was Provided!"
 msgstr "Nada Foi Fornecido!"
 
-#: htdocs/views/header.php:57
+#: htdocs/views/header.php:60
 msgid "OFF"
 msgstr "DESLIGADO"
 
-#: htdocs/views/header.php:54
+#: htdocs/views/header.php:57
 msgid "ON"
 msgstr "LIGADO"
 
@@ -321,7 +321,7 @@ msgstr "LIGADO"
 msgid "Originate"
 msgstr ""
 
-#: htdocs/index.php:214 htdocs/modules/Home/assets/js/global.js:75
+#: htdocs/index.php:218 htdocs/modules/Home/assets/js/global.js:75
 msgid "Originate Call"
 msgstr "Originar Chamada"
 
@@ -412,7 +412,7 @@ msgstr "Envie-me Um Link de Redefinição de Senha"
 msgid "Sent at %s"
 msgstr "Enviado para %s"
 
-#: htdocs/index.php:220 htdocs/modules/Settings/Settings.class.php:83
+#: htdocs/index.php:224 htdocs/modules/Settings/Settings.class.php:83
 #: htdocs/views/dashboard.php:39 htdocs/assets/js/ucp.js:793
 msgid "Settings"
 msgstr "Configurações"
@@ -493,7 +493,7 @@ msgid ""
 "FreePBX."
 msgstr ""
 
-#: htdocs/index.php:185
+#: htdocs/index.php:189
 #, php-format
 msgid "Unknown Module %s"
 msgstr "Módulo Desconhecido %s"

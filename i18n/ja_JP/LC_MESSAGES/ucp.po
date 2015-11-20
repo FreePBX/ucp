@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-11-19 17:40-0800\n"
+"POT-Creation-Date: 2015-11-19 17:45-0800\n"
 "PO-Revision-Date: 2015-10-30 06:23+0200\n"
 "Last-Translator: Kevin <kevin@qloog.com>\n"
 "Language-Team: Japanese <http://weblate.freepbx.org/projects/freepbx/ucp/"
@@ -139,7 +139,7 @@ msgstr "メール"
 msgid "Enable Originating Calls"
 msgstr ""
 
-#: htdocs/index.php:159
+#: htdocs/index.php:163
 msgid "English"
 msgstr "英語"
 
@@ -222,7 +222,7 @@ msgstr "UCPとコンタクトマネージャーで使う表示名"
 msgid "Inherit"
 msgstr "引き継ぐ"
 
-#: htdocs/index.php:244
+#: htdocs/index.php:248
 #, php-format
 msgid ""
 "Internet Explorer %s is not supported. Functionality will be deteriorated "
@@ -242,7 +242,7 @@ msgstr ""
 msgid "Invalid Login Credentials"
 msgstr "ログイン情報が間違っています"
 
-#: htdocs/index.php:233
+#: htdocs/index.php:237
 msgid "Invalid Token"
 msgstr "不正トーケン"
 
@@ -262,7 +262,7 @@ msgstr "性"
 msgid "Last Name"
 msgstr "性"
 
-#: htdocs/views/header.php:64
+#: htdocs/views/header.php:67
 msgid "Loading"
 msgstr "読み込み中"
 
@@ -275,7 +275,7 @@ msgstr "読み込み中..."
 msgid "Login"
 msgstr "ログイン"
 
-#: htdocs/index.php:220
+#: htdocs/index.php:224
 msgid "Logout"
 msgstr "ログアウト"
 
@@ -307,11 +307,11 @@ msgstr ""
 msgid "Nothing was Provided!"
 msgstr "情報は入力されていません！"
 
-#: htdocs/views/header.php:57
+#: htdocs/views/header.php:60
 msgid "OFF"
 msgstr "オフ"
 
-#: htdocs/views/header.php:54
+#: htdocs/views/header.php:57
 msgid "ON"
 msgstr "オン"
 
@@ -319,7 +319,7 @@ msgstr "オン"
 msgid "Originate"
 msgstr ""
 
-#: htdocs/index.php:214 htdocs/modules/Home/assets/js/global.js:75
+#: htdocs/index.php:218 htdocs/modules/Home/assets/js/global.js:75
 msgid "Originate Call"
 msgstr "発信する"
 
@@ -405,7 +405,7 @@ msgstr "パスワードリセットリンクを送信する"
 msgid "Sent at %s"
 msgstr ""
 
-#: htdocs/index.php:220 htdocs/modules/Settings/Settings.class.php:83
+#: htdocs/index.php:224 htdocs/modules/Settings/Settings.class.php:83
 #: htdocs/views/dashboard.php:39 htdocs/assets/js/ucp.js:793
 msgid "Settings"
 msgstr "設定"
@@ -482,7 +482,7 @@ msgid ""
 "FreePBX."
 msgstr ""
 
-#: htdocs/index.php:185
+#: htdocs/index.php:189
 #, php-format
 msgid "Unknown Module %s"
 msgstr "不明モジュール %s"

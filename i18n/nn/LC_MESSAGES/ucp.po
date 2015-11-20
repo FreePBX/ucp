@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-11-19 17:40-0800\n"
+"POT-Creation-Date: 2015-11-19 17:45-0800\n"
 "PO-Revision-Date: 2015-08-31 03:35+0200\n"
 "Last-Translator: Vidar Skjelanger <vidar@unimicro.no>\n"
 "Language-Team: Norwegian Nynorsk <http://weblate.freepbx.org/projects/"
@@ -138,7 +138,7 @@ msgstr "Epost"
 msgid "Enable Originating Calls"
 msgstr ""
 
-#: htdocs/index.php:159
+#: htdocs/index.php:163
 msgid "English"
 msgstr "Engelsk"
 
@@ -222,7 +222,7 @@ msgstr ""
 msgid "Inherit"
 msgstr ""
 
-#: htdocs/index.php:244
+#: htdocs/index.php:248
 #, php-format
 msgid ""
 "Internet Explorer %s is not supported. Functionality will be deteriorated "
@@ -242,7 +242,7 @@ msgstr ""
 msgid "Invalid Login Credentials"
 msgstr "Ugyldig påloggingsinfo"
 
-#: htdocs/index.php:233
+#: htdocs/index.php:237
 msgid "Invalid Token"
 msgstr "Ugyldig token"
 
@@ -262,7 +262,7 @@ msgstr "Siste"
 msgid "Last Name"
 msgstr "Etternamn"
 
-#: htdocs/views/header.php:64
+#: htdocs/views/header.php:67
 msgid "Loading"
 msgstr "Lastar inn"
 
@@ -275,7 +275,7 @@ msgstr "Lastar..."
 msgid "Login"
 msgstr "Brukarnamn"
 
-#: htdocs/index.php:220
+#: htdocs/index.php:224
 msgid "Logout"
 msgstr "Logg ut"
 
@@ -307,11 +307,11 @@ msgstr ""
 msgid "Nothing was Provided!"
 msgstr "Ingenting vart oppgjeve!"
 
-#: htdocs/views/header.php:57
+#: htdocs/views/header.php:60
 msgid "OFF"
 msgstr "AV"
 
-#: htdocs/views/header.php:54
+#: htdocs/views/header.php:57
 msgid "ON"
 msgstr "PÅ"
 
@@ -319,7 +319,7 @@ msgstr "PÅ"
 msgid "Originate"
 msgstr ""
 
-#: htdocs/index.php:214 htdocs/modules/Home/assets/js/global.js:75
+#: htdocs/index.php:218 htdocs/modules/Home/assets/js/global.js:75
 msgid "Originate Call"
 msgstr "Opprett samtale"
 
@@ -409,7 +409,7 @@ msgstr "Send meg ein link for nullstilling av passord"
 msgid "Sent at %s"
 msgstr "Sendt %s"
 
-#: htdocs/index.php:220 htdocs/modules/Settings/Settings.class.php:83
+#: htdocs/index.php:224 htdocs/modules/Settings/Settings.class.php:83
 #: htdocs/views/dashboard.php:39 htdocs/assets/js/ucp.js:793
 msgid "Settings"
 msgstr "Innstillingar"
@@ -485,7 +485,7 @@ msgid ""
 "FreePBX."
 msgstr ""
 
-#: htdocs/index.php:185
+#: htdocs/index.php:189
 #, php-format
 msgid "Unknown Module %s"
 msgstr "Ukjend modul %s"

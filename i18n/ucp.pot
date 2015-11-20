@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-11-19 17:40-0800\n"
+"POT-Creation-Date: 2015-11-19 17:45-0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -140,7 +140,7 @@ msgstr ""
 msgid "Enable Originating Calls"
 msgstr ""
 
-#: htdocs/index.php:159
+#: htdocs/index.php:163
 msgid "English"
 msgstr ""
 
@@ -224,7 +224,7 @@ msgstr ""
 msgid "Inherit"
 msgstr ""
 
-#: htdocs/index.php:244
+#: htdocs/index.php:248
 #, php-format
 msgid ""
 "Internet Explorer %s is not supported. Functionality will be deteriorated "
@@ -244,7 +244,7 @@ msgstr ""
 msgid "Invalid Login Credentials"
 msgstr ""
 
-#: htdocs/index.php:233
+#: htdocs/index.php:237
 msgid "Invalid Token"
 msgstr ""
 
@@ -264,7 +264,7 @@ msgstr ""
 msgid "Last Name"
 msgstr ""
 
-#: htdocs/views/header.php:64
+#: htdocs/views/header.php:67
 msgid "Loading"
 msgstr ""
 
@@ -280,7 +280,7 @@ msgstr ""
 msgid "Login"
 msgstr ""
 
-#: htdocs/index.php:220
+#: htdocs/index.php:224
 msgid "Logout"
 msgstr ""
 
@@ -313,11 +313,11 @@ msgstr ""
 msgid "Nothing was Provided!"
 msgstr ""
 
-#: htdocs/views/header.php:57
+#: htdocs/views/header.php:60
 msgid "OFF"
 msgstr ""
 
-#: htdocs/views/header.php:54
+#: htdocs/views/header.php:57
 msgid "ON"
 msgstr ""
 
@@ -325,7 +325,7 @@ msgstr ""
 msgid "Originate"
 msgstr ""
 
-#: htdocs/index.php:214
+#: htdocs/index.php:218
 #: htdocs/modules/Home/assets/js/global.js:75
 msgid "Originate Call"
 msgstr ""
@@ -417,7 +417,7 @@ msgstr ""
 msgid "Sent at %s"
 msgstr ""
 
-#: htdocs/index.php:220
+#: htdocs/index.php:224
 #: htdocs/modules/Settings/Settings.class.php:83
 #: htdocs/views/dashboard.php:39
 #: htdocs/assets/js/ucp.js:793
@@ -493,7 +493,7 @@ msgid ""
 "FreePBX."
 msgstr ""
 
-#: htdocs/index.php:185
+#: htdocs/index.php:189
 #, php-format
 msgid "Unknown Module %s"
 msgstr ""
