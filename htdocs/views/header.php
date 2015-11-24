@@ -9,8 +9,8 @@
 		<![endif]-->
 		<?php } ?>
 
-		<link href="assets/css/compiled/main/<?php echo $bootstrapcssless?>" rel="stylesheet" type="text/css">
-		<link href="assets/css/compiled/main/<?php echo $facssless?>" rel="stylesheet" type="text/css">
+		<link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+		<link href="assets/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 		<link href="assets/css/compiled/main/<?php echo $sfcssless?>" rel="stylesheet" type="text/css">
 
 		<link href="assets/css/bootstrap-select.min.css" rel="stylesheet" type="text/css">

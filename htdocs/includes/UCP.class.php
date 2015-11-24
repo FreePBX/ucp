@@ -207,10 +207,6 @@ class UCP extends UCP_Helpers {
 
 		$final = array();
 		//Needs to be one unified LESS file along with the module LESS file
-		$btfiles = array();
-		$vars = array("icon-font-path" => '"fonts/"');
-		$btfiles[dirname(__DIR__).'/assets/less/bootstrap/bootstrap.less'] = '../../../';
-		$final['bootstrapcssless'] = \Less_Cache::Get( $btfiles, $options, $vars );
 
 		$ucpfiles = array();
 		$ucpfiles[dirname(__DIR__).'/assets/less/ucp/ucp.less'] = '../../../../';
@@ -218,10 +214,6 @@ class UCP extends UCP_Helpers {
 
 		$ucpfiles = array();
 		$vars = array("fa-font-path" => '"fonts"');
-		$ucpfiles[dirname(__DIR__).'/assets/less/font-awesome/font-awesome.less'] = '../../../';
-		$final['facssless'] = \Less_Cache::Get( $ucpfiles, $options, $vars );
-
-		$ucpfiles = array();
 		$ucpfiles[dirname(__DIR__).'/assets/less/schmooze-font/schmooze-font.less'] = '../../';
 		$final['sfcssless'] = \Less_Cache::Get( $ucpfiles, $options, $vars );
 

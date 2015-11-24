@@ -73,9 +73,7 @@ $displayvars['user'] = $user;
 
 $lesses = $ucp->getLess();
 
-$displayvars['bootstrapcssless'] = $lesses['bootstrapcssless'];
 $displayvars['ucpcssless'] = $lesses['ucpcssless'];
-$displayvars['facssless'] = $lesses['facssless'];
 $displayvars['sfcssless'] = $lesses['sfcssless'];
 
 $displayvars['ucpmoduleless'] = $ucp->Modules->getGlobalLess();
