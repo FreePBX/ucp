@@ -2,7 +2,7 @@
 	<rawname>ucp</rawname>
 	<name>User Control Panel</name>
 	<repo>standard</repo>
-	<version>13.0.15</version>
+	<version>13.0.16</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>AGPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/agpl-3.0.txt</licenselink>
@@ -10,6 +10,7 @@
 		Formerly ARI, now called User Control Panel
 	</description>
 	<changelog>
+		*13.0.16* FREEPBX-10793 500 error when changing password or username
 		*13.0.15* Dont compile less assets that neevr change
 		*13.0.14* Stronger check on IE
 		*13.0.13* Alert when using a substandard browser

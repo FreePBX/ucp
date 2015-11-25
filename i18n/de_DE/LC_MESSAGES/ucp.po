@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-11-19 17:45-0800\n"
+"POT-Creation-Date: 2015-11-25 12:52-0800\n"
 "PO-Revision-Date: 2015-11-16 00:22+0200\n"
 "Last-Translator: Matthias <it@mitterhuemer.at>\n"
 "Language-Team: German <http://weblate.freepbx.org/projects/freepbx/ucp/de_DE/"
@@ -39,11 +39,11 @@ msgstr ""
 msgid " + field + "
 msgstr " + feld + "
 
-#: htdocs/index.php:91
+#: htdocs/index.php:89
 msgid ".htaccess files are disabled on this webserver. Please enable them"
 msgstr ".htaccess sind auf diesem Server deaktiviert. Bitte aktiviere diese"
 
-#: htdocs/index.php:104
+#: htdocs/index.php:102
 msgid ".htaccess files are not supported on this webserver."
 msgstr ".htaccess Dateien werden auf diesem Webserver nicht unterstützt."
 
@@ -90,7 +90,7 @@ msgstr ""
 msgid "Allowed Extension Settings"
 msgstr "Erlaubte Nebenstellen Einstellungen"
 
-#: htdocs/assets/js/ucp.js:958
+#: htdocs/assets/js/ucp.js:962
 msgid "Are you sure you wish to change your username?"
 msgstr "Sind Sie sicher, dass Sie Ihren Benutzernamen ändern möchten?"
 
@@ -106,7 +106,7 @@ msgstr "Mobiltelefon"
 msgid "Company"
 msgstr "Firma"
 
-#: htdocs/assets/js/ucp.js:928
+#: htdocs/assets/js/ucp.js:932
 msgid "Confirm Password"
 msgstr "Passwort bestätigen"
 
@@ -142,7 +142,7 @@ msgstr "Email"
 msgid "Enable Originating Calls"
 msgstr "Aktiviere ursprüngliche Gespräche"
 
-#: htdocs/index.php:163
+#: htdocs/index.php:161
 msgid "English"
 msgstr "Englisch"
 
@@ -208,7 +208,7 @@ msgid "Hold"
 msgstr "Halten"
 
 #: htdocs/modules/Home/Home.class.php:251 htdocs/views/dashboard.php:32
-#: htdocs/assets/js/ucp.js:752
+#: htdocs/assets/js/ucp.js:756
 msgid "Home"
 msgstr "Home"
 
@@ -226,7 +226,7 @@ msgstr ""
 msgid "Inherit"
 msgstr "Inherit"
 
-#: htdocs/index.php:248
+#: htdocs/index.php:246
 #, php-format
 msgid ""
 "Internet Explorer %s is not supported. Functionality will be deteriorated "
@@ -246,7 +246,7 @@ msgstr "Ungültiges Gerät"
 msgid "Invalid Login Credentials"
 msgstr "Ungültige Login Zugangsdaten"
 
-#: htdocs/index.php:237
+#: htdocs/index.php:235
 msgid "Invalid Token"
 msgstr "Ungültiger Token"
 
@@ -279,7 +279,7 @@ msgstr "Laden..."
 msgid "Login"
 msgstr "Login"
 
-#: htdocs/index.php:224
+#: htdocs/index.php:222
 msgid "Logout"
 msgstr "Logout"
 
@@ -323,7 +323,7 @@ msgstr "EIN"
 msgid "Originate"
 msgstr "Mache"
 
-#: htdocs/index.php:218 htdocs/modules/Home/assets/js/global.js:75
+#: htdocs/index.php:216 htdocs/modules/Home/assets/js/global.js:75
 msgid "Originate Call"
 msgstr "Mache einen Anruf"
 
@@ -335,7 +335,7 @@ msgstr "PQRS"
 msgid "Password"
 msgstr "Passwort"
 
-#: htdocs/assets/js/ucp.js:934
+#: htdocs/assets/js/ucp.js:938
 msgid "Password Confirmation Didn't Match!"
 msgstr "Passwörter stimmen nicht überein!"
 
@@ -361,7 +361,7 @@ msgstr "Passwörter geändert!"
 msgid "Passwords do not match"
 msgstr "Passwörter stimmen nicht überein"
 
-#: htdocs/assets/js/ucp.js:928
+#: htdocs/assets/js/ucp.js:932
 msgid "Please Reconfirm Your Password"
 msgstr "Bitte bestätigen Sie ihr Passwort"
 
@@ -386,14 +386,14 @@ msgstr "Login merken"
 msgid "Reset Password"
 msgstr "Passwort zurücksetzen"
 
-#: htdocs/index.php:118
+#: htdocs/index.php:116
 msgid ""
 "SOX is not installed on this server but is required by UCP. Please install it"
 msgstr ""
 "SOX ist auf diesem Server nicht installiert, wird aber von UCP benötigt. "
 "Bitte installieren Sie es"
 
-#: htdocs/index.php:119
+#: htdocs/index.php:117
 msgid ""
 "SOX is required for UCP to be able to do transcoding of playback for browser "
 "playback of files. Without it files will not playback within UCP"
@@ -401,7 +401,7 @@ msgstr ""
 "SOX wird von UCP benötigt für die Transkodierung und Wiedergabe von Audio "
 "Dateien im Browser. Ohne dieser Dateien ist keine Wiedergabe im UCP möglich"
 
-#: htdocs/assets/js/ucp.js:941 htdocs/assets/js/ucp.js:976
+#: htdocs/assets/js/ucp.js:945 htdocs/assets/js/ucp.js:980
 msgid "Saved!"
 msgstr "Gespeichert!"
 
@@ -414,12 +414,12 @@ msgstr "Senden Sie mir einen Passwort Reset Link"
 msgid "Sent at %s"
 msgstr "Gesendet um %s"
 
-#: htdocs/index.php:224 htdocs/modules/Settings/Settings.class.php:83
-#: htdocs/views/dashboard.php:39 htdocs/assets/js/ucp.js:793
+#: htdocs/index.php:222 htdocs/modules/Settings/Settings.class.php:83
+#: htdocs/views/dashboard.php:39 htdocs/assets/js/ucp.js:797
 msgid "Settings"
 msgstr "Einstellungen"
 
-#: htdocs/assets/js/ucp.js:928
+#: htdocs/assets/js/ucp.js:932
 msgid "Submit"
 msgstr "Absenden"
 
@@ -441,7 +441,7 @@ msgid "The username used to login to User Control Panel and other services"
 msgstr ""
 "Der Benutzername für den Login zum User Control Panel und andere Dienste"
 
-#: htdocs/index.php:125
+#: htdocs/index.php:123
 msgid "There was an error trying to load UCP"
 msgstr "Beim Versuch das UCP zu laden ist ein Fehler aufgetreten"
 
@@ -459,7 +459,7 @@ msgstr ""
 msgid "Title"
 msgstr "Titel"
 
-#: htdocs/index.php:92
+#: htdocs/index.php:90
 #, php-format
 msgid ""
 "To protect the integrity of your server, you must allow overrides in your "
@@ -487,7 +487,7 @@ msgid "UCP is currently disabled. Please talk to your system Administrator"
 msgstr ""
 "UCP ist derzeit deaktiviert. Bitte sprechen Sie mit Ihrem Systemadministrator"
 
-#: htdocs/assets/js/ucp.js:900
+#: htdocs/assets/js/ucp.js:904
 msgid "UCP needs to reload, ok?"
 msgstr "UCP muss neu geladen werden, ok?"
 
@@ -499,7 +499,7 @@ msgstr ""
 "UCP, bekannt als das User Control Panel, ist die Benutzer Schnittstelle für "
 "FreePBX."
 
-#: htdocs/index.php:189
+#: htdocs/index.php:187
 #, php-format
 msgid "Unknown Module %s"
 msgstr "Unbekanntes Modul %s"
@@ -535,7 +535,7 @@ msgstr "Benutzer Primäre Nebenstelle"
 msgid "Username"
 msgstr "Benutzername"
 
-#: htdocs/assets/js/ucp.js:961
+#: htdocs/assets/js/ucp.js:965
 msgid "Username has been changed, reloading"
 msgstr "Benutzername wurde geändert, wird neu geladen"
 
@@ -616,7 +616,7 @@ msgstr ""
 msgid "Your reset link is in the mail!"
 msgstr "Ihr Link zum zurücksetzen befindet sich in der Email!"
 
-#: htdocs/index.php:105
+#: htdocs/index.php:103
 #, php-format
 msgid ""
 "htaccess files help protect the integrity of your server. Please make sure "

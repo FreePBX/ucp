@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-11-19 17:45-0800\n"
+"POT-Creation-Date: 2015-11-25 12:52-0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -35,11 +35,11 @@ msgstr ""
 msgid " + field + "
 msgstr ""
 
-#: htdocs/index.php:91
+#: htdocs/index.php:89
 msgid ".htaccess files are disabled on this webserver. Please enable them"
 msgstr ""
 
-#: htdocs/index.php:104
+#: htdocs/index.php:102
 msgid ".htaccess files are not supported on this webserver."
 msgstr ""
 
@@ -82,7 +82,7 @@ msgstr ""
 msgid "Allowed Extension Settings"
 msgstr ""
 
-#: htdocs/assets/js/ucp.js:958
+#: htdocs/assets/js/ucp.js:962
 msgid "Are you sure you wish to change your username?"
 msgstr ""
 
@@ -99,7 +99,7 @@ msgstr ""
 msgid "Company"
 msgstr ""
 
-#: htdocs/assets/js/ucp.js:928
+#: htdocs/assets/js/ucp.js:932
 msgid "Confirm Password"
 msgstr ""
 
@@ -140,7 +140,7 @@ msgstr ""
 msgid "Enable Originating Calls"
 msgstr ""
 
-#: htdocs/index.php:163
+#: htdocs/index.php:161
 msgid "English"
 msgstr ""
 
@@ -206,7 +206,7 @@ msgstr ""
 
 #: htdocs/modules/Home/Home.class.php:251
 #: htdocs/views/dashboard.php:32
-#: htdocs/assets/js/ucp.js:752
+#: htdocs/assets/js/ucp.js:756
 msgid "Home"
 msgstr ""
 
@@ -224,7 +224,7 @@ msgstr ""
 msgid "Inherit"
 msgstr ""
 
-#: htdocs/index.php:248
+#: htdocs/index.php:246
 #, php-format
 msgid ""
 "Internet Explorer %s is not supported. Functionality will be deteriorated "
@@ -244,7 +244,7 @@ msgstr ""
 msgid "Invalid Login Credentials"
 msgstr ""
 
-#: htdocs/index.php:237
+#: htdocs/index.php:235
 msgid "Invalid Token"
 msgstr ""
 
@@ -280,7 +280,7 @@ msgstr ""
 msgid "Login"
 msgstr ""
 
-#: htdocs/index.php:224
+#: htdocs/index.php:222
 msgid "Logout"
 msgstr ""
 
@@ -325,7 +325,7 @@ msgstr ""
 msgid "Originate"
 msgstr ""
 
-#: htdocs/index.php:218
+#: htdocs/index.php:216
 #: htdocs/modules/Home/assets/js/global.js:75
 msgid "Originate Call"
 msgstr ""
@@ -339,7 +339,7 @@ msgstr ""
 msgid "Password"
 msgstr ""
 
-#: htdocs/assets/js/ucp.js:934
+#: htdocs/assets/js/ucp.js:938
 msgid "Password Confirmation Didn't Match!"
 msgstr ""
 
@@ -366,7 +366,7 @@ msgstr ""
 msgid "Passwords do not match"
 msgstr ""
 
-#: htdocs/assets/js/ucp.js:928
+#: htdocs/assets/js/ucp.js:932
 msgid "Please Reconfirm Your Password"
 msgstr ""
 
@@ -392,19 +392,19 @@ msgstr ""
 msgid "Reset Password"
 msgstr ""
 
-#: htdocs/index.php:118
+#: htdocs/index.php:116
 msgid ""
 "SOX is not installed on this server but is required by UCP. Please install it"
 msgstr ""
 
-#: htdocs/index.php:119
+#: htdocs/index.php:117
 msgid ""
 "SOX is required for UCP to be able to do transcoding of playback for browser "
 "playback of files. Without it files will not playback within UCP"
 msgstr ""
 
-#: htdocs/assets/js/ucp.js:941
-#: htdocs/assets/js/ucp.js:976
+#: htdocs/assets/js/ucp.js:945
+#: htdocs/assets/js/ucp.js:980
 msgid "Saved!"
 msgstr ""
 
@@ -417,14 +417,14 @@ msgstr ""
 msgid "Sent at %s"
 msgstr ""
 
-#: htdocs/index.php:224
+#: htdocs/index.php:222
 #: htdocs/modules/Settings/Settings.class.php:83
 #: htdocs/views/dashboard.php:39
-#: htdocs/assets/js/ucp.js:793
+#: htdocs/assets/js/ucp.js:797
 msgid "Settings"
 msgstr ""
 
-#: htdocs/assets/js/ucp.js:928
+#: htdocs/assets/js/ucp.js:932
 msgid "Submit"
 msgstr ""
 
@@ -444,7 +444,7 @@ msgstr ""
 msgid "The username used to login to User Control Panel and other services"
 msgstr ""
 
-#: htdocs/index.php:125
+#: htdocs/index.php:123
 msgid "There was an error trying to load UCP"
 msgstr ""
 
@@ -459,7 +459,7 @@ msgstr ""
 msgid "Title"
 msgstr ""
 
-#: htdocs/index.php:92
+#: htdocs/index.php:90
 #, php-format
 msgid ""
 "To protect the integrity of your server, you must allow overrides in your "
@@ -483,7 +483,7 @@ msgstr ""
 msgid "UCP is currently disabled. Please talk to your system Administrator"
 msgstr ""
 
-#: htdocs/assets/js/ucp.js:900
+#: htdocs/assets/js/ucp.js:904
 msgid "UCP needs to reload, ok?"
 msgstr ""
 
@@ -493,7 +493,7 @@ msgid ""
 "FreePBX."
 msgstr ""
 
-#: htdocs/index.php:189
+#: htdocs/index.php:187
 #, php-format
 msgid "Unknown Module %s"
 msgstr ""
@@ -533,7 +533,7 @@ msgstr ""
 msgid "Username"
 msgstr ""
 
-#: htdocs/assets/js/ucp.js:961
+#: htdocs/assets/js/ucp.js:965
 msgid "Username has been changed, reloading"
 msgstr ""
 
@@ -613,7 +613,7 @@ msgstr ""
 msgid "Your reset link is in the mail!"
 msgstr ""
 
-#: htdocs/index.php:105
+#: htdocs/index.php:103
 #, php-format
 msgid ""
 "htaccess files help protect the integrity of your server. Please make sure "

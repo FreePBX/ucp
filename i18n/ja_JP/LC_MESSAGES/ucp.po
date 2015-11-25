@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-11-19 17:45-0800\n"
+"POT-Creation-Date: 2015-11-25 12:52-0800\n"
 "PO-Revision-Date: 2015-10-30 06:23+0200\n"
 "Last-Translator: Kevin <kevin@qloog.com>\n"
 "Language-Team: Japanese <http://weblate.freepbx.org/projects/freepbx/ucp/"
@@ -39,12 +39,12 @@ msgstr ""
 msgid " + field + "
 msgstr ""
 
-#: htdocs/index.php:91
+#: htdocs/index.php:89
 msgid ".htaccess files are disabled on this webserver. Please enable them"
 msgstr ""
 "このサーバーでは .htaccess ファイルが無効化されています。有効にしてください"
 
-#: htdocs/index.php:104
+#: htdocs/index.php:102
 msgid ".htaccess files are not supported on this webserver."
 msgstr "このサーバーは .htaccess ファイルをサポートしていません。"
 
@@ -87,7 +87,7 @@ msgstr ""
 msgid "Allowed Extension Settings"
 msgstr ""
 
-#: htdocs/assets/js/ucp.js:958
+#: htdocs/assets/js/ucp.js:962
 msgid "Are you sure you wish to change your username?"
 msgstr ""
 
@@ -103,7 +103,7 @@ msgstr "携帯"
 msgid "Company"
 msgstr "会社"
 
-#: htdocs/assets/js/ucp.js:928
+#: htdocs/assets/js/ucp.js:932
 msgid "Confirm Password"
 msgstr ""
 
@@ -139,7 +139,7 @@ msgstr "メール"
 msgid "Enable Originating Calls"
 msgstr ""
 
-#: htdocs/index.php:163
+#: htdocs/index.php:161
 msgid "English"
 msgstr "英語"
 
@@ -205,7 +205,7 @@ msgid "Hold"
 msgstr "保留"
 
 #: htdocs/modules/Home/Home.class.php:251 htdocs/views/dashboard.php:32
-#: htdocs/assets/js/ucp.js:752
+#: htdocs/assets/js/ucp.js:756
 msgid "Home"
 msgstr "ホーム"
 
@@ -222,7 +222,7 @@ msgstr "UCPとコンタクトマネージャーで使う表示名"
 msgid "Inherit"
 msgstr "引き継ぐ"
 
-#: htdocs/index.php:248
+#: htdocs/index.php:246
 #, php-format
 msgid ""
 "Internet Explorer %s is not supported. Functionality will be deteriorated "
@@ -242,7 +242,7 @@ msgstr ""
 msgid "Invalid Login Credentials"
 msgstr "ログイン情報が間違っています"
 
-#: htdocs/index.php:237
+#: htdocs/index.php:235
 msgid "Invalid Token"
 msgstr "不正トーケン"
 
@@ -275,7 +275,7 @@ msgstr "読み込み中..."
 msgid "Login"
 msgstr "ログイン"
 
-#: htdocs/index.php:224
+#: htdocs/index.php:222
 msgid "Logout"
 msgstr "ログアウト"
 
@@ -319,7 +319,7 @@ msgstr "オン"
 msgid "Originate"
 msgstr ""
 
-#: htdocs/index.php:218 htdocs/modules/Home/assets/js/global.js:75
+#: htdocs/index.php:216 htdocs/modules/Home/assets/js/global.js:75
 msgid "Originate Call"
 msgstr "発信する"
 
@@ -331,7 +331,7 @@ msgstr "PQRS"
 msgid "Password"
 msgstr "パスワード"
 
-#: htdocs/assets/js/ucp.js:934
+#: htdocs/assets/js/ucp.js:938
 msgid "Password Confirmation Didn't Match!"
 msgstr "パスワードは一致しません！"
 
@@ -357,7 +357,7 @@ msgstr "パスワードを変更しました！"
 msgid "Passwords do not match"
 msgstr "パスワードが一致しません"
 
-#: htdocs/assets/js/ucp.js:928
+#: htdocs/assets/js/ucp.js:932
 msgid "Please Reconfirm Your Password"
 msgstr ""
 
@@ -381,18 +381,18 @@ msgstr "保存する"
 msgid "Reset Password"
 msgstr "パスワードをリセット"
 
-#: htdocs/index.php:118
+#: htdocs/index.php:116
 msgid ""
 "SOX is not installed on this server but is required by UCP. Please install it"
 msgstr ""
 
-#: htdocs/index.php:119
+#: htdocs/index.php:117
 msgid ""
 "SOX is required for UCP to be able to do transcoding of playback for browser "
 "playback of files. Without it files will not playback within UCP"
 msgstr ""
 
-#: htdocs/assets/js/ucp.js:941 htdocs/assets/js/ucp.js:976
+#: htdocs/assets/js/ucp.js:945 htdocs/assets/js/ucp.js:980
 msgid "Saved!"
 msgstr "保存しました！"
 
@@ -405,12 +405,12 @@ msgstr "パスワードリセットリンクを送信する"
 msgid "Sent at %s"
 msgstr ""
 
-#: htdocs/index.php:224 htdocs/modules/Settings/Settings.class.php:83
-#: htdocs/views/dashboard.php:39 htdocs/assets/js/ucp.js:793
+#: htdocs/index.php:222 htdocs/modules/Settings/Settings.class.php:83
+#: htdocs/views/dashboard.php:39 htdocs/assets/js/ucp.js:797
 msgid "Settings"
 msgstr "設定"
 
-#: htdocs/assets/js/ucp.js:928
+#: htdocs/assets/js/ucp.js:932
 msgid "Submit"
 msgstr "送信"
 
@@ -430,7 +430,7 @@ msgstr "著作権情報の削除は禁止されています"
 msgid "The username used to login to User Control Panel and other services"
 msgstr ""
 
-#: htdocs/index.php:125
+#: htdocs/index.php:123
 msgid "There was an error trying to load UCP"
 msgstr "UCPをロード中にエラーが発生しました"
 
@@ -445,7 +445,7 @@ msgstr ""
 msgid "Title"
 msgstr "肩書"
 
-#: htdocs/index.php:92
+#: htdocs/index.php:90
 #, php-format
 msgid ""
 "To protect the integrity of your server, you must allow overrides in your "
@@ -472,7 +472,7 @@ msgstr "UCPの言語"
 msgid "UCP is currently disabled. Please talk to your system Administrator"
 msgstr "UCPは無効です。システムの管理者にご相談ください"
 
-#: htdocs/assets/js/ucp.js:900
+#: htdocs/assets/js/ucp.js:904
 msgid "UCP needs to reload, ok?"
 msgstr "UCPを再読み込みします。よろしいですか？"
 
@@ -482,7 +482,7 @@ msgid ""
 "FreePBX."
 msgstr ""
 
-#: htdocs/index.php:189
+#: htdocs/index.php:187
 #, php-format
 msgid "Unknown Module %s"
 msgstr "不明モジュール %s"
@@ -520,7 +520,7 @@ msgstr ""
 msgid "Username"
 msgstr "ユーザー名"
 
-#: htdocs/assets/js/ucp.js:961
+#: htdocs/assets/js/ucp.js:965
 msgid "Username has been changed, reloading"
 msgstr ""
 
@@ -601,7 +601,7 @@ msgstr ""
 msgid "Your reset link is in the mail!"
 msgstr "リセットリンクはメールで送信しました！"
 
-#: htdocs/index.php:105
+#: htdocs/index.php:103
 #, php-format
 msgid ""
 "htaccess files help protect the integrity of your server. Please make sure "
