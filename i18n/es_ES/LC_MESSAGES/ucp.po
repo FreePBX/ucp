@@ -299,7 +299,7 @@ msgstr "El Modulo o Comando fue nulo. Revise su código."
 
 #: views/users_hook.php:53 views/users_hook.php:151
 msgid "No"
-msgstr ""
+msgstr "No"
 
 #: htdocs/modules/Home/assets/js/global.js:27
 msgid "Nothing Entered"
@@ -552,7 +552,7 @@ msgstr "teléfono Oficina"
 
 #: views/users_hook.php:51 views/users_hook.php:149
 msgid "Yes"
-msgstr ""
+msgstr "Sí"
 
 #: htdocs/assets/js/ucp.js:437
 msgid "You are currently working in offline mode."
