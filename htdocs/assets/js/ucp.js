@@ -380,6 +380,7 @@ var UCPC = Class.extend({
 					UCP.token = data.token;
 					UCP.wsconnect(namespace, callback);
 				} else {
+					UCP.displayGlobalMessage(sprintf(_("Unable to get a token to use UCP Node Server because: '%s'"),data.message), "red", true);
 					callback(false);
 				}
 			});
@@ -393,15 +394,17 @@ var UCPC = Class.extend({
 					query: "token=" + UCP.token
 				});
 			}catch (err) {
+				UCP.displayGlobalMessage(err, "red", true);
 				callback(false);
 			}
 			socket.on("connect", function() {
 				UCP.lastIO = socket.io;
+				callback(socket);
 			});
 			socket.on("connect_error", function(reason) {
-				//console.error('Unable to connect Socket.IO', reason);
+				UCP.displayGlobalMessage(sprintf(_("Unable to connect UCP Node Server because: '%s'"),reason), "red", true);
+				callback(false);
 			});
-			callback(socket);
 		}
 	},
 	connect: function() {

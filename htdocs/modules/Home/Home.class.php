@@ -59,6 +59,7 @@ class Home extends Modules{
 	}
 
 	public function getHomeWidgets($feed=null) {
+		//return array();
 		$fpbxfeeds = $this->UCP->FreePBX->Config->get('UCPRSSFEEDS');
 		$fpbxfeeds = !empty($fpbxfeeds) ? $fpbxfeeds : $this->UCP->FreePBX->Config->get('RSSFEEDS');
 
