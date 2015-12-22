@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-11-25 12:52-0800\n"
+"POT-Creation-Date: 2015-12-21 18:53-0800\n"
 "PO-Revision-Date: 2015-03-30 14:57-0400\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -82,7 +82,7 @@ msgstr ""
 msgid "Allowed Extension Settings"
 msgstr ""
 
-#: htdocs/assets/js/ucp.js:962
+#: htdocs/assets/js/ucp.js:965
 msgid "Are you sure you wish to change your username?"
 msgstr ""
 
@@ -98,11 +98,11 @@ msgstr ""
 msgid "Company"
 msgstr ""
 
-#: htdocs/assets/js/ucp.js:932
+#: htdocs/assets/js/ucp.js:935
 msgid "Confirm Password"
 msgstr ""
 
-#: htdocs/assets/js/ucp.js:409
+#: htdocs/assets/js/ucp.js:412
 msgid "Connecting...."
 msgstr ""
 
@@ -198,8 +198,8 @@ msgstr ""
 msgid "Hold"
 msgstr ""
 
-#: htdocs/modules/Home/Home.class.php:251 htdocs/views/dashboard.php:32
-#: htdocs/assets/js/ucp.js:756
+#: htdocs/modules/Home/Home.class.php:252 htdocs/views/dashboard.php:32
+#: htdocs/assets/js/ucp.js:759
 msgid "Home"
 msgstr ""
 
@@ -227,8 +227,8 @@ msgstr ""
 msgid "Invalid"
 msgstr ""
 
-#: htdocs/modules/Home/Home.class.php:200
-#: htdocs/modules/Home/Home.class.php:204
+#: htdocs/modules/Home/Home.class.php:201
+#: htdocs/modules/Home/Home.class.php:205
 msgid "Invalid Device"
 msgstr ""
 
@@ -325,7 +325,7 @@ msgstr ""
 msgid "Password"
 msgstr ""
 
-#: htdocs/assets/js/ucp.js:938
+#: htdocs/assets/js/ucp.js:941
 msgid "Password Confirmation Didn't Match!"
 msgstr ""
 
@@ -351,7 +351,7 @@ msgstr ""
 msgid "Passwords do not match"
 msgstr ""
 
-#: htdocs/assets/js/ucp.js:932
+#: htdocs/assets/js/ucp.js:935
 msgid "Please Reconfirm Your Password"
 msgstr ""
 
@@ -386,7 +386,7 @@ msgid ""
 "playback of files. Without it files will not playback within UCP"
 msgstr ""
 
-#: htdocs/assets/js/ucp.js:945 htdocs/assets/js/ucp.js:980
+#: htdocs/assets/js/ucp.js:948 htdocs/assets/js/ucp.js:983
 msgid "Saved!"
 msgstr ""
 
@@ -400,11 +400,11 @@ msgid "Sent at %s"
 msgstr ""
 
 #: htdocs/index.php:222 htdocs/modules/Settings/Settings.class.php:83
-#: htdocs/views/dashboard.php:39 htdocs/assets/js/ucp.js:797
+#: htdocs/views/dashboard.php:39 htdocs/assets/js/ucp.js:800
 msgid "Settings"
 msgstr ""
 
-#: htdocs/assets/js/ucp.js:932
+#: htdocs/assets/js/ucp.js:935
 msgid "Submit"
 msgstr ""
 
@@ -463,7 +463,7 @@ msgstr ""
 msgid "UCP is currently disabled. Please talk to your system Administrator"
 msgstr ""
 
-#: htdocs/assets/js/ucp.js:904
+#: htdocs/assets/js/ucp.js:907
 msgid "UCP needs to reload, ok?"
 msgstr ""
 
@@ -471,6 +471,16 @@ msgstr ""
 msgid ""
 "UCP, otherwise known as the User Control Panel, is a user interface for "
 "FreePBX."
+msgstr ""
+
+#: htdocs/assets/js/ucp.js:405
+#, perl-format
+msgid "Unable to connect UCP Node Server because: '%s'"
+msgstr ""
+
+#: htdocs/assets/js/ucp.js:383
+#, perl-format
+msgid "Unable to get a token to use UCP Node Server because: '%s'"
 msgstr ""
 
 #: htdocs/index.php:187
@@ -509,7 +519,7 @@ msgstr ""
 msgid "Username"
 msgstr ""
 
-#: htdocs/assets/js/ucp.js:965
+#: htdocs/assets/js/ucp.js:968
 msgid "Username has been changed, reloading"
 msgstr ""
 
@@ -534,7 +544,7 @@ msgstr ""
 msgid "Yes"
 msgstr ""
 
-#: htdocs/assets/js/ucp.js:437
+#: htdocs/assets/js/ucp.js:440
 msgid "You are currently working in offline mode."
 msgstr ""
 

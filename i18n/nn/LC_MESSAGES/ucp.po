@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-11-25 12:52-0800\n"
+"POT-Creation-Date: 2015-12-21 18:53-0800\n"
 "PO-Revision-Date: 2015-08-31 03:35+0200\n"
 "Last-Translator: Vidar Skjelanger <vidar@unimicro.no>\n"
 "Language-Team: Norwegian Nynorsk <http://weblate.freepbx.org/projects/"
@@ -86,7 +86,7 @@ msgstr ""
 msgid "Allowed Extension Settings"
 msgstr ""
 
-#: htdocs/assets/js/ucp.js:962
+#: htdocs/assets/js/ucp.js:965
 msgid "Are you sure you wish to change your username?"
 msgstr "Er du sikker på at du ønskjer å endre brukarnamnet ditt?"
 
@@ -102,11 +102,11 @@ msgstr "Mobiltelefon"
 msgid "Company"
 msgstr "Bedrift"
 
-#: htdocs/assets/js/ucp.js:932
+#: htdocs/assets/js/ucp.js:935
 msgid "Confirm Password"
 msgstr "Stadfest passord"
 
-#: htdocs/assets/js/ucp.js:409
+#: htdocs/assets/js/ucp.js:412
 msgid "Connecting...."
 msgstr "Koplar til..."
 
@@ -202,8 +202,8 @@ msgstr "Genererer modulscript..."
 msgid "Hold"
 msgstr "Parker"
 
-#: htdocs/modules/Home/Home.class.php:251 htdocs/views/dashboard.php:32
-#: htdocs/assets/js/ucp.js:756
+#: htdocs/modules/Home/Home.class.php:252 htdocs/views/dashboard.php:32
+#: htdocs/assets/js/ucp.js:759
 msgid "Home"
 msgstr "Heim"
 
@@ -233,8 +233,8 @@ msgstr ""
 msgid "Invalid"
 msgstr "Ugyldig"
 
-#: htdocs/modules/Home/Home.class.php:200
-#: htdocs/modules/Home/Home.class.php:204
+#: htdocs/modules/Home/Home.class.php:201
+#: htdocs/modules/Home/Home.class.php:205
 msgid "Invalid Device"
 msgstr ""
 
@@ -331,7 +331,7 @@ msgstr "PQRS"
 msgid "Password"
 msgstr "Passord"
 
-#: htdocs/assets/js/ucp.js:938
+#: htdocs/assets/js/ucp.js:941
 msgid "Password Confirmation Didn't Match!"
 msgstr "Passordstadfesting stemde ikkje!"
 
@@ -357,7 +357,7 @@ msgstr "Passord endra!"
 msgid "Passwords do not match"
 msgstr "Passorda er ikkje like"
 
-#: htdocs/assets/js/ucp.js:932
+#: htdocs/assets/js/ucp.js:935
 msgid "Please Reconfirm Your Password"
 msgstr "Stadfest ditt passord"
 
@@ -396,7 +396,7 @@ msgstr ""
 "UCP treng SOX for å kunne transkode for å spela av lydfiler i nettlesar. "
 "Utan SOX vil ikkje lydfilar kunne spelast av i UCP"
 
-#: htdocs/assets/js/ucp.js:945 htdocs/assets/js/ucp.js:980
+#: htdocs/assets/js/ucp.js:948 htdocs/assets/js/ucp.js:983
 msgid "Saved!"
 msgstr "Lagra!"
 
@@ -410,11 +410,11 @@ msgid "Sent at %s"
 msgstr "Sendt %s"
 
 #: htdocs/index.php:222 htdocs/modules/Settings/Settings.class.php:83
-#: htdocs/views/dashboard.php:39 htdocs/assets/js/ucp.js:797
+#: htdocs/views/dashboard.php:39 htdocs/assets/js/ucp.js:800
 msgid "Settings"
 msgstr "Innstillingar"
 
-#: htdocs/assets/js/ucp.js:932
+#: htdocs/assets/js/ucp.js:935
 msgid "Submit"
 msgstr "Logg inn"
 
@@ -475,7 +475,7 @@ msgstr "UCP språk"
 msgid "UCP is currently disabled. Please talk to your system Administrator"
 msgstr "UCP er deaktivert akkurat no. Kontakt din systemadministrator"
 
-#: htdocs/assets/js/ucp.js:904
+#: htdocs/assets/js/ucp.js:907
 msgid "UCP needs to reload, ok?"
 msgstr "UCP må lastast på nytt, ok?"
 
@@ -483,6 +483,16 @@ msgstr "UCP må lastast på nytt, ok?"
 msgid ""
 "UCP, otherwise known as the User Control Panel, is a user interface for "
 "FreePBX."
+msgstr ""
+
+#: htdocs/assets/js/ucp.js:405
+#, perl-format
+msgid "Unable to connect UCP Node Server because: '%s'"
+msgstr ""
+
+#: htdocs/assets/js/ucp.js:383
+#, perl-format
+msgid "Unable to get a token to use UCP Node Server because: '%s'"
 msgstr ""
 
 #: htdocs/index.php:187
@@ -521,7 +531,7 @@ msgstr ""
 msgid "Username"
 msgstr "Brukarnamn"
 
-#: htdocs/assets/js/ucp.js:965
+#: htdocs/assets/js/ucp.js:968
 msgid "Username has been changed, reloading"
 msgstr "Brukarnamn har blitt endra, lastar på nytt"
 
@@ -546,7 +556,7 @@ msgstr "Telefon arbeid"
 msgid "Yes"
 msgstr ""
 
-#: htdocs/assets/js/ucp.js:437
+#: htdocs/assets/js/ucp.js:440
 msgid "You are currently working in offline mode."
 msgstr "Du arbeidar no i fråkopla modus."
 
