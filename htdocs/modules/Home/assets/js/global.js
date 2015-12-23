@@ -15,6 +15,54 @@ var HomeC = UCPMC.extend({
 		//$(".masonry-container").packery("destroy");
 		this.packery = false;
 	},
+	contactClickOptions: function(type) {
+		if (type != "number" || !UCP.Modules.Home.staticsettings.enableOriginate) {
+			return false;
+		}
+		return [ { text: _("Originate Call"), function: "contactClickInitiate", type: "phone" } ];
+	},
+	contactClickInitiate: function(did) {
+		var Webrtc = this,
+				sfrom = "",
+				temp = "",
+				name = did,
+				selected = "";
+		if (UCP.validMethod("Contactmanager", "lookup")) {
+			if (typeof UCP.Modules.Contactmanager.lookup(did).displayname !== "undefined") {
+				name = UCP.Modules.Contactmanager.lookup(did).displayname;
+			} else {
+				temp = String(did).length == 11 ? String(did).substring(1) : did;
+				if (typeof UCP.Modules.Contactmanager.lookup(temp).displayname !== "undefined") {
+					name = UCP.Modules.Contactmanager.lookup(temp).displayname;
+				}
+			}
+		}
+		$.each(UCP.Modules.Home.staticsettings.extensions, function(i, v) {
+			sfrom = sfrom + "<option>" + v + "</option>";
+		});
+
+		selected = "<option value=\"" + did + "\" selected>" + name + "</option>";
+			UCP.showDialog(_("Originate Call"),
+			"<label for=\"originateFrom\">From:</label> <select id=\"originateFrom\" class=\"form-control\">" + sfrom + "</select><label for=\"originateTo\">To:</label><select class=\"form-control Tokenize Fill\" id=\"originateTo\" multiple>" + selected + "</select><button class=\"btn btn-default\" id=\"originateCall\" style=\"margin-left: 72px;\">" + _("Originate") + "</button>",
+			200,
+			250,
+			function() {
+				$("#originateTo").tokenize({ maxElements: 1, datas: "index.php?quietmode=1&module=webrtc&command=contacts" });
+				$("#originateCall").click(function() {
+					setTimeout(function() {
+						UCP.Modules.Home.originate();
+					}, 50);
+				});
+				$("#originateTo").keypress(function(event) {
+					if (event.keyCode == 13) {
+						setTimeout(function() {
+							UCP.Modules.Home.originate();
+						}, 50);
+					}
+				});
+			}
+		);
+	},
 	refresh: function(module, id) {
 		$("#"  +  module  +  "-title-"  +  id + " i.fa-refresh").addClass("fa-spin");
 		$.post( "?quietmode=1&module=" + module + "&command=homeRefresh&id=" + id, {}, function( data ) {

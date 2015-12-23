@@ -818,4 +818,13 @@ class Ucp extends \FreePBX_Helpers implements \BMO {
 		$ucp->getScripts(true);
 		out(_("Done"));
 	}
+
+	public function chownFreepbx() {
+		$files = array();
+		$ampwebroot = $this->FreePBX->Config->get("AMPWEBROOT");
+		$files[] = array('type' => 'rdir',
+												'path' => $ampwebroot.'/ucp',
+												'perms' => 0755);
+		return $files;
+	}
 }

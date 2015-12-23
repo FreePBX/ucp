@@ -96,6 +96,9 @@
 			<method callingMethod="sendWelcomeEmail" class="Ucp">usermanSendEmail</method>
 			<method callingMethod="myShowPage" class="Ucp">usermanShowPage</method>
 		</userman>
+		<framework class="Chown" namespace="FreePBX\Console\Command">
+			<method callingMethod="fwcChownFiles" class="Ucp">chownFreepbx</method>
+		</framework>
 	</hooks>
 	<depends>
 		<phpversion>5.3.3</phpversion>
