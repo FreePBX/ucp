@@ -28,7 +28,7 @@ var UCPC = Class.extend({
 	},
 	ready: function() {
 		$(window).resize(function() {UCP.windowResize();});
-		$(document).bind("logIn", function( event ) {UCP.logIn(event);});
+		$(document).bind("logIn", function( event, username, password ) {UCP.logIn(event, username, password);});
 		$(document).bind("logOut", function( event ) {UCP.logOut(event);});
 		$(window).bind("online", function( event ) {UCP.online(event);});
 		$(window).bind("offline", function( event ) {UCP.offline(event);});
@@ -39,7 +39,7 @@ var UCPC = Class.extend({
 		//in then throw the loggedIn trigger
 		if (!$("#login-window").length) {
 			UCP.setupDashboard();
-			$(document).trigger("logIn");
+			$(document).trigger("logIn", [null, null]);
 		} else {
 			UCP.setupLogin();
 		}
@@ -113,7 +113,9 @@ var UCPC = Class.extend({
 		});
 		if ($.support.pjax) {
 			$(document).on("submit", "#frm-login", function(event) {
-				var queryString = $(this).formSerialize();
+				var queryString = $(this).formSerialize(),
+						username = $("input[name=username]").val(),
+						password = $("input[name=password]").val();
 
 				btn.prop("disabled", true);
 				btn.text(_("Processing..."));
@@ -129,7 +131,7 @@ var UCPC = Class.extend({
 						$.pjax.submit(event, "#content-container");
 						$(document).one("pjax:end", function() {
 							UCP.setupDashboard();
-							$(document).trigger("logIn");
+							$(document).trigger("logIn", [username, password]);
 						});
 					}
 				}, "json");
@@ -369,6 +371,7 @@ var UCPC = Class.extend({
 		}
 	},
 	wsconnect: function(namespace, callback) {
+		//console.log(namespace);
 		if (!this.loggedIn || !ucpserver.enabled) {
 			return false;
 		}
@@ -399,6 +402,7 @@ var UCPC = Class.extend({
 			}
 			socket.on("connect", function() {
 				UCP.lastIO = socket.io;
+				UCP.removeGlobalMessage();
 				callback(socket);
 			});
 			socket.on("connect_error", function(reason) {
@@ -407,18 +411,18 @@ var UCPC = Class.extend({
 			});
 		}
 	},
-	connect: function() {
+	connect: function(username, password) {
 		//Interval is in a callback to shortpoll to make sure we are "online"
 		UCP.displayGlobalMessage(_("Connecting...."), "rgba(128, 128, 128, 0.5)", true);
 		UCP.shortpoll(function() {
 			UCP.pollID = setInterval(function() {
 				UCP.shortpoll();
-			}, 5000);
+			},5000);
 			$.each(modules, function( index, module ) {
 				if (typeof window[module] == "object" && typeof window[module].connect == "function") {
-					window[module].connect();
+					window[module].connect(username, password);
 				} else if (UCP.validMethod(module, "connect")) {
-					UCP.Modules[module].connect();
+					UCP.Modules[module].connect(username, password);
 				}
 			});
 			UCP.removeGlobalMessage();
@@ -836,12 +840,12 @@ var UCPC = Class.extend({
 	offline: function(event) {
 		this.disconnect();
 	},
-	logIn: function(event) {
+	logIn: function(event, username, password) {
 		this.activeModule = $.url().param("mod");
 		this.activeModule = (this.activeModule !== undefined) ? UCP.toTitleCase(this.activeModule) : "Home";
 		textdomain(this.activeModule.toLowerCase());
 		this.loggedIn = true;
-		this.connect();
+		this.connect(username, password);
 		if (!Notify.needsPermission() && this.notify === null) {
 			this.notify = true;
 		}
