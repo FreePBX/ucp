@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-12-21 18:53-0800\n"
+"POT-Creation-Date: 2015-12-22 17:36-0800\n"
 "PO-Revision-Date: 2015-08-30 14:46+0200\n"
 "Last-Translator: Vidar Skjelanger <vidar@unimicro.no>\n"
 "Language-Team: Norwegian Bokmål <http://weblate.freepbx.org/projects/freepbx/"
@@ -87,7 +87,7 @@ msgstr ""
 msgid "Allowed Extension Settings"
 msgstr ""
 
-#: htdocs/assets/js/ucp.js:965
+#: htdocs/assets/js/ucp.js:969
 msgid "Are you sure you wish to change your username?"
 msgstr "Er du sikker på at du ønsker å endre brukernavnet ditt?"
 
@@ -103,11 +103,11 @@ msgstr "Mobiltelefon"
 msgid "Company"
 msgstr "Bedrift"
 
-#: htdocs/assets/js/ucp.js:935
+#: htdocs/assets/js/ucp.js:939
 msgid "Confirm Password"
 msgstr "Bekreft passord"
 
-#: htdocs/assets/js/ucp.js:412
+#: htdocs/assets/js/ucp.js:416
 msgid "Connecting...."
 msgstr "Kobler til..."
 
@@ -204,7 +204,7 @@ msgid "Hold"
 msgstr "Parker"
 
 #: htdocs/modules/Home/Home.class.php:252 htdocs/views/dashboard.php:32
-#: htdocs/assets/js/ucp.js:759
+#: htdocs/assets/js/ucp.js:763
 msgid "Home"
 msgstr "Hjem"
 
@@ -272,7 +272,7 @@ msgid "Loading..."
 msgstr "Laster..."
 
 #: htdocs/views/forgot.php:45 htdocs/views/login.php:37
-#: htdocs/assets/js/ucp.js:126 htdocs/assets/js/ucp.js:139
+#: htdocs/assets/js/ucp.js:128 htdocs/assets/js/ucp.js:141
 msgid "Login"
 msgstr "Brukernavn"
 
@@ -332,7 +332,7 @@ msgstr "PQRS"
 msgid "Password"
 msgstr "Passord"
 
-#: htdocs/assets/js/ucp.js:941
+#: htdocs/assets/js/ucp.js:945
 msgid "Password Confirmation Didn't Match!"
 msgstr "Passordbekreftelse stemte ikke!"
 
@@ -358,7 +358,7 @@ msgstr "Passord endret!"
 msgid "Passwords do not match"
 msgstr "Passordene er ikke like"
 
-#: htdocs/assets/js/ucp.js:935
+#: htdocs/assets/js/ucp.js:939
 msgid "Please Reconfirm Your Password"
 msgstr "Vennligst bekreft ditt passord"
 
@@ -366,7 +366,7 @@ msgstr "Vennligst bekreft ditt passord"
 msgid "Please enter either a username or email address"
 msgstr "Vennligst oppgi enten et brukernavn eller en epostadresse"
 
-#: htdocs/assets/js/ucp.js:70 htdocs/assets/js/ucp.js:119
+#: htdocs/assets/js/ucp.js:70 htdocs/assets/js/ucp.js:121
 msgid "Processing..."
 msgstr "Behandler..."
 
@@ -397,7 +397,7 @@ msgstr ""
 "UCP trenger SOX for å kunne transkode for å spille av lydfiler i nettleser. "
 "Uten SOX vil ikke lydfiler kunne spilles av i UCP"
 
-#: htdocs/assets/js/ucp.js:948 htdocs/assets/js/ucp.js:983
+#: htdocs/assets/js/ucp.js:952 htdocs/assets/js/ucp.js:987
 msgid "Saved!"
 msgstr "Lagret!"
 
@@ -411,11 +411,11 @@ msgid "Sent at %s"
 msgstr "Sendt %s"
 
 #: htdocs/index.php:222 htdocs/modules/Settings/Settings.class.php:83
-#: htdocs/views/dashboard.php:39 htdocs/assets/js/ucp.js:800
+#: htdocs/views/dashboard.php:39 htdocs/assets/js/ucp.js:804
 msgid "Settings"
 msgstr "Innstillinger"
 
-#: htdocs/assets/js/ucp.js:935
+#: htdocs/assets/js/ucp.js:939
 msgid "Submit"
 msgstr "Logg inn"
 
@@ -477,7 +477,7 @@ msgid "UCP is currently disabled. Please talk to your system Administrator"
 msgstr ""
 "UCP er for øyeblikket deaktivert. Vennligst kontakt din systemadministrator"
 
-#: htdocs/assets/js/ucp.js:907
+#: htdocs/assets/js/ucp.js:911
 msgid "UCP needs to reload, ok?"
 msgstr "UCP må lastes på nytt, ok?"
 
@@ -487,12 +487,12 @@ msgid ""
 "FreePBX."
 msgstr ""
 
-#: htdocs/assets/js/ucp.js:405
+#: htdocs/assets/js/ucp.js:409
 #, perl-format
 msgid "Unable to connect UCP Node Server because: '%s'"
 msgstr ""
 
-#: htdocs/assets/js/ucp.js:383
+#: htdocs/assets/js/ucp.js:386
 #, perl-format
 msgid "Unable to get a token to use UCP Node Server because: '%s'"
 msgstr ""
@@ -533,7 +533,7 @@ msgstr ""
 msgid "Username"
 msgstr "Brukernavn"
 
-#: htdocs/assets/js/ucp.js:968
+#: htdocs/assets/js/ucp.js:972
 msgid "Username has been changed, reloading"
 msgstr "Brukernavn har blitt endret, laster på nytt"
 
@@ -558,11 +558,11 @@ msgstr "Telefon arbeid"
 msgid "Yes"
 msgstr ""
 
-#: htdocs/assets/js/ucp.js:440
+#: htdocs/assets/js/ucp.js:444
 msgid "You are currently working in offline mode."
 msgstr "Du arbeider nå i frakoblet modus."
 
-#: htdocs/assets/js/ucp.js:144
+#: htdocs/assets/js/ucp.js:146
 msgid "Your Browser is unsupported at this time."
 msgstr "Din nettleser er ikke støttet på nåværende tidspunkt."
 
@@ -602,7 +602,7 @@ msgstr "Din tittel"
 msgid "Your Work Number"
 msgstr "Ditt telefonnummer (arbeid)"
 
-#: htdocs/assets/js/ucp.js:146
+#: htdocs/assets/js/ucp.js:148
 msgid ""
 "Your browser is unsupported at this time. Please upgrade or talk to your "
 "system administrator"
