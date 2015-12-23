@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-12-22 17:36-0800\n"
+"POT-Creation-Date: 2015-12-23 10:03-0800\n"
 "PO-Revision-Date: 2015-08-30 14:46+0200\n"
 "Last-Translator: Vidar Skjelanger <vidar@unimicro.no>\n"
 "Language-Team: Norwegian Bokmål <http://weblate.freepbx.org/projects/freepbx/"
@@ -300,7 +300,7 @@ msgstr "Modul eller kommando var null. Sjekk koden din."
 msgid "No"
 msgstr ""
 
-#: htdocs/modules/Home/assets/js/global.js:27
+#: htdocs/modules/Home/assets/js/global.js:75
 msgid "Nothing Entered"
 msgstr ""
 
@@ -316,11 +316,14 @@ msgstr "AV"
 msgid "ON"
 msgstr "PÅ"
 
-#: htdocs/modules/Home/assets/js/global.js:76
+#: htdocs/modules/Home/assets/js/global.js:46
+#: htdocs/modules/Home/assets/js/global.js:124
 msgid "Originate"
 msgstr ""
 
-#: htdocs/index.php:216 htdocs/modules/Home/assets/js/global.js:75
+#: htdocs/index.php:216 htdocs/modules/Home/assets/js/global.js:22
+#: htdocs/modules/Home/assets/js/global.js:45
+#: htdocs/modules/Home/assets/js/global.js:123
 msgid "Originate Call"
 msgstr "Opprett samtale"
 
