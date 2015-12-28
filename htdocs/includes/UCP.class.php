@@ -114,7 +114,8 @@ class UCP extends UCP_Helpers {
 		$enabled = is_bool($enabled) || is_int($enabled) ? $enabled : true;
 		$port = $this->FreePBX->Config->get('NODEJSBINDPORT');
 		$port = !empty($port) ? $port : 8001;
-		return array("enabled" => $enabled, "port" => $port, "host" => $_SERVER['HTTP_HOST']);
+		$serverparts = explode($_SERVER['HTTP_HOST'], ":"); //strip off port because we define it
+		return array("enabled" => $enabled, "port" => $port, "host" => $serverparts[0]);
 	}
 
 	/**
