@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-12-23 10:03-0800\n"
+"POT-Creation-Date: 2016-01-08 18:29-0800\n"
 "PO-Revision-Date: 2015-08-30 14:46+0200\n"
 "Last-Translator: Vidar Skjelanger <vidar@unimicro.no>\n"
 "Language-Team: Norwegian Bokmål <http://weblate.freepbx.org/projects/freepbx/"
@@ -148,8 +148,9 @@ msgid "Excuse us while we try to retrieve your content"
 msgstr "Vennligst vent mens ditt innhold blir hentet"
 
 #: install.inc.php:20
-msgid "Failed to install "
-msgstr "Feil ved installasjon "
+#, php-format
+msgid "Failed to install %s due to the following conflicting module(s): %s"
+msgstr ""
 
 #: htdocs/views/settings.php:67
 msgid "Fax"
@@ -630,6 +631,9 @@ msgstr ""
 #: htdocs/views/login.php:24
 msgid "or"
 msgstr "eller"
+
+#~ msgid "Failed to install "
+#~ msgstr "Feil ved installasjon "
 
 #~ msgid "Allowed Settings"
 #~ msgstr "Tillatte Innstillinger"

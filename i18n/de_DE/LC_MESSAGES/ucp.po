@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-12-23 10:03-0800\n"
+"POT-Creation-Date: 2016-01-08 18:29-0800\n"
 "PO-Revision-Date: 2015-11-16 00:22+0200\n"
 "Last-Translator: Matthias <it@mitterhuemer.at>\n"
 "Language-Team: German <http://weblate.freepbx.org/projects/freepbx/ucp/de_DE/"
@@ -152,8 +152,9 @@ msgstr ""
 "Bitte warten Sie eine Weile, während wir versuchen, Ihre Inhalte abzurufen"
 
 #: install.inc.php:20
-msgid "Failed to install "
-msgstr "Fehler bei der Installation "
+#, php-format
+msgid "Failed to install %s due to the following conflicting module(s): %s"
+msgstr ""
 
 #: htdocs/views/settings.php:67
 msgid "Fax"
@@ -643,3 +644,6 @@ msgstr ""
 #: htdocs/views/login.php:24
 msgid "or"
 msgstr "oder"
+
+#~ msgid "Failed to install "
+#~ msgstr "Fehler bei der Installation "

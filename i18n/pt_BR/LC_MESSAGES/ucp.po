@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-12-23 10:03-0800\n"
+"POT-Creation-Date: 2016-01-08 18:29-0800\n"
 "PO-Revision-Date: 2015-05-02 20:55+0200\n"
 "Last-Translator: Renato <fiuza@tecnologia.inf.br>\n"
 "Language-Team: Portuguese (Brazil) <http://weblate.freepbx.org/projects/"
@@ -149,8 +149,9 @@ msgid "Excuse us while we try to retrieve your content"
 msgstr "Desculpe-nos enquanto tentamos recuperar seu conteúdo"
 
 #: install.inc.php:20
-msgid "Failed to install "
-msgstr "Falha ao instalar "
+#, php-format
+msgid "Failed to install %s due to the following conflicting module(s): %s"
+msgstr ""
 
 #: htdocs/views/settings.php:67
 msgid "Fax"
@@ -637,6 +638,9 @@ msgstr ""
 #: htdocs/views/login.php:24
 msgid "or"
 msgstr "ou"
+
+#~ msgid "Failed to install "
+#~ msgstr "Falha ao instalar "
 
 #~ msgid "Allowed Settings"
 #~ msgstr "Configurações Permitidas"
