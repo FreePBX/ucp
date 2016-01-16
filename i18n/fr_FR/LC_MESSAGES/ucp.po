@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-01-08 18:29-0800\n"
-"PO-Revision-Date: 2016-01-16 06:24+0200\n"
+"PO-Revision-Date: 2016-01-16 07:12+0200\n"
 "Last-Translator: Nicolas <forums@riendeau.org>\n"
 "Language-Team: French "
 "<http://weblate.freepbx.org/projects/freepbx/ucp/fr_FR/>\n"
@@ -238,6 +238,9 @@ msgid ""
 "Internet Explorer %s is not supported. Functionality will be deteriorated "
 "until you upgrade to %s or higher"
 msgstr ""
+"Internet Explorer %s n'est pas supporté.  La fonctionnalité sera donc "
+"dégradée jusqu'à ce que vous le mettiez à jour pour la version %s ou plus "
+"récente"
 
 #: htdocs/includes/User.class.php:86
 msgid "Invalid"
@@ -246,7 +249,7 @@ msgstr "Invalide"
 #: htdocs/modules/Home/Home.class.php:201
 #: htdocs/modules/Home/Home.class.php:205
 msgid "Invalid Device"
-msgstr ""
+msgstr "Dispositif invalide"
 
 #: htdocs/includes/User.class.php:94
 msgid "Invalid Login Credentials"
@@ -282,7 +285,6 @@ msgstr "Chargement..."
 
 #: htdocs/views/forgot.php:45 htdocs/views/login.php:37
 #: htdocs/assets/js/ucp.js:128 htdocs/assets/js/ucp.js:141
-#, fuzzy
 msgid "Login"
 msgstr "Se connecter"
 
@@ -296,11 +298,11 @@ msgstr "MNO"
 
 #: views/users_hook.php:65
 msgid "May this user log in to UCP"
-msgstr ""
+msgstr "Cet usager peut-il se logger dans UCP"
 
 #: views/users_hook.php:24
 msgid "Miscellaneous"
-msgstr ""
+msgstr "Divers"
 
 #: htdocs/includes/Ajax.class.php:136
 msgid "Module or Command were null. Check your code."
@@ -312,7 +314,7 @@ msgstr "Non"
 
 #: htdocs/modules/Home/assets/js/global.js:75
 msgid "Nothing Entered"
-msgstr ""
+msgstr "Rien n'a été saisi"
 
 #: htdocs/includes/User.class.php:74
 msgid "Nothing was Provided!"
@@ -329,7 +331,7 @@ msgstr "Oui"
 #: htdocs/modules/Home/assets/js/global.js:46
 #: htdocs/modules/Home/assets/js/global.js:124
 msgid "Originate"
-msgstr ""
+msgstr "Placer un appel"
 
 #: htdocs/index.php:216 htdocs/modules/Home/assets/js/global.js:22
 #: htdocs/modules/Home/assets/js/global.js:45
@@ -517,6 +519,8 @@ msgstr ""
 #, perl-format
 msgid "Unable to get a token to use UCP Node Server because: '%s'"
 msgstr ""
+"Impossible d'obtenir un jeton pour utiliser le serveur de noeud UCP. Cause : "
+"'%s'"
 
 #: htdocs/index.php:187
 #, php-format
@@ -548,7 +552,7 @@ msgstr "Panneau utilisateur"
 
 #: Ucp.class.php:53 /usr/src/freepbx/ucp/Ucp.class.php:81
 msgid "User Primary Extension"
-msgstr ""
+msgstr "Poste primaire de l'utilisateur"
 
 #: htdocs/views/login.php:15 htdocs/views/settings.php:8
 msgid "Username"
@@ -569,7 +573,7 @@ msgstr "Bienvenue %s"
 
 #: views/users_hook.php:4
 msgid "What is UCP"
-msgstr ""
+msgstr "Qu'est-ce que UCP"
 
 #: htdocs/views/settings.php:57
 msgid "Work Phone"
@@ -577,7 +581,7 @@ msgstr "Numéro de téléphone au travail"
 
 #: views/users_hook.php:51 views/users_hook.php:149
 msgid "Yes"
-msgstr ""
+msgstr "Oui"
 
 #: htdocs/assets/js/ucp.js:444
 msgid "You are currently working in offline mode."
