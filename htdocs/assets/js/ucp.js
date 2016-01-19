@@ -931,38 +931,43 @@ var UCPC = Class.extend({
 				});
 			}
 		});
-		$("#ucp-settings input[type!=\"checkbox\"]").change(function() {
-			var password = $(this).val();
-			$(this).blur(function() {
-				$(this).off("blur");
-				if ($(this).prop("type") == "password") {
-					UCP.showDialog(_("Confirm Password"), "<label for='ucppass' class='control-label'>" + _('Please Reconfirm Your Password') + "</label><input type='password' class='form-control' id='ucppass'></input><button id='passsub' class='btn btn-default'>" + _('Submit') + "</button>");
-					$("#passsub").click(function() {
-						if ($("#ucppass").val() !== "") {
-							var np = $("#ucppass").val();
-							if (np != password) {
-								$("#message").addClass("alert-danger");
-								$("#message").text(_("Password Confirmation Didn't Match!"));
-								$("#message").fadeIn( "fast" );
-							} else {
-								UCP.closeDialog();
-								$.post( "?quietmode=1&command=ucpsettings", { key: "password", value: $("#ucppass").val() }, function( data ) {
-									if (data.status) {
-										$("#message").addClass("alert-success");
-										$("#message").text(_("Saved!"));
-										$("#message").fadeIn( "slow", function() {
-											setTimeout(function() { $("#message").fadeOut("slow"); }, 2000);
-										});
-									} else {
-										$("#message").addClass("alert-danger");
-										$("#message").text(data.message);
-									}
-								});
-							}
+		$("#update-pwd").click(function(e) {
+			e.preventDefault();
+			e.stopPropagation();
+			var password = $("#pwd").val(), confirm = $("#pwd-confirm").val();
+			if (password !== "" && password != "******" && confirm !== "") {
+				if (confirm != password) {
+					$("#message").addClass("alert-danger");
+					$("#message").text(_("Password Confirmation Didn't Match!"));
+					$("#message").fadeIn( "fast" );
+				} else {
+					$.post( "?quietmode=1&command=ucpsettings", { key: "password", value: confirm }, function( data ) {
+						if (data.status) {
+							$("#message").addClass("alert-success");
+							$("#message").text(_("Saved!"));
+							$("#message").fadeIn( "slow", function() {
+								setTimeout(function() { $("#message").fadeOut("slow"); }, 2000);
+							});
+						} else {
+							$("#message").addClass("alert-danger");
+							$("#message").text(data.message);
 						}
 					});
-					return 0;
-				} else if($(this).prop("name") == "username") {
+				}
+			} else {
+				$("#message").addClass("alert-danger");
+				$("#message").text(_("Password has not changed!"));
+				$("#message").fadeIn( "fast" );
+			}
+		});
+		$("#ucp-settings input[type!=\"checkbox\"]").change(function() {
+			var password = $(this).val();
+			if ($(this).prop("type") == "password") {
+				return;
+			}
+			$(this).blur(function() {
+				$(this).off("blur");
+				if($(this).prop("name") == "username") {
 					if($(this).val() != $(this).data("prevusername")) {
 						//do ajax
 						if($(this).parents(".form-group").hasClass("has-success")) {

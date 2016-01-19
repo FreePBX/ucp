@@ -2,6 +2,7 @@
 	<h3><?php echo _('User Control Panel Settings')?></h3>
 	<div class="vmsettings">
 		<div id="message" class="alert" style="display:none;"></div>
+		<div class="alert alert-info text-center"><?php echo _("All fields update when unfocused (selecting another field) except password")?></div>
 		<form role="form">
 			<?php if($changeusername) {?>
 				<div class="form-group">
@@ -11,11 +12,20 @@
 				</div>
 			<?php }?>
 			<?php if($changepassword) {?>
-				<div class="form-group">
-					<label for="pwd" class="help"><?php echo _('Password')?> <i class="fa fa-question-circle"></i></label>
-					<input name="pwd" type="password" class="form-control" id="pwd" value="******" autocapitalize="off" autocorrect="off" autocomplete="off">
-					<span class="help-block help-hidden" data-for="pwd"><?php echo _('The password used to login to User Control Panel and other services')?></span>
-				</div>
+				<fieldset class="password-set">
+					<legend>Password</legend>
+					<div class="form-group">
+						<label for="pwd" class="help"><?php echo _('Password')?> <i class="fa fa-question-circle"></i></label>
+						<input name="pwd" type="password" class="form-control" id="pwd" value="******" autocapitalize="off" autocorrect="off" autocomplete="off">
+						<span class="help-block help-hidden" data-for="pwd"><?php echo _('The password used to login to User Control Panel and other services')?></span>
+					</div>
+					<div class="form-group">
+						<label for="pwd-confirm" class="help"><?php echo _('Confirm Password')?> <i class="fa fa-question-circle"></i></label>
+						<input name="pwd-confirm" type="password" class="form-control" id="pwd-confirm" value="******" autocapitalize="off" autocorrect="off" autocomplete="off">
+						<span class="help-block help-hidden" data-for="pwd-confirm"><?php echo _('The password used to login to User Control Panel and other services')?></span>
+					</div>
+					<button class="btn btn-default" id="update-pwd"><?php echo _("Update Password")?></button>
+				</fieldset>
 			<?php }?>
 			<?php if($changedetails) {?>
 				<div class="form-group">
