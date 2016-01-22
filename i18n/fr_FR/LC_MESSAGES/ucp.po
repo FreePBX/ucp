@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-01-08 18:29-0800\n"
-"PO-Revision-Date: 2016-01-17 06:05+0200\n"
+"PO-Revision-Date: 2016-01-22 08:33+0200\n"
 "Last-Translator: Nicolas <forums@riendeau.org>\n"
 "Language-Team: French "
 "<http://weblate.freepbx.org/projects/freepbx/ucp/fr_FR/>\n"
@@ -132,7 +132,7 @@ msgstr "Session de l'utilisateur supprimée"
 
 #: htdocs/views/settings.php:22
 msgid "Display Name"
-msgstr "Nom"
+msgstr "Nom affiché"
 
 #: Ucp.class.php:807 Ucp.class.php:811 Ucp.class.php:815 Ucp.class.php:819
 msgid "Done"
@@ -215,7 +215,7 @@ msgstr "Attente"
 #: htdocs/modules/Home/Home.class.php:252 htdocs/views/dashboard.php:32
 #: htdocs/assets/js/ucp.js:763
 msgid "Home"
-msgstr "Accueil"
+msgstr "Acceuil"
 
 #: htdocs/views/settings.php:62
 msgid "Home Phone"
@@ -337,7 +337,7 @@ msgstr "Placer un appel"
 #: htdocs/modules/Home/assets/js/global.js:45
 #: htdocs/modules/Home/assets/js/global.js:123
 msgid "Originate Call"
-msgstr "Faire un appel"
+msgstr "Placer un appel"
 
 #: htdocs/views/templates/phone.php:65
 msgid "PQRS"
