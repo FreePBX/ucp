@@ -10,8 +10,8 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-01-08 18:29-0800\n"
-"PO-Revision-Date: 2016-01-23 05:58+0200\n"
-"Last-Translator: Nicolas <forums@riendeau.org>\n"
+"PO-Revision-Date: 2016-02-04 22:51+0200\n"
+"Last-Translator: Nicolas Riendeau <freepbx@riendeau.org>\n"
 "Language-Team: French "
 "<http://weblate.freepbx.org/projects/freepbx/ucp/fr_FR/>\n"
 "Language: fr_FR\n"
@@ -265,7 +265,7 @@ msgstr "JKL"
 
 #: htdocs/views/settings.php:73
 msgid "Language"
-msgstr "Langage"
+msgstr "Langue"
 
 #: htdocs/views/templates/pagnation.php:20
 msgid "Last"
