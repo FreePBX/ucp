@@ -10,8 +10,8 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-01-08 18:29-0800\n"
-"PO-Revision-Date: 2016-01-20 05:28+0200\n"
-"Last-Translator: Ernesto <ecasas@sangoma.com>\n"
+"PO-Revision-Date: 2016-02-07 01:41+0200\n"
+"Last-Translator: Andrew <andrew.nagy@the159.com>\n"
 "Language-Team: English (United States) "
 "<http://weblate.freepbx.org/projects/freepbx/ucp/en_US/>\n"
 "Language: en_US\n"
@@ -296,7 +296,7 @@ msgstr ""
 
 #: views/users_hook.php:53 views/users_hook.php:151
 msgid "No"
-msgstr "No"
+msgstr ""
 
 #: htdocs/modules/Home/assets/js/global.js:75
 msgid "Nothing Entered"
@@ -550,7 +550,7 @@ msgstr ""
 
 #: views/users_hook.php:51 views/users_hook.php:149
 msgid "Yes"
-msgstr "Si"
+msgstr ""
 
 #: htdocs/assets/js/ucp.js:444
 msgid "You are currently working in offline mode."
