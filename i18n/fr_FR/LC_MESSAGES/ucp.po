@@ -9,15 +9,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-01-08 18:29-0800\n"
+"POT-Creation-Date: 2016-02-10 13:23-0800\n"
 "PO-Revision-Date: 2016-02-05 11:16+0200\n"
 "Last-Translator: Nicolas Riendeau <freepbx@riendeau.org>\n"
-"Language-Team: French "
-"<http://weblate.freepbx.org/projects/freepbx/ucp/fr_FR/>\n"
-"Language: fr_FR\n"
+"Language-Team: French <http://weblate.freepbx.org/projects/freepbx/ucp/fr_FR/"
+">\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: fr_FR\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
 "X-Generator: Weblate 2.2-dev\n"
 
@@ -68,7 +68,12 @@ msgstr "Sessions actives"
 msgid "Admin"
 msgstr "Admin"
 
-#: htdocs/views/settings.php:82
+#: htdocs/views/settings.php:5
+msgid ""
+"All fields update when unfocused (selecting another field) except password"
+msgstr ""
+
+#: htdocs/views/settings.php:92
 msgid "Allow Desktop Notifications"
 msgstr "Autoriser les notifications sur le bureau"
 
@@ -76,7 +81,15 @@ msgstr "Autoriser les notifications sur le bureau"
 msgid "Allow Login"
 msgstr "Permettre la connexion"
 
-#: htdocs/views/settings.php:90
+#: ucp.i18n.php:14
+msgid "Allow Password Changes"
+msgstr "Allouer la modification du mot de passe"
+
+#: ucp.i18n.php:20
+msgid "Allow Username Changes"
+msgstr "Allouer la modification du nom d'utilisateur"
+
+#: htdocs/views/settings.php:100
 msgid "Allow browser desktop notifications from UCP modules."
 msgstr ""
 "Autoriser les notifications sur le bureau du navigateur provenant des "
@@ -90,11 +103,19 @@ msgstr ""
 "Permettre à cet utilisateur de placer un appel à partir d'UCP. Il ne sagit "
 "pas de la même chose que WebRTC"
 
+#: ucp.i18n.php:18
+msgid "Allow users to change thier password in UCP"
+msgstr "Permettre aux utilisateurs de modifier leur mot de passe dans UCP"
+
+#: ucp.i18n.php:24
+msgid "Allow users to change thier username in UCP"
+msgstr "Permettre aux utilisateurs de modifier leur nom d'usager dans UCP"
+
 #: views/users_hook.php:118
 msgid "Allowed Extension Settings"
 msgstr "Réglages de poste permis"
 
-#: htdocs/assets/js/ucp.js:969
+#: htdocs/assets/js/ucp.js:974
 msgid "Are you sure you wish to change your username?"
 msgstr "Êtes-vous sûr de vouloir changer votre nom d'utilisateur ?"
 
@@ -102,15 +123,15 @@ msgstr "Êtes-vous sûr de vouloir changer votre nom d'utilisateur ?"
 msgid "Call"
 msgstr "Appel"
 
-#: htdocs/views/settings.php:52
+#: htdocs/views/settings.php:62
 msgid "Cell Phone"
 msgstr "Téléphone cellulaire"
 
-#: htdocs/views/settings.php:47
+#: htdocs/views/settings.php:57
 msgid "Company"
 msgstr "Compagnie"
 
-#: htdocs/assets/js/ucp.js:939
+#: htdocs/views/settings.php:23
 msgid "Confirm Password"
 msgstr "Confirmer le mot de passe"
 
@@ -130,7 +151,7 @@ msgstr "Session supprimée"
 msgid "Deleted User Session"
 msgstr "Session de l'utilisateur supprimée"
 
-#: htdocs/views/settings.php:22
+#: htdocs/views/settings.php:32
 msgid "Display Name"
 msgstr "Nom affiché"
 
@@ -138,7 +159,7 @@ msgstr "Nom affiché"
 msgid "Done"
 msgstr "Terminé"
 
-#: htdocs/views/login.php:29 htdocs/views/settings.php:27
+#: htdocs/views/login.php:29 htdocs/views/settings.php:37
 msgid "Email"
 msgstr "Courriel"
 
@@ -160,7 +181,7 @@ msgid "Failed to install %s due to the following conflicting module(s): %s"
 msgstr ""
 "Échec lors de l'installation de %s due à un conflit avec le(s) module(s): %s"
 
-#: htdocs/views/settings.php:67
+#: htdocs/views/settings.php:77
 msgid "Fax"
 msgstr "Télécopieur"
 
@@ -168,7 +189,7 @@ msgstr "Télécopieur"
 msgid "First"
 msgstr "Premier"
 
-#: htdocs/views/settings.php:32
+#: htdocs/views/settings.php:42
 msgid "First Name"
 msgstr "Prénom"
 
@@ -217,11 +238,11 @@ msgstr "Attente"
 msgid "Home"
 msgstr "Acceuil"
 
-#: htdocs/views/settings.php:62
+#: htdocs/views/settings.php:72
 msgid "Home Phone"
 msgstr "Numéro à la maison"
 
-#: htdocs/views/settings.php:24
+#: htdocs/views/settings.php:34
 msgid ""
 "How you would like your name displayed throughout UCP and Contact Manager"
 msgstr ""
@@ -263,7 +284,7 @@ msgstr "Jeton invalide"
 msgid "JKL"
 msgstr "JKL"
 
-#: htdocs/views/settings.php:73
+#: htdocs/views/settings.php:83
 msgid "Language"
 msgstr "Langue"
 
@@ -271,7 +292,7 @@ msgstr "Langue"
 msgid "Last"
 msgstr "Dernier"
 
-#: htdocs/views/settings.php:37
+#: htdocs/views/settings.php:47
 msgid "Last Name"
 msgstr "Nom"
 
@@ -343,11 +364,11 @@ msgstr "Placer un appel"
 msgid "PQRS"
 msgstr "PQRS"
 
-#: htdocs/views/login.php:20 htdocs/views/settings.php:15
+#: htdocs/views/login.php:20 htdocs/views/settings.php:18
 msgid "Password"
 msgstr "Mot de passe"
 
-#: htdocs/assets/js/ucp.js:945
+#: htdocs/assets/js/ucp.js:941
 msgid "Password Confirmation Didn't Match!"
 msgstr "Le mot de passe de confirmation ne correspond pas !"
 
@@ -361,6 +382,10 @@ msgstr "Lien pour réinitialiser le mot de passe (Valide jusqu'au:%s): %s"
 msgid "Password Reset for: %s"
 msgstr "Réinitialiser le mot de passe pour: %s"
 
+#: htdocs/assets/js/ucp.js:959
+msgid "Password has not changed!"
+msgstr ""
+
 #: htdocs/assets/js/ucp.js:97
 msgid "Passwords can't be blank!"
 msgstr "Le mot de passe ne peut pas être vide !"
@@ -373,10 +398,6 @@ msgstr "Mot de passe modifié !"
 msgid "Passwords do not match"
 msgstr "Les mots de passe ne correspondent pas"
 
-#: htdocs/assets/js/ucp.js:939
-msgid "Please Reconfirm Your Password"
-msgstr "Veuillez confirmer votre mot de passe"
-
 #: htdocs/assets/js/ucp.js:72
 msgid "Please enter either a username or email address"
 msgstr "Veuillez entrer un nom d'utilisateur ou une adresse courriel"
@@ -384,6 +405,14 @@ msgstr "Veuillez entrer un nom d'utilisateur ou une adresse courriel"
 #: htdocs/assets/js/ucp.js:70 htdocs/assets/js/ucp.js:121
 msgid "Processing..."
 msgstr "Traitement en cours ..."
+
+#: ucp.i18n.php:26
+msgid "RSS Feeds"
+msgstr "flux RSS"
+
+#: ucp.i18n.php:30
+msgid "RSS Feeds that are displayed in UCP. This overrides "
+msgstr "Flux RSS qui sont affichés dans UCP . Ceci remplace "
 
 #: Ucp.class.php:27
 msgid "Refreshing all UCP Assets, this could take a while..."
@@ -414,7 +443,7 @@ msgstr ""
 "écouter le fichier dans le navigateur . Sans SOX les fichiers ne joueront "
 "pas dans UCP"
 
-#: htdocs/assets/js/ucp.js:952 htdocs/assets/js/ucp.js:987
+#: htdocs/assets/js/ucp.js:947 htdocs/assets/js/ucp.js:992
 msgid "Saved!"
 msgstr "Enregistré !"
 
@@ -432,15 +461,11 @@ msgstr "Envoyé à %s"
 msgid "Settings"
 msgstr "Paramètres"
 
-#: htdocs/assets/js/ucp.js:939
-msgid "Submit"
-msgstr "Soumettre"
-
 #: htdocs/views/templates/phone.php:69
 msgid "TUV"
 msgstr "TUV"
 
-#: htdocs/views/settings.php:17
+#: htdocs/views/settings.php:20 htdocs/views/settings.php:25
 msgid "The password used to login to User Control Panel and other services"
 msgstr ""
 "Le mot de passe permettant de se connecter au panneau de l'utilisateur et "
@@ -450,7 +475,7 @@ msgstr ""
 msgid "The removal of this copyright notice is stricly prohibited"
 msgstr "La suppression de cette mention de copyright est strictement interdite"
 
-#: htdocs/views/settings.php:10
+#: htdocs/views/settings.php:11
 msgid "The username used to login to User Control Panel and other services"
 msgstr ""
 "Le nom d'utilisateur utilisé pour vous connecter au panneau de l'utilisateur "
@@ -470,7 +495,7 @@ msgstr ""
 "de poste tel que l'appel en attente, le transfert d'appel, Cherche-moi/Suis-"
 "moi et autres"
 
-#: htdocs/views/settings.php:42
+#: htdocs/views/settings.php:52
 msgid "Title"
 msgstr "Titre"
 
@@ -493,7 +518,7 @@ msgstr "UCP"
 msgid "UCP Admin"
 msgstr "Administration UCP"
 
-#: htdocs/views/settings.php:79
+#: htdocs/views/settings.php:89
 msgid "UCP Language"
 msgstr "Langue UCP"
 
@@ -534,8 +559,14 @@ msgstr ""
 msgid "Unknown Module %s"
 msgstr "Module inconnu %s"
 
+#: htdocs/views/settings.php:27
+msgid "Update Password"
+msgstr ""
+
 #: htdocs/views/forgot.php:5 htdocs/views/header.php:4
 #: htdocs/views/login.php:4 ucp.i18n.php:4
+#: /usr/src/freepbx/ucp/ucp.i18n.php:16 ucp.i18n.php:22
+#: /usr/src/freepbx/ucp/ucp.i18n.php:28
 msgid "User Control Panel"
 msgstr "Panneau de l'utilisateur"
 
@@ -561,11 +592,11 @@ msgstr "Panneau utilisateur"
 msgid "User Primary Extension"
 msgstr "Poste primaire de l'utilisateur"
 
-#: htdocs/views/login.php:15 htdocs/views/settings.php:8
+#: htdocs/views/login.php:15 htdocs/views/settings.php:9
 msgid "Username"
 msgstr "Nom d'utilisateur"
 
-#: htdocs/assets/js/ucp.js:972
+#: htdocs/assets/js/ucp.js:977
 msgid "Username has been changed, reloading"
 msgstr "Le nom d'utilisateur a été changé , rechargement"
 
@@ -582,7 +613,7 @@ msgstr "Bienvenue %s"
 msgid "What is UCP"
 msgstr "Qu'est-ce que UCP"
 
-#: htdocs/views/settings.php:57
+#: htdocs/views/settings.php:67
 msgid "Work Phone"
 msgstr "Numéro de téléphone au travail"
 
@@ -598,39 +629,39 @@ msgstr "Vous travaillez actuellement en mode déconnecté."
 msgid "Your Browser is unsupported at this time."
 msgstr "Votre navigateur n'est pas supporté pour le moment."
 
-#: htdocs/views/settings.php:54
+#: htdocs/views/settings.php:64
 msgid "Your Cell Phone Number"
 msgstr "Votre numéro de téléphone cellulaire"
 
-#: htdocs/views/settings.php:49
+#: htdocs/views/settings.php:59
 msgid "Your Company"
 msgstr "Votre compagnie"
 
-#: htdocs/views/settings.php:29
+#: htdocs/views/settings.php:39
 msgid "Your Email Address"
 msgstr "Votre adresse courriel"
 
-#: htdocs/views/settings.php:69
+#: htdocs/views/settings.php:79
 msgid "Your Fax Number"
 msgstr "Votre numéro de télécopieur"
 
-#: htdocs/views/settings.php:34
+#: htdocs/views/settings.php:44
 msgid "Your First Name"
 msgstr "Votre prénom"
 
-#: htdocs/views/settings.php:64
+#: htdocs/views/settings.php:74
 msgid "Your Home Number"
 msgstr "Votre numéro de téléphone à la maison"
 
-#: htdocs/views/settings.php:39
+#: htdocs/views/settings.php:49
 msgid "Your Last Name"
 msgstr "Votre nom de famille"
 
-#: htdocs/views/settings.php:44
+#: htdocs/views/settings.php:54
 msgid "Your Title"
 msgstr "Votre Titre"
 
-#: htdocs/views/settings.php:59
+#: htdocs/views/settings.php:69
 msgid "Your Work Number"
 msgstr "Votre numéro de téléphone au travail"
 
@@ -661,6 +692,12 @@ msgstr ""
 msgid "or"
 msgstr "ou"
 
+#~ msgid "Please Reconfirm Your Password"
+#~ msgstr "Veuillez confirmer votre mot de passe"
+
+#~ msgid "Submit"
+#~ msgstr "Soumettre"
+
 #~ msgid "Failed to install "
 #~ msgstr "Échec de l'installation "
 
@@ -679,29 +716,11 @@ msgstr "ou"
 #~ msgstr ""
 #~ "Tous les utilisateurs doivent changer leur nom d'utilisateur dans UCP"
 
-#~ msgid "Allow Password Changes"
-#~ msgstr "Allouer la modification du mot de passe"
-
-#~ msgid "Allow Username Changes"
-#~ msgstr "Allouer la modification du nom d'utilisateur"
-
-#~ msgid "Allow users to change thier password in UCP"
-#~ msgstr "Permettre aux utilisateurs de modifier leur mot de passe dans UCP"
-
-#~ msgid "Allow users to change thier username in UCP"
-#~ msgstr "Permettre aux utilisateurs de modifier leur nom d'usager dans UCP"
-
 #~ msgid "Allowed Settings"
 #~ msgstr "Paramètres autorisés"
 
 #~ msgid "Module Settings"
 #~ msgstr "Paramètres du module"
-
-#~ msgid "RSS Feeds"
-#~ msgstr "flux RSS"
-
-#~ msgid "RSS Feeds that are displayed in UCP. This overrides "
-#~ msgstr "Flux RSS qui sont affichés dans UCP . Ceci remplace "
 
 #~ msgid "Styling and Logos"
 #~ msgstr "Style et Logos"

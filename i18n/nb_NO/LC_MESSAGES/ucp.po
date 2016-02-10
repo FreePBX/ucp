@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-01-08 18:29-0800\n"
+"POT-Creation-Date: 2016-02-10 13:23-0800\n"
 "PO-Revision-Date: 2015-08-30 14:46+0200\n"
 "Last-Translator: Vidar Skjelanger <vidar@unimicro.no>\n"
 "Language-Team: Norwegian Bokmål <http://weblate.freepbx.org/projects/freepbx/"
@@ -65,7 +65,12 @@ msgstr "Aktive Sesjoner"
 msgid "Admin"
 msgstr ""
 
-#: htdocs/views/settings.php:82
+#: htdocs/views/settings.php:5
+msgid ""
+"All fields update when unfocused (selecting another field) except password"
+msgstr ""
+
+#: htdocs/views/settings.php:92
 msgid "Allow Desktop Notifications"
 msgstr "Tillat varsler på skrivebordet"
 
@@ -73,7 +78,15 @@ msgstr "Tillat varsler på skrivebordet"
 msgid "Allow Login"
 msgstr "Tillat pålogging"
 
-#: htdocs/views/settings.php:90
+#: ucp.i18n.php:14
+msgid "Allow Password Changes"
+msgstr ""
+
+#: ucp.i18n.php:20
+msgid "Allow Username Changes"
+msgstr ""
+
+#: htdocs/views/settings.php:100
 msgid "Allow browser desktop notifications from UCP modules."
 msgstr "Tillat meldinger på nettleser-skrivebordet fra UCP-moduler."
 
@@ -83,11 +96,19 @@ msgid ""
 "WebRTC"
 msgstr ""
 
+#: ucp.i18n.php:18
+msgid "Allow users to change thier password in UCP"
+msgstr ""
+
+#: ucp.i18n.php:24
+msgid "Allow users to change thier username in UCP"
+msgstr ""
+
 #: views/users_hook.php:118
 msgid "Allowed Extension Settings"
 msgstr ""
 
-#: htdocs/assets/js/ucp.js:969
+#: htdocs/assets/js/ucp.js:974
 msgid "Are you sure you wish to change your username?"
 msgstr "Er du sikker på at du ønsker å endre brukernavnet ditt?"
 
@@ -95,15 +116,15 @@ msgstr "Er du sikker på at du ønsker å endre brukernavnet ditt?"
 msgid "Call"
 msgstr "Ring"
 
-#: htdocs/views/settings.php:52
+#: htdocs/views/settings.php:62
 msgid "Cell Phone"
 msgstr "Mobiltelefon"
 
-#: htdocs/views/settings.php:47
+#: htdocs/views/settings.php:57
 msgid "Company"
 msgstr "Bedrift"
 
-#: htdocs/assets/js/ucp.js:939
+#: htdocs/views/settings.php:23
 msgid "Confirm Password"
 msgstr "Bekreft passord"
 
@@ -123,7 +144,7 @@ msgstr "Slettet sesjon"
 msgid "Deleted User Session"
 msgstr "Slettet brukersesjon"
 
-#: htdocs/views/settings.php:22
+#: htdocs/views/settings.php:32
 msgid "Display Name"
 msgstr "Visningsnavn"
 
@@ -131,7 +152,7 @@ msgstr "Visningsnavn"
 msgid "Done"
 msgstr "Ferdig"
 
-#: htdocs/views/login.php:29 htdocs/views/settings.php:27
+#: htdocs/views/login.php:29 htdocs/views/settings.php:37
 msgid "Email"
 msgstr "Epost"
 
@@ -152,7 +173,7 @@ msgstr "Vennligst vent mens ditt innhold blir hentet"
 msgid "Failed to install %s due to the following conflicting module(s): %s"
 msgstr ""
 
-#: htdocs/views/settings.php:67
+#: htdocs/views/settings.php:77
 msgid "Fax"
 msgstr "Fax"
 
@@ -160,7 +181,7 @@ msgstr "Fax"
 msgid "First"
 msgstr "Første"
 
-#: htdocs/views/settings.php:32
+#: htdocs/views/settings.php:42
 msgid "First Name"
 msgstr "Fornavn"
 
@@ -209,11 +230,11 @@ msgstr "Parker"
 msgid "Home"
 msgstr "Hjem"
 
-#: htdocs/views/settings.php:62
+#: htdocs/views/settings.php:72
 msgid "Home Phone"
 msgstr "Fasttelefon"
 
-#: htdocs/views/settings.php:24
+#: htdocs/views/settings.php:34
 msgid ""
 "How you would like your name displayed throughout UCP and Contact Manager"
 msgstr ""
@@ -252,7 +273,7 @@ msgstr "Ugyldig token"
 msgid "JKL"
 msgstr "JKL"
 
-#: htdocs/views/settings.php:73
+#: htdocs/views/settings.php:83
 msgid "Language"
 msgstr "Språk"
 
@@ -260,7 +281,7 @@ msgstr "Språk"
 msgid "Last"
 msgstr "Siste"
 
-#: htdocs/views/settings.php:37
+#: htdocs/views/settings.php:47
 msgid "Last Name"
 msgstr "Etternavn"
 
@@ -332,11 +353,11 @@ msgstr "Opprett samtale"
 msgid "PQRS"
 msgstr "PQRS"
 
-#: htdocs/views/login.php:20 htdocs/views/settings.php:15
+#: htdocs/views/login.php:20 htdocs/views/settings.php:18
 msgid "Password"
 msgstr "Passord"
 
-#: htdocs/assets/js/ucp.js:945
+#: htdocs/assets/js/ucp.js:941
 msgid "Password Confirmation Didn't Match!"
 msgstr "Passordbekreftelse stemte ikke!"
 
@@ -350,6 +371,10 @@ msgstr "Link for å resette passordet (Gyldig til: %s): %s"
 msgid "Password Reset for: %s"
 msgstr "Tilbakestilling av passord for: %s"
 
+#: htdocs/assets/js/ucp.js:959
+msgid "Password has not changed!"
+msgstr ""
+
 #: htdocs/assets/js/ucp.js:97
 msgid "Passwords can't be blank!"
 msgstr "Passord kan ikke være tomt!"
@@ -362,10 +387,6 @@ msgstr "Passord endret!"
 msgid "Passwords do not match"
 msgstr "Passordene er ikke like"
 
-#: htdocs/assets/js/ucp.js:939
-msgid "Please Reconfirm Your Password"
-msgstr "Vennligst bekreft ditt passord"
-
 #: htdocs/assets/js/ucp.js:72
 msgid "Please enter either a username or email address"
 msgstr "Vennligst oppgi enten et brukernavn eller en epostadresse"
@@ -373,6 +394,14 @@ msgstr "Vennligst oppgi enten et brukernavn eller en epostadresse"
 #: htdocs/assets/js/ucp.js:70 htdocs/assets/js/ucp.js:121
 msgid "Processing..."
 msgstr "Behandler..."
+
+#: ucp.i18n.php:26
+msgid "RSS Feeds"
+msgstr ""
+
+#: ucp.i18n.php:30
+msgid "RSS Feeds that are displayed in UCP. This overrides "
+msgstr ""
 
 #: Ucp.class.php:27
 msgid "Refreshing all UCP Assets, this could take a while..."
@@ -401,7 +430,7 @@ msgstr ""
 "UCP trenger SOX for å kunne transkode for å spille av lydfiler i nettleser. "
 "Uten SOX vil ikke lydfiler kunne spilles av i UCP"
 
-#: htdocs/assets/js/ucp.js:952 htdocs/assets/js/ucp.js:987
+#: htdocs/assets/js/ucp.js:947 htdocs/assets/js/ucp.js:992
 msgid "Saved!"
 msgstr "Lagret!"
 
@@ -419,15 +448,11 @@ msgstr "Sendt %s"
 msgid "Settings"
 msgstr "Innstillinger"
 
-#: htdocs/assets/js/ucp.js:939
-msgid "Submit"
-msgstr "Logg inn"
-
 #: htdocs/views/templates/phone.php:69
 msgid "TUV"
 msgstr "TUV"
 
-#: htdocs/views/settings.php:17
+#: htdocs/views/settings.php:20 htdocs/views/settings.php:25
 msgid "The password used to login to User Control Panel and other services"
 msgstr "Passordet som brukes for å logge inn i UCP og andre tjenester"
 
@@ -435,7 +460,7 @@ msgstr "Passordet som brukes for å logge inn i UCP og andre tjenester"
 msgid "The removal of this copyright notice is stricly prohibited"
 msgstr "Å fjerne dette varselet om opphavsrett er ikke tillatt"
 
-#: htdocs/views/settings.php:10
+#: htdocs/views/settings.php:11
 msgid "The username used to login to User Control Panel and other services"
 msgstr "Brukernavnet som brukes for å logge inn i UCP og andre tjenester"
 
@@ -450,7 +475,7 @@ msgid ""
 "and others"
 msgstr ""
 
-#: htdocs/views/settings.php:42
+#: htdocs/views/settings.php:52
 msgid "Title"
 msgstr "Tittel"
 
@@ -472,7 +497,7 @@ msgstr "UCP"
 msgid "UCP Admin"
 msgstr "UCP Admin"
 
-#: htdocs/views/settings.php:79
+#: htdocs/views/settings.php:89
 msgid "UCP Language"
 msgstr "UCP språk"
 
@@ -506,8 +531,14 @@ msgstr ""
 msgid "Unknown Module %s"
 msgstr "Ukjent modul %s"
 
+#: htdocs/views/settings.php:27
+msgid "Update Password"
+msgstr ""
+
 #: htdocs/views/forgot.php:5 htdocs/views/header.php:4
 #: htdocs/views/login.php:4 ucp.i18n.php:4
+#: /usr/src/freepbx/ucp/ucp.i18n.php:16 ucp.i18n.php:22
+#: /usr/src/freepbx/ucp/ucp.i18n.php:28
 msgid "User Control Panel"
 msgstr "Kontrollpanel for brukere"
 
@@ -533,11 +564,11 @@ msgstr ""
 msgid "User Primary Extension"
 msgstr ""
 
-#: htdocs/views/login.php:15 htdocs/views/settings.php:8
+#: htdocs/views/login.php:15 htdocs/views/settings.php:9
 msgid "Username"
 msgstr "Brukernavn"
 
-#: htdocs/assets/js/ucp.js:972
+#: htdocs/assets/js/ucp.js:977
 msgid "Username has been changed, reloading"
 msgstr "Brukernavn har blitt endret, laster på nytt"
 
@@ -554,7 +585,7 @@ msgstr "Velkommen %s"
 msgid "What is UCP"
 msgstr ""
 
-#: htdocs/views/settings.php:57
+#: htdocs/views/settings.php:67
 msgid "Work Phone"
 msgstr "Telefon arbeid"
 
@@ -570,39 +601,39 @@ msgstr "Du arbeider nå i frakoblet modus."
 msgid "Your Browser is unsupported at this time."
 msgstr "Din nettleser er ikke støttet på nåværende tidspunkt."
 
-#: htdocs/views/settings.php:54
+#: htdocs/views/settings.php:64
 msgid "Your Cell Phone Number"
 msgstr "Ditt mobilnummer"
 
-#: htdocs/views/settings.php:49
+#: htdocs/views/settings.php:59
 msgid "Your Company"
 msgstr "Din bedrift"
 
-#: htdocs/views/settings.php:29
+#: htdocs/views/settings.php:39
 msgid "Your Email Address"
 msgstr "Din epostadresse"
 
-#: htdocs/views/settings.php:69
+#: htdocs/views/settings.php:79
 msgid "Your Fax Number"
 msgstr "Ditt faksnummer"
 
-#: htdocs/views/settings.php:34
+#: htdocs/views/settings.php:44
 msgid "Your First Name"
 msgstr "Ditt fornavn"
 
-#: htdocs/views/settings.php:64
+#: htdocs/views/settings.php:74
 msgid "Your Home Number"
 msgstr "Ditt hjemmenummer"
 
-#: htdocs/views/settings.php:39
+#: htdocs/views/settings.php:49
 msgid "Your Last Name"
 msgstr "Ditt etternavn"
 
-#: htdocs/views/settings.php:44
+#: htdocs/views/settings.php:54
 msgid "Your Title"
 msgstr "Din tittel"
 
-#: htdocs/views/settings.php:59
+#: htdocs/views/settings.php:69
 msgid "Your Work Number"
 msgstr "Ditt telefonnummer (arbeid)"
 
@@ -631,6 +662,12 @@ msgstr ""
 #: htdocs/views/login.php:24
 msgid "or"
 msgstr "eller"
+
+#~ msgid "Please Reconfirm Your Password"
+#~ msgstr "Vennligst bekreft ditt passord"
+
+#~ msgid "Submit"
+#~ msgstr "Logg inn"
 
 #~ msgid "Failed to install "
 #~ msgstr "Feil ved installasjon "

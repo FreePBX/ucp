@@ -9,15 +9,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-01-08 18:29-0800\n"
+"POT-Creation-Date: 2016-02-10 13:23-0800\n"
 "PO-Revision-Date: 2016-02-07 01:41+0200\n"
 "Last-Translator: Andrew <andrew.nagy@the159.com>\n"
-"Language-Team: English (United States) "
-"<http://weblate.freepbx.org/projects/freepbx/ucp/en_US/>\n"
-"Language: en_US\n"
+"Language-Team: English (United States) <http://weblate.freepbx.org/projects/"
+"freepbx/ucp/en_US/>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: en_US\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 2.2-dev\n"
 
@@ -64,7 +64,12 @@ msgstr ""
 msgid "Admin"
 msgstr "Admin"
 
-#: htdocs/views/settings.php:82
+#: htdocs/views/settings.php:5
+msgid ""
+"All fields update when unfocused (selecting another field) except password"
+msgstr ""
+
+#: htdocs/views/settings.php:92
 msgid "Allow Desktop Notifications"
 msgstr ""
 
@@ -72,7 +77,15 @@ msgstr ""
 msgid "Allow Login"
 msgstr ""
 
-#: htdocs/views/settings.php:90
+#: ucp.i18n.php:14
+msgid "Allow Password Changes"
+msgstr ""
+
+#: ucp.i18n.php:20
+msgid "Allow Username Changes"
+msgstr ""
+
+#: htdocs/views/settings.php:100
 msgid "Allow browser desktop notifications from UCP modules."
 msgstr ""
 
@@ -82,11 +95,19 @@ msgid ""
 "WebRTC"
 msgstr ""
 
+#: ucp.i18n.php:18
+msgid "Allow users to change thier password in UCP"
+msgstr ""
+
+#: ucp.i18n.php:24
+msgid "Allow users to change thier username in UCP"
+msgstr ""
+
 #: views/users_hook.php:118
 msgid "Allowed Extension Settings"
 msgstr ""
 
-#: htdocs/assets/js/ucp.js:969
+#: htdocs/assets/js/ucp.js:974
 msgid "Are you sure you wish to change your username?"
 msgstr ""
 
@@ -94,15 +115,15 @@ msgstr ""
 msgid "Call"
 msgstr ""
 
-#: htdocs/views/settings.php:52
+#: htdocs/views/settings.php:62
 msgid "Cell Phone"
 msgstr ""
 
-#: htdocs/views/settings.php:47
+#: htdocs/views/settings.php:57
 msgid "Company"
 msgstr ""
 
-#: htdocs/assets/js/ucp.js:939
+#: htdocs/views/settings.php:23
 msgid "Confirm Password"
 msgstr ""
 
@@ -122,7 +143,7 @@ msgstr ""
 msgid "Deleted User Session"
 msgstr ""
 
-#: htdocs/views/settings.php:22
+#: htdocs/views/settings.php:32
 msgid "Display Name"
 msgstr ""
 
@@ -130,7 +151,7 @@ msgstr ""
 msgid "Done"
 msgstr ""
 
-#: htdocs/views/login.php:29 htdocs/views/settings.php:27
+#: htdocs/views/login.php:29 htdocs/views/settings.php:37
 msgid "Email"
 msgstr ""
 
@@ -151,7 +172,7 @@ msgstr ""
 msgid "Failed to install %s due to the following conflicting module(s): %s"
 msgstr ""
 
-#: htdocs/views/settings.php:67
+#: htdocs/views/settings.php:77
 msgid "Fax"
 msgstr ""
 
@@ -159,7 +180,7 @@ msgstr ""
 msgid "First"
 msgstr ""
 
-#: htdocs/views/settings.php:32
+#: htdocs/views/settings.php:42
 msgid "First Name"
 msgstr ""
 
@@ -208,11 +229,11 @@ msgstr ""
 msgid "Home"
 msgstr ""
 
-#: htdocs/views/settings.php:62
+#: htdocs/views/settings.php:72
 msgid "Home Phone"
 msgstr ""
 
-#: htdocs/views/settings.php:24
+#: htdocs/views/settings.php:34
 msgid ""
 "How you would like your name displayed throughout UCP and Contact Manager"
 msgstr ""
@@ -249,7 +270,7 @@ msgstr ""
 msgid "JKL"
 msgstr ""
 
-#: htdocs/views/settings.php:73
+#: htdocs/views/settings.php:83
 msgid "Language"
 msgstr ""
 
@@ -257,7 +278,7 @@ msgstr ""
 msgid "Last"
 msgstr ""
 
-#: htdocs/views/settings.php:37
+#: htdocs/views/settings.php:47
 msgid "Last Name"
 msgstr ""
 
@@ -329,11 +350,11 @@ msgstr ""
 msgid "PQRS"
 msgstr ""
 
-#: htdocs/views/login.php:20 htdocs/views/settings.php:15
+#: htdocs/views/login.php:20 htdocs/views/settings.php:18
 msgid "Password"
 msgstr ""
 
-#: htdocs/assets/js/ucp.js:945
+#: htdocs/assets/js/ucp.js:941
 msgid "Password Confirmation Didn't Match!"
 msgstr ""
 
@@ -345,6 +366,10 @@ msgstr ""
 #: htdocs/views/forgot.php:27
 #, php-format
 msgid "Password Reset for: %s"
+msgstr ""
+
+#: htdocs/assets/js/ucp.js:959
+msgid "Password has not changed!"
 msgstr ""
 
 #: htdocs/assets/js/ucp.js:97
@@ -359,16 +384,20 @@ msgstr ""
 msgid "Passwords do not match"
 msgstr ""
 
-#: htdocs/assets/js/ucp.js:939
-msgid "Please Reconfirm Your Password"
-msgstr ""
-
 #: htdocs/assets/js/ucp.js:72
 msgid "Please enter either a username or email address"
 msgstr ""
 
 #: htdocs/assets/js/ucp.js:70 htdocs/assets/js/ucp.js:121
 msgid "Processing..."
+msgstr ""
+
+#: ucp.i18n.php:26
+msgid "RSS Feeds"
+msgstr ""
+
+#: ucp.i18n.php:30
+msgid "RSS Feeds that are displayed in UCP. This overrides "
 msgstr ""
 
 #: Ucp.class.php:27
@@ -394,7 +423,7 @@ msgid ""
 "playback of files. Without it files will not playback within UCP"
 msgstr ""
 
-#: htdocs/assets/js/ucp.js:952 htdocs/assets/js/ucp.js:987
+#: htdocs/assets/js/ucp.js:947 htdocs/assets/js/ucp.js:992
 msgid "Saved!"
 msgstr ""
 
@@ -412,15 +441,11 @@ msgstr ""
 msgid "Settings"
 msgstr ""
 
-#: htdocs/assets/js/ucp.js:939
-msgid "Submit"
-msgstr "Enviar"
-
 #: htdocs/views/templates/phone.php:69
 msgid "TUV"
 msgstr ""
 
-#: htdocs/views/settings.php:17
+#: htdocs/views/settings.php:20 htdocs/views/settings.php:25
 msgid "The password used to login to User Control Panel and other services"
 msgstr ""
 
@@ -428,7 +453,7 @@ msgstr ""
 msgid "The removal of this copyright notice is stricly prohibited"
 msgstr ""
 
-#: htdocs/views/settings.php:10
+#: htdocs/views/settings.php:11
 msgid "The username used to login to User Control Panel and other services"
 msgstr ""
 
@@ -443,7 +468,7 @@ msgid ""
 "and others"
 msgstr ""
 
-#: htdocs/views/settings.php:42
+#: htdocs/views/settings.php:52
 msgid "Title"
 msgstr ""
 
@@ -463,7 +488,7 @@ msgstr ""
 msgid "UCP Admin"
 msgstr ""
 
-#: htdocs/views/settings.php:79
+#: htdocs/views/settings.php:89
 msgid "UCP Language"
 msgstr ""
 
@@ -496,8 +521,14 @@ msgstr ""
 msgid "Unknown Module %s"
 msgstr ""
 
+#: htdocs/views/settings.php:27
+msgid "Update Password"
+msgstr ""
+
 #: htdocs/views/forgot.php:5 htdocs/views/header.php:4
 #: htdocs/views/login.php:4 ucp.i18n.php:4
+#: /usr/src/freepbx/ucp/ucp.i18n.php:16 ucp.i18n.php:22
+#: /usr/src/freepbx/ucp/ucp.i18n.php:28
 msgid "User Control Panel"
 msgstr ""
 
@@ -523,11 +554,11 @@ msgstr ""
 msgid "User Primary Extension"
 msgstr ""
 
-#: htdocs/views/login.php:15 htdocs/views/settings.php:8
+#: htdocs/views/login.php:15 htdocs/views/settings.php:9
 msgid "Username"
 msgstr ""
 
-#: htdocs/assets/js/ucp.js:972
+#: htdocs/assets/js/ucp.js:977
 msgid "Username has been changed, reloading"
 msgstr ""
 
@@ -544,7 +575,7 @@ msgstr ""
 msgid "What is UCP"
 msgstr ""
 
-#: htdocs/views/settings.php:57
+#: htdocs/views/settings.php:67
 msgid "Work Phone"
 msgstr ""
 
@@ -560,39 +591,39 @@ msgstr ""
 msgid "Your Browser is unsupported at this time."
 msgstr ""
 
-#: htdocs/views/settings.php:54
+#: htdocs/views/settings.php:64
 msgid "Your Cell Phone Number"
 msgstr ""
 
-#: htdocs/views/settings.php:49
+#: htdocs/views/settings.php:59
 msgid "Your Company"
 msgstr ""
 
-#: htdocs/views/settings.php:29
+#: htdocs/views/settings.php:39
 msgid "Your Email Address"
 msgstr ""
 
-#: htdocs/views/settings.php:69
+#: htdocs/views/settings.php:79
 msgid "Your Fax Number"
 msgstr ""
 
-#: htdocs/views/settings.php:34
+#: htdocs/views/settings.php:44
 msgid "Your First Name"
 msgstr ""
 
-#: htdocs/views/settings.php:64
+#: htdocs/views/settings.php:74
 msgid "Your Home Number"
 msgstr ""
 
-#: htdocs/views/settings.php:39
+#: htdocs/views/settings.php:49
 msgid "Your Last Name"
 msgstr ""
 
-#: htdocs/views/settings.php:44
+#: htdocs/views/settings.php:54
 msgid "Your Title"
 msgstr ""
 
-#: htdocs/views/settings.php:59
+#: htdocs/views/settings.php:69
 msgid "Your Work Number"
 msgstr ""
 
@@ -617,3 +648,6 @@ msgstr ""
 #: htdocs/views/login.php:24
 msgid "or"
 msgstr ""
+
+#~ msgid "Submit"
+#~ msgstr "Enviar"
