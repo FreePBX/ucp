@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-02-10 13:23-0800\n"
-"PO-Revision-Date: 2016-02-14 09:02+0200\n"
+"PO-Revision-Date: 2016-02-15 05:32+0200\n"
 "Last-Translator: Media <mousavi.media@gmail.com>\n"
 "Language-Team: Persian <http://weblate.freepbx.org/projects/freepbx/ucp/fa/>"
 "\n"
@@ -149,7 +149,7 @@ msgstr "نام"
 
 #: Ucp.class.php:807 Ucp.class.php:811 Ucp.class.php:815 Ucp.class.php:819
 msgid "Done"
-msgstr ""
+msgstr "انجام شده"
 
 #: htdocs/views/login.php:29 htdocs/views/settings.php:37
 msgid "Email"
@@ -202,7 +202,7 @@ msgstr ""
 
 #: views/users_hook.php:19
 msgid "General"
-msgstr ""
+msgstr "عمومی"
 
 #: Ucp.class.php:817
 msgid "Generating Main CSS..."
