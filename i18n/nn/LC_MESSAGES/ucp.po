@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-02-10 13:23-0800\n"
+"POT-Creation-Date: 2016-03-10 12:51-0800\n"
 "PO-Revision-Date: 2015-08-31 03:35+0200\n"
 "Last-Translator: Vidar Skjelanger <vidar@unimicro.no>\n"
 "Language-Team: Norwegian Nynorsk <http://weblate.freepbx.org/projects/"
@@ -39,15 +39,15 @@ msgstr ""
 msgid " + field + "
 msgstr ""
 
-#: htdocs/index.php:89
+#: htdocs/index.php:90
 msgid ".htaccess files are disabled on this webserver. Please enable them"
 msgstr ".htaccess-filer er deaktivert på denne webserveren. Dei bør aktiverast"
 
-#: htdocs/index.php:102
+#: htdocs/index.php:103
 msgid ".htaccess files are not supported on this webserver."
 msgstr ".htaccess-filar er ikkje støtta på denne webserveren."
 
-#: Ucp.class.php:236
+#: Ucp.class.php:238
 #, php-format
 msgid "A token has already been generated for %s, not sending email again"
 msgstr ""
@@ -135,11 +135,11 @@ msgstr "Koplar til..."
 msgid "DEF"
 msgstr "DEF"
 
-#: Ucp.class.php:722
+#: Ucp.class.php:731
 msgid "Deleted Session"
 msgstr "Sletta sesjon"
 
-#: Ucp.class.php:109 Ucp.class.php:572
+#: Ucp.class.php:111 Ucp.class.php:574
 msgid "Deleted User Session"
 msgstr "Sletta brukarsesjon"
 
@@ -147,7 +147,7 @@ msgstr "Sletta brukarsesjon"
 msgid "Display Name"
 msgstr "Namnet som skal synast"
 
-#: Ucp.class.php:807 Ucp.class.php:811 Ucp.class.php:815 Ucp.class.php:819
+#: Ucp.class.php:825 Ucp.class.php:829 Ucp.class.php:833 Ucp.class.php:837
 msgid "Done"
 msgstr "Ferdig"
 
@@ -159,7 +159,7 @@ msgstr "Epost"
 msgid "Enable Originating Calls"
 msgstr ""
 
-#: htdocs/index.php:161
+#: htdocs/index.php:156
 msgid "English"
 msgstr "Engelsk"
 
@@ -204,19 +204,19 @@ msgstr "GHI"
 msgid "General"
 msgstr ""
 
-#: Ucp.class.php:817
+#: Ucp.class.php:835
 msgid "Generating Main CSS..."
 msgstr "Genererer hovud-CSS..."
 
-#: Ucp.class.php:813
+#: Ucp.class.php:831
 msgid "Generating Main Scripts..."
 msgstr "Genererer hovudscript..."
 
-#: Ucp.class.php:809
+#: Ucp.class.php:827
 msgid "Generating Module CSS..."
 msgstr "Genererer modul-CSS..."
 
-#: Ucp.class.php:805
+#: Ucp.class.php:823
 msgid "Generating Module Scripts..."
 msgstr "Genererer modulscript..."
 
@@ -244,7 +244,7 @@ msgstr ""
 msgid "Inherit"
 msgstr ""
 
-#: htdocs/index.php:246
+#: htdocs/index.php:241
 #, php-format
 msgid ""
 "Internet Explorer %s is not supported. Functionality will be deteriorated "
@@ -264,7 +264,7 @@ msgstr ""
 msgid "Invalid Login Credentials"
 msgstr "Ugyldig påloggingsinfo"
 
-#: htdocs/index.php:235
+#: htdocs/index.php:230
 msgid "Invalid Token"
 msgstr "Ugyldig token"
 
@@ -297,7 +297,7 @@ msgstr "Lastar..."
 msgid "Login"
 msgstr "Brukarnamn"
 
-#: htdocs/index.php:222
+#: htdocs/index.php:217
 msgid "Logout"
 msgstr "Logg ut"
 
@@ -342,7 +342,7 @@ msgstr "PÅ"
 msgid "Originate"
 msgstr ""
 
-#: htdocs/index.php:216 htdocs/modules/Home/assets/js/global.js:22
+#: htdocs/index.php:211 htdocs/modules/Home/assets/js/global.js:22
 #: htdocs/modules/Home/assets/js/global.js:45
 #: htdocs/modules/Home/assets/js/global.js:123
 msgid "Originate Call"
@@ -360,7 +360,7 @@ msgstr "Passord"
 msgid "Password Confirmation Didn't Match!"
 msgstr "Passordstadfesting stemde ikkje!"
 
-#: Ucp.class.php:199 Ucp.class.php:209
+#: Ucp.class.php:201 Ucp.class.php:211
 #, php-format
 msgid "Password Reset Link (Valid Until: %s): %s"
 msgstr "Link for å nullstilla passordet (Gyldig til: %s): %s"
@@ -402,7 +402,7 @@ msgstr ""
 msgid "RSS Feeds that are displayed in UCP. This overrides "
 msgstr ""
 
-#: Ucp.class.php:27
+#: Ucp.class.php:29
 msgid "Refreshing all UCP Assets, this could take a while..."
 msgstr "Oppfriskar alle delar av UCP, dette kan ta litt tid..."
 
@@ -413,21 +413,6 @@ msgstr "Hugs meg"
 #: htdocs/views/forgot.php:62
 msgid "Reset Password"
 msgstr "Nullstill passord"
-
-#: htdocs/index.php:116
-msgid ""
-"SOX is not installed on this server but is required by UCP. Please install it"
-msgstr ""
-"SOX er ikkje installert på denne serveren, men trengst av UCP. Du bør "
-"installere"
-
-#: htdocs/index.php:117
-msgid ""
-"SOX is required for UCP to be able to do transcoding of playback for browser "
-"playback of files. Without it files will not playback within UCP"
-msgstr ""
-"UCP treng SOX for å kunne transkode for å spela av lydfiler i nettlesar. "
-"Utan SOX vil ikkje lydfilar kunne spelast av i UCP"
 
 #: htdocs/assets/js/ucp.js:947 htdocs/assets/js/ucp.js:992
 msgid "Saved!"
@@ -442,7 +427,7 @@ msgstr "Send meg ein link for nullstilling av passord"
 msgid "Sent at %s"
 msgstr "Sendt %s"
 
-#: htdocs/index.php:222 htdocs/modules/Settings/Settings.class.php:83
+#: htdocs/index.php:217 htdocs/modules/Settings/Settings.class.php:83
 #: htdocs/views/dashboard.php:39 htdocs/assets/js/ucp.js:804
 msgid "Settings"
 msgstr "Innstillingar"
@@ -450,6 +435,12 @@ msgstr "Innstillingar"
 #: htdocs/views/templates/phone.php:69
 msgid "TUV"
 msgstr "TUV"
+
+#: ucp.i18n.php:36
+msgid ""
+"The number of days a session token will be valid for. Clear this setting if "
+"you want tokens to last forever (Not Recommended)"
+msgstr ""
 
 #: htdocs/views/settings.php:20 htdocs/views/settings.php:25
 msgid "The password used to login to User Control Panel and other services"
@@ -463,7 +454,7 @@ msgstr "Å fjerne dette varselet om opphavsrett er ikkje tillete"
 msgid "The username used to login to User Control Panel and other services"
 msgstr "Brukarnamnet som vert brukt for å logga inn i UCP og andre tenester"
 
-#: htdocs/index.php:123
+#: htdocs/index.php:118
 msgid "There was an error trying to load UCP"
 msgstr "Ein feil oppstod ved innlasting av UCP"
 
@@ -478,7 +469,7 @@ msgstr ""
 msgid "Title"
 msgstr "Tittel"
 
-#: htdocs/index.php:90
+#: htdocs/index.php:91
 #, php-format
 msgid ""
 "To protect the integrity of your server, you must allow overrides in your "
@@ -499,6 +490,10 @@ msgstr "UCP Admin"
 #: htdocs/views/settings.php:89
 msgid "UCP Language"
 msgstr "UCP språk"
+
+#: ucp.i18n.php:32
+msgid "UCP Session Timeout"
+msgstr ""
 
 #: htdocs/index.php:27
 msgid "UCP is currently disabled. Please talk to your system Administrator"
@@ -524,7 +519,7 @@ msgstr ""
 msgid "Unable to get a token to use UCP Node Server because: '%s'"
 msgstr ""
 
-#: htdocs/index.php:187
+#: htdocs/index.php:182
 #, php-format
 msgid "Unknown Module %s"
 msgstr "Ukjend modul %s"
@@ -536,7 +531,7 @@ msgstr ""
 #: htdocs/views/forgot.php:5 htdocs/views/header.php:4
 #: htdocs/views/login.php:4 ucp.i18n.php:4
 #: /usr/src/freepbx/ucp/ucp.i18n.php:16 ucp.i18n.php:22
-#: /usr/src/freepbx/ucp/ucp.i18n.php:28
+#: /usr/src/freepbx/ucp/ucp.i18n.php:28 ucp.i18n.php:34
 msgid "User Control Panel"
 msgstr "Kontrollpanel for brukarar"
 
@@ -549,7 +544,7 @@ msgstr "Innstillingar for UCP"
 msgid "User Control Panel is released as %s or newer"
 msgstr "UCP er distribuert som %s eller nyare"
 
-#: Ucp.class.php:195 Ucp.class.php:205
+#: Ucp.class.php:197 Ucp.class.php:207
 #, php-format
 msgid "User Control Panel: %s"
 msgstr "Kontrollpanel for brukarar: %s"
@@ -558,7 +553,7 @@ msgstr "Kontrollpanel for brukarar: %s"
 msgid "User Panel"
 msgstr ""
 
-#: Ucp.class.php:53 /usr/src/freepbx/ucp/Ucp.class.php:81
+#: Ucp.class.php:55 /usr/src/freepbx/ucp/Ucp.class.php:83
 msgid "User Primary Extension"
 msgstr ""
 
@@ -647,7 +642,7 @@ msgstr ""
 msgid "Your reset link is in the mail!"
 msgstr "Di lenkje for å nullstilla passord er sendt på epost!"
 
-#: htdocs/index.php:103
+#: htdocs/index.php:104
 #, php-format
 msgid ""
 "htaccess files help protect the integrity of your server. Please make sure "
@@ -660,6 +655,20 @@ msgstr ""
 #: htdocs/views/login.php:24
 msgid "or"
 msgstr "eller"
+
+#~ msgid ""
+#~ "SOX is not installed on this server but is required by UCP. Please "
+#~ "install it"
+#~ msgstr ""
+#~ "SOX er ikkje installert på denne serveren, men trengst av UCP. Du bør "
+#~ "installere"
+
+#~ msgid ""
+#~ "SOX is required for UCP to be able to do transcoding of playback for "
+#~ "browser playback of files. Without it files will not playback within UCP"
+#~ msgstr ""
+#~ "UCP treng SOX for å kunne transkode for å spela av lydfiler i nettlesar. "
+#~ "Utan SOX vil ikkje lydfilar kunne spelast av i UCP"
 
 #~ msgid "Please Reconfirm Your Password"
 #~ msgstr "Stadfest ditt passord"

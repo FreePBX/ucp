@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-02-10 13:23-0800\n"
+"POT-Creation-Date: 2016-03-10 12:51-0800\n"
 "PO-Revision-Date: 2015-03-30 14:57-0400\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -35,15 +35,15 @@ msgstr ""
 msgid " + field + "
 msgstr ""
 
-#: htdocs/index.php:89
+#: htdocs/index.php:90
 msgid ".htaccess files are disabled on this webserver. Please enable them"
 msgstr ""
 
-#: htdocs/index.php:102
+#: htdocs/index.php:103
 msgid ".htaccess files are not supported on this webserver."
 msgstr ""
 
-#: Ucp.class.php:236
+#: Ucp.class.php:238
 #, php-format
 msgid "A token has already been generated for %s, not sending email again"
 msgstr ""
@@ -131,11 +131,11 @@ msgstr ""
 msgid "DEF"
 msgstr ""
 
-#: Ucp.class.php:722
+#: Ucp.class.php:731
 msgid "Deleted Session"
 msgstr ""
 
-#: Ucp.class.php:109 Ucp.class.php:572
+#: Ucp.class.php:111 Ucp.class.php:574
 msgid "Deleted User Session"
 msgstr ""
 
@@ -143,7 +143,7 @@ msgstr ""
 msgid "Display Name"
 msgstr ""
 
-#: Ucp.class.php:807 Ucp.class.php:811 Ucp.class.php:815 Ucp.class.php:819
+#: Ucp.class.php:825 Ucp.class.php:829 Ucp.class.php:833 Ucp.class.php:837
 msgid "Done"
 msgstr ""
 
@@ -155,7 +155,7 @@ msgstr ""
 msgid "Enable Originating Calls"
 msgstr ""
 
-#: htdocs/index.php:161
+#: htdocs/index.php:156
 msgid "English"
 msgstr ""
 
@@ -200,19 +200,19 @@ msgstr ""
 msgid "General"
 msgstr ""
 
-#: Ucp.class.php:817
+#: Ucp.class.php:835
 msgid "Generating Main CSS..."
 msgstr ""
 
-#: Ucp.class.php:813
+#: Ucp.class.php:831
 msgid "Generating Main Scripts..."
 msgstr ""
 
-#: Ucp.class.php:809
+#: Ucp.class.php:827
 msgid "Generating Module CSS..."
 msgstr ""
 
-#: Ucp.class.php:805
+#: Ucp.class.php:823
 msgid "Generating Module Scripts..."
 msgstr ""
 
@@ -238,7 +238,7 @@ msgstr ""
 msgid "Inherit"
 msgstr ""
 
-#: htdocs/index.php:246
+#: htdocs/index.php:241
 #, php-format
 msgid ""
 "Internet Explorer %s is not supported. Functionality will be deteriorated "
@@ -258,7 +258,7 @@ msgstr ""
 msgid "Invalid Login Credentials"
 msgstr ""
 
-#: htdocs/index.php:235
+#: htdocs/index.php:230
 msgid "Invalid Token"
 msgstr ""
 
@@ -291,7 +291,7 @@ msgstr ""
 msgid "Login"
 msgstr ""
 
-#: htdocs/index.php:222
+#: htdocs/index.php:217
 msgid "Logout"
 msgstr ""
 
@@ -336,7 +336,7 @@ msgstr ""
 msgid "Originate"
 msgstr ""
 
-#: htdocs/index.php:216 htdocs/modules/Home/assets/js/global.js:22
+#: htdocs/index.php:211 htdocs/modules/Home/assets/js/global.js:22
 #: htdocs/modules/Home/assets/js/global.js:45
 #: htdocs/modules/Home/assets/js/global.js:123
 msgid "Originate Call"
@@ -354,7 +354,7 @@ msgstr ""
 msgid "Password Confirmation Didn't Match!"
 msgstr ""
 
-#: Ucp.class.php:199 Ucp.class.php:209
+#: Ucp.class.php:201 Ucp.class.php:211
 #, php-format
 msgid "Password Reset Link (Valid Until: %s): %s"
 msgstr ""
@@ -396,7 +396,7 @@ msgstr ""
 msgid "RSS Feeds that are displayed in UCP. This overrides "
 msgstr ""
 
-#: Ucp.class.php:27
+#: Ucp.class.php:29
 msgid "Refreshing all UCP Assets, this could take a while..."
 msgstr ""
 
@@ -406,17 +406,6 @@ msgstr ""
 
 #: htdocs/views/forgot.php:62
 msgid "Reset Password"
-msgstr ""
-
-#: htdocs/index.php:116
-msgid ""
-"SOX is not installed on this server but is required by UCP. Please install it"
-msgstr ""
-
-#: htdocs/index.php:117
-msgid ""
-"SOX is required for UCP to be able to do transcoding of playback for browser "
-"playback of files. Without it files will not playback within UCP"
 msgstr ""
 
 #: htdocs/assets/js/ucp.js:947 htdocs/assets/js/ucp.js:992
@@ -432,13 +421,19 @@ msgstr ""
 msgid "Sent at %s"
 msgstr ""
 
-#: htdocs/index.php:222 htdocs/modules/Settings/Settings.class.php:83
+#: htdocs/index.php:217 htdocs/modules/Settings/Settings.class.php:83
 #: htdocs/views/dashboard.php:39 htdocs/assets/js/ucp.js:804
 msgid "Settings"
 msgstr ""
 
 #: htdocs/views/templates/phone.php:69
 msgid "TUV"
+msgstr ""
+
+#: ucp.i18n.php:36
+msgid ""
+"The number of days a session token will be valid for. Clear this setting if "
+"you want tokens to last forever (Not Recommended)"
 msgstr ""
 
 #: htdocs/views/settings.php:20 htdocs/views/settings.php:25
@@ -453,7 +448,7 @@ msgstr ""
 msgid "The username used to login to User Control Panel and other services"
 msgstr ""
 
-#: htdocs/index.php:123
+#: htdocs/index.php:118
 msgid "There was an error trying to load UCP"
 msgstr ""
 
@@ -468,7 +463,7 @@ msgstr ""
 msgid "Title"
 msgstr ""
 
-#: htdocs/index.php:90
+#: htdocs/index.php:91
 #, php-format
 msgid ""
 "To protect the integrity of your server, you must allow overrides in your "
@@ -486,6 +481,10 @@ msgstr ""
 
 #: htdocs/views/settings.php:89
 msgid "UCP Language"
+msgstr ""
+
+#: ucp.i18n.php:32
+msgid "UCP Session Timeout"
 msgstr ""
 
 #: htdocs/index.php:27
@@ -512,7 +511,7 @@ msgstr ""
 msgid "Unable to get a token to use UCP Node Server because: '%s'"
 msgstr ""
 
-#: htdocs/index.php:187
+#: htdocs/index.php:182
 #, php-format
 msgid "Unknown Module %s"
 msgstr ""
@@ -524,7 +523,7 @@ msgstr ""
 #: htdocs/views/forgot.php:5 htdocs/views/header.php:4
 #: htdocs/views/login.php:4 ucp.i18n.php:4
 #: /usr/src/freepbx/ucp/ucp.i18n.php:16 ucp.i18n.php:22
-#: /usr/src/freepbx/ucp/ucp.i18n.php:28
+#: /usr/src/freepbx/ucp/ucp.i18n.php:28 ucp.i18n.php:34
 msgid "User Control Panel"
 msgstr ""
 
@@ -537,7 +536,7 @@ msgstr ""
 msgid "User Control Panel is released as %s or newer"
 msgstr ""
 
-#: Ucp.class.php:195 Ucp.class.php:205
+#: Ucp.class.php:197 Ucp.class.php:207
 #, php-format
 msgid "User Control Panel: %s"
 msgstr ""
@@ -546,7 +545,7 @@ msgstr ""
 msgid "User Panel"
 msgstr ""
 
-#: Ucp.class.php:53 /usr/src/freepbx/ucp/Ucp.class.php:81
+#: Ucp.class.php:55 /usr/src/freepbx/ucp/Ucp.class.php:83
 msgid "User Primary Extension"
 msgstr ""
 
@@ -633,7 +632,7 @@ msgstr ""
 msgid "Your reset link is in the mail!"
 msgstr ""
 
-#: htdocs/index.php:103
+#: htdocs/index.php:104
 #, php-format
 msgid ""
 "htaccess files help protect the integrity of your server. Please make sure "
