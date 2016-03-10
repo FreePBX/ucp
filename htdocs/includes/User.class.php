@@ -12,7 +12,7 @@
  * Copyright 2006-2014 Schmooze Com Inc.
  */
 namespace UCP;
-class User extends UCP {
+class User {
 	public $uid = null;
 	private $remembermeCookieName = 'ucp_rememberme';
 	private $token = null;
@@ -125,7 +125,7 @@ class User extends UCP {
 	}
 
 	public function validateResetToken($token) {
-		return $this->FreePBX->UCP->validatePasswordResetToken($token);
+		return $this->UCP->FreePBX->UCP->validatePasswordResetToken($token);
 	}
 
 	public function canChange($setting) {
@@ -156,7 +156,8 @@ class User extends UCP {
 			if(!empty($this->user)) {
 				return $this->user;
 			}
-			return $this->FreePBX->Ucp->getUserByID($this->uid);
+
+			return $this->UCP->FreePBX->Ucp->getUserByID($this->uid);
 		}
 		return false;
 	}

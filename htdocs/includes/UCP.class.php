@@ -14,8 +14,7 @@ namespace UCP;
 include(__DIR__.'/UCP_Helpers.class.php');
 class UCP extends UCP_Helpers {
 	// Static Object used for self-referencing.
-	private static $obj;
-	public static $conf;
+	private static $uobj;
 
 	function __construct($mode = 'local') {
 		if($mode == 'local') {
@@ -35,7 +34,7 @@ class UCP extends UCP_Helpers {
 
 		$this->detect = new \Mobile_Detect;
 		// Ensure the local object is available
-		self::$obj = $this;
+		self::$uobj = $this;
 	}
 
 	/**
@@ -49,10 +48,10 @@ class UCP extends UCP_Helpers {
 	 * @return object FreePBX UCP Object
 	 */
 	public static function create() {
-		if (!isset(self::$obj)) {
-			self::$obj = new UCP();
+		if (!isset(self::$uobj)) {
+			self::$uobj = new UCP();
 		}
-		return self::$obj;
+		return self::$uobj;
 	}
 
 	/**
@@ -79,7 +78,7 @@ class UCP extends UCP_Helpers {
 	* @param string $setting  The setting key
 	*/
 	function getCombinedSettingByID($uid,$module,$setting) {
-		return $this->FreePBX->UCP->getCombinedSettingByID($uid,$module,$setting);
+		return $this->FreePBX->Ucp->getCombinedSettingByID($uid,$module,$setting);
 	}
 
 	/**
@@ -89,7 +88,7 @@ class UCP extends UCP_Helpers {
 	 * @param string $setting  The setting key
 	 */
 	function getSetting($username,$module,$setting) {
-		return $this->FreePBX->UCP->getSetting($username,$module,$setting);
+		return $this->FreePBX->Ucp->getSetting($username,$module,$setting);
 	}
 
 	/**
@@ -100,7 +99,7 @@ class UCP extends UCP_Helpers {
 	 * @param string $value    the setting value
 	 */
 	function setSetting($username,$module,$setting,$value) {
-		return $this->FreePBX->UCP->setSetting($username,$module,$setting,$value);
+		return $this->FreePBX->Ucp->setSetting($username,$module,$setting,$value);
 	}
 
 	/**

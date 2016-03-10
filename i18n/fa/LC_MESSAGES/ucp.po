@@ -10,12 +10,16 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-02-10 13:23-0800\n"
-"PO-Revision-Date: 2016-01-08 18:29-0800\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2016-02-15 05:32+0200\n"
+"Last-Translator: Media <mousavi.media@gmail.com>\n"
+"Language-Team: Persian <http://weblate.freepbx.org/projects/freepbx/ucp/fa/>"
+"\n"
+"Language: fa\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 2.2-dev\n"
 
 #: htdocs/assets/js/bootstrap-table-1.9.0.js:635
 #: htdocs/assets/js/bootstrap-table-1.9.0.js:636
@@ -58,7 +62,7 @@ msgstr ""
 
 #: ucp.i18n.php:6
 msgid "Admin"
-msgstr ""
+msgstr "مدیر"
 
 #: htdocs/views/settings.php:5
 msgid ""
@@ -109,7 +113,7 @@ msgstr ""
 
 #: htdocs/views/templates/phone.php:7 htdocs/views/templates/phone.php:95
 msgid "Call"
-msgstr ""
+msgstr "تماس"
 
 #: htdocs/views/settings.php:62
 msgid "Cell Phone"
@@ -141,11 +145,11 @@ msgstr ""
 
 #: htdocs/views/settings.php:32
 msgid "Display Name"
-msgstr ""
+msgstr "نام"
 
 #: Ucp.class.php:807 Ucp.class.php:811 Ucp.class.php:815 Ucp.class.php:819
 msgid "Done"
-msgstr ""
+msgstr "انجام شده"
 
 #: htdocs/views/login.php:29 htdocs/views/settings.php:37
 msgid "Email"
@@ -198,7 +202,7 @@ msgstr ""
 
 #: views/users_hook.php:19
 msgid "General"
-msgstr ""
+msgstr "عمومی"
 
 #: Ucp.class.php:817
 msgid "Generating Main CSS..."
@@ -313,7 +317,7 @@ msgstr ""
 
 #: views/users_hook.php:53 views/users_hook.php:151
 msgid "No"
-msgstr ""
+msgstr "خیر"
 
 #: htdocs/modules/Home/assets/js/global.js:75
 msgid "Nothing Entered"
@@ -435,7 +439,7 @@ msgstr ""
 #: htdocs/index.php:222 htdocs/modules/Settings/Settings.class.php:83
 #: htdocs/views/dashboard.php:39 htdocs/assets/js/ucp.js:804
 msgid "Settings"
-msgstr ""
+msgstr "تنظیمات"
 
 #: htdocs/views/templates/phone.php:69
 msgid "TUV"
@@ -577,7 +581,7 @@ msgstr ""
 
 #: views/users_hook.php:51 views/users_hook.php:149
 msgid "Yes"
-msgstr ""
+msgstr "بله"
 
 #: htdocs/assets/js/ucp.js:444
 msgid "You are currently working in offline mode."

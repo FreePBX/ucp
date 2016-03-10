@@ -92,8 +92,9 @@ class UCP_Helpers {
 		$args = func_get_args();
 		$var = $args[0];
 
-		if ($var == "UCP")
+		if ($var == "UCP") {
 			throw new \Exception("No. You ALREADY HAVE the UCP Object. You don't need another one.");
+		}
 
 		// Ensure no-one's trying to include something with a path in it.
 		if (strpos($var, "/") || strpos($var, ".."))

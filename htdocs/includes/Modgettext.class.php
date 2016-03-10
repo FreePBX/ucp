@@ -7,7 +7,7 @@
  * @author Philippe Lindheimer
  */
 namespace UCP;
-class Modgettext extends \UCP {
+class Modgettext extends UCP {
 
 	// This hash maps a given module name to the initialized txt domain it should use.
 	// If the hash is not initialized then it will be setup the first time it is attempted.

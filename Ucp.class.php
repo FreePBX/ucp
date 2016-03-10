@@ -7,13 +7,15 @@
  * Copyright 2006-2014 Schmooze Com Inc.
  */
 
-class Ucp extends \FreePBX_Helpers implements \BMO {
+class Ucp implements \BMO {
 	private $message;
 	private $registeredHooks = array();
 	private $brand = 'FreePBX';
+	private $tokenCache = false;
 	public function __construct($freepbx = null) {
-		if ($freepbx == null)
+		if ($freepbx == null) {
 			throw new Exception("Not given a FreePBX Object");
+		}
 
 		$this->FreePBX = $freepbx;
 		$this->Userman = $this->FreePBX->Userman;
@@ -692,10 +694,17 @@ class Ucp extends \FreePBX_Helpers implements \BMO {
 	/**
 	* Trash all sessions (used for upgrade purposes)
 	*/
-	public function expireAllUserSessions() {
-		$sql = "TRUNCATE TABLE ucp_sessions";
+	public function expireAllUserSessions($days = null) {
+		if(empty($days)) {
+			$sql = "TRUNCATE TABLE ucp_sessions";
+		} elseif(ctype_digit($days)) {
+			$sql = "DELETE FROM ucp_sessions WHERE `time` < unix_timestamp(now() - interval ".$days." day))";
+		} else {
+			return false;
+		}
 		try {
 			$sth = $this->db->prepare($sql);
+			$sth->execute();
 		} catch(\Exception $e) {}
 		return true;
 	}
@@ -781,10 +790,19 @@ class Ucp extends \FreePBX_Helpers implements \BMO {
 	 * @param {string} $token The token name
 	 */
 	public function getToken($token) {
+		if(!empty($this->tokenCache)) {
+			return $this->tokenCache;
+		}
+		$expire = $this->FreePBX->Config->get("UCPSESSIONTIMEOUT");
+		if(!empty($expire) && ctype_digit($expire)) {
+			$this->expireAllUserSessions($expire);
+		}
+
 		$sql = "SELECT uid, address FROM ucp_sessions WHERE session = :token";
 		$sth = $this->db->prepare($sql);
 		$sth->execute(array(':token' => $token));
-		return $sth->fetch(\PDO::FETCH_ASSOC);
+		$this->tokenCache = $sth->fetch(\PDO::FETCH_ASSOC);
+		return $this->tokenCache;
 	}
 
 	/**
