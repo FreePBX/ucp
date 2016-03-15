@@ -10,10 +10,10 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-03-10 12:51-0800\n"
-"PO-Revision-Date: 2016-03-15 15:31+0300\n"
+"PO-Revision-Date: 2016-03-08 16:22+0300\n"
 "Last-Translator: Media <mousavi.media@gmail.com>\n"
-"Language-Team: Persian <http://weblate.freepbx.org/projects/freepbx/ivr/fa/>"
-"\n"
+"Language-Team: Persian "
+"<http://weblate.freepbx.org/projects/freepbx/webrtc/fa/>\n"
 "Language: fa\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -338,13 +338,13 @@ msgstr ""
 #: htdocs/modules/Home/assets/js/global.js:46
 #: htdocs/modules/Home/assets/js/global.js:124
 msgid "Originate"
-msgstr ""
+msgstr "ایجاد"
 
 #: htdocs/index.php:211 htdocs/modules/Home/assets/js/global.js:22
 #: htdocs/modules/Home/assets/js/global.js:45
 #: htdocs/modules/Home/assets/js/global.js:123
 msgid "Originate Call"
-msgstr ""
+msgstr "برقراری تماس"
 
 #: htdocs/views/templates/phone.php:65
 msgid "PQRS"
