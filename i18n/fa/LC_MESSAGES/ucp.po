@@ -10,16 +10,16 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-03-10 12:51-0800\n"
-"PO-Revision-Date: 2016-03-15 10:53+0300\n"
+"PO-Revision-Date: 2016-03-15 20:31+0300\n"
 "Last-Translator: Media <mousavi.media@gmail.com>\n"
-"Language-Team: Persian "
-"<http://weblate.freepbx.org/projects/freepbx/music/fa/>\n"
+"Language-Team: Persian <http://weblate.freepbx.org/projects/freepbx/cdr/fa/>"
+"\n"
 "Language: fa\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.2-dev\n"
+"X-Generator: Weblate 2.4\n"
 
 #: htdocs/assets/js/bootstrap-table-1.9.0.js:635
 #: htdocs/assets/js/bootstrap-table-1.9.0.js:636
@@ -178,7 +178,7 @@ msgstr "دورنگار"
 
 #: htdocs/views/templates/pagnation.php:4
 msgid "First"
-msgstr "ابتدا"
+msgstr "اولین"
 
 #: htdocs/views/settings.php:42
 msgid "First Name"
@@ -344,7 +344,7 @@ msgstr "ایجاد"
 #: htdocs/modules/Home/assets/js/global.js:45
 #: htdocs/modules/Home/assets/js/global.js:123
 msgid "Originate Call"
-msgstr "برقراری تماس"
+msgstr "منبع تماس"
 
 #: htdocs/views/templates/phone.php:65
 msgid "PQRS"
