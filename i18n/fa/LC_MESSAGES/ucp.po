@@ -10,9 +10,9 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-03-10 12:51-0800\n"
-"PO-Revision-Date: 2016-03-15 19:51+0300\n"
+"PO-Revision-Date: 2016-03-15 23:21+0200\n"
 "Last-Translator: Media <mousavi.media@gmail.com>\n"
-"Language-Team: Persian <http://weblate.freepbx.org/projects/freepbx/cel/fa/>"
+"Language-Team: Persian <http://weblate.freepbx.org/projects/freepbx/ucp/fa/>"
 "\n"
 "Language: fa\n"
 "MIME-Version: 1.0\n"
@@ -133,7 +133,7 @@ msgstr "در حال اتصال...."
 
 #: htdocs/views/templates/phone.php:45
 msgid "DEF"
-msgstr ""
+msgstr "DEF"
 
 #: Ucp.class.php:731
 msgid "Deleted Session"
@@ -165,7 +165,7 @@ msgstr "انگلیسی"
 
 #: htdocs/views/dashboard.php:92
 msgid "Excuse us while we try to retrieve your content"
-msgstr ""
+msgstr "ما درحال بازیابی مطالب شما هستیم"
 
 #: install.inc.php:20
 #, php-format
@@ -198,7 +198,7 @@ msgstr ""
 
 #: htdocs/views/templates/phone.php:51
 msgid "GHI"
-msgstr ""
+msgstr "GHI"
 
 #: views/users_hook.php:19
 msgid "General"
@@ -210,15 +210,15 @@ msgstr ""
 
 #: Ucp.class.php:831
 msgid "Generating Main Scripts..."
-msgstr ""
+msgstr "ایجاد اسکریپت اصلی..."
 
 #: Ucp.class.php:827
 msgid "Generating Module CSS..."
-msgstr ""
+msgstr "ایجاد ماژول CSS..."
 
 #: Ucp.class.php:823
 msgid "Generating Module Scripts..."
-msgstr ""
+msgstr "ایجاد اسکریپت ماژول..."
 
 #: htdocs/views/templates/phone.php:98
 msgid "Hold"
@@ -264,11 +264,11 @@ msgstr "عملیات ورود نامعتبر"
 
 #: htdocs/index.php:230
 msgid "Invalid Token"
-msgstr ""
+msgstr "توکن نامعتبر"
 
 #: htdocs/views/templates/phone.php:55
 msgid "JKL"
-msgstr ""
+msgstr "JKL"
 
 #: htdocs/views/settings.php:83
 msgid "Language"
@@ -301,7 +301,7 @@ msgstr "خروج"
 
 #: htdocs/views/templates/phone.php:59
 msgid "MNO"
-msgstr ""
+msgstr "MNO"
 
 #: views/users_hook.php:65
 msgid "May this user log in to UCP"
@@ -348,7 +348,7 @@ msgstr "منبع تماس"
 
 #: htdocs/views/templates/phone.php:65
 msgid "PQRS"
-msgstr ""
+msgstr "PQRS"
 
 #: htdocs/views/login.php:20 htdocs/views/settings.php:18
 msgid "Password"
@@ -394,7 +394,7 @@ msgstr "در حال پردازش..."
 
 #: ucp.i18n.php:26
 msgid "RSS Feeds"
-msgstr "خوراک RSS "
+msgstr "خوراک RSS"
 
 #: ucp.i18n.php:30
 msgid "RSS Feeds that are displayed in UCP. This overrides "
@@ -432,7 +432,7 @@ msgstr "تنظیمات"
 
 #: htdocs/views/templates/phone.php:69
 msgid "TUV"
-msgstr ""
+msgstr "TUV"
 
 #: ucp.i18n.php:36
 msgid ""
@@ -563,7 +563,7 @@ msgstr "نام کاربری تغییر کرده، بازنشانی"
 
 #: htdocs/views/templates/phone.php:73
 msgid "WXYZ"
-msgstr ""
+msgstr "WXYZ"
 
 #: htdocs/views/dashboard.php:3
 #, php-format
@@ -584,11 +584,11 @@ msgstr "بله"
 
 #: htdocs/assets/js/ucp.js:444
 msgid "You are currently working in offline mode."
-msgstr ""
+msgstr "شما در حالت آفلاین هستید."
 
 #: htdocs/assets/js/ucp.js:146
 msgid "Your Browser is unsupported at this time."
-msgstr ""
+msgstr "مرورگر شما پشتیبانی میشود."
 
 #: htdocs/views/settings.php:64
 msgid "Your Cell Phone Number"
@@ -630,7 +630,7 @@ msgstr "تلفن محل کار شما"
 msgid ""
 "Your browser is unsupported at this time. Please upgrade or talk to your "
 "system administrator"
-msgstr ""
+msgstr "مرورگر شما پشتیبانی نمیشود. لطفا آن را به روز کنید"
 
 #: htdocs/assets/js/ucp.js:82
 msgid "Your reset link is in the mail!"
