@@ -137,6 +137,8 @@ class UCP extends UCP_Helpers {
 			"bootstrap-table-cookie.js",
 			"bootstrap-table-toolbar.js",
 			"bootstrap-table-mobile.js",
+			"bootstrap-table-export.js",
+			"tableExport.js",
 			"jquery-ui-1.10.4.custom.min.js",
 			/*"jquery.keyframes.min.js",*/
 			"fileinput.js",
