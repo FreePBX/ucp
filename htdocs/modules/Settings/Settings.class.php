@@ -80,7 +80,7 @@ class Settings extends Modules{
 		if(!empty($extensions)) {
 			$menu = array(
 				"rawname" => "settings",
-				"name" => _("Settings"),
+				"name" => _("Endpoint Settings"),
 				"badge" => false,
 			);
 			foreach($extensions as $e) {
