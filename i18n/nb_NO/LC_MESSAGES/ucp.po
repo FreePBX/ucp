@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-03-10 12:51-0800\n"
+"POT-Creation-Date: 2016-03-23 11:11-0700\n"
 "PO-Revision-Date: 2015-08-30 14:46+0200\n"
 "Last-Translator: Vidar Skjelanger <vidar@unimicro.no>\n"
 "Language-Team: Norwegian Bokmål <http://weblate.freepbx.org/projects/freepbx/"
@@ -158,6 +158,10 @@ msgstr "Epost"
 
 #: views/users_hook.php:144
 msgid "Enable Originating Calls"
+msgstr ""
+
+#: htdocs/modules/Settings/Settings.class.php:83
+msgid "Endpoint Settings"
 msgstr ""
 
 #: htdocs/index.php:156
@@ -428,7 +432,6 @@ msgstr "Send meg en link for nullstilling av passord"
 msgid "Sent at %s"
 msgstr "Sendt %s"
 
-#: htdocs/index.php:217 htdocs/modules/Settings/Settings.class.php:83
 #: htdocs/views/dashboard.php:39 htdocs/assets/js/ucp.js:804
 msgid "Settings"
 msgstr "Innstillinger"
@@ -557,6 +560,10 @@ msgstr ""
 
 #: Ucp.class.php:55 /usr/src/freepbx/ucp/Ucp.class.php:83
 msgid "User Primary Extension"
+msgstr ""
+
+#: htdocs/index.php:217
+msgid "User Settings"
 msgstr ""
 
 #: htdocs/views/login.php:15 htdocs/views/settings.php:9

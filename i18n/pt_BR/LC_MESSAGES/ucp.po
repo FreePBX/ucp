@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-03-10 12:51-0800\n"
+"POT-Creation-Date: 2016-03-23 11:11-0700\n"
 "PO-Revision-Date: 2015-05-02 20:55+0200\n"
 "Last-Translator: Renato <fiuza@tecnologia.inf.br>\n"
 "Language-Team: Portuguese (Brazil) <http://weblate.freepbx.org/projects/"
@@ -159,6 +159,10 @@ msgstr "Email"
 
 #: views/users_hook.php:144
 msgid "Enable Originating Calls"
+msgstr ""
+
+#: htdocs/modules/Settings/Settings.class.php:83
+msgid "Endpoint Settings"
 msgstr ""
 
 #: htdocs/index.php:156
@@ -429,7 +433,6 @@ msgstr "Envie-me Um Link de Redefinição de Senha"
 msgid "Sent at %s"
 msgstr "Enviado para %s"
 
-#: htdocs/index.php:217 htdocs/modules/Settings/Settings.class.php:83
 #: htdocs/views/dashboard.php:39 htdocs/assets/js/ucp.js:804
 msgid "Settings"
 msgstr "Configurações"
@@ -562,6 +565,10 @@ msgstr "Painel do Usuário"
 
 #: Ucp.class.php:55 /usr/src/freepbx/ucp/Ucp.class.php:83
 msgid "User Primary Extension"
+msgstr ""
+
+#: htdocs/index.php:217
+msgid "User Settings"
 msgstr ""
 
 #: htdocs/views/login.php:15 htdocs/views/settings.php:9
