@@ -181,8 +181,7 @@ class Home extends Modules{
 			case "originate":
 				if($this->_checkExtension($_REQUEST['from'])) {
 					// prevent caller id spoofing
-					$user = $this->UCP->User->getUser();
-					if($user['default_extension'] == $_REQUEST['from']) {
+					if($this->user['default_extension'] == $_REQUEST['from']) {
 						$out = $this->astman->originate(array(
 							"Channel" => "Local/".$_REQUEST['from']."@originate-skipvm",
 							"Exten" => $_REQUEST['to'],
