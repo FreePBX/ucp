@@ -180,19 +180,9 @@ class Home extends Modules{
 			break;
 			case "originate":
 				if($this->_checkExtension($_REQUEST['from'])) {
-					// See if user has a device
-					$devices = $this->UCP->FreePBX->Core->getAllDevicesByType();
-					foreach ($devices as $device) {
-						if ($device['user'] == $_REQUEST['from']) {
-							$data = $device;
-							break;
-						}
-					}
-					// Try raw device
-					if(empty($data)) {
-						$data = $this->UCP->FreePBX->Core->getDevice($_REQUEST['from']);
-					}
-					if(!empty($data)) {
+					// prevent caller id spoofing
+					$user = $this->UCP->User->getUser();
+					if($user['default_extension'] == $_REQUEST['from']) {
 						$out = $this->astman->originate(array(
 							"Channel" => "Local/".$_REQUEST['from']."@originate-skipvm",
 							"Exten" => $_REQUEST['to'],
