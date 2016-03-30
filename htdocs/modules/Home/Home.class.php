@@ -180,15 +180,26 @@ class Home extends Modules{
 			break;
 			case "originate":
 				if($this->_checkExtension($_REQUEST['from'])) {
-					$data = $this->UCP->FreePBX->Core->getDevice($_REQUEST['from']);
+					// See if user has a device
+					$devices = $this->UCP->FreePBX->Core->getAllDevicesByType();
+					foreach ($devices as $device) {
+						if ($device['user'] == $_REQUEST['from']) {
+							$data = $device;
+							break;
+						}
+					}
+					// Try raw device
+					if(empty($data)) {
+						$data = $this->UCP->FreePBX->Core->getDevice($_REQUEST['from']);
+					}
 					if(!empty($data)) {
 						$out = $this->astman->originate(array(
-							"Channel" => "Local/".$data['id']."@originate-skipvm",
+							"Channel" => "Local/".$_REQUEST['from']."@originate-skipvm",
 							"Exten" => $_REQUEST['to'],
 							"Context" => "from-internal",
 							"Priority" => 1,
 							"Async" => "yes",
-							"CallerID" => "UCP <".$data['id'].">"
+							"CallerID" => "UCP <".$_REQUEST['from'].">"
 						));
 						if($out['Response'] == "Error") {
 							$return['status'] = false;
