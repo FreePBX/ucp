@@ -155,13 +155,14 @@ class UCP extends UCP_Helpers {
 			"packery.pkgd.min.js",
 			"class.js",
 			/*"jquery.transit.min.js",*/
-			"date.format.js",
 			"jquery.textfill.min.js",
 			"jed.js",
 			"modgettext.js",
 			"jquery.cookie.js",
 			"emojione.min.js",
 			"jquery.tokenize.js",
+			"moment.js",
+			"moment-timezone.js",
 			"ucp.js",
 			"module.js"
 		);

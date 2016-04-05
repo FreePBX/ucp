@@ -714,9 +714,9 @@ var UCPC = Class.extend({
 				clearTimeout(UCP.chatTimeout[id]);
 			}
 
-			var d = new Date();
+			var d = moment().tz(timezone).calendar();
 			UCP.chatTimeout[id] = setTimeout(function() {
-				$( "#messages-container .message-box[data-id=\"" + id + "\"] .chat" ).append("<div class=\"status\" data-type=\"date\">Sent at " + d.format("g:i A \\o\\n l") + "</div>");
+				$( "#messages-container .message-box[data-id=\"" + id + "\"] .chat" ).append("<div class=\"status\" data-type=\"date\">Sent at " + d + "</div>");
 				$("#messages-container .message-box[data-id=\"" + id + "\"] .chat").animate({ scrollTop: $("#messages-container .message-box[data-id=\"" + id + "\"] .chat")[0].scrollHeight }, "fast");
 			}, 60000);
 
@@ -1029,8 +1029,8 @@ var UCPC = Class.extend({
 		$('table[data-toggle="table"]').bootstrapTable();
 	},
 	dateFormatter: function(unixtimestamp) {
-		var date = new Date(unixtimestamp *1000);
-		return date.format('m/d/y h:i:sa');
+		unixtimestamp = parseInt(unixtimestamp);
+		return moment.unix(unixtimestamp).tz(timezone).format('MM/DD/YYYY h:mm:ssa');
 	},
 	updateNavBadge: function(button, num) {
 		var badge = $("#nav-btn-" + button + " .badge");

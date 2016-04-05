@@ -26,6 +26,7 @@
 			var modules = <?php echo $modules?>;
 			var desktop = <?php echo $desktop ? "true" : "false"?>;
 			var ucpserver = <?php echo $ucpserver ?>;
+			var timezone = '<?php echo date_default_timezone_get() ?>';
 			emojione.imagePathPNG = 'assets/images/emoji/png/';
 			emojione.imagePathSVG = 'assets/images/emoji/svg/';
 		</script>
