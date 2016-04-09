@@ -48,7 +48,8 @@ if(empty($ucp->Session->isMobile)) {
 //This is to force a complete page refresh if/when UCP gets updates
 //The header HTTP_X_PJAX comes from the JS PJAX lib, letting us know we don't need the whole html document
 if(isset($_SERVER['HTTP_X_PJAX'])) {
-	header("X-PJAX-Version: ".$ucp->getVersion());
+	$forceRefresh = $ucp->User->refresh() ? '-force' : '';
+	header("X-PJAX-Version: ".$ucp->getVersion().$forceRefresh);
 }
 
 //http://htmlpurifier.org/docs/enduser-utf8.html#fixcharset

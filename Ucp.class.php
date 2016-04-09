@@ -45,6 +45,21 @@ class Ucp implements \BMO {
 
 	}
 
+	/**
+	 * Force UCP to refresh on next page load
+	 * @param  int $uid User Manager ID
+	 */
+	public function refreshInterface($uid) {
+		if(!empty($uid)) {
+			$ref = $this->Userman->getModuleSettingByID($uid,'ucp|Global','flushPage');
+			if($ref) {
+				$this->Userman->setModuleSettingByID($uid,'ucp|Global','flushPage',false);
+			}
+			return $ref;
+		}
+		return false;
+	}
+
 	public function usermanShowPage() {
 		if(isset($_REQUEST['action'])) {
 			$mode = ($_REQUEST['action'] == "showgroup" || $_REQUEST['action'] == "addgroup" ) ? "group" : "user";
@@ -303,7 +318,7 @@ class Ucp implements \BMO {
 
 		$group = $this->Userman->getGroupByGID($id);
 		foreach($group['users'] as $user) {
-			$this->expireUserSessions($user);
+			$this->FreePBX->Userman->setModuleSettingByID($user,'ucp|Global','flushPage',true);
 		}
 	}
 
@@ -327,7 +342,7 @@ class Ucp implements \BMO {
 
 		$group = $this->Userman->getGroupByGID($id);
 		foreach($group['users'] as $user) {
-			$this->expireUserSessions($user);
+			$this->FreePBX->Userman->setModuleSettingByID($user,'ucp|Global','flushPage',true);
 		}
 	}
 
@@ -375,6 +390,7 @@ class Ucp implements \BMO {
 		}
 		$login = $this->FreePBX->Userman->getModuleSettingByID($id,'ucp|Global','allowLogin');
 		$this->FreePBX->Hooks->processHooks($id,$display,$login,$data);
+		$this->FreePBX->Userman->setModuleSettingByID($id,'ucp|Global','flushPage',true);
 	}
 
 	/**
@@ -409,7 +425,7 @@ class Ucp implements \BMO {
 		}
 		$login = $this->FreePBX->Userman->getModuleSettingByID($id,'ucp|Global','allowLogin');
 		$this->FreePBX->Hooks->processHooks($id,$display,$login,$data);
-		$this->expireUserSessions($id);
+		$this->FreePBX->Userman->setModuleSettingByID($id,'ucp|Global','flushPage',true);
 		return true;
 	}
 

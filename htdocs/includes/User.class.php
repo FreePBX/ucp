@@ -145,6 +145,17 @@ class User {
 	}
 
 	/**
+	 * Force a refresh, negating pjax
+	 * @return bool True to refresh, false to not
+	 */
+	public function refresh() {
+		if(!empty($this->user)) {
+			return $this->UCP->FreePBX->UCP->refreshInterface($this->uid);
+		}
+		return false;
+	}
+
+	/**
 	 * Get Logged in user information
 	 *
 	 * Get's the logged in user's information or false if not logged in
