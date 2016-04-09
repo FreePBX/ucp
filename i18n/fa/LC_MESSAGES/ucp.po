@@ -9,15 +9,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-03-23 11:11-0700\n"
+"POT-Creation-Date: 2016-04-08 17:08-0700\n"
 "PO-Revision-Date: 2016-04-07 10:17+0300\n"
 "Last-Translator: Media <mousavi.media@gmail.com>\n"
-"Language-Team: Persian "
-"<http://weblate.freepbx.org/projects/freepbx/framework/fa/>\n"
-"Language: fa\n"
+"Language-Team: Persian <http://weblate.freepbx.org/projects/freepbx/"
+"framework/fa/>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: fa\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 2.4\n"
 
@@ -39,15 +39,15 @@ msgstr ""
 msgid " + field + "
 msgstr " + فیلد + "
 
-#: htdocs/index.php:90
+#: htdocs/index.php:91
 msgid ".htaccess files are disabled on this webserver. Please enable them"
 msgstr "فایلهای .htaccess در این سرور وب غیرفعال شد. لطفا آنها را فعال کنید"
 
-#: htdocs/index.php:103
+#: htdocs/index.php:104
 msgid ".htaccess files are not supported on this webserver."
 msgstr "فایلهای .htaccess در این سرور وب پشتیبانی نمیشود"
 
-#: Ucp.class.php:238
+#: Ucp.class.php:253
 #, php-format
 msgid "A token has already been generated for %s, not sending email again"
 msgstr "توکن برای %s ایجاد شده, دیگر ایمیل نزنید"
@@ -135,11 +135,11 @@ msgstr "در حال اتصال...."
 msgid "DEF"
 msgstr "DEF"
 
-#: Ucp.class.php:731
+#: Ucp.class.php:747
 msgid "Deleted Session"
 msgstr "سیشن حذف شده"
 
-#: Ucp.class.php:111 Ucp.class.php:574
+#: Ucp.class.php:126 Ucp.class.php:590
 msgid "Deleted User Session"
 msgstr "سیشن حذف شده کاربر"
 
@@ -147,7 +147,7 @@ msgstr "سیشن حذف شده کاربر"
 msgid "Display Name"
 msgstr "نام"
 
-#: Ucp.class.php:825 Ucp.class.php:829 Ucp.class.php:833 Ucp.class.php:837
+#: Ucp.class.php:841 Ucp.class.php:845 Ucp.class.php:849 Ucp.class.php:853
 msgid "Done"
 msgstr "انجام شده"
 
@@ -163,7 +163,7 @@ msgstr "فعال کردن ایجاد تماس"
 msgid "Endpoint Settings"
 msgstr "تنظیمات نقطه پایانی"
 
-#: htdocs/index.php:156
+#: htdocs/index.php:157
 msgid "English"
 msgstr "انگلیسی"
 
@@ -208,19 +208,19 @@ msgstr "GHI"
 msgid "General"
 msgstr "عمومی"
 
-#: Ucp.class.php:835
+#: Ucp.class.php:851
 msgid "Generating Main CSS..."
 msgstr "ایجاد CSS اصلی..."
 
-#: Ucp.class.php:831
+#: Ucp.class.php:847
 msgid "Generating Main Scripts..."
 msgstr "ایجاد اسکریپت اصلی..."
 
-#: Ucp.class.php:827
+#: Ucp.class.php:843
 msgid "Generating Module CSS..."
 msgstr "ایجاد ماژول CSS..."
 
-#: Ucp.class.php:823
+#: Ucp.class.php:839
 msgid "Generating Module Scripts..."
 msgstr "ایجاد اسکریپت ماژول..."
 
@@ -246,7 +246,7 @@ msgstr "نامی که در کنترل پنل کاربری و مدیریت مخا
 msgid "Inherit"
 msgstr "ارثی"
 
-#: htdocs/index.php:241
+#: htdocs/index.php:242
 #, php-format
 msgid ""
 "Internet Explorer %s is not supported. Functionality will be deteriorated "
@@ -268,7 +268,7 @@ msgstr "وسیله نامعتبر"
 msgid "Invalid Login Credentials"
 msgstr "عملیات ورود نامعتبر"
 
-#: htdocs/index.php:230
+#: htdocs/index.php:231
 msgid "Invalid Token"
 msgstr "توکن نامعتبر"
 
@@ -301,7 +301,7 @@ msgstr "بارگذاری..."
 msgid "Login"
 msgstr "ورود"
 
-#: htdocs/index.php:217
+#: htdocs/index.php:218
 msgid "Logout"
 msgstr "خروج"
 
@@ -346,7 +346,7 @@ msgstr "روشن"
 msgid "Originate"
 msgstr "ایجاد"
 
-#: htdocs/index.php:211 htdocs/modules/Home/assets/js/global.js:22
+#: htdocs/index.php:212 htdocs/modules/Home/assets/js/global.js:22
 #: htdocs/modules/Home/assets/js/global.js:45
 #: htdocs/modules/Home/assets/js/global.js:123
 msgid "Originate Call"
@@ -364,7 +364,7 @@ msgstr "کلمه عبور"
 msgid "Password Confirmation Didn't Match!"
 msgstr "لطفا دوباره بررسی کنید دو کلمه عبور یکسان نیستند!"
 
-#: Ucp.class.php:201 Ucp.class.php:211
+#: Ucp.class.php:216 Ucp.class.php:226
 #, php-format
 msgid "Password Reset Link (Valid Until: %s): %s"
 msgstr "لینک بازنشانی کلمه عبور (Valid Until: %s): %s"
@@ -461,7 +461,7 @@ msgid "The username used to login to User Control Panel and other services"
 msgstr ""
 "از این نام کاربری برای ورود به کنترل پنل کاربری و دیگر سرویسها استفاده میشود"
 
-#: htdocs/index.php:118
+#: htdocs/index.php:119
 msgid "There was an error trying to load UCP"
 msgstr "خطایی در هنگام بارگذاری پنل کاربری رخ داد"
 
@@ -478,7 +478,7 @@ msgstr ""
 msgid "Title"
 msgstr "عنوان"
 
-#: htdocs/index.php:91
+#: htdocs/index.php:92
 #, php-format
 msgid ""
 "To protect the integrity of your server, you must allow overrides in your "
@@ -531,7 +531,7 @@ msgstr "امکان اتصال به سرور پنل کاربری وجود ندا�
 msgid "Unable to get a token to use UCP Node Server because: '%s'"
 msgstr "عدم توانایی دریافت نشانه از سرور کنترل پنل کاربری به دلیل: '%s'"
 
-#: htdocs/index.php:182
+#: htdocs/index.php:183
 #, php-format
 msgid "Unknown Module %s"
 msgstr "ماژول شناخته نشده %s"
@@ -556,7 +556,7 @@ msgstr "تنظیمات پنل کنترل کاربر"
 msgid "User Control Panel is released as %s or newer"
 msgstr "پنل کاربری منتشر شده در %s یا جدیدتر"
 
-#: Ucp.class.php:197 Ucp.class.php:207
+#: Ucp.class.php:212 Ucp.class.php:222
 #, php-format
 msgid "User Control Panel: %s"
 msgstr "پنل کنترل کاربر: %s"
@@ -565,11 +565,11 @@ msgstr "پنل کنترل کاربر: %s"
 msgid "User Panel"
 msgstr "پنل کاربر"
 
-#: Ucp.class.php:55 /usr/src/freepbx/ucp/Ucp.class.php:83
+#: Ucp.class.php:70 /usr/src/freepbx/ucp/Ucp.class.php:98
 msgid "User Primary Extension"
 msgstr "داخلی اصلی کاربر"
 
-#: htdocs/index.php:217
+#: htdocs/index.php:218
 msgid "User Settings"
 msgstr "تنظیمات کاربر"
 
@@ -656,7 +656,7 @@ msgstr "مرورگر شما پشتیبانی نمیشود. لطفا آن را ب
 msgid "Your reset link is in the mail!"
 msgstr "لینک بازنشانی کلمه عبور در ایمیل شما!"
 
-#: htdocs/index.php:104
+#: htdocs/index.php:105
 #, php-format
 msgid ""
 "htaccess files help protect the integrity of your server. Please make sure "

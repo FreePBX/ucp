@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-03-23 11:11-0700\n"
+"POT-Creation-Date: 2016-04-08 17:08-0700\n"
 "PO-Revision-Date: 2015-03-30 14:57-0400\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -35,15 +35,15 @@ msgstr ""
 msgid " + field + "
 msgstr ""
 
-#: htdocs/index.php:90
+#: htdocs/index.php:91
 msgid ".htaccess files are disabled on this webserver. Please enable them"
 msgstr ""
 
-#: htdocs/index.php:103
+#: htdocs/index.php:104
 msgid ".htaccess files are not supported on this webserver."
 msgstr ""
 
-#: Ucp.class.php:238
+#: Ucp.class.php:253
 #, php-format
 msgid "A token has already been generated for %s, not sending email again"
 msgstr ""
@@ -131,11 +131,11 @@ msgstr ""
 msgid "DEF"
 msgstr ""
 
-#: Ucp.class.php:731
+#: Ucp.class.php:747
 msgid "Deleted Session"
 msgstr ""
 
-#: Ucp.class.php:111 Ucp.class.php:574
+#: Ucp.class.php:126 Ucp.class.php:590
 msgid "Deleted User Session"
 msgstr ""
 
@@ -143,7 +143,7 @@ msgstr ""
 msgid "Display Name"
 msgstr ""
 
-#: Ucp.class.php:825 Ucp.class.php:829 Ucp.class.php:833 Ucp.class.php:837
+#: Ucp.class.php:841 Ucp.class.php:845 Ucp.class.php:849 Ucp.class.php:853
 msgid "Done"
 msgstr ""
 
@@ -159,7 +159,7 @@ msgstr ""
 msgid "Endpoint Settings"
 msgstr ""
 
-#: htdocs/index.php:156
+#: htdocs/index.php:157
 msgid "English"
 msgstr ""
 
@@ -204,19 +204,19 @@ msgstr ""
 msgid "General"
 msgstr ""
 
-#: Ucp.class.php:835
+#: Ucp.class.php:851
 msgid "Generating Main CSS..."
 msgstr ""
 
-#: Ucp.class.php:831
+#: Ucp.class.php:847
 msgid "Generating Main Scripts..."
 msgstr ""
 
-#: Ucp.class.php:827
+#: Ucp.class.php:843
 msgid "Generating Module CSS..."
 msgstr ""
 
-#: Ucp.class.php:823
+#: Ucp.class.php:839
 msgid "Generating Module Scripts..."
 msgstr ""
 
@@ -242,7 +242,7 @@ msgstr ""
 msgid "Inherit"
 msgstr ""
 
-#: htdocs/index.php:241
+#: htdocs/index.php:242
 #, php-format
 msgid ""
 "Internet Explorer %s is not supported. Functionality will be deteriorated "
@@ -262,7 +262,7 @@ msgstr ""
 msgid "Invalid Login Credentials"
 msgstr ""
 
-#: htdocs/index.php:230
+#: htdocs/index.php:231
 msgid "Invalid Token"
 msgstr ""
 
@@ -295,7 +295,7 @@ msgstr ""
 msgid "Login"
 msgstr ""
 
-#: htdocs/index.php:217
+#: htdocs/index.php:218
 msgid "Logout"
 msgstr ""
 
@@ -340,7 +340,7 @@ msgstr ""
 msgid "Originate"
 msgstr ""
 
-#: htdocs/index.php:211 htdocs/modules/Home/assets/js/global.js:22
+#: htdocs/index.php:212 htdocs/modules/Home/assets/js/global.js:22
 #: htdocs/modules/Home/assets/js/global.js:45
 #: htdocs/modules/Home/assets/js/global.js:123
 msgid "Originate Call"
@@ -358,7 +358,7 @@ msgstr ""
 msgid "Password Confirmation Didn't Match!"
 msgstr ""
 
-#: Ucp.class.php:201 Ucp.class.php:211
+#: Ucp.class.php:216 Ucp.class.php:226
 #, php-format
 msgid "Password Reset Link (Valid Until: %s): %s"
 msgstr ""
@@ -451,7 +451,7 @@ msgstr ""
 msgid "The username used to login to User Control Panel and other services"
 msgstr ""
 
-#: htdocs/index.php:118
+#: htdocs/index.php:119
 msgid "There was an error trying to load UCP"
 msgstr ""
 
@@ -466,7 +466,7 @@ msgstr ""
 msgid "Title"
 msgstr ""
 
-#: htdocs/index.php:91
+#: htdocs/index.php:92
 #, php-format
 msgid ""
 "To protect the integrity of your server, you must allow overrides in your "
@@ -514,7 +514,7 @@ msgstr ""
 msgid "Unable to get a token to use UCP Node Server because: '%s'"
 msgstr ""
 
-#: htdocs/index.php:182
+#: htdocs/index.php:183
 #, php-format
 msgid "Unknown Module %s"
 msgstr ""
@@ -539,7 +539,7 @@ msgstr ""
 msgid "User Control Panel is released as %s or newer"
 msgstr ""
 
-#: Ucp.class.php:197 Ucp.class.php:207
+#: Ucp.class.php:212 Ucp.class.php:222
 #, php-format
 msgid "User Control Panel: %s"
 msgstr ""
@@ -548,11 +548,11 @@ msgstr ""
 msgid "User Panel"
 msgstr ""
 
-#: Ucp.class.php:55 /usr/src/freepbx/ucp/Ucp.class.php:83
+#: Ucp.class.php:70 /usr/src/freepbx/ucp/Ucp.class.php:98
 msgid "User Primary Extension"
 msgstr ""
 
-#: htdocs/index.php:217
+#: htdocs/index.php:218
 msgid "User Settings"
 msgstr ""
 
@@ -639,7 +639,7 @@ msgstr ""
 msgid "Your reset link is in the mail!"
 msgstr ""
 
-#: htdocs/index.php:104
+#: htdocs/index.php:105
 #, php-format
 msgid ""
 "htaccess files help protect the integrity of your server. Please make sure "

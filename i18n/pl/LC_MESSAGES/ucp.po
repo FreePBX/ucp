@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-03-23 11:11-0700\n"
+"POT-Creation-Date: 2016-04-08 17:08-0700\n"
 "PO-Revision-Date: 2015-05-14 18:52-0400\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -38,15 +38,15 @@ msgstr ""
 msgid " + field + "
 msgstr ""
 
-#: htdocs/index.php:90
+#: htdocs/index.php:91
 msgid ".htaccess files are disabled on this webserver. Please enable them"
 msgstr "Pliki .htaccess są wyłączone na tym serwerze web. Proszę je włączyć"
 
-#: htdocs/index.php:103
+#: htdocs/index.php:104
 msgid ".htaccess files are not supported on this webserver."
 msgstr "Pliki .htaccess nie są obsługiwane na tym serwerze web."
 
-#: Ucp.class.php:238
+#: Ucp.class.php:253
 #, php-format
 msgid "A token has already been generated for %s, not sending email again"
 msgstr ""
@@ -134,11 +134,11 @@ msgstr "Łaczenie..."
 msgid "DEF"
 msgstr "DEF"
 
-#: Ucp.class.php:731
+#: Ucp.class.php:747
 msgid "Deleted Session"
 msgstr "Skasowane sesje"
 
-#: Ucp.class.php:111 Ucp.class.php:574
+#: Ucp.class.php:126 Ucp.class.php:590
 msgid "Deleted User Session"
 msgstr "Skasowane sesje użytkownika"
 
@@ -146,7 +146,7 @@ msgstr "Skasowane sesje użytkownika"
 msgid "Display Name"
 msgstr "Nazwa wyświetlana"
 
-#: Ucp.class.php:825 Ucp.class.php:829 Ucp.class.php:833 Ucp.class.php:837
+#: Ucp.class.php:841 Ucp.class.php:845 Ucp.class.php:849 Ucp.class.php:853
 msgid "Done"
 msgstr "Zrobione"
 
@@ -162,7 +162,7 @@ msgstr ""
 msgid "Endpoint Settings"
 msgstr ""
 
-#: htdocs/index.php:156
+#: htdocs/index.php:157
 msgid "English"
 msgstr "Angielski"
 
@@ -207,19 +207,19 @@ msgstr "GHI"
 msgid "General"
 msgstr ""
 
-#: Ucp.class.php:835
+#: Ucp.class.php:851
 msgid "Generating Main CSS..."
 msgstr "Generowanie głównego CSS..."
 
-#: Ucp.class.php:831
+#: Ucp.class.php:847
 msgid "Generating Main Scripts..."
 msgstr "Generowanie głównych skryptów..."
 
-#: Ucp.class.php:827
+#: Ucp.class.php:843
 msgid "Generating Module CSS..."
 msgstr "Generowanie CSS modułu..."
 
-#: Ucp.class.php:823
+#: Ucp.class.php:839
 msgid "Generating Module Scripts..."
 msgstr "Generowanie skryptów modułu..."
 
@@ -245,7 +245,7 @@ msgstr "Jaką nazwą chcesz się prezentować na UCP i w Menadżerze Kontaktów"
 msgid "Inherit"
 msgstr ""
 
-#: htdocs/index.php:241
+#: htdocs/index.php:242
 #, php-format
 msgid ""
 "Internet Explorer %s is not supported. Functionality will be deteriorated "
@@ -265,7 +265,7 @@ msgstr ""
 msgid "Invalid Login Credentials"
 msgstr "Błędne dane logowania"
 
-#: htdocs/index.php:230
+#: htdocs/index.php:231
 msgid "Invalid Token"
 msgstr "Błędny token"
 
@@ -298,7 +298,7 @@ msgstr "Wczytywanie..."
 msgid "Login"
 msgstr "Zaloguj"
 
-#: htdocs/index.php:217
+#: htdocs/index.php:218
 msgid "Logout"
 msgstr "Wyloguj"
 
@@ -343,7 +343,7 @@ msgstr "ON"
 msgid "Originate"
 msgstr ""
 
-#: htdocs/index.php:211 htdocs/modules/Home/assets/js/global.js:22
+#: htdocs/index.php:212 htdocs/modules/Home/assets/js/global.js:22
 #: htdocs/modules/Home/assets/js/global.js:45
 #: htdocs/modules/Home/assets/js/global.js:123
 msgid "Originate Call"
@@ -361,7 +361,7 @@ msgstr "Hasło"
 msgid "Password Confirmation Didn't Match!"
 msgstr "Powtórzone hasło nie zgadza się!"
 
-#: Ucp.class.php:201 Ucp.class.php:211
+#: Ucp.class.php:216 Ucp.class.php:226
 #, php-format
 msgid "Password Reset Link (Valid Until: %s): %s"
 msgstr "Odnośnik do resetu hasło (ważny do: %s): %s"
@@ -456,7 +456,7 @@ msgstr ""
 "Nazwa użytkownika używana do logowania do Panelu Użytkownika (UCP) i innych "
 "usług"
 
-#: htdocs/index.php:118
+#: htdocs/index.php:119
 msgid "There was an error trying to load UCP"
 msgstr "Wystąpił błąd przy wczytywaniu UCP"
 
@@ -471,7 +471,7 @@ msgstr ""
 msgid "Title"
 msgstr "Tytuł"
 
-#: htdocs/index.php:91
+#: htdocs/index.php:92
 #, php-format
 msgid ""
 "To protect the integrity of your server, you must allow overrides in your "
@@ -524,7 +524,7 @@ msgstr ""
 msgid "Unable to get a token to use UCP Node Server because: '%s'"
 msgstr ""
 
-#: htdocs/index.php:182
+#: htdocs/index.php:183
 #, php-format
 msgid "Unknown Module %s"
 msgstr "Nieznany moduł %s"
@@ -549,7 +549,7 @@ msgstr "Ustawienia Panelu Użytkownika"
 msgid "User Control Panel is released as %s or newer"
 msgstr "Panel Użytkownika jest opublikowany jako %s lub nowszy"
 
-#: Ucp.class.php:197 Ucp.class.php:207
+#: Ucp.class.php:212 Ucp.class.php:222
 #, php-format
 msgid "User Control Panel: %s"
 msgstr "Panel Użytkownika: %s"
@@ -558,11 +558,11 @@ msgstr "Panel Użytkownika: %s"
 msgid "User Panel"
 msgstr ""
 
-#: Ucp.class.php:55 /usr/src/freepbx/ucp/Ucp.class.php:83
+#: Ucp.class.php:70 /usr/src/freepbx/ucp/Ucp.class.php:98
 msgid "User Primary Extension"
 msgstr ""
 
-#: htdocs/index.php:217
+#: htdocs/index.php:218
 msgid "User Settings"
 msgstr ""
 
@@ -651,7 +651,7 @@ msgstr ""
 msgid "Your reset link is in the mail!"
 msgstr "Twój odnosik do resetu jest w mailu!"
 
-#: htdocs/index.php:104
+#: htdocs/index.php:105
 #, php-format
 msgid ""
 "htaccess files help protect the integrity of your server. Please make sure "
