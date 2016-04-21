@@ -10,14 +10,14 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-04-08 17:08-0700\n"
-"PO-Revision-Date: 2016-04-07 10:17+0300\n"
+"PO-Revision-Date: 2016-04-18 18:43+0200\n"
 "Last-Translator: Media <mousavi.media@gmail.com>\n"
-"Language-Team: Persian <http://weblate.freepbx.org/projects/freepbx/"
-"framework/fa/>\n"
+"Language-Team: Persian (Iran) "
+"<http://weblate.freepbx.org/projects/freepbx/ucp/fa_IR/>\n"
+"Language: fa_IR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: fa\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 2.4\n"
 
@@ -149,7 +149,7 @@ msgstr "نام"
 
 #: Ucp.class.php:841 Ucp.class.php:845 Ucp.class.php:849 Ucp.class.php:853
 msgid "Done"
-msgstr "انجام شده"
+msgstr "انجام شد"
 
 #: htdocs/views/login.php:29 htdocs/views/settings.php:37
 msgid "Email"
@@ -433,7 +433,7 @@ msgstr "ارسال شده در %s"
 
 #: htdocs/views/dashboard.php:39 htdocs/assets/js/ucp.js:804
 msgid "Settings"
-msgstr "پیکربندی"
+msgstr "تنظیمات"
 
 #: htdocs/views/templates/phone.php:69
 msgid "TUV"
@@ -485,7 +485,7 @@ msgid ""
 "webserver's configuration file for the User Control Panel. For more "
 "information see: %s"
 msgstr ""
-"To protect  the integrity of your server, you must allow overrides in your "
+"To protect the integrity of your server, you must allow  overrides in your "
 "webserver's configuration file for the User Control Panel. For more "
 "information see: %s"
 
