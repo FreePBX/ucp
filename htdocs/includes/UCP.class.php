@@ -107,14 +107,20 @@ class UCP extends UCP_Helpers {
 	 */
 	function getServerSettings() {
 		if(!$this->FreePBX->Modules->checkStatus('ucpnode')) {
-			return array("enabled" => false, "port" => "0", "host" => "");
+			return array("enabled" => false, "port" => "0", "host" => "", "enabledS" => false, "portS" => "0", "hostS" => "");
 		}
 		$enabled = $this->FreePBX->Config->get('NODEJSENABLED');
 		$enabled = is_bool($enabled) || is_int($enabled) ? $enabled : true;
 		$port = $this->FreePBX->Config->get('NODEJSBINDPORT');
 		$port = !empty($port) ? $port : 8001;
-		$serverparts = explode($_SERVER['HTTP_HOST'], ":"); //strip off port because we define it
-		return array("enabled" => $enabled, "port" => $port, "host" => $serverparts[0]);
+
+		$enabledS = $this->FreePBX->Config->get('NODEJSTLSENABLED');
+		$enabledS = is_bool($enabledS) || is_int($enabledS) ? $enabledS : true;
+		$portS = $this->FreePBX->Config->get('NODEJSHTTPSBINDPORT');
+		$portS = !empty($portS) ? $portS : 8003;
+
+		$serverparts = explode(":", $_SERVER['HTTP_HOST']); //strip off port because we define it
+		return array("enabled" => $enabled, "port" => $port, "host" => $serverparts[0], "enabledS" => $enabledS, "portS" => $portS);
 	}
 
 	/**

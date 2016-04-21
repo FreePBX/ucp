@@ -372,7 +372,15 @@ var UCPC = Class.extend({
 	},
 	wsconnect: function(namespace, callback) {
 		//console.log(namespace);
-		if (!this.loggedIn || !ucpserver.enabled) {
+		if (!this.loggedIn) {
+			return false;
+		}
+
+		if(window.location.protocol != "https:" && !ucpserver.enabled) {
+			return false;
+		}
+
+		if(window.location.protocol == "https:" && !ucpserver.enabledS) {
 			return false;
 		}
 
@@ -390,9 +398,11 @@ var UCPC = Class.extend({
 		} else {
 			var host = ucpserver.host,
 					port = ucpserver.port,
+					portS = ucpserver.portS,
 					socket = null;
 			try {
-				socket = io("ws://" + host + ":" + port + "/" + namespace, {
+				var connectString = (window.location.protocol == "https:") ? "wss://" + host + ":" + portS + "/" + namespace : "ws://" + host + ":" + port + "/" + namespace;
+				socket = io(connectString, {
 					reconnection: true,
 					query: "token=" + UCP.token
 				});
@@ -400,7 +410,13 @@ var UCPC = Class.extend({
 				UCP.displayGlobalMessage(err, "red", true);
 				callback(false);
 			}
+			var timeout = setTimeout(function(){
+				window.s = socket;
+				UCP.displayGlobalMessage(_("Unable to connect UCP Node Server"), "red", true);
+				callback(false);
+			}, 3000);
 			socket.on("connect", function() {
+				clearTimeout(timeout);
 				UCP.lastIO = socket.io;
 				UCP.removeGlobalMessage();
 				callback(socket);
