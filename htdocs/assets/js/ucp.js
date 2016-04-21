@@ -422,7 +422,7 @@ var UCPC = Class.extend({
 				callback(socket);
 			});
 			socket.on("connect_error", function(reason) {
-				UCP.displayGlobalMessage(sprintf(_("Unable to connect UCP Node Server because: '%s'"),reason), "red", true);
+				UCP.displayGlobalMessage(sprintf(_("Unable to connect to the UCP Node Server because: '%s'"),reason), "red", true);
 				callback(false);
 			});
 		}
