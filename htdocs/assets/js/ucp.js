@@ -412,7 +412,7 @@ var UCPC = Class.extend({
 			}
 			var timeout = setTimeout(function(){
 				window.s = socket;
-				UCP.displayGlobalMessage(_("Unable to connect UCP Node Server"), "red", true);
+				UCP.displayGlobalMessage(_("Unable to authenticate with the UCP Node Server"), "red", true);
 				callback(false);
 			}, 3000);
 			socket.on("connect", function() {
