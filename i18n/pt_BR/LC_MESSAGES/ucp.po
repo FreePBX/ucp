@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-04-08 17:08-0700\n"
+"POT-Creation-Date: 2016-04-21 09:57-0700\n"
 "PO-Revision-Date: 2015-05-02 20:55+0200\n"
 "Last-Translator: Renato <fiuza@tecnologia.inf.br>\n"
 "Language-Team: Portuguese (Brazil) <http://weblate.freepbx.org/projects/"
@@ -109,7 +109,7 @@ msgstr "Permitir usuários mudarem seus usuários no PCU"
 msgid "Allowed Extension Settings"
 msgstr ""
 
-#: htdocs/assets/js/ucp.js:974
+#: htdocs/assets/js/ucp.js:990
 msgid "Are you sure you wish to change your username?"
 msgstr "Você tem certeza que deseja mudar seu usuário?"
 
@@ -128,10 +128,6 @@ msgstr "Empresa"
 #: htdocs/views/settings.php:23
 msgid "Confirm Password"
 msgstr "Confirmar Senha"
-
-#: htdocs/assets/js/ucp.js:416
-msgid "Connecting...."
-msgstr "Conectando…"
 
 #: htdocs/views/templates/phone.php:45
 msgid "DEF"
@@ -231,7 +227,7 @@ msgid "Hold"
 msgstr "Segurar"
 
 #: htdocs/modules/Home/Home.class.php:252 htdocs/views/dashboard.php:32
-#: htdocs/assets/js/ucp.js:763
+#: htdocs/assets/js/ucp.js:779
 msgid "Home"
 msgstr "Início"
 
@@ -362,7 +358,7 @@ msgstr "PQRS"
 msgid "Password"
 msgstr "Senha"
 
-#: htdocs/assets/js/ucp.js:941
+#: htdocs/assets/js/ucp.js:957
 msgid "Password Confirmation Didn't Match!"
 msgstr "Confirmação De Senha Não Conferiu!"
 
@@ -376,7 +372,7 @@ msgstr "Link de Redefinição de Senha (Válido Até: %s): %s"
 msgid "Password Reset for: %s"
 msgstr "Redefinição de Senha para: %s"
 
-#: htdocs/assets/js/ucp.js:959
+#: htdocs/assets/js/ucp.js:975
 msgid "Password has not changed!"
 msgstr ""
 
@@ -420,7 +416,7 @@ msgstr "Lembrar Me"
 msgid "Reset Password"
 msgstr "Redefinir Senha"
 
-#: htdocs/assets/js/ucp.js:947 htdocs/assets/js/ucp.js:992
+#: htdocs/assets/js/ucp.js:963 htdocs/assets/js/ucp.js:1008
 msgid "Saved!"
 msgstr "Salvo!"
 
@@ -433,7 +429,7 @@ msgstr "Envie-me Um Link de Redefinição de Senha"
 msgid "Sent at %s"
 msgstr "Enviado para %s"
 
-#: htdocs/views/dashboard.php:39 htdocs/assets/js/ucp.js:804
+#: htdocs/views/dashboard.php:39 htdocs/assets/js/ucp.js:820
 msgid "Settings"
 msgstr "Configurações"
 
@@ -509,7 +505,7 @@ msgstr ""
 "PCU está desabilitado atualmente. Por favor fale com seu Administrador de "
 "sistema"
 
-#: htdocs/assets/js/ucp.js:911
+#: htdocs/assets/js/ucp.js:927
 msgid "UCP needs to reload, ok?"
 msgstr "O PCU precisa ser recarregado, ok?"
 
@@ -519,12 +515,7 @@ msgid ""
 "FreePBX."
 msgstr ""
 
-#: htdocs/assets/js/ucp.js:409
-#, perl-format
-msgid "Unable to connect UCP Node Server because: '%s'"
-msgstr ""
-
-#: htdocs/assets/js/ucp.js:386
+#: htdocs/assets/js/ucp.js:394
 #, perl-format
 msgid "Unable to get a token to use UCP Node Server because: '%s'"
 msgstr ""
@@ -575,7 +566,7 @@ msgstr ""
 msgid "Username"
 msgstr "Usuário"
 
-#: htdocs/assets/js/ucp.js:977
+#: htdocs/assets/js/ucp.js:993
 msgid "Username has been changed, reloading"
 msgstr "Usuário foi mudado, recarregando"
 
@@ -600,7 +591,7 @@ msgstr "Fone Trabalho"
 msgid "Yes"
 msgstr ""
 
-#: htdocs/assets/js/ucp.js:444
+#: htdocs/assets/js/ucp.js:460
 msgid "You are currently working in offline mode."
 msgstr "Você está trabalhando em modo offline atualmente."
 
@@ -670,6 +661,9 @@ msgstr ""
 #: htdocs/views/login.php:24
 msgid "or"
 msgstr "ou"
+
+#~ msgid "Connecting...."
+#~ msgstr "Conectando…"
 
 #~ msgid ""
 #~ "SOX is not installed on this server but is required by UCP. Please "

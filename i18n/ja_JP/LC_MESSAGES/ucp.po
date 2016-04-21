@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-04-08 17:08-0700\n"
+"POT-Creation-Date: 2016-04-21 09:57-0700\n"
 "PO-Revision-Date: 2015-10-30 06:23+0200\n"
 "Last-Translator: Kevin <kevin@qloog.com>\n"
 "Language-Team: Japanese <http://weblate.freepbx.org/projects/freepbx/ucp/"
@@ -108,7 +108,7 @@ msgstr ""
 msgid "Allowed Extension Settings"
 msgstr ""
 
-#: htdocs/assets/js/ucp.js:974
+#: htdocs/assets/js/ucp.js:990
 msgid "Are you sure you wish to change your username?"
 msgstr ""
 
@@ -127,10 +127,6 @@ msgstr "会社"
 #: htdocs/views/settings.php:23
 msgid "Confirm Password"
 msgstr ""
-
-#: htdocs/assets/js/ucp.js:416
-msgid "Connecting...."
-msgstr "接続中...."
 
 #: htdocs/views/templates/phone.php:45
 msgid "DEF"
@@ -231,7 +227,7 @@ msgid "Hold"
 msgstr "保留"
 
 #: htdocs/modules/Home/Home.class.php:252 htdocs/views/dashboard.php:32
-#: htdocs/assets/js/ucp.js:763
+#: htdocs/assets/js/ucp.js:779
 msgid "Home"
 msgstr "ホーム"
 
@@ -360,7 +356,7 @@ msgstr "PQRS"
 msgid "Password"
 msgstr "パスワード"
 
-#: htdocs/assets/js/ucp.js:941
+#: htdocs/assets/js/ucp.js:957
 msgid "Password Confirmation Didn't Match!"
 msgstr "パスワードは一致しません！"
 
@@ -374,7 +370,7 @@ msgstr "パスワードリセットリンク（%sまで有効）: %s"
 msgid "Password Reset for: %s"
 msgstr "%s のパスワードをリセットしました"
 
-#: htdocs/assets/js/ucp.js:959
+#: htdocs/assets/js/ucp.js:975
 msgid "Password has not changed!"
 msgstr ""
 
@@ -418,7 +414,7 @@ msgstr "保存する"
 msgid "Reset Password"
 msgstr "パスワードをリセット"
 
-#: htdocs/assets/js/ucp.js:947 htdocs/assets/js/ucp.js:992
+#: htdocs/assets/js/ucp.js:963 htdocs/assets/js/ucp.js:1008
 msgid "Saved!"
 msgstr "保存しました！"
 
@@ -431,7 +427,7 @@ msgstr "パスワードリセットリンクを送信する"
 msgid "Sent at %s"
 msgstr ""
 
-#: htdocs/views/dashboard.php:39 htdocs/assets/js/ucp.js:804
+#: htdocs/views/dashboard.php:39 htdocs/assets/js/ucp.js:820
 msgid "Settings"
 msgstr "設定"
 
@@ -503,7 +499,7 @@ msgstr ""
 msgid "UCP is currently disabled. Please talk to your system Administrator"
 msgstr "UCPは無効です。システムの管理者にご相談ください"
 
-#: htdocs/assets/js/ucp.js:911
+#: htdocs/assets/js/ucp.js:927
 msgid "UCP needs to reload, ok?"
 msgstr "UCPを再読み込みします。よろしいですか？"
 
@@ -513,12 +509,7 @@ msgid ""
 "FreePBX."
 msgstr ""
 
-#: htdocs/assets/js/ucp.js:409
-#, perl-format
-msgid "Unable to connect UCP Node Server because: '%s'"
-msgstr ""
-
-#: htdocs/assets/js/ucp.js:386
+#: htdocs/assets/js/ucp.js:394
 #, perl-format
 msgid "Unable to get a token to use UCP Node Server because: '%s'"
 msgstr ""
@@ -571,7 +562,7 @@ msgstr ""
 msgid "Username"
 msgstr "ユーザー名"
 
-#: htdocs/assets/js/ucp.js:977
+#: htdocs/assets/js/ucp.js:993
 msgid "Username has been changed, reloading"
 msgstr ""
 
@@ -596,7 +587,7 @@ msgstr "オフィス電話"
 msgid "Yes"
 msgstr "はい"
 
-#: htdocs/assets/js/ucp.js:444
+#: htdocs/assets/js/ucp.js:460
 msgid "You are currently working in offline mode."
 msgstr "オフラインモードを利用中です。"
 
@@ -665,6 +656,9 @@ msgstr ""
 #: htdocs/views/login.php:24
 msgid "or"
 msgstr "もしくは"
+
+#~ msgid "Connecting...."
+#~ msgstr "接続中...."
 
 #~ msgid "Submit"
 #~ msgstr "送信"

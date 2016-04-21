@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-04-08 17:08-0700\n"
+"POT-Creation-Date: 2016-04-21 09:57-0700\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -103,7 +103,7 @@ msgstr ""
 msgid "Allowed Extension Settings"
 msgstr ""
 
-#: htdocs/assets/js/ucp.js:974
+#: htdocs/assets/js/ucp.js:990
 msgid "Are you sure you wish to change your username?"
 msgstr ""
 
@@ -122,10 +122,6 @@ msgstr ""
 
 #: htdocs/views/settings.php:23
 msgid "Confirm Password"
-msgstr ""
-
-#: htdocs/assets/js/ucp.js:416
-msgid "Connecting...."
 msgstr ""
 
 #: htdocs/views/templates/phone.php:45
@@ -232,7 +228,7 @@ msgstr ""
 
 #: htdocs/modules/Home/Home.class.php:252
 #: htdocs/views/dashboard.php:32
-#: htdocs/assets/js/ucp.js:763
+#: htdocs/assets/js/ucp.js:779
 msgid "Home"
 msgstr ""
 
@@ -368,7 +364,7 @@ msgstr ""
 msgid "Password"
 msgstr ""
 
-#: htdocs/assets/js/ucp.js:941
+#: htdocs/assets/js/ucp.js:957
 msgid "Password Confirmation Didn't Match!"
 msgstr ""
 
@@ -383,7 +379,7 @@ msgstr ""
 msgid "Password Reset for: %s"
 msgstr ""
 
-#: htdocs/assets/js/ucp.js:959
+#: htdocs/assets/js/ucp.js:975
 msgid "Password has not changed!"
 msgstr ""
 
@@ -429,8 +425,8 @@ msgstr ""
 msgid "Reset Password"
 msgstr ""
 
-#: htdocs/assets/js/ucp.js:947
-#: htdocs/assets/js/ucp.js:992
+#: htdocs/assets/js/ucp.js:963
+#: htdocs/assets/js/ucp.js:1008
 msgid "Saved!"
 msgstr ""
 
@@ -444,7 +440,7 @@ msgid "Sent at %s"
 msgstr ""
 
 #: htdocs/views/dashboard.php:39
-#: htdocs/assets/js/ucp.js:804
+#: htdocs/assets/js/ucp.js:820
 msgid "Settings"
 msgstr ""
 
@@ -514,7 +510,7 @@ msgstr ""
 msgid "UCP is currently disabled. Please talk to your system Administrator"
 msgstr ""
 
-#: htdocs/assets/js/ucp.js:911
+#: htdocs/assets/js/ucp.js:927
 msgid "UCP needs to reload, ok?"
 msgstr ""
 
@@ -524,12 +520,7 @@ msgid ""
 "FreePBX."
 msgstr ""
 
-#: htdocs/assets/js/ucp.js:409
-#, perl-format
-msgid "Unable to connect UCP Node Server because: '%s'"
-msgstr ""
-
-#: htdocs/assets/js/ucp.js:386
+#: htdocs/assets/js/ucp.js:394
 #, perl-format
 msgid "Unable to get a token to use UCP Node Server because: '%s'"
 msgstr ""
@@ -584,7 +575,7 @@ msgstr ""
 msgid "Username"
 msgstr ""
 
-#: htdocs/assets/js/ucp.js:977
+#: htdocs/assets/js/ucp.js:993
 msgid "Username has been changed, reloading"
 msgstr ""
 
@@ -610,7 +601,7 @@ msgstr ""
 msgid "Yes"
 msgstr ""
 
-#: htdocs/assets/js/ucp.js:444
+#: htdocs/assets/js/ucp.js:460
 msgid "You are currently working in offline mode."
 msgstr ""
 

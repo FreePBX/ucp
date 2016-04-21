@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-04-08 17:08-0700\n"
+"POT-Creation-Date: 2016-04-21 09:57-0700\n"
 "PO-Revision-Date: 2016-02-05 11:16+0200\n"
 "Last-Translator: Nicolas Riendeau <freepbx@riendeau.org>\n"
 "Language-Team: French <http://weblate.freepbx.org/projects/freepbx/ucp/fr_FR/"
@@ -115,7 +115,7 @@ msgstr "Permettre aux utilisateurs de modifier leur nom d'usager dans UCP"
 msgid "Allowed Extension Settings"
 msgstr "Réglages de poste permis"
 
-#: htdocs/assets/js/ucp.js:974
+#: htdocs/assets/js/ucp.js:990
 msgid "Are you sure you wish to change your username?"
 msgstr "Êtes-vous sûr de vouloir changer votre nom d'utilisateur ?"
 
@@ -134,10 +134,6 @@ msgstr "Compagnie"
 #: htdocs/views/settings.php:23
 msgid "Confirm Password"
 msgstr "Confirmer le mot de passe"
-
-#: htdocs/assets/js/ucp.js:416
-msgid "Connecting...."
-msgstr "Connexion ...."
 
 #: htdocs/views/templates/phone.php:45
 msgid "DEF"
@@ -238,7 +234,7 @@ msgid "Hold"
 msgstr "Attente"
 
 #: htdocs/modules/Home/Home.class.php:252 htdocs/views/dashboard.php:32
-#: htdocs/assets/js/ucp.js:763
+#: htdocs/assets/js/ucp.js:779
 msgid "Home"
 msgstr "Acceuil"
 
@@ -372,7 +368,7 @@ msgstr "PQRS"
 msgid "Password"
 msgstr "Mot de passe"
 
-#: htdocs/assets/js/ucp.js:941
+#: htdocs/assets/js/ucp.js:957
 msgid "Password Confirmation Didn't Match!"
 msgstr "Le mot de passe de confirmation ne correspond pas !"
 
@@ -386,7 +382,7 @@ msgstr "Lien pour réinitialiser le mot de passe (Valide jusqu'au:%s): %s"
 msgid "Password Reset for: %s"
 msgstr "Réinitialiser le mot de passe pour: %s"
 
-#: htdocs/assets/js/ucp.js:959
+#: htdocs/assets/js/ucp.js:975
 msgid "Password has not changed!"
 msgstr ""
 
@@ -431,7 +427,7 @@ msgstr "Se souvenir de moi"
 msgid "Reset Password"
 msgstr "Réinitialiser le mot de passe"
 
-#: htdocs/assets/js/ucp.js:947 htdocs/assets/js/ucp.js:992
+#: htdocs/assets/js/ucp.js:963 htdocs/assets/js/ucp.js:1008
 msgid "Saved!"
 msgstr "Enregistré !"
 
@@ -444,7 +440,7 @@ msgstr "Envoyez-moi un lien pour réinitialiser mot de passe"
 msgid "Sent at %s"
 msgstr "Envoyé à %s"
 
-#: htdocs/views/dashboard.php:39 htdocs/assets/js/ucp.js:804
+#: htdocs/views/dashboard.php:39 htdocs/assets/js/ucp.js:820
 msgid "Settings"
 msgstr "Paramètres"
 
@@ -525,7 +521,7 @@ msgstr ""
 "UCP est actuellement désactivé. Veuillez parler à votre administrateur "
 "système"
 
-#: htdocs/assets/js/ucp.js:911
+#: htdocs/assets/js/ucp.js:927
 msgid "UCP needs to reload, ok?"
 msgstr "UCP doit recharger, ok ?"
 
@@ -537,14 +533,7 @@ msgstr ""
 "UCP, autrement connu comme le panneau de contrôle utilisateur, est une "
 "interface usager de FreePBX."
 
-#: htdocs/assets/js/ucp.js:409
-#, perl-format
-msgid "Unable to connect UCP Node Server because: '%s'"
-msgstr ""
-"Incapable de se connecter au serveur de noeud UCP pour la raison suivante : "
-"'%s'"
-
-#: htdocs/assets/js/ucp.js:386
+#: htdocs/assets/js/ucp.js:394
 #, perl-format
 msgid "Unable to get a token to use UCP Node Server because: '%s'"
 msgstr ""
@@ -597,7 +586,7 @@ msgstr ""
 msgid "Username"
 msgstr "Nom d'utilisateur"
 
-#: htdocs/assets/js/ucp.js:977
+#: htdocs/assets/js/ucp.js:993
 msgid "Username has been changed, reloading"
 msgstr "Le nom d'utilisateur a été changé , rechargement"
 
@@ -622,7 +611,7 @@ msgstr "Numéro de téléphone au travail"
 msgid "Yes"
 msgstr "Oui"
 
-#: htdocs/assets/js/ucp.js:444
+#: htdocs/assets/js/ucp.js:460
 msgid "You are currently working in offline mode."
 msgstr "Vous travaillez actuellement en mode déconnecté."
 
@@ -692,6 +681,14 @@ msgstr ""
 #: htdocs/views/login.php:24
 msgid "or"
 msgstr "ou"
+
+#~ msgid "Connecting...."
+#~ msgstr "Connexion ...."
+
+#~ msgid "Unable to connect UCP Node Server because: '%s'"
+#~ msgstr ""
+#~ "Incapable de se connecter au serveur de noeud UCP pour la raison "
+#~ "suivante : '%s'"
 
 #~ msgid ""
 #~ "SOX is not installed on this server but is required by UCP. Please "

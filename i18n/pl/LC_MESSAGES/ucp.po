@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-04-08 17:08-0700\n"
+"POT-Creation-Date: 2016-04-21 09:57-0700\n"
 "PO-Revision-Date: 2015-05-14 18:52-0400\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -106,7 +106,7 @@ msgstr ""
 msgid "Allowed Extension Settings"
 msgstr ""
 
-#: htdocs/assets/js/ucp.js:974
+#: htdocs/assets/js/ucp.js:990
 msgid "Are you sure you wish to change your username?"
 msgstr "Czy na pewno chcesz zmianić swoją nazwę użytkownika?"
 
@@ -125,10 +125,6 @@ msgstr "Firma"
 #: htdocs/views/settings.php:23
 msgid "Confirm Password"
 msgstr "Potwierdź hasło"
-
-#: htdocs/assets/js/ucp.js:416
-msgid "Connecting...."
-msgstr "Łaczenie..."
 
 #: htdocs/views/templates/phone.php:45
 msgid "DEF"
@@ -228,7 +224,7 @@ msgid "Hold"
 msgstr "Zawieś"
 
 #: htdocs/modules/Home/Home.class.php:252 htdocs/views/dashboard.php:32
-#: htdocs/assets/js/ucp.js:763
+#: htdocs/assets/js/ucp.js:779
 msgid "Home"
 msgstr "Dom"
 
@@ -357,7 +353,7 @@ msgstr "PQRS"
 msgid "Password"
 msgstr "Hasło"
 
-#: htdocs/assets/js/ucp.js:941
+#: htdocs/assets/js/ucp.js:957
 msgid "Password Confirmation Didn't Match!"
 msgstr "Powtórzone hasło nie zgadza się!"
 
@@ -371,7 +367,7 @@ msgstr "Odnośnik do resetu hasło (ważny do: %s): %s"
 msgid "Password Reset for: %s"
 msgstr "Rest hasła dla: %s"
 
-#: htdocs/assets/js/ucp.js:959
+#: htdocs/assets/js/ucp.js:975
 msgid "Password has not changed!"
 msgstr ""
 
@@ -415,7 +411,7 @@ msgstr "Zapamiętaj mnie"
 msgid "Reset Password"
 msgstr "Resetuj hasło"
 
-#: htdocs/assets/js/ucp.js:947 htdocs/assets/js/ucp.js:992
+#: htdocs/assets/js/ucp.js:963 htdocs/assets/js/ucp.js:1008
 msgid "Saved!"
 msgstr "Zapisane!"
 
@@ -428,7 +424,7 @@ msgstr "Wyślij mi odnośnik do resetu hasła"
 msgid "Sent at %s"
 msgstr "Wyślij jako %s"
 
-#: htdocs/views/dashboard.php:39 htdocs/assets/js/ucp.js:804
+#: htdocs/views/dashboard.php:39 htdocs/assets/js/ucp.js:820
 msgid "Settings"
 msgstr "Ustawienia"
 
@@ -504,7 +500,7 @@ msgstr ""
 "UCO jest obecnie wyłączone. Proszę skontaktuj się z administratorem Twojego "
 "systemu"
 
-#: htdocs/assets/js/ucp.js:911
+#: htdocs/assets/js/ucp.js:927
 msgid "UCP needs to reload, ok?"
 msgstr "UCP musi się przeładować, OK?"
 
@@ -514,12 +510,7 @@ msgid ""
 "FreePBX."
 msgstr ""
 
-#: htdocs/assets/js/ucp.js:409
-#, perl-format
-msgid "Unable to connect UCP Node Server because: '%s'"
-msgstr ""
-
-#: htdocs/assets/js/ucp.js:386
+#: htdocs/assets/js/ucp.js:394
 #, perl-format
 msgid "Unable to get a token to use UCP Node Server because: '%s'"
 msgstr ""
@@ -570,7 +561,7 @@ msgstr ""
 msgid "Username"
 msgstr "Nazwa użytkownika"
 
-#: htdocs/assets/js/ucp.js:977
+#: htdocs/assets/js/ucp.js:993
 msgid "Username has been changed, reloading"
 msgstr "Zmieniono nazwę użytkownika, wczytywanie"
 
@@ -595,7 +586,7 @@ msgstr "Telefon biurowy"
 msgid "Yes"
 msgstr ""
 
-#: htdocs/assets/js/ucp.js:444
+#: htdocs/assets/js/ucp.js:460
 msgid "You are currently working in offline mode."
 msgstr "Obecnie pracujesz w trybie offline."
 
@@ -664,6 +655,9 @@ msgstr ""
 #: htdocs/views/login.php:24
 msgid "or"
 msgstr "lub"
+
+#~ msgid "Connecting...."
+#~ msgstr "Łaczenie..."
 
 #~ msgid ""
 #~ "SOX is not installed on this server but is required by UCP. Please "

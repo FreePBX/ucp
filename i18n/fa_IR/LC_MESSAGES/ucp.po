@@ -9,15 +9,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-04-08 17:08-0700\n"
+"POT-Creation-Date: 2016-04-21 09:57-0700\n"
 "PO-Revision-Date: 2016-04-18 18:43+0200\n"
 "Last-Translator: Media <mousavi.media@gmail.com>\n"
-"Language-Team: Persian (Iran) "
-"<http://weblate.freepbx.org/projects/freepbx/ucp/fa_IR/>\n"
-"Language: fa_IR\n"
+"Language-Team: Persian (Iran) <http://weblate.freepbx.org/projects/freepbx/"
+"ucp/fa_IR/>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: fa_IR\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 2.4\n"
 
@@ -107,7 +107,7 @@ msgstr "ااجازه به کاربران برای تغییر نام کاربری
 msgid "Allowed Extension Settings"
 msgstr "مجاز برای تتنظیمات داخلی"
 
-#: htdocs/assets/js/ucp.js:974
+#: htdocs/assets/js/ucp.js:990
 msgid "Are you sure you wish to change your username?"
 msgstr "آیا از تغییر نام کاربری اطمینان دارید؟"
 
@@ -126,10 +126,6 @@ msgstr "شرکت"
 #: htdocs/views/settings.php:23
 msgid "Confirm Password"
 msgstr "تایید کلمه عبور"
-
-#: htdocs/assets/js/ucp.js:416
-msgid "Connecting...."
-msgstr "در حال اتصال...."
 
 #: htdocs/views/templates/phone.php:45
 msgid "DEF"
@@ -229,7 +225,7 @@ msgid "Hold"
 msgstr "نگه داشتن"
 
 #: htdocs/modules/Home/Home.class.php:252 htdocs/views/dashboard.php:32
-#: htdocs/assets/js/ucp.js:763
+#: htdocs/assets/js/ucp.js:779
 msgid "Home"
 msgstr "خانه"
 
@@ -360,7 +356,7 @@ msgstr "PQRS"
 msgid "Password"
 msgstr "کلمه عبور"
 
-#: htdocs/assets/js/ucp.js:941
+#: htdocs/assets/js/ucp.js:957
 msgid "Password Confirmation Didn't Match!"
 msgstr "لطفا دوباره بررسی کنید دو کلمه عبور یکسان نیستند!"
 
@@ -374,7 +370,7 @@ msgstr "لینک بازنشانی کلمه عبور (Valid Until: %s): %s"
 msgid "Password Reset for: %s"
 msgstr "بازنشانی کلمه عبور برای:%s"
 
-#: htdocs/assets/js/ucp.js:959
+#: htdocs/assets/js/ucp.js:975
 msgid "Password has not changed!"
 msgstr "کلمه عبور تغییری نکرده است!"
 
@@ -418,7 +414,7 @@ msgstr "مرا بخاطر بسپار"
 msgid "Reset Password"
 msgstr "بازنشانی کلمه عبور"
 
-#: htdocs/assets/js/ucp.js:947 htdocs/assets/js/ucp.js:992
+#: htdocs/assets/js/ucp.js:963 htdocs/assets/js/ucp.js:1008
 msgid "Saved!"
 msgstr "ذخیره شد!"
 
@@ -431,7 +427,7 @@ msgstr "لینک بازنشانی کلمه عبور را برایم ارسال �
 msgid "Sent at %s"
 msgstr "ارسال شده در %s"
 
-#: htdocs/views/dashboard.php:39 htdocs/assets/js/ucp.js:804
+#: htdocs/views/dashboard.php:39 htdocs/assets/js/ucp.js:820
 msgid "Settings"
 msgstr "تنظیمات"
 
@@ -509,7 +505,7 @@ msgstr "وقفه جلسه پنل کاربری"
 msgid "UCP is currently disabled. Please talk to your system Administrator"
 msgstr "پنل کاربری غیرفعال است. لطفا با مدیر سیستم تماس بگیرید"
 
-#: htdocs/assets/js/ucp.js:911
+#: htdocs/assets/js/ucp.js:927
 msgid "UCP needs to reload, ok?"
 msgstr "پنل کاربری به بازنشانی احتیاج دارد، تایید؟"
 
@@ -521,12 +517,7 @@ msgstr ""
 "UCP، به عبارت دیگر به عنوان پنل کاربری شناخته میشود، که یک رابط کاربری برای "
 "FreePBX است."
 
-#: htdocs/assets/js/ucp.js:409
-#, perl-format
-msgid "Unable to connect UCP Node Server because: '%s'"
-msgstr "امکان اتصال به سرور پنل کاربری وجود ندارد به دلیل: '%s'"
-
-#: htdocs/assets/js/ucp.js:386
+#: htdocs/assets/js/ucp.js:394
 #, perl-format
 msgid "Unable to get a token to use UCP Node Server because: '%s'"
 msgstr "عدم توانایی دریافت نشانه از سرور کنترل پنل کاربری به دلیل: '%s'"
@@ -577,7 +568,7 @@ msgstr "تنظیمات کاربر"
 msgid "Username"
 msgstr "نام کاربری"
 
-#: htdocs/assets/js/ucp.js:977
+#: htdocs/assets/js/ucp.js:993
 msgid "Username has been changed, reloading"
 msgstr "نام کاربری تغییر کرده، بازنشانی"
 
@@ -602,7 +593,7 @@ msgstr "شماره محل کار"
 msgid "Yes"
 msgstr "بله"
 
-#: htdocs/assets/js/ucp.js:444
+#: htdocs/assets/js/ucp.js:460
 msgid "You are currently working in offline mode."
 msgstr "شما در حالت آفلاین هستید."
 
@@ -670,3 +661,9 @@ msgstr ""
 #: htdocs/views/login.php:24
 msgid "or"
 msgstr "یا"
+
+#~ msgid "Connecting...."
+#~ msgstr "در حال اتصال...."
+
+#~ msgid "Unable to connect UCP Node Server because: '%s'"
+#~ msgstr "امکان اتصال به سرور پنل کاربری وجود ندارد به دلیل: '%s'"
