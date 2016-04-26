@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-04-21 09:57-0700\n"
-"PO-Revision-Date: 2016-04-25 19:52+0200\n"
+"PO-Revision-Date: 2016-04-26 16:12+0200\n"
 "Last-Translator: psdk <hyavari26@gmail.com>\n"
 "Language-Team: Persian (Iran) "
 "<http://weblate.freepbx.org/projects/freepbx/ucp/fa_IR/>\n"
@@ -354,7 +354,7 @@ msgstr "PQRS"
 
 #: htdocs/views/login.php:20 htdocs/views/settings.php:18
 msgid "Password"
-msgstr "کلمه عبور"
+msgstr "رمز عبور"
 
 #: htdocs/assets/js/ucp.js:957
 msgid "Password Confirmation Didn't Match!"
