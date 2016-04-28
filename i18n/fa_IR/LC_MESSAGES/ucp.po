@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-04-21 09:57-0700\n"
-"PO-Revision-Date: 2016-04-26 16:12+0200\n"
+"PO-Revision-Date: 2016-04-28 14:05+0200\n"
 "Last-Translator: psdk <hyavari26@gmail.com>\n"
 "Language-Team: Persian (Iran) "
 "<http://weblate.freepbx.org/projects/freepbx/ucp/fa_IR/>\n"
@@ -113,7 +113,7 @@ msgstr "آیا از تغییر نام کاربری اطمینان دارید؟"
 
 #: htdocs/views/templates/phone.php:7 htdocs/views/templates/phone.php:95
 msgid "Call"
-msgstr "تماس"
+msgstr "برقراری تماس"
 
 #: htdocs/views/settings.php:62
 msgid "Cell Phone"
@@ -141,7 +141,7 @@ msgstr "سیشن حذف شده کاربر"
 
 #: htdocs/views/settings.php:32
 msgid "Display Name"
-msgstr "نام"
+msgstr "نام قابل نمایش"
 
 #: Ucp.class.php:841 Ucp.class.php:845 Ucp.class.php:849 Ucp.class.php:853
 msgid "Done"
