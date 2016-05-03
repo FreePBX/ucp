@@ -10,16 +10,16 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-04-21 09:57-0700\n"
-"PO-Revision-Date: 2015-11-16 00:22+0200\n"
-"Last-Translator: Matthias <it@mitterhuemer.at>\n"
-"Language-Team: German <http://weblate.freepbx.org/projects/freepbx/ucp/de_DE/"
-">\n"
+"PO-Revision-Date: 2016-05-03 13:48+0200\n"
+"Last-Translator: Jens <jens@schaewel.com>\n"
+"Language-Team: German "
+"<http://weblate.freepbx.org/projects/freepbx/ucp/de_DE/>\n"
+"Language: de_DE\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: de_DE\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.2-dev\n"
+"X-Generator: Weblate 2.4\n"
 
 #: htdocs/assets/js/bootstrap-table-1.9.0.js:635
 #: htdocs/assets/js/bootstrap-table-1.9.0.js:636
@@ -67,9 +67,12 @@ msgid "Admin"
 msgstr "Admin"
 
 #: htdocs/views/settings.php:5
+#, fuzzy
 msgid ""
 "All fields update when unfocused (selecting another field) except password"
 msgstr ""
+"Alle Felder aktualisieren, wenn kein Feld gewählt ist (ein anderes Feld "
+"auswählen) ausgenommen das Passwort"
 
 #: htdocs/views/settings.php:92
 msgid "Allow Desktop Notifications"
@@ -81,11 +84,11 @@ msgstr "Erlaube Login"
 
 #: ucp.i18n.php:14
 msgid "Allow Password Changes"
-msgstr ""
+msgstr "Änderungen des Passworts zulassen"
 
 #: ucp.i18n.php:20
 msgid "Allow Username Changes"
-msgstr ""
+msgstr "Änderung des Benutzernamens zulassen"
 
 #: htdocs/views/settings.php:100
 msgid "Allow browser desktop notifications from UCP modules."
@@ -101,11 +104,11 @@ msgstr ""
 
 #: ucp.i18n.php:18
 msgid "Allow users to change thier password in UCP"
-msgstr ""
+msgstr "Dem Benutzer erlauben im UCP sein eigenes Passwort zu ändern"
 
 #: ucp.i18n.php:24
 msgid "Allow users to change thier username in UCP"
-msgstr ""
+msgstr "Dem Benutzer erlauben im UCP seinen Benutzernamen zu ändern"
 
 #: views/users_hook.php:118
 msgid "Allowed Extension Settings"
@@ -161,7 +164,7 @@ msgstr "Aktiviere ursprüngliche Gespräche"
 
 #: htdocs/modules/Settings/Settings.class.php:83
 msgid "Endpoint Settings"
-msgstr ""
+msgstr "Endgeräteinstellungen"
 
 #: htdocs/index.php:157
 msgid "English"
@@ -176,6 +179,8 @@ msgstr ""
 #, php-format
 msgid "Failed to install %s due to the following conflicting module(s): %s"
 msgstr ""
+"Fehler bei der Installation von %s aufgrund eines Konfliktes mit dem(n) "
+"Modul(en): %s"
 
 #: htdocs/views/settings.php:77
 msgid "Fax"
@@ -245,8 +250,9 @@ msgstr ""
 "Wie möchten Sie Ihren Namen im UCP und Kontakt Manager angezeigt bekommen"
 
 #: views/users_hook.php:56 views/users_hook.php:154
+#, fuzzy
 msgid "Inherit"
-msgstr "Inherit"
+msgstr "geerbt"
 
 #: htdocs/index.php:242
 #, php-format
@@ -254,6 +260,8 @@ msgid ""
 "Internet Explorer %s is not supported. Functionality will be deteriorated "
 "until you upgrade to %s or higher"
 msgstr ""
+"Der Internet Explorer %s wird nicht unterstützt. Die Funktionalität ist "
+"eingeschränkt, bis Sie auf die Version %s aktualisieren oder höher"
 
 #: htdocs/includes/User.class.php:86
 msgid "Invalid"
@@ -299,11 +307,11 @@ msgstr "Laden..."
 #: htdocs/views/forgot.php:45 htdocs/views/login.php:37
 #: htdocs/assets/js/ucp.js:128 htdocs/assets/js/ucp.js:141
 msgid "Login"
-msgstr "Login"
+msgstr "Anmeldung"
 
 #: htdocs/index.php:218
 msgid "Logout"
-msgstr "Logout"
+msgstr "Abmelden"
 
 #: htdocs/views/templates/phone.php:59
 msgid "MNO"
@@ -376,7 +384,7 @@ msgstr "Passwort zurücksetzen für: %s"
 
 #: htdocs/assets/js/ucp.js:975
 msgid "Password has not changed!"
-msgstr ""
+msgstr "Passwort wurde nicht geändert!"
 
 #: htdocs/assets/js/ucp.js:97
 msgid "Passwords can't be blank!"
@@ -401,11 +409,12 @@ msgstr "Verarbeiten..."
 
 #: ucp.i18n.php:26
 msgid "RSS Feeds"
-msgstr ""
+msgstr "RSS-Feeds"
 
 #: ucp.i18n.php:30
+#, fuzzy
 msgid "RSS Feeds that are displayed in UCP. This overrides "
-msgstr ""
+msgstr "RSS-Feeds die im UCP angezeigt werden. Diese überschrieben "
 
 #: Ucp.class.php:29
 msgid "Refreshing all UCP Assets, this could take a while..."
@@ -445,6 +454,9 @@ msgid ""
 "The number of days a session token will be valid for. Clear this setting if "
 "you want tokens to last forever (Not Recommended)"
 msgstr ""
+"Die Anzahl der Tage die ein Session-Token gültig ist. Deaktivieren Sie diese "
+"Einstellung, wenn die Tokens kein Ablaufdatum besitzen sollen (nicht "
+"empfohlen)"
 
 #: htdocs/views/settings.php:20 htdocs/views/settings.php:25
 msgid "The password used to login to User Control Panel and other services"
@@ -503,7 +515,7 @@ msgstr "UCP Sprache"
 
 #: ucp.i18n.php:32
 msgid "UCP Session Timeout"
-msgstr ""
+msgstr "UCP Sitzungszeitüberschreitung"
 
 #: htdocs/index.php:27
 msgid "UCP is currently disabled. Please talk to your system Administrator"
@@ -525,7 +537,7 @@ msgstr ""
 #: htdocs/assets/js/ucp.js:394
 #, perl-format
 msgid "Unable to get a token to use UCP Node Server because: '%s'"
-msgstr ""
+msgstr "Es kann kein Token vom UCP Knoten Server erhalten werden, weil: '% s'"
 
 #: htdocs/index.php:183
 #, php-format
@@ -534,14 +546,15 @@ msgstr "Unbekanntes Modul %s"
 
 #: htdocs/views/settings.php:27
 msgid "Update Password"
-msgstr ""
+msgstr "Passwort geändert"
 
 #: htdocs/views/forgot.php:5 htdocs/views/header.php:4
 #: htdocs/views/login.php:4 ucp.i18n.php:4
 #: /usr/src/freepbx/ucp/ucp.i18n.php:16 ucp.i18n.php:22
 #: /usr/src/freepbx/ucp/ucp.i18n.php:28 ucp.i18n.php:34
+#, fuzzy
 msgid "User Control Panel"
-msgstr "User Control Panel"
+msgstr "Benutzer-Kontrollzentrum (UCP)"
 
 #: htdocs/views/settings.php:2
 msgid "User Control Panel Settings"
@@ -553,13 +566,14 @@ msgid "User Control Panel is released as %s or newer"
 msgstr "User Control Panel ist als %s oder neuer"
 
 #: Ucp.class.php:212 Ucp.class.php:222
-#, php-format
+#, fuzzy, php-format
 msgid "User Control Panel: %s"
-msgstr "User Control Panel: %s"
+msgstr "Benutzer-Kontrollzentrum (UCP): %s"
 
 #: ucp.i18n.php:12
+#, fuzzy
 msgid "User Panel"
-msgstr "User Panel"
+msgstr "Benutzerbedienfeld"
 
 #: Ucp.class.php:70 /usr/src/freepbx/ucp/Ucp.class.php:98
 msgid "User Primary Extension"
@@ -567,7 +581,7 @@ msgstr "Benutzer Primäre Nebenstelle"
 
 #: htdocs/index.php:218
 msgid "User Settings"
-msgstr ""
+msgstr "Benutzereinstellungen"
 
 #: htdocs/views/login.php:15 htdocs/views/settings.php:9
 msgid "Username"
