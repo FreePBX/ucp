@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-04-21 09:57-0700\n"
-"PO-Revision-Date: 2016-05-03 13:48+0200\n"
+"PO-Revision-Date: 2016-05-11 00:30+0200\n"
 "Last-Translator: Jens <jens@schaewel.com>\n"
 "Language-Team: German "
 "<http://weblate.freepbx.org/projects/freepbx/ucp/de_DE/>\n"
@@ -45,7 +45,7 @@ msgstr ".htaccess sind auf diesem Server deaktiviert. Bitte aktiviere diese"
 
 #: htdocs/index.php:104
 msgid ".htaccess files are not supported on this webserver."
-msgstr ".htaccess Dateien werden auf diesem Webserver nicht unterstützt."
+msgstr ".htaccess Dateien werden von diesem Webserver nicht unterstütz."
 
 #: Ucp.class.php:253
 #, php-format
@@ -64,7 +64,7 @@ msgstr "Aktive Verbindungen"
 
 #: ucp.i18n.php:6
 msgid "Admin"
-msgstr "Admin"
+msgstr "Administrator"
 
 #: htdocs/views/settings.php:5
 #, fuzzy
