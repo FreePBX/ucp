@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-04-21 09:57-0700\n"
+"POT-Creation-Date: 2016-05-16 12:42-0700\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -192,10 +192,6 @@ msgstr ""
 
 #: htdocs/views/login.php:36
 msgid "Forgot Password"
-msgstr ""
-
-#: ucp.i18n.php:8
-msgid "Formerly ARI, now called User Control Panel"
 msgstr ""
 
 #: htdocs/views/templates/phone.php:51
@@ -461,6 +457,12 @@ msgstr ""
 
 #: htdocs/views/dashfootercontent.php:10
 msgid "The removal of this copyright notice is stricly prohibited"
+msgstr ""
+
+#: ucp.i18n.php:8
+msgid ""
+"The user control panel is a way for users to control call handling and "
+"personal settings from a web browser."
 msgstr ""
 
 #: htdocs/views/settings.php:11

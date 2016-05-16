@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-04-21 09:57-0700\n"
+"POT-Creation-Date: 2016-05-16 12:42-0700\n"
 "PO-Revision-Date: 2015-10-30 06:23+0200\n"
 "Last-Translator: Kevin <kevin@qloog.com>\n"
 "Language-Team: Japanese <http://weblate.freepbx.org/projects/freepbx/ucp/"
@@ -192,11 +192,6 @@ msgstr "アクセス拒否"
 #: htdocs/views/login.php:36
 msgid "Forgot Password"
 msgstr "パスワードお忘れの場合"
-
-#: ucp.i18n.php:8
-msgid "Formerly ARI, now called User Control Panel"
-msgstr ""
-"かつてARIと呼ばれたモジュールに代わる「ユーザーコントロールパネル」です。"
 
 #: htdocs/views/templates/phone.php:51
 msgid "GHI"
@@ -449,6 +444,12 @@ msgstr "UCPやその他のサービスのログインに使うパスワード"
 msgid "The removal of this copyright notice is stricly prohibited"
 msgstr "著作権情報の削除は禁止されています"
 
+#: ucp.i18n.php:8
+msgid ""
+"The user control panel is a way for users to control call handling and "
+"personal settings from a web browser."
+msgstr ""
+
 #: htdocs/views/settings.php:11
 msgid "The username used to login to User Control Panel and other services"
 msgstr ""
@@ -656,6 +657,10 @@ msgstr ""
 #: htdocs/views/login.php:24
 msgid "or"
 msgstr "もしくは"
+
+#~ msgid "Formerly ARI, now called User Control Panel"
+#~ msgstr ""
+#~ "かつてARIと呼ばれたモジュールに代わる「ユーザーコントロールパネル」です。"
 
 #~ msgid "Connecting...."
 #~ msgstr "接続中...."

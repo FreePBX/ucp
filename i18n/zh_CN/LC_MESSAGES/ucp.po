@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-04-21 09:57-0700\n"
+"POT-Creation-Date: 2016-05-16 12:42-0700\n"
 "PO-Revision-Date: 2015-11-23 13:55+0200\n"
 "Last-Translator: james <zhulizhong@gmail.com>\n"
 "Language-Team: Simplified Chinese <http://weblate.freepbx.org/projects/"
@@ -191,10 +191,6 @@ msgstr "禁止"
 #: htdocs/views/login.php:36
 msgid "Forgot Password"
 msgstr "文件密码"
-
-#: ucp.i18n.php:8
-msgid "Formerly ARI, now called User Control Panel"
-msgstr ""
 
 #: htdocs/views/templates/phone.php:51
 msgid "GHI"
@@ -445,6 +441,12 @@ msgstr ""
 
 #: htdocs/views/dashfootercontent.php:10
 msgid "The removal of this copyright notice is stricly prohibited"
+msgstr ""
+
+#: ucp.i18n.php:8
+msgid ""
+"The user control panel is a way for users to control call handling and "
+"personal settings from a web browser."
 msgstr ""
 
 #: htdocs/views/settings.php:11

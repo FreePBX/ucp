@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-04-21 09:57-0700\n"
+"POT-Creation-Date: 2016-05-16 12:42-0700\n"
 "PO-Revision-Date: 2015-05-02 20:55+0200\n"
 "Last-Translator: Renato <fiuza@tecnologia.inf.br>\n"
 "Language-Team: Portuguese (Brazil) <http://weblate.freepbx.org/projects/"
@@ -193,10 +193,6 @@ msgstr "Proibido"
 #: htdocs/views/login.php:36
 msgid "Forgot Password"
 msgstr "Senha Esquecida"
-
-#: ucp.i18n.php:8
-msgid "Formerly ARI, now called User Control Panel"
-msgstr "Anteriormente ARI, agora chamado Painel de Controle do Usuário"
 
 #: htdocs/views/templates/phone.php:51
 msgid "GHI"
@@ -452,6 +448,12 @@ msgstr ""
 msgid "The removal of this copyright notice is stricly prohibited"
 msgstr "A remoção deste aviso de direitos autorais é estritamente proibida"
 
+#: ucp.i18n.php:8
+msgid ""
+"The user control panel is a way for users to control call handling and "
+"personal settings from a web browser."
+msgstr ""
+
 #: htdocs/views/settings.php:11
 msgid "The username used to login to User Control Panel and other services"
 msgstr ""
@@ -661,6 +663,9 @@ msgstr ""
 #: htdocs/views/login.php:24
 msgid "or"
 msgstr "ou"
+
+#~ msgid "Formerly ARI, now called User Control Panel"
+#~ msgstr "Anteriormente ARI, agora chamado Painel de Controle do Usuário"
 
 #~ msgid "Connecting...."
 #~ msgstr "Conectando…"

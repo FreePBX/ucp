@@ -10,7 +10,7 @@
 		The user control panel is a way for users to control call handling and personal settings from a web browser.
 	</description>
 	<changelog>
-		*13.0.31* Add clickable class
+		*13.0.31* FREEPBX-11617 Add clickable class
 		*13.0.30* Better error message for debugging
 		*13.0.29* Support HTTPS/SSL
 		*13.0.28* Dont logout users when making changes
