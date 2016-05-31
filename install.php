@@ -111,7 +111,7 @@ $set['module'] = 'ucp'; //This will help delete the settings when module is unin
 $set['category'] = 'User Control Panel';
 $set['emptyok'] = 0;
 $set['name'] = 'Allow Username Changes';
-$set['description'] = 'Allow users to change thier username in UCP';
+$set['description'] = 'Allow users to change their username in UCP';
 $set['type'] = CONF_TYPE_BOOL;
 FreePBX::Config()->define_conf_setting('UCPCHANGEUSERNAME',$set,true);
 

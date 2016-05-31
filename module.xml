@@ -2,7 +2,7 @@
 	<rawname>ucp</rawname>
 	<name>User Control Panel</name>
 	<repo>standard</repo>
-	<version>13.0.31</version>
+	<version>13.0.32</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>AGPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/agpl-3.0.txt</licenselink>
@@ -10,6 +10,7 @@
 		The user control panel is a way for users to control call handling and personal settings from a web browser.
 	</description>
 	<changelog>
+		*13.0.32* Spelling fix for translations
 		*13.0.31* FREEPBX-11617 Add clickable class
 		*13.0.30* Better error message for debugging
 		*13.0.29* Support HTTPS/SSL
