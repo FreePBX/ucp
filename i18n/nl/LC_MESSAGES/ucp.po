@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-05-16 12:42-0700\n"
-"PO-Revision-Date: 2016-06-01 06:59+0200\n"
+"PO-Revision-Date: 2016-06-01 07:06+0200\n"
 "Last-Translator: Hans <info@hansvaneijsden.nl>\n"
 "Language-Team: Dutch <http://weblate.freepbx.org/projects/freepbx/ucp/nl/>\n"
 "Language: nl\n"
@@ -114,7 +114,7 @@ msgstr "Sta gebruikers toe om hun gebruikersnaam te wijzigen in UCP"
 
 #: views/users_hook.php:118
 msgid "Allowed Extension Settings"
-msgstr ""
+msgstr "Toegestane Extensieinstellingen"
 
 #: htdocs/assets/js/ucp.js:990
 msgid "Are you sure you wish to change your username?"
@@ -162,7 +162,7 @@ msgstr "E-mail"
 
 #: views/users_hook.php:144
 msgid "Enable Originating Calls"
-msgstr ""
+msgstr "Activeer Oorspronkelijke Gesprekken"
 
 #: htdocs/modules/Settings/Settings.class.php:83
 msgid "Endpoint Settings"
@@ -485,6 +485,9 @@ msgid ""
 "extension settings such as Call Waiting, Call Forwarding, Find Me/Follow Me "
 "and others"
 msgstr ""
+"Dit zijn de toegewezen en actieve extensies die toegang tot de "
+"extensieinstellingen hebben zoals Wisselgesprek, Doorschakelen, Find Me/"
+"Follow Me en meer"
 
 #: htdocs/views/settings.php:52
 msgid "Title"
@@ -497,6 +500,9 @@ msgid ""
 "webserver's configuration file for the User Control Panel. For more "
 "information see: %s"
 msgstr ""
+"Om de integriteit van de server te waarborgen, moet je indien je Apache "
+"gebruikt Allow Overrides in het configuratiebestand van je webserver "
+"inschakelen voor het User Control Panel. Voor meer informatie zie: %s"
 
 #: ucp.i18n.php:10
 msgid "UCP"
@@ -534,6 +540,7 @@ msgstr ""
 #, perl-format
 msgid "Unable to get a token to use UCP Node Server because: '%s'"
 msgstr ""
+"Kan geen token verkrijgen om de UCP Node Server te gebruiken vanwege: '%s'"
 
 #: htdocs/index.php:183
 #, php-format
@@ -567,15 +574,15 @@ msgstr "User Control Panel: %s"
 
 #: ucp.i18n.php:12
 msgid "User Panel"
-msgstr ""
+msgstr "Gebruikerspanel"
 
 #: Ucp.class.php:70 /usr/src/freepbx/ucp/Ucp.class.php:98
 msgid "User Primary Extension"
-msgstr ""
+msgstr "Primaire Gebruikersextensie"
 
 #: htdocs/index.php:218
 msgid "User Settings"
-msgstr ""
+msgstr "Gebruikersinstellingen"
 
 #: htdocs/views/login.php:15 htdocs/views/settings.php:9
 msgid "Username"
