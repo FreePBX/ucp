@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-05-16 12:42-0700\n"
-"PO-Revision-Date: 2016-06-01 07:06+0200\n"
+"PO-Revision-Date: 2016-06-01 07:08+0200\n"
 "Last-Translator: Hans <info@hansvaneijsden.nl>\n"
 "Language-Team: Dutch <http://weblate.freepbx.org/projects/freepbx/ucp/nl/>\n"
 "Language: nl\n"
@@ -387,7 +387,7 @@ msgstr "Wachtwoorden kunnen niet leeg zijn!"
 
 #: htdocs/assets/js/ucp.js:106
 msgid "Passwords changed!"
-msgstr "Wachtwoorden gewijzigd!"
+msgstr "Wachtwoord is gewijzigd!"
 
 #: htdocs/assets/js/ucp.js:94
 msgid "Passwords do not match"
@@ -556,7 +556,7 @@ msgstr "Wachtwoord Bijwerken"
 #: /usr/src/freepbx/ucp/ucp.i18n.php:16 ucp.i18n.php:22
 #: /usr/src/freepbx/ucp/ucp.i18n.php:28 ucp.i18n.php:34
 msgid "User Control Panel"
-msgstr "User Control Panel"
+msgstr "Gebruikers Beheerpanel"
 
 #: htdocs/views/settings.php:2
 msgid "User Control Panel Settings"
@@ -570,7 +570,7 @@ msgstr "User Control Panel is gereleased als %s of nieuwer"
 #: Ucp.class.php:212 Ucp.class.php:222
 #, php-format
 msgid "User Control Panel: %s"
-msgstr "User Control Panel: %s"
+msgstr "Gebruikers Beheerpanel: %s"
 
 #: ucp.i18n.php:12
 msgid "User Panel"
