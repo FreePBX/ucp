@@ -169,6 +169,7 @@ class UCP extends UCP_Helpers {
 			"jquery.tokenize.js",
 			"moment.js",
 			"moment-timezone.js",
+			"nprogress.js",
 			"ucp.js",
 			"module.js"
 		);

@@ -780,7 +780,8 @@ var UCPC = Class.extend({
 				sub = $.url().param("sub");
 
 		this.windowResize();
-		$("#loader-screen").fadeOut("fast");
+		NProgress.done();
+		$("#nav-btn-settings .icon i").removeClass("out");
 		if (typeof window[this.activeModule] == "object" &&
 			typeof window[this.activeModule].hide == "function") {
 			window[this.activeModule].hide(event);
@@ -825,11 +826,11 @@ var UCPC = Class.extend({
 		this.binds();
 	},
 	pjaxStart: function(event) {
-
+		NProgress.start();
+		$("#nav-btn-settings .icon i").addClass("out");
 	},
 	pjaxTimeout: function(event) {
 		//query higher up event here
-		$("#loader-screen").fadeIn("fast");
 		event.preventDefault();
 		return false;
 	},
@@ -838,6 +839,8 @@ var UCPC = Class.extend({
 		console.log("error");
 		console.log(event);
 		event.preventDefault();
+		NProgress.done();
+		$("#nav-btn-settings .icon i").removeClass("out");
 		return false;
 	},
 	validMethod: function(module, method) {
