@@ -10,13 +10,15 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-05-16 12:42-0700\n"
-"PO-Revision-Date: 2016-05-16 12:42-0700\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2016-06-01 07:08+0200\n"
+"Last-Translator: Hans <info@hansvaneijsden.nl>\n"
+"Language-Team: Dutch <http://weblate.freepbx.org/projects/freepbx/ucp/nl/>\n"
+"Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 2.4\n"
 
 #: htdocs/assets/js/bootstrap-table-1.9.0.js:635
 #: htdocs/assets/js/bootstrap-table-1.9.0.js:636
@@ -34,206 +36,218 @@ msgstr ""
 #: htdocs/assets/js/bootstrap-table-1.9.0.js:1479
 #: htdocs/assets/js/bootstrap-table-1.9.0.js:1480
 msgid " + field + "
-msgstr ""
+msgstr " + veld + "
 
 #: htdocs/index.php:91
 msgid ".htaccess files are disabled on this webserver. Please enable them"
 msgstr ""
+"Het gebruik van .htaccess-bestanden is uitgeschakeld op deze webserver. "
+"Gelieve dit in te schakelen indien mogelijk"
 
 #: htdocs/index.php:104
 msgid ".htaccess files are not supported on this webserver."
 msgstr ""
+"Het gebruik van .htaccess-bestanden wordt niet ondersteund door deze "
+"webserver."
 
 #: Ucp.class.php:253
 #, php-format
 msgid "A token has already been generated for %s, not sending email again"
 msgstr ""
+"Er is al een token gegenereerd voor %s, er wordt niet opnieuw een e-mail "
+"verstuurd"
 
 #: htdocs/views/templates/phone.php:41
 msgid "ABC"
-msgstr ""
+msgstr "ABC"
 
 #: views/users_hook.php:78
 msgid "Active Sessions"
-msgstr ""
+msgstr "Actieve Sessies"
 
 #: ucp.i18n.php:6
 msgid "Admin"
-msgstr ""
+msgstr "Admin"
 
 #: htdocs/views/settings.php:5
 msgid ""
 "All fields update when unfocused (selecting another field) except password"
 msgstr ""
+"Alle velden vernieuwen wanneer er geen veld actief is (een ander veld kiezen)"
+" behalve het wachtwoord"
 
 #: htdocs/views/settings.php:92
 msgid "Allow Desktop Notifications"
-msgstr ""
+msgstr "Inschakelen Bureaubladmeldingen"
 
 #: views/users_hook.php:46
 msgid "Allow Login"
-msgstr ""
+msgstr "Inloggen Toestaan"
 
 #: ucp.i18n.php:14
 msgid "Allow Password Changes"
-msgstr ""
+msgstr "Sta Veranderen Wachtwoord Toe"
 
 #: ucp.i18n.php:20
 msgid "Allow Username Changes"
-msgstr ""
+msgstr "Sta Veranderen Gebruikersnaam Toe"
 
 #: htdocs/views/settings.php:100
 msgid "Allow browser desktop notifications from UCP modules."
-msgstr ""
+msgstr "Sta bureaubladmeldingen van UCP-modules toe."
 
 #: views/users_hook.php:163
 msgid ""
 "Allow this user to originate calls from within UCP. This is not the same as "
 "WebRTC"
 msgstr ""
+"Deze gebruiker mag telefoongesprekken opzetten vanuit UCP. Dit is niet "
+"hetzelfde als WebRTC"
 
 #: ucp.i18n.php:18
 msgid "Allow users to change thier password in UCP"
-msgstr ""
+msgstr "Sta gebruikers toe om hun wachtwoord te wijzigen in UCP"
 
 #: ucp.i18n.php:24
 msgid "Allow users to change thier username in UCP"
-msgstr ""
+msgstr "Sta gebruikers toe om hun gebruikersnaam te wijzigen in UCP"
 
 #: views/users_hook.php:118
 msgid "Allowed Extension Settings"
-msgstr ""
+msgstr "Toegestane Extensieinstellingen"
 
 #: htdocs/assets/js/ucp.js:990
 msgid "Are you sure you wish to change your username?"
-msgstr ""
+msgstr "Weet je zeker dat je je gebruikersnaam wilt wijzigen?"
 
 #: htdocs/views/templates/phone.php:7 htdocs/views/templates/phone.php:95
 msgid "Call"
-msgstr ""
+msgstr "Gesprek"
 
 #: htdocs/views/settings.php:62
 msgid "Cell Phone"
-msgstr ""
+msgstr "Mobiele Telefoon"
 
 #: htdocs/views/settings.php:57
 msgid "Company"
-msgstr ""
+msgstr "Bedrijf"
 
 #: htdocs/views/settings.php:23
 msgid "Confirm Password"
-msgstr ""
+msgstr "Bevestig Wachtwoord"
 
 #: htdocs/views/templates/phone.php:45
 msgid "DEF"
-msgstr ""
+msgstr "DEF"
 
 #: Ucp.class.php:747
 msgid "Deleted Session"
-msgstr ""
+msgstr "Verwijderde Sessie"
 
 #: Ucp.class.php:126 Ucp.class.php:590
 msgid "Deleted User Session"
-msgstr ""
+msgstr "Verwijderde Gebruikerssessie"
 
 #: htdocs/views/settings.php:32
 msgid "Display Name"
-msgstr ""
+msgstr "Weergavenaam"
 
 #: Ucp.class.php:841 Ucp.class.php:845 Ucp.class.php:849 Ucp.class.php:853
 msgid "Done"
-msgstr ""
+msgstr "Voltooid"
 
 #: htdocs/views/login.php:29 htdocs/views/settings.php:37
 msgid "Email"
-msgstr ""
+msgstr "E-mail"
 
 #: views/users_hook.php:144
 msgid "Enable Originating Calls"
-msgstr ""
+msgstr "Activeer Oorspronkelijke Gesprekken"
 
 #: htdocs/modules/Settings/Settings.class.php:83
 msgid "Endpoint Settings"
-msgstr ""
+msgstr "Eindpuntinstellingen"
 
 #: htdocs/index.php:157
 msgid "English"
-msgstr ""
+msgstr "Engels"
 
 #: htdocs/views/dashboard.php:92
 msgid "Excuse us while we try to retrieve your content"
-msgstr ""
+msgstr "We halen de gegevens op, moment geduld"
 
 #: install.inc.php:20
 #, php-format
 msgid "Failed to install %s due to the following conflicting module(s): %s"
 msgstr ""
+"Niet gelukt om %s te installeren vanwege de volgende module(s) met "
+"conflicten: %s"
 
 #: htdocs/views/settings.php:77
 msgid "Fax"
-msgstr ""
+msgstr "Fax"
 
 #: htdocs/views/templates/pagnation.php:4
 msgid "First"
-msgstr ""
+msgstr "Eerste"
 
 #: htdocs/views/settings.php:42
 msgid "First Name"
-msgstr ""
+msgstr "Voornaam"
 
 #: htdocs/modules/Settings/Settings.class.php:38
 msgid "Forbidden"
-msgstr ""
+msgstr "Niet Toegestaan"
 
 #: htdocs/views/login.php:36
 msgid "Forgot Password"
-msgstr ""
+msgstr "Wachtwoord Vergeten"
 
 #: htdocs/views/templates/phone.php:51
 msgid "GHI"
-msgstr ""
+msgstr "GHI"
 
 #: views/users_hook.php:19
 msgid "General"
-msgstr ""
+msgstr "Algemeen"
 
 #: Ucp.class.php:851
 msgid "Generating Main CSS..."
-msgstr ""
+msgstr "Genereren Hoofd-CSS..."
 
 #: Ucp.class.php:847
 msgid "Generating Main Scripts..."
-msgstr ""
+msgstr "Genereren Hoofd-Scripts..."
 
 #: Ucp.class.php:843
 msgid "Generating Module CSS..."
-msgstr ""
+msgstr "Genereren Module-CSS..."
 
 #: Ucp.class.php:839
 msgid "Generating Module Scripts..."
-msgstr ""
+msgstr "Genereren Module-Scripts..."
 
 #: htdocs/views/templates/phone.php:98
 msgid "Hold"
-msgstr ""
+msgstr "Wacht"
 
 #: htdocs/modules/Home/Home.class.php:252 htdocs/views/dashboard.php:32
 #: htdocs/assets/js/ucp.js:779
 msgid "Home"
-msgstr ""
+msgstr "Home"
 
 #: htdocs/views/settings.php:72
 msgid "Home Phone"
-msgstr ""
+msgstr "Thuistelefoon"
 
 #: htdocs/views/settings.php:34
 msgid ""
 "How you would like your name displayed throughout UCP and Contact Manager"
-msgstr ""
+msgstr "Hoe je je naam weergegeven wilt laten worden in UCP en het Adresboek"
 
 #: views/users_hook.php:56 views/users_hook.php:154
 msgid "Inherit"
-msgstr ""
+msgstr "Erven"
 
 #: htdocs/index.php:242
 #, php-format
@@ -241,218 +255,229 @@ msgid ""
 "Internet Explorer %s is not supported. Functionality will be deteriorated "
 "until you upgrade to %s or higher"
 msgstr ""
+"Internet Explorer %s wordt niet ondersteund. De functionaliteit wordt "
+"beperkt totdat je deze bijwerkt naar %s of hoger"
 
 #: htdocs/includes/User.class.php:86
 msgid "Invalid"
-msgstr ""
+msgstr "Ongeldig"
 
 #: htdocs/modules/Home/Home.class.php:201
 #: htdocs/modules/Home/Home.class.php:205
 msgid "Invalid Device"
-msgstr ""
+msgstr "Ongeldig Apparaat"
 
 #: htdocs/includes/User.class.php:94
 msgid "Invalid Login Credentials"
-msgstr ""
+msgstr "Ongeldige Login"
 
 #: htdocs/index.php:231
 msgid "Invalid Token"
-msgstr ""
+msgstr "Ongeldig Token"
 
 #: htdocs/views/templates/phone.php:55
 msgid "JKL"
-msgstr ""
+msgstr "JKL"
 
 #: htdocs/views/settings.php:83
 msgid "Language"
-msgstr ""
+msgstr "Taal"
 
 #: htdocs/views/templates/pagnation.php:20
 msgid "Last"
-msgstr ""
+msgstr "Laatste"
 
 #: htdocs/views/settings.php:47
 msgid "Last Name"
-msgstr ""
+msgstr "Achternaam"
 
 #: htdocs/views/header.php:67
 msgid "Loading"
-msgstr ""
+msgstr "Laden"
 
 #: htdocs/views/forgot.php:61 htdocs/views/login.php:53
 msgid "Loading..."
-msgstr ""
+msgstr "Laden..."
 
 #: htdocs/views/forgot.php:45 htdocs/views/login.php:37
 #: htdocs/assets/js/ucp.js:128 htdocs/assets/js/ucp.js:141
 msgid "Login"
-msgstr ""
+msgstr "Inloggen"
 
 #: htdocs/index.php:218
 msgid "Logout"
-msgstr ""
+msgstr "Uitloggen"
 
 #: htdocs/views/templates/phone.php:59
 msgid "MNO"
-msgstr ""
+msgstr "MNO"
 
 #: views/users_hook.php:65
 msgid "May this user log in to UCP"
-msgstr ""
+msgstr "Mag deze gebruiker inloggen in UCP"
 
 #: views/users_hook.php:24
 msgid "Miscellaneous"
-msgstr ""
+msgstr "Diversen"
 
 #: htdocs/includes/Ajax.class.php:136
 msgid "Module or Command were null. Check your code."
-msgstr ""
+msgstr "Module of commando was zonder inhoud. Check je code."
 
 #: views/users_hook.php:53 views/users_hook.php:151
 msgid "No"
-msgstr ""
+msgstr "Nee"
 
 #: htdocs/modules/Home/assets/js/global.js:75
 msgid "Nothing Entered"
-msgstr ""
+msgstr "Niets Ingevoerd"
 
 #: htdocs/includes/User.class.php:74
 msgid "Nothing was Provided!"
-msgstr ""
+msgstr "Niets was ingegeven!"
 
 #: htdocs/views/header.php:60
 msgid "OFF"
-msgstr ""
+msgstr "UIT"
 
 #: htdocs/views/header.php:57
 msgid "ON"
-msgstr ""
+msgstr "AAN"
 
 #: htdocs/modules/Home/assets/js/global.js:46
 #: htdocs/modules/Home/assets/js/global.js:124
 msgid "Originate"
-msgstr ""
+msgstr "Start"
 
 #: htdocs/index.php:212 htdocs/modules/Home/assets/js/global.js:22
 #: htdocs/modules/Home/assets/js/global.js:45
 #: htdocs/modules/Home/assets/js/global.js:123
 msgid "Originate Call"
-msgstr ""
+msgstr "Start Gesprek"
 
 #: htdocs/views/templates/phone.php:65
 msgid "PQRS"
-msgstr ""
+msgstr "PQRS"
 
 #: htdocs/views/login.php:20 htdocs/views/settings.php:18
 msgid "Password"
-msgstr ""
+msgstr "Wachtwoord"
 
 #: htdocs/assets/js/ucp.js:957
 msgid "Password Confirmation Didn't Match!"
-msgstr ""
+msgstr "De wachtwoordbevestiging klopte niet!"
 
 #: Ucp.class.php:216 Ucp.class.php:226
 #, php-format
 msgid "Password Reset Link (Valid Until: %s): %s"
-msgstr ""
+msgstr "Wachtwoord-resetlink (geldig tot: %s): %s"
 
 #: htdocs/views/forgot.php:27
 #, php-format
 msgid "Password Reset for: %s"
-msgstr ""
+msgstr "Wachtwoordreset voor: %s"
 
 #: htdocs/assets/js/ucp.js:975
 msgid "Password has not changed!"
-msgstr ""
+msgstr "Wachtwoord is niet veranderd!"
 
 #: htdocs/assets/js/ucp.js:97
 msgid "Passwords can't be blank!"
-msgstr ""
+msgstr "Wachtwoorden kunnen niet leeg zijn!"
 
 #: htdocs/assets/js/ucp.js:106
 msgid "Passwords changed!"
-msgstr ""
+msgstr "Wachtwoord is gewijzigd!"
 
 #: htdocs/assets/js/ucp.js:94
 msgid "Passwords do not match"
-msgstr ""
+msgstr "Wachtwoorden komen niet overeen"
 
 #: htdocs/assets/js/ucp.js:72
 msgid "Please enter either a username or email address"
-msgstr ""
+msgstr "Gelieve een gebruikersnaam of e-mailadres in te geven"
 
 #: htdocs/assets/js/ucp.js:70 htdocs/assets/js/ucp.js:121
 msgid "Processing..."
-msgstr ""
+msgstr "Verwerken..."
 
 #: ucp.i18n.php:26
 msgid "RSS Feeds"
-msgstr ""
+msgstr "RSS-Feeds"
 
 #: ucp.i18n.php:30
 msgid "RSS Feeds that are displayed in UCP. This overrides "
-msgstr ""
+msgstr "RSS-Feeds die worden weergegeven in het UCP. Dit heeft voorrang op "
 
 #: Ucp.class.php:29
 msgid "Refreshing all UCP Assets, this could take a while..."
-msgstr ""
+msgstr "Alle UCP-onderdelen aan het vernieuwen, dit kan even duren..."
 
 #: htdocs/views/forgot.php:48 htdocs/views/login.php:40
 msgid "Remember Me"
-msgstr ""
+msgstr "Onthoud Mij"
 
 #: htdocs/views/forgot.php:62
 msgid "Reset Password"
-msgstr ""
+msgstr "Wachtwoord Resetten"
 
 #: htdocs/assets/js/ucp.js:963 htdocs/assets/js/ucp.js:1008
 msgid "Saved!"
-msgstr ""
+msgstr "Opgeslagen!"
 
 #: htdocs/views/login.php:54
 msgid "Send Me A Password Reset Link"
-msgstr ""
+msgstr "Stuur Wachtwoord-resetlink"
 
 #: htdocs/views/templates/chat.php:25
 #, php-format
 msgid "Sent at %s"
-msgstr ""
+msgstr "Verstuurd naar %s"
 
 #: htdocs/views/dashboard.php:39 htdocs/assets/js/ucp.js:820
 msgid "Settings"
-msgstr ""
+msgstr "Instellingen"
 
 #: htdocs/views/templates/phone.php:69
 msgid "TUV"
-msgstr ""
+msgstr "TUV"
 
 #: ucp.i18n.php:36
 msgid ""
 "The number of days a session token will be valid for. Clear this setting if "
 "you want tokens to last forever (Not Recommended)"
 msgstr ""
+"Het aantal dagen waar dit sessietoken geldig voor is. Maak deze instelling "
+"leeg als je sessietokens voor altijd geldig wilt laten zijn (Niet Aanbevolen)"
 
 #: htdocs/views/settings.php:20 htdocs/views/settings.php:25
 msgid "The password used to login to User Control Panel and other services"
 msgstr ""
+"Het wachtwoord nodig om in te loggen in het User Control Panel en andere "
+"services"
 
 #: htdocs/views/dashfootercontent.php:10
 msgid "The removal of this copyright notice is stricly prohibited"
-msgstr ""
+msgstr "Het verwijderen van dit copyrightbericht is niet toegestaan"
 
 #: ucp.i18n.php:8
 msgid ""
 "The user control panel is a way for users to control call handling and "
 "personal settings from a web browser."
 msgstr ""
+"Het User Control Panel is een manier voor gebruikers om het afhandelen van "
+"telefoongesprekken en andere persoonlijke instellingen via de browser te "
+"beheren."
 
 #: htdocs/views/settings.php:11
 msgid "The username used to login to User Control Panel and other services"
 msgstr ""
+"De gebruikersnaam nodig om in te loggen in het User Control Panel en andere "
+"services"
 
 #: htdocs/index.php:119
 msgid "There was an error trying to load UCP"
-msgstr ""
+msgstr "Er is een fout opgetreden tijdens het laden van UCP"
 
 #: views/users_hook.php:134
 msgid ""
@@ -460,10 +485,13 @@ msgid ""
 "extension settings such as Call Waiting, Call Forwarding, Find Me/Follow Me "
 "and others"
 msgstr ""
+"Dit zijn de toegewezen en actieve extensies die toegang tot de "
+"extensieinstellingen hebben zoals Wisselgesprek, Doorschakelen, Find Me/"
+"Follow Me en meer"
 
 #: htdocs/views/settings.php:52
 msgid "Title"
-msgstr ""
+msgstr "Titel"
 
 #: htdocs/index.php:92
 #, php-format
@@ -472,166 +500,174 @@ msgid ""
 "webserver's configuration file for the User Control Panel. For more "
 "information see: %s"
 msgstr ""
+"Om de integriteit van de server te waarborgen, moet je indien je Apache "
+"gebruikt Allow Overrides in het configuratiebestand van je webserver "
+"inschakelen voor het User Control Panel. Voor meer informatie zie: %s"
 
 #: ucp.i18n.php:10
 msgid "UCP"
-msgstr ""
+msgstr "UCP"
 
 #: views/header.php:1
 msgid "UCP Admin"
-msgstr ""
+msgstr "UCP Beheer"
 
 #: htdocs/views/settings.php:89
 msgid "UCP Language"
-msgstr ""
+msgstr "UCP Taal"
 
 #: ucp.i18n.php:32
 msgid "UCP Session Timeout"
-msgstr ""
+msgstr "UCP Sessie-Timeout"
 
 #: htdocs/index.php:27
 msgid "UCP is currently disabled. Please talk to your system Administrator"
-msgstr ""
+msgstr "UCP is momenteel uitgeschakeld. Neem contact op met je systeembeheerder"
 
 #: htdocs/assets/js/ucp.js:927
 msgid "UCP needs to reload, ok?"
-msgstr ""
+msgstr "UCP moet worden herladen, ok?"
 
 #: views/users_hook.php:9
 msgid ""
 "UCP, otherwise known as the User Control Panel, is a user interface for "
 "FreePBX."
 msgstr ""
+"UCP, een afkorting voor User Control Panel, is een gebruikersinterface voor "
+"FreePBX."
 
 #: htdocs/assets/js/ucp.js:394
 #, perl-format
 msgid "Unable to get a token to use UCP Node Server because: '%s'"
 msgstr ""
+"Kan geen token verkrijgen om de UCP Node Server te gebruiken vanwege: '%s'"
 
 #: htdocs/index.php:183
 #, php-format
 msgid "Unknown Module %s"
-msgstr ""
+msgstr "Onbekende Module %s"
 
 #: htdocs/views/settings.php:27
 msgid "Update Password"
-msgstr ""
+msgstr "Wachtwoord Bijwerken"
 
 #: htdocs/views/forgot.php:5 htdocs/views/header.php:4
 #: htdocs/views/login.php:4 ucp.i18n.php:4
 #: /usr/src/freepbx/ucp/ucp.i18n.php:16 ucp.i18n.php:22
 #: /usr/src/freepbx/ucp/ucp.i18n.php:28 ucp.i18n.php:34
 msgid "User Control Panel"
-msgstr ""
+msgstr "Gebruikers Beheerpanel"
 
 #: htdocs/views/settings.php:2
 msgid "User Control Panel Settings"
-msgstr ""
+msgstr "Instellingen User Control Panel"
 
 #: htdocs/views/dashfootercontent.php:7
 #, php-format
 msgid "User Control Panel is released as %s or newer"
-msgstr ""
+msgstr "User Control Panel is gereleased als %s of nieuwer"
 
 #: Ucp.class.php:212 Ucp.class.php:222
 #, php-format
 msgid "User Control Panel: %s"
-msgstr ""
+msgstr "Gebruikers Beheerpanel: %s"
 
 #: ucp.i18n.php:12
 msgid "User Panel"
-msgstr ""
+msgstr "Gebruikerspanel"
 
 #: Ucp.class.php:70 /usr/src/freepbx/ucp/Ucp.class.php:98
 msgid "User Primary Extension"
-msgstr ""
+msgstr "Primaire Gebruikersextensie"
 
 #: htdocs/index.php:218
 msgid "User Settings"
-msgstr ""
+msgstr "Gebruikersinstellingen"
 
 #: htdocs/views/login.php:15 htdocs/views/settings.php:9
 msgid "Username"
-msgstr ""
+msgstr "Gebruikersnaam"
 
 #: htdocs/assets/js/ucp.js:993
 msgid "Username has been changed, reloading"
-msgstr ""
+msgstr "De gebruikersnaam is veranderd, opnieuw laden"
 
 #: htdocs/views/templates/phone.php:73
 msgid "WXYZ"
-msgstr ""
+msgstr "WXYZ"
 
 #: htdocs/views/dashboard.php:3
 #, php-format
 msgid "Welcome %s"
-msgstr ""
+msgstr "Welkom %s"
 
 #: views/users_hook.php:4
 msgid "What is UCP"
-msgstr ""
+msgstr "Wat is UCP"
 
 #: htdocs/views/settings.php:67
 msgid "Work Phone"
-msgstr ""
+msgstr "Werktelefoon"
 
 #: views/users_hook.php:51 views/users_hook.php:149
 msgid "Yes"
-msgstr ""
+msgstr "Ja"
 
 #: htdocs/assets/js/ucp.js:460
 msgid "You are currently working in offline mode."
-msgstr ""
+msgstr "Momenteel werk je in offlinemodus."
 
 #: htdocs/assets/js/ucp.js:146
 msgid "Your Browser is unsupported at this time."
-msgstr ""
+msgstr "Je browser wordt (momenteel) niet ondersteund."
 
 #: htdocs/views/settings.php:64
 msgid "Your Cell Phone Number"
-msgstr ""
+msgstr "Je mobiele telefoonnummer"
 
 #: htdocs/views/settings.php:59
 msgid "Your Company"
-msgstr ""
+msgstr "Je bedrijf"
 
 #: htdocs/views/settings.php:39
 msgid "Your Email Address"
-msgstr ""
+msgstr "Je e-mailadres"
 
 #: htdocs/views/settings.php:79
 msgid "Your Fax Number"
-msgstr ""
+msgstr "Je faxnummer"
 
 #: htdocs/views/settings.php:44
 msgid "Your First Name"
-msgstr ""
+msgstr "Je voornaam"
 
 #: htdocs/views/settings.php:74
 msgid "Your Home Number"
-msgstr ""
+msgstr "Je thuistelefoonnummer"
 
 #: htdocs/views/settings.php:49
 msgid "Your Last Name"
-msgstr ""
+msgstr "Je achternaam"
 
 #: htdocs/views/settings.php:54
 msgid "Your Title"
-msgstr ""
+msgstr "Je aanhef"
 
 #: htdocs/views/settings.php:69
 msgid "Your Work Number"
-msgstr ""
+msgstr "Je werktelefoonnummer"
 
 #: htdocs/assets/js/ucp.js:148
 msgid ""
 "Your browser is unsupported at this time. Please upgrade or talk to your "
 "system administrator"
 msgstr ""
+"Je browser wordt (op dit moment) niet ondersteund. Werk deze bij of neem "
+"contact op met je systeembeheerder"
 
 #: htdocs/assets/js/ucp.js:82
 msgid "Your reset link is in the mail!"
-msgstr ""
+msgstr "Je resetlink is in de e-mail!"
 
 #: htdocs/index.php:105
 #, php-format
@@ -640,7 +676,10 @@ msgid ""
 "file paths and directories are locked down properly. For more information "
 "see: %s"
 msgstr ""
+",htaccess-bestanden helpen de integriteit van je server te behouden. Zorg "
+"dat de paden en mappen juist geconfigureerd zijn. Voor meer informatie zie: "
+"%s"
 
 #: htdocs/views/login.php:24
 msgid "or"
-msgstr ""
+msgstr "of"
