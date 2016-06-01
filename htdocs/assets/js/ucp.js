@@ -91,10 +91,10 @@ var UCPC = Class.extend({
 						pass1 = $("input[name=npass1]").val().trim(),
 						pass2 = $("input[name=npass2]").val().trim();
 				if (pass1 != pass2) {
-					alert(_("Passwords do not match"));
+					alert(_("New password and old password do not match"));
 					return false;
 				} else if (pass1 === "" || pass2 === "") {
-					alert(_("Passwords can't be blank!"));
+					alert(_("Password fields can't be blank!"));
 					return false;
 				} else {
 					var queryString = $("#frm-login").formSerialize();
@@ -103,7 +103,7 @@ var UCPC = Class.extend({
 						if (!data.status) {
 							$("#error-msg").html(data.message).fadeIn("fast");
 						} else {
-							alert(_("Passwords changed!"));
+							alert(_("Password has been changed!"));
 							$("#switch-login").click();
 						}
 					});
