@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-05-16 12:42-0700\n"
+"POT-Creation-Date: 2016-06-01 13:27-0700\n"
 "PO-Revision-Date: 2016-05-11 00:30+0200\n"
 "Last-Translator: Jens <jens@schaewel.com>\n"
 "Language-Team: German <http://weblate.freepbx.org/projects/freepbx/ucp/de_DE/"
@@ -102,19 +102,19 @@ msgstr ""
 "Erlaube diesem User Gespräche innerhalb des UCPs zu machen. Dies ist nicht "
 "dasselbe wie WebRTC"
 
+#: ucp.i18n.php:24
+msgid "Allow users to change their username in UCP"
+msgstr ""
+
 #: ucp.i18n.php:18
 msgid "Allow users to change thier password in UCP"
 msgstr "Dem Benutzer erlauben im UCP sein eigenes Passwort zu ändern"
-
-#: ucp.i18n.php:24
-msgid "Allow users to change thier username in UCP"
-msgstr "Dem Benutzer erlauben im UCP seinen Benutzernamen zu ändern"
 
 #: views/users_hook.php:118
 msgid "Allowed Extension Settings"
 msgstr "Erlaubte Nebenstellen Einstellungen"
 
-#: htdocs/assets/js/ucp.js:990
+#: htdocs/assets/js/ucp.js:993
 msgid "Are you sure you wish to change your username?"
 msgstr "Sind Sie sicher, dass Sie Ihren Benutzernamen ändern möchten?"
 
@@ -325,6 +325,10 @@ msgstr "Sonstiges"
 msgid "Module or Command were null. Check your code."
 msgstr "Modul bzw. Befehl war null. Überprüfen Sie Ihren Code."
 
+#: htdocs/assets/js/ucp.js:94
+msgid "New password and old password do not match"
+msgstr ""
+
 #: views/users_hook.php:53 views/users_hook.php:151
 msgid "No"
 msgstr "Nein"
@@ -364,7 +368,7 @@ msgstr "PQRS"
 msgid "Password"
 msgstr "Passwort"
 
-#: htdocs/assets/js/ucp.js:957
+#: htdocs/assets/js/ucp.js:960
 msgid "Password Confirmation Didn't Match!"
 msgstr "Passwörter stimmen nicht überein!"
 
@@ -378,21 +382,17 @@ msgstr "Passwort Reset Link (Gültig bis: %s): %s"
 msgid "Password Reset for: %s"
 msgstr "Passwort zurücksetzen für: %s"
 
-#: htdocs/assets/js/ucp.js:975
-msgid "Password has not changed!"
-msgstr "Passwort wurde nicht geändert!"
-
 #: htdocs/assets/js/ucp.js:97
-msgid "Passwords can't be blank!"
-msgstr "Passwörter können nicht leer sein!"
+msgid "Password fields can't be blank!"
+msgstr ""
 
 #: htdocs/assets/js/ucp.js:106
-msgid "Passwords changed!"
-msgstr "Passwörter geändert!"
+msgid "Password has been changed!"
+msgstr ""
 
-#: htdocs/assets/js/ucp.js:94
-msgid "Passwords do not match"
-msgstr "Passwörter stimmen nicht überein"
+#: htdocs/assets/js/ucp.js:978
+msgid "Password has not changed!"
+msgstr "Passwort wurde nicht geändert!"
 
 #: htdocs/assets/js/ucp.js:72
 msgid "Please enter either a username or email address"
@@ -424,7 +424,7 @@ msgstr "Login merken"
 msgid "Reset Password"
 msgstr "Passwort zurücksetzen"
 
-#: htdocs/assets/js/ucp.js:963 htdocs/assets/js/ucp.js:1008
+#: htdocs/assets/js/ucp.js:966 htdocs/assets/js/ucp.js:1011
 msgid "Saved!"
 msgstr "Gespeichert!"
 
@@ -437,7 +437,7 @@ msgstr "Senden Sie mir einen Passwort Reset Link"
 msgid "Sent at %s"
 msgstr "Gesendet um %s"
 
-#: htdocs/views/dashboard.php:39 htdocs/assets/js/ucp.js:820
+#: htdocs/views/dashboard.php:39 htdocs/assets/js/ucp.js:821
 msgid "Settings"
 msgstr "Einstellungen"
 
@@ -524,7 +524,7 @@ msgid "UCP is currently disabled. Please talk to your system Administrator"
 msgstr ""
 "UCP ist derzeit deaktiviert. Bitte sprechen Sie mit Ihrem Systemadministrator"
 
-#: htdocs/assets/js/ucp.js:927
+#: htdocs/assets/js/ucp.js:930
 msgid "UCP needs to reload, ok?"
 msgstr "UCP muss neu geladen werden, ok?"
 
@@ -589,7 +589,7 @@ msgstr "Benutzereinstellungen"
 msgid "Username"
 msgstr "Benutzername"
 
-#: htdocs/assets/js/ucp.js:993
+#: htdocs/assets/js/ucp.js:996
 msgid "Username has been changed, reloading"
 msgstr "Benutzername wurde geändert, wird neu geladen"
 
@@ -684,6 +684,18 @@ msgstr ""
 #: htdocs/views/login.php:24
 msgid "or"
 msgstr "oder"
+
+#~ msgid "Allow users to change thier username in UCP"
+#~ msgstr "Dem Benutzer erlauben im UCP seinen Benutzernamen zu ändern"
+
+#~ msgid "Passwords can't be blank!"
+#~ msgstr "Passwörter können nicht leer sein!"
+
+#~ msgid "Passwords changed!"
+#~ msgstr "Passwörter geändert!"
+
+#~ msgid "Passwords do not match"
+#~ msgstr "Passwörter stimmen nicht überein"
 
 #~ msgid "Formerly ARI, now called User Control Panel"
 #~ msgstr "Früher ARI, heute User Control Panel genannt"

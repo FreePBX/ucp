@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-05-16 12:42-0700\n"
+"POT-Creation-Date: 2016-06-01 13:27-0700\n"
 "PO-Revision-Date: 2015-05-02 20:55+0200\n"
 "Last-Translator: Renato <fiuza@tecnologia.inf.br>\n"
 "Language-Team: Portuguese (Brazil) <http://weblate.freepbx.org/projects/"
@@ -97,19 +97,19 @@ msgid ""
 "WebRTC"
 msgstr ""
 
+#: ucp.i18n.php:24
+msgid "Allow users to change their username in UCP"
+msgstr ""
+
 #: ucp.i18n.php:18
 msgid "Allow users to change thier password in UCP"
 msgstr "Permitir usuários mudarem suas senhas no PCU"
-
-#: ucp.i18n.php:24
-msgid "Allow users to change thier username in UCP"
-msgstr "Permitir usuários mudarem seus usuários no PCU"
 
 #: views/users_hook.php:118
 msgid "Allowed Extension Settings"
 msgstr ""
 
-#: htdocs/assets/js/ucp.js:990
+#: htdocs/assets/js/ucp.js:993
 msgid "Are you sure you wish to change your username?"
 msgstr "Você tem certeza que deseja mudar seu usuário?"
 
@@ -315,6 +315,10 @@ msgstr ""
 msgid "Module or Command were null. Check your code."
 msgstr "Módulo ou Commando foi nulo. Verifique seu código."
 
+#: htdocs/assets/js/ucp.js:94
+msgid "New password and old password do not match"
+msgstr ""
+
 #: views/users_hook.php:53 views/users_hook.php:151
 msgid "No"
 msgstr ""
@@ -354,7 +358,7 @@ msgstr "PQRS"
 msgid "Password"
 msgstr "Senha"
 
-#: htdocs/assets/js/ucp.js:957
+#: htdocs/assets/js/ucp.js:960
 msgid "Password Confirmation Didn't Match!"
 msgstr "Confirmação De Senha Não Conferiu!"
 
@@ -368,21 +372,17 @@ msgstr "Link de Redefinição de Senha (Válido Até: %s): %s"
 msgid "Password Reset for: %s"
 msgstr "Redefinição de Senha para: %s"
 
-#: htdocs/assets/js/ucp.js:975
-msgid "Password has not changed!"
+#: htdocs/assets/js/ucp.js:97
+msgid "Password fields can't be blank!"
 msgstr ""
 
-#: htdocs/assets/js/ucp.js:97
-msgid "Passwords can't be blank!"
-msgstr "Senhas não podem ser vazias!"
-
 #: htdocs/assets/js/ucp.js:106
-msgid "Passwords changed!"
-msgstr "Senha mudada!"
+msgid "Password has been changed!"
+msgstr ""
 
-#: htdocs/assets/js/ucp.js:94
-msgid "Passwords do not match"
-msgstr "Senhas não conferem"
+#: htdocs/assets/js/ucp.js:978
+msgid "Password has not changed!"
+msgstr ""
 
 #: htdocs/assets/js/ucp.js:72
 msgid "Please enter either a username or email address"
@@ -412,7 +412,7 @@ msgstr "Lembrar Me"
 msgid "Reset Password"
 msgstr "Redefinir Senha"
 
-#: htdocs/assets/js/ucp.js:963 htdocs/assets/js/ucp.js:1008
+#: htdocs/assets/js/ucp.js:966 htdocs/assets/js/ucp.js:1011
 msgid "Saved!"
 msgstr "Salvo!"
 
@@ -425,7 +425,7 @@ msgstr "Envie-me Um Link de Redefinição de Senha"
 msgid "Sent at %s"
 msgstr "Enviado para %s"
 
-#: htdocs/views/dashboard.php:39 htdocs/assets/js/ucp.js:820
+#: htdocs/views/dashboard.php:39 htdocs/assets/js/ucp.js:821
 msgid "Settings"
 msgstr "Configurações"
 
@@ -507,7 +507,7 @@ msgstr ""
 "PCU está desabilitado atualmente. Por favor fale com seu Administrador de "
 "sistema"
 
-#: htdocs/assets/js/ucp.js:927
+#: htdocs/assets/js/ucp.js:930
 msgid "UCP needs to reload, ok?"
 msgstr "O PCU precisa ser recarregado, ok?"
 
@@ -568,7 +568,7 @@ msgstr ""
 msgid "Username"
 msgstr "Usuário"
 
-#: htdocs/assets/js/ucp.js:993
+#: htdocs/assets/js/ucp.js:996
 msgid "Username has been changed, reloading"
 msgstr "Usuário foi mudado, recarregando"
 
@@ -663,6 +663,18 @@ msgstr ""
 #: htdocs/views/login.php:24
 msgid "or"
 msgstr "ou"
+
+#~ msgid "Allow users to change thier username in UCP"
+#~ msgstr "Permitir usuários mudarem seus usuários no PCU"
+
+#~ msgid "Passwords can't be blank!"
+#~ msgstr "Senhas não podem ser vazias!"
+
+#~ msgid "Passwords changed!"
+#~ msgstr "Senha mudada!"
+
+#~ msgid "Passwords do not match"
+#~ msgstr "Senhas não conferem"
 
 #~ msgid "Formerly ARI, now called User Control Panel"
 #~ msgstr "Anteriormente ARI, agora chamado Painel de Controle do Usuário"
