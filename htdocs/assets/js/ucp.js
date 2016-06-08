@@ -708,8 +708,8 @@ var UCPC = Class.extend({
 	},
 	addChatMessage: function(id, sender, msgid, message, colorNew) {
 		var emailre = /([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})/ig,
-				urlre = /((([A-Za-z]{3,9}:(?:\/\/)?)(?:[\-;:&=\+\$,\w]+@)?[A-Za-z0-9\.\-]+|(?:www\.|[\-;:&=\+\$,\w]+@)[A-Za-z0-9\.\-]+)((?:\/[\+~%\/\.\w\-_]*)?\??(?:[\-\+=&;%@\.\w_]*)#?(?:[\.\!\/\\\w]*))?)/ig;
-
+				urlre = /((([A-Za-z]{3,9}:(?:\/\/)?)(?:[\-;:&=\+\$,\w]+@)?[A-Za-z0-9\.\-]+|(?:www\.|[\-;:&=\+\$,\w]+@)[A-Za-z0-9\.\-]+)((?:\/[\+~%\/\.\w\-_]*)?\??(?:[\-\+=&;%@\.\w_]*)#?(?:[\.\!\/\\\w]*))?)/ig,
+				direction = 'in';
 		message = emojione.toImage(htmlEncode(message));
 		message = message.replace(urlre,"<a href='$1' target='_blank'>$1</a>");
 		message = message.replace(emailre,"<a href='mailto:$1@$2.$3' target='_blank'>$1@$2.$3</a>");
@@ -723,9 +723,9 @@ var UCPC = Class.extend({
 			if (typeof colorNew === "undefined" || colorNew) {
 				$( "#messages-container .title-bar[data-id=\"" + id + "\"]" ).css("background-color", "#428bca");
 			} else {
-				sender = "Me";
+				direction = 'out';
 			}
-			$( "#messages-container .message-box[data-id=\"" + id + "\"] .chat" ).append("<div class='message' data-id='" + msgid + "'><strong>" + sender + ":</strong> " + message + "</div>");
+			$( "#messages-container .message-box[data-id=\"" + id + "\"] .chat" ).append("<div class='message "+direction+"' data-id='" + msgid + "'>" + message + "</div>");
 			if (UCP.chatTimeout[id] !== undefined && UCP.chatTimeout[id] !== null) {
 				clearTimeout(UCP.chatTimeout[id]);
 			}

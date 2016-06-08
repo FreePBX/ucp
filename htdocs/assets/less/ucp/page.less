@@ -655,7 +655,57 @@ section.content {
 			font-size: 13px;
 			line-height: 1.3;
 			.history {
-				color: gray;
+				.message {
+					opacity: 0.7;
+					transition: opacity .25s ease-in-out;
+				}
+				.message:hover {
+					opacity: 1;
+				}
+			}
+			.message {
+				padding: 4px 9px 4px 9px;
+				margin-bottom: 2px;
+				border-radius: 11px;
+				min-height: 24px;
+			}
+			.message.in {
+				text-align: left;
+				left: 0px;
+				position: relative;
+				background-color: #e0e0e0;
+				color: black;
+			}
+			.message.in:after {
+				content: "";
+				position: absolute;
+				bottom: 1px;
+				left: -5px;
+				border-style: solid;
+				border-width: 7px 15px 3px 0;
+				border-color: transparent #e0e0e0;
+				display: block;
+				width: 0;
+				z-index: -2;
+			}
+			.message.out {
+				text-align: right;
+				right: 0px;
+				position: relative;
+				background-color: #3b8cd2;
+				color: white;
+			}
+			.message.out:after {
+				content: "";
+				position: absolute;
+				bottom: 1px;
+				right: -5px;
+				border-style: solid;
+				border-width: 3px 0px 7px 15px;
+				border-color: transparent #3b8cd2;
+				display: block;
+				width: 0;
+				z-index: -2;
 			}
 			.status {
 				text-align: center;

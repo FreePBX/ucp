@@ -15,7 +15,7 @@ if(!class_exists("JShrink\Minifier")) {
 if(!class_exists("po2json")) {
 	require __DIR__.'/po2json/po2json.php';
 }
-if(!class_exists("Emojione")) {
+if(!class_exists("Emojione\Emojione")) {
 	require __DIR__.'/emoji/Emojione.class.php';
 }
 require __DIR__.'/UCP.class.php';

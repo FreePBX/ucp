@@ -30,8 +30,7 @@ try {
 }
 ob_end_clean();
 
-\Emojione::$imagePathPNG = 'assets/images/emoji/png/'; // defaults to jsdelivr's free CDN
-\Emojione::$imagePathSVG = 'assets/images/emoji/svg/'; // defaults to jsdelivr's free CDN
+
 
 $user = $ucp->User->getUser();
 

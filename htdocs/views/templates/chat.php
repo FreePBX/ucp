@@ -17,8 +17,8 @@
 			<div class="history">
 				<?php if(!empty($history['messages'])) { ?>
 					<?php foreach($history['messages'] as $h) { ?>
-						<div class="message" data-id="<?php echo $h['id']?>">
-							<strong><?php echo $h['from']?>:</strong> <?php echo $h['message']?>
+						<div class="message <?php echo $h['direction']?>" data-id="<?php echo $h['id']?>">
+							<?php echo $h['message']?>
 						</div>
 					<?php } ?>
 					<?php if(!empty($history)) {?>

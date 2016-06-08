@@ -11,6 +11,8 @@
  * Copyright 2006-2014 Schmooze Com Inc.
  */
 namespace UCP;
+use Emojione\Client;
+use Emojione\Ruleset;
 include(__DIR__.'/UCP_Helpers.class.php');
 class UCP extends UCP_Helpers {
 	// Static Object used for self-referencing.
@@ -31,6 +33,10 @@ class UCP extends UCP_Helpers {
 			//This causes crazy errors later on. Dont use it
 			//$this->db->setAttribute(\PDO::MYSQL_ATTR_USE_BUFFERED_QUERY, false);
 		}
+
+		$this->emoji = new Client(new Ruleset());
+		$this->emoji->imagePathPNG = 'assets/images/emoji/png/'; // defaults to jsdelivr's free CDN
+		$this->emoji->imagePathSVG = 'assets/images/emoji/svg/'; // defaults to jsdelivr's free CDN
 
 		$this->detect = new \Mobile_Detect;
 		// Ensure the local object is available
