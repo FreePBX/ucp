@@ -176,6 +176,7 @@ class UCP extends UCP_Helpers {
 			"moment.js",
 			"moment-timezone.js",
 			"nprogress.js",
+			"imagesloaded.pkgd.min.js",
 			"ucp.js",
 			"module.js"
 		);

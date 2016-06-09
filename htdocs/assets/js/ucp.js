@@ -632,13 +632,14 @@ var UCPC = Class.extend({
 			$(document).trigger( "phoneWindowRemoved");
 		});
 	},
-	addChat: function(module, id, icon, from, to, sender, msgid, message, callback) {
+	addChat: function(module, id, icon, from, to, cnam, msgid, message, callback, htmlV, direction) {
+		var html = (typeof htmlV !== "undefined") ? htmlV : false;
 		if (!$( "#messages-container .message-box[data-id=\"" + id + "\"]" ).length && (typeof this.messageBuffer[id] === "undefined")) {
 			//add placeholder
 			if (typeof msgid !== "undefined") {
 				this.messageBuffer[id] = [];
 				this.messageBuffer[id].push({
-					sender: sender,
+					sender: cnam,
 					msgid: msgid,
 					message: message
 				});
@@ -650,7 +651,7 @@ var UCPC = Class.extend({
 					if (typeof msgid !== "undefined") {
 						if (typeof UCP.messageBuffer[id] !== "undefined") {
 							$.each(UCP.messageBuffer[id], function(i, v) {
-								UCP.addChatMessage(id, v.sender, v.msgid, v.message);
+								UCP.addChatMessage(id, v.sender, v.msgid, v.message, false, html, direction);
 							});
 							delete UCP.messageBuffer[id];
 						}
@@ -687,11 +688,13 @@ var UCPC = Class.extend({
 						UCP.removeChat($(this).data("id"));
 					}
 				});
-				$("#messages-container .message-box[data-id=\"" + id + "\"] .chat").animate({ scrollTop: $("#messages-container .message-box[data-id=\"" + id + "\"] .chat")[0].scrollHeight }, "slow");
+				$("#messages-container .message-box[data-id=\"" + id + "\"] .chat").imagesLoaded( function() {
+					$("#messages-container .message-box[data-id=\"" + id + "\"] .chat").animate({ scrollTop: $("#messages-container .message-box[data-id=\"" + id + "\"] .chat")[0].scrollHeight }, "slow");
+				});
 			}, dataType: "json", type: "POST" });
 		} else {
 			if (typeof msgid !== "undefined") {
-				UCP.addChatMessage(id, sender, msgid, message);
+				UCP.addChatMessage(id, cnam, msgid, message, false, html, direction);
 			}
 			return null;
 		}
@@ -706,13 +709,16 @@ var UCPC = Class.extend({
 			$(document).trigger( "chatWindowRemoved", [ id ] );
 		});
 	},
-	addChatMessage: function(id, sender, msgid, message, colorNew) {
+	addChatMessage: function(id, cnam, msgid, message, newmsg, htmlV, direction) {
 		var emailre = /([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})/ig,
 				urlre = /((([A-Za-z]{3,9}:(?:\/\/)?)(?:[\-;:&=\+\$,\w]+@)?[A-Za-z0-9\.\-]+|(?:www\.|[\-;:&=\+\$,\w]+@)[A-Za-z0-9\.\-]+)((?:\/[\+~%\/\.\w\-_]*)?\??(?:[\-\+=&;%@\.\w_]*)#?(?:[\.\!\/\\\w]*))?)/ig,
-				direction = 'in';
-		message = emojione.toImage(htmlEncode(message));
-		message = message.replace(urlre,"<a href='$1' target='_blank'>$1</a>");
-		message = message.replace(emailre,"<a href='mailto:$1@$2.$3' target='_blank'>$1@$2.$3</a>");
+				html = (typeof htmlV !== "undefined") ? htmlV : false;
+		if(!html) {
+			message = emojione.toImage(htmlEncode(message));
+			message = message.replace(urlre,"<a href='$1' target='_blank'>$1</a>");
+			message = message.replace(emailre,"<a href='mailto:$1@$2.$3' target='_blank'>$1@$2.$3</a>");
+		}
+
 		if ($( "#messages-container .message-box[data-id=\"" + id + "\"]" ).length) {
 			if (!$( "#messages-container .message-box[data-id=\"" + id + "\"]" ).hasClass("expand")) {
 				$( "#messages-container .message-box[data-id=\"" + id + "\"]" ).addClass("expand");
@@ -720,10 +726,8 @@ var UCPC = Class.extend({
 			}
 			$( "#messages-container .message-box[data-id=\"" + id + "\"]" ).data("last-msg-id", msgid);
 
-			if (typeof colorNew === "undefined" || colorNew) {
+			if (typeof newmsg === "undefined" || newmsg) {
 				$( "#messages-container .title-bar[data-id=\"" + id + "\"]" ).css("background-color", "#428bca");
-			} else {
-				direction = 'out';
 			}
 			$( "#messages-container .message-box[data-id=\"" + id + "\"] .chat" ).append("<div class='message "+direction+"' data-id='" + msgid + "'>" + message + "</div>");
 			if (UCP.chatTimeout[id] !== undefined && UCP.chatTimeout[id] !== null) {
@@ -733,13 +737,17 @@ var UCPC = Class.extend({
 			var d = moment().tz(timezone).calendar();
 			UCP.chatTimeout[id] = setTimeout(function() {
 				$( "#messages-container .message-box[data-id=\"" + id + "\"] .chat" ).append("<div class=\"status\" data-type=\"date\">Sent at " + d + "</div>");
-				$("#messages-container .message-box[data-id=\"" + id + "\"] .chat").animate({ scrollTop: $("#messages-container .message-box[data-id=\"" + id + "\"] .chat")[0].scrollHeight }, "fast");
+				$("#messages-container .message-box[data-id=\"" + id + "\"] .chat").imagesLoaded( function() {
+					$("#messages-container .message-box[data-id=\"" + id + "\"] .chat").animate({ scrollTop: $("#messages-container .message-box[data-id=\"" + id + "\"] .chat")[0].scrollHeight }, "slow");
+				});
 			}, 60000);
 
-			$("#messages-container .message-box[data-id=\"" + id + "\"] .chat").animate({ scrollTop: $("#messages-container .message-box[data-id=\"" + id + "\"] .chat")[0].scrollHeight }, "slow");
+			$("#messages-container .message-box[data-id=\"" + id + "\"] .chat").imagesLoaded( function() {
+				$("#messages-container .message-box[data-id=\"" + id + "\"] .chat").animate({ scrollTop: $("#messages-container .message-box[data-id=\"" + id + "\"] .chat")[0].scrollHeight }, "slow");
+			});
 		} else if (typeof this.messageBuffer[id] !== "undefined") {
 			this.messageBuffer[id].push({
-				sender: sender,
+				sender: cnam,
 				msgid: msgid,
 				message: message
 			});
