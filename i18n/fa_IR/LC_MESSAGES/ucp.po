@@ -9,15 +9,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-06-01 13:27-0700\n"
+"POT-Creation-Date: 2016-06-09 22:59-0700\n"
 "PO-Revision-Date: 2016-06-03 04:34+0200\n"
 "Last-Translator: Media <mousavi.media@gmail.com>\n"
-"Language-Team: Persian (Iran) "
-"<http://weblate.freepbx.org/projects/freepbx/ucp/fa_IR/>\n"
-"Language: fa_IR\n"
+"Language-Team: Persian (Iran) <http://weblate.freepbx.org/projects/freepbx/"
+"ucp/fa_IR/>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: fa_IR\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 2.4\n"
 
@@ -39,11 +39,11 @@ msgstr ""
 msgid " + field + "
 msgstr " + فیلد + "
 
-#: htdocs/index.php:91
+#: htdocs/index.php:90
 msgid ".htaccess files are disabled on this webserver. Please enable them"
 msgstr "فایلهای .htaccess در این سرور وب غیرفعال شد. لطفا آنها را فعال کنید"
 
-#: htdocs/index.php:104
+#: htdocs/index.php:103
 msgid ".htaccess files are not supported on this webserver."
 msgstr "فایلهای .htaccess در این سرور وب پشتیبانی نمیشود"
 
@@ -107,7 +107,7 @@ msgstr "اجازه به کاربران برای تغییر کلمه عبور د�
 msgid "Allowed Extension Settings"
 msgstr "مجاز برای تتنظیمات داخلی"
 
-#: htdocs/assets/js/ucp.js:993
+#: htdocs/assets/js/ucp.js:1001
 msgid "Are you sure you wish to change your username?"
 msgstr "آیا از تغییر نام کاربری اطمینان دارید؟"
 
@@ -159,7 +159,7 @@ msgstr "فعال کردن ایجاد تماس"
 msgid "Endpoint Settings"
 msgstr "تنظیمات نقطه پایانی"
 
-#: htdocs/index.php:157
+#: htdocs/index.php:156
 msgid "English"
 msgstr "انگلیسی"
 
@@ -221,7 +221,7 @@ msgid "Hold"
 msgstr "نگه داشتن"
 
 #: htdocs/modules/Home/Home.class.php:252 htdocs/views/dashboard.php:32
-#: htdocs/assets/js/ucp.js:779
+#: htdocs/assets/js/ucp.js:787
 msgid "Home"
 msgstr "خانه"
 
@@ -238,7 +238,7 @@ msgstr "نامی که در کنترل پنل کاربری و مدیریت مخا
 msgid "Inherit"
 msgstr "ارث بری"
 
-#: htdocs/index.php:242
+#: htdocs/index.php:241
 #, php-format
 msgid ""
 "Internet Explorer %s is not supported. Functionality will be deteriorated "
@@ -260,7 +260,7 @@ msgstr "وسیله نامعتبر"
 msgid "Invalid Login Credentials"
 msgstr "عملیات ورود نامعتبر"
 
-#: htdocs/index.php:231
+#: htdocs/index.php:230
 msgid "Invalid Token"
 msgstr "توکن نامعتبر"
 
@@ -293,7 +293,7 @@ msgstr "در حال بارگذاری…"
 msgid "Login"
 msgstr "ورود"
 
-#: htdocs/index.php:218
+#: htdocs/index.php:217
 msgid "Logout"
 msgstr "خروج"
 
@@ -342,7 +342,7 @@ msgstr "روشن"
 msgid "Originate"
 msgstr "ایجاد کردن"
 
-#: htdocs/index.php:212 htdocs/modules/Home/assets/js/global.js:22
+#: htdocs/index.php:211 htdocs/modules/Home/assets/js/global.js:22
 #: htdocs/modules/Home/assets/js/global.js:45
 #: htdocs/modules/Home/assets/js/global.js:123
 msgid "Originate Call"
@@ -356,7 +356,7 @@ msgstr "PQRS"
 msgid "Password"
 msgstr "رمز عبور"
 
-#: htdocs/assets/js/ucp.js:960
+#: htdocs/assets/js/ucp.js:968
 msgid "Password Confirmation Didn't Match!"
 msgstr "لطفا دوباره بررسی کنید دو کلمه عبور یکسان نیستند!"
 
@@ -378,7 +378,7 @@ msgstr "فیلد کلمه عبور نمیتواند خالی باشد!"
 msgid "Password has been changed!"
 msgstr "کلمه عبور تغییر کرد!"
 
-#: htdocs/assets/js/ucp.js:978
+#: htdocs/assets/js/ucp.js:986
 msgid "Password has not changed!"
 msgstr "کلمه عبور تغییری نکرده است!"
 
@@ -410,7 +410,7 @@ msgstr "مرا بخاطر بسپار"
 msgid "Reset Password"
 msgstr "بازنشانی کلمه عبور"
 
-#: htdocs/assets/js/ucp.js:966 htdocs/assets/js/ucp.js:1011
+#: htdocs/assets/js/ucp.js:974 htdocs/assets/js/ucp.js:1019
 msgid "Saved!"
 msgstr "ذخیره شد!"
 
@@ -423,7 +423,7 @@ msgstr "لینک بازنشانی کلمه عبور را برایم ارسال �
 msgid "Sent at %s"
 msgstr "ارسال شده در %s"
 
-#: htdocs/views/dashboard.php:39 htdocs/assets/js/ucp.js:821
+#: htdocs/views/dashboard.php:39 htdocs/assets/js/ucp.js:829
 msgid "Settings"
 msgstr "تنظیمات"
 
@@ -461,7 +461,7 @@ msgid "The username used to login to User Control Panel and other services"
 msgstr ""
 "از این نام کاربری برای ورود به کنترل پنل کاربری و دیگر سرویسها استفاده میشود"
 
-#: htdocs/index.php:119
+#: htdocs/index.php:118
 msgid "There was an error trying to load UCP"
 msgstr "خطایی در هنگام بارگذاری پنل کاربری رخ داد"
 
@@ -478,7 +478,7 @@ msgstr ""
 msgid "Title"
 msgstr "عنوان"
 
-#: htdocs/index.php:92
+#: htdocs/index.php:91
 #, php-format
 msgid ""
 "To protect the integrity of your server, you must allow overrides in your "
@@ -509,7 +509,7 @@ msgstr "وقفه جلسه پنل کاربری"
 msgid "UCP is currently disabled. Please talk to your system Administrator"
 msgstr "پنل کاربری غیرفعال است. لطفا با مدیر سیستم تماس بگیرید"
 
-#: htdocs/assets/js/ucp.js:930
+#: htdocs/assets/js/ucp.js:938
 msgid "UCP needs to reload, ok?"
 msgstr "پنل کاربری به بازنشانی احتیاج دارد، تایید؟"
 
@@ -526,7 +526,7 @@ msgstr ""
 msgid "Unable to get a token to use UCP Node Server because: '%s'"
 msgstr "عدم توانایی دریافت نشانه از سرور کنترل پنل کاربری به دلیل: '%s'"
 
-#: htdocs/index.php:183
+#: htdocs/index.php:182
 #, php-format
 msgid "Unknown Module %s"
 msgstr "ماژول شناخته نشده %s"
@@ -564,7 +564,7 @@ msgstr "پنل کاربر"
 msgid "User Primary Extension"
 msgstr "داخلی اصلی کاربر"
 
-#: htdocs/index.php:218
+#: htdocs/index.php:217
 msgid "User Settings"
 msgstr "تنظیمات کاربر"
 
@@ -572,7 +572,7 @@ msgstr "تنظیمات کاربر"
 msgid "Username"
 msgstr "نام کاربری"
 
-#: htdocs/assets/js/ucp.js:996
+#: htdocs/assets/js/ucp.js:1004
 msgid "Username has been changed, reloading"
 msgstr "نام کاربری تغییر کرده، بازنشانی"
 
@@ -651,7 +651,7 @@ msgstr "مرورگر شما پشتیبانی نمیشود. لطفا آن را ب
 msgid "Your reset link is in the mail!"
 msgstr "لینک بازنشانی کلمه عبور در ایمیل شما!"
 
-#: htdocs/index.php:105
+#: htdocs/index.php:104
 #, php-format
 msgid ""
 "htaccess files help protect the integrity of your server. Please make sure "

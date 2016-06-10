@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-06-01 13:27-0700\n"
+"POT-Creation-Date: 2016-06-09 22:59-0700\n"
 "PO-Revision-Date: 2016-06-01 07:08+0200\n"
 "Last-Translator: Hans <info@hansvaneijsden.nl>\n"
 "Language-Team: Dutch <http://weblate.freepbx.org/projects/freepbx/ucp/nl/>\n"
@@ -38,13 +38,13 @@ msgstr ""
 msgid " + field + "
 msgstr " + veld + "
 
-#: htdocs/index.php:91
+#: htdocs/index.php:90
 msgid ".htaccess files are disabled on this webserver. Please enable them"
 msgstr ""
 "Het gebruik van .htaccess-bestanden is uitgeschakeld op deze webserver. "
 "Gelieve dit in te schakelen indien mogelijk"
 
-#: htdocs/index.php:104
+#: htdocs/index.php:103
 msgid ".htaccess files are not supported on this webserver."
 msgstr ""
 "Het gebruik van .htaccess-bestanden wordt niet ondersteund door deze "
@@ -116,7 +116,7 @@ msgstr "Sta gebruikers toe om hun wachtwoord te wijzigen in UCP"
 msgid "Allowed Extension Settings"
 msgstr "Toegestane Extensieinstellingen"
 
-#: htdocs/assets/js/ucp.js:993
+#: htdocs/assets/js/ucp.js:1001
 msgid "Are you sure you wish to change your username?"
 msgstr "Weet je zeker dat je je gebruikersnaam wilt wijzigen?"
 
@@ -168,7 +168,7 @@ msgstr "Activeer Oorspronkelijke Gesprekken"
 msgid "Endpoint Settings"
 msgstr "Eindpuntinstellingen"
 
-#: htdocs/index.php:157
+#: htdocs/index.php:156
 msgid "English"
 msgstr "Engels"
 
@@ -232,7 +232,7 @@ msgid "Hold"
 msgstr "Wacht"
 
 #: htdocs/modules/Home/Home.class.php:252 htdocs/views/dashboard.php:32
-#: htdocs/assets/js/ucp.js:779
+#: htdocs/assets/js/ucp.js:787
 msgid "Home"
 msgstr "Home"
 
@@ -249,7 +249,7 @@ msgstr "Hoe je je naam weergegeven wilt laten worden in UCP en het Adresboek"
 msgid "Inherit"
 msgstr "Erven"
 
-#: htdocs/index.php:242
+#: htdocs/index.php:241
 #, php-format
 msgid ""
 "Internet Explorer %s is not supported. Functionality will be deteriorated "
@@ -271,7 +271,7 @@ msgstr "Ongeldig Apparaat"
 msgid "Invalid Login Credentials"
 msgstr "Ongeldige Login"
 
-#: htdocs/index.php:231
+#: htdocs/index.php:230
 msgid "Invalid Token"
 msgstr "Ongeldig Token"
 
@@ -304,7 +304,7 @@ msgstr "Laden..."
 msgid "Login"
 msgstr "Inloggen"
 
-#: htdocs/index.php:218
+#: htdocs/index.php:217
 msgid "Logout"
 msgstr "Uitloggen"
 
@@ -353,7 +353,7 @@ msgstr "AAN"
 msgid "Originate"
 msgstr "Start"
 
-#: htdocs/index.php:212 htdocs/modules/Home/assets/js/global.js:22
+#: htdocs/index.php:211 htdocs/modules/Home/assets/js/global.js:22
 #: htdocs/modules/Home/assets/js/global.js:45
 #: htdocs/modules/Home/assets/js/global.js:123
 msgid "Originate Call"
@@ -367,7 +367,7 @@ msgstr "PQRS"
 msgid "Password"
 msgstr "Wachtwoord"
 
-#: htdocs/assets/js/ucp.js:960
+#: htdocs/assets/js/ucp.js:968
 msgid "Password Confirmation Didn't Match!"
 msgstr "De wachtwoordbevestiging klopte niet!"
 
@@ -389,7 +389,7 @@ msgstr ""
 msgid "Password has been changed!"
 msgstr ""
 
-#: htdocs/assets/js/ucp.js:978
+#: htdocs/assets/js/ucp.js:986
 msgid "Password has not changed!"
 msgstr "Wachtwoord is niet veranderd!"
 
@@ -421,7 +421,7 @@ msgstr "Onthoud Mij"
 msgid "Reset Password"
 msgstr "Wachtwoord Resetten"
 
-#: htdocs/assets/js/ucp.js:966 htdocs/assets/js/ucp.js:1011
+#: htdocs/assets/js/ucp.js:974 htdocs/assets/js/ucp.js:1019
 msgid "Saved!"
 msgstr "Opgeslagen!"
 
@@ -434,7 +434,7 @@ msgstr "Stuur Wachtwoord-resetlink"
 msgid "Sent at %s"
 msgstr "Verstuurd naar %s"
 
-#: htdocs/views/dashboard.php:39 htdocs/assets/js/ucp.js:821
+#: htdocs/views/dashboard.php:39 htdocs/assets/js/ucp.js:829
 msgid "Settings"
 msgstr "Instellingen"
 
@@ -475,7 +475,7 @@ msgstr ""
 "De gebruikersnaam nodig om in te loggen in het User Control Panel en andere "
 "services"
 
-#: htdocs/index.php:119
+#: htdocs/index.php:118
 msgid "There was an error trying to load UCP"
 msgstr "Er is een fout opgetreden tijdens het laden van UCP"
 
@@ -493,7 +493,7 @@ msgstr ""
 msgid "Title"
 msgstr "Titel"
 
-#: htdocs/index.php:92
+#: htdocs/index.php:91
 #, php-format
 msgid ""
 "To protect the integrity of your server, you must allow overrides in your "
@@ -525,7 +525,7 @@ msgid "UCP is currently disabled. Please talk to your system Administrator"
 msgstr ""
 "UCP is momenteel uitgeschakeld. Neem contact op met je systeembeheerder"
 
-#: htdocs/assets/js/ucp.js:930
+#: htdocs/assets/js/ucp.js:938
 msgid "UCP needs to reload, ok?"
 msgstr "UCP moet worden herladen, ok?"
 
@@ -543,7 +543,7 @@ msgid "Unable to get a token to use UCP Node Server because: '%s'"
 msgstr ""
 "Kan geen token verkrijgen om de UCP Node Server te gebruiken vanwege: '%s'"
 
-#: htdocs/index.php:183
+#: htdocs/index.php:182
 #, php-format
 msgid "Unknown Module %s"
 msgstr "Onbekende Module %s"
@@ -581,7 +581,7 @@ msgstr "Gebruikerspanel"
 msgid "User Primary Extension"
 msgstr "Primaire Gebruikersextensie"
 
-#: htdocs/index.php:218
+#: htdocs/index.php:217
 msgid "User Settings"
 msgstr "Gebruikersinstellingen"
 
@@ -589,7 +589,7 @@ msgstr "Gebruikersinstellingen"
 msgid "Username"
 msgstr "Gebruikersnaam"
 
-#: htdocs/assets/js/ucp.js:996
+#: htdocs/assets/js/ucp.js:1004
 msgid "Username has been changed, reloading"
 msgstr "De gebruikersnaam is veranderd, opnieuw laden"
 
@@ -670,7 +670,7 @@ msgstr ""
 msgid "Your reset link is in the mail!"
 msgstr "Je resetlink is in de e-mail!"
 
-#: htdocs/index.php:105
+#: htdocs/index.php:104
 #, php-format
 msgid ""
 "htaccess files help protect the integrity of your server. Please make sure "

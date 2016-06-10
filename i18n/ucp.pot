@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-06-01 13:27-0700\n"
+"POT-Creation-Date: 2016-06-09 22:59-0700\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -35,11 +35,11 @@ msgstr ""
 msgid " + field + "
 msgstr ""
 
-#: htdocs/index.php:91
+#: htdocs/index.php:90
 msgid ".htaccess files are disabled on this webserver. Please enable them"
 msgstr ""
 
-#: htdocs/index.php:104
+#: htdocs/index.php:103
 msgid ".htaccess files are not supported on this webserver."
 msgstr ""
 
@@ -103,7 +103,7 @@ msgstr ""
 msgid "Allowed Extension Settings"
 msgstr ""
 
-#: htdocs/assets/js/ucp.js:993
+#: htdocs/assets/js/ucp.js:1001
 msgid "Are you sure you wish to change your username?"
 msgstr ""
 
@@ -161,7 +161,7 @@ msgstr ""
 msgid "Endpoint Settings"
 msgstr ""
 
-#: htdocs/index.php:157
+#: htdocs/index.php:156
 msgid "English"
 msgstr ""
 
@@ -224,7 +224,7 @@ msgstr ""
 
 #: htdocs/modules/Home/Home.class.php:252
 #: htdocs/views/dashboard.php:32
-#: htdocs/assets/js/ucp.js:779
+#: htdocs/assets/js/ucp.js:787
 msgid "Home"
 msgstr ""
 
@@ -242,7 +242,7 @@ msgstr ""
 msgid "Inherit"
 msgstr ""
 
-#: htdocs/index.php:242
+#: htdocs/index.php:241
 #, php-format
 msgid ""
 "Internet Explorer %s is not supported. Functionality will be deteriorated "
@@ -262,7 +262,7 @@ msgstr ""
 msgid "Invalid Login Credentials"
 msgstr ""
 
-#: htdocs/index.php:231
+#: htdocs/index.php:230
 msgid "Invalid Token"
 msgstr ""
 
@@ -298,7 +298,7 @@ msgstr ""
 msgid "Login"
 msgstr ""
 
-#: htdocs/index.php:218
+#: htdocs/index.php:217
 msgid "Logout"
 msgstr ""
 
@@ -348,7 +348,7 @@ msgstr ""
 msgid "Originate"
 msgstr ""
 
-#: htdocs/index.php:212
+#: htdocs/index.php:211
 #: htdocs/modules/Home/assets/js/global.js:22
 #: htdocs/modules/Home/assets/js/global.js:45
 #: htdocs/modules/Home/assets/js/global.js:123
@@ -364,7 +364,7 @@ msgstr ""
 msgid "Password"
 msgstr ""
 
-#: htdocs/assets/js/ucp.js:960
+#: htdocs/assets/js/ucp.js:968
 msgid "Password Confirmation Didn't Match!"
 msgstr ""
 
@@ -387,7 +387,7 @@ msgstr ""
 msgid "Password has been changed!"
 msgstr ""
 
-#: htdocs/assets/js/ucp.js:978
+#: htdocs/assets/js/ucp.js:986
 msgid "Password has not changed!"
 msgstr ""
 
@@ -421,8 +421,8 @@ msgstr ""
 msgid "Reset Password"
 msgstr ""
 
-#: htdocs/assets/js/ucp.js:966
-#: htdocs/assets/js/ucp.js:1011
+#: htdocs/assets/js/ucp.js:974
+#: htdocs/assets/js/ucp.js:1019
 msgid "Saved!"
 msgstr ""
 
@@ -436,7 +436,7 @@ msgid "Sent at %s"
 msgstr ""
 
 #: htdocs/views/dashboard.php:39
-#: htdocs/assets/js/ucp.js:821
+#: htdocs/assets/js/ucp.js:829
 msgid "Settings"
 msgstr ""
 
@@ -469,7 +469,7 @@ msgstr ""
 msgid "The username used to login to User Control Panel and other services"
 msgstr ""
 
-#: htdocs/index.php:119
+#: htdocs/index.php:118
 msgid "There was an error trying to load UCP"
 msgstr ""
 
@@ -484,7 +484,7 @@ msgstr ""
 msgid "Title"
 msgstr ""
 
-#: htdocs/index.php:92
+#: htdocs/index.php:91
 #, php-format
 msgid ""
 "To protect the integrity of your server, you must allow overrides in your "
@@ -512,7 +512,7 @@ msgstr ""
 msgid "UCP is currently disabled. Please talk to your system Administrator"
 msgstr ""
 
-#: htdocs/assets/js/ucp.js:930
+#: htdocs/assets/js/ucp.js:938
 msgid "UCP needs to reload, ok?"
 msgstr ""
 
@@ -527,7 +527,7 @@ msgstr ""
 msgid "Unable to get a token to use UCP Node Server because: '%s'"
 msgstr ""
 
-#: htdocs/index.php:183
+#: htdocs/index.php:182
 #, php-format
 msgid "Unknown Module %s"
 msgstr ""
@@ -568,7 +568,7 @@ msgstr ""
 msgid "User Primary Extension"
 msgstr ""
 
-#: htdocs/index.php:218
+#: htdocs/index.php:217
 msgid "User Settings"
 msgstr ""
 
@@ -577,7 +577,7 @@ msgstr ""
 msgid "Username"
 msgstr ""
 
-#: htdocs/assets/js/ucp.js:996
+#: htdocs/assets/js/ucp.js:1004
 msgid "Username has been changed, reloading"
 msgstr ""
 
@@ -657,7 +657,7 @@ msgstr ""
 msgid "Your reset link is in the mail!"
 msgstr ""
 
-#: htdocs/index.php:105
+#: htdocs/index.php:104
 #, php-format
 msgid ""
 "htaccess files help protect the integrity of your server. Please make sure "

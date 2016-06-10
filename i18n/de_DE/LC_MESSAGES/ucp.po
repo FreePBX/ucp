@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-06-01 13:27-0700\n"
+"POT-Creation-Date: 2016-06-09 22:59-0700\n"
 "PO-Revision-Date: 2016-05-11 00:30+0200\n"
 "Last-Translator: Jens <jens@schaewel.com>\n"
 "Language-Team: German <http://weblate.freepbx.org/projects/freepbx/ucp/de_DE/"
@@ -39,11 +39,11 @@ msgstr ""
 msgid " + field + "
 msgstr " + feld + "
 
-#: htdocs/index.php:91
+#: htdocs/index.php:90
 msgid ".htaccess files are disabled on this webserver. Please enable them"
 msgstr ".htaccess sind auf diesem Server deaktiviert. Bitte aktiviere diese"
 
-#: htdocs/index.php:104
+#: htdocs/index.php:103
 msgid ".htaccess files are not supported on this webserver."
 msgstr ".htaccess Dateien werden von diesem Webserver nicht unterstütz."
 
@@ -114,7 +114,7 @@ msgstr "Dem Benutzer erlauben im UCP sein eigenes Passwort zu ändern"
 msgid "Allowed Extension Settings"
 msgstr "Erlaubte Nebenstellen Einstellungen"
 
-#: htdocs/assets/js/ucp.js:993
+#: htdocs/assets/js/ucp.js:1001
 msgid "Are you sure you wish to change your username?"
 msgstr "Sind Sie sicher, dass Sie Ihren Benutzernamen ändern möchten?"
 
@@ -166,7 +166,7 @@ msgstr "Aktiviere ursprüngliche Gespräche"
 msgid "Endpoint Settings"
 msgstr "Endgeräteinstellungen"
 
-#: htdocs/index.php:157
+#: htdocs/index.php:156
 msgid "English"
 msgstr "Englisch"
 
@@ -231,7 +231,7 @@ msgid "Hold"
 msgstr "Halten"
 
 #: htdocs/modules/Home/Home.class.php:252 htdocs/views/dashboard.php:32
-#: htdocs/assets/js/ucp.js:779
+#: htdocs/assets/js/ucp.js:787
 msgid "Home"
 msgstr "Home"
 
@@ -250,7 +250,7 @@ msgstr ""
 msgid "Inherit"
 msgstr "geerbt"
 
-#: htdocs/index.php:242
+#: htdocs/index.php:241
 #, php-format
 msgid ""
 "Internet Explorer %s is not supported. Functionality will be deteriorated "
@@ -272,7 +272,7 @@ msgstr "Ungültiges Gerät"
 msgid "Invalid Login Credentials"
 msgstr "Ungültige Login Zugangsdaten"
 
-#: htdocs/index.php:231
+#: htdocs/index.php:230
 msgid "Invalid Token"
 msgstr "Ungültiger Token"
 
@@ -305,7 +305,7 @@ msgstr "Laden..."
 msgid "Login"
 msgstr "Anmeldung"
 
-#: htdocs/index.php:218
+#: htdocs/index.php:217
 msgid "Logout"
 msgstr "Abmelden"
 
@@ -354,7 +354,7 @@ msgstr "EIN"
 msgid "Originate"
 msgstr "Mache"
 
-#: htdocs/index.php:212 htdocs/modules/Home/assets/js/global.js:22
+#: htdocs/index.php:211 htdocs/modules/Home/assets/js/global.js:22
 #: htdocs/modules/Home/assets/js/global.js:45
 #: htdocs/modules/Home/assets/js/global.js:123
 msgid "Originate Call"
@@ -368,7 +368,7 @@ msgstr "PQRS"
 msgid "Password"
 msgstr "Passwort"
 
-#: htdocs/assets/js/ucp.js:960
+#: htdocs/assets/js/ucp.js:968
 msgid "Password Confirmation Didn't Match!"
 msgstr "Passwörter stimmen nicht überein!"
 
@@ -390,7 +390,7 @@ msgstr ""
 msgid "Password has been changed!"
 msgstr ""
 
-#: htdocs/assets/js/ucp.js:978
+#: htdocs/assets/js/ucp.js:986
 msgid "Password has not changed!"
 msgstr "Passwort wurde nicht geändert!"
 
@@ -424,7 +424,7 @@ msgstr "Login merken"
 msgid "Reset Password"
 msgstr "Passwort zurücksetzen"
 
-#: htdocs/assets/js/ucp.js:966 htdocs/assets/js/ucp.js:1011
+#: htdocs/assets/js/ucp.js:974 htdocs/assets/js/ucp.js:1019
 msgid "Saved!"
 msgstr "Gespeichert!"
 
@@ -437,7 +437,7 @@ msgstr "Senden Sie mir einen Passwort Reset Link"
 msgid "Sent at %s"
 msgstr "Gesendet um %s"
 
-#: htdocs/views/dashboard.php:39 htdocs/assets/js/ucp.js:821
+#: htdocs/views/dashboard.php:39 htdocs/assets/js/ucp.js:829
 msgid "Settings"
 msgstr "Einstellungen"
 
@@ -474,7 +474,7 @@ msgid "The username used to login to User Control Panel and other services"
 msgstr ""
 "Der Benutzername für den Login zum User Control Panel und andere Dienste"
 
-#: htdocs/index.php:119
+#: htdocs/index.php:118
 msgid "There was an error trying to load UCP"
 msgstr "Beim Versuch das UCP zu laden ist ein Fehler aufgetreten"
 
@@ -492,7 +492,7 @@ msgstr ""
 msgid "Title"
 msgstr "Titel"
 
-#: htdocs/index.php:92
+#: htdocs/index.php:91
 #, php-format
 msgid ""
 "To protect the integrity of your server, you must allow overrides in your "
@@ -524,7 +524,7 @@ msgid "UCP is currently disabled. Please talk to your system Administrator"
 msgstr ""
 "UCP ist derzeit deaktiviert. Bitte sprechen Sie mit Ihrem Systemadministrator"
 
-#: htdocs/assets/js/ucp.js:930
+#: htdocs/assets/js/ucp.js:938
 msgid "UCP needs to reload, ok?"
 msgstr "UCP muss neu geladen werden, ok?"
 
@@ -541,7 +541,7 @@ msgstr ""
 msgid "Unable to get a token to use UCP Node Server because: '%s'"
 msgstr "Es kann kein Token vom UCP Knoten Server erhalten werden, weil: '% s'"
 
-#: htdocs/index.php:183
+#: htdocs/index.php:182
 #, php-format
 msgid "Unknown Module %s"
 msgstr "Unbekanntes Modul %s"
@@ -581,7 +581,7 @@ msgstr "Benutzerbedienfeld"
 msgid "User Primary Extension"
 msgstr "Benutzer Primäre Nebenstelle"
 
-#: htdocs/index.php:218
+#: htdocs/index.php:217
 msgid "User Settings"
 msgstr "Benutzereinstellungen"
 
@@ -589,7 +589,7 @@ msgstr "Benutzereinstellungen"
 msgid "Username"
 msgstr "Benutzername"
 
-#: htdocs/assets/js/ucp.js:996
+#: htdocs/assets/js/ucp.js:1004
 msgid "Username has been changed, reloading"
 msgstr "Benutzername wurde geändert, wird neu geladen"
 
@@ -670,7 +670,7 @@ msgstr ""
 msgid "Your reset link is in the mail!"
 msgstr "Ihr Link zum zurücksetzen befindet sich in der Email!"
 
-#: htdocs/index.php:105
+#: htdocs/index.php:104
 #, php-format
 msgid ""
 "htaccess files help protect the integrity of your server. Please make sure "
