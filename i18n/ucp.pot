@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-06-09 22:59-0700\n"
+"POT-Creation-Date: 2016-06-27 16:43-0700\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -43,7 +43,7 @@ msgstr ""
 msgid ".htaccess files are not supported on this webserver."
 msgstr ""
 
-#: Ucp.class.php:253
+#: Ucp.class.php:255
 #, php-format
 msgid "A token has already been generated for %s, not sending email again"
 msgstr ""
@@ -128,12 +128,12 @@ msgstr ""
 msgid "DEF"
 msgstr ""
 
-#: Ucp.class.php:747
+#: Ucp.class.php:749
 msgid "Deleted Session"
 msgstr ""
 
 #: Ucp.class.php:126
-#: Ucp.class.php:590
+#: Ucp.class.php:592
 msgid "Deleted User Session"
 msgstr ""
 
@@ -141,10 +141,10 @@ msgstr ""
 msgid "Display Name"
 msgstr ""
 
-#: Ucp.class.php:841
-#: Ucp.class.php:845
-#: Ucp.class.php:849
-#: Ucp.class.php:853
+#: Ucp.class.php:843
+#: Ucp.class.php:847
+#: Ucp.class.php:851
+#: Ucp.class.php:855
 msgid "Done"
 msgstr ""
 
@@ -202,19 +202,19 @@ msgstr ""
 msgid "General"
 msgstr ""
 
-#: Ucp.class.php:851
+#: Ucp.class.php:853
 msgid "Generating Main CSS..."
 msgstr ""
 
-#: Ucp.class.php:847
+#: Ucp.class.php:849
 msgid "Generating Main Scripts..."
 msgstr ""
 
-#: Ucp.class.php:843
+#: Ucp.class.php:845
 msgid "Generating Module CSS..."
 msgstr ""
 
-#: Ucp.class.php:839
+#: Ucp.class.php:841
 msgid "Generating Module Scripts..."
 msgstr ""
 
@@ -368,8 +368,8 @@ msgstr ""
 msgid "Password Confirmation Didn't Match!"
 msgstr ""
 
-#: Ucp.class.php:216
-#: Ucp.class.php:226
+#: Ucp.class.php:218
+#: Ucp.class.php:228
 #, php-format
 msgid "Password Reset Link (Valid Until: %s): %s"
 msgstr ""
@@ -554,8 +554,8 @@ msgstr ""
 msgid "User Control Panel is released as %s or newer"
 msgstr ""
 
-#: Ucp.class.php:212
-#: Ucp.class.php:222
+#: Ucp.class.php:214
+#: Ucp.class.php:224
 #, php-format
 msgid "User Control Panel: %s"
 msgstr ""

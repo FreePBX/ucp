@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-06-09 22:59-0700\n"
+"POT-Creation-Date: 2016-06-27 16:43-0700\n"
 "PO-Revision-Date: 2015-08-30 14:46+0200\n"
 "Last-Translator: Vidar Skjelanger <vidar@unimicro.no>\n"
 "Language-Team: Norwegian Bokmål <http://weblate.freepbx.org/projects/freepbx/"
@@ -48,7 +48,7 @@ msgstr ""
 msgid ".htaccess files are not supported on this webserver."
 msgstr ".htaccess-filer er ikke støttet på denne webserveren."
 
-#: Ucp.class.php:253
+#: Ucp.class.php:255
 #, php-format
 msgid "A token has already been generated for %s, not sending email again"
 msgstr ""
@@ -132,11 +132,11 @@ msgstr "Bekreft passord"
 msgid "DEF"
 msgstr "DEF"
 
-#: Ucp.class.php:747
+#: Ucp.class.php:749
 msgid "Deleted Session"
 msgstr "Slettet sesjon"
 
-#: Ucp.class.php:126 Ucp.class.php:590
+#: Ucp.class.php:126 Ucp.class.php:592
 msgid "Deleted User Session"
 msgstr "Slettet brukersesjon"
 
@@ -144,7 +144,7 @@ msgstr "Slettet brukersesjon"
 msgid "Display Name"
 msgstr "Visningsnavn"
 
-#: Ucp.class.php:841 Ucp.class.php:845 Ucp.class.php:849 Ucp.class.php:853
+#: Ucp.class.php:843 Ucp.class.php:847 Ucp.class.php:851 Ucp.class.php:855
 msgid "Done"
 msgstr "Ferdig"
 
@@ -201,19 +201,19 @@ msgstr "GHI"
 msgid "General"
 msgstr ""
 
-#: Ucp.class.php:851
+#: Ucp.class.php:853
 msgid "Generating Main CSS..."
 msgstr "Genererer hoved-CSS..."
 
-#: Ucp.class.php:847
+#: Ucp.class.php:849
 msgid "Generating Main Scripts..."
 msgstr "Genererer hovedscript..."
 
-#: Ucp.class.php:843
+#: Ucp.class.php:845
 msgid "Generating Module CSS..."
 msgstr "Genererer modul-CSS..."
 
-#: Ucp.class.php:839
+#: Ucp.class.php:841
 msgid "Generating Module Scripts..."
 msgstr "Genererer modulscript..."
 
@@ -361,7 +361,7 @@ msgstr "Passord"
 msgid "Password Confirmation Didn't Match!"
 msgstr "Passordbekreftelse stemte ikke!"
 
-#: Ucp.class.php:216 Ucp.class.php:226
+#: Ucp.class.php:218 Ucp.class.php:228
 #, php-format
 msgid "Password Reset Link (Valid Until: %s): %s"
 msgstr "Link for å resette passordet (Gyldig til: %s): %s"
@@ -542,7 +542,7 @@ msgstr "Innstillinger for UCP"
 msgid "User Control Panel is released as %s or newer"
 msgstr "UCP er distribuert som %s eller nyere"
 
-#: Ucp.class.php:212 Ucp.class.php:222
+#: Ucp.class.php:214 Ucp.class.php:224
 #, php-format
 msgid "User Control Panel: %s"
 msgstr "Kontrollpanel for brukere: %s"
