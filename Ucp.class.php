@@ -207,7 +207,9 @@ class Ucp implements \BMO {
 		$usettings = $this->FreePBX->Userman->getAuthAllPermissions();
 
 		if(!empty($ports['ucp'])) {
-			$data['host'] = $data['host'].":".$ports['ucp'];
+			//sslucp
+			$p = preg_match("/^https/",$data['host']) && !empty($ports['ucpssl']) ? $ports['ucpssl'] : $ports['ucp'];
+			$data['host'] = $data['host'].":".$p;
 			$final = array(
 				"\t".sprintf(_('User Control Panel: %s'),$data['host']),
 			);
