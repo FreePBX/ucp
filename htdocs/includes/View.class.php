@@ -82,4 +82,45 @@ class View extends UCP {
 			echo $buffer;
 		}
 	}
+
+	public function setGUILocales($user) {
+		$view = $this->UCP->FreePBX->View;
+		// set the language so local module languages take
+		$lang = '';
+		if(php_sapi_name() !== 'cli') {
+			if(!empty($user['language'])) {
+				$lang = $user['language'];
+			} elseif (!empty($_COOKIE['lang'])) {
+				$lang = $_COOKIE['lang'];
+			}
+		}
+		$lang = $view->setLanguage($lang);
+		if(php_sapi_name() !== 'cli') {
+			setcookie("lang", $lang);
+			$_COOKIE['lang'] = $lang;
+		}
+		$language = $lang;
+		//set this before we run date functions
+		if(php_sapi_name() !== 'cli' && !empty($user['timezone'])) {
+			//userman mode
+			$phptimezone = $_SESSION['AMP_user']->tz;
+		} else {
+			$phptimezone = '';
+		}
+		$timezone = $view->setTimezone($phptimezone);
+
+		if(php_sapi_name() !== 'cli' && !empty($user['datetimeformat'])) {
+			$view->setDateTimeFormat($_SESSION['AMP_user']->datetimeformat);
+		}
+
+		if(php_sapi_name() !== 'cli' && !empty($user['timeformat'])) {
+			$view->setTimeFormat($_SESSION['AMP_user']->timeformat);
+		}
+
+		if(php_sapi_name() !== 'cli' && !empty($user['dateformat'])) {
+			$view->setDateFormat($_SESSION['AMP_user']->dateformat);
+		}
+
+		return array("timezone" => $timezone, "language" => $language, "datetimeformat" => "", "timeformat" => "", "dateformat" => "");
+	}
 }

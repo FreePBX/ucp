@@ -14,8 +14,6 @@ if (!@include_once(getenv('FREEPBX_CONF') ? getenv('FREEPBX_CONF') : '/etc/freep
 	include_once('/etc/asterisk/freepbx.conf');
 }
 
-$lang = function_exists('set_language') ? set_language() : 'en_US';
-
 include(dirname(__FILE__).'/includes/bootstrap.php');
 try {
 	$ucp = \UCP\UCP::create();
@@ -33,11 +31,14 @@ ob_end_clean();
 
 
 $user = $ucp->User->getUser();
+$d = $ucp->View->setGUILocales($user);
+$lang = $d['language'];
 
 if(isset($_REQUEST['logout']) && $user) {
 	$ucp->User->logout();
 	$user = $ucp->User->getUser();
 }
+
 if(empty($ucp->Session->isMobile)) {
 	$ucp->Session->isMobile = $ucp->detect->isMobile();
 	$ucp->Session->isTablet = $ucp->detect->isTablet();
