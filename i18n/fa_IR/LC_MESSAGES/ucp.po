@@ -10,14 +10,14 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-06-27 16:43-0700\n"
-"PO-Revision-Date: 2016-06-18 17:40+0200\n"
-"Last-Translator: psdk <hyavari26@gmail.com>\n"
-"Language-Team: Persian (Iran) <http://weblate.freepbx.org/projects/freepbx/"
-"ucp/fa_IR/>\n"
+"PO-Revision-Date: 2016-07-06 05:21+0200\n"
+"Last-Translator: Media <mousavi.media@gmail.com>\n"
+"Language-Team: Persian (Iran) "
+"<http://weblate.freepbx.org/projects/freepbx/ucp/fa_IR/>\n"
+"Language: fa_IR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: fa_IR\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 2.4\n"
 
@@ -239,7 +239,7 @@ msgstr "نامی که در کنترل پنل کاربری و مدیریت مخا
 
 #: views/users_hook.php:56 views/users_hook.php:154
 msgid "Inherit"
-msgstr "ارث بری"
+msgstr "موروثی"
 
 #: htdocs/index.php:241
 #, php-format
@@ -357,7 +357,7 @@ msgstr "PQRS"
 
 #: htdocs/views/login.php:20 htdocs/views/settings.php:18
 msgid "Password"
-msgstr "کلمه عبور"
+msgstr "بله"
 
 #: htdocs/assets/js/ucp.js:968
 msgid "Password Confirmation Didn't Match!"
@@ -574,7 +574,7 @@ msgstr "تنظیمات کاربر"
 
 #: htdocs/views/login.php:15 htdocs/views/settings.php:9
 msgid "Username"
-msgstr "نام کاربر"
+msgstr "نام کاربری"
 
 #: htdocs/assets/js/ucp.js:1004
 msgid "Username has been changed, reloading"
