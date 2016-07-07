@@ -9,10 +9,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-06-27 16:43-0700\n"
+"POT-Creation-Date: 2016-07-06 23:45-0700\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -35,11 +36,24 @@ msgstr ""
 msgid " + field + "
 msgstr ""
 
-#: htdocs/index.php:90
+#: htdocs/assets/js/localforage.js:2383
+msgid ""
+");\n"
+"                }\n"
+"\n"
+"                this._config[i] = options[i];\n"
+"            }\n"
+"\n"
+"            // after all config options are set and\n"
+"            // the driver option is used, try setting it\n"
+"            if ("
+msgstr ""
+
+#: htdocs/index.php:91
 msgid ".htaccess files are disabled on this webserver. Please enable them"
 msgstr ""
 
-#: htdocs/index.php:103
+#: htdocs/index.php:104
 msgid ".htaccess files are not supported on this webserver."
 msgstr ""
 
@@ -161,7 +175,7 @@ msgstr ""
 msgid "Endpoint Settings"
 msgstr ""
 
-#: htdocs/index.php:156
+#: htdocs/index.php:157
 msgid "English"
 msgstr ""
 
@@ -242,7 +256,7 @@ msgstr ""
 msgid "Inherit"
 msgstr ""
 
-#: htdocs/index.php:241
+#: htdocs/index.php:242
 #, php-format
 msgid ""
 "Internet Explorer %s is not supported. Functionality will be deteriorated "
@@ -262,7 +276,7 @@ msgstr ""
 msgid "Invalid Login Credentials"
 msgstr ""
 
-#: htdocs/index.php:230
+#: htdocs/index.php:231
 msgid "Invalid Token"
 msgstr ""
 
@@ -298,7 +312,7 @@ msgstr ""
 msgid "Login"
 msgstr ""
 
-#: htdocs/index.php:217
+#: htdocs/index.php:218
 msgid "Logout"
 msgstr ""
 
@@ -348,7 +362,7 @@ msgstr ""
 msgid "Originate"
 msgstr ""
 
-#: htdocs/index.php:211
+#: htdocs/index.php:212
 #: htdocs/modules/Home/assets/js/global.js:22
 #: htdocs/modules/Home/assets/js/global.js:45
 #: htdocs/modules/Home/assets/js/global.js:123
@@ -469,7 +483,7 @@ msgstr ""
 msgid "The username used to login to User Control Panel and other services"
 msgstr ""
 
-#: htdocs/index.php:118
+#: htdocs/index.php:119
 msgid "There was an error trying to load UCP"
 msgstr ""
 
@@ -484,7 +498,7 @@ msgstr ""
 msgid "Title"
 msgstr ""
 
-#: htdocs/index.php:91
+#: htdocs/index.php:92
 #, php-format
 msgid ""
 "To protect the integrity of your server, you must allow overrides in your "
@@ -508,7 +522,7 @@ msgstr ""
 msgid "UCP Session Timeout"
 msgstr ""
 
-#: htdocs/index.php:27
+#: htdocs/index.php:25
 msgid "UCP is currently disabled. Please talk to your system Administrator"
 msgstr ""
 
@@ -527,7 +541,7 @@ msgstr ""
 msgid "Unable to get a token to use UCP Node Server because: '%s'"
 msgstr ""
 
-#: htdocs/index.php:182
+#: htdocs/index.php:183
 #, php-format
 msgid "Unknown Module %s"
 msgstr ""
@@ -568,7 +582,7 @@ msgstr ""
 msgid "User Primary Extension"
 msgstr ""
 
-#: htdocs/index.php:217
+#: htdocs/index.php:218
 msgid "User Settings"
 msgstr ""
 
@@ -657,7 +671,7 @@ msgstr ""
 msgid "Your reset link is in the mail!"
 msgstr ""
 
-#: htdocs/index.php:104
+#: htdocs/index.php:105
 #, php-format
 msgid ""
 "htaccess files help protect the integrity of your server. Please make sure "

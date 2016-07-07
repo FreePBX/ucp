@@ -2,7 +2,7 @@
 	<rawname>ucp</rawname>
 	<name>User Control Panel</name>
 	<repo>standard</repo>
-	<version>13.0.35</version>
+	<version>14.0.1alpha1</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>AGPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/agpl-3.0.txt</licenselink>
@@ -10,87 +10,7 @@
 		The user control panel is a way for users to control call handling and personal settings from a web browser.
 	</description>
 	<changelog>
-		*13.0.35* Recognize ucp ssl port (if set)
-		*13.0.34* Better chat functionality and look and feel
-		*13.0.33* Get rid of loading screen. Use a better looking progress bar instead
-		*13.0.32* Spelling fix for translations
-		*13.0.31* FREEPBX-11617 Add clickable class
-		*13.0.30* Better error message for debugging
-		*13.0.29* Support HTTPS/SSL
-		*13.0.28* Dont logout users when making changes
-		*13.0.27* FREEPBX-11974 use timezoned based dates
-		*13.0.26* FREEPBX-11754 Add bootstrap-table-export plugin
-		*13.0.25* FREEPBX-11878 Change the name of settings to be more detailed
-		*13.0.24* FREEPBX-10099 Add setting in Advanced Settings to Clear sessions after X days, performance improvements
-		*13.0.23* Remove en_US Translations
-		*13.0.22* FREEPBX-11138 Remove confusing popup for password changes
-		*13.0.21* FREEPBX-11172
-		*13.0.20* FREEPBX-11186
-		*13.0.19* FREEPBX-11041
-		*13.0.18* FREEPBX-10758
-		*13.0.17* FREEPBX-10219
-		*13.0.16* FREEPBX-10793 500 error when changing password or username
-		*13.0.15* Dont compile less assets that neevr change
-		*13.0.14* Stronger check on IE
-		*13.0.13* Alert when using a substandard browser
-		*13.0.12* Add back missing buttons js
-		*13.0.11* FREEPBX-10621 also stop blocking woff2 files
-		*13.0.10* Use bootstrap tables moving forward, update assets. Tweaks and fixes
-		*13.0.9* FREEPBX-9288 Recognize and emit HTTPS for password reset links
-		*13.0.8* Fix permission management in User Manager
-		*13.0.7* FREEPBX-10287 originate call causes 'You are currently working in offline mode'
-		*13.0.6* Updates, cleanup and fixes
-		*13.0.5* Make sure the group has users in it
-		*13.0.4* Follow redirects for RSS feeds
-		*13.0.3* Don't run old chown commands (plus no need to in 13)
-		*13.0.2* Version bump Beta
-		*13.0.1alpha11* Tab scrolling additions
-		*13.0.1alpha7* FREEPBX-9077 UCP Forgot password does not send reset link
-		*13.0.1alpha6* FREEPBX-8999 dont fatal is user is null
-		*13.0.1alpha5* Fix languages in UCP
-		*13.0.1alpha4* FREEPBX-8829 Allow username changing in UCP
-		*13.0.1alpha3* Styling updates
-		*13.0.1alpha1* Visual Changes
-		*12.0.0beta34* Support for auto complete lib and new class module
-		*12.0.0beta33* Close menu when clicked on
-		*12.0.0beta32* Captialize Module object
-		*12.0.0beta31* Wrong method name
-		*12.0.0beta30* Use proper 12 hooking into usermanager
-		*12.0.0beta29* Fix null token issue
-		*12.0.0beta28* Replace font, add texture, more socket work (future)
-		*12.0.0beta27* Added new fonts package, more websocket work
-		*12.0.0beta26* Add more loading screens
-		*12.0.0beta25* Remove framework assets dir. Not used. Not needed
-		*12.0.0beta24* FREEPBX-8063 UCP Refresh Assets on install and reload
-		*12.0.0beta23* Remove UCP daemon status from dashboard for now
-		*12.0.0beta22* Prevent browser lockups by closing the session
-		*12.0.0beta21* Require framework 22
-		*12.0.0beta20* Redux on the nav bar, more mobile looking functionality
-		*12.0.0beta19* Eliminate message backup issues with buffering
-		*12.0.0beta18* Fix for double click issue
-		*12.0.0beta17* Fixes for Safari
-		*12.0.0beta16* Enable presence as well in enableall
-		*12.0.0beta15* Minor bug in enableall command
-		*12.0.0beta14* FREEPBX-7845 UCP and User Management settings
-		*12.0.0beta13* Expire all user sessions on upgrade (which forces a logout from now on)
-		*12.0.0beta12* Logout user is poller is forbidden, small visual tweaks
-		*12.0.0beta11* Scroll Bar removal if not needed.
-		*12.0.0beta10* Visual consistencies between firefox and chrome
-		*12.0.0beta9* Call the hook using username instead of userid
-		*12.0.0beta8* Standardization in presence menu items
-		*12.0.0beta7* Added the hooks required for Webrtc type modules
-		*12.0.0beta6* Allow multiple options per module
-		*12.0.0beta5* Show settings on user creation
-		*12.0.0beta4* Many enhancements to the visuals, moved presence states, etc
-		*12.0.0beta3* Dont die when a module or UCP is disabled in FreePBX
-		*12.0.0beta2* Regression from 2.11
-		*12.0.0beta1* Bump to Beta
-		*12.0.0alpha8* Remove some dev work
-		*12.0.0alpha7* Several Additions and features (yes again) also bump version requirements
-		*12.0.0alpha6* Several Additions and Features, see commit log
-		*12.0.0alpha5* Now using usermanager
-		*12.0.0alpha2* Stage 1 Completed. Completely modular and object orientated
-		*12.0.0alpha1* Lets get some structure in there and figure this all out
+		*14.0.1alpha1* Initial Release
 	</changelog>
 	<category>Admin</category>
 	<menuitems>
@@ -100,7 +20,7 @@
 	    <install>install.inc.php</install>
 	</fileinclude>
 	<supported>
-		<version>13.0</version>
+		<version>14.0</version>
 	</supported>
 	<hooks>
 		<userman class="Userman" namespace="FreePBX\modules">

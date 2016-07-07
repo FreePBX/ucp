@@ -9,11 +9,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-06-27 16:43-0700\n"
+"POT-Creation-Date: 2016-07-06 23:45-0700\n"
 "PO-Revision-Date: 2016-07-06 05:21+0200\n"
 "Last-Translator: Media <mousavi.media@gmail.com>\n"
-"Language-Team: Persian (Iran) "
-"<http://weblate.freepbx.org/projects/freepbx/ucp/fa_IR/>\n"
+"Language-Team: Persian (Iran) <http://weblate.freepbx.org/projects/freepbx/"
+"ucp/fa_IR/>\n"
 "Language: fa_IR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -39,12 +39,25 @@ msgstr ""
 msgid " + field + "
 msgstr " + فیلد + "
 
-#: htdocs/index.php:90
+#: htdocs/assets/js/localforage.js:2383
+msgid ""
+");\n"
+"                }\n"
+"\n"
+"                this._config[i] = options[i];\n"
+"            }\n"
+"\n"
+"            // after all config options are set and\n"
+"            // the driver option is used, try setting it\n"
+"            if ("
+msgstr ""
+
+#: htdocs/index.php:91
 msgid ".htaccess files are disabled on this webserver. Please enable them"
 msgstr ""
 "فایلهای htaccess. در این سرور وب غیرفعال هستند. لطفا آن ها را فعال کنید"
 
-#: htdocs/index.php:103
+#: htdocs/index.php:104
 msgid ".htaccess files are not supported on this webserver."
 msgstr "فایلهای htaccess. در این سرور وب پشتیبانی نمی شوند."
 
@@ -162,7 +175,7 @@ msgstr "فعال سازی ایجاد تماس"
 msgid "Endpoint Settings"
 msgstr "تنظیمات کاربر نهایی"
 
-#: htdocs/index.php:156
+#: htdocs/index.php:157
 msgid "English"
 msgstr "انگلیسی"
 
@@ -241,7 +254,7 @@ msgstr "نامی که در کنترل پنل کاربری و مدیریت مخا
 msgid "Inherit"
 msgstr "موروثی"
 
-#: htdocs/index.php:241
+#: htdocs/index.php:242
 #, php-format
 msgid ""
 "Internet Explorer %s is not supported. Functionality will be deteriorated "
@@ -263,7 +276,7 @@ msgstr "دستگاه نامعتبر"
 msgid "Invalid Login Credentials"
 msgstr "اطلاعات کاربری نامعتبر"
 
-#: htdocs/index.php:230
+#: htdocs/index.php:231
 msgid "Invalid Token"
 msgstr "توکن نامعتبر"
 
@@ -296,7 +309,7 @@ msgstr "در حال بارگذاری…"
 msgid "Login"
 msgstr "ورود"
 
-#: htdocs/index.php:217
+#: htdocs/index.php:218
 msgid "Logout"
 msgstr "خروج"
 
@@ -345,7 +358,7 @@ msgstr "روشن"
 msgid "Originate"
 msgstr "شروع تماس"
 
-#: htdocs/index.php:211 htdocs/modules/Home/assets/js/global.js:22
+#: htdocs/index.php:212 htdocs/modules/Home/assets/js/global.js:22
 #: htdocs/modules/Home/assets/js/global.js:45
 #: htdocs/modules/Home/assets/js/global.js:123
 msgid "Originate Call"
@@ -466,7 +479,7 @@ msgstr ""
 "از این نام کاربری برای ورود به پنل کنترل کاربری و دیگر سرویس ها استفاده می "
 "شود"
 
-#: htdocs/index.php:118
+#: htdocs/index.php:119
 msgid "There was an error trying to load UCP"
 msgstr "خطایی در هنگام بارگذاری پنل کنترل کاربری رخ داده است"
 
@@ -483,7 +496,7 @@ msgstr ""
 msgid "Title"
 msgstr "عنوان"
 
-#: htdocs/index.php:91
+#: htdocs/index.php:92
 #, php-format
 msgid ""
 "To protect the integrity of your server, you must allow overrides in your "
@@ -509,7 +522,7 @@ msgstr "زبان پنل کنترل کاربری"
 msgid "UCP Session Timeout"
 msgstr "زمان اعتبار اتصال پنل کنترل کاربری"
 
-#: htdocs/index.php:27
+#: htdocs/index.php:25
 msgid "UCP is currently disabled. Please talk to your system Administrator"
 msgstr ""
 "پنل کنترل کاربری در حال حاضر غیرفعال است. لطفا با مدیر سیستم خود تماس بگیرید"
@@ -530,7 +543,7 @@ msgstr ""
 msgid "Unable to get a token to use UCP Node Server because: '%s'"
 msgstr "عدم توانایی در دریافت نشانه از سرور پنل کنترل کاربری به دلیل: '%s'"
 
-#: htdocs/index.php:182
+#: htdocs/index.php:183
 #, php-format
 msgid "Unknown Module %s"
 msgstr "ماژول ناشناس %s"
@@ -568,7 +581,7 @@ msgstr "پنل کاربر"
 msgid "User Primary Extension"
 msgstr "داخلی اصلی کاربر"
 
-#: htdocs/index.php:217
+#: htdocs/index.php:218
 msgid "User Settings"
 msgstr "تنظیمات کاربر"
 
@@ -657,7 +670,7 @@ msgstr ""
 msgid "Your reset link is in the mail!"
 msgstr "لینک بازنشانی کلمه عبور در ایمیل شماست!"
 
-#: htdocs/index.php:104
+#: htdocs/index.php:105
 #, php-format
 msgid ""
 "htaccess files help protect the integrity of your server. Please make sure "
