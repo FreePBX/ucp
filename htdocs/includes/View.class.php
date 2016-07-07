@@ -123,4 +123,16 @@ class View extends UCP {
 
 		return array("timezone" => $timezone, "language" => $language, "datetimeformat" => "", "timeformat" => "", "dateformat" => "");
 	}
+
+	public function getDate($timestamp=null) {
+		return $this->UCP->FreePBX->View->getDate($timestamp);
+	}
+
+	public function getDateTime($timestamp=null) {
+		return $this->UCP->FreePBX->View->getDateTime($timestamp);
+	}
+
+	public function getTime($timestamp=null) {
+		return $this->UCP->FreePBX->View->getTime($timestamp);
+	}
 }
