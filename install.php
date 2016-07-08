@@ -8,7 +8,7 @@
 global $amp_conf;
 
 $sql = "CREATE TABLE IF NOT EXISTS `ucp_sessions` (
-  `session` varchar(255) NOT NULL,
+  `session` varchar(190) NOT NULL,
   `uid` 	int(11) DEFAULT NULL,
   `address` varchar(255) DEFAULT NULL,
   `time` 	int(11) DEFAULT NULL,
