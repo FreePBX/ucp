@@ -2,7 +2,7 @@
 	<rawname>ucp</rawname>
 	<name>User Control Panel</name>
 	<repo>standard</repo>
-	<version>13.0.35</version>
+	<version>13.0.36</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>AGPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/agpl-3.0.txt</licenselink>
@@ -10,6 +10,7 @@
 		The user control panel is a way for users to control call handling and personal settings from a web browser.
 	</description>
 	<changelog>
+		*13.0.36* Colorize links in messages correctly
 		*13.0.35* Recognize ucp ssl port (if set)
 		*13.0.34* Better chat functionality and look and feel
 		*13.0.33* Get rid of loading screen. Use a better looking progress bar instead
@@ -121,6 +122,7 @@
 		<phpversion>5.3.3</phpversion>
 		<module>userman ge 13.0.35</module>
 		<module>core ge 12.0.1alpha25</module>
+		<module>dashboard</module>
 		<version>13.0.1RC1.27</version>
 	</depends>
 </module>
