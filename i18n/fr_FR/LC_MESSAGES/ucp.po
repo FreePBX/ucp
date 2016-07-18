@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-06-27 16:43-0700\n"
+"POT-Creation-Date: 2016-07-18 12:36-0700\n"
 "PO-Revision-Date: 2016-02-05 11:16+0200\n"
 "Last-Translator: Nicolas Riendeau <freepbx@riendeau.org>\n"
 "Language-Team: French <http://weblate.freepbx.org/projects/freepbx/ucp/fr_FR/"
@@ -321,7 +321,7 @@ msgstr "Cet usager peut-il se logger dans UCP"
 msgid "Miscellaneous"
 msgstr "Divers"
 
-#: htdocs/includes/Ajax.class.php:136
+#: htdocs/includes/Ajax.class.php:139
 msgid "Module or Command were null. Check your code."
 msgstr "Module ou commande nulle. Vérifiez votre code."
 

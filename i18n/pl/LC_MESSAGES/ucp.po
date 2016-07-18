@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-06-27 16:43-0700\n"
+"POT-Creation-Date: 2016-07-18 12:36-0700\n"
 "PO-Revision-Date: 2016-05-03 03:14+0200\n"
 "Last-Translator: Michal <mboltz@tlen.pl>\n"
 "Language-Team: Polish <http://weblate.freepbx.org/projects/freepbx/ucp/pl/>\n"
@@ -307,7 +307,7 @@ msgstr ""
 msgid "Miscellaneous"
 msgstr ""
 
-#: htdocs/includes/Ajax.class.php:136
+#: htdocs/includes/Ajax.class.php:139
 msgid "Module or Command were null. Check your code."
 msgstr "Moduł lub Polecenie były puste. Sprawdź swój kod."
 
