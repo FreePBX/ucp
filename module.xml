@@ -2,7 +2,7 @@
 	<rawname>ucp</rawname>
 	<name>User Control Panel</name>
 	<repo>standard</repo>
-	<version>12.0.24</version>
+	<version>12.0.25</version>
 	<publisher>FreePBX</publisher>
 	<license>AGPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/agpl-3.0.txt</licenselink>
@@ -10,6 +10,7 @@
 		Formerly ARI, now called User Control Panel
 	</description>
 	<changelog>
+		*12.0.25* Stored XSS - Douglas Goddard
 		*12.0.24* Username changes are allowed by default
 		*12.0.23* FREEPBX-9166 Invalid SOX Errors
 		*12.0.22* Localization fixes
