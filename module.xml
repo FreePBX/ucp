@@ -3,7 +3,7 @@
 	<name>User Control Panel</name>
 	<repo>standard</repo>
 	<version>12.0.25</version>
-	<publisher>FreePBX</publisher>
+	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>AGPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/agpl-3.0.txt</licenselink>
 	<description>
@@ -92,13 +92,7 @@
 	</changelog>
 	<category>Admin</category>
 	<menuitems>
-		<ucptab
-			category="User Panel"
-			href="/ucp"
-			target="ucp"
-			access="all"
-			requires_auth="false"
-			>UCP</ucptab>
+		<ucptab category="User Panel" href="/ucp" target="ucp" access="all" requires_auth="false">UCP</ucptab>
 	</menuitems>
 	<fileinclude>
 	    <install>install.inc.php</install>

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-14 18:52-0400\n"
+"POT-Creation-Date: 2016-07-18 12:32-0700\n"
 "PO-Revision-Date: 2015-04-09 20:39+0200\n"
 "Last-Translator: james <zhulizhong@gmail.com>\n"
 "Language-Team: Simplified Chinese <http://weblate.freepbx.org/projects/"
@@ -37,6 +37,10 @@ msgstr ""
 msgid "Active Sessions"
 msgstr "活动的会话"
 
+#: ucp.i18n.php:6
+msgid "Admin"
+msgstr "管理"
+
 #: htdocs/views/settings.php:81
 msgid "Allow Desktop Notifications"
 msgstr "支持桌面提示"
@@ -45,9 +49,25 @@ msgstr "支持桌面提示"
 msgid "Allow Login"
 msgstr "允许登录"
 
+#: ucp.i18n.php:14
+msgid "Allow Password Changes"
+msgstr "允许密码修改"
+
+#: ucp.i18n.php:20
+msgid "Allow Username Changes"
+msgstr "允许用户名称修改"
+
 #: htdocs/views/settings.php:89
 msgid "Allow browser desktop notifications from UCP modules."
 msgstr "支持通过UCP模块查询桌面提示"
+
+#: ucp.i18n.php:24
+msgid "Allow users to change their username in UCP"
+msgstr ""
+
+#: ucp.i18n.php:18
+msgid "Allow users to change thier password in UCP"
+msgstr "允许用户通过UCP修改密码"
 
 #: views/users_hook.php:39
 msgid "Allowed Settings"
@@ -131,6 +151,10 @@ msgstr ""
 
 #: htdocs/views/login.php:36
 msgid "Forgot Password"
+msgstr ""
+
+#: ucp.i18n.php:8
+msgid "Formerly ARI, now called User Control Panel"
 msgstr ""
 
 #: htdocs/views/templates/phone.php:51
@@ -224,7 +248,7 @@ msgstr ""
 msgid "Module Settings"
 msgstr ""
 
-#: htdocs/includes/Ajax.class.php:137
+#: htdocs/includes/Ajax.class.php:140
 msgid "Module or Command were null. Check your code."
 msgstr ""
 
@@ -290,6 +314,14 @@ msgstr ""
 msgid "Processing..."
 msgstr ""
 
+#: ucp.i18n.php:26
+msgid "RSS Feeds"
+msgstr ""
+
+#: ucp.i18n.php:30
+msgid "RSS Feeds that are displayed in UCP. This overrides "
+msgstr ""
+
 #: Ucp.class.php:37
 msgid "Refreshing all UCP Assets, this could take a while..."
 msgstr ""
@@ -339,6 +371,12 @@ msgstr ""
 msgid "TUV"
 msgstr ""
 
+#: ucp.i18n.php:36
+msgid ""
+"The number of days a session token will be valid for. Clear this setting if "
+"you want tokens to last forever (Not Recommended)"
+msgstr ""
+
 #: htdocs/views/settings.php:17
 msgid "The password used to login to User Control Panel and other services"
 msgstr ""
@@ -373,7 +411,7 @@ msgid ""
 "information see: %s"
 msgstr ""
 
-#: views/users_hook.php:19
+#: ucp.i18n.php:10 views/users_hook.php:19
 msgid "UCP"
 msgstr ""
 
@@ -383,6 +421,10 @@ msgstr ""
 
 #: htdocs/views/settings.php:77
 msgid "UCP Language"
+msgstr ""
+
+#: ucp.i18n.php:32
+msgid "UCP Session Timeout"
 msgstr ""
 
 #: htdocs/index.php:27
@@ -398,7 +440,9 @@ msgstr ""
 msgid "Unknown Module %s"
 msgstr ""
 
-#: htdocs/views/forgot.php:5 htdocs/views/login.php:4
+#: htdocs/views/forgot.php:5 htdocs/views/login.php:4 ucp.i18n.php:4
+#: /usr/src/freepbx/ucp/ucp.i18n.php:16 ucp.i18n.php:22
+#: /usr/src/freepbx/ucp/ucp.i18n.php:28 ucp.i18n.php:34
 msgid "User Control Panel"
 msgstr "用户控制界面"
 
@@ -414,6 +458,10 @@ msgstr ""
 #: Ucp.class.php:124 Ucp.class.php:134
 #, php-format
 msgid "User Control Panel: %s"
+msgstr ""
+
+#: ucp.i18n.php:12
+msgid "User Panel"
 msgstr ""
 
 #: htdocs/views/login.php:15 htdocs/views/settings.php:8
@@ -502,18 +550,6 @@ msgstr ""
 #: htdocs/views/login.php:24
 msgid "or"
 msgstr ""
-
-#~ msgid "Admin"
-#~ msgstr "管理"
-
-#~ msgid "Allow Password Changes"
-#~ msgstr "允许密码修改"
-
-#~ msgid "Allow Username Changes"
-#~ msgstr "允许用户名称修改"
-
-#~ msgid "Allow users to change thier password in UCP"
-#~ msgstr "允许用户通过UCP修改密码"
 
 #~ msgid "Allow users to change thier username in UCP"
 #~ msgstr "允许用户通过UCP修改用户名称"

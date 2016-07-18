@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-14 18:52-0400\n"
+"POT-Creation-Date: 2016-07-18 12:32-0700\n"
 "PO-Revision-Date: 2015-05-13 12:57+0200\n"
 "Last-Translator: Kevin <kevin@qloog.com>\n"
 "Language-Team: Japanese <http://weblate.freepbx.org/projects/freepbx/ucp/"
@@ -38,6 +38,10 @@ msgstr "ABC"
 msgid "Active Sessions"
 msgstr "有効セッション"
 
+#: ucp.i18n.php:6
+msgid "Admin"
+msgstr "アドミン"
+
 #: htdocs/views/settings.php:81
 msgid "Allow Desktop Notifications"
 msgstr "デスクトップ通知を許可する"
@@ -46,9 +50,25 @@ msgstr "デスクトップ通知を許可する"
 msgid "Allow Login"
 msgstr "ログインを許可する"
 
+#: ucp.i18n.php:14
+msgid "Allow Password Changes"
+msgstr ""
+
+#: ucp.i18n.php:20
+msgid "Allow Username Changes"
+msgstr ""
+
 #: htdocs/views/settings.php:89
 msgid "Allow browser desktop notifications from UCP modules."
 msgstr "UCPモジュールからのデスクトップ通知（ブラウザ経由）を許可します。"
+
+#: ucp.i18n.php:24
+msgid "Allow users to change their username in UCP"
+msgstr ""
+
+#: ucp.i18n.php:18
+msgid "Allow users to change thier password in UCP"
+msgstr ""
 
 #: views/users_hook.php:39
 msgid "Allowed Settings"
@@ -133,6 +153,11 @@ msgstr "アクセス拒否"
 #: htdocs/views/login.php:36
 msgid "Forgot Password"
 msgstr "パスワードお忘れの場合"
+
+#: ucp.i18n.php:8
+msgid "Formerly ARI, now called User Control Panel"
+msgstr ""
+"かつてARIと呼ばれたモジュールに代わる「ユーザーコントロールパネル」です。"
 
 #: htdocs/views/templates/phone.php:51
 msgid "GHI"
@@ -225,7 +250,7 @@ msgstr "MNO"
 msgid "Module Settings"
 msgstr "モジュール設定"
 
-#: htdocs/includes/Ajax.class.php:137
+#: htdocs/includes/Ajax.class.php:140
 msgid "Module or Command were null. Check your code."
 msgstr "モジュールかコマンドはnull。コードを確認してください。"
 
@@ -291,6 +316,14 @@ msgstr "ユーザー名もしくはメールアドレスを入力してくださ
 msgid "Processing..."
 msgstr "処理中..."
 
+#: ucp.i18n.php:26
+msgid "RSS Feeds"
+msgstr ""
+
+#: ucp.i18n.php:30
+msgid "RSS Feeds that are displayed in UCP. This overrides "
+msgstr ""
+
 #: Ucp.class.php:37
 msgid "Refreshing all UCP Assets, this could take a while..."
 msgstr "UCPアセットを再読み込みしています。お待ちください..."
@@ -340,6 +373,12 @@ msgstr ""
 msgid "TUV"
 msgstr "TUV"
 
+#: ucp.i18n.php:36
+msgid ""
+"The number of days a session token will be valid for. Clear this setting if "
+"you want tokens to last forever (Not Recommended)"
+msgstr ""
+
 #: htdocs/views/settings.php:17
 msgid "The password used to login to User Control Panel and other services"
 msgstr "UCPやその他のサービスのログインに使うパスワード"
@@ -377,7 +416,7 @@ msgstr ""
 "ウェブサーバーの設定ファイルにオーバーライドを許可する必要があります。詳しく"
 "はこちら： %s"
 
-#: views/users_hook.php:19
+#: ucp.i18n.php:10 views/users_hook.php:19
 msgid "UCP"
 msgstr "UCP"
 
@@ -388,6 +427,10 @@ msgstr "UCP管理者"
 #: htdocs/views/settings.php:77
 msgid "UCP Language"
 msgstr "UCPの言語"
+
+#: ucp.i18n.php:32
+msgid "UCP Session Timeout"
+msgstr ""
 
 #: htdocs/index.php:27
 msgid "UCP is currently disabled. Please talk to your system Administrator"
@@ -402,7 +445,9 @@ msgstr "UCPを再読み込みします。よろしいですか？"
 msgid "Unknown Module %s"
 msgstr "不明モジュール %s"
 
-#: htdocs/views/forgot.php:5 htdocs/views/login.php:4
+#: htdocs/views/forgot.php:5 htdocs/views/login.php:4 ucp.i18n.php:4
+#: /usr/src/freepbx/ucp/ucp.i18n.php:16 ucp.i18n.php:22
+#: /usr/src/freepbx/ucp/ucp.i18n.php:28 ucp.i18n.php:34
 msgid "User Control Panel"
 msgstr "UCP"
 
@@ -421,6 +466,10 @@ msgstr ""
 #, php-format
 msgid "User Control Panel: %s"
 msgstr "ユーザーコントロールパネル： %s"
+
+#: ucp.i18n.php:12
+msgid "User Panel"
+msgstr ""
 
 #: htdocs/views/login.php:15 htdocs/views/settings.php:8
 msgid "Username"
@@ -512,13 +561,6 @@ msgstr ""
 #: htdocs/views/login.php:24
 msgid "or"
 msgstr "もしくは"
-
-#~ msgid "Admin"
-#~ msgstr "アドミン"
-
-#~ msgid "Formerly ARI, now called User Control Panel"
-#~ msgstr ""
-#~ "かつてARIと呼ばれたモジュールに代わる「ユーザーコントロールパネル」です。"
 
 #~ msgid "Styling and Logos"
 #~ msgstr "デザインとロゴ"
