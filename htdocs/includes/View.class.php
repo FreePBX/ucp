@@ -12,6 +12,10 @@
  */
 namespace UCP;
 class View extends UCP {
+	private $timezone = '';
+	private $dateformat = '';
+	private $datetimeformat = '';
+	private $timeformat = '';
 
 	public function __construct($UCP) {
 		$this->UCP = $UCP;
@@ -83,6 +87,9 @@ class View extends UCP {
 		}
 	}
 
+	/**
+	 * Set Locales for the UCP Interface
+	 */
 	public function setGUILocales($user) {
 		$view = $this->UCP->FreePBX->View;
 		// set the language so local module languages take
@@ -103,36 +110,73 @@ class View extends UCP {
 		//set this before we run date functions
 		if(php_sapi_name() !== 'cli' && !empty($user['timezone'])) {
 			//userman mode
-			$phptimezone = $_SESSION['AMP_user']->tz;
+			$phptimezone = $user['timezone'];
 		} else {
 			$phptimezone = '';
 		}
-		$timezone = $view->setTimezone($phptimezone);
+		$this->timezone = $view->setTimezone($phptimezone);
 
 		if(php_sapi_name() !== 'cli' && !empty($user['datetimeformat'])) {
-			$view->setDateTimeFormat($_SESSION['AMP_user']->datetimeformat);
+			$view->setDateTimeFormat($user['datetimeformat']);
 		}
 
 		if(php_sapi_name() !== 'cli' && !empty($user['timeformat'])) {
-			$view->setTimeFormat($_SESSION['AMP_user']->timeformat);
+			$view->setTimeFormat($user['timeformat']);
 		}
 
 		if(php_sapi_name() !== 'cli' && !empty($user['dateformat'])) {
-			$view->setDateFormat($_SESSION['AMP_user']->dateformat);
+			$view->setDateFormat($user['dateformat']);
 		}
 
 		return array("timezone" => $timezone, "language" => $language, "datetimeformat" => "", "timeformat" => "", "dateformat" => "");
 	}
 
+	/**
+	 * See function in BMO
+	 */
 	public function getDate($timestamp=null) {
 		return $this->UCP->FreePBX->View->getDate($timestamp);
 	}
 
+	/**
+	 * See function in BMO
+	 */
 	public function getDateTime($timestamp=null) {
 		return $this->UCP->FreePBX->View->getDateTime($timestamp);
 	}
 
+	/**
+	 * See function in BMO
+	 */
 	public function getTime($timestamp=null) {
 		return $this->UCP->FreePBX->View->getTime($timestamp);
+	}
+
+	/**
+	 * See function in BMO
+	 */
+	public function getDateTimeFormat() {
+		return $this->UCP->FreePBX->View->getDateTimeFormat();
+	}
+
+	/**
+	 * See function in BMO
+	 */
+	public function getTimeFormat() {
+		return $this->UCP->FreePBX->View->getTimeFormat();
+	}
+
+	/**
+	 * See function in BMO
+	 */
+	public function getDateFormat() {
+		return $this->UCP->FreePBX->View->getDateFormat();
+	}
+
+	/**
+	 * See function in BMO
+	 */
+	public function getTimezone() {
+		return $this->UCP->FreePBX->View->getTimezone();
 	}
 }

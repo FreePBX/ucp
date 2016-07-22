@@ -1055,9 +1055,17 @@ var UCPC = Class.extend({
 		});
 		$('table[data-toggle="table"]').bootstrapTable();
 	},
+	dateTimeFormatter: function(unixtimestamp) {
+		unixtimestamp = parseInt(unixtimestamp);
+		return moment.unix(unixtimestamp).tz(timezone).format(datetimeformat);
+	},
+	timeFormatter: function(unixtimestamp) {
+		unixtimestamp = parseInt(unixtimestamp);
+		return moment.unix(unixtimestamp).tz(timezone).format(timeformat);
+	},
 	dateFormatter: function(unixtimestamp) {
 		unixtimestamp = parseInt(unixtimestamp);
-		return moment.unix(unixtimestamp).tz(timezone).format('MM/DD/YYYY h:mm:ssa');
+		return moment.unix(unixtimestamp).tz(timezone).format(dateformat);
 	},
 	updateNavBadge: function(button, num) {
 		var badge = $("#nav-btn-" + button + " .badge");

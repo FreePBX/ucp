@@ -252,6 +252,10 @@ if(!isset($_SERVER['HTTP_X_PJAX'])) {
 	$displayvars['modules'] = json_encode($active_modules);
 	$displayvars['gScripts'] = $ucp->getScripts();
 	$displayvars['scripts'] = $ucp->Modules->getGlobalScripts();
+	$displayvars['timezone'] = $ucp->View->getTimezone();
+	$displayvars['timeformat'] = $ucp->View->getTimeFormat();
+	$displayvars['datetimeformat'] = $ucp->View->getDateTimeFormat();
+	$displayvars['dateformat'] = $ucp->View->getDateFormat();
 	$displayvars['desktop'] = (!$ucp->Session->isMobile && !$ucp->Session->isTablet);
 	$ucp->View->show_view(dirname(__FILE__).'/views/footer.php',$displayvars);
 }
