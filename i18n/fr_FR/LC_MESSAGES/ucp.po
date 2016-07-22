@@ -9,10 +9,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-07-06 23:45-0700\n"
+"POT-Creation-Date: 2016-07-22 11:21-0700\n"
 "PO-Revision-Date: 2016-02-05 11:16+0200\n"
 "Last-Translator: Nicolas Riendeau <freepbx@riendeau.org>\n"
-"Language-Team: French <http://weblate.freepbx.org/projects/freepbx/ucp/fr_FR/>\n"
+"Language-Team: French <http://weblate.freepbx.org/projects/freepbx/ucp/fr_FR/"
+">\n"
 "Language: fr_FR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -53,7 +54,9 @@ msgstr ""
 
 #: htdocs/index.php:91
 msgid ".htaccess files are disabled on this webserver. Please enable them"
-msgstr "Les fichiers .htaccess sont désactivées sur ce serveur web. Veuillez les activer"
+msgstr ""
+"Les fichiers .htaccess sont désactivées sur ce serveur web. Veuillez les "
+"activer"
 
 #: htdocs/index.php:104
 msgid ".htaccess files are not supported on this webserver."
@@ -62,7 +65,9 @@ msgstr "Les fichiers .htaccess ne sont pas supportés sur ce serveur web."
 #: Ucp.class.php:255
 #, php-format
 msgid "A token has already been generated for %s, not sending email again"
-msgstr "Un jeton a déjà été généré pour %s, le courrier éléctronique ne sera pas envoyé une seconde fois"
+msgstr ""
+"Un jeton a déjà été généré pour %s, le courrier éléctronique ne sera pas "
+"envoyé une seconde fois"
 
 #: htdocs/views/templates/phone.php:41
 msgid "ABC"
@@ -77,7 +82,8 @@ msgid "Admin"
 msgstr "Admin"
 
 #: htdocs/views/settings.php:5
-msgid "All fields update when unfocused (selecting another field) except password"
+msgid ""
+"All fields update when unfocused (selecting another field) except password"
 msgstr ""
 
 #: htdocs/views/settings.php:92
@@ -98,11 +104,17 @@ msgstr "Allouer la modification du nom d'utilisateur"
 
 #: htdocs/views/settings.php:100
 msgid "Allow browser desktop notifications from UCP modules."
-msgstr "Autoriser les notifications sur le bureau du navigateur provenant des modules UCP."
+msgstr ""
+"Autoriser les notifications sur le bureau du navigateur provenant des "
+"modules UCP."
 
 #: views/users_hook.php:163
-msgid "Allow this user to originate calls from within UCP. This is not the same as WebRTC"
-msgstr "Permettre à cet utilisateur de placer un appel à partir d'UCP. Il ne sagit pas de la même chose que WebRTC"
+msgid ""
+"Allow this user to originate calls from within UCP. This is not the same as "
+"WebRTC"
+msgstr ""
+"Permettre à cet utilisateur de placer un appel à partir d'UCP. Il ne sagit "
+"pas de la même chose que WebRTC"
 
 #: ucp.i18n.php:24
 msgid "Allow users to change their username in UCP"
@@ -179,7 +191,8 @@ msgstr "Excusez-nous alors que nous essayons de récupérer votre contenu"
 #: install.inc.php:20
 #, php-format
 msgid "Failed to install %s due to the following conflicting module(s): %s"
-msgstr "Échec lors de l'installation de %s due à un conflit avec le(s) module(s): %s"
+msgstr ""
+"Échec lors de l'installation de %s due à un conflit avec le(s) module(s): %s"
 
 #: htdocs/views/settings.php:77
 msgid "Fax"
@@ -239,8 +252,11 @@ msgid "Home Phone"
 msgstr "Numéro à la maison"
 
 #: htdocs/views/settings.php:34
-msgid "How you would like your name displayed throughout UCP and Contact Manager"
-msgstr "Comment vous voulez que votre nom soit affiché dans UCP et le gestionnaire de contact"
+msgid ""
+"How you would like your name displayed throughout UCP and Contact Manager"
+msgstr ""
+"Comment vous voulez que votre nom soit affiché dans UCP et le gestionnaire "
+"de contact"
 
 #: views/users_hook.php:56 views/users_hook.php:154
 msgid "Inherit"
@@ -248,8 +264,13 @@ msgstr "Hérite"
 
 #: htdocs/index.php:242
 #, php-format
-msgid "Internet Explorer %s is not supported. Functionality will be deteriorated until you upgrade to %s or higher"
-msgstr "Internet Explorer %s n'est pas supporté.  La fonctionnalité sera donc dégradée jusqu'à ce que vous le mettiez à jour pour la version %s ou plus récente"
+msgid ""
+"Internet Explorer %s is not supported. Functionality will be deteriorated "
+"until you upgrade to %s or higher"
+msgstr ""
+"Internet Explorer %s n'est pas supporté.  La fonctionnalité sera donc "
+"dégradée jusqu'à ce que vous le mettiez à jour pour la version %s ou plus "
+"récente"
 
 #: htdocs/includes/User.class.php:86
 msgid "Invalid"
@@ -313,7 +334,7 @@ msgstr "Cet usager peut-il se logger dans UCP"
 msgid "Miscellaneous"
 msgstr "Divers"
 
-#: htdocs/includes/Ajax.class.php:136
+#: htdocs/includes/Ajax.class.php:139
 msgid "Module or Command were null. Check your code."
 msgstr "Module ou commande nulle. Vérifiez votre code."
 
@@ -404,7 +425,8 @@ msgstr "Flux RSS qui sont affichés dans UCP . Ceci remplace "
 
 #: Ucp.class.php:29
 msgid "Refreshing all UCP Assets, this could take a while..."
-msgstr "Actualisation de tous les assets, cela pourrait prendre un certain temps ..."
+msgstr ""
+"Actualisation de tous les assets, cela pourrait prendre un certain temps ..."
 
 #: htdocs/views/forgot.php:48 htdocs/views/login.php:40
 msgid "Remember Me"
@@ -436,32 +458,46 @@ msgid "TUV"
 msgstr "TUV"
 
 #: ucp.i18n.php:36
-msgid "The number of days a session token will be valid for. Clear this setting if you want tokens to last forever (Not Recommended)"
+msgid ""
+"The number of days a session token will be valid for. Clear this setting if "
+"you want tokens to last forever (Not Recommended)"
 msgstr ""
 
 #: htdocs/views/settings.php:20 htdocs/views/settings.php:25
 msgid "The password used to login to User Control Panel and other services"
-msgstr "Le mot de passe permettant de se connecter au panneau de l'utilisateur et d'autres services"
+msgstr ""
+"Le mot de passe permettant de se connecter au panneau de l'utilisateur et "
+"d'autres services"
 
 #: htdocs/views/dashfootercontent.php:10
 msgid "The removal of this copyright notice is stricly prohibited"
 msgstr "La suppression de cette mention de copyright est strictement interdite"
 
 #: ucp.i18n.php:8
-msgid "The user control panel is a way for users to control call handling and personal settings from a web browser."
+msgid ""
+"The user control panel is a way for users to control call handling and "
+"personal settings from a web browser."
 msgstr ""
 
 #: htdocs/views/settings.php:11
 msgid "The username used to login to User Control Panel and other services"
-msgstr "Le nom d'utilisateur utilisé pour vous connecter au panneau de l'utilisateur et autres services"
+msgstr ""
+"Le nom d'utilisateur utilisé pour vous connecter au panneau de l'utilisateur "
+"et autres services"
 
 #: htdocs/index.php:119
 msgid "There was an error trying to load UCP"
 msgstr "Il y eu une erreur en essayant de charger UCP"
 
 #: views/users_hook.php:134
-msgid "These are the assigned and active extensions which will be allowed to edit extension settings such as Call Waiting, Call Forwarding, Find Me/Follow Me and others"
-msgstr "Il s'agit des postes assignés et actifs qui pourront éditer les paramètres de poste tel que l'appel en attente, le transfert d'appel, Cherche-moi/Suis-moi et autres"
+msgid ""
+"These are the assigned and active extensions which will be allowed to edit "
+"extension settings such as Call Waiting, Call Forwarding, Find Me/Follow Me "
+"and others"
+msgstr ""
+"Il s'agit des postes assignés et actifs qui pourront éditer les paramètres "
+"de poste tel que l'appel en attente, le transfert d'appel, Cherche-moi/Suis-"
+"moi et autres"
 
 #: htdocs/views/settings.php:52
 msgid "Title"
@@ -469,8 +505,14 @@ msgstr "Titre"
 
 #: htdocs/index.php:92
 #, php-format
-msgid "To protect the integrity of your server, you must allow overrides in your webserver's configuration file for the User Control Panel. For more information see: %s"
-msgstr "Pour protéger l'intégrité de votre serveur, vous devez autoriser \"allow overrides\" dans le fichier de configuration de votre serveur web pour le Panneau de l'utilisateur. Pour plus d'informations, voir:%s"
+msgid ""
+"To protect the integrity of your server, you must allow overrides in your "
+"webserver's configuration file for the User Control Panel. For more "
+"information see: %s"
+msgstr ""
+"Pour protéger l'intégrité de votre serveur, vous devez autoriser \"allow "
+"overrides\" dans le fichier de configuration de votre serveur web pour le "
+"Panneau de l'utilisateur. Pour plus d'informations, voir:%s"
 
 #: ucp.i18n.php:10
 msgid "UCP"
@@ -490,20 +532,28 @@ msgstr ""
 
 #: htdocs/index.php:25
 msgid "UCP is currently disabled. Please talk to your system Administrator"
-msgstr "UCP est actuellement désactivé. Veuillez parler à votre administrateur système"
+msgstr ""
+"UCP est actuellement désactivé. Veuillez parler à votre administrateur "
+"système"
 
 #: htdocs/assets/js/ucp.js:938
 msgid "UCP needs to reload, ok?"
 msgstr "UCP doit recharger, ok ?"
 
 #: views/users_hook.php:9
-msgid "UCP, otherwise known as the User Control Panel, is a user interface for FreePBX."
-msgstr "UCP, autrement connu comme le panneau de contrôle utilisateur, est une interface usager de FreePBX."
+msgid ""
+"UCP, otherwise known as the User Control Panel, is a user interface for "
+"FreePBX."
+msgstr ""
+"UCP, autrement connu comme le panneau de contrôle utilisateur, est une "
+"interface usager de FreePBX."
 
 #: htdocs/assets/js/ucp.js:394
 #, perl-format
 msgid "Unable to get a token to use UCP Node Server because: '%s'"
-msgstr "Impossible d'obtenir un jeton pour utiliser le serveur de noeud UCP. Cause : '%s'"
+msgstr ""
+"Impossible d'obtenir un jeton pour utiliser le serveur de noeud UCP. Cause : "
+"'%s'"
 
 #: htdocs/index.php:183
 #, php-format
@@ -621,8 +671,12 @@ msgid "Your Work Number"
 msgstr "Votre numéro de téléphone au travail"
 
 #: htdocs/assets/js/ucp.js:148
-msgid "Your browser is unsupported at this time. Please upgrade or talk to your system administrator"
-msgstr "Votre navigateur n'est pas supporté pour le moment. Veuillez le mettre à jour ou parlez avec votre administrateur système"
+msgid ""
+"Your browser is unsupported at this time. Please upgrade or talk to your "
+"system administrator"
+msgstr ""
+"Votre navigateur n'est pas supporté pour le moment. Veuillez le mettre à "
+"jour ou parlez avec votre administrateur système"
 
 #: htdocs/assets/js/ucp.js:82
 msgid "Your reset link is in the mail!"
@@ -630,8 +684,14 @@ msgstr "Votre lien de réinitialisation est dans le courriel !"
 
 #: htdocs/index.php:105
 #, php-format
-msgid "htaccess files help protect the integrity of your server. Please make sure file paths and directories are locked down properly. For more information see: %s"
-msgstr "Les fichiers .htaccess aident à protéger l'intégrité de votre serveur. Veuillez vous assurez que les chemins de fichiers et répertoires sont verrouillés correctement. Pour plus d'informations, voir: %s"
+msgid ""
+"htaccess files help protect the integrity of your server. Please make sure "
+"file paths and directories are locked down properly. For more information "
+"see: %s"
+msgstr ""
+"Les fichiers .htaccess aident à protéger l'intégrité de votre serveur. "
+"Veuillez vous assurez que les chemins de fichiers et répertoires sont "
+"verrouillés correctement. Pour plus d'informations, voir: %s"
 
 #: htdocs/views/login.php:24
 msgid "or"
@@ -641,7 +701,8 @@ msgstr "ou"
 #~ msgstr "Tous les utilisateurs doivent changer leur mot de passe dans UCP"
 
 #~ msgid "All users to change thier username in UCP"
-#~ msgstr "Tous les utilisateurs doivent changer leur nom d'utilisateur dans UCP"
+#~ msgstr ""
+#~ "Tous les utilisateurs doivent changer leur nom d'utilisateur dans UCP"
 
 #~ msgid "Allow users to change thier username in UCP"
 #~ msgstr "Permettre aux utilisateurs de modifier leur nom d'usager dans UCP"
@@ -673,11 +734,20 @@ msgstr "ou"
 #~ msgid "Please Reconfirm Your Password"
 #~ msgstr "Veuillez confirmer votre mot de passe"
 
-#~ msgid "SOX is not installed on this server but is required by UCP. Please install it"
-#~ msgstr "SOX n'est pas installé sur ce serveur mais est requis par UCP. Veuillez l'installer"
+#~ msgid ""
+#~ "SOX is not installed on this server but is required by UCP. Please "
+#~ "install it"
+#~ msgstr ""
+#~ "SOX n'est pas installé sur ce serveur mais est requis par UCP. Veuillez "
+#~ "l'installer"
 
-#~ msgid "SOX is required for UCP to be able to do transcoding of playback for browser playback of files. Without it files will not playback within UCP"
-#~ msgstr "SOX est requis par UCP  pour être en mesure de faire le transcodage pour écouter le fichier dans le navigateur . Sans SOX les fichiers ne joueront pas dans UCP"
+#~ msgid ""
+#~ "SOX is required for UCP to be able to do transcoding of playback for "
+#~ "browser playback of files. Without it files will not playback within UCP"
+#~ msgstr ""
+#~ "SOX est requis par UCP  pour être en mesure de faire le transcodage pour "
+#~ "écouter le fichier dans le navigateur . Sans SOX les fichiers ne joueront "
+#~ "pas dans UCP"
 
 #~ msgid "Styling and Logos"
 #~ msgstr "Style et Logos"
@@ -686,14 +756,24 @@ msgstr "ou"
 #~ msgstr "Soumettre"
 
 #, fuzzy
-#~ msgid "These are the assigned and active extensions which will show up for this user to control and edit in UCP"
-#~ msgstr "Ce sont les postes assignés et actifs qui s'afficheront pour cet utilisateur et qu'il pourra contrôler et modifier de UCP"
+#~ msgid ""
+#~ "These are the assigned and active extensions which will show up for this "
+#~ "user to control and edit in UCP"
+#~ msgstr ""
+#~ "Ce sont les postes assignés et actifs qui s'afficheront pour cet "
+#~ "utilisateur et qu'il pourra contrôler et modifier de UCP"
 
-#~ msgid "UCP icons folder. This should never be changed except for very advanced layout changes"
-#~ msgstr "Dossier icônes UCP . Cela ne devrait jamais être modifié , sauf pour les modifications de mise en page très avancées"
+#~ msgid ""
+#~ "UCP icons folder. This should never be changed except for very advanced "
+#~ "layout changes"
+#~ msgstr ""
+#~ "Dossier icônes UCP . Cela ne devrait jamais être modifié , sauf pour les "
+#~ "modifications de mise en page très avancées"
 
 #~ msgid "Unable to connect UCP Node Server because: '%s'"
-#~ msgstr "Incapable de se connecter au serveur de noeud UCP pour la raison suivante : '%s'"
+#~ msgstr ""
+#~ "Incapable de se connecter au serveur de noeud UCP pour la raison "
+#~ "suivante : '%s'"
 
 #~ msgid "View: UCP dashfootercontent.php"
 #~ msgstr "Vue:  UCP dashfootercontent.php"
@@ -701,5 +781,9 @@ msgstr "ou"
 #~ msgid "View: UCP icons"
 #~ msgstr "Vue: icônes UCP"
 
-#~ msgid "dashfootercontent.php view. This should never be changed except for very advanced layout changes"
-#~ msgstr "vue dashfootercontent.php. Cela ne devrait jamais être modifié, sauf pour les modifications de mise en page très avancées"
+#~ msgid ""
+#~ "dashfootercontent.php view. This should never be changed except for very "
+#~ "advanced layout changes"
+#~ msgstr ""
+#~ "vue dashfootercontent.php. Cela ne devrait jamais être modifié, sauf pour "
+#~ "les modifications de mise en page très avancées"
