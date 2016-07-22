@@ -50,7 +50,8 @@ class Ajax extends UCP {
 					case 'displayname':
 					case 'work':
 					case 'home':
-						$this->UCP->FreePBX->Userman->updateUserExtraData($user['id'],array($_POST['key'] => $_POST['value']));
+						$val = htmlentities(strip_tags($_POST['value']));
+						$this->UCP->FreePBX->Userman->updateUserExtraData($user['id'],array($_POST['key'] => $val));
 						$ret = array(
 							"status" => true
 						);
@@ -58,13 +59,15 @@ class Ajax extends UCP {
 					case 'notifications':
 					break;
 					case 'usernamecheck':
-						$user = $this->UCP->FreePBX->Userman->getUserByUsername($_POST['value']);
+						$val = htmlentities(strip_tags($_POST['value']));
+						$user = $this->UCP->FreePBX->Userman->getUserByUsername($val);
 						$ret = array(
 							"status" => empty($user)
 						);
 					break;
 					case 'username':
-						$status = $this->UCP->FreePBX->Userman->updateUser($user['id'],$user['username'], $_POST['value'], $user['default_extension'], $user['description']);
+						$val = htmlentities(strip_tags($_POST['value']));
+						$status = $this->UCP->FreePBX->Userman->updateUser($user['id'],$user['username'], $val, $user['default_extension'], $user['description']);
 						$ret = array(
 							"status" => $status['status']
 						);

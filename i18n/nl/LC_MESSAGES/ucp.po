@@ -53,22 +53,16 @@ msgstr ""
 
 #: htdocs/index.php:91
 msgid ".htaccess files are disabled on this webserver. Please enable them"
-msgstr ""
-"Het gebruik van .htaccess-bestanden is uitgeschakeld op deze webserver. "
-"Gelieve dit in te schakelen indien mogelijk"
+msgstr "Het gebruik van .htaccess-bestanden is uitgeschakeld op deze webserver. Gelieve dit in te schakelen indien mogelijk"
 
 #: htdocs/index.php:104
 msgid ".htaccess files are not supported on this webserver."
-msgstr ""
-"Het gebruik van .htaccess-bestanden wordt niet ondersteund door deze "
-"webserver."
+msgstr "Het gebruik van .htaccess-bestanden wordt niet ondersteund door deze webserver."
 
 #: Ucp.class.php:255
 #, php-format
 msgid "A token has already been generated for %s, not sending email again"
-msgstr ""
-"Er is al een token gegenereerd voor %s, er wordt niet opnieuw een e-mail "
-"verstuurd"
+msgstr "Er is al een token gegenereerd voor %s, er wordt niet opnieuw een e-mail verstuurd"
 
 #: htdocs/views/templates/phone.php:41
 msgid "ABC"
@@ -83,11 +77,8 @@ msgid "Admin"
 msgstr "Admin"
 
 #: htdocs/views/settings.php:5
-msgid ""
-"All fields update when unfocused (selecting another field) except password"
-msgstr ""
-"Alle velden vernieuwen wanneer er geen veld actief is (een ander veld "
-"kiezen) behalve het wachtwoord"
+msgid "All fields update when unfocused (selecting another field) except password"
+msgstr "Alle velden vernieuwen wanneer er geen veld actief is (een ander veld kiezen) behalve het wachtwoord"
 
 #: htdocs/views/settings.php:92
 msgid "Allow Desktop Notifications"
@@ -110,12 +101,8 @@ msgid "Allow browser desktop notifications from UCP modules."
 msgstr "Sta bureaubladmeldingen van UCP-modules toe."
 
 #: views/users_hook.php:163
-msgid ""
-"Allow this user to originate calls from within UCP. This is not the same as "
-"WebRTC"
-msgstr ""
-"Deze gebruiker mag telefoongesprekken opzetten vanuit UCP. Dit is niet "
-"hetzelfde als WebRTC"
+msgid "Allow this user to originate calls from within UCP. This is not the same as WebRTC"
+msgstr "Deze gebruiker mag telefoongesprekken opzetten vanuit UCP. Dit is niet hetzelfde als WebRTC"
 
 #: ucp.i18n.php:24
 msgid "Allow users to change their username in UCP"
@@ -192,9 +179,7 @@ msgstr "We halen de gegevens op, moment geduld"
 #: install.inc.php:20
 #, php-format
 msgid "Failed to install %s due to the following conflicting module(s): %s"
-msgstr ""
-"Niet gelukt om %s te installeren vanwege de volgende module(s) met "
-"conflicten: %s"
+msgstr "Niet gelukt om %s te installeren vanwege de volgende module(s) met conflicten: %s"
 
 #: htdocs/views/settings.php:77
 msgid "Fax"
@@ -254,8 +239,7 @@ msgid "Home Phone"
 msgstr "Thuistelefoon"
 
 #: htdocs/views/settings.php:34
-msgid ""
-"How you would like your name displayed throughout UCP and Contact Manager"
+msgid "How you would like your name displayed throughout UCP and Contact Manager"
 msgstr "Hoe je je naam weergegeven wilt laten worden in UCP en het Adresboek"
 
 #: views/users_hook.php:56 views/users_hook.php:154
@@ -264,12 +248,8 @@ msgstr "Erven"
 
 #: htdocs/index.php:242
 #, php-format
-msgid ""
-"Internet Explorer %s is not supported. Functionality will be deteriorated "
-"until you upgrade to %s or higher"
-msgstr ""
-"Internet Explorer %s wordt niet ondersteund. De functionaliteit wordt "
-"beperkt totdat je deze bijwerkt naar %s of hoger"
+msgid "Internet Explorer %s is not supported. Functionality will be deteriorated until you upgrade to %s or higher"
+msgstr "Internet Explorer %s wordt niet ondersteund. De functionaliteit wordt beperkt totdat je deze bijwerkt naar %s of hoger"
 
 #: htdocs/includes/User.class.php:86
 msgid "Invalid"
@@ -456,51 +436,32 @@ msgid "TUV"
 msgstr "TUV"
 
 #: ucp.i18n.php:36
-msgid ""
-"The number of days a session token will be valid for. Clear this setting if "
-"you want tokens to last forever (Not Recommended)"
-msgstr ""
-"Het aantal dagen waar dit sessietoken geldig voor is. Maak deze instelling "
-"leeg als je sessietokens voor altijd geldig wilt laten zijn (Niet Aanbevolen)"
+msgid "The number of days a session token will be valid for. Clear this setting if you want tokens to last forever (Not Recommended)"
+msgstr "Het aantal dagen waar dit sessietoken geldig voor is. Maak deze instelling leeg als je sessietokens voor altijd geldig wilt laten zijn (Niet Aanbevolen)"
 
 #: htdocs/views/settings.php:20 htdocs/views/settings.php:25
 msgid "The password used to login to User Control Panel and other services"
-msgstr ""
-"Het wachtwoord nodig om in te loggen in het User Control Panel en andere "
-"services"
+msgstr "Het wachtwoord nodig om in te loggen in het User Control Panel en andere services"
 
 #: htdocs/views/dashfootercontent.php:10
 msgid "The removal of this copyright notice is stricly prohibited"
 msgstr "Het verwijderen van dit copyrightbericht is niet toegestaan"
 
 #: ucp.i18n.php:8
-msgid ""
-"The user control panel is a way for users to control call handling and "
-"personal settings from a web browser."
-msgstr ""
-"Het User Control Panel is een manier voor gebruikers om het afhandelen van "
-"telefoongesprekken en andere persoonlijke instellingen via de browser te "
-"beheren."
+msgid "The user control panel is a way for users to control call handling and personal settings from a web browser."
+msgstr "Het User Control Panel is een manier voor gebruikers om het afhandelen van telefoongesprekken en andere persoonlijke instellingen via de browser te beheren."
 
 #: htdocs/views/settings.php:11
 msgid "The username used to login to User Control Panel and other services"
-msgstr ""
-"De gebruikersnaam nodig om in te loggen in het User Control Panel en andere "
-"services"
+msgstr "De gebruikersnaam nodig om in te loggen in het User Control Panel en andere services"
 
 #: htdocs/index.php:119
 msgid "There was an error trying to load UCP"
 msgstr "Er is een fout opgetreden tijdens het laden van UCP"
 
 #: views/users_hook.php:134
-msgid ""
-"These are the assigned and active extensions which will be allowed to edit "
-"extension settings such as Call Waiting, Call Forwarding, Find Me/Follow Me "
-"and others"
-msgstr ""
-"Dit zijn de toegewezen en actieve extensies die toegang tot de "
-"extensieinstellingen hebben zoals Wisselgesprek, Doorschakelen, Find Me/"
-"Follow Me en meer"
+msgid "These are the assigned and active extensions which will be allowed to edit extension settings such as Call Waiting, Call Forwarding, Find Me/Follow Me and others"
+msgstr "Dit zijn de toegewezen en actieve extensies die toegang tot de extensieinstellingen hebben zoals Wisselgesprek, Doorschakelen, Find Me/Follow Me en meer"
 
 #: htdocs/views/settings.php:52
 msgid "Title"
@@ -508,14 +469,8 @@ msgstr "Titel"
 
 #: htdocs/index.php:92
 #, php-format
-msgid ""
-"To protect the integrity of your server, you must allow overrides in your "
-"webserver's configuration file for the User Control Panel. For more "
-"information see: %s"
-msgstr ""
-"Om de integriteit van de server te waarborgen, moet je indien je Apache "
-"gebruikt Allow Overrides in het configuratiebestand van je webserver "
-"inschakelen voor het User Control Panel. Voor meer informatie zie: %s"
+msgid "To protect the integrity of your server, you must allow overrides in your webserver's configuration file for the User Control Panel. For more information see: %s"
+msgstr "Om de integriteit van de server te waarborgen, moet je indien je Apache gebruikt Allow Overrides in het configuratiebestand van je webserver inschakelen voor het User Control Panel. Voor meer informatie zie: %s"
 
 #: ucp.i18n.php:10
 msgid "UCP"
@@ -535,26 +490,20 @@ msgstr "UCP Sessie-Timeout"
 
 #: htdocs/index.php:25
 msgid "UCP is currently disabled. Please talk to your system Administrator"
-msgstr ""
-"UCP is momenteel uitgeschakeld. Neem contact op met je systeembeheerder"
+msgstr "UCP is momenteel uitgeschakeld. Neem contact op met je systeembeheerder"
 
 #: htdocs/assets/js/ucp.js:938
 msgid "UCP needs to reload, ok?"
 msgstr "UCP moet worden herladen, ok?"
 
 #: views/users_hook.php:9
-msgid ""
-"UCP, otherwise known as the User Control Panel, is a user interface for "
-"FreePBX."
-msgstr ""
-"UCP, een afkorting voor User Control Panel, is een gebruikersinterface voor "
-"FreePBX."
+msgid "UCP, otherwise known as the User Control Panel, is a user interface for FreePBX."
+msgstr "UCP, een afkorting voor User Control Panel, is een gebruikersinterface voor FreePBX."
 
 #: htdocs/assets/js/ucp.js:394
 #, perl-format
 msgid "Unable to get a token to use UCP Node Server because: '%s'"
-msgstr ""
-"Kan geen token verkrijgen om de UCP Node Server te gebruiken vanwege: '%s'"
+msgstr "Kan geen token verkrijgen om de UCP Node Server te gebruiken vanwege: '%s'"
 
 #: htdocs/index.php:183
 #, php-format
@@ -672,12 +621,8 @@ msgid "Your Work Number"
 msgstr "Je werktelefoonnummer"
 
 #: htdocs/assets/js/ucp.js:148
-msgid ""
-"Your browser is unsupported at this time. Please upgrade or talk to your "
-"system administrator"
-msgstr ""
-"Je browser wordt (op dit moment) niet ondersteund. Werk deze bij of neem "
-"contact op met je systeembeheerder"
+msgid "Your browser is unsupported at this time. Please upgrade or talk to your system administrator"
+msgstr "Je browser wordt (op dit moment) niet ondersteund. Werk deze bij of neem contact op met je systeembeheerder"
 
 #: htdocs/assets/js/ucp.js:82
 msgid "Your reset link is in the mail!"
@@ -685,14 +630,8 @@ msgstr "Je resetlink is in de e-mail!"
 
 #: htdocs/index.php:105
 #, php-format
-msgid ""
-"htaccess files help protect the integrity of your server. Please make sure "
-"file paths and directories are locked down properly. For more information "
-"see: %s"
-msgstr ""
-",htaccess-bestanden helpen de integriteit van je server te behouden. Zorg "
-"dat de paden en mappen juist geconfigureerd zijn. Voor meer informatie zie: "
-"%s"
+msgid "htaccess files help protect the integrity of your server. Please make sure file paths and directories are locked down properly. For more information see: %s"
+msgstr ",htaccess-bestanden helpen de integriteit van je server te behouden. Zorg dat de paden en mappen juist geconfigureerd zijn. Voor meer informatie zie: %s"
 
 #: htdocs/views/login.php:24
 msgid "or"

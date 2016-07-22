@@ -12,8 +12,7 @@ msgstr ""
 "POT-Creation-Date: 2016-07-06 23:45-0700\n"
 "PO-Revision-Date: 2015-11-23 13:55+0200\n"
 "Last-Translator: james <zhulizhong@gmail.com>\n"
-"Language-Team: Simplified Chinese <http://weblate.freepbx.org/projects/"
-"freepbx/ucp/zh_CN/>\n"
+"Language-Team: Simplified Chinese <http://weblate.freepbx.org/projects/freepbx/ucp/zh_CN/>\n"
 "Language: zh_CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -78,8 +77,7 @@ msgid "Admin"
 msgstr "管理"
 
 #: htdocs/views/settings.php:5
-msgid ""
-"All fields update when unfocused (selecting another field) except password"
+msgid "All fields update when unfocused (selecting another field) except password"
 msgstr ""
 
 #: htdocs/views/settings.php:92
@@ -103,9 +101,7 @@ msgid "Allow browser desktop notifications from UCP modules."
 msgstr "支持通过UCP模块查询桌面提示"
 
 #: views/users_hook.php:163
-msgid ""
-"Allow this user to originate calls from within UCP. This is not the same as "
-"WebRTC"
+msgid "Allow this user to originate calls from within UCP. This is not the same as WebRTC"
 msgstr "支持用户从UCP 发起呼叫。这和WebRTC 不同"
 
 #: ucp.i18n.php:24
@@ -243,8 +239,7 @@ msgid "Home Phone"
 msgstr ""
 
 #: htdocs/views/settings.php:34
-msgid ""
-"How you would like your name displayed throughout UCP and Contact Manager"
+msgid "How you would like your name displayed throughout UCP and Contact Manager"
 msgstr ""
 
 #: views/users_hook.php:56 views/users_hook.php:154
@@ -253,9 +248,7 @@ msgstr "继承"
 
 #: htdocs/index.php:242
 #, php-format
-msgid ""
-"Internet Explorer %s is not supported. Functionality will be deteriorated "
-"until you upgrade to %s or higher"
+msgid "Internet Explorer %s is not supported. Functionality will be deteriorated until you upgrade to %s or higher"
 msgstr ""
 
 #: htdocs/includes/User.class.php:86
@@ -443,9 +436,7 @@ msgid "TUV"
 msgstr ""
 
 #: ucp.i18n.php:36
-msgid ""
-"The number of days a session token will be valid for. Clear this setting if "
-"you want tokens to last forever (Not Recommended)"
+msgid "The number of days a session token will be valid for. Clear this setting if you want tokens to last forever (Not Recommended)"
 msgstr ""
 
 #: htdocs/views/settings.php:20 htdocs/views/settings.php:25
@@ -457,9 +448,7 @@ msgid "The removal of this copyright notice is stricly prohibited"
 msgstr ""
 
 #: ucp.i18n.php:8
-msgid ""
-"The user control panel is a way for users to control call handling and "
-"personal settings from a web browser."
+msgid "The user control panel is a way for users to control call handling and personal settings from a web browser."
 msgstr ""
 
 #: htdocs/views/settings.php:11
@@ -471,10 +460,7 @@ msgid "There was an error trying to load UCP"
 msgstr ""
 
 #: views/users_hook.php:134
-msgid ""
-"These are the assigned and active extensions which will be allowed to edit "
-"extension settings such as Call Waiting, Call Forwarding, Find Me/Follow Me "
-"and others"
+msgid "These are the assigned and active extensions which will be allowed to edit extension settings such as Call Waiting, Call Forwarding, Find Me/Follow Me and others"
 msgstr ""
 
 #: htdocs/views/settings.php:52
@@ -483,10 +469,7 @@ msgstr ""
 
 #: htdocs/index.php:92
 #, php-format
-msgid ""
-"To protect the integrity of your server, you must allow overrides in your "
-"webserver's configuration file for the User Control Panel. For more "
-"information see: %s"
+msgid "To protect the integrity of your server, you must allow overrides in your webserver's configuration file for the User Control Panel. For more information see: %s"
 msgstr ""
 
 #: ucp.i18n.php:10
@@ -514,9 +497,7 @@ msgid "UCP needs to reload, ok?"
 msgstr ""
 
 #: views/users_hook.php:9
-msgid ""
-"UCP, otherwise known as the User Control Panel, is a user interface for "
-"FreePBX."
+msgid "UCP, otherwise known as the User Control Panel, is a user interface for FreePBX."
 msgstr ""
 
 #: htdocs/assets/js/ucp.js:394
@@ -640,9 +621,7 @@ msgid "Your Work Number"
 msgstr ""
 
 #: htdocs/assets/js/ucp.js:148
-msgid ""
-"Your browser is unsupported at this time. Please upgrade or talk to your "
-"system administrator"
+msgid "Your browser is unsupported at this time. Please upgrade or talk to your system administrator"
 msgstr ""
 
 #: htdocs/assets/js/ucp.js:82
@@ -651,10 +630,7 @@ msgstr ""
 
 #: htdocs/index.php:105
 #, php-format
-msgid ""
-"htaccess files help protect the integrity of your server. Please make sure "
-"file paths and directories are locked down properly. For more information "
-"see: %s"
+msgid "htaccess files help protect the integrity of your server. Please make sure file paths and directories are locked down properly. For more information see: %s"
 msgstr ""
 
 #: htdocs/views/login.php:24
@@ -664,14 +640,14 @@ msgstr ""
 #~ msgid "Allow users to change thier username in UCP"
 #~ msgstr "允许用户通过UCP修改用户名称"
 
+#~ msgid "Allowed Settings"
+#~ msgstr "支持的设置"
+
 #~ msgid "Connecting...."
 #~ msgstr "连接。。。"
-
-#~ msgid "Submit"
-#~ msgstr "提交"
 
 #~ msgid "Failed to install "
 #~ msgstr "安装失败 "
 
-#~ msgid "Allowed Settings"
-#~ msgstr "支持的设置"
+#~ msgid "Submit"
+#~ msgstr "提交"
