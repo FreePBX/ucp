@@ -9,15 +9,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-07-18 12:36-0700\n"
+"POT-Creation-Date: 2016-07-29 16:54-0700\n"
 "PO-Revision-Date: 2016-07-26 23:05+0200\n"
 "Last-Translator: Media <mousavi.media@gmail.com>\n"
-"Language-Team: Persian (Iran) "
-"<http://weblate.freepbx.org/projects/freepbx/ucp/fa_IR/>\n"
-"Language: fa_IR\n"
+"Language-Team: Persian (Iran) <http://weblate.freepbx.org/projects/freepbx/"
+"ucp/fa_IR/>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: fa_IR\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 2.4\n"
 
@@ -57,6 +57,10 @@ msgstr "در حال حاضر یک توکن برای %s ایجاد شده, مجد
 msgid "ABC"
 msgstr "ABC"
 
+#: htdocs/views/settings.php:8
+msgid "Account Settings"
+msgstr ""
+
 #: views/users_hook.php:78
 msgid "Active Sessions"
 msgstr "اتصالات فعال"
@@ -65,12 +69,12 @@ msgstr "اتصالات فعال"
 msgid "Admin"
 msgstr "مدیر"
 
-#: htdocs/views/settings.php:5
+#: htdocs/views/settings.php:11
 msgid ""
 "All fields update when unfocused (selecting another field) except password"
 msgstr "تمام فیلدها به روز هستند بجز کلمه عبور  (فیلد دیگری انتخاب می شود)"
 
-#: htdocs/views/settings.php:92
+#: htdocs/views/settings.php:111
 msgid "Allow Desktop Notifications"
 msgstr "اجازه دادن به اعلان های هشدار در دسکتاپ"
 
@@ -86,7 +90,7 @@ msgstr "اجازه تغییردادن کلمه عبور"
 msgid "Allow Username Changes"
 msgstr "اجازه تغییر دادن نام کاربری"
 
-#: htdocs/views/settings.php:100
+#: htdocs/views/settings.php:119
 msgid "Allow browser desktop notifications from UCP modules."
 msgstr "اجازه نمایش اعلان های ماژول پنل کنترل کاربری در مرورگر دسکتاپ."
 
@@ -110,29 +114,41 @@ msgstr "به کاربران اجازه تغییر کلمه عبور در پنل 
 msgid "Allowed Extension Settings"
 msgstr "مجاز برای تتنظیمات داخلی"
 
-#: htdocs/assets/js/ucp.js:1001
+#: htdocs/assets/js/ucp.js:1033
 msgid "Are you sure you wish to change your username?"
 msgstr "آیا از تغییر نام کاربری خود اطمینان دارید؟"
+
+#: htdocs/views/settings.php:140
+msgid "Browse"
+msgstr ""
 
 #: htdocs/views/templates/phone.php:7 htdocs/views/templates/phone.php:95
 msgid "Call"
 msgstr "تماس"
 
-#: htdocs/views/settings.php:62
+#: htdocs/views/settings.php:74
 msgid "Cell Phone"
 msgstr "تلفن همراه"
 
-#: htdocs/views/settings.php:57
+#: htdocs/views/settings.php:69
 msgid "Company"
 msgstr "شرکت"
 
-#: htdocs/views/settings.php:23
+#: htdocs/views/settings.php:27
 msgid "Confirm Password"
 msgstr "تایید کلمه عبور"
+
+#: htdocs/views/settings.php:127
+msgid "Contact Image"
+msgstr ""
 
 #: htdocs/views/templates/phone.php:45
 msgid "DEF"
 msgstr "DEF"
+
+#: htdocs/views/settings.php:135
+msgid "Delete Image"
+msgstr ""
 
 #: Ucp.class.php:749
 msgid "Deleted Session"
@@ -142,7 +158,7 @@ msgstr "اتصال حذف شده"
 msgid "Deleted User Session"
 msgstr "اتصال حذف شده کاربر"
 
-#: htdocs/views/settings.php:32
+#: htdocs/views/settings.php:44
 msgid "Display Name"
 msgstr "نام قابل نمایش"
 
@@ -150,7 +166,11 @@ msgstr "نام قابل نمایش"
 msgid "Done"
 msgstr "انجام شد"
 
-#: htdocs/views/login.php:29 htdocs/views/settings.php:37
+#: htdocs/views/settings.php:132
+msgid "Drop a new image here"
+msgstr ""
+
+#: htdocs/views/login.php:29 htdocs/views/settings.php:49
 msgid "Email"
 msgstr "ایمیل"
 
@@ -175,7 +195,7 @@ msgstr "متاسفیم ما درحال بازیابی محتوا هستیم"
 msgid "Failed to install %s due to the following conflicting module(s): %s"
 msgstr "خطا در نصب %s که ناشی است از تداخل با ماژول(ها): %s"
 
-#: htdocs/views/settings.php:77
+#: htdocs/views/settings.php:89
 msgid "Fax"
 msgstr "فکس"
 
@@ -183,7 +203,7 @@ msgstr "فکس"
 msgid "First"
 msgstr "اولین"
 
-#: htdocs/views/settings.php:42
+#: htdocs/views/settings.php:54
 msgid "First Name"
 msgstr "نام"
 
@@ -224,15 +244,15 @@ msgid "Hold"
 msgstr "انتظار مکالمه"
 
 #: htdocs/modules/Home/Home.class.php:252 htdocs/views/dashboard.php:32
-#: htdocs/assets/js/ucp.js:787
+#: htdocs/assets/js/ucp.js:813
 msgid "Home"
 msgstr "خانه"
 
-#: htdocs/views/settings.php:72
+#: htdocs/views/settings.php:84
 msgid "Home Phone"
 msgstr "تلفن منزل"
 
-#: htdocs/views/settings.php:34
+#: htdocs/views/settings.php:46
 msgid ""
 "How you would like your name displayed throughout UCP and Contact Manager"
 msgstr "نامی که در کنترل پنل کاربری و مدیریت مخاطب نمایش داده می شود"
@@ -241,7 +261,11 @@ msgstr "نامی که در کنترل پنل کاربری و مدیریت مخا
 msgid "Inherit"
 msgstr "موروثی"
 
-#: htdocs/index.php:241
+#: htdocs/views/settings.php:99
+msgid "Interface Settings"
+msgstr ""
+
+#: htdocs/index.php:253
 #, php-format
 msgid ""
 "Internet Explorer %s is not supported. Functionality will be deteriorated "
@@ -263,7 +287,7 @@ msgstr "دستگاه نامعتبر"
 msgid "Invalid Login Credentials"
 msgstr "اطلاعات کاربری نامعتبر"
 
-#: htdocs/index.php:230
+#: htdocs/index.php:242
 msgid "Invalid Token"
 msgstr "توکن نامعتبر"
 
@@ -271,7 +295,7 @@ msgstr "توکن نامعتبر"
 msgid "JKL"
 msgstr "JKL"
 
-#: htdocs/views/settings.php:83
+#: htdocs/views/settings.php:102
 msgid "Language"
 msgstr "زبان"
 
@@ -279,7 +303,7 @@ msgstr "زبان"
 msgid "Last"
 msgstr "آخر"
 
-#: htdocs/views/settings.php:47
+#: htdocs/views/settings.php:59
 msgid "Last Name"
 msgstr "نام خانوادگی"
 
@@ -288,15 +312,16 @@ msgid "Loading"
 msgstr "در حال بارگذاری"
 
 #: htdocs/views/forgot.php:61 htdocs/views/login.php:53
+#: htdocs/assets/js/ucp.js:1156
 msgid "Loading..."
 msgstr "در حال بارگذاری…"
 
 #: htdocs/views/forgot.php:45 htdocs/views/login.php:37
-#: htdocs/assets/js/ucp.js:128 htdocs/assets/js/ucp.js:141
+#: htdocs/assets/js/ucp.js:129 htdocs/assets/js/ucp.js:142
 msgid "Login"
 msgstr "ورود"
 
-#: htdocs/index.php:217
+#: htdocs/index.php:229
 msgid "Logout"
 msgstr "خروج"
 
@@ -316,13 +341,17 @@ msgstr "متفرقه"
 msgid "Module or Command were null. Check your code."
 msgstr "ماژول یا دستور خالی بود. کد خود را بررسی کنید."
 
-#: htdocs/assets/js/ucp.js:94
+#: htdocs/assets/js/ucp.js:95
 msgid "New password and old password do not match"
 msgstr "کلمه عبور قدیم و جدید سازگار نیستند"
 
 #: views/users_hook.php:53 views/users_hook.php:151
 msgid "No"
 msgstr "خیر"
+
+#: htdocs/assets/js/ucp.js:1151
+msgid "No email defined"
+msgstr ""
 
 #: htdocs/modules/Home/assets/js/global.js:75
 msgid "Nothing Entered"
@@ -345,7 +374,7 @@ msgstr "روشن"
 msgid "Originate"
 msgstr "شروع تماس"
 
-#: htdocs/index.php:211 htdocs/modules/Home/assets/js/global.js:22
+#: htdocs/index.php:223 htdocs/modules/Home/assets/js/global.js:22
 #: htdocs/modules/Home/assets/js/global.js:45
 #: htdocs/modules/Home/assets/js/global.js:123
 msgid "Originate Call"
@@ -355,11 +384,11 @@ msgstr "ایجاد یک تماس"
 msgid "PQRS"
 msgstr "PQRS"
 
-#: htdocs/views/login.php:20 htdocs/views/settings.php:18
+#: htdocs/views/login.php:20 htdocs/views/settings.php:22
 msgid "Password"
 msgstr "بله"
 
-#: htdocs/assets/js/ucp.js:968
+#: htdocs/assets/js/ucp.js:1000
 msgid "Password Confirmation Didn't Match!"
 msgstr "کلمه های عبور یکسان نیستند!"
 
@@ -373,23 +402,23 @@ msgstr "لینک بازنشانی کلمه عبور (معتبر تا : %s): %s"
 msgid "Password Reset for: %s"
 msgstr "بازنشانی کلمه عبور برای:%s"
 
-#: htdocs/assets/js/ucp.js:97
+#: htdocs/assets/js/ucp.js:98
 msgid "Password fields can't be blank!"
 msgstr "فیلد کلمه عبور نمی تواند خالی باشد!"
 
-#: htdocs/assets/js/ucp.js:106
+#: htdocs/assets/js/ucp.js:107
 msgid "Password has been changed!"
 msgstr "کلمه عبور تغییر یافت!"
 
-#: htdocs/assets/js/ucp.js:986
+#: htdocs/assets/js/ucp.js:1018
 msgid "Password has not changed!"
 msgstr "کلمه عبور تغییری نکرده است!"
 
-#: htdocs/assets/js/ucp.js:72
+#: htdocs/assets/js/ucp.js:73
 msgid "Please enter either a username or email address"
 msgstr "لطفا یک نام کاربری یا آدرس ایمیل وارد کنید"
 
-#: htdocs/assets/js/ucp.js:70 htdocs/assets/js/ucp.js:121
+#: htdocs/assets/js/ucp.js:71 htdocs/assets/js/ucp.js:122
 msgid "Processing..."
 msgstr "در حال پردازش..."
 
@@ -414,7 +443,7 @@ msgstr "مرا بخاطر بسپار"
 msgid "Reset Password"
 msgstr "بازنشانی کلمه عبور"
 
-#: htdocs/assets/js/ucp.js:974 htdocs/assets/js/ucp.js:1019
+#: htdocs/assets/js/ucp.js:1006 htdocs/assets/js/ucp.js:1051
 msgid "Saved!"
 msgstr "ذخیره شد!"
 
@@ -427,7 +456,7 @@ msgstr "لینک بازنشانی کلمه عبور را برایم ارسال �
 msgid "Sent at %s"
 msgstr "ارسال شده در %s"
 
-#: htdocs/views/dashboard.php:39 htdocs/assets/js/ucp.js:829
+#: htdocs/views/dashboard.php:39 htdocs/assets/js/ucp.js:855
 msgid "Settings"
 msgstr "تنظیمات"
 
@@ -443,7 +472,7 @@ msgstr ""
 "تعداد روزهایی که یک اتصال در آن دوره معتبر است. اگر می خواهید توکن ها دوام "
 "داشته باشند، این تنظیمات را حذف کنید (توصیه نمی شود)"
 
-#: htdocs/views/settings.php:20 htdocs/views/settings.php:25
+#: htdocs/views/settings.php:24 htdocs/views/settings.php:29
 msgid "The password used to login to User Control Panel and other services"
 msgstr ""
 "از این کلمه عبور برای ورود به پنل کنترل کاربری و دیگر سرویس ها استفاده می شود"
@@ -460,7 +489,7 @@ msgstr ""
 "پنل کنترل کاربری ابزاری برای پاسخ گویی کاربر به تماس ها و انجام تنظیمات شخصی "
 "از طریق مرورگر وب می باشد."
 
-#: htdocs/views/settings.php:11
+#: htdocs/views/settings.php:15
 msgid "The username used to login to User Control Panel and other services"
 msgstr ""
 "از این نام کاربری برای ورود به پنل کنترل کاربری و دیگر سرویس ها استفاده می "
@@ -479,7 +508,7 @@ msgstr ""
 "این داخلی ها فعال بوده و برای تغییر تنظیمات داخلی مانند انتظار مکالمه، "
 "انتقال مکالمه، مرا پیدا/دنبال کن و غیره، مجوز آن داده شده است"
 
-#: htdocs/views/settings.php:52
+#: htdocs/views/settings.php:64
 msgid "Title"
 msgstr "عنوان"
 
@@ -501,7 +530,7 @@ msgstr "پنل کنترل کاربری"
 msgid "UCP Admin"
 msgstr "مدیر پنل کنترل کاربری"
 
-#: htdocs/views/settings.php:89
+#: htdocs/views/settings.php:108
 msgid "UCP Language"
 msgstr "زبان پنل کنترل کاربری"
 
@@ -514,7 +543,7 @@ msgid "UCP is currently disabled. Please talk to your system Administrator"
 msgstr ""
 "پنل کنترل کاربری در حال حاضر غیرفعال است. لطفا با مدیر سیستم خود تماس بگیرید"
 
-#: htdocs/assets/js/ucp.js:938
+#: htdocs/assets/js/ucp.js:970
 msgid "UCP needs to reload, ok?"
 msgstr "پنل کنترل کاربری به بازنشانی احتیاج دارد، درست است؟"
 
@@ -525,19 +554,27 @@ msgid ""
 msgstr ""
 "UCP، یا به عبارت دیگر پنل کنترل کاربری، یک رابط کاربری برای FreePBX است."
 
-#: htdocs/assets/js/ucp.js:394
+#: htdocs/assets/js/ucp.js:395
 #, perl-format
 msgid "Unable to get a token to use UCP Node Server because: '%s'"
 msgstr "عدم توانایی در دریافت نشانه از سرور پنل کنترل کاربری به دلیل: '%s'"
 
-#: htdocs/index.php:182
+#: htdocs/index.php:194
 #, php-format
 msgid "Unknown Module %s"
 msgstr "ماژول ناشناس %s"
 
-#: htdocs/views/settings.php:27
+#: htdocs/assets/js/ucp.js:1090
+msgid "Unsupported file type"
+msgstr ""
+
+#: htdocs/views/settings.php:31
 msgid "Update Password"
 msgstr "به روزرسانی کلمه عبور"
+
+#: htdocs/views/settings.php:149
+msgid "Use Gravatar"
+msgstr ""
 
 #: htdocs/views/forgot.php:5 htdocs/views/header.php:4
 #: htdocs/views/login.php:4 ucp.i18n.php:4
@@ -560,6 +597,10 @@ msgstr "پنل کنترل کاربری منتشر شده %s یا جدیدتر"
 msgid "User Control Panel: %s"
 msgstr "پنل کنترل کاربری: %s"
 
+#: htdocs/views/settings.php:41
+msgid "User Details"
+msgstr ""
+
 #: ucp.i18n.php:12
 msgid "User Panel"
 msgstr "پنل کاربر"
@@ -568,15 +609,15 @@ msgstr "پنل کاربر"
 msgid "User Primary Extension"
 msgstr "داخلی اصلی کاربر"
 
-#: htdocs/index.php:217
+#: htdocs/index.php:229
 msgid "User Settings"
 msgstr "تنظیمات کاربر"
 
-#: htdocs/views/login.php:15 htdocs/views/settings.php:9
+#: htdocs/views/login.php:15 htdocs/views/settings.php:13
 msgid "Username"
 msgstr "نام کاربری"
 
-#: htdocs/assets/js/ucp.js:1004
+#: htdocs/assets/js/ucp.js:1036
 msgid "Username has been changed, reloading"
 msgstr "نام کاربری تغییر کرده است، در حال بارگذاری"
 
@@ -593,7 +634,7 @@ msgstr "خوش آمدید %s"
 msgid "What is UCP"
 msgstr "پنل کنترل کاربری چیست"
 
-#: htdocs/views/settings.php:67
+#: htdocs/views/settings.php:79
 msgid "Work Phone"
 msgstr "تلفن محل کار"
 
@@ -601,51 +642,51 @@ msgstr "تلفن محل کار"
 msgid "Yes"
 msgstr "بله"
 
-#: htdocs/assets/js/ucp.js:460
+#: htdocs/assets/js/ucp.js:461
 msgid "You are currently working in offline mode."
 msgstr "شما در حال حاضر در حالت آفلاین هستید."
 
-#: htdocs/assets/js/ucp.js:146
+#: htdocs/assets/js/ucp.js:147
 msgid "Your Browser is unsupported at this time."
 msgstr "در حال حاضر مرورگر شما پشتیبانی نمی شود."
 
-#: htdocs/views/settings.php:64
+#: htdocs/views/settings.php:76
 msgid "Your Cell Phone Number"
 msgstr "شماره تلفن همراه شما"
 
-#: htdocs/views/settings.php:59
+#: htdocs/views/settings.php:71
 msgid "Your Company"
 msgstr "شرکت شما"
 
-#: htdocs/views/settings.php:39
+#: htdocs/views/settings.php:51
 msgid "Your Email Address"
 msgstr "آدرس ایمیل شما"
 
-#: htdocs/views/settings.php:79
+#: htdocs/views/settings.php:91
 msgid "Your Fax Number"
 msgstr "شماره فکس شما"
 
-#: htdocs/views/settings.php:44
+#: htdocs/views/settings.php:56
 msgid "Your First Name"
 msgstr "نام شما"
 
-#: htdocs/views/settings.php:74
+#: htdocs/views/settings.php:86
 msgid "Your Home Number"
 msgstr "تلفن منزل شما"
 
-#: htdocs/views/settings.php:49
+#: htdocs/views/settings.php:61
 msgid "Your Last Name"
 msgstr "نام خانوادگی شما"
 
-#: htdocs/views/settings.php:54
+#: htdocs/views/settings.php:66
 msgid "Your Title"
 msgstr "عنوان شما"
 
-#: htdocs/views/settings.php:69
+#: htdocs/views/settings.php:81
 msgid "Your Work Number"
 msgstr "تلفن محل کار شما"
 
-#: htdocs/assets/js/ucp.js:148
+#: htdocs/assets/js/ucp.js:149
 msgid ""
 "Your browser is unsupported at this time. Please upgrade or talk to your "
 "system administrator"
@@ -653,7 +694,7 @@ msgstr ""
 "در حال حاضر مرورگر شما پشتیبانی نمی شود. لطفا آن را به روز کنید و یا با مدیر "
 "سیستم تماس بگیرید"
 
-#: htdocs/assets/js/ucp.js:82
+#: htdocs/assets/js/ucp.js:83
 msgid "Your reset link is in the mail!"
 msgstr "لینک بازنشانی کلمه عبور در ایمیل شماست!"
 
