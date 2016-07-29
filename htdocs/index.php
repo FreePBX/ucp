@@ -164,6 +164,18 @@ switch($display) {
 			$displayvars['changeusername'] = $ucp->User->canChange("username");
 			$displayvars['changedetails'] = $ucp->User->canChange("details");
 			$displayvars['username'] = $user['username'];
+
+			if($ucp->Modules->moduleHasMethod('Contactmanager', 'userDetails')) {
+				$displayvars['contactmanager'] = array(
+					"status" => true,
+					"data" => $ucp->Modules->Contactmanager->userDetails()
+				);
+			} else {
+				$displayvars['contactmanager'] = array(
+					"status" => false
+				);
+			}
+
 			$dashboard_content = $ucp->View->load_view(__DIR__.'/views/settings.php',$displayvars);
 			$displayvars['active_module'] = 'ucpsettings';
 			$ucp->Modgettext->pop_textdomain();

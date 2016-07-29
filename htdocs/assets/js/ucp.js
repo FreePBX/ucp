@@ -23,6 +23,7 @@ var UCPC = Class.extend({
 		this.lastIO = null;
 		this.Modules = {};
 		this.calibrating = false;
+		this.UCPSettings = {packery: true};
 
 		textdomain("ucp");
 	},
@@ -518,6 +519,31 @@ var UCPC = Class.extend({
 		}
 	},
 	windowResize: function() {
+		if($("#ucp-settings").length) {
+			var wasPackeryEnabled = this.UCPSettings.packery;
+			this.UCPSettings.packery = $(window).width() >= 768;
+			if (this.UCPSettings.packery !== wasPackeryEnabled) {
+				if (this.UCPSettings.packery) {
+					clearTimeout(this.doit);
+					this.doit = setTimeout(function() {
+						$(".section").css("width", "300px");
+						$(".section").css("margin-bottom", "");
+						$(".masonry-container").packery({
+							columnWidth: 40,
+							itemSelector: ".section"
+						});
+					}, 100);
+				} else {
+					this.UCPSettings.packery = false;
+					$(".masonry-container").packery("destroy");
+					$(".section").css("width", "100%");
+					$(".section").css("margin-bottom", "10px");
+				}
+			} else if (!this.UCPSettings.packery) {
+				$(".section").css("width", "100%");
+				$(".section").css("margin-bottom", "10px");
+			}
+		}
 		if ($( window ).width() > 767 && $(".pushmenu-left").hasClass("pushmenu-open")) {
 			UCP.toggleMenu();
 		}
@@ -901,6 +927,10 @@ var UCPC = Class.extend({
 		this.disconnect();
 	},
 	settingsBinds: function() {
+		$("#ucp-settings .masonry-container").packery({
+			columnWidth: 40,
+			itemSelector: ".section"
+		});
 		if (Notify.isSupported()) {
 			$("#ucp-settings input[name=\"desktopnotifications\"]").prop("checked", UCP.notify);
 			$("#ucp-settings input[name=\"desktopnotifications\"]").off();
@@ -927,7 +957,9 @@ var UCPC = Class.extend({
 					});
 				}
 			});
-			$("#ucp-settings .desktopnotifications-group").show();
+			$("#ucp-settings .desktopnotifications-group").show(function() {
+				$("#ucp-settings .masonry-container").packery();
+			});
 		}
 
 		if (typeof $.cookie("lang") !== "undefined") {
@@ -1029,24 +1061,157 @@ var UCPC = Class.extend({
 				}
 			});
 		});
+		if($("#Contactmanager-image").length) {
+			/**
+			 * Drag/Drop/Upload Files
+			 */
+			$('#contactmanager_dropzone').on('drop dragover', function (e) {
+				e.preventDefault();
+			});
+			$('#contactmanager_dropzone').on('dragleave drop', function (e) {
+				$(this).removeClass("activate");
+			});
+			$('#contactmanager_dropzone').on('dragover', function (e) {
+				$(this).addClass("activate");
+			});
+			var supportedRegExp = "png|jpg|jpeg";
+			$( document ).ready(function() {
+				$('#contactmanager_imageupload').fileupload({
+					dataType: 'json',
+					dropZone: $("#contactmanager_dropzone"),
+					add: function (e, data) {
+						//TODO: Need to check all supported formats
+						var sup = "\.("+supportedRegExp+")$",
+								patt = new RegExp(sup),
+								submit = true;
+						$.each(data.files, function(k, v) {
+							if(!patt.test(v.name.toLowerCase())) {
+								submit = false;
+								alert(_("Unsupported file type"));
+								return false;
+							}
+						});
+						if(submit) {
+							$("#contactmanager_upload-progress .progress-bar").addClass("progress-bar-striped active");
+							data.submit();
+						}
+					},
+					drop: function () {
+						$("#contactmanager_upload-progress .progress-bar").css("width", "0%");
+					},
+					dragover: function (e, data) {
+					},
+					change: function (e, data) {
+					},
+					done: function (e, data) {
+						$("#contactmanager_upload-progress .progress-bar").removeClass("progress-bar-striped active");
+						$("#contactmanager_upload-progress .progress-bar").css("width", "0%");
+
+						if(data.result.status) {
+							$("#contactmanager_dropzone img").attr("src",data.result.url);
+							$("#contactmanager_image").val(data.result.filename);
+							$("#contactmanager_dropzone img").removeClass("hidden");
+							$("#contactmanager_del-image").removeClass("hidden");
+							$("#contactmanager_gravatar").prop('checked', false);
+						} else {
+							alert(data.result.message);
+						}
+					},
+					progressall: function (e, data) {
+						var progress = parseInt(data.loaded / data.total * 100, 10);
+						$("#contactmanager_upload-progress .progress-bar").css("width", progress+"%");
+					},
+					fail: function (e, data) {
+					},
+					always: function (e, data) {
+					}
+				});
+
+				$("#contactmanager_del-image").click(function(e) {
+					e.preventDefault();
+					e.stopPropagation();
+					var id = $("input[name=user]").val(),
+							grouptype = 'userman';
+					$.post( "?quietmode=1&module=Contactmanager&command=delimage", {id: id, img: $("#contactmanager_image").val()}, function( data ) {
+						if(data.status) {
+							$("#contactmanager_image").val("");
+							$("#contactmanager_dropzone img").addClass("hidden");
+							$("#contactmanager_dropzone img").attr("src","");
+							$("#contactmanager_del-image").addClass("hidden");
+							$("#contactmanager_gravatar").prop('checked', false);
+						}
+					});
+				});
+
+				$("#contactmanager_gravatar").change(function() {
+					if($(this).is(":checked")) {
+						var id = $("input[name=user]").val(),
+								grouptype = 'userman';
+						if($("#email").val() === "") {
+							alert(_("No email defined"));
+							$("#contactmanager_gravatar").prop('checked', false);
+							return;
+						}
+						var t = $("label[for=contactmanager_gravatar]").text();
+						$("label[for=contactmanager_gravatar]").text(_("Loading..."));
+						$.post( "?quietmode=1&module=Contactmanager&command=getgravatar", {id: id, grouptype: grouptype, email: $("#email").val()}, function( data ) {
+							$("label[for=contactmanager_gravatar]").text(t);
+							if(data.status) {
+								$("#contactmanager_dropzone img").data("oldsrc",$("#dropzone img").attr("src"));
+								$("#contactmanager_dropzone img").attr("src",data.url);
+								$("#contactmanager_image").data("old",$("#image").val());
+								$("#contactmanager_image").val(data.filename);
+								$("#contactmanager_dropzone img").removeClass("hidden");
+								$("#contactmanager_del-image").removeClass("hidden");
+							} else {
+								alert(data.message);
+								$("#contactmanager_gravatar").prop('checked', false);
+							}
+						});
+					} else {
+						var oldsrc = $("#contactmanager_dropzone img").data("oldsrc");
+						if(typeof oldsrc !== "undefined" && oldsrc !== "") {
+							$("#contactmanager_dropzone img").attr("src",oldsrc);
+							$("#contactmanager_image").val($("#image").data("old"));
+						} else {
+							$("#contactmanager_image").val("");
+							$("#contactmanager_dropzone img").addClass("hidden");
+							$("#contactmanager_dropzone img").attr("src","");
+							$("#contactmanager_del-image").addClass("hidden");
+						}
+					}
+				});
+			});
+		}
 	},
 	binds: function() {
+		var UCPSettings = this.UCPSettings;
+		$(".form-group label.help").off("click");
 		$(".form-group label.help").click(function() {
 			var f = $(this).prop("for");
 			if (!$(".help-hidden[data-for=\"" + f + "\"]").is(":visible")) {
 				//hide all others
 				$(".help-hidden").fadeOut("slow", function() {
+					if (("#ucp-settings .masonry-container").length && UCPSettings.packery) {
+						$("#ucp-settings .masonry-container").packery();
+					}
 					if (("#module-page-settings .masonry-container").length && Settings.packery) {
 						$("#module-page-settings .masonry-container").packery();
 					}
 				});
 				//display our reference
 				$(".help-hidden[data-for=\"" + f + "\"]").fadeIn("slow");
+				if (("#ucp-settings .masonry-container").length && UCPSettings.packery) {
+					$("#ucp-settings .masonry-container").packery();
+				}
 				if (("#module-page-settings .masonry-container").length && Settings.packery) {
 					$("#module-page-settings .masonry-container").packery();
 				}
 			} else {
 				$(".help-hidden[data-for=\"" + f + "\"]").fadeOut("slow", function() {
+					if (("#ucp-settings .masonry-container").length && UCPSettings.packery) {
+						$("#ucp-settings .masonry-container").packery();
+					}
 					if (("#module-page-settings .masonry-container").length && Settings.packery) {
 						$("#module-page-settings .masonry-container").packery();
 					}
