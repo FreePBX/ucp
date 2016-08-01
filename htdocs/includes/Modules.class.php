@@ -228,8 +228,12 @@ class Modules extends Module_Helpers {
 					continue;
 				}
 				$dir = dirname(__DIR__)."/modules/".$module."/assets/less";
-				if(is_dir($dir) && file_exists($dir.'/bootstrap.less')) {
-					$files[$dir."/bootstrap.less"] = '../../../../modules/'.ucfirst($module).'/assets';
+				if(is_dir($dir)) {
+					if(file_exists($dir.'/bootstrap.less')) {
+						$files[$dir."/bootstrap.less"] = '../../../../modules/'.ucfirst($module).'/assets';
+					} elseif(file_exists($dir.'/'.$module.'.less')) {
+						$files[$dir."/".$module.".less"] = '../../../../modules/'.ucfirst($module).'/assets';
+					}
 				}
 			}
 		}
