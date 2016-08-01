@@ -9,10 +9,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-07-22 11:21-0700\n"
+"POT-Creation-Date: 2016-08-01 13:19-0700\n"
 "PO-Revision-Date: 2016-06-07 10:27+0200\n"
 "Last-Translator: Ernesto <ecasas@sangoma.com>\n"
-"Language-Team: Spanish <http://weblate.freepbx.org/projects/freepbx/ucp/es_ES/>\n"
+"Language-Team: Spanish <http://weblate.freepbx.org/projects/freepbx/ucp/"
+"es_ES/>\n"
 "Language: es_ES\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -53,7 +54,9 @@ msgstr ""
 
 #: htdocs/index.php:91
 msgid ".htaccess files are disabled on this webserver. Please enable them"
-msgstr "los ficheros .htaccess están deshabilitados en ente webserver. Por favor habilitelos"
+msgstr ""
+"los ficheros .htaccess están deshabilitados en ente webserver. Por favor "
+"habilitelos"
 
 #: htdocs/index.php:104
 msgid ".htaccess files are not supported on this webserver."
@@ -68,6 +71,10 @@ msgstr ""
 msgid "ABC"
 msgstr "ABC"
 
+#: htdocs/views/settings.php:8
+msgid "Account Settings"
+msgstr ""
+
 #: views/users_hook.php:78
 msgid "Active Sessions"
 msgstr "Sesiones Activas"
@@ -76,11 +83,12 @@ msgstr "Sesiones Activas"
 msgid "Admin"
 msgstr "Admin"
 
-#: htdocs/views/settings.php:5
-msgid "All fields update when unfocused (selecting another field) except password"
+#: htdocs/views/settings.php:11
+msgid ""
+"All fields update when unfocused (selecting another field) except password"
 msgstr ""
 
-#: htdocs/views/settings.php:92
+#: htdocs/views/settings.php:111
 msgid "Allow Desktop Notifications"
 msgstr "Permitir Notificaciones de Escritorio"
 
@@ -96,12 +104,14 @@ msgstr "Permitir Cambios de Contraseña"
 msgid "Allow Username Changes"
 msgstr "Permitir Cambios de Nombre de Usuario"
 
-#: htdocs/views/settings.php:100
+#: htdocs/views/settings.php:119
 msgid "Allow browser desktop notifications from UCP modules."
 msgstr "Permitir notificaciones de escritorio desde los módulos UCP."
 
 #: views/users_hook.php:163
-msgid "Allow this user to originate calls from within UCP. This is not the same as WebRTC"
+msgid ""
+"Allow this user to originate calls from within UCP. This is not the same as "
+"WebRTC"
 msgstr ""
 
 #: ucp.i18n.php:24
@@ -116,29 +126,41 @@ msgstr "Permitir a usuarios cambiar su contraseña en UCP"
 msgid "Allowed Extension Settings"
 msgstr ""
 
-#: htdocs/assets/js/ucp.js:1001
+#: htdocs/assets/js/ucp.js:1033
 msgid "Are you sure you wish to change your username?"
 msgstr "Esta seguro que desea cambiar su nombre de usuario?"
+
+#: htdocs/views/settings.php:140
+msgid "Browse"
+msgstr ""
 
 #: htdocs/views/templates/phone.php:7 htdocs/views/templates/phone.php:95
 msgid "Call"
 msgstr "Llamada"
 
-#: htdocs/views/settings.php:62
+#: htdocs/views/settings.php:74
 msgid "Cell Phone"
 msgstr "Teléfono Móvil"
 
-#: htdocs/views/settings.php:57
+#: htdocs/views/settings.php:69
 msgid "Company"
 msgstr "Empresa"
 
-#: htdocs/views/settings.php:23
+#: htdocs/views/settings.php:27
 msgid "Confirm Password"
 msgstr "Confirmar Contraseña"
+
+#: htdocs/views/settings.php:127
+msgid "Contact Image"
+msgstr ""
 
 #: htdocs/views/templates/phone.php:45
 msgid "DEF"
 msgstr "DEF"
+
+#: htdocs/views/settings.php:135
+msgid "Delete Image"
+msgstr ""
 
 #: Ucp.class.php:749
 msgid "Deleted Session"
@@ -148,7 +170,7 @@ msgstr "Sesión borrada"
 msgid "Deleted User Session"
 msgstr "Sesión de usuario borrada"
 
-#: htdocs/views/settings.php:32
+#: htdocs/views/settings.php:44
 msgid "Display Name"
 msgstr "Nombre a Mostrar"
 
@@ -156,7 +178,11 @@ msgstr "Nombre a Mostrar"
 msgid "Done"
 msgstr "Hecho"
 
-#: htdocs/views/login.php:29 htdocs/views/settings.php:37
+#: htdocs/views/settings.php:132
+msgid "Drop a new image here"
+msgstr ""
+
+#: htdocs/views/login.php:29 htdocs/views/settings.php:49
 msgid "Email"
 msgstr "Correo"
 
@@ -181,7 +207,7 @@ msgstr "Discúlpenos mientras tratamos de recuperar su contenido"
 msgid "Failed to install %s due to the following conflicting module(s): %s"
 msgstr ""
 
-#: htdocs/views/settings.php:77
+#: htdocs/views/settings.php:89
 msgid "Fax"
 msgstr "Fax"
 
@@ -189,7 +215,7 @@ msgstr "Fax"
 msgid "First"
 msgstr "Primero"
 
-#: htdocs/views/settings.php:42
+#: htdocs/views/settings.php:54
 msgid "First Name"
 msgstr "Primer Nombre"
 
@@ -230,25 +256,33 @@ msgid "Hold"
 msgstr "Espere"
 
 #: htdocs/modules/Home/Home.class.php:252 htdocs/views/dashboard.php:32
-#: htdocs/assets/js/ucp.js:787
+#: htdocs/assets/js/ucp.js:813
 msgid "Home"
 msgstr "Inicio"
 
-#: htdocs/views/settings.php:72
+#: htdocs/views/settings.php:84
 msgid "Home Phone"
 msgstr "Teléfono de Casa"
 
-#: htdocs/views/settings.php:34
-msgid "How you would like your name displayed throughout UCP and Contact Manager"
-msgstr "Como desea que su nombre sea desplegado  en el UCP y en Sistema de Contactos"
+#: htdocs/views/settings.php:46
+msgid ""
+"How you would like your name displayed throughout UCP and Contact Manager"
+msgstr ""
+"Como desea que su nombre sea desplegado  en el UCP y en Sistema de Contactos"
 
 #: views/users_hook.php:56 views/users_hook.php:154
 msgid "Inherit"
 msgstr "heredado"
 
-#: htdocs/index.php:242
+#: htdocs/views/settings.php:99
+msgid "Interface Settings"
+msgstr ""
+
+#: htdocs/index.php:254
 #, php-format
-msgid "Internet Explorer %s is not supported. Functionality will be deteriorated until you upgrade to %s or higher"
+msgid ""
+"Internet Explorer %s is not supported. Functionality will be deteriorated "
+"until you upgrade to %s or higher"
 msgstr ""
 
 #: htdocs/includes/User.class.php:86
@@ -264,7 +298,7 @@ msgstr ""
 msgid "Invalid Login Credentials"
 msgstr "Credenciales de acceso inválidas"
 
-#: htdocs/index.php:231
+#: htdocs/index.php:243
 msgid "Invalid Token"
 msgstr "Llave inválida"
 
@@ -272,7 +306,7 @@ msgstr "Llave inválida"
 msgid "JKL"
 msgstr "JKL"
 
-#: htdocs/views/settings.php:83
+#: htdocs/views/settings.php:102
 msgid "Language"
 msgstr "Idioma"
 
@@ -280,7 +314,7 @@ msgstr "Idioma"
 msgid "Last"
 msgstr "Apellido"
 
-#: htdocs/views/settings.php:47
+#: htdocs/views/settings.php:59
 msgid "Last Name"
 msgstr "Apellido"
 
@@ -293,11 +327,11 @@ msgid "Loading..."
 msgstr "Cargando..."
 
 #: htdocs/views/forgot.php:45 htdocs/views/login.php:37
-#: htdocs/assets/js/ucp.js:128 htdocs/assets/js/ucp.js:141
+#: htdocs/assets/js/ucp.js:129 htdocs/assets/js/ucp.js:142
 msgid "Login"
 msgstr "Usuario"
 
-#: htdocs/index.php:218
+#: htdocs/index.php:230
 msgid "Logout"
 msgstr "Salir"
 
@@ -317,7 +351,7 @@ msgstr ""
 msgid "Module or Command were null. Check your code."
 msgstr "El Modulo o Comando fue nulo. Revise su código."
 
-#: htdocs/assets/js/ucp.js:94
+#: htdocs/assets/js/ucp.js:95
 msgid "New password and old password do not match"
 msgstr ""
 
@@ -346,7 +380,7 @@ msgstr "ON"
 msgid "Originate"
 msgstr ""
 
-#: htdocs/index.php:212 htdocs/modules/Home/assets/js/global.js:22
+#: htdocs/index.php:224 htdocs/modules/Home/assets/js/global.js:22
 #: htdocs/modules/Home/assets/js/global.js:45
 #: htdocs/modules/Home/assets/js/global.js:123
 msgid "Originate Call"
@@ -356,11 +390,11 @@ msgstr "Originar Llamada"
 msgid "PQRS"
 msgstr "PQRS"
 
-#: htdocs/views/login.php:20 htdocs/views/settings.php:18
+#: htdocs/views/login.php:20 htdocs/views/settings.php:22
 msgid "Password"
 msgstr "Contraseña"
 
-#: htdocs/assets/js/ucp.js:968
+#: htdocs/assets/js/ucp.js:1000
 msgid "Password Confirmation Didn't Match!"
 msgstr "La confirmación del Password no coincide!!"
 
@@ -374,23 +408,24 @@ msgstr "Enlace para restablecer Password (Valido hasta: %s): %s"
 msgid "Password Reset for: %s"
 msgstr "Restablece Password para: %s"
 
-#: htdocs/assets/js/ucp.js:97
+#: htdocs/assets/js/ucp.js:98
 msgid "Password fields can't be blank!"
 msgstr ""
 
-#: htdocs/assets/js/ucp.js:106
+#: htdocs/assets/js/ucp.js:107
 msgid "Password has been changed!"
 msgstr ""
 
-#: htdocs/assets/js/ucp.js:986
+#: htdocs/assets/js/ucp.js:1018
 msgid "Password has not changed!"
 msgstr ""
 
-#: htdocs/assets/js/ucp.js:72
+#: htdocs/assets/js/ucp.js:73
 msgid "Please enter either a username or email address"
-msgstr "Por favor introduzca ya sea un nombre de usuario o una dirección de email"
+msgstr ""
+"Por favor introduzca ya sea un nombre de usuario o una dirección de email"
 
-#: htdocs/assets/js/ucp.js:70 htdocs/assets/js/ucp.js:121
+#: htdocs/assets/js/ucp.js:71 htdocs/assets/js/ucp.js:122
 msgid "Processing..."
 msgstr "Procesando..."
 
@@ -414,7 +449,7 @@ msgstr "Recuerdeme"
 msgid "Reset Password"
 msgstr "Reiniciar Password"
 
-#: htdocs/assets/js/ucp.js:974 htdocs/assets/js/ucp.js:1019
+#: htdocs/assets/js/ucp.js:1006 htdocs/assets/js/ucp.js:1051
 msgid "Saved!"
 msgstr "Guardado!"
 
@@ -427,7 +462,7 @@ msgstr "Envíeme un enlace de reinicio de Password"
 msgid "Sent at %s"
 msgstr "Enviado a %s"
 
-#: htdocs/views/dashboard.php:39 htdocs/assets/js/ucp.js:829
+#: htdocs/views/dashboard.php:39 htdocs/assets/js/ucp.js:855
 msgid "Settings"
 msgstr "Configuracion"
 
@@ -436,10 +471,12 @@ msgid "TUV"
 msgstr "TUV"
 
 #: ucp.i18n.php:36
-msgid "The number of days a session token will be valid for. Clear this setting if you want tokens to last forever (Not Recommended)"
+msgid ""
+"The number of days a session token will be valid for. Clear this setting if "
+"you want tokens to last forever (Not Recommended)"
 msgstr ""
 
-#: htdocs/views/settings.php:20 htdocs/views/settings.php:25
+#: htdocs/views/settings.php:24 htdocs/views/settings.php:29
 msgid "The password used to login to User Control Panel and other services"
 msgstr "El Password usado para acceder al User Control Panel y otros servicios"
 
@@ -448,29 +485,42 @@ msgid "The removal of this copyright notice is stricly prohibited"
 msgstr "Remover estos  derechos de autor esta estrictamente prohibido"
 
 #: ucp.i18n.php:8
-msgid "The user control panel is a way for users to control call handling and personal settings from a web browser."
+msgid ""
+"The user control panel is a way for users to control call handling and "
+"personal settings from a web browser."
 msgstr ""
 
-#: htdocs/views/settings.php:11
+#: htdocs/views/settings.php:15
 msgid "The username used to login to User Control Panel and other services"
-msgstr "El nombre de usuario para entrar al Panel de Control del Usuario y otros servicios"
+msgstr ""
+"El nombre de usuario para entrar al Panel de Control del Usuario y otros "
+"servicios"
 
 #: htdocs/index.php:119
 msgid "There was an error trying to load UCP"
 msgstr "Hubo un error tratando de cargar el UCP"
 
 #: views/users_hook.php:134
-msgid "These are the assigned and active extensions which will be allowed to edit extension settings such as Call Waiting, Call Forwarding, Find Me/Follow Me and others"
+msgid ""
+"These are the assigned and active extensions which will be allowed to edit "
+"extension settings such as Call Waiting, Call Forwarding, Find Me/Follow Me "
+"and others"
 msgstr ""
 
-#: htdocs/views/settings.php:52
+#: htdocs/views/settings.php:64
 msgid "Title"
 msgstr "Titulo"
 
 #: htdocs/index.php:92
 #, php-format
-msgid "To protect the integrity of your server, you must allow overrides in your webserver's configuration file for the User Control Panel. For more information see: %s"
-msgstr "Para proteger la integridad de su server, usted debe habilitar \"overrides\" en el fichero de configuración de su webserver para el UCP. Para mas información vea: %s"
+msgid ""
+"To protect the integrity of your server, you must allow overrides in your "
+"webserver's configuration file for the User Control Panel. For more "
+"information see: %s"
+msgstr ""
+"Para proteger la integridad de su server, usted debe habilitar \"overrides\" "
+"en el fichero de configuración de su webserver para el UCP. Para mas "
+"información vea: %s"
 
 #: ucp.i18n.php:10
 msgid "UCP"
@@ -480,7 +530,7 @@ msgstr "UCP"
 msgid "UCP Admin"
 msgstr "Admin UCP"
 
-#: htdocs/views/settings.php:89
+#: htdocs/views/settings.php:108
 msgid "UCP Language"
 msgstr "Idioma UCP"
 
@@ -490,28 +540,39 @@ msgstr ""
 
 #: htdocs/index.php:25
 msgid "UCP is currently disabled. Please talk to your system Administrator"
-msgstr "UCP esta actualmente deshabilitado. Hable con su Administrador del Sistema"
+msgstr ""
+"UCP esta actualmente deshabilitado. Hable con su Administrador del Sistema"
 
-#: htdocs/assets/js/ucp.js:938
+#: htdocs/assets/js/ucp.js:970
 msgid "UCP needs to reload, ok?"
 msgstr "UCP necesita ser reiniciado, ok?"
 
 #: views/users_hook.php:9
-msgid "UCP, otherwise known as the User Control Panel, is a user interface for FreePBX."
+msgid ""
+"UCP, otherwise known as the User Control Panel, is a user interface for "
+"FreePBX."
 msgstr ""
 
-#: htdocs/assets/js/ucp.js:394
+#: htdocs/assets/js/ucp.js:395
 #, perl-format
 msgid "Unable to get a token to use UCP Node Server because: '%s'"
 msgstr ""
 
-#: htdocs/index.php:183
+#: htdocs/index.php:195
 #, php-format
 msgid "Unknown Module %s"
 msgstr "Modulo desconocido %s"
 
-#: htdocs/views/settings.php:27
+#: htdocs/assets/js/ucp.js:1090
+msgid "Unsupported file type"
+msgstr ""
+
+#: htdocs/views/settings.php:31
 msgid "Update Password"
+msgstr ""
+
+#: htdocs/views/settings.php:149
+msgid "Use Gravatar"
 msgstr ""
 
 #: htdocs/views/forgot.php:5 htdocs/views/header.php:4
@@ -535,6 +596,10 @@ msgstr "UCP ha sido liberado como %s o mas nuevo"
 msgid "User Control Panel: %s"
 msgstr "Panel de Control del Usuariol: %s"
 
+#: htdocs/views/settings.php:41
+msgid "User Details"
+msgstr ""
+
 #: ucp.i18n.php:12
 msgid "User Panel"
 msgstr "Panel de usuario"
@@ -543,15 +608,15 @@ msgstr "Panel de usuario"
 msgid "User Primary Extension"
 msgstr "Extension Primaria del Usuario"
 
-#: htdocs/index.php:218
+#: htdocs/index.php:230
 msgid "User Settings"
 msgstr ""
 
-#: htdocs/views/login.php:15 htdocs/views/settings.php:9
+#: htdocs/views/login.php:15 htdocs/views/settings.php:13
 msgid "Username"
 msgstr "Usuario"
 
-#: htdocs/assets/js/ucp.js:1004
+#: htdocs/assets/js/ucp.js:1036
 msgid "Username has been changed, reloading"
 msgstr "El Nombre de Usuario a sido cambiado, recargando"
 
@@ -568,7 +633,7 @@ msgstr "Bienvenido: %s"
 msgid "What is UCP"
 msgstr ""
 
-#: htdocs/views/settings.php:67
+#: htdocs/views/settings.php:79
 msgid "Work Phone"
 msgstr "teléfono Oficina"
 
@@ -576,106 +641,76 @@ msgstr "teléfono Oficina"
 msgid "Yes"
 msgstr "Si"
 
-#: htdocs/assets/js/ucp.js:460
+#: htdocs/assets/js/ucp.js:461
 msgid "You are currently working in offline mode."
 msgstr "Usted esta en modo fuera de línea."
 
-#: htdocs/assets/js/ucp.js:146
+#: htdocs/assets/js/ucp.js:147
 msgid "Your Browser is unsupported at this time."
 msgstr "Su navegador no es soportado actualmente."
 
-#: htdocs/views/settings.php:64
+#: htdocs/views/settings.php:76
 msgid "Your Cell Phone Number"
 msgstr "Su Teléfono Móvil"
 
-#: htdocs/views/settings.php:59
+#: htdocs/views/settings.php:71
 msgid "Your Company"
 msgstr "Su Empresa"
 
-#: htdocs/views/settings.php:39
+#: htdocs/views/settings.php:51
 msgid "Your Email Address"
 msgstr "Su Correo Electrónico"
 
-#: htdocs/views/settings.php:79
+#: htdocs/views/settings.php:91
 msgid "Your Fax Number"
 msgstr "Su número de fax"
 
-#: htdocs/views/settings.php:44
+#: htdocs/views/settings.php:56
 msgid "Your First Name"
 msgstr "Su Primer Nombre"
 
-#: htdocs/views/settings.php:74
+#: htdocs/views/settings.php:86
 msgid "Your Home Number"
 msgstr "Numero de su Casa"
 
-#: htdocs/views/settings.php:49
+#: htdocs/views/settings.php:61
 msgid "Your Last Name"
 msgstr "Su Apellido"
 
-#: htdocs/views/settings.php:54
+#: htdocs/views/settings.php:66
 msgid "Your Title"
 msgstr "Su Título"
 
-#: htdocs/views/settings.php:69
+#: htdocs/views/settings.php:81
 msgid "Your Work Number"
 msgstr "Su número de Oficina"
 
-#: htdocs/assets/js/ucp.js:148
-msgid "Your browser is unsupported at this time. Please upgrade or talk to your system administrator"
-msgstr "Su Navegador no es soportado actualmente, Por favor actualícelo o hable con su Administrador"
+#: htdocs/assets/js/ucp.js:149
+msgid ""
+"Your browser is unsupported at this time. Please upgrade or talk to your "
+"system administrator"
+msgstr ""
+"Su Navegador no es soportado actualmente, Por favor actualícelo o hable con "
+"su Administrador"
 
-#: htdocs/assets/js/ucp.js:82
+#: htdocs/assets/js/ucp.js:83
 msgid "Your reset link is in the mail!"
 msgstr "Su enlace de restauración esta en su correo!"
 
 #: htdocs/index.php:105
 #, php-format
-msgid "htaccess files help protect the integrity of your server. Please make sure file paths and directories are locked down properly. For more information see: %s"
-msgstr "Los ficheros htaccess  ayudan a proteger la integridad de su servidor. Por favor asegúrese que los directorios de ficheros están adecuadamente bloqueados. Para mas información ver: %s"
+msgid ""
+"htaccess files help protect the integrity of your server. Please make sure "
+"file paths and directories are locked down properly. For more information "
+"see: %s"
+msgstr ""
+"Los ficheros htaccess  ayudan a proteger la integridad de su servidor. Por "
+"favor asegúrese que los directorios de ficheros están adecuadamente "
+"bloqueados. Para mas información ver: %s"
 
 #: htdocs/views/login.php:24
 msgid "or"
 msgstr "o"
-
-#: htdocs/views/settings.php:8
-msgid "Account Settings"
-msgstr ""
-
-#: htdocs/views/settings.php:140
-msgid "Browse"
-msgstr ""
-
-#: htdocs/views/settings.php:127
-msgid "Contact Image"
-msgstr ""
-
-#: htdocs/views/settings.php:135
-msgid "Delete Image"
-msgstr ""
-
-#: htdocs/views/settings.php:132
-msgid "Drop a new image here"
-msgstr ""
-
-#: htdocs/views/settings.php:99
-msgid "Interface Settings"
-msgstr ""
-
-#: htdocs/assets/js/ucp.js:1151
-msgid "No email defined"
-msgstr ""
-
-#: htdocs/assets/js/ucp.js:1090
-msgid "Unsupported file type"
-msgstr ""
-
-#: htdocs/views/settings.php:149
-msgid "Use Gravatar"
-msgstr ""
-
-#: htdocs/views/settings.php:41
-msgid "User Details"
-msgstr ""
 
 #~ msgid "Allow users to change thier username in UCP"
 #~ msgstr "Permitir a usuarios cambiar su nombre en UCP"
@@ -690,7 +725,8 @@ msgstr ""
 #~ msgstr "Falla al Instalar "
 
 #~ msgid "Formerly ARI, now called User Control Panel"
-#~ msgstr "Antes ARI, ahora llamado User Control Panel (Panel de Control del Usuario)"
+#~ msgstr ""
+#~ "Antes ARI, ahora llamado User Control Panel (Panel de Control del Usuario)"
 
 #~ msgid "Module Settings"
 #~ msgstr "Configuración de Módulos"
@@ -707,11 +743,20 @@ msgstr ""
 #~ msgid "Please Reconfirm Your Password"
 #~ msgstr "Por favor reconfirme su Contraseña"
 
-#~ msgid "SOX is not installed on this server but is required by UCP. Please install it"
-#~ msgstr "SOX no está instalado en este servidor, pero es requerido por la UCP . Instálelo"
+#~ msgid ""
+#~ "SOX is not installed on this server but is required by UCP. Please "
+#~ "install it"
+#~ msgstr ""
+#~ "SOX no está instalado en este servidor, pero es requerido por la UCP . "
+#~ "Instálelo"
 
-#~ msgid "SOX is required for UCP to be able to do transcoding of playback for browser playback of files. Without it files will not playback within UCP"
-#~ msgstr "SOX se requiere para que la UCP sea capaz de hacer la transcodificación de Grabaciones en el navegador. Sin ella los archivos no se reproducirá dentro de UCP"
+#~ msgid ""
+#~ "SOX is required for UCP to be able to do transcoding of playback for "
+#~ "browser playback of files. Without it files will not playback within UCP"
+#~ msgstr ""
+#~ "SOX se requiere para que la UCP sea capaz de hacer la transcodificación "
+#~ "de Grabaciones en el navegador. Sin ella los archivos no se reproducirá "
+#~ "dentro de UCP"
 
 #~ msgid "Styling and Logos"
 #~ msgstr "Logos y Estilos"
@@ -719,14 +764,22 @@ msgstr ""
 #~ msgid "Submit"
 #~ msgstr "Enviar"
 
-#~ msgid "These are the assigned and active extensions which will show up for this user to control and edit in UCP"
-#~ msgstr "Estas son las extensiones asignadas y activas que se mostrarán para que este usuario pueda controlar y editar en UCP"
+#~ msgid ""
+#~ "These are the assigned and active extensions which will show up for this "
+#~ "user to control and edit in UCP"
+#~ msgstr ""
+#~ "Estas son las extensiones asignadas y activas que se mostrarán para que "
+#~ "este usuario pueda controlar y editar en UCP"
 
 #~ msgid "UCP Password"
 #~ msgstr "Password UCP"
 
-#~ msgid "UCP icons folder. This should never be changed except for very advanced layout changes"
-#~ msgstr "Icono de carpetas UCP. Esto no debe ser cambiado nunca excepto en cambios muy avanzados del diseño"
+#~ msgid ""
+#~ "UCP icons folder. This should never be changed except for very advanced "
+#~ "layout changes"
+#~ msgstr ""
+#~ "Icono de carpetas UCP. Esto no debe ser cambiado nunca excepto en cambios "
+#~ "muy avanzados del diseño"
 
 #~ msgid "View: UCP dashfootercontent.php"
 #~ msgstr "Vista: UCP dashfootercontent.php"
@@ -734,5 +787,9 @@ msgstr ""
 #~ msgid "View: UCP icons"
 #~ msgstr "Ver: Iconos de UCP"
 
-#~ msgid "dashfootercontent.php view. This should never be changed except for very advanced layout changes"
-#~ msgstr "vista dashfootercontent.php. Esto de debe modificarse nunca a excepción de cambios muy avanzados en el diseño"
+#~ msgid ""
+#~ "dashfootercontent.php view. This should never be changed except for very "
+#~ "advanced layout changes"
+#~ msgstr ""
+#~ "vista dashfootercontent.php. Esto de debe modificarse nunca a excepción "
+#~ "de cambios muy avanzados en el diseño"
