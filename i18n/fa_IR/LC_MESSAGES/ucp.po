@@ -10,14 +10,14 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-07-29 16:54-0700\n"
-"PO-Revision-Date: 2016-07-26 23:05+0200\n"
+"PO-Revision-Date: 2016-08-07 06:56+0200\n"
 "Last-Translator: Media <mousavi.media@gmail.com>\n"
-"Language-Team: Persian (Iran) <http://weblate.freepbx.org/projects/freepbx/"
-"ucp/fa_IR/>\n"
+"Language-Team: Persian (Iran) "
+"<http://weblate.freepbx.org/projects/freepbx/ucp/fa_IR/>\n"
+"Language: fa_IR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: fa_IR\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 2.4\n"
 
@@ -59,7 +59,7 @@ msgstr "ABC"
 
 #: htdocs/views/settings.php:8
 msgid "Account Settings"
-msgstr ""
+msgstr "تنظیمات حساب"
 
 #: views/users_hook.php:78
 msgid "Active Sessions"
@@ -120,7 +120,7 @@ msgstr "آیا از تغییر نام کاربری خود اطمینان دار�
 
 #: htdocs/views/settings.php:140
 msgid "Browse"
-msgstr ""
+msgstr "مسیر"
 
 #: htdocs/views/templates/phone.php:7 htdocs/views/templates/phone.php:95
 msgid "Call"
@@ -140,7 +140,7 @@ msgstr "تایید کلمه عبور"
 
 #: htdocs/views/settings.php:127
 msgid "Contact Image"
-msgstr ""
+msgstr "تصویر تماس"
 
 #: htdocs/views/templates/phone.php:45
 msgid "DEF"
@@ -148,7 +148,7 @@ msgstr "DEF"
 
 #: htdocs/views/settings.php:135
 msgid "Delete Image"
-msgstr ""
+msgstr "حذف تصویر"
 
 #: Ucp.class.php:749
 msgid "Deleted Session"
@@ -168,7 +168,7 @@ msgstr "انجام شد"
 
 #: htdocs/views/settings.php:132
 msgid "Drop a new image here"
-msgstr ""
+msgstr "یک تصویر جدید به اینجا منتقل کنید"
 
 #: htdocs/views/login.php:29 htdocs/views/settings.php:49
 msgid "Email"
@@ -263,7 +263,7 @@ msgstr "موروثی"
 
 #: htdocs/views/settings.php:99
 msgid "Interface Settings"
-msgstr ""
+msgstr "تنظیمات اینترفیس"
 
 #: htdocs/index.php:253
 #, php-format
@@ -351,7 +351,7 @@ msgstr "خیر"
 
 #: htdocs/assets/js/ucp.js:1151
 msgid "No email defined"
-msgstr ""
+msgstr "ایمیلی تغریف نشده است"
 
 #: htdocs/modules/Home/assets/js/global.js:75
 msgid "Nothing Entered"
@@ -566,7 +566,7 @@ msgstr "ماژول ناشناس %s"
 
 #: htdocs/assets/js/ucp.js:1090
 msgid "Unsupported file type"
-msgstr ""
+msgstr "نوع فایل پشتیبانی نمیشود"
 
 #: htdocs/views/settings.php:31
 msgid "Update Password"
@@ -574,7 +574,7 @@ msgstr "به روزرسانی کلمه عبور"
 
 #: htdocs/views/settings.php:149
 msgid "Use Gravatar"
-msgstr ""
+msgstr "استفاده از آواتار"
 
 #: htdocs/views/forgot.php:5 htdocs/views/header.php:4
 #: htdocs/views/login.php:4 ucp.i18n.php:4
@@ -599,7 +599,7 @@ msgstr "پنل کنترل کاربری: %s"
 
 #: htdocs/views/settings.php:41
 msgid "User Details"
-msgstr ""
+msgstr "جزئیات کاربر"
 
 #: ucp.i18n.php:12
 msgid "User Panel"
