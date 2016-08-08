@@ -466,7 +466,7 @@ class Ajax extends UCP {
 	        switch($accept) {
 				case "text/json":
 				case "application/json":
-					$this->addHeader('Content-Type', 'text/json');
+					$this->addHeader('Content-Type', 'application/json');
 					return json_encode($body);
 					break;
 				case "text/xml":
@@ -481,7 +481,7 @@ class Ajax extends UCP {
 
 		//If nothing is defined then just default to showing json
 		//TODO: move this up into the switch statement?
-		$this->addHeader('Content-Type', 'text/json');
+		$this->addHeader('Content-Type', 'application/json');
 		return json_encode($body);
     }
 
