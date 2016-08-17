@@ -12,8 +12,7 @@ msgstr ""
 "POT-Creation-Date: 2016-08-01 13:19-0700\n"
 "PO-Revision-Date: 2016-07-06 05:21+0200\n"
 "Last-Translator: Media <mousavi.media@gmail.com>\n"
-"Language-Team: Persian (Iran) <http://weblate.freepbx.org/projects/freepbx/"
-"ucp/fa_IR/>\n"
+"Language-Team: Persian (Iran) <http://weblate.freepbx.org/projects/freepbx/ucp/fa_IR/>\n"
 "Language: fa_IR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -54,8 +53,7 @@ msgstr ""
 
 #: htdocs/index.php:91
 msgid ".htaccess files are disabled on this webserver. Please enable them"
-msgstr ""
-"فایلهای htaccess. در این سرور وب غیرفعال هستند. لطفا آن ها را فعال کنید"
+msgstr "فایلهای htaccess. در این سرور وب غیرفعال هستند. لطفا آن ها را فعال کنید"
 
 #: htdocs/index.php:104
 msgid ".htaccess files are not supported on this webserver."
@@ -72,7 +70,7 @@ msgstr "ABC"
 
 #: htdocs/views/settings.php:8
 msgid "Account Settings"
-msgstr ""
+msgstr "تنظیمات حساب"
 
 #: views/users_hook.php:78
 msgid "Active Sessions"
@@ -83,8 +81,7 @@ msgid "Admin"
 msgstr "مدیر"
 
 #: htdocs/views/settings.php:11
-msgid ""
-"All fields update when unfocused (selecting another field) except password"
+msgid "All fields update when unfocused (selecting another field) except password"
 msgstr "تمام فیلدها به روز هستند بجز کلمه عبور  (فیلد دیگری انتخاب می شود)"
 
 #: htdocs/views/settings.php:111
@@ -108,12 +105,8 @@ msgid "Allow browser desktop notifications from UCP modules."
 msgstr "اجازه نمایش اعلان های ماژول پنل کنترل کاربری در مرورگر دسکتاپ."
 
 #: views/users_hook.php:163
-msgid ""
-"Allow this user to originate calls from within UCP. This is not the same as "
-"WebRTC"
-msgstr ""
-"اجازه دادن به این کاربر برای برقراری تماس از طریق پنل کنترل کاربری. این مورد "
-"شبیه WebRTC نیست"
+msgid "Allow this user to originate calls from within UCP. This is not the same as WebRTC"
+msgstr "اجازه دادن به این کاربر برای برقراری تماس از طریق پنل کنترل کاربری. این مورد شبیه WebRTC نیست"
 
 #: ucp.i18n.php:24
 msgid "Allow users to change their username in UCP"
@@ -133,7 +126,7 @@ msgstr "آیا از تغییر نام کاربری خود اطمینان دار�
 
 #: htdocs/views/settings.php:140
 msgid "Browse"
-msgstr ""
+msgstr "مسیر"
 
 #: htdocs/views/templates/phone.php:7 htdocs/views/templates/phone.php:95
 msgid "Call"
@@ -153,7 +146,7 @@ msgstr "تایید کلمه عبور"
 
 #: htdocs/views/settings.php:127
 msgid "Contact Image"
-msgstr ""
+msgstr "تصویر تماس"
 
 #: htdocs/views/templates/phone.php:45
 msgid "DEF"
@@ -161,7 +154,7 @@ msgstr "DEF"
 
 #: htdocs/views/settings.php:135
 msgid "Delete Image"
-msgstr ""
+msgstr "حذف تصویر"
 
 #: Ucp.class.php:749
 msgid "Deleted Session"
@@ -181,7 +174,7 @@ msgstr "انجام شد"
 
 #: htdocs/views/settings.php:132
 msgid "Drop a new image here"
-msgstr ""
+msgstr "یک تصویر جدید به اینجا منتقل کنید"
 
 #: htdocs/views/login.php:29 htdocs/views/settings.php:49
 msgid "Email"
@@ -266,8 +259,7 @@ msgid "Home Phone"
 msgstr "تلفن منزل"
 
 #: htdocs/views/settings.php:46
-msgid ""
-"How you would like your name displayed throughout UCP and Contact Manager"
+msgid "How you would like your name displayed throughout UCP and Contact Manager"
 msgstr "نامی که در کنترل پنل کاربری و مدیریت مخاطب نمایش داده می شود"
 
 #: views/users_hook.php:56 views/users_hook.php:154
@@ -276,16 +268,12 @@ msgstr "موروثی"
 
 #: htdocs/views/settings.php:99
 msgid "Interface Settings"
-msgstr ""
+msgstr "تنظیمات اینترفیس"
 
 #: htdocs/index.php:254
 #, php-format
-msgid ""
-"Internet Explorer %s is not supported. Functionality will be deteriorated "
-"until you upgrade to %s or higher"
-msgstr ""
-"مرورگر IE %s پشتیبانی نمی شود. شما باید مرورگر خود را به %s یا بالاتر به روز "
-"کنید"
+msgid "Internet Explorer %s is not supported. Functionality will be deteriorated until you upgrade to %s or higher"
+msgstr "مرورگر IE %s پشتیبانی نمی شود. شما باید مرورگر خود را به %s یا بالاتر به روز کنید"
 
 #: htdocs/includes/User.class.php:86
 msgid "Invalid"
@@ -436,8 +424,7 @@ msgstr "خوراک RSS"
 
 #: ucp.i18n.php:30
 msgid "RSS Feeds that are displayed in UCP. This overrides "
-msgstr ""
-"خوراک های RSS که در پنل کنترل کاربری نمایش داده می شوند. بازنویسی می شوند "
+msgstr "خوراک های RSS که در پنل کنترل کاربری نمایش داده می شوند. بازنویسی می شوند "
 
 #: Ucp.class.php:29
 msgid "Refreshing all UCP Assets, this could take a while..."
@@ -473,48 +460,32 @@ msgid "TUV"
 msgstr "TUV"
 
 #: ucp.i18n.php:36
-msgid ""
-"The number of days a session token will be valid for. Clear this setting if "
-"you want tokens to last forever (Not Recommended)"
-msgstr ""
-"تعداد روزهایی که یک اتصال در آن دوره معتبر است. اگر می خواهید توکن ها دوام "
-"داشته باشند، این تنظیمات را حذف کنید (توصیه نمی شود)"
+msgid "The number of days a session token will be valid for. Clear this setting if you want tokens to last forever (Not Recommended)"
+msgstr "تعداد روزهایی که یک اتصال در آن دوره معتبر است. اگر می خواهید توکن ها دوام داشته باشند، این تنظیمات را حذف کنید (توصیه نمی شود)"
 
 #: htdocs/views/settings.php:24 htdocs/views/settings.php:29
 msgid "The password used to login to User Control Panel and other services"
-msgstr ""
-"از این کلمه عبور برای ورود به پنل کنترل کاربری و دیگر سرویس ها استفاده می شود"
+msgstr "از این کلمه عبور برای ورود به پنل کنترل کاربری و دیگر سرویس ها استفاده می شود"
 
 #: htdocs/views/dashfootercontent.php:10
 msgid "The removal of this copyright notice is stricly prohibited"
 msgstr "حذف اعلان کپی رایت اکیدا ممنوع است"
 
 #: ucp.i18n.php:8
-msgid ""
-"The user control panel is a way for users to control call handling and "
-"personal settings from a web browser."
-msgstr ""
-"پنل کنترل کاربری ابزاری برای پاسخ گویی کاربر به تماس ها و انجام تنظیمات شخصی "
-"از طریق مرورگر وب می باشد."
+msgid "The user control panel is a way for users to control call handling and personal settings from a web browser."
+msgstr "پنل کنترل کاربری ابزاری برای پاسخ گویی کاربر به تماس ها و انجام تنظیمات شخصی از طریق مرورگر وب می باشد."
 
 #: htdocs/views/settings.php:15
 msgid "The username used to login to User Control Panel and other services"
-msgstr ""
-"از این نام کاربری برای ورود به پنل کنترل کاربری و دیگر سرویس ها استفاده می "
-"شود"
+msgstr "از این نام کاربری برای ورود به پنل کنترل کاربری و دیگر سرویس ها استفاده می شود"
 
 #: htdocs/index.php:119
 msgid "There was an error trying to load UCP"
 msgstr "خطایی در هنگام بارگذاری پنل کنترل کاربری رخ داده است"
 
 #: views/users_hook.php:134
-msgid ""
-"These are the assigned and active extensions which will be allowed to edit "
-"extension settings such as Call Waiting, Call Forwarding, Find Me/Follow Me "
-"and others"
-msgstr ""
-"این داخلی ها فعال بوده و برای تغییر تنظیمات داخلی مانند انتظار مکالمه، "
-"انتقال مکالمه، مرا پیدا/دنبال کن و غیره، مجوز آن داده شده است"
+msgid "These are the assigned and active extensions which will be allowed to edit extension settings such as Call Waiting, Call Forwarding, Find Me/Follow Me and others"
+msgstr "این داخلی ها فعال بوده و برای تغییر تنظیمات داخلی مانند انتظار مکالمه، انتقال مکالمه، مرا پیدا/دنبال کن و غیره، مجوز آن داده شده است"
 
 #: htdocs/views/settings.php:64
 msgid "Title"
@@ -522,13 +493,8 @@ msgstr "عنوان"
 
 #: htdocs/index.php:92
 #, php-format
-msgid ""
-"To protect the integrity of your server, you must allow overrides in your "
-"webserver's configuration file for the User Control Panel. For more "
-"information see: %s"
-msgstr ""
-"به منظور محافظت از یکپارچگی سرور خود، می بایست مجوز بازنویسی فایل تنظیمات "
-"سرور وب توسط پنل کنترل کاربری داده شود. برای اطلاعات بیشتر مراجعه کنید به: %s"
+msgid "To protect the integrity of your server, you must allow overrides in your webserver's configuration file for the User Control Panel. For more information see: %s"
+msgstr "به منظور محافظت از یکپارچگی سرور خود، می بایست مجوز بازنویسی فایل تنظیمات سرور وب توسط پنل کنترل کاربری داده شود. برای اطلاعات بیشتر مراجعه کنید به: %s"
 
 #: ucp.i18n.php:10
 msgid "UCP"
@@ -548,19 +514,15 @@ msgstr "زمان اعتبار اتصال پنل کنترل کاربری"
 
 #: htdocs/index.php:25
 msgid "UCP is currently disabled. Please talk to your system Administrator"
-msgstr ""
-"پنل کنترل کاربری در حال حاضر غیرفعال است. لطفا با مدیر سیستم خود تماس بگیرید"
+msgstr "پنل کنترل کاربری در حال حاضر غیرفعال است. لطفا با مدیر سیستم خود تماس بگیرید"
 
 #: htdocs/assets/js/ucp.js:970
 msgid "UCP needs to reload, ok?"
 msgstr "پنل کنترل کاربری به بازنشانی احتیاج دارد، درست است؟"
 
 #: views/users_hook.php:9
-msgid ""
-"UCP, otherwise known as the User Control Panel, is a user interface for "
-"FreePBX."
-msgstr ""
-"UCP، یا به عبارت دیگر پنل کنترل کاربری، یک رابط کاربری برای FreePBX است."
+msgid "UCP, otherwise known as the User Control Panel, is a user interface for FreePBX."
+msgstr "UCP، یا به عبارت دیگر پنل کنترل کاربری، یک رابط کاربری برای FreePBX است."
 
 #: htdocs/assets/js/ucp.js:395
 #, perl-format
@@ -574,7 +536,7 @@ msgstr "ماژول ناشناس %s"
 
 #: htdocs/assets/js/ucp.js:1090
 msgid "Unsupported file type"
-msgstr ""
+msgstr "نوع فایل پشتیبانی نمیشود"
 
 #: htdocs/views/settings.php:31
 msgid "Update Password"
@@ -582,7 +544,7 @@ msgstr "به روزرسانی کلمه عبور"
 
 #: htdocs/views/settings.php:149
 msgid "Use Gravatar"
-msgstr ""
+msgstr "استفاده از آواتار"
 
 #: htdocs/views/forgot.php:5 htdocs/views/header.php:4
 #: htdocs/views/login.php:4 ucp.i18n.php:4
@@ -607,7 +569,7 @@ msgstr "پنل کنترل کاربری: %s"
 
 #: htdocs/views/settings.php:41
 msgid "User Details"
-msgstr ""
+msgstr "جزئیات کاربر"
 
 #: ucp.i18n.php:12
 msgid "User Panel"
@@ -695,12 +657,8 @@ msgid "Your Work Number"
 msgstr "تلفن محل کار شما"
 
 #: htdocs/assets/js/ucp.js:149
-msgid ""
-"Your browser is unsupported at this time. Please upgrade or talk to your "
-"system administrator"
-msgstr ""
-"در حال حاضر مرورگر شما پشتیبانی نمی شود. لطفا آن را به روز کنید و یا با مدیر "
-"سیستم تماس بگیرید"
+msgid "Your browser is unsupported at this time. Please upgrade or talk to your system administrator"
+msgstr "در حال حاضر مرورگر شما پشتیبانی نمی شود. لطفا آن را به روز کنید و یا با مدیر سیستم تماس بگیرید"
 
 #: htdocs/assets/js/ucp.js:83
 msgid "Your reset link is in the mail!"
@@ -708,17 +666,16 @@ msgstr "لینک بازنشانی کلمه عبور در ایمیل شماست!"
 
 #: htdocs/index.php:105
 #, php-format
-msgid ""
-"htaccess files help protect the integrity of your server. Please make sure "
-"file paths and directories are locked down properly. For more information "
-"see: %s"
-msgstr ""
-"فایل های htaccess به محافظت از سرور شما کمک می نماید.برای اطلاعات بیشتر "
-"مراجعه کنید به: %s"
+msgid "htaccess files help protect the integrity of your server. Please make sure file paths and directories are locked down properly. For more information see: %s"
+msgstr "فایل های htaccess به محافظت از سرور شما کمک می نماید.برای اطلاعات بیشتر مراجعه کنید به: %s"
 
 #: htdocs/views/login.php:24
 msgid "or"
 msgstr "یا"
+
+#: htdocs/assets/js/ucp.js:1151
+msgid "No email defined"
+msgstr "ایمیلی تغریف نشده است"
 
 #~ msgid "Allow users to change thier username in UCP"
 #~ msgstr "ااجازه به کاربران برای تغییر نام کاربری در پنل کاربری"
