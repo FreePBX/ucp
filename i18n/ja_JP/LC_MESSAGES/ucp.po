@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-07-29 16:54-0700\n"
-"PO-Revision-Date: 2016-09-02 15:57+0200\n"
+"PO-Revision-Date: 2016-09-02 16:04+0200\n"
 "Last-Translator: Kenichi <k.kitani@qloog.com>\n"
 "Language-Team: Japanese "
 "<http://weblate.freepbx.org/projects/freepbx/ucp/ja_JP/>\n"
@@ -493,7 +493,7 @@ msgid ""
 "extension settings such as Call Waiting, Call Forwarding, Find Me/Follow Me "
 "and others"
 msgstr ""
-"これらはアサインされアクティブな内線です。コールウェイティング、通話転送、ファインドミー / フォロミー、などで内線設定を変更することを許可されています"
+"これらはアサインされアクティブな内線です。コールウェイティング、通話転送、ファインドミー / フォロミー、などで内線設定を変更することを許可されています。"
 
 #: htdocs/views/settings.php:64
 msgid "Title"
@@ -528,7 +528,7 @@ msgstr "UCP セッション タイムアウト"
 
 #: htdocs/index.php:27
 msgid "UCP is currently disabled. Please talk to your system Administrator"
-msgstr "UCPは無効です。システムの管理者にご相談ください"
+msgstr "UCPは無効です。システムの管理者にご相談ください。"
 
 #: htdocs/assets/js/ucp.js:970
 msgid "UCP needs to reload, ok?"
@@ -538,7 +538,7 @@ msgstr "UCPを再読み込みします。よろしいですか？"
 msgid ""
 "UCP, otherwise known as the User Control Panel, is a user interface for "
 "FreePBX."
-msgstr "UCP、別名ユーザーコントロールパネル、はFreePBXのユーザーインターフェイスです。"
+msgstr "UCP（ユーザーコントロールパネル）はFreePBXのユーザーインターフェイスです。"
 
 #: htdocs/assets/js/ucp.js:395
 #, perl-format
@@ -607,7 +607,7 @@ msgstr "ユーザー名"
 
 #: htdocs/assets/js/ucp.js:1036
 msgid "Username has been changed, reloading"
-msgstr "ユーザー名は変更されました、リロード中"
+msgstr "ユーザー名は変更されました、リロード中。"
 
 #: htdocs/views/templates/phone.php:73
 msgid "WXYZ"
@@ -678,9 +678,7 @@ msgstr "あなたの勤務先電話番号"
 msgid ""
 "Your browser is unsupported at this time. Please upgrade or talk to your "
 "system administrator"
-msgstr ""
-"ご利用のブラウザはサポートされていません。アップグレードするか、システムの管"
-"理者にご相談ください"
+msgstr "ご利用のブラウザはサポートされていません。アップグレードするか、システムの管理者にご相談ください。"
 
 #: htdocs/assets/js/ucp.js:83
 msgid "Your reset link is in the mail!"
