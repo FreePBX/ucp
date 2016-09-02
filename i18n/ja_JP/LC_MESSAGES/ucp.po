@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-07-29 16:54-0700\n"
-"PO-Revision-Date: 2016-09-02 15:27+0200\n"
+"PO-Revision-Date: 2016-09-02 15:57+0200\n"
 "Last-Translator: Kenichi <k.kitani@qloog.com>\n"
 "Language-Team: Japanese "
 "<http://weblate.freepbx.org/projects/freepbx/ucp/ja_JP/>\n"
@@ -41,8 +41,7 @@ msgstr " + field + "
 
 #: htdocs/index.php:90
 msgid ".htaccess files are disabled on this webserver. Please enable them"
-msgstr ""
-"このサーバーでは .htaccess ファイルが無効化されています。有効にしてください"
+msgstr "このサーバーでは .htaccess ファイルが無効化されています。有効にしてください。"
 
 #: htdocs/index.php:103
 msgid ".htaccess files are not supported on this webserver."
@@ -191,7 +190,7 @@ msgstr "コンテンツを読み込み中"
 #: install.inc.php:20
 #, php-format
 msgid "Failed to install %s due to the following conflicting module(s): %s"
-msgstr "%s のインストールに失敗しました。モジュール: %s と衝突しています"
+msgstr "%s のインストールに失敗しました。モジュール: %s と衝突しています。"
 
 #: htdocs/views/settings.php:89
 msgid "Fax"
@@ -268,7 +267,7 @@ msgstr "インターフェイス設定"
 msgid ""
 "Internet Explorer %s is not supported. Functionality will be deteriorated "
 "until you upgrade to %s or higher"
-msgstr "インターネットエクスプローラー %s はサポートされていません。 %s かそれ以上にアップグレードするまで機能は制限されます"
+msgstr "インターネットエクスプローラー %s はサポートされていません。 %s かそれ以上にアップグレードするまで機能は制限されます。"
 
 #: htdocs/includes/User.class.php:86
 msgid "Invalid"
@@ -285,7 +284,7 @@ msgstr "ログイン情報が間違っています"
 
 #: htdocs/index.php:242
 msgid "Invalid Token"
-msgstr "不正トーケン"
+msgstr "不正トークン"
 
 #: htdocs/views/templates/phone.php:55
 msgid "JKL"
