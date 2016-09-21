@@ -1,0 +1,73 @@
+@main_color: #2F4050;
+@secundary_color: #F3F3F4;
+@third_color: #18A689;
+
+@main_widget_color: #FFF;
+@widget_text_color: #2F4050;
+
+.module-page-widgets {
+
+	ol, ul{
+		margin-top: 0;
+		margin-bottom: 0;
+	}
+
+	li{
+		list-style: none;
+	}
+
+	.gridster{
+		.gs-w{
+			background-color: @main_widget_color;
+			color: @widget_text_color;
+			cursor: pointer;
+			.widget-title{
+				text-align: center;
+				padding-top: 5px;
+				padding-bottom: 5px;
+				text-transform: capitalize;
+				border-top: 3px solid @third_color;
+				border-bottom: 1px solid @main_color;
+			}
+			.widget-content{
+
+			}
+		}
+
+		.gs-resize-handle-both{
+			bottom: 0;
+			right: 0;
+			background-position: 80% 80%;
+			cursor: nwse-resize;
+		}
+	}
+
+	.gridster.dragging{
+		background: rgba(245, 245, 245, 0.2);
+	}
+
+	.widget {
+		background-color: aliceblue;
+		border-radius: 5px;
+
+		.title {
+			padding-top: 5px;
+			text-align: center;
+			font-weight: bold;
+			background-color: whitesmoke;
+			border-top-left-radius: 5px;
+			border-top-right-radius: 5px;
+			.fa-refresh {
+				float: right;
+				margin-right: 5px;
+				cursor: pointer;
+			}
+		}
+
+		.content {
+			font-size: 85%;
+			font-family: sans-serif;
+			padding: 5px;
+		}
+	}
+}

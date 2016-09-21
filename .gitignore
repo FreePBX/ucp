@@ -1,5 +1,6 @@
 websocketd
 htdocs/modules/*
+!htdocs/modules/Widgets
 !htdocs/modules/Home
 !htdocs/modules/Settings
 htdocs/modules/Home/assets/less/cache/*
