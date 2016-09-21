@@ -4,6 +4,48 @@
  * License can be found in the license file inside the module directory
  * Copyright 2006-2014 Schmooze Com Inc.
  */
+
+function activate_full_loading(){
+	$(".main-block").show();
+}
+
+function deactivate_full_loading(){
+	$(".main-block").hide();
+}
+
+function show_alert(message, type, callback_func){
+
+	var type_class = "";
+	if(type == 'success'){
+		type_class = "alert-success";
+	}else if(type == 'info'){
+		type_class = "alert-info";
+	}else if(type == 'warning'){
+		type_class = "alert-warning";
+	}else if(type == 'danger'){
+		type_class = "alert-danger";
+	}
+
+	$("#alert_message").removeClass("alert-success alert-info alert-warning alert-danger");
+
+	$("#alert_message").addClass(type_class);
+
+	$("#alert_message").html(message);
+
+	if(typeof callback_func == "function") {
+		$(document).on("click", "#close_alert_button", function () {
+			$("#alert_modal").modal("hide");
+			callback_func();
+		});
+	}else {
+		$(document).on("click", "#close_alert_button", function () {
+			$("#alert_modal").modal("hide");
+		});
+	}
+
+	$("#alert_modal").modal("show");
+}
+
 var UCPC = Class.extend({
 	init: function() {
 		this.loggedIn = false;
@@ -24,6 +66,7 @@ var UCPC = Class.extend({
 		this.Modules = {};
 		this.calibrating = false;
 		this.UCPSettings = {packery: true};
+		this.activeDashboard = "first";
 
 		textdomain("ucp");
 	},
@@ -41,6 +84,7 @@ var UCPC = Class.extend({
 		if (!$("#login-window").length) {
 			UCP.setupDashboard();
 			$(document).trigger("logIn", [null, null]);
+			UCP.setupAddDashboard();
 		} else {
 			UCP.setupLogin();
 		}
@@ -177,13 +221,6 @@ var UCPC = Class.extend({
 				$.pjax.click(event, { container: container });
 
 				$( ".pushmenu li").each(function( index ) {
-					if ($(this).data("mod") == clicker) {
-						$(this).addClass("active");
-					} else {
-						$(this).removeClass("active");
-					}
-				});
-				$( ".nav li" ).each(function( index ) {
 					if ($(this).data("mod") == clicker) {
 						$(this).addClass("active");
 					} else {
@@ -812,14 +849,25 @@ var UCPC = Class.extend({
 		var display = $.url().param("display"),
 				sub = $.url().param("sub");
 
-		//this.windowResize();
-		NProgress.done();
+		intialize_grid();
+
 		$("#nav-btn-settings .icon i").removeClass("out");
 		if (typeof window[this.activeModule] == "object" &&
 			typeof window[this.activeModule].hide == "function") {
 			window[this.activeModule].hide(event);
 		} else if (this.validMethod(this.activeModule, "hide")) {
 			this.Modules[this.activeModule].hide(event);
+		}
+
+		//Are we looking a dashboard?
+		var dashboard_id = $.url().param("dashboard");
+
+		if(typeof dashboard_id !== "undefined") {
+			this.activeDashboard = dashboard_id;
+
+			$(".dashboard-menu").removeClass("active");
+
+			$(".dashboard-menu[data-id='"+this.activeDashboard+"']").addClass("active");
 		}
 
 		if (typeof display === "undefined" || display == "dashboard") {
@@ -831,10 +879,6 @@ var UCPC = Class.extend({
 				window[this.activeModule].display(event);
 			} else if (this.validMethod(this.activeModule, "display")) {
 				this.Modules[this.activeModule].display(event);
-			}
-
-			if(this.activeModule == "Widgets"){
-				intialize_grid();
 			}
 
 		} else if (display == "settings") {
@@ -849,10 +893,13 @@ var UCPC = Class.extend({
 		}
 
 		this.binds();
+
+		deactivate_full_loading();
+		NProgress.done();
 	},
 	pjaxStart: function(event) {
+		activate_full_loading();
 		NProgress.start();
-		$("#nav-btn-settings .icon i").addClass("out");
 	},
 	pjaxTimeout: function(event) {
 		//query higher up event here
@@ -1233,7 +1280,34 @@ var UCPC = Class.extend({
 				badge.text(0);
 			});
 		}
+	},
+	setupAddDashboard: function() {
+		$("#create_dashboard").click(function() {
+			if ($("#dashboard_name").length > 0) {
+				if ($("#dashboard_name").val().trim() === "") {
+					show_alert("You must put a dashboard name" , "danger", function(){ $("#add_dashboard").modal("show") });
+					$("#add_dashboard").modal("hide");
+				} else {
+					var queryString = $("#add_dashboard_form").attr("action") + "&" + $("#add_dashboard_form").formSerialize();
+
+					activate_full_loading();
+
+					$.post( "index.php?", queryString, function( data ) {
+						if (!data.status) {
+							$("#error-msg").html(data.message).fadeIn("fast");
+						} else {
+							var new_dashboard_html = '<li class="menu-order dashboard-menu" data-id="'+data.id+'"><a data-pjax href="?dashboard='+data.id+'">'+$("#dashboard_name").val()+'</a></li>'
+							$("#all_dashboards").append(new_dashboard_html);
+
+							$("#add_dashboard").modal("hide");
+						}
+						deactivate_full_loading();
+					}, "json");
+				}
+			}
+		});
 	}
+	
 }), UCP = new UCPC();
 $(function() {
 	UCP.ready();
@@ -1263,21 +1337,23 @@ function htmlDecode( html ) {
 }
 
 function menu_dragabble(){
-	$(".menu-order").draggable({ axis: "x" });
+	/*$(".menu-order").draggable({ axis: "x" });
 
 	$(".menu-space").droppable({
-		classes: {
-			"ui-droppable-active": "droppable-menu-empty",
-			"ui-droppable-hover": "droppable-menu-hover"
-		},
+		accept: ".menu-order",
+		activeClass: "droppable-menu-empty",
+		hoverClass: "droppable-menu-hover",
 		drop: function( event, ui ) {
-			$( this )
-				.addClass( "ui-state-highlight" )
-				.find( "p" )
-				.html( "Dropped!" );
+
+			console.log("bagre");
 		}
-	});
+	});*/
 }
+
+/* MODAL FOCUS */
+$('#add_dashboard').on('shown.bs.modal', function () {
+	$('#dashboard_name').focus();
+})
 
 /** Language, global functions so they act like php procedurals **/
 UCP.i18n = new Jed(languages);

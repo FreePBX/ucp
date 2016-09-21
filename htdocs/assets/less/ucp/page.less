@@ -53,6 +53,7 @@ input, textarea {
 @main_color: #2F4050;
 @secundary_color: #F3F3F4;
 @third_color: #18A689;
+@loading_size: 65px;
 
 /* MIXINS */
 .border-radius (@radius: 5px) {
@@ -286,9 +287,8 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 
 	.navbar-nav li {
 		float: none;
-		width: 55px;
+		width: 54px;
 		font-size: 2em;
-		margin-top: 5px;
 
 		> .dropdown-menu {
 			margin-top: -50px;
@@ -296,8 +296,8 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 		}
 		
 		> a{
-			padding-top: 10px;
-			padding-bottom: 10px;
+			padding-top: 20px;
+			padding-bottom: 20px;
 			text-align: center;
 			color: @main_color;
 		}
@@ -305,6 +305,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 		> a:hover{
 			background-color: @main_color;
 			color: @secundary_color;
+			border-right: 2px solid @third_color;
 		}
 	}
 
@@ -400,9 +401,18 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 	margin-bottom: 30px;
 }
 
-.droppable-menu{
-	border: 1px solid red;
-	width: 20px;
+.menu-space{
+	width: 4px;
+	height: 40px;
+}
+
+.menu-space.droppable-menu-empty{
+
+}
+
+.menu-space.droppable-menu-hover{
+	border: 1px solid black;
+	width: 100px;
 }
 
 .nav-btn-menu {
@@ -1168,4 +1178,64 @@ select[multiple].Tokenize, select[size].Tokenize {
 	#contactmanager_dropzone.activate .message {
 		opacity: .5;
 	}
+}
+
+.main-block{
+	display: none;
+	height: 100%;
+	width: 100%;
+	position: fixed;
+	z-index: 2051;
+	pointer-events: fill;
+	background: rgba(219, 219, 219, 0.4);
+	text-align: center;
+	overflow-y: hidden;
+	color: @main_color;
+}
+
+.main-block:after{
+	content: "";
+}
+
+.main-block .fa-stack.fa-5x{
+	position: absolute;
+	top: ~"calc(50% - @{loading_size})";
+	left: ~"calc(50% - @{loading_size})";
+}
+
+.secundary-color{
+	color: @secundary_color;
+}
+
+.third-color{
+	color: @third_color;
+}
+
+/* BOOTSTRAP COLOR OVERWRITE */
+.btn-danger {
+	background-color: #ed5565;
+	border-color: #ed5565;
+	color: #FFFFFF;
+}
+
+.btn-danger:hover, .btn-danger:focus, .btn-danger:active, .btn-danger.active, .open .dropdown-toggle.btn-danger, .btn-danger:active:focus, .btn-danger:active:hover, .btn-danger.active:hover, .btn-danger.active:focus {
+	background-color: #ec4758;
+	border-color: #ec4758;
+	color: #FFFFFF;
+}
+
+.btn-primary {
+	background-color: #1ab394;
+	border-color: #1ab394;
+	color: #FFFFFF;
+}
+
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open .dropdown-toggle.btn-primary, .btn-primary:active:focus, .btn-primary:active:hover, .btn-primary.active:hover, .btn-primary.active:focus {
+	background-color: #18a689;
+	border-color: #18a689;
+	color: #FFFFFF;
+}
+
+.modal-header{
+	color: @main_color;
 }

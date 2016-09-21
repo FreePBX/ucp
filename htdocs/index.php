@@ -128,6 +128,26 @@ if(!isset($_SERVER['HTTP_X_PJAX'])) {
 
 	$ie = 10;
 	$displayvars['shiv'] = ($browser->getName() === \Sinergi\BrowserDetector\Browser::IE && $browser->getVersion() < $ie);
+	$displayvars['menu'] = ($user && !empty($user)) ? $ucp->Modules->generateMenu() : array();
+
+	$user_dashboards = $ucp->Dashboards->getDashboards();
+	$active_dasboard_id = "";
+
+	if(!empty($_REQUEST["dashboard"])){
+		$active_dasboard_id = $_REQUEST["dashboard"];
+	}else {
+		if(!empty($user_dashboards)){
+
+			foreach($user_dashboards as $dashboard_info){
+				$active_dasboard_id = $dashboard_info["id"];
+				break;
+			}
+		}
+	}
+
+	$displayvars['active_dashboard'] = $active_dasboard_id;
+	$displayvars['user_dashboards'] = $user_dashboards;
+
 	$ucp->View->show_view(__DIR__.'/views/header.php',$displayvars);
 }
 
@@ -203,12 +223,10 @@ switch($display) {
 				exit();
 			}
 		}
-		$displayvars['menu'] = ($user && !empty($user)) ? $ucp->Modules->generateMenu() : array();
 		$displayvars['dashboard_content'] = $dashboard_content;
 		$displayvars['year'] = date('Y',time());
 		$dbfc = FreePBX::Config()->get('VIEW_UCP_FOOTER_CONTENT');
 		$displayvars['dashboard_footer_content'] = $ucp->View->load_view(__DIR__."/".$dbfc, array("year" => date('Y',time())));
-		$modules = $ucp->Modules->getActiveModules();
 
 		$displayvars['navItems'] = array();
 		foreach($ucp->Modules->getModulesByMethod('getNavItems') as $m) {
