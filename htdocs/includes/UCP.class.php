@@ -98,6 +98,37 @@ class UCP extends UCP_Helpers {
 	}
 
 	/**
+	 * Get Setting By ID
+	 * @param  {[type]}       $id      [description]
+	 * @param  {[type]}       $module  [description]
+	 * @param  {[type]}       $setting [description]
+	 * @return {[type]}                [description]
+	 */
+	function getSettingByID($id,$module,$setting) {
+		return $this->FreePBX->Ucp->getSettingByID($id,$module,$setting);
+	}
+
+	/**
+	 * [setSettingByID description]
+	 * @method setSettingByID
+	 * @param  {[type]}       $id      [description]
+	 * @param  {[type]}       $module  [description]
+	 * @param  {[type]}       $setting [description]
+	 * @param  {[type]}       $value   [description]
+	 */
+	function setSettingByID($id,$module,$setting,$value) {
+		return $this->FreePBX->Ucp->setSettingByID($id,$module,$setting,$value);
+	}
+
+	function setGlobalSettingByID($id,$setting,$value) {
+		return $this->FreePBX->Ucp->setSettingByID($id,'Global',$setting,$value);
+	}
+
+	function getGlobalSettingByID($id,$setting) {
+		return $this->FreePBX->Ucp->getSettingByID($id,'Global',$setting);
+	}
+
+	/**
 	 * Set a UCP Setting
 	 * @param string $username The username
 	 * @param string $module   The module name

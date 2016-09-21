@@ -145,7 +145,7 @@ class Ajax extends UCP {
 				}
 
 				//Part of the login functionality, thats the only place its used!
-				if($module == 'User' || $module == 'UCP') {
+				if($module == 'User' || $module == 'UCP' || $module == 'Dashboards') {
 					// Is someone trying to be tricky with filenames?
 					$file = dirname(__FILE__).'/'.$ucMod.'.class.php';
 					if((strpos($module, ".") !== false) || !file_exists($file)) {
@@ -463,12 +463,16 @@ class Ajax extends UCP {
 		foreach($accepts as $accept) {
 			//strip off content accept priority
 			$accept = preg_replace('/;(.*)/i','',$accept);
+			dbug($accept);
 	        switch($accept) {
+				case "text/xml":
+				case "application/xml":
 				case "text/json":
 				case "application/json":
 					$this->addHeader('Content-Type', 'text/json');
 					return json_encode($body);
 					break;
+				/*
 				case "text/xml":
 				case "application/xml":
 					$this->addHeader('Content-Type', 'text/xml');
@@ -476,6 +480,7 @@ class Ajax extends UCP {
 					require_once(dirname(__FILE__).'/Array2XML2.class.php');
 					$xml = \Array2XML2::createXML('response', $body);
 					return $xml->saveXML();
+				*/
 	        }
 		}
 
