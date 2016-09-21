@@ -16,6 +16,7 @@
 		<link href="assets/css/bootstrap-select.min.css" rel="stylesheet" type="text/css">
 		<link href="assets/css/emojione.min.css" rel="stylesheet" type="text/css">
 		<link href="assets/css/jquery.tokenize.css" rel="stylesheet" type="text/css">
+		<link href="assets/css/gridster/jquery.gridster.min.css" rel="stylesheet" type="text/css">
 		<link href="assets/css/compiled/main/<?php echo $ucpcssless?>" rel="stylesheet" type="text/css">
 
 		<link href="assets/css/compiled/modules/<?php echo $ucpmoduleless?>" rel="stylesheet" type="text/css">
@@ -62,9 +63,8 @@
 		</style>
 	</head>
 	<body>
-	<div id="loading-container">
-		<div class="message-container">
-			<div class="message"><?php echo _("Loading")?></div>
+		<div id="loading-container">
+			<div class="message-container">
+				<div class="message"><?php echo _("Loading")?></div>
+			</div>
 		</div>
-	</div>
-	<div id="content-container">

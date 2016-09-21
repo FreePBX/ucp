@@ -1,3 +1,3 @@
-<div id="module-page-<?php echo $module?>" style="padding-top: 5px;">
+<section id="module-page-<?php echo $module?>" class="action-container module-page-<?php echo $module?>">
 	<?php echo $display?>
-<div>
+</section>

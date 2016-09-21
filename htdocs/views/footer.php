@@ -1,4 +1,9 @@
 		</div>
+		<footer id="footer">
+			<div id="footer-content" class="col-md-12">
+				<?php echo $dashboard_footer_content?>
+			</div
+		</footer>
 		<script>
 			$(document).bind("mobileinit", function() {
 				$.mobile.ignoreContentEnabled = true;

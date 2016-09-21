@@ -151,6 +151,7 @@ class UCP extends UCP_Helpers {
 			"bootstrap-table-export.js",
 			"tableExport.js",
 			"jquery-ui-1.10.4.custom.min.js",
+			"gridster/jquery.gridster.with-extras.min.js",
 			/*"jquery.keyframes.min.js",*/
 			"fileinput.js",
 			"recorder.js",

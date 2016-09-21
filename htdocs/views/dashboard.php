@@ -20,25 +20,53 @@
 		<?php } ?>
 	</ul>
 </nav>
-<!-- end small device nav menu -->
-<div id="dashboard" class="pushmenu-push dashboard-container center-box">
-	<!-- This navigation pane hides when the viewport is smaller than 768 -->
-	<div id="nav-bar-background">
-		<div id="global-message-container">
-			<div id="global-message"></div>
-		</div>
-		<div id="bc-mobile-icon"><i class="fa fa-bars"></i></div>
-		<ol id="top-dashboard-nav" class="breadcrumb">
-			<li class="home"><a data-mod="home" data-pjax href="?display=dashboard&amp;mod=home"><?php echo _('Home')?></a></li>
-			<?php if($active_module != 'home' && !empty($menu[$active_module])) {?>
-				<li class="module bc-<?php echo $menu[$active_module]['rawname']?> active"><?php echo $menu[$active_module]['name']?></li>
-				<?php if(!empty($_REQUEST['sub'])) {?>
-					<li class="subsection bc-<?php echo $_REQUEST['sub']?> active"><?php echo $_REQUEST['sub']?></li>
+
+<nav id="nav-bar-background" class="navbar navbar-default navbar-fixed-top">
+	<div id="global-message-container">
+		<div id="global-message"></div>
+	</div>
+
+	<div id="add_new_dashboard" class="add-dashboard">
+		<button class="btn btn-default" type="button">
+			<i class="fa fa-plus" aria-hidden="true"></i>
+		</button>
+	</div>
+
+	<ul class="nav nav-tabs dashboards" role="tablist">
+
+		<?php $i = 0; foreach($menu as $module) { $i++;?>
+			<li role="presentation" data-mod="<?php echo $module['rawname']?>" class="<?php echo ($module['rawname'] == $active_module) ? 'active' : ''?> menu-order">
+				<?php if(empty($module['menu'])) {?>
+					<a data-mod="<?php echo $module['rawname']?>" data-pjax href="?display=dashboard&amp;mod=<?php echo $module['rawname']?>"><?php echo $module['name']?> <?php if(isset($module['badge'])) {?><span id="<?php echo $module['rawname']?>-badge" class="badge"><?php echo $module['badge']?></span><?php } ?></a>
+				<?php } elseif(!empty($module['menu']) && count($module['menu']) == 1) {?>
+					<a data-mod="<?php echo $module['rawname']?>" data-pjax href="?display=dashboard&amp;mod=<?php echo $module['rawname']?>&amp;sub=<?php echo $module['menu'][0]['rawname']?>"><?php echo $module['name']?> <?php if(isset($module['badge'])) {?><span id="<?php echo $module['rawname']?>-badge" class="badge"><?php echo $module['badge']?></span><?php } ?></a>
+				<?php } else {?>
+					<a class="dropdown-toggle <?php echo ($module['rawname'] == $active_module) ? 'active' : ''?>" data-toggle="dropdown" href="#"><?php echo $module['name']?> <?php if(isset($module['badge'])) {?><span id="<?php echo $module['rawname']?>-badge" class="badge"><?php echo $module['badge']?></span><?php } ?> <span class="caret"></span></a>
+					<ul class="dropdown-menu">
+						<?php foreach($module['menu'] as $smenu) {?>
+							<li>
+								<a data-mod="<?php echo $module['rawname']?>" data-pjax href="?display=dashboard&amp;mod=<?php echo $module['rawname']?>&amp;sub=<?php echo $smenu['rawname']?>"><?php echo $smenu['name']?> <?php if(isset($smenu['badge'])) {?><span id="<?php echo $module['rawname']?>-<?php echo $smenu['rawname']?>-badge" class="badge"><?php echo $smenu['badge']?></span><?php } ?></a>
+							</li>
+						<?php } ?>
+					</ul>
 				<?php } ?>
-			<?php } elseif($active_module == 'ucpsettings') { ?>
-				<li class="bc-ucpsettings active"><?php echo _('Settings')?></li>
-		  <?php } ?>
-		</ol>
+			</li>
+			<li class="menu-space" data-order="<?php echo $i; ?>">
+
+			</li>
+		<?php } ?>
+	</ul>
+</nav>
+
+<!-- left navbar -->
+<nav class="navbar navbar-inverse navbar-fixed-left">
+	<ul class="nav navbar-nav">
+		<li><a href="#"><i class="fa fa-user" aria-hidden="true"></i></a></li>
+		<li><a href="#"><i class="fa fa-cogs" aria-hidden="true"></i></a></li>
+		<li class="add-widget widget-bar"><a href="#"><i class="fa fa-plus" aria-hidden="true"></i></a></li>
+	</ul>
+
+	<!--<div id="bc-mobile-icon"><i class="fa fa-bars"></i></div>
 		<div id="top-dashboard-nav-right">
 			<div class="nav-btns">
 				<?php foreach($navItems as $button) {?>
@@ -51,8 +79,11 @@
 					</div>
 				<?php } ?>
 			</div>
-		</div>
-	</div>
+		</div> -->
+</nav>
+
+<!-- end small device nav menu -->
+<!--<div id="dashboard" class="pushmenu-push dashboard-container center-box">
 	<div class="nav-menus">
 		<?php foreach($navItems as $module => $item) {
 			if (!empty($item['menu']['html'])) {?>
@@ -61,48 +92,21 @@
 				</ol>
 		<?php } } ?>
 	</div>
-	<div class="clear"></div>
-	<div id="container-fixed-left" class="container-fluid">
-		<div class="row">
-			<!-- This navigation pane hides when the viewport is smaller than 768 -->
-			<div id="fs-navside" class="col-sm-2">
-				<ul class="nav nav-pills nav-stacked">
-					<?php foreach($menu as $module) {?>
-						<li data-mod="<?php echo $module['rawname']?>" class="menu-<?php echo $module['rawname']?> <?php echo ($module['rawname'] == $active_module) ? 'active' : ''?>">
-							<?php if(empty($module['menu'])) {?>
-								<a data-mod="<?php echo $module['rawname']?>" data-pjax href="?display=dashboard&amp;mod=<?php echo $module['rawname']?>"><?php echo $module['name']?> <?php if(isset($module['badge'])) {?><span id="<?php echo $module['rawname']?>-badge" class="badge"><?php echo $module['badge']?></span><?php } ?></a>
-							<?php } elseif(!empty($module['menu']) && count($module['menu']) == 1) {?>
-								<a data-mod="<?php echo $module['rawname']?>" data-pjax href="?display=dashboard&amp;mod=<?php echo $module['rawname']?>&amp;sub=<?php echo $module['menu'][0]['rawname']?>"><?php echo $module['name']?> <?php if(isset($module['badge'])) {?><span id="<?php echo $module['rawname']?>-badge" class="badge"><?php echo $module['badge']?></span><?php } ?></a>
-							<?php } else {?>
-								<a class="dropdown-toggle <?php echo ($module['rawname'] == $active_module) ? 'active' : ''?>" data-toggle="dropdown" href="#"><?php echo $module['name']?> <?php if(isset($module['badge'])) {?><span id="<?php echo $module['rawname']?>-badge" class="badge"><?php echo $module['badge']?></span><?php } ?> <span class="caret"></span></a>
-								<ul class="dropdown-menu">
-									<?php foreach($module['menu'] as $smenu) {?>
-										<li>
-			   								<a data-mod="<?php echo $module['rawname']?>" data-pjax href="?display=dashboard&amp;mod=<?php echo $module['rawname']?>&amp;sub=<?php echo $smenu['rawname']?>"><?php echo $smenu['name']?> <?php if(isset($smenu['badge'])) {?><span id="<?php echo $module['rawname']?>-<?php echo $smenu['rawname']?>-badge" class="badge"><?php echo $smenu['badge']?></span><?php } ?></a>
-										</li>
-									<?php } ?>
-								</ul>
-							<?php } ?>
-						</li>
-					<?php } ?>
-				</ul>
+</div>-->
+
+<div class="container-fluid main-content-object">
+	<div class="row">
+		<div class="col-md-12 col-sm-12 col-lg-12 main-content-column">
+			<div id="loader-screen">
+				<div id="loader-screen-content"><strong><?php echo _('Excuse us while we try to retrieve your content')?>..</strong></div>
 			</div>
-			  <div class="col-sm-10">
-				<div id="loader-screen">
-					<div id="loader-screen-content"><strong><?php echo _('Excuse us while we try to retrieve your content')?>..</strong></div>
-				</div>
-				  <!-- The content below is loaded dynamically through PJAX After Dashboard had loaded -->
-				  <div id="dashboard-content">
-					  <?php echo $dashboard_content?>
-				 </div>
-			  </div>
+			<!-- The content below is loaded dynamically through PJAX After Dashboard had loaded -->
+			<div id="dashboard-content">
+				<?php echo $dashboard_content?>
+			</div>
 		</div>
 	</div>
+
 	<div id="messages-container">
-	</div>
-	<div id="footer">
-		<div id="footer-bar"></div>
-		<div id="footer-content">
-			<?php echo $dashboard_footer_content?>
 	</div>
 </div>

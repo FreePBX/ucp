@@ -20,7 +20,7 @@ class Modules extends Module_Helpers {
 	private $freepbxActiveModules = array();
 	private $ucpActiveModules = array();
 	private $moduleMethods = array();
-	private $defaultModules = array("home", "settings");
+	private $defaultModules = array("home", "settings", "widgets");
 
 	function __construct($UCP) {
 		$this->UCP = $UCP;

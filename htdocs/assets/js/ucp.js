@@ -225,7 +225,7 @@ var UCPC = Class.extend({
 		$("#footer").bind("transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd", function() { UCP.transitioning = false; });
 		$("#footer").bind("transitionstart webkitTransitionStart oTransitionStart MSTransitionStart", function() { UCP.transitioning = true; });
 
-		$("#dashboard-content").bind("scroll", function() {
+		/*$("#dashboard-content").bind("scroll", function() {
 			if (UCP.transitioning || $( window ).width() > 767) {
 				return true;
 			}
@@ -244,9 +244,9 @@ var UCPC = Class.extend({
 			}
 
 			UCP.lastScrollTop = st;
-		});
+		});*/
 
-		UCP.windowResize();
+		//UCP.windowResize();
 
 		//This allows browsers to request user notifications from said user.
 		$(document).click(function() {
@@ -564,7 +564,7 @@ var UCPC = Class.extend({
 		}
 
 		//run the resize hack against dashboard content
-		if ($("#dashboard-content").length) {
+		/*if ($("#dashboard-content").length) {
 			if (!UCP.footerHidden) {
 				$("#dashboard-content").height($("#dashboard").height() - 135);
 				$("#fs-navside").height($("#dashboard").height() - 135);
@@ -573,7 +573,7 @@ var UCPC = Class.extend({
 				$("#dashboard-content").height($("#dashboard").height() - 59);
 				$("#fs-navside").height($("#dashboard").height() - 59);
 			}
-		}
+		}*/
 	},
 	notificationsAllowed: function() {
 		this.notify = true;
@@ -810,10 +810,9 @@ var UCPC = Class.extend({
 	},
 	pjaxEnd: function(event) {
 		var display = $.url().param("display"),
-				breadcrumbs = "<li class=\"home\"><a data-mod=\"home\" data-pjax href=\"?display=dashboard&amp;mod=home\">" + _("Home") + "</a></li>",
 				sub = $.url().param("sub");
 
-		this.windowResize();
+		//this.windowResize();
 		NProgress.done();
 		$("#nav-btn-settings .icon i").removeClass("out");
 		if (typeof window[this.activeModule] == "object" &&
@@ -833,6 +832,11 @@ var UCPC = Class.extend({
 			} else if (this.validMethod(this.activeModule, "display")) {
 				this.Modules[this.activeModule].display(event);
 			}
+
+			if(this.activeModule == "Widgets"){
+				intialize_grid();
+			}
+
 		} else if (display == "settings") {
 			this.settingsBinds();
 		}
@@ -843,19 +847,6 @@ var UCPC = Class.extend({
 		} else {
 			name = this.activeModule;
 		}
-
-		if (typeof display === "undefined" || display == "dashboard") {
-			if (this.activeModule != "Home") {
-				breadcrumbs = breadcrumbs + "<li class=\"module bc-" + this.activeModule.toLowerCase() + " active\">" + name + "</li>";
-			}
-			if (typeof sub !== "undefined") {
-				breadcrumbs = breadcrumbs + "<li class=\"subsection bc-" + sub + " active\">" + sub + "</li>";
-			}
-		} else if (display == "settings") {
-			breadcrumbs = breadcrumbs + "<li class=\"module active\">" + _("Settings") + "</li>";
-		}
-
-		$("#top-dashboard-nav").html(breadcrumbs);
 
 		this.binds();
 	},
@@ -1246,6 +1237,7 @@ var UCPC = Class.extend({
 }), UCP = new UCPC();
 $(function() {
 	UCP.ready();
+	menu_dragabble();
 });
 
 String.prototype.modularize = function() {
@@ -1268,6 +1260,23 @@ function htmlEncode( html ) {
 function htmlDecode( html ) {
 	var a = document.createElement( "a" ); a.innerHTML = html;
 	return a.textContent;
+}
+
+function menu_dragabble(){
+	$(".menu-order").draggable({ axis: "x" });
+
+	$(".menu-space").droppable({
+		classes: {
+			"ui-droppable-active": "droppable-menu",
+			"ui-droppable-hover": "ui-state-hover"
+		},
+		drop: function( event, ui ) {
+			$( this )
+				.addClass( "ui-state-highlight" )
+				.find( "p" )
+				.html( "Dropped!" );
+		}
+	});
 }
 
 /** Language, global functions so they act like php procedurals **/
