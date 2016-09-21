@@ -1267,8 +1267,8 @@ function menu_dragabble(){
 
 	$(".menu-space").droppable({
 		classes: {
-			"ui-droppable-active": "droppable-menu",
-			"ui-droppable-hover": "ui-state-hover"
+			"ui-droppable-active": "droppable-menu-empty",
+			"ui-droppable-hover": "droppable-menu-hover"
 		},
 		drop: function( event, ui ) {
 			$( this )
