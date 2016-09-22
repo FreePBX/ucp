@@ -107,7 +107,7 @@
 			<ul class="nav nav-tabs dashboards" role="tablist" id="all_dashboards">
 				<?php foreach($user_dashboards as $dashboard_info) { ?>
 					<li class="<?php echo ($dashboard_info["id"] == $active_dashboard) ? 'active' : ''?> menu-order dashboard-menu" data-id="<?php echo $dashboard_info["id"]?>">
-						<a data-pjax href="?dashboard=<?php echo $dashboard_info["id"]?>"><?php echo $dashboard_info["name"]?></a>
+						<a data-pjax href="?dashboard=<?php echo $dashboard_info["id"]?>"><?php echo $dashboard_info["name"]?> <div class="remove-dashboard" data-dashboard_id="<?php echo $dashboard_info["id"]?>"><i class="fa fa-times" aria-hidden="true"></i></div></a>
 					</li>
 				<?php } ?>
 			</ul>
@@ -116,9 +116,9 @@
 		<!-- left navbar -->
 		<nav class="navbar navbar-inverse navbar-fixed-left">
 			<ul class="nav navbar-nav">
+				<li class="add-widget" data-toggle="modal" data-target="#add_widget"><a href="#"><i class="fa fa-plus-circle" aria-hidden="true"></i></a></li>
 				<li><a href="#"><i class="fa fa-user" aria-hidden="true"></i></a></li>
 				<li><a href="#"><i class="fa fa-cogs" aria-hidden="true"></i></a></li>
-				<li class="add-widget widget-bar"><a href="#"><i class="fa fa-plus" aria-hidden="true"></i></a></li>
 			</ul>
 		</nav>
 

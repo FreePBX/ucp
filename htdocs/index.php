@@ -120,6 +120,27 @@ try {
 	die();
 }
 
+/***********************/
+/* DASHBOARD SELECTION */
+/***********************/
+
+$all_widgets = $ucp->Dashboards->getallwidgets();
+
+$user_dashboards = $ucp->Dashboards->getDashboards();
+$active_dashboard_id = "";
+
+if(!empty($_REQUEST["dashboard"])){
+	$active_dashboard_id = $_REQUEST["dashboard"];
+}else {
+	if(!empty($user_dashboards)){
+
+		foreach($user_dashboards as $dashboard_info){
+			$active_dashboard_id = $dashboard_info["id"];
+			break;
+		}
+	}
+}
+
 if(!isset($_SERVER['HTTP_X_PJAX'])) {
 	$displayvars['version'] = $ucp->getVersion();
 	$displayvars['iconsdir'] = FreePBX::Config()->get('VIEW_UCP_ICONS_FOLDER');
@@ -130,22 +151,9 @@ if(!isset($_SERVER['HTTP_X_PJAX'])) {
 	$displayvars['shiv'] = ($browser->getName() === \Sinergi\BrowserDetector\Browser::IE && $browser->getVersion() < $ie);
 	$displayvars['menu'] = ($user && !empty($user)) ? $ucp->Modules->generateMenu() : array();
 
-	$user_dashboards = $ucp->Dashboards->getDashboards();
-	$active_dasboard_id = "";
+	$displayvars['all_widgets'] = $all_widgets;
 
-	if(!empty($_REQUEST["dashboard"])){
-		$active_dasboard_id = $_REQUEST["dashboard"];
-	}else {
-		if(!empty($user_dashboards)){
-
-			foreach($user_dashboards as $dashboard_info){
-				$active_dasboard_id = $dashboard_info["id"];
-				break;
-			}
-		}
-	}
-
-	$displayvars['active_dashboard'] = $active_dasboard_id;
+	$displayvars['active_dashboard'] = $active_dashboard_id;
 	$displayvars['user_dashboards'] = $user_dashboards;
 
 	$ucp->View->show_view(__DIR__.'/views/header.php',$displayvars);
@@ -153,7 +161,7 @@ if(!isset($_SERVER['HTTP_X_PJAX'])) {
 
 if($user && !empty($user)) {
 	$display = !empty($_REQUEST['display']) ? $_REQUEST['display'] : 'dashboard';
-	$module = !empty($_REQUEST['mod']) ? $_REQUEST['mod'] : 'home';
+	$module = !empty($_REQUEST['mod']) ? $_REQUEST['mod'] : 'widgets';
 } else {
 	if(isset($_REQUEST['forgot'])) {
 		$display = 'forgot';
@@ -169,7 +177,10 @@ if($user && !empty($user)) {
 switch($display) {
 	case "settings":
 	case "dashboard":
-		if($display == "settings") {
+
+		
+
+		/*if($display == "settings") {
 			$ucp->Modgettext->push_textdomain("ucp");
 			$displayvars['desktop'] = (!$ucp->Session->isMobile && !$ucp->Session->isTablet);
 			$displayvars['lang'] = $lang;
@@ -222,7 +233,20 @@ switch($display) {
 				echo $dashboard_content;
 				exit();
 			}
+		}*/
+
+		$ucp->Modgettext->push_textdomain("ucp");
+
+		$displayvars['active_module'] = $module;
+		$mclass = ucfirst(strtolower($module));
+		if(in_array($mclass,$active_modules)) {
+			$dashboard_content = $ucp->View->load_view(__DIR__.'/views/module.php',array("module" => $module, "display" => $ucp->Modules->$mclass->getDisplay($active_dashboard_id)));
+		} else {
+			$ucp->Modgettext->pop_textdomain();
+			$dashboard_content = sprintf(_('Unknown Module %s'),$module);
 		}
+		$ucp->Modgettext->pop_textdomain();
+
 		$displayvars['dashboard_content'] = $dashboard_content;
 		$displayvars['year'] = date('Y',time());
 		$dbfc = FreePBX::Config()->get('VIEW_UCP_FOOTER_CONTENT');

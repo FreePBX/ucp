@@ -170,7 +170,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 /* BREADCRUMB/MENU/LOGOUT BAR */
 #nav-bar-background {
 	background-color: #f5f5f5;
-	min-height: 46px;
+	min-height: 44px;
 	margin-bottom: 0;
 	border-width: 0 0 0;
 	.breadcrumb {
@@ -272,17 +272,23 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 }
 
 .navbar-fixed-left {
-	width: 54px;
+	width: 55px;
 	position: fixed;
 	border-radius: 0;
 	height: 100%;
 	background-color: @secundary_color;
 	color: @secundary_color;
-	top: 46px;
+	top: 44px;
 	z-index: 1030;
 
 	:first-child{
 		margin-top: 0 !important;
+	}
+
+	.navbar-nav {
+		.add-widget{
+			border: 1px dotter @main_color;
+		}
 	}
 
 	.navbar-nav li {
@@ -305,7 +311,6 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 		> a:hover{
 			background-color: @main_color;
 			color: @secundary_color;
-			border-right: 2px solid @third_color;
 		}
 	}
 
@@ -319,8 +324,8 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 }
 
 .main-content-object{
-	padding-left: 60px;
-	padding-top: 50px;
+	padding-left: 55px;
+	padding-top: 44px;
 
 	.main-content-column{
 		padding-bottom: 30px;
@@ -331,6 +336,14 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 	float: right;
 	margin-top: 5px;
 	margin-right: 5px;
+
+	.remove-dashboard{
+		float: right;
+		margin-left: 10px;
+	}
+	.remove-dashboard:hover{
+		color: @third_color;
+	}
 }
 
 .add-dashboard{
@@ -355,7 +368,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 }
 
 .nav-tabs {
-	border-bottom: 2px solid @main_color;
+	border-bottom: none;
 }
 .nav-tabs > li.active > a, .nav-tabs > li.active > a:focus, .nav-tabs > li.active > a:hover {
 	border-width: 0;
@@ -515,7 +528,6 @@ section.content {
 section{
 	height: 100%;
 	overflow-y: auto;
-	padding-top: 5px;
 	.action-container {
 	}
 }
@@ -1211,6 +1223,118 @@ select[multiple].Tokenize, select[size].Tokenize {
 	color: @third_color;
 }
 
+div.bhoechie-tab-container{
+	z-index: 10;
+	background-color: @secundary_color;
+	padding: 0 !important;
+	border-radius: 4px;
+	border:1px solid @secundary_color;
+	margin-top: 0;
+	margin-left: 0;
+	background-clip: padding-box;
+	opacity: 0.97;
+	filter: alpha(opacity=97);
+}
+div.bhoechie-tab-menu{
+	padding-right: 0;
+	padding-left: 0;
+	padding-bottom: 0;
+}
+div.bhoechie-tab-menu div.list-group{
+	margin-bottom: 0;
+}
+div.bhoechie-tab-menu div.list-group>a{
+	margin-bottom: 0;
+}
+div.bhoechie-tab-menu div.list-group>a .glyphicon,
+div.bhoechie-tab-menu div.list-group>a .fa {
+	color: @main_color;
+}
+div.bhoechie-tab-menu div.list-group>a:first-child{
+	border-top-right-radius: 0;
+}
+div.bhoechie-tab-menu div.list-group>a:last-child{
+	border-bottom-right-radius: 0;
+}
+div.bhoechie-tab-menu div.list-group>a.active,
+div.bhoechie-tab-menu div.list-group>a.active .glyphicon,
+div.bhoechie-tab-menu div.list-group>a.active .fa{
+	background-color: @main_color;
+	color: @secundary_color;
+	border-color: @main_color;
+}
+div.bhoechie-tab-menu div.list-group>a.active:after{
+	content: '';
+	position: absolute;
+	left: 100%;
+	top: 50%;
+	margin-top: -13px;
+	border-left: 0;
+	border-bottom: 13px solid transparent;
+	border-top: 13px solid transparent;
+	border-left: 10px solid @main_color;
+}
+
+div.bhoechie-tab-content{
+	background-color: @secundary_color;
+	padding-top: 10px;
+	text-align: center;
+	color: @main_color;
+	height: 355px;
+	overflow-y: auto;
+	padding-right: 15px;
+}
+
+div.bhoechie-tab div.bhoechie-tab-content:not(.active){
+	display: none;
+}
+
+.ibox-content-widget {
+	background-color: #ffffff;
+	color: inherit;
+	padding: 15px 20px 20px 20px;
+	border-color: #e7eaec;
+	border-image: none;
+	border-style: solid solid none;
+	border-width: 1px 0;
+	margin-bottom: 5px;
+	text-align: left;
+	overflow: auto;
+	position: relative;
+	
+	.widget-title{
+		text-align: justify;
+		h4 {
+			small{
+				font-size: 10px;
+			}
+		}
+	}
+
+	.widget-add-container{
+		position: absolute;
+		bottom: 5px;
+		right: 5px;
+		float: left;
+		.btn{
+			font-size: 20px;
+			padding: 0 8px;
+		}
+	}
+}
+
+.pull-right {
+	float: right !important;
+}
+
+.text-right {
+	text-align: right;
+}
+
+.m-r {
+	margin-right: 15px;
+}
+
 /* BOOTSTRAP COLOR OVERWRITE */
 .btn-danger {
 	background-color: #ed5565;
@@ -1236,6 +1360,16 @@ select[multiple].Tokenize, select[size].Tokenize {
 	color: #FFFFFF;
 }
 
-.modal-header{
-	color: @main_color;
+.btn-outline {
+	color: inherit;
+	background-color: transparent;
+	transition: all .5s;
+}
+
+.top-offset{
+	margin-top: 5px;
+}
+
+.modal-body{
+	overflow: auto;
 }

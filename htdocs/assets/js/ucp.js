@@ -5,6 +5,8 @@
  * Copyright 2006-2014 Schmooze Com Inc.
  */
 
+var modal_confirm_function;
+
 function activate_full_loading(){
 	$(".main-block").show();
 }
@@ -44,6 +46,35 @@ function show_alert(message, type, callback_func){
 	}
 
 	$("#alert_modal").modal("show");
+}
+
+function show_confirm(message, type, callback_func) {
+
+	var type_class = "";
+	if(type == 'success'){
+		type_class = "alert-success";
+	}else if(type == 'info'){
+		type_class = "alert-info";
+	}else if(type == 'warning'){
+		type_class = "alert-warning";
+	}else if(type == 'danger'){
+		type_class = "alert-danger";
+	}
+
+	$("#confirm_content").removeClass("alert-success alert-info alert-warning alert-danger");
+
+	$("#confirm_content").addClass(type_class);
+	$("#confirm_content").html(message);
+
+	$('#confirm_modal').modal('show');
+
+	modal_confirm_function = callback_func;
+}
+
+function widget_layout(widget_id, widget_name, widget_content){
+	var html = '<li data-id="'+widget_id+'" data-name="'+widget_name+'"><div class="widget-title">'+widget_name+'</div><div class="widget-content">'+widget_content+'</div></li>';
+
+	return html;
 }
 
 var UCPC = Class.extend({
@@ -88,6 +119,9 @@ var UCPC = Class.extend({
 		} else {
 			UCP.setupLogin();
 		}
+
+		var dashboard_id = $.url().param("dashboard");
+		this.activeDashboard = dashboard_id;
 	},
 	ajaxStart: function() {
 		$("#nav-btn-settings i").addClass("fa-spin");
@@ -849,7 +883,7 @@ var UCPC = Class.extend({
 		var display = $.url().param("display"),
 				sub = $.url().param("sub");
 
-		intialize_grid();
+		dashboard_widgets.init();
 
 		$("#nav-btn-settings .icon i").removeClass("out");
 		if (typeof window[this.activeModule] == "object" &&
@@ -1312,6 +1346,9 @@ var UCPC = Class.extend({
 $(function() {
 	UCP.ready();
 	menu_dragabble();
+	categories_widgets_init();
+	initialize_add_widgets_buttons();
+	remove_dashboards_buttons();
 });
 
 String.prototype.modularize = function() {
@@ -1350,10 +1387,111 @@ function menu_dragabble(){
 	});*/
 }
 
+function remove_dashboards_buttons(){
+	$(".remove-dashboard").click(function(event){
+
+		event.preventDefault();
+		event.stopPropagation();
+
+		var dashboard_id = $(this).data("dashboard_id");
+
+		show_confirm("Are you sure you want to delete this dashboard?", "warning", function() {
+
+			activate_full_loading();
+
+			$.post( "?quietmode=1&module=Dashboards&command=remove",
+				{
+					id: dashboard_id
+				},
+				function( data ) {
+					if (data.status) {
+						$(".dashboard-menu[data-id='" + dashboard_id + "']").remove();
+
+						if(dashboard_id == UCP.activeDashboard){
+							$(".dashboard-menu").first().find("a").click();
+						}
+
+					}else {
+						show_alert("Something went wrong removing the dashboard", "danger");
+					}
+					deactivate_full_loading();
+				}
+			);
+		});
+
+	});
+}
+
+function initialize_add_widgets_buttons(){
+	$(".add-widget-button").click(function(){
+
+		activate_full_loading();
+
+		var widget_id = $(this).data('widget_id');
+		var widget_rawname = $(this).data('rawname');
+		var current_dashboard_id = UCP.activeDashboard;
+		var widget_name = $(this).data('widget_name');
+		var new_widget_id = current_dashboard_id + "-" + widget_id;
+
+		var default_size_x = $(this).data('size_x');
+		var default_size_y = $(this).data('size_y');
+
+		/*$.post( "?quietmode=1&module=Dashboards&command=addwidget",
+			{
+				id: widget_id,
+				rawname: widget_rawname,
+				dashboard_id: current_dashboard_id
+			},
+			function( data ) {
+				if(data.status){*/
+					//Now we add the widget to the dashboard
+
+					//So first we go the HTML content to add it to the widget
+					var widget_html = "<h3>Im the new widget dude</h3>";
+					var full_widget_html = widget_layout(new_widget_id, widget_name, widget_html);
+
+					var gridster_object = $(".gridster ul").gridster().data('gridster');
+					//We are adding the widget always on the position 1,1
+					gridster_object.add_widget(full_widget_html, default_size_x, default_size_y, 1, 1);
+
+					save_layout_content();
+					$("#add_widget").modal("hide");
+
+				/*}else {
+					show_alert("Something went wrong creating the new widget", "danger");
+				}*/
+			 	deactivate_full_loading();
+			/*}
+		);*/
+		
+	});
+}
+
+function categories_widgets_init(){
+	$("div.bhoechie-tab-menu>div.list-group>a").click(function(e) {
+		e.preventDefault();
+		$(this).siblings('a.active').removeClass("active");
+		$(this).addClass("active");
+		var index = $(this).index();
+		$("div.bhoechie-tab>div.bhoechie-tab-content").removeClass("active");
+		$("div.bhoechie-tab>div.bhoechie-tab-content").eq(index).addClass("active");
+	});
+}
+
 /* MODAL FOCUS */
 $('#add_dashboard').on('shown.bs.modal', function () {
 	$('#dashboard_name').focus();
-})
+});
+
+$('#add_dashboard').on('hidden.bs.modal', function () {
+	$('#dashboard_name').val("");
+});
+
+$(document).on("click", "#modal_confirm_button", function(){
+	if(typeof modal_confirm_function == "function"){
+		modal_confirm_function();
+	}
+});
 
 /** Language, global functions so they act like php procedurals **/
 UCP.i18n = new Jed(languages);

@@ -35,22 +35,29 @@ class Widgets extends Modules{
 		$this->user = $this->UCP->User->getUser();
 	}
 
-	function getDisplay() {
-		$modules = $this->Modules->getModulesByMethod('getWidgetsFromDashboard');
+	function getDisplay($dashboard_id) {
+
+		$widgets_info_serialized = $this->Modules->Widgets->getWidgetsFromDashboard($dashboard_id);
+
+		$widgets_info = json_decode($widgets_info_serialized);
+
 		$html = '<div class="gridster"><ul>';
 
-		foreach($modules as $module) {
-			$this->UCP->Modgettext->push_textdomain(strtolower($module));
-			$widgets = $this->Modules->$module->getWidgetsFromDashboard();
-			$this->UCP->Modgettext->pop_textdomain();
-			foreach($widgets as $data) {
-				$html .= '<li data-row="'.$data["position"]["x"].'" data-col="'.$data["position"]["y"].'" data-sizex="'.$data["size"]["height"].'" data-sizey="'.$data["size"]["width"].'">
-					<div class="widget-title">'.$data["name"].'</div>
+		$this->UCP->Modgettext->push_textdomain("widgets");
+
+		if(!empty($widgets_info)){
+			foreach($widgets_info as $data) {
+				$html .= '<li data-id="'.$data->id.'" data-name="'.$data->name.'" data-row="'.$data->row.'" data-col="'.$data->col.'" data-sizex="'.$data->size_x.'" data-sizey="'.$data->size_y.'">
+					<div class="widget-title">'.$data->name.'</div>
 					<div class="widget-content"></div>
 				</li>';
 			}
 		}
+
 		$html .= '</ul></div>';
+
+		$this->UCP->Modgettext->pop_textdomain();
+
 		return $html;
 	}
 
@@ -58,109 +65,11 @@ class Widgets extends Modules{
 		return array("status" => true, "data" => array());
 	}
 
-	public function getWidgetsFromDashboard($feed = null) {
+	public function getWidgetsFromDashboard($dashboard_id) {
 
-		$bagre = array(
-			0 => array(
-				"name" => "widget1",
-				"position" => array(
-					"x" => 1,
-					"y" => 1
-				),
-				"size" => array(
-					"height" => 2,
-					"width" => 2
-				)
-			),
-			1 => array(
-				"name" => "widget2",
-				"position" => array(
-					"x" => 2,
-					"y" => 2
-				),
-				"size" => array(
-					"height" => 1,
-					"width" => 1
-				)
-			)
-		);
+		$dashboard_layout = $this->UCP->Dashboards->getLayoutByID($dashboard_id);
 
-		return $bagre;
-
-		//return array();
-		/*$fpbxfeeds = $this->UCP->FreePBX->Config->get('UCPRSSFEEDS');
-		$fpbxfeeds = !empty($fpbxfeeds) ? $fpbxfeeds : $this->UCP->FreePBX->Config->get('RSSFEEDS');
-
-		$fpbxfeeds = trim($fpbxfeeds);
-		if(empty($fpbxfeeds)) {
-			return array();
-		}
-
-		$feeds = array();
-		$fpbxfeeds = str_replace("\r","",$fpbxfeeds);
-		foreach(explode("\n",$fpbxfeeds) as $k => $f) {
-			$feeds['feed-'.$k] = $f;
-		}
-		if(!empty($feed) && !empty($feeds[$feed])) {
-			$feeds = array($feeds[$feed]);
-		}
-		$out = array();
-		$reader = new Reader;
-
-		//Check if dashboard is installed and enabled,
-		//if so then we will use the same cache engine dashboard uses
-		if($this->UCP->FreePBX->Modules->moduleHasMethod("dashboard","getConfig")) {
-			$storage = $this->UCP->FreePBX->Dashboard;
-		} else {
-			$storage = $this->UCP->FreePBX->Ucp;
-		}
-		foreach($feeds as $k => $feed) {
-			$etag = $storage->getConfig($feed, "etag");
-			$last_modified = $storage->getConfig($feed, "last_modified");
-			$content = '';
-			try {
-				$resource = $reader->download($feed, $last_modified, $etag);
-				if ($resource->isModified()) {
-
-					$parser = $reader->getParser(
-						$resource->getUrl(),
-						$resource->getContent(),
-						$resource->getEncoding()
-					);
-
-					$content = $parser->execute();
-					$etag = $resource->getEtag();
-					$last_modified = $resource->getLastModified();
-
-					$storage->setConfig($feed, $content, "content");
-					$storage->setConfig($feed, $etag, "etag");
-					$storage->setConfig($feed, $last_modified, "last_modified");
-				} else {
-					$content = $storage->getConfig($feed, "content");
-				}
-			}	catch (\PicoFeed\PicoFeedException $e) {
-				$content = $storage->getConfig($feed, "content");
-			}
-			if(empty($content)) {
-				continue;
-			}
-			$htmlcontent = '<ul>';
-			$i = 1;
-			foreach($content->items as $item) {
-				if($i > 5) {
-					break;
-				}
-				$htmlcontent .= '<li><a href="'.$item->url.'" target="_blank">'.$item->title.'</a></li>';
-				$i++;
-			}
-			$htmlcontent .= '</ul>';
-			$out[] = array(
-				"id" => $k,
-				"title" => '<a href="'.$content->site_url.'" target="_blank">'.$content->title.'</a>',
-				"content" => $htmlcontent,
-				"size" => '33.33%'
-			);
-		}*/
+		return $dashboard_layout;
 	}
 
 	/**
