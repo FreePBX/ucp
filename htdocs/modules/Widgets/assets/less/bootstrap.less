@@ -5,6 +5,9 @@
 @main_widget_color: #FFF;
 @widget_text_color: #2F4050;
 
+@loading_size_widget: 15px;
+@widget_title_height: 34px;
+
 .module-page-widgets {
 
 	ol, ul{
@@ -22,15 +25,26 @@
 			color: @widget_text_color;
 			cursor: pointer;
 			.widget-title{
+				position: relative;
 				text-align: center;
 				padding-top: 5px;
 				padding-bottom: 5px;
 				text-transform: capitalize;
 				border-top: 3px solid @third_color;
 				border-bottom: 1px solid @main_color;
+				.remove-widget{
+					display: none;
+					position: absolute;
+					top: 6px;
+					right: 6px;
+				}
+				.remove-widget:hover{
+					color: @third_color;
+				}
 			}
 			.widget-content{
-
+				width: 100%;
+				height: ~"calc(100% - @{widget_title_height})";
 			}
 		}
 
@@ -39,6 +53,18 @@
 			right: 0;
 			background-position: 80% 80%;
 			cursor: nwse-resize;
+		}
+	}
+
+	.widget-loading-box{
+		position: relative;
+		height: 100%;
+		width: 100%;
+
+		.fa-stack.fa{
+			position: absolute;
+			top: ~"calc(50% - @{loading_size_widget})";
+			left: ~"calc(50% - @{loading_size_widget})";
 		}
 	}
 

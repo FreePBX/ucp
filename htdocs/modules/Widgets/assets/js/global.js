@@ -26,7 +26,7 @@ var WidgetsO = UCPMC.extend({
 	init: function() {
 		$(".gridster ul").gridster({
 			widget_margins: [10, 10],
-			widget_base_dimensions: [140, 140],
+			widget_base_dimensions: [150, 150],
 			min_cols: 10,
 			min_rows: 5,
 			resize: {
@@ -44,14 +44,28 @@ var WidgetsO = UCPMC.extend({
 				return {
 					id: $w.attr('data-id'),
 					name: $w.attr('data-name'),
+					rawname: $w.attr('data-rawname'),
+					widget_type_id: $w.attr('data-widget_type_id'),
 					col: wgd.col,
 					row: wgd.row,
 					size_x: wgd.size_x,
 					size_y: wgd.size_y
 				}
 			}
-
 		});
+
+		var gridster = $(".gridster ul").gridster().data('gridster');
+
+		console.log(gridster.$widgets);
+
+		gridster.$widgets.each(function(){
+			var widget_id = $(this).attr('data-widget_type_id');
+			var widget_rawname = $(this).attr('data-rawname');
+			var widget_content_container = $(this).find(".widget-content");
+			get_widget_content(widget_content_container, widget_id, widget_rawname);
+		});
+
+		//
 	},
 	poll: function(data) {
 

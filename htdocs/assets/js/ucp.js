@@ -15,6 +15,14 @@ function deactivate_full_loading(){
 	$(".main-block").hide();
 }
 
+function activate_widget_loading(widget_object){
+
+	var loading_html = '<div class="widget-loading-box"><span class="fa-stack fa"><i class="fa fa-cloud fa-stack-2x text-internal-blue"></i><i class="fa fa-cog fa-spin fa-stack-1x secundary-color"></i></span></div>';
+
+	widget_object.html(loading_html);
+
+}
+
 function show_alert(message, type, callback_func){
 
 	var type_class = "";
@@ -71,8 +79,8 @@ function show_confirm(message, type, callback_func) {
 	modal_confirm_function = callback_func;
 }
 
-function widget_layout(widget_id, widget_name, widget_content){
-	var html = '<li data-id="'+widget_id+'" data-name="'+widget_name+'"><div class="widget-title">'+widget_name+'</div><div class="widget-content">'+widget_content+'</div></li>';
+function widget_layout(widget_id, widget_name, widget_type_id, widget_rawname, widget_content){
+	var html = '<li data-id="'+widget_id+'" data-name="'+widget_name+'" data-rawname="'+widget_rawname+'" data-widget_type_id="'+widget_type_id+'"><div class="widget-title">'+widget_name+' <div class="remove-widget" data-widget_id="'+widget_id+'"><i class="fa fa-times" aria-hidden="true"></i></div></div><div class="widget-content">'+widget_content+'</div></li>';
 
 	return html;
 }
@@ -1348,7 +1356,7 @@ $(function() {
 	menu_dragabble();
 	categories_widgets_init();
 	initialize_add_widgets_buttons();
-	remove_dashboards_buttons();
+	remove_item_buttons();
 });
 
 String.prototype.modularize = function() {
@@ -1387,8 +1395,22 @@ function menu_dragabble(){
 	});*/
 }
 
-function remove_dashboards_buttons(){
-	$(".remove-dashboard").click(function(event){
+function remove_item_buttons(){
+
+	$(document).on("click", ".remove-widget", function(event){
+		event.preventDefault();
+		event.stopPropagation();
+
+		var widget_id = $(this).data("widget_id");
+
+		show_confirm("Are you sure you want to delete this widget?", "warning", function() {
+			$(".gs-w[data-id='" + widget_id + "']").remove();
+			save_layout_content();
+		});
+
+	});
+
+	$(document).on("click", ".remove-dashboard", function(event){
 
 		event.preventDefault();
 		event.stopPropagation();
@@ -1407,8 +1429,12 @@ function remove_dashboards_buttons(){
 					if (data.status) {
 						$(".dashboard-menu[data-id='" + dashboard_id + "']").remove();
 
-						if(dashboard_id == UCP.activeDashboard){
-							$(".dashboard-menu").first().find("a").click();
+						if($(".dashboard-menu").length > 0) {
+							if(dashboard_id == UCP.activeDashboard){
+								$(".dashboard-menu").first().find("a").click();
+							}
+						}else {
+							$(".gridster.ready").empty();
 						}
 
 					}else {
@@ -1436,34 +1462,32 @@ function initialize_add_widgets_buttons(){
 		var default_size_x = $(this).data('size_x');
 		var default_size_y = $(this).data('size_y');
 
-		/*$.post( "?quietmode=1&module=Dashboards&command=addwidget",
+		$.post( "?quietmode=1&module=Dashboards&command=getwidgetcontent",
 			{
 				id: widget_id,
-				rawname: widget_rawname,
-				dashboard_id: current_dashboard_id
+				rawname: widget_rawname
 			},
 			function( data ) {
-				if(data.status){*/
-					//Now we add the widget to the dashboard
 
+				$("#add_widget").modal("hide");
+
+				if(typeof data.html !== "undefined"){
 					//So first we go the HTML content to add it to the widget
-					var widget_html = "<h3>Im the new widget dude</h3>";
-					var full_widget_html = widget_layout(new_widget_id, widget_name, widget_html);
+					var widget_html = data.html;
+					var full_widget_html = widget_layout(new_widget_id, widget_name, widget_id, widget_rawname, widget_html);
 
 					var gridster_object = $(".gridster ul").gridster().data('gridster');
 					//We are adding the widget always on the position 1,1
 					gridster_object.add_widget(full_widget_html, default_size_x, default_size_y, 1, 1);
 
 					save_layout_content();
-					$("#add_widget").modal("hide");
+				}else {
+					show_alert("There was an error retriving the widget information, try again later", "danger");
+				}
 
-				/*}else {
-					show_alert("Something went wrong creating the new widget", "danger");
-				}*/
-			 	deactivate_full_loading();
-			/*}
-		);*/
-		
+				deactivate_full_loading();
+
+			}, "json");
 	});
 }
 
@@ -1478,6 +1502,28 @@ function categories_widgets_init(){
 	});
 }
 
+function get_widget_content(widget_content_object, widget_id, widget_rawname){
+
+	activate_widget_loading(widget_content_object);
+
+	$.post( "?quietmode=1&module=Dashboards&command=getwidgetcontent",
+		{
+			id: widget_id,
+			rawname: widget_rawname
+		},
+		function( data ) {
+
+			var widget_html = data.html;
+
+			if(typeof data.html === "undefined"){
+				widget_html = '<div class="alert alert-danger">Something went wrong retriving the content of the widget</div>';
+			}
+
+			widget_content_object.html(widget_html);
+
+		}, "json");
+}
+
 /* MODAL FOCUS */
 $('#add_dashboard').on('shown.bs.modal', function () {
 	$('#dashboard_name').focus();
@@ -1485,6 +1531,14 @@ $('#add_dashboard').on('shown.bs.modal', function () {
 
 $('#add_dashboard').on('hidden.bs.modal', function () {
 	$('#dashboard_name').val("");
+});
+
+$(document).on("mouseover", ".gs-w .widget-title, .gs-w .widget-title .remove-widget", function() {
+	$(this).find(".remove-widget").fadeIn("slow");
+});
+
+$(document).on("mouseleave", ".gs-w .widget-title", function() {
+	$(this).find(".remove-widget").fadeOut("slow");
 });
 
 $(document).on("click", "#modal_confirm_button", function(){
