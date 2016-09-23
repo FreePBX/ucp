@@ -25,12 +25,24 @@ function save_layout_content(){
 var WidgetsO = UCPMC.extend({
 	init: function() {
 		$(".gridster ul").gridster({
+			serialize_params: function($w, wgd){
+				return {
+					id: $w.attr('data-id'),
+					widget_module_name: $w.attr('data-widget_module_name'),
+					name: $w.attr('data-name'),
+					rawname: $w.attr('data-rawname'),
+					widget_type_id: $w.attr('data-widget_type_id'),
+					col: wgd.col,
+					row: wgd.row,
+					size_x: wgd.size_x,
+					size_y: wgd.size_y
+				}
+			},
 			widget_margins: [10, 10],
-			widget_base_dimensions: ['auto', 160],
+			widget_base_dimensions: ['auto', 145],
 			min_cols: 10,
 			min_rows: 5,
 			max_cols: 7,
-			max_rows: 4,
 			shift_widgets_up: false,
 			shift_larger_widgets_down: false,
 			collision: {
@@ -46,25 +58,10 @@ var WidgetsO = UCPMC.extend({
 				stop: function(){
 					save_layout_content();
 				}
-			},
-			serialize_params: function($w, wgd){
-				return {
-					id: $w.attr('data-id'),
-					module_name: $w.attr('data-module_name'),
-					name: $w.attr('data-name'),
-					rawname: $w.attr('data-rawname'),
-					widget_type_id: $w.attr('data-widget_type_id'),
-					col: wgd.col,
-					row: wgd.row,
-					size_x: wgd.size_x,
-					size_y: wgd.size_y
-				}
 			}
 		});
 
 		var gridster = $(".gridster ul").gridster().data('gridster');
-
-		console.log(gridster.$widgets);
 
 		gridster.$widgets.each(function(){
 			var widget_id = $(this).attr('data-widget_type_id');

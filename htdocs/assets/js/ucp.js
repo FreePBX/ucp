@@ -80,7 +80,7 @@ function show_confirm(message, type, callback_func) {
 }
 
 function widget_layout(widget_id, widget_module_name, widget_name, widget_type_id, widget_rawname, widget_content){
-	var html = '<li data-module_name="'+widget_module_name+'" data-id="'+widget_id+'" data-name="'+widget_name+'" data-rawname="'+widget_rawname+'" data-widget_type_id="'+widget_type_id+'"><div class="widget-title"><div class="widget-module-name">'+widget_module_name+'</div><div class="widget-module-subname">('+widget_name+')</div><div class="remove-widget" data-widget_id="'+widget_id+'"><i class="fa fa-times" aria-hidden="true"></i></div></div><div class="widget-content">'+widget_content+'</div></li>';
+	var html = '<li data-widget_module_name="'+widget_module_name+'" data-id="'+widget_id+'" data-name="'+widget_name+'" data-rawname="'+widget_rawname+'" data-widget_type_id="'+widget_type_id+'"><div class="widget-title"><div class="widget-module-name">'+widget_module_name+'</div><div class="widget-module-subname">('+widget_name+')</div><div class="remove-widget" data-widget_id="'+widget_id+'"><i class="fa fa-times" aria-hidden="true"></i></div></div><div class="widget-content">'+widget_content+'</div></li>';
 
 	return html;
 }
@@ -1454,7 +1454,7 @@ function initialize_add_widgets_buttons(){
 		activate_full_loading();
 
 		var widget_id = $(this).data('widget_id');
-		var widget_module_name = $(this).data('module_name');
+		var widget_module_name = $(this).data('widget_module_name');
 		var widget_rawname = $(this).data('rawname');
 		var current_dashboard_id = UCP.activeDashboard;
 		var widget_name = $(this).data('widget_name');
