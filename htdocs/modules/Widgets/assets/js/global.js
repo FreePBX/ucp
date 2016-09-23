@@ -26,9 +26,16 @@ var WidgetsO = UCPMC.extend({
 	init: function() {
 		$(".gridster ul").gridster({
 			widget_margins: [10, 10],
-			widget_base_dimensions: [150, 150],
+			widget_base_dimensions: ['auto', 160],
 			min_cols: 10,
 			min_rows: 5,
+			max_cols: 7,
+			max_rows: 4,
+			shift_widgets_up: false,
+			shift_larger_widgets_down: false,
+			collision: {
+				wait_for_mouseup: true
+			},
 			resize: {
 				enabled: true,
 				stop: function(){
@@ -43,6 +50,7 @@ var WidgetsO = UCPMC.extend({
 			serialize_params: function($w, wgd){
 				return {
 					id: $w.attr('data-id'),
+					module_name: $w.attr('data-module_name'),
 					name: $w.attr('data-name'),
 					rawname: $w.attr('data-rawname'),
 					widget_type_id: $w.attr('data-widget_type_id'),

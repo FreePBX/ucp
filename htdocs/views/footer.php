@@ -18,7 +18,7 @@
 						<form id="add_dashboard_form" method="POST" action="quietmode=1&module=Dashboards&command=add">
 							<div class="form-group">
 								<label for="dashboard_name">Dashboard Name</label>
-								<input type="text" class="form-control" id="dashboard_name" name="name" pattern=".{1,50}" required>
+								<input type="text" class="form-control" id="dashboard_name" name="name" pattern=".{1,50}" autocomplete="off" required>
 							</div>
 						</form>
 					</div>
@@ -69,7 +69,7 @@
 																</h4>
 															</div>
 															<div class="widget-add-container top-offset text-center">
-																<button type="button" class="btn btn-sm btn-primary btn-outline add-widget-button" data-widget_name="<?php echo $widget_list["display"]; ?>" data-widget_id="<?php echo $widget_id; ?>" data-rawname="<?php echo $widget_category_info["rawname"]; ?>" data-size_x="<?php echo $widget_list["defaultsize"]["width"]; ?>" data-size_y="<?php echo $widget_list["defaultsize"]["height"]; ?>"><i class="fa fa-plus-circle" aria-hidden="true"></i></button>
+																<button type="button" class="btn btn-sm btn-primary btn-outline add-widget-button" data-widget_module_name="<?php echo $widget_category_info["display"]; ?>" data-widget_name="<?php echo $widget_list["display"]; ?>" data-widget_id="<?php echo $widget_id; ?>" data-rawname="<?php echo $widget_category_info["rawname"]; ?>" data-size_x="<?php echo $widget_list["defaultsize"]["width"]; ?>" data-size_y="<?php echo $widget_list["defaultsize"]["height"]; ?>"><i class="fa fa-plus-circle" aria-hidden="true"></i></button>
 															</div>
 														</div>
 													</div>

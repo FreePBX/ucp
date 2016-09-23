@@ -79,8 +79,8 @@ function show_confirm(message, type, callback_func) {
 	modal_confirm_function = callback_func;
 }
 
-function widget_layout(widget_id, widget_name, widget_type_id, widget_rawname, widget_content){
-	var html = '<li data-id="'+widget_id+'" data-name="'+widget_name+'" data-rawname="'+widget_rawname+'" data-widget_type_id="'+widget_type_id+'"><div class="widget-title">'+widget_name+' <div class="remove-widget" data-widget_id="'+widget_id+'"><i class="fa fa-times" aria-hidden="true"></i></div></div><div class="widget-content">'+widget_content+'</div></li>';
+function widget_layout(widget_id, widget_module_name, widget_name, widget_type_id, widget_rawname, widget_content){
+	var html = '<li data-module_name="'+widget_module_name+'" data-id="'+widget_id+'" data-name="'+widget_name+'" data-rawname="'+widget_rawname+'" data-widget_type_id="'+widget_type_id+'"><div class="widget-title"><div class="widget-module-name">'+widget_module_name+'</div><div class="widget-module-subname">('+widget_name+')</div><div class="remove-widget" data-widget_id="'+widget_id+'"><i class="fa fa-times" aria-hidden="true"></i></div></div><div class="widget-content">'+widget_content+'</div></li>';
 
 	return html;
 }
@@ -1338,7 +1338,7 @@ var UCPC = Class.extend({
 						if (!data.status) {
 							$("#error-msg").html(data.message).fadeIn("fast");
 						} else {
-							var new_dashboard_html = '<li class="menu-order dashboard-menu" data-id="'+data.id+'"><a data-pjax href="?dashboard='+data.id+'">'+$("#dashboard_name").val()+'</a></li>'
+							var new_dashboard_html = '<li class="menu-order dashboard-menu" data-id="'+data.id+'"><a data-pjax href="?dashboard='+data.id+'">'+$("#dashboard_name").val()+' <div class="remove-dashboard" data-dashboard_id="'+data.id+'"><i class="fa fa-times" aria-hidden="true"></i></div></a></li>';
 							$("#all_dashboards").append(new_dashboard_html);
 
 							$("#add_dashboard").modal("hide");
@@ -1454,6 +1454,7 @@ function initialize_add_widgets_buttons(){
 		activate_full_loading();
 
 		var widget_id = $(this).data('widget_id');
+		var widget_module_name = $(this).data('module_name');
 		var widget_rawname = $(this).data('rawname');
 		var current_dashboard_id = UCP.activeDashboard;
 		var widget_name = $(this).data('widget_name');
@@ -1474,7 +1475,7 @@ function initialize_add_widgets_buttons(){
 				if(typeof data.html !== "undefined"){
 					//So first we go the HTML content to add it to the widget
 					var widget_html = data.html;
-					var full_widget_html = widget_layout(new_widget_id, widget_name, widget_id, widget_rawname, widget_html);
+					var full_widget_html = widget_layout(new_widget_id, widget_module_name, widget_name, widget_id, widget_rawname, widget_html);
 
 					var gridster_object = $(".gridster ul").gridster().data('gridster');
 					//We are adding the widget always on the position 1,1

@@ -99,7 +99,7 @@
 			</div>
 
 			<div id="add_new_dashboard" class="add-dashboard">
-				<button class="btn btn-default" type="button" data-toggle="modal" data-target="#add_dashboard">
+				<button class="btn btn-sm btn-primary btn-outline" type="button" data-toggle="modal" data-target="#add_dashboard">
 					<i class="fa fa-plus" aria-hidden="true"></i>
 				</button>
 			</div>
