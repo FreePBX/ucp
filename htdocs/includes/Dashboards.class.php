@@ -37,6 +37,9 @@ class Dashboards {
 			case 'dashboards':
 			case 'savedashlayout':
 			case 'getdashlayout':
+			case 'getallwidgets':
+			case 'getwidgetcontent':
+			case 'getwidgetsettingscontent':
 				return true;
 			default:
 				return false;
@@ -106,6 +109,15 @@ class Dashboards {
 			case 'getdashlayout':
 				return $this->getLayoutByID($_POST['id']);
 			break;
+			case 'getallwidgets':
+				return $this->getAllWidgets();
+			break;
+			case 'getwidgetcontent':
+				return $this->getWidgetContent($_POST['rawname'],$_POST['id']);
+			break;
+			case 'getwidgetsettingscontent':
+				return $this->getWidgetSettingsContent($_POST['rawname'],$_POST['id']);
+			break;
 		}
 		return false;
 	}
@@ -120,5 +132,35 @@ class Dashboards {
 	public function getLayoutByID($id) {
 		$user = $this->UCP->User->getUser();
 		return $this->UCP->getGlobalSettingByID($user['id'],'dashboard-layout-'.$id);
+	}
+
+	public function getAllWidgets() {
+		$modules = $this->UCP->Modules->getModulesByMethod('getWidgetList');
+		$list = array();
+		foreach($modules as $module) {
+			$module = ucfirst(strtolower($module));
+			$lc = strtolower($module);
+			$this->UCP->Modgettext->push_textdomain($lc);
+			$mm = $this->UCP->Modules->$module->getWidgetList();
+			$this->UCP->Modgettext->pop_textdomain();
+			if(!empty($mm)) {
+				$list[$module] = $mm;
+			}
+		}
+		return array("status" => true, "widget" => $list);
+	}
+
+	public function getWidgetContent($rawname, $id) {
+		if($this->UCP->Modules->moduleHasMethod($rawname, 'getWidgetDisplay')) {
+			$module = ucfirst(strtolower($rawname));
+			return $this->UCP->Modules->$module->getWidgetDisplay($id);
+		}
+	}
+
+	public function getWidgetSettingsContent($rawname, $id) {
+		if($this->UCP->Modules->moduleHasMethod($rawname, 'getWidgetSettingsDisplay')) {
+			$module = ucfirst(strtolower($rawname));
+			return $this->UCP->Modules->$module->getWidgetSettingsDisplay($id);
+		}
 	}
 }
