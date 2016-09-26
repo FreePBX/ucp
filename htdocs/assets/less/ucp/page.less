@@ -82,20 +82,9 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 
 /* LOGIN */
 #login-window {
-	padding-top: 20px;
-	@media only screen and (min-width : 768px) {
-		width: 30%;
-		padding-left: 15px;
-		padding-right: 15px;
-		padding-top: 10px;
- 	}
-	@media only screen and (max-width : 767px) {
-		padding: 10px;
-		padding-top: 20px;
-	}
-	@media only screen and (min-width : 974px) {
-		padding-top: 20px;
- 	}
+  	padding-top: 20px;
+  	border-radius: 0;
+	background-color: @secundary_color;
 	position: absolute;
 	top: 0;
 	bottom: 0;
@@ -103,11 +92,6 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 	right: 0;
 	margin: auto;
 	height: 250px;
-	.border-radius(20px);
-	box-shadow: 0px 0px 10px 3px rgba(119, 119, 119, 0.75);
-	-moz-box-shadow: 0px 0px 10px 3px rgba(119, 119, 119, 0.75);
-	-webkit-box-shadow: 0px 0px 10px 3px rgba(119, 119, 119, 0.75);
-	background-color: #dcecfe;
 	overflow: hidden;
 
 	.header {
@@ -163,6 +147,9 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 	.button-row {
 		width:100%;
 		text-align: center;
+	}
+	.extra-info{
+	  color: @secundary_color;
 	}
 }
 
@@ -1358,12 +1345,3 @@ div.bhoechie-tab div.bhoechie-tab-content:not(.active){
 .modal-body{
 	overflow: auto;
 }
-
-/*.gridster{
-	display: none;
-}
-
-.gridster.ready{
-	display: block;
-	position: relative;
-}*/

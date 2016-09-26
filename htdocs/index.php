@@ -124,23 +124,6 @@ try {
 /* DASHBOARD SELECTION */
 /***********************/
 
-$all_widgets = $ucp->Dashboards->getallwidgets();
-
-$user_dashboards = $ucp->Dashboards->getDashboards();
-$active_dashboard_id = "";
-
-if(!empty($_REQUEST["dashboard"])){
-	$active_dashboard_id = $_REQUEST["dashboard"];
-}else {
-	if(!empty($user_dashboards)){
-
-		foreach($user_dashboards as $dashboard_info){
-			$active_dashboard_id = $dashboard_info["id"];
-			break;
-		}
-	}
-}
-
 if(!isset($_SERVER['HTTP_X_PJAX'])) {
 	$displayvars['version'] = $ucp->getVersion();
 	$displayvars['iconsdir'] = FreePBX::Config()->get('VIEW_UCP_ICONS_FOLDER');
@@ -150,11 +133,6 @@ if(!isset($_SERVER['HTTP_X_PJAX'])) {
 	$ie = 10;
 	$displayvars['shiv'] = ($browser->getName() === \Sinergi\BrowserDetector\Browser::IE && $browser->getVersion() < $ie);
 	$displayvars['menu'] = ($user && !empty($user)) ? $ucp->Modules->generateMenu() : array();
-
-	$displayvars['all_widgets'] = $all_widgets;
-
-	$displayvars['active_dashboard'] = $active_dashboard_id;
-	$displayvars['user_dashboards'] = $user_dashboards;
 
 	$ucp->View->show_view(__DIR__.'/views/header.php',$displayvars);
 }
@@ -178,7 +156,28 @@ switch($display) {
 	case "settings":
 	case "dashboard":
 
-		
+
+		$all_widgets = $ucp->Dashboards->getallwidgets();
+
+		$user_dashboards = $ucp->Dashboards->getDashboards();
+		$active_dashboard_id = "";
+
+		if(!empty($_REQUEST["dashboard"])){
+			$active_dashboard_id = $_REQUEST["dashboard"];
+		}else {
+			if(!empty($user_dashboards)){
+
+				foreach($user_dashboards as $dashboard_info){
+					$active_dashboard_id = $dashboard_info["id"];
+					break;
+				}
+			}
+		}
+
+		$displayvars['all_widgets'] = $all_widgets;
+
+		$displayvars['active_dashboard'] = $active_dashboard_id;
+		$displayvars['user_dashboards'] = $user_dashboards;
 
 		/*if($display == "settings") {
 			$ucp->Modgettext->push_textdomain("ucp");
@@ -272,7 +271,9 @@ switch($display) {
 				"html" => '<li>' . $originate . '</li><li><a data-pjax href="?display=settings">' . _('User Settings') . '</a></li><li><a class="logout" href="?logout=1">' . _('Logout') . '</a></li>'
 			)
 		);
+		$ucp->View->show_view(__DIR__.'/views/dashboard-header.php',$displayvars);
 		$ucp->View->show_view(__DIR__.'/views/dashboard.php',$displayvars);
+		$ucp->View->show_view(__DIR__.'/views/dashboard-footer.php',$displayvars);
 	break;
 	case "forgot":
 		$displayvars['token'] = $ucp->Session->generateToken('login');
