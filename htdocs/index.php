@@ -120,6 +120,28 @@ try {
 	die();
 }
 
+$all_widgets = $ucp->Dashboards->getallwidgets();
+
+$user_dashboards = $ucp->Dashboards->getDashboards();
+$active_dashboard_id = "";
+
+if(!empty($_REQUEST["dashboard"])){
+	$active_dashboard_id = $_REQUEST["dashboard"];
+}else {
+	if(!empty($user_dashboards)){
+
+		foreach($user_dashboards as $dashboard_info){
+			$active_dashboard_id = $dashboard_info["id"];
+			break;
+		}
+	}
+}
+
+$displayvars['all_widgets'] = $all_widgets;
+
+$displayvars['active_dashboard'] = $active_dashboard_id;
+$displayvars['user_dashboards'] = $user_dashboards;
+
 /***********************/
 /* DASHBOARD SELECTION */
 /***********************/
@@ -135,6 +157,10 @@ if(!isset($_SERVER['HTTP_X_PJAX'])) {
 	$displayvars['menu'] = ($user && !empty($user)) ? $ucp->Modules->generateMenu() : array();
 
 	$ucp->View->show_view(__DIR__.'/views/header.php',$displayvars);
+
+	if(!empty($user["id"])){
+		$ucp->View->show_view(__DIR__.'/views/dashboard-header.php',$displayvars);
+	}
 }
 
 if($user && !empty($user)) {
@@ -155,30 +181,6 @@ if($user && !empty($user)) {
 switch($display) {
 	case "settings":
 	case "dashboard":
-
-
-		$all_widgets = $ucp->Dashboards->getallwidgets();
-
-		$user_dashboards = $ucp->Dashboards->getDashboards();
-		$active_dashboard_id = "";
-
-		if(!empty($_REQUEST["dashboard"])){
-			$active_dashboard_id = $_REQUEST["dashboard"];
-		}else {
-			if(!empty($user_dashboards)){
-
-				foreach($user_dashboards as $dashboard_info){
-					$active_dashboard_id = $dashboard_info["id"];
-					break;
-				}
-			}
-		}
-
-		$displayvars['all_widgets'] = $all_widgets;
-
-		$displayvars['active_dashboard'] = $active_dashboard_id;
-		$displayvars['user_dashboards'] = $user_dashboards;
-
 		/*if($display == "settings") {
 			$ucp->Modgettext->push_textdomain("ucp");
 			$displayvars['desktop'] = (!$ucp->Session->isMobile && !$ucp->Session->isTablet);
@@ -271,9 +273,8 @@ switch($display) {
 				"html" => '<li>' . $originate . '</li><li><a data-pjax href="?display=settings">' . _('User Settings') . '</a></li><li><a class="logout" href="?logout=1">' . _('Logout') . '</a></li>'
 			)
 		);
-		$ucp->View->show_view(__DIR__.'/views/dashboard-header.php',$displayvars);
 		$ucp->View->show_view(__DIR__.'/views/dashboard.php',$displayvars);
-		$ucp->View->show_view(__DIR__.'/views/dashboard-footer.php',$displayvars);
+
 	break;
 	case "forgot":
 		$displayvars['token'] = $ucp->Session->generateToken('login');
@@ -312,5 +313,10 @@ if(!isset($_SERVER['HTTP_X_PJAX'])) {
 	$displayvars['datetimeformat'] = $ucp->View->getDateTimeFormat();
 	$displayvars['dateformat'] = $ucp->View->getDateFormat();
 	$displayvars['desktop'] = (!$ucp->Session->isMobile && !$ucp->Session->isTablet);
+
+	if(!empty($user["id"])) {
+		$ucp->View->show_view(__DIR__ . '/views/dashboard-footer.php', $displayvars);
+	}
+
 	$ucp->View->show_view(dirname(__FILE__).'/views/footer.php',$displayvars);
 }
