@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-07-29 16:54-0700\n"
-"PO-Revision-Date: 2016-09-30 13:19+0200\n"
+"PO-Revision-Date: 2016-09-30 17:53+0200\n"
 "Last-Translator: Maxim <maxim@ua.fm>\n"
 "Language-Team: Ukrainian "
 "<http://weblate.freepbx.org/projects/freepbx/ucp/uk_UA/>\n"
@@ -529,7 +529,6 @@ msgstr ""
 "отримання додаткової інформації див: %s"
 
 #: ucp.i18n.php:10
-#, fuzzy
 msgid "UCP"
 msgstr "UCP"
 
@@ -599,7 +598,7 @@ msgstr "Налаштування панелі керування користу�
 #: htdocs/views/dashfootercontent.php:7
 #, php-format
 msgid "User Control Panel is released as %s or newer"
-msgstr ""
+msgstr "Користувацька панель керування випущена як %s чи новіше"
 
 #: Ucp.class.php:214 Ucp.class.php:224
 #, php-format
@@ -616,7 +615,7 @@ msgstr "Панель користувача"
 
 #: Ucp.class.php:70 /usr/src/freepbx/ucp/Ucp.class.php:98
 msgid "User Primary Extension"
-msgstr ""
+msgstr "Основний додатковий номер користувача"
 
 #: htdocs/index.php:229
 msgid "User Settings"
