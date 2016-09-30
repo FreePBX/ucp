@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-07-29 16:54-0700\n"
-"PO-Revision-Date: 2016-09-30 12:59+0200\n"
+"PO-Revision-Date: 2016-09-30 13:19+0200\n"
 "Last-Translator: Maxim <maxim@ua.fm>\n"
 "Language-Team: Ukrainian "
 "<http://weblate.freepbx.org/projects/freepbx/ucp/uk_UA/>\n"
@@ -641,69 +641,71 @@ msgstr "Ласкаво просимо %s"
 
 #: views/users_hook.php:4
 msgid "What is UCP"
-msgstr ""
+msgstr "Що таке UCP"
 
 #: htdocs/views/settings.php:79
 msgid "Work Phone"
-msgstr ""
+msgstr "Робочий телефон"
 
 #: views/users_hook.php:51 views/users_hook.php:149
 msgid "Yes"
-msgstr ""
+msgstr "Так"
 
 #: htdocs/assets/js/ucp.js:461
 msgid "You are currently working in offline mode."
-msgstr ""
+msgstr "Наразі ви працюєте в автономному режимі."
 
 #: htdocs/assets/js/ucp.js:147
 msgid "Your Browser is unsupported at this time."
-msgstr ""
+msgstr "Ваш браузер наразі не підтримується."
 
 #: htdocs/views/settings.php:76
 msgid "Your Cell Phone Number"
-msgstr ""
+msgstr "Номер вашого мобільного телефону"
 
 #: htdocs/views/settings.php:71
 msgid "Your Company"
-msgstr ""
+msgstr "Ваша компанія"
 
 #: htdocs/views/settings.php:51
 msgid "Your Email Address"
-msgstr ""
+msgstr "Адреса вашої електронної пошти"
 
 #: htdocs/views/settings.php:91
 msgid "Your Fax Number"
-msgstr ""
+msgstr "Номер вашого факсу"
 
 #: htdocs/views/settings.php:56
 msgid "Your First Name"
-msgstr ""
+msgstr "Ваше ім'я"
 
 #: htdocs/views/settings.php:86
 msgid "Your Home Number"
-msgstr ""
+msgstr "Ваш домашній номер"
 
 #: htdocs/views/settings.php:61
 msgid "Your Last Name"
-msgstr ""
+msgstr "Ваше прізвище"
 
 #: htdocs/views/settings.php:66
 msgid "Your Title"
-msgstr ""
+msgstr "Ваша посада"
 
 #: htdocs/views/settings.php:81
 msgid "Your Work Number"
-msgstr ""
+msgstr "Ваш робочій номер"
 
 #: htdocs/assets/js/ucp.js:149
 msgid ""
 "Your browser is unsupported at this time. Please upgrade or talk to your "
 "system administrator"
 msgstr ""
+"Ваш браузер наразі не підтримується. Будь ласка, оновіть або зверніться до "
+"свого системного адміністратора"
 
 #: htdocs/assets/js/ucp.js:83
 msgid "Your reset link is in the mail!"
-msgstr ""
+msgstr "Ваше посилання на скидання в пошті!"
 
 #: htdocs/index.php:104
 #, php-format
@@ -712,7 +714,10 @@ msgid ""
 "file paths and directories are locked down properly. For more information "
 "see: %s"
 msgstr ""
+"Файли htaccess допомагають захистити цілісність вашого сервера. Будь ласка, "
+"переконайтеся, що шляхи до файлів і каталогів заблоковані правильно. Для "
+"отримання додаткової інформації див: %s"
 
 #: htdocs/views/login.php:24
 msgid "or"
-msgstr ""
+msgstr "або"
