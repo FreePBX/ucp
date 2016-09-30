@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-07-29 16:54-0700\n"
-"PO-Revision-Date: 2016-09-30 00:59+0200\n"
+"PO-Revision-Date: 2016-09-30 01:34+0200\n"
 "Last-Translator: Maxim <maxim@ua.fm>\n"
 "Language-Team: Ukrainian "
 "<http://weblate.freepbx.org/projects/freepbx/ucp/uk_UA/>\n"
@@ -57,7 +57,7 @@ msgstr ""
 
 #: htdocs/views/templates/phone.php:41
 msgid "ABC"
-msgstr "АБВ"
+msgstr "АБВГҐ"
 
 #: htdocs/views/settings.php:8
 msgid "Account Settings"
@@ -452,48 +452,56 @@ msgstr "Збережено!"
 
 #: htdocs/views/login.php:54
 msgid "Send Me A Password Reset Link"
-msgstr ""
+msgstr "Надіслати мені посилання на відновлення паролю"
 
 #: htdocs/views/templates/chat.php:25
 #, php-format
 msgid "Sent at %s"
-msgstr ""
+msgstr "Надіслано в %s"
 
 #: htdocs/views/dashboard.php:39 htdocs/assets/js/ucp.js:855
 msgid "Settings"
-msgstr ""
+msgstr "Налаштування"
 
 #: htdocs/views/templates/phone.php:69
 msgid "TUV"
-msgstr ""
+msgstr "ШЩЇЄ"
 
 #: ucp.i18n.php:36
 msgid ""
 "The number of days a session token will be valid for. Clear this setting if "
 "you want tokens to last forever (Not Recommended)"
 msgstr ""
+"Кількість днів протягом яких буде дійсний маркер сеансу. Очистити цю "
+"настройку, якщо ви хочете, щоб маркери тривали вічно (не рекомендується)"
 
 #: htdocs/views/settings.php:24 htdocs/views/settings.php:29
 msgid "The password used to login to User Control Panel and other services"
 msgstr ""
+"Пароль, який використовується для входу в UCP (панель управління) і інші "
+"послуги"
 
 #: htdocs/views/dashfootercontent.php:10
 msgid "The removal of this copyright notice is stricly prohibited"
-msgstr ""
+msgstr "Видалення цього повідомлення про авторське право суворо заборонено"
 
 #: ucp.i18n.php:8
 msgid ""
 "The user control panel is a way for users to control call handling and "
 "personal settings from a web browser."
 msgstr ""
+"Панель керування користувача надає можливість користувачам, контролювати "
+"обробку викликів та персональні налаштування за допомогою веб-браузера."
 
 #: htdocs/views/settings.php:15
 msgid "The username used to login to User Control Panel and other services"
 msgstr ""
+"Ім'я користувача використовується для входу в Панель управління та інші "
+"послуги"
 
 #: htdocs/index.php:118
 msgid "There was an error trying to load UCP"
-msgstr ""
+msgstr "Сталася помилка при спробі завантажити UCP"
 
 #: views/users_hook.php:134
 msgid ""
@@ -501,10 +509,13 @@ msgid ""
 "extension settings such as Call Waiting, Call Forwarding, Find Me/Follow Me "
 "and others"
 msgstr ""
+"Ці призначені і активні додаткові номери, які будуть мати можливість "
+"редагувати налаштування додаткових номерів, такі як очікування виклику, "
+"переадресація викликів, Знайти Мене / Слідувати За Мною тощо"
 
 #: htdocs/views/settings.php:64
 msgid "Title"
-msgstr ""
+msgstr "Назва"
 
 #: htdocs/index.php:91
 #, php-format
