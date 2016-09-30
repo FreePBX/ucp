@@ -5,6 +5,10 @@
  * Copyright 2006-2014 Schmooze Com Inc.
  */
 
+/********************/
+/* NEW LAYOUT STUFF */
+/********************/
+
 var modal_confirm_function;
 
 function activate_full_loading(){
@@ -85,6 +89,206 @@ function widget_layout(widget_id, widget_module_name, widget_name, widget_type_i
 	return html;
 }
 
+function init_menu_dragabble(){
+	/*$(".menu-order").draggable({ axis: "x" });
+
+	 $(".menu-space").droppable({
+	 accept: ".menu-order",
+	 activeClass: "droppable-menu-empty",
+	 hoverClass: "droppable-menu-hover",
+	 drop: function( event, ui ) {
+
+	 console.log("bagre");
+	 }
+	 });*/
+}
+
+function open_extra_widget_menu() {
+	$(".side-menu-widgets-container").css({ width: "250px", left: "55px"});
+}
+
+function close_extra_widget_menu() {
+	$(".side-menu-widgets-container").css({ width: "0", left: "45px"});
+
+}
+
+function init_left_nav_bar_menus(){
+
+	$(".custom-widgets").click(function(event){
+
+		event.preventDefault();
+		event.stopPropagation();
+
+		var clicked_module = $(this).data("module");
+
+		if(!$("#menu_"+clicked_module).is(":visible")){
+			$(".widget-extra-menu").fadeOut("slow", function(){
+				$("#menu_"+clicked_module).fadeIn("slow");
+			});
+		}
+
+		open_extra_widget_menu();
+
+	});
+
+}
+
+function init_remove_item_buttons(){
+
+	$(document).on("click", ".remove-widget", function(event){
+		event.preventDefault();
+		event.stopPropagation();
+
+		var widget_id = $(this).data("widget_id");
+
+		show_confirm("Are you sure you want to delete this widget?", "warning", function() {
+			$(".gs-w[data-id='" + widget_id + "']").remove();
+			save_layout_content();
+		});
+
+	});
+
+	$(document).on("click", ".remove-dashboard", function(event){
+
+		event.preventDefault();
+		event.stopPropagation();
+
+		var dashboard_id = $(this).data("dashboard_id");
+
+		show_confirm("Are you sure you want to delete this dashboard?", "warning", function() {
+
+			activate_full_loading();
+
+			$.post( "?quietmode=1&module=Dashboards&command=remove",
+				{
+					id: dashboard_id
+				},
+				function( data ) {
+					if (data.status) {
+						$(".dashboard-menu[data-id='" + dashboard_id + "']").remove();
+
+						if($(".dashboard-menu").length > 0) {
+							if(dashboard_id == UCP.activeDashboard){
+								$(".dashboard-menu").first().find("a").click();
+							}
+						}else {
+							$(".gridster.ready").empty();
+						}
+
+					}else {
+						show_alert("Something went wrong removing the dashboard", "danger");
+					}
+					deactivate_full_loading();
+				}
+			);
+		});
+
+	});
+}
+
+function init_add_widgets_buttons(){
+	$(".add-widget-button").click(function(){
+
+		activate_full_loading();
+
+		var widget_id = $(this).data('widget_id');
+		var widget_module_name = $(this).data('widget_module_name');
+		var widget_rawname = $(this).data('rawname');
+		var current_dashboard_id = UCP.activeDashboard;
+		var widget_name = $(this).data('widget_name');
+		var new_widget_id = current_dashboard_id + "-" + widget_id;
+
+		var default_size_x = $(this).data('size_x');
+		var default_size_y = $(this).data('size_y');
+
+		$.post( "?quietmode=1&module=Dashboards&command=getwidgetcontent",
+			{
+				id: widget_id,
+				rawname: widget_rawname
+			},
+			function( data ) {
+
+				$("#add_widget").modal("hide");
+
+				if(typeof data.html !== "undefined"){
+					//So first we go the HTML content to add it to the widget
+					var widget_html = data.html;
+					var full_widget_html = widget_layout(new_widget_id, widget_module_name, widget_name, widget_id, widget_rawname, widget_html);
+
+					var gridster_object = $(".gridster ul").gridster().data('gridster');
+					//We are adding the widget always on the position 1,1
+					gridster_object.add_widget(full_widget_html, default_size_x, default_size_y, 1, 1);
+
+					save_layout_content();
+				}else {
+					show_alert("There was an error retriving the widget information, try again later", "danger");
+				}
+
+				deactivate_full_loading();
+
+			}, "json");
+	});
+}
+
+function init_categories_widgets(){
+	$("div.bhoechie-tab-menu>div.list-group>a").click(function(e) {
+		e.preventDefault();
+		$(this).siblings('a.active').removeClass("active");
+		$(this).addClass("active");
+		var index = $(this).index();
+		$("div.bhoechie-tab>div.bhoechie-tab-content").removeClass("active");
+		$("div.bhoechie-tab>div.bhoechie-tab-content").eq(index).addClass("active");
+	});
+}
+
+function get_widget_content(widget_content_object, widget_id, widget_rawname){
+
+	activate_widget_loading(widget_content_object);
+
+	$.post( "?quietmode=1&module=Dashboards&command=getwidgetcontent",
+		{
+			id: widget_id,
+			rawname: widget_rawname
+		},
+		function( data ) {
+
+			var widget_html = data.html;
+
+			if(typeof data.html === "undefined"){
+				widget_html = '<div class="alert alert-danger">Something went wrong retriving the content of the widget</div>';
+			}
+
+			widget_content_object.html(widget_html);
+
+		}, "json");
+}
+
+$('#add_dashboard').on('shown.bs.modal', function () {
+	$('#dashboard_name').focus();
+});
+
+$('#add_dashboard').on('hidden.bs.modal', function () {
+	$('#dashboard_name').val("");
+});
+
+$(document).on("mouseover", ".gs-w .widget-title, .gs-w .widget-title .remove-widget", function() {
+	$(this).find(".remove-widget").fadeIn("slow");
+});
+
+$(document).on("mouseleave", ".gs-w .widget-title", function() {
+	$(this).find(".remove-widget").fadeOut("slow");
+});
+
+$(document).on("click", "#modal_confirm_button", function(){
+	if(typeof modal_confirm_function == "function"){
+		modal_confirm_function();
+	}
+});
+
+/********************/
+/* NEW LAYOUT STUFF */
+/********************/
+
 var UCPC = Class.extend({
 	init: function() {
 		this.loggedIn = false;
@@ -130,6 +334,18 @@ var UCPC = Class.extend({
 
 		var dashboard_id = $.url().param("dashboard");
 		this.activeDashboard = dashboard_id;
+
+		/********************/
+		/* NEW LAYOUT STUFF */
+		/********************/
+		init_menu_dragabble();
+		init_categories_widgets();
+		init_add_widgets_buttons();
+		init_remove_item_buttons();
+		init_left_nav_bar_menus();
+		/********************/
+		/* NEW LAYOUT STUFF */
+		/********************/
 	},
 	ajaxStart: function() {
 		$("#nav-btn-settings i").addClass("fa-spin");
@@ -1353,10 +1569,6 @@ var UCPC = Class.extend({
 }), UCP = new UCPC();
 $(function() {
 	UCP.ready();
-	menu_dragabble();
-	categories_widgets_init();
-	initialize_add_widgets_buttons();
-	remove_item_buttons();
 });
 
 String.prototype.modularize = function() {
@@ -1380,173 +1592,6 @@ function htmlDecode( html ) {
 	var a = document.createElement( "a" ); a.innerHTML = html;
 	return a.textContent;
 }
-
-function menu_dragabble(){
-	/*$(".menu-order").draggable({ axis: "x" });
-
-	$(".menu-space").droppable({
-		accept: ".menu-order",
-		activeClass: "droppable-menu-empty",
-		hoverClass: "droppable-menu-hover",
-		drop: function( event, ui ) {
-
-			console.log("bagre");
-		}
-	});*/
-}
-
-function remove_item_buttons(){
-
-	$(document).on("click", ".remove-widget", function(event){
-		event.preventDefault();
-		event.stopPropagation();
-
-		var widget_id = $(this).data("widget_id");
-
-		show_confirm("Are you sure you want to delete this widget?", "warning", function() {
-			$(".gs-w[data-id='" + widget_id + "']").remove();
-			save_layout_content();
-		});
-
-	});
-
-	$(document).on("click", ".remove-dashboard", function(event){
-
-		event.preventDefault();
-		event.stopPropagation();
-
-		var dashboard_id = $(this).data("dashboard_id");
-
-		show_confirm("Are you sure you want to delete this dashboard?", "warning", function() {
-
-			activate_full_loading();
-
-			$.post( "?quietmode=1&module=Dashboards&command=remove",
-				{
-					id: dashboard_id
-				},
-				function( data ) {
-					if (data.status) {
-						$(".dashboard-menu[data-id='" + dashboard_id + "']").remove();
-
-						if($(".dashboard-menu").length > 0) {
-							if(dashboard_id == UCP.activeDashboard){
-								$(".dashboard-menu").first().find("a").click();
-							}
-						}else {
-							$(".gridster.ready").empty();
-						}
-
-					}else {
-						show_alert("Something went wrong removing the dashboard", "danger");
-					}
-					deactivate_full_loading();
-				}
-			);
-		});
-
-	});
-}
-
-function initialize_add_widgets_buttons(){
-	$(".add-widget-button").click(function(){
-
-		activate_full_loading();
-
-		var widget_id = $(this).data('widget_id');
-		var widget_module_name = $(this).data('widget_module_name');
-		var widget_rawname = $(this).data('rawname');
-		var current_dashboard_id = UCP.activeDashboard;
-		var widget_name = $(this).data('widget_name');
-		var new_widget_id = current_dashboard_id + "-" + widget_id;
-
-		var default_size_x = $(this).data('size_x');
-		var default_size_y = $(this).data('size_y');
-
-		$.post( "?quietmode=1&module=Dashboards&command=getwidgetcontent",
-			{
-				id: widget_id,
-				rawname: widget_rawname
-			},
-			function( data ) {
-
-				$("#add_widget").modal("hide");
-
-				if(typeof data.html !== "undefined"){
-					//So first we go the HTML content to add it to the widget
-					var widget_html = data.html;
-					var full_widget_html = widget_layout(new_widget_id, widget_module_name, widget_name, widget_id, widget_rawname, widget_html);
-
-					var gridster_object = $(".gridster ul").gridster().data('gridster');
-					//We are adding the widget always on the position 1,1
-					gridster_object.add_widget(full_widget_html, default_size_x, default_size_y, 1, 1);
-
-					save_layout_content();
-				}else {
-					show_alert("There was an error retriving the widget information, try again later", "danger");
-				}
-
-				deactivate_full_loading();
-
-			}, "json");
-	});
-}
-
-function categories_widgets_init(){
-	$("div.bhoechie-tab-menu>div.list-group>a").click(function(e) {
-		e.preventDefault();
-		$(this).siblings('a.active').removeClass("active");
-		$(this).addClass("active");
-		var index = $(this).index();
-		$("div.bhoechie-tab>div.bhoechie-tab-content").removeClass("active");
-		$("div.bhoechie-tab>div.bhoechie-tab-content").eq(index).addClass("active");
-	});
-}
-
-function get_widget_content(widget_content_object, widget_id, widget_rawname){
-
-	activate_widget_loading(widget_content_object);
-
-	$.post( "?quietmode=1&module=Dashboards&command=getwidgetcontent",
-		{
-			id: widget_id,
-			rawname: widget_rawname
-		},
-		function( data ) {
-
-			var widget_html = data.html;
-
-			if(typeof data.html === "undefined"){
-				widget_html = '<div class="alert alert-danger">Something went wrong retriving the content of the widget</div>';
-			}
-
-			widget_content_object.html(widget_html);
-
-		}, "json");
-}
-
-/* MODAL FOCUS */
-$('#add_dashboard').on('shown.bs.modal', function () {
-	$('#dashboard_name').focus();
-});
-
-$('#add_dashboard').on('hidden.bs.modal', function () {
-	$('#dashboard_name').val("");
-});
-
-$(document).on("mouseover", ".gs-w .widget-title, .gs-w .widget-title .remove-widget", function() {
-	$(this).find(".remove-widget").fadeIn("slow");
-});
-
-$(document).on("mouseleave", ".gs-w .widget-title", function() {
-	$(this).find(".remove-widget").fadeOut("slow");
-});
-
-$(document).on("click", "#modal_confirm_button", function(){
-	if(typeof modal_confirm_function == "function"){
-		modal_confirm_function();
-	}
-});
 
 /** Language, global functions so they act like php procedurals **/
 UCP.i18n = new Jed(languages);

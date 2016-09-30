@@ -24,9 +24,33 @@
 		<li class="add-widget" data-toggle="modal" data-target="#add_widget"><a href="#"><i class="fa fa-plus-circle" aria-hidden="true"></i></a></li>
 		<li><a href="#"><i class="fa fa-user" aria-hidden="true"></i></a></li>
 		<li><a href="#"><i class="fa fa-cogs" aria-hidden="true"></i></a></li>
+		<?php foreach($navItems as $button) {?>
+			<li><a href="#" class="custom-widgets" data-module="<?php echo $button['rawname']?>"><i class="<?php echo preg_match("/^fa-/",$button['icon']) ? "fa ". $button['icon'] : $button['icon']?>" aria-hidden="true"></i></a></li>
+			<!--<div id="nav-btn-<?php echo $button['rawname']?>" class="module-container <?php echo (!empty($button['hide']) ? 'hidden' : '')?>" data-module="<?php echo $button['rawname']?>">
+				<div class="icon">
+					<i class="<?php /*echo preg_match("/^fa-/",$button['icon']) ? "fa ". $button['icon'] : $button['icon']?>"></i>
+					<?php echo !empty($button['badge']) ? '<span class="badge">'.$button['badge'].'</span>' : '<span class="badge" style="display:none">0</span>'?>
+				</div>
+				<?php echo isset($button['extra']) ? $button['extra'] : ""*/ ?>
+			</div>-->
+		<?php } ?>
 		<li><a href="?logout"><i class="fa fa-sign-out" aria-hidden="true"></i></a></li>
 	</ul>
 </nav>
+
+<div class="side-menu-widgets-container">
+	<?php foreach($navItems as $module => $item) { ?>
+		<div class="widget-extra-menu" id="menu_<?php echo $item['rawname']?>" data-module="<?php echo $item['rawname']?>">
+			<a href="javascript:void(0)" class="closebtn" onclick="close_extra_widget_menu()"><i class="fa fa-times-circle-o" aria-hidden="true"></i></a>
+			<?php if (!empty($item['menu']['html'])) { ?>
+				<ul>
+					<?php echo $item['menu']['html'] ?>
+				</ul>
+			<?php } ?>
+		</div>
+	<?php } ?>
+</div>
+
 
 <div class="container-fluid main-content-object">
 	<div class="row">

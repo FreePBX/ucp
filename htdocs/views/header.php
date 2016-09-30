@@ -92,31 +92,3 @@
 				<?php } ?>
 			</ul>
 		</nav>
-
-					<!--<div id="bc-mobile-icon"><i class="fa fa-bars"></i></div>
-				<div id="top-dashboard-nav-right">
-					<div class="nav-btns">
-						<?php /*foreach($navItems as $button) {?>
-							<div id="nav-btn-<?php echo $button['rawname']?>" class="module-container <?php echo (!empty($button['hide']) ? 'hidden' : '')?>" data-module="<?php echo $button['rawname']?>">
-								<div class="icon">
-									<i class="<?php echo preg_match("/^fa-/",$button['icon']) ? "fa ". $button['icon'] : $button['icon']?>"></i>
-									<?php echo !empty($button['badge']) ? '<span class="badge">'.$button['badge'].'</span>' : '<span class="badge" style="display:none">0</span>'?>
-								</div>
-								<?php echo isset($button['extra']) ? $button['extra'] : ""?>
-							</div>
-						<?php } ?>
-					</div>
-				</div> -->
-		
-		
-				<!-- end small device nav menu -->
-						<!--<div id="dashboard" class="pushmenu-push dashboard-container center-box">
-					<div class="nav-menus">
-						<?php foreach($navItems as $module => $item) {
-							if (!empty($item['menu']['html'])) {?>
-								<ol id="<?php echo $item['rawname']?>-menu" class="nav-btn-menu" data-module="<?php echo $item['rawname']?>">
-									<?php echo $item['menu']['html'] ?>
-								</ol>
-						<?php } } */?>
-					</div>
-				</div>-->

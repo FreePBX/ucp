@@ -142,6 +142,17 @@ $displayvars['all_widgets'] = $all_widgets;
 $displayvars['active_dashboard'] = $active_dashboard_id;
 $displayvars['user_dashboards'] = $user_dashboards;
 
+$displayvars['navItems'] = array();
+foreach($ucp->Modules->getModulesByMethod('getNavItems') as $m) {
+	$mc = ucfirst(strtolower($m));
+	$item = $ucp->Modules->$mc->getNavItems();
+	if(!empty($item)) {
+		foreach($item as $i) {
+			$displayvars['navItems'][] = $i;
+		}
+	}
+}
+
 /***********************/
 /* DASHBOARD SELECTION */
 /***********************/
@@ -253,16 +264,6 @@ switch($display) {
 		$dbfc = FreePBX::Config()->get('VIEW_UCP_FOOTER_CONTENT');
 		$displayvars['dashboard_footer_content'] = $ucp->View->load_view(__DIR__."/".$dbfc, array("year" => date('Y',time())));
 
-		$displayvars['navItems'] = array();
-		foreach($ucp->Modules->getModulesByMethod('getNavItems') as $m) {
-			$mc = ucfirst(strtolower($m));
-			$item = $ucp->Modules->$mc->getNavItems();
-			if(!empty($item)) {
-				foreach($item as $i) {
-					$displayvars['navItems'][] = $i;
-				}
-			}
-		}
 		$o = FreePBX::Userman()->getCombinedModuleSettingByID($user['id'],'ucp|Global','originate');
 		$originate = !empty($o) ? '<a class="originate">'._("Originate Call").'</a>' : '';
 		$displayvars['navItems']['settings'] = array(

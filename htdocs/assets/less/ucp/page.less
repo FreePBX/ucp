@@ -310,6 +310,75 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 	border: none;
 }
 
+.side-menu-widgets-container {
+	height: 100%;
+	width: 0;
+	position: fixed;
+	z-index: 3;
+	top: 0;
+	left: 45px;
+	background-color: @secundary_color;
+	color: @main_color;
+	overflow-x: hidden;
+	padding-top: 44px;
+	transition: 0.5s;
+	border-left: 10px solid @third_color;
+	.widget-extra-menu {
+		display: none;
+		position: absolute;
+		top: 45px;
+		width: 100%;
+		ul{
+			padding-left: 0;
+			padding-top: 35px;
+		}
+	}
+
+	a {
+		color: @main_color;
+	}
+
+	.widget-extra-menu ul li {
+		padding: 8px 8px 8px 22px;
+		text-decoration: none;
+		font-size: 16px;
+		color: #818181;
+		display: block;
+		transition: 0.3s;
+		cursor: pointer;
+
+		&:hover{
+			background-color: @main_color;
+			a{
+				color: @third_color;
+				text-decoration: none;
+			}
+		}
+
+		hr {
+			margin-top: 1px;
+			margin-bottom: 1px;
+			border-top: 1px solid @main_color;
+		}
+	}
+
+	.closebtn {
+		position: absolute;
+		top: 0;
+		right: 106px;
+		font-size: 33px;
+		margin-left: 10px;
+		height: 32px;
+		line-height: 20px;
+		color: @third_color;
+		&:hover{
+			color: @main_color;
+			text-decoration: none;
+		}
+	}
+
+}
+
 .main-content-object{
 	padding-left: 55px;
 	padding-top: 44px;
