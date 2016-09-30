@@ -130,7 +130,7 @@
 								<div class="col-md-4">
 									<div id="contactmanager_dropzone" class="image">
 										<div class="message"><?php echo _("Drop a new image here");?></div>
-										<img class="<?php echo (!empty($contactmanager['data']) && !empty($contactmanager['data']['image'])) ? '' : 'hidden'?>" src="<?php echo (!empty($contactmanager['data']) && !empty($contactmanager['data']['image'])) ? '?quietmode=1&module=Contactmanager&command=limage&entryid='.$contactmanager['data']['id'].'&time='.time() : ''?>">
+										<img class="<?php echo (!empty($contactmanager['data']) && !empty($contactmanager['data']['image'])) ? '' : 'hidden'?>" src="<?php echo (!empty($contactmanager['data']) && !empty($contactmanager['data']['image'])) ? '?quietmode=1&module=Contactmanager&command=limage&type=internal&entryid='.$contactmanager['data']['id'].'&time='.time() : ''?>">
 									</div>
 									<button id="contactmanager_del-image" data-entryid="<?php echo !empty($contactmanager['data']) ? $contactmanager['data']['id'] : ''?>" class="btn btn-danger btn-sm <?php echo (!empty($contactmanager['data']) && !empty($contactmanager['data']['image'])) ? '' : 'hidden'?>"><?php echo _("Delete Image")?></button>
 								</div>
