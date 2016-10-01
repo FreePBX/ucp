@@ -1,5 +1,4 @@
 function save_layout_content(){
-
 	activate_full_loading();
 
 	var gridster_object = $(".gridster ul").gridster().data('gridster');
@@ -22,7 +21,7 @@ function save_layout_content(){
 	);
 }
 
-var WidgetsO = UCPMC.extend({
+var WidgetsO = Class.extend({
 	init: function() {
 		$(".gridster ul").gridster({
 			serialize_params: function($w, wgd){
@@ -36,7 +35,7 @@ var WidgetsO = UCPMC.extend({
 					row: wgd.row,
 					size_x: wgd.size_x,
 					size_y: wgd.size_y
-				}
+				};
 			},
 			widget_margins: [10, 10],
 			widget_base_dimensions: ['auto', 145],
@@ -71,26 +70,12 @@ var WidgetsO = UCPMC.extend({
 		});
 
 		//
-	},
-	poll: function(data) {
-
-	},
-	display: function(event) {
-
-	},
-	hide: function(event) {
-
-	},
-	refresh: function(module, id) {
-
-	},
-	originate: function() {
-	},
-	resize: function() {
 	}
 
 }), dashboard_widgets = new WidgetsO();
 
 $(function(){ //DOM Ready
-	dashboard_widgets.init();
+	if($(".gridster ul").length) {
+		dashboard_widgets.init();
+	}
 });

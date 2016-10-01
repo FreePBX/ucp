@@ -430,12 +430,15 @@ var UCPC = Class.extend({
 						btn.prop("disabled", false);
 						btn.text(_("Login"));
 					} else {
+						location.reload();
+						/*
 						UCP.token = data.token;
 						$.pjax.submit(event, "#content-container");
 						$(document).one("pjax:end", function() {
 							UCP.setupDashboard();
 							$(document).trigger("logIn", [username, password]);
 						});
+						*/
 					}
 				}, "json");
 				return false;
@@ -1565,7 +1568,7 @@ var UCPC = Class.extend({
 			}
 		});
 	}
-	
+
 }), UCP = new UCPC();
 $(function() {
 	UCP.ready();
