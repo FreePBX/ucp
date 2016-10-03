@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-07-29 16:54-0700\n"
-"PO-Revision-Date: 2016-10-03 14:46+0200\n"
+"PO-Revision-Date: 2016-10-03 16:12+0200\n"
 "Last-Translator: Maxim <maxim@ua.fm>\n"
 "Language-Team: Ukrainian "
 "<http://weblate.freepbx.org/projects/freepbx/ucp/uk_UA/>\n"
@@ -221,7 +221,7 @@ msgstr "Забули пароль"
 
 #: htdocs/views/templates/phone.php:51
 msgid "GHI"
-msgstr "ІИЙКЛ"
+msgstr "GHI"
 
 #: views/users_hook.php:19
 msgid "General"
@@ -276,7 +276,7 @@ msgid ""
 "until you upgrade to %s or higher"
 msgstr ""
 "Internet Explorer %s не підтримується. Функціональність буде погіршуватися, "
-"поки ви не оновитися до %s або вище"
+"поки ви не оновитеся до %s або вище"
 
 #: htdocs/includes/User.class.php:86
 msgid "Invalid"
@@ -297,7 +297,7 @@ msgstr "Неприпустимий маркер"
 
 #: htdocs/views/templates/phone.php:55
 msgid "JKL"
-msgstr "МНОП"
+msgstr "JKL"
 
 #: htdocs/views/settings.php:102
 msgid "Language"
@@ -331,7 +331,7 @@ msgstr "Вийти"
 
 #: htdocs/views/templates/phone.php:59
 msgid "MNO"
-msgstr "РСТУ"
+msgstr "MNO"
 
 #: views/users_hook.php:65
 msgid "May this user log in to UCP"
