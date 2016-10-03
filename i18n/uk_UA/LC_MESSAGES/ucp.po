@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-07-29 16:54-0700\n"
-"PO-Revision-Date: 2016-09-30 17:53+0200\n"
+"PO-Revision-Date: 2016-10-03 14:46+0200\n"
 "Last-Translator: Maxim <maxim@ua.fm>\n"
 "Language-Team: Ukrainian "
 "<http://weblate.freepbx.org/projects/freepbx/ucp/uk_UA/>\n"
@@ -53,11 +53,11 @@ msgstr ".htaccess файли не підтримуються на цьому в�
 #, php-format
 msgid "A token has already been generated for %s, not sending email again"
 msgstr ""
-"Маркер вже був створений для %s, електрона пошта повторно не відправлено"
+"Маркер вже був створений для %s, електрону пошту повторно не відправлено"
 
 #: htdocs/views/templates/phone.php:41
 msgid "ABC"
-msgstr "АБВГҐ"
+msgstr "ABC"
 
 #: htdocs/views/settings.php:8
 msgid "Account Settings"
@@ -116,7 +116,7 @@ msgstr "Дозволити користувачам змінювати свій 
 
 #: views/users_hook.php:118
 msgid "Allowed Extension Settings"
-msgstr "Дозволені налаштування короткого номеру"
+msgstr "Дозволені налаштування додаткового номеру"
 
 #: htdocs/assets/js/ucp.js:1033
 msgid "Are you sure you wish to change your username?"
@@ -148,7 +148,7 @@ msgstr "Зображення контакту"
 
 #: htdocs/views/templates/phone.php:45
 msgid "DEF"
-msgstr "ДЕЖЗ"
+msgstr "DEF"
 
 #: htdocs/views/settings.php:135
 msgid "Delete Image"
