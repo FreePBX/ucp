@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-07-29 16:54-0700\n"
-"PO-Revision-Date: 2016-10-03 16:12+0200\n"
+"PO-Revision-Date: 2016-10-03 19:13+0200\n"
 "Last-Translator: Maxim <maxim@ua.fm>\n"
 "Language-Team: Ukrainian "
 "<http://weblate.freepbx.org/projects/freepbx/ucp/uk_UA/>\n"
@@ -376,17 +376,17 @@ msgstr "Увімкнути"
 #: htdocs/modules/Home/assets/js/global.js:46
 #: htdocs/modules/Home/assets/js/global.js:124
 msgid "Originate"
-msgstr "Походить"
+msgstr "Ініціювати"
 
 #: htdocs/index.php:223 htdocs/modules/Home/assets/js/global.js:22
 #: htdocs/modules/Home/assets/js/global.js:45
 #: htdocs/modules/Home/assets/js/global.js:123
 msgid "Originate Call"
-msgstr "Відбувається виклик"
+msgstr "Вихідний виклик"
 
 #: htdocs/views/templates/phone.php:65
 msgid "PQRS"
-msgstr "ФХЦЧ"
+msgstr "PQRS"
 
 #: htdocs/views/login.php:20 htdocs/views/settings.php:22
 msgid "Password"
@@ -412,7 +412,7 @@ msgstr "Поле пароля не може бути порожнім!"
 
 #: htdocs/assets/js/ucp.js:107
 msgid "Password has been changed!"
-msgstr "Пароль було змінено!"
+msgstr "Пароль змінено!"
 
 #: htdocs/assets/js/ucp.js:1018
 msgid "Password has not changed!"
