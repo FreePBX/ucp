@@ -21,7 +21,7 @@
 <!-- left navbar -->
 <nav class="navbar navbar-inverse navbar-fixed-left">
 	<ul class="nav navbar-nav">
-		<li class="add-widget" data-toggle="modal" data-target="#add_widget"><a href="#"><i class="fa fa-plus-circle" aria-hidden="true"></i></a></li>
+		<li class="add-small-widget" data-toggle="modal" data-target="#add_small_widget"><a href="#"><i class="fa fa-plus-circle" aria-hidden="true"></i></a></li>
 		<li><a href="#"><i class="fa fa-user" aria-hidden="true"></i></a></li>
 		<li><a href="#"><i class="fa fa-cogs" aria-hidden="true"></i></a></li>
 		<?php foreach($navItems as $button) {?>
@@ -55,4 +55,7 @@
 <div class="container-fluid main-content-object">
 	<div class="row">
 		<div class="col-md-12 col-sm-12 col-lg-12 main-content-column">
+			<div class="add-widget" data-toggle="modal" data-target="#add_widget">
+				<i class="fa fa-3x fa-plus-square-o" aria-hidden="true"></i>
+			</div>
 			<div id="dashboard-content">
