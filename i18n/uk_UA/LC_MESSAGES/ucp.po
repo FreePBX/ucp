@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-07-29 16:54-0700\n"
-"PO-Revision-Date: 2016-10-03 19:13+0200\n"
+"PO-Revision-Date: 2016-10-04 20:32+0200\n"
 "Last-Translator: Maxim <maxim@ua.fm>\n"
 "Language-Team: Ukrainian "
 "<http://weblate.freepbx.org/projects/freepbx/ucp/uk_UA/>\n"
@@ -250,7 +250,7 @@ msgstr "Тримати"
 #: htdocs/modules/Home/Home.class.php:252 htdocs/views/dashboard.php:32
 #: htdocs/assets/js/ucp.js:813
 msgid "Home"
-msgstr "Дім"
+msgstr "До дому"
 
 #: htdocs/views/settings.php:84
 msgid "Home Phone"
@@ -363,15 +363,15 @@ msgstr "Нічого не введено"
 
 #: htdocs/includes/User.class.php:74
 msgid "Nothing was Provided!"
-msgstr "Не було нічого вказано!"
+msgstr "Нічого не вказано!"
 
 #: htdocs/views/header.php:60
 msgid "OFF"
-msgstr "Вимкнути"
+msgstr "OFF"
 
 #: htdocs/views/header.php:57
 msgid "ON"
-msgstr "Увімкнути"
+msgstr "ON"
 
 #: htdocs/modules/Home/assets/js/global.js:46
 #: htdocs/modules/Home/assets/js/global.js:124
@@ -465,7 +465,7 @@ msgstr "Налаштування"
 
 #: htdocs/views/templates/phone.php:69
 msgid "TUV"
-msgstr "ШЩЇЄ"
+msgstr "TUV"
 
 #: ucp.i18n.php:36
 msgid ""
@@ -631,7 +631,7 @@ msgstr "Ім'я користувача було змінено, перезава
 
 #: htdocs/views/templates/phone.php:73
 msgid "WXYZ"
-msgstr "ЬЄЮЯ"
+msgstr "WXYZ"
 
 #: htdocs/views/dashboard.php:3
 #, php-format
