@@ -7,6 +7,7 @@
 
 @loading_size_widget: 15px;
 @widget_title_height: 34px;
+@widget_content_height: 55px;
 
 .module-page-widgets {
 
@@ -53,6 +54,24 @@
 			.widget-content{
 				width: 100%;
 				height: ~"calc(100% - @{widget_title_height})";
+			}
+
+			&.add-widget-widget{
+				color: @secundary_color;
+				background-color: rgba(0,0,0,0.0);
+				text-align: center;
+				.widget-content{
+					border: 3px dashed @secundary_color;
+					height: 100%;
+					padding-top: ~"calc(50% - @{widget_content_height})";
+					&:hover{
+						color: @third_color;
+					}
+				}
+			}
+
+			.gs-resize-handle-both{
+					display: none;
 			}
 		}
 

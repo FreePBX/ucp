@@ -268,14 +268,27 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 	top: 44px;
 	z-index: 1030;
 
-	:first-child{
-		margin-top: 0 !important;
-	}
-
 	.navbar-nav li {
 		float: none;
 		width: 55px;
 		font-size: 2em;
+
+		&:first-child{
+			margin-top: 0;
+			background: @main_color;
+			a{
+				color: @secundary_color;
+				&:hover{
+					color: @third_color;
+					background: @main_color;
+				}
+			}
+		}
+
+		&:last-child{
+			position: absolute;
+			bottom: 64px;
+		}
 
 		> .dropdown-menu {
 			margin-top: -50px;
@@ -376,6 +389,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 .main-content-object{
 	padding-left: 55px;
 	padding-top: 44px;
+	overflow-y: hidden;
 
 	.main-content-column{
 		padding-bottom: 30px;
@@ -398,7 +412,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 
 .add-dashboard{
 	float: right;
-	margin-top: 9px;
+	margin-top: 13px;
 	margin-right: 6px;
 }
 
@@ -1410,14 +1424,18 @@ div.bhoechie-tab div.bhoechie-tab-content:not(.active){
 	overflow: auto;
 }
 
-.add-widget{
+
+
+/*.add-widget{
 	position: fixed;
 	bottom: 20px;
 	right: 5px;
 	cursor: pointer;
 	z-index: 5;
 	color: @secundary_color;
+	opacity: 0.3;
 	&:hover{
 		color: @third_color;
+		opacity: 1;
 	}
-}
+}*/

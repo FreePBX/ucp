@@ -2,7 +2,7 @@ function save_layout_content(){
 	activate_full_loading();
 
 	var gridster_object = $(".gridster ul").gridster().data('gridster');
-	var gridData = gridster_object.serialize();
+	var gridData = gridster_object.serialize($(".gridster ul li:not(.add-widget-widget)"));
 	var gridDataSerialized = JSON.stringify(gridData);
 
 	$.post( "?quietmode=1&module=Dashboards&command=savedashlayout",
@@ -63,10 +63,12 @@ var WidgetsO = Class.extend({
 		var gridster = $(".gridster ul").gridster().data('gridster');
 
 		gridster.$widgets.each(function(){
-			var widget_id = $(this).attr('data-widget_type_id');
-			var widget_rawname = $(this).attr('data-rawname');
-			var widget_content_container = $(this).find(".widget-content");
-			get_widget_content(widget_content_container, widget_id, widget_rawname);
+			if(!$(this).hasClass("add-widget-widget")){
+				var widget_id = $(this).attr('data-widget_type_id');
+				var widget_rawname = $(this).attr('data-rawname');
+				var widget_content_container = $(this).find(".widget-content");
+				get_widget_content(widget_content_container, widget_id, widget_rawname);
+			}
 		});
 
 		//

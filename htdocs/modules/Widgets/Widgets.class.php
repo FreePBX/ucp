@@ -54,7 +54,7 @@ class Widgets extends Modules{
 			}
 		}
 
-		$html .= '</ul></div>';
+		$html .= '<li class="add-widget-widget add-widget" data-toggle="modal" data-target="#add_widget" data-row="1" data-col="1" data-sizex="1" data-sizey="1"><div class="widget-content"><i class="fa fa-5x fa-plus" aria-hidden="true"></i><br>Add new Widget</div></li></ul></div>';
 
 		$this->UCP->Modgettext->pop_textdomain();
 

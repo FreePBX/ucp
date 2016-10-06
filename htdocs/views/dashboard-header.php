@@ -4,8 +4,8 @@
 	</div>
 
 	<div id="add_new_dashboard" class="add-dashboard">
-		<button class="btn btn-sm btn-primary btn-outline" type="button" data-toggle="modal" data-target="#add_dashboard">
-			<i class="fa fa-plus" aria-hidden="true"></i>
+		<button class="btn btn-xs btn-primary btn-outline" type="button" data-toggle="modal" data-target="#add_dashboard">
+			Add new
 		</button>
 	</div>
 
@@ -34,7 +34,7 @@
 				<?php echo isset($button['extra']) ? $button['extra'] : ""*/ ?>
 			</div>-->
 		<?php } ?>
-		<li><a href="?logout"><i class="fa fa-sign-out" aria-hidden="true"></i></a></li>
+		<li><a href="?logout"><i class="fa fa-sign-out fa-rotate-180" aria-hidden="true"></i></a></li>
 	</ul>
 </nav>
 
@@ -55,7 +55,7 @@
 <div class="container-fluid main-content-object">
 	<div class="row">
 		<div class="col-md-12 col-sm-12 col-lg-12 main-content-column">
-			<div class="add-widget" data-toggle="modal" data-target="#add_widget">
-				<i class="fa fa-3x fa-plus-square-o" aria-hidden="true"></i>
-			</div>
+			<!--<div class="add-widget" data-toggle="modal" data-target="#add_widget">
+				<i class="fa fa-4x fa-plus-circle" aria-hidden="true"></i>
+			</div>-->
 			<div id="dashboard-content">
