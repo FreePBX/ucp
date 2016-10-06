@@ -47,7 +47,10 @@
 										<a href="#" class="list-group-item text-center <?php echo ($first) ? "active" : ""; ?>">
 											<h4 class="<?php echo $widget_category_info["icon"]; ?>"></h4><br/><?php echo $widget_category_info["display"]; ?>
 										</a>
-										<?php $first = false; } ?>
+									<?php $first = false; } ?>
+									<a href="#" class="list-group-item text-center">
+										<h4 class="fa fa-list"></h4><br/>Side Bar Widgets
+									</a>
 								</div>
 							<?php } ?>
 						</div>
@@ -77,6 +80,35 @@
 										<?php } ?>
 									</div>
 									<?php $first = false; } ?>
+									<div class="bhoechie-tab-content <?php echo ($first) ? "active" : ""; ?>">
+
+										<div class="ibox-content-widget">
+											<div class="row">
+												<div class="widget-title col-md-11">
+													<h4>Small Widget 1
+														<br>
+														<small class="m-r">Small Widget description</small>
+													</h4>
+												</div>
+												<div class="widget-add-container top-offset text-center">
+													<button type="button" class="btn btn-sm btn-primary btn-outline add-widget-button" data-widget_module_name="smallwidget" data-widget_name="smallwidgetname" data-widget_id="smallwidgetid" data-rawname="smallwidgetrawname"><i class="fa fa-plus-circle" aria-hidden="true"></i></button>
+												</div>
+											</div>
+										</div>
+										<div class="ibox-content-widget">
+											<div class="row">
+												<div class="widget-title col-md-11">
+													<h4>Small Widget 2
+														<br>
+														<small class="m-r">Small Widget description</small>
+													</h4>
+												</div>
+												<div class="widget-add-container top-offset text-center">
+													<button type="button" class="btn btn-sm btn-primary btn-outline add-widget-button" data-widget_module_name="smallwidget" data-widget_name="smallwidgetname" data-widget_id="smallwidgetid" data-rawname="smallwidgetrawname"><i class="fa fa-plus-circle" aria-hidden="true"></i></button>
+												</div>
+											</div>
+										</div>
+									</div>
 							<?php } ?>
 						</div>
 					</div>

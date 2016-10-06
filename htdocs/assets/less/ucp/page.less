@@ -53,6 +53,7 @@ input, textarea {
 @main_color: #2F4050;
 @secundary_color: #F3F3F4;
 @third_color: #18A689;
+@forth_color:#5EC9B4;
 @loading_size: 65px;
 
 /* MIXINS */
@@ -265,7 +266,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 	height: 100%;
 	background-color: @secundary_color;
 	color: @secundary_color;
-	top: 44px;
+	top: 45px;
 	z-index: 1030;
 
 	.navbar-nav li {
@@ -274,7 +275,6 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 		font-size: 2em;
 
 		&:first-child{
-			margin-top: 0;
 			background: @main_color;
 			a{
 				color: @secundary_color;
@@ -315,6 +315,17 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 
 .navbar-inverse{
 	border: none;
+}
+
+.right-bar{
+	width: 10px;
+	position: fixed;
+	border-radius: 0;
+	height: 100%;
+	background-color: @secundary_color;
+	top: 44px;
+	z-index: 1030;
+	right: 0;
 }
 
 .side-menu-widgets-container {
@@ -390,9 +401,11 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 	padding-left: 55px;
 	padding-top: 44px;
 	overflow-y: hidden;
+	background-color: @secundary_color;
 
 	.main-content-column{
-		padding-bottom: 30px;
+		padding-bottom: 0;
+		padding-right: 0;
 	}
 }
 
@@ -401,55 +414,92 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 	margin-top: 5px;
 	margin-right: 5px;
 
-	.remove-dashboard{
-		float: right;
-		margin-left: 10px;
-	}
-	.remove-dashboard:hover{
-		color: @third_color;
+	li{
+		position: relative;
+
+		.remove-dashboard{
+			position: absolute;
+			right: 5px;
+			top: 10px;
+			color: #b2b2b2;
+			border-left: 1px solid;
+			padding-left: 3px;
+
+			.fa {
+				cursor: pointer;
+				&:hover{
+					color: @secundary_color;
+				}
+			}
+		}
 	}
 }
 
 .add-dashboard{
 	float: right;
-	margin-top: 13px;
-	margin-right: 6px;
+	margin-top: 11px;
+	margin-right: 15px;
+	color: @third_color;
+	cursor: pointer;
+	&:hover {
+		color: @main_color;
+	}
 }
 
 .nav-tabs {
 	border-bottom: none;
+	li {
+		margin-right: 2px;
+		margin-bottom: 0;
+		&.active{
+			a {
+				color: @secundary_color;
+				background-color: @main_color;
+				border: none;
+				&:hover, &:focus{
+					color: @secundary_color;
+					background-color: @main_color;
+					border: none;
+				}
+			}
+
+			a::after{
+				transform: scale(1);
+			}
+		}
+
+		a{
+			padding-right: 30px;
+			color: #b2b2b2;
+			border-radius: 0;
+			margin-right: 0;
+			background-color: @main_color;
+			border: none;
+			&::after{
+				content: "";
+				background: @third_color;
+				height: 4px;
+				position: absolute;
+				width: 100%;
+				left: 0;
+				top: -1px;
+				transition: all 250ms ease 0s;
+				transform: scale(0);
+			}
+
+			&:focus, &:hover{
+				color: @secundary_color;
+				background-color: @main_color;
+			}
+		}
+		&:hover{
+			a::after {
+				transform: scale(1);
+			}
+		}
+	}
 }
-.nav-tabs > li.active > a, .nav-tabs > li.active > a:focus, .nav-tabs > li.active > a:hover {
-	border-width: 0;
-	background-color: @main_color;
-}
-.nav-tabs > li > a {
-	border: none;
-	color: #666;
-}
-.nav-tabs > li.active > a, .nav-tabs > li > a:hover {
-	border: none;
-	color: @secundary_color !important;
-	background-color: @main_color;
-}
-.nav-tabs > li > a::after {
-	content: "";
-	background: @third_color;
-	height: 2px;
-	position: absolute;
-	width: 100%;
-	left: 0;
-	bottom: -1px;
-	transition: all 250ms ease 0s;
-	transform: scale(0);
-}
-.nav-tabs > li.active > a::after, .nav-tabs > li:hover > a::after {
-	transform: scale(1);
-}
-.tab-nav > li > a::after {
-	background: @main_color none repeat scroll 0% 0%;
-	color: @secundary_color;
-}
+
 .tab-pane {
 	padding: 15px 0;
 }
@@ -1424,6 +1474,11 @@ div.bhoechie-tab div.bhoechie-tab-content:not(.active){
 	overflow: auto;
 }
 
+.truncate-text {
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
 
 
 /*.add-widget{

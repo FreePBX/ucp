@@ -2,7 +2,7 @@ function save_layout_content(){
 	activate_full_loading();
 
 	var gridster_object = $(".gridster ul").gridster().data('gridster');
-	var gridData = gridster_object.serialize($(".gridster ul li:not(.add-widget-widget)"));
+	var gridData = gridster_object.serialize();
 	var gridDataSerialized = JSON.stringify(gridData);
 
 	$.post( "?quietmode=1&module=Dashboards&command=savedashlayout",

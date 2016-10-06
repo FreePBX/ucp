@@ -48,13 +48,11 @@ class Widgets extends Modules{
 		if(!empty($widgets_info)){
 			foreach($widgets_info as $data) {
 				$html .= '<li data-widget_module_name="'.$data->widget_module_name.'" data-id="'.$data->id.'" data-name="'.$data->name.'" data-row="'.$data->row.'" data-col="'.$data->col.'" data-sizex="'.$data->size_x.'" data-sizey="'.$data->size_y.'" data-rawname="'.$data->rawname.'" data-widget_type_id="'.$data->widget_type_id.'">
-					<div class="widget-title"><div class="widget-module-name">'.$data->widget_module_name.'</div><div class="widget-module-subname">('.$data->name.')</div><div class="remove-widget" data-widget_id="'.$data->id.'"><i class="fa fa-times" aria-hidden="true"></i></div></div>
+					<div class="widget-title"><div class="widget-module-name truncate-text">'.$data->widget_module_name.'</div><div class="widget-module-subname truncate-text">('.$data->name.')</div><div class="widget-options"><div class="widget-option remove-widget" data-widget_id="'.$data->id.'"><i class="fa fa-times" aria-hidden="true"></i></div><div class="widget-option edit-widget" data-widget_id="'.$data->id.'"><i class="fa fa-cog" aria-hidden="true"></i></div></div></div>
 					<div class="widget-content"></div>
 				</li>';
 			}
 		}
-
-		$html .= '<li class="add-widget-widget add-widget" data-toggle="modal" data-target="#add_widget" data-row="1" data-col="1" data-sizex="1" data-sizey="1"><div class="widget-content"><i class="fa fa-5x fa-plus" aria-hidden="true"></i><br>Add new Widget</div></li></ul></div>';
 
 		$this->UCP->Modgettext->pop_textdomain();
 

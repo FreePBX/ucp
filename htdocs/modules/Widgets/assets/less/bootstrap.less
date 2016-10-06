@@ -11,6 +11,8 @@
 
 .module-page-widgets {
 
+	background-color: @main_color;
+
 	ol, ul{
 		margin-top: 0;
 		margin-bottom: 0;
@@ -29,31 +31,49 @@
 			cursor: pointer;
 			.widget-title{
 				position: relative;
-				text-align: center;
-				padding-top: 2px;
-				padding-bottom: 2px;
-				text-transform: capitalize;
-				border-top: 3px solid @third_color;
+				text-align: left;
+				padding-top: 3px;
+				padding-bottom: 3px;
+				text-transform: uppercase;
 				border-bottom: 1px solid @main_color;
+				line-height: 14px;
+				padding-left: 6px;
 				.widget-module-name{
 					font-size: 14px;
+					width: 66%;
 				}
 				.widget-module-subname{
 					font-size: 9px;
+					width: 90%;
 				}
-				.remove-widget{
-					display: none;
+				.widget-options{
 					position: absolute;
-					top: 6px;
+					top: 8px;
+					font-size: 18px;
 					right: 6px;
-				}
-				.remove-widget:hover{
-					color: @third_color;
+					border-left: 1px solid;
+					padding-left: 6px;
+					.widget-option{
+						float: right;
+						margin-right: 3px;
+						&:hover{
+							color: @third_color;
+						}
+
+						&.remove-widget{
+
+						}
+
+						&.edit-widget{
+
+						}
+					}
 				}
 			}
 			.widget-content{
 				width: 100%;
 				height: ~"calc(100% - @{widget_title_height})";
+				border-bottom: 3px solid @third_color;
 			}
 
 			&.add-widget-widget{
@@ -69,16 +89,12 @@
 					}
 				}
 			}
-
-			.gs-resize-handle-both{
-					display: none;
-			}
 		}
 
 		.gs-resize-handle-both{
 			bottom: 0;
 			right: 0;
-			background-position: 80% 80%;
+			background-position: 80% 66%;
 			cursor: nwse-resize;
 		}
 	}

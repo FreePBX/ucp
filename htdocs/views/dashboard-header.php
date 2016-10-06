@@ -3,16 +3,14 @@
 		<div id="global-message"></div>
 	</div>
 
-	<div id="add_new_dashboard" class="add-dashboard">
-		<button class="btn btn-xs btn-primary btn-outline" type="button" data-toggle="modal" data-target="#add_dashboard">
-			Add new
-		</button>
+	<div id="add_new_dashboard" class="add-dashboard" data-toggle="modal" data-target="#add_dashboard">
+		<i class="fa fa-2x fa-plus-circle" aria-hidden="true"></i>
 	</div>
 
 	<ul class="nav nav-tabs dashboards" role="tablist" id="all_dashboards">
 		<?php foreach($user_dashboards as $dashboard_info) { ?>
 			<li class="<?php echo ($dashboard_info["id"] == $active_dashboard) ? 'active' : ''?> menu-order dashboard-menu" data-id="<?php echo $dashboard_info["id"]?>">
-				<a data-pjax href="?dashboard=<?php echo $dashboard_info["id"]?>"><?php echo $dashboard_info["name"]?> <div class="remove-dashboard" data-dashboard_id="<?php echo $dashboard_info["id"]?>"><i class="fa fa-times" aria-hidden="true"></i></div></a>
+				<a data-pjax href="?dashboard=<?php echo $dashboard_info["id"]?>"><?php echo $dashboard_info["name"]?></a> <div class="remove-dashboard" data-dashboard_id="<?php echo $dashboard_info["id"]?>"><i class="fa fa-times" aria-hidden="true"></i></div>
 			</li>
 		<?php } ?>
 	</ul>
@@ -21,7 +19,7 @@
 <!-- left navbar -->
 <nav class="navbar navbar-inverse navbar-fixed-left">
 	<ul class="nav navbar-nav">
-		<li class="add-small-widget" data-toggle="modal" data-target="#add_small_widget"><a href="#"><i class="fa fa-plus-circle" aria-hidden="true"></i></a></li>
+		<li class="add-widget" data-toggle="modal" data-target="#add_widget"><a href="#"><i class="fa fa-plus-circle" aria-hidden="true"></i></a></li>
 		<li><a href="#"><i class="fa fa-user" aria-hidden="true"></i></a></li>
 		<li><a href="#"><i class="fa fa-cogs" aria-hidden="true"></i></a></li>
 		<?php foreach($navItems as $button) {?>
@@ -51,11 +49,11 @@
 	<?php } ?>
 </div>
 
+<!-- fake right bar -->
+<div class="right-bar">
+</div>
 
 <div class="container-fluid main-content-object">
 	<div class="row">
 		<div class="col-md-12 col-sm-12 col-lg-12 main-content-column">
-			<!--<div class="add-widget" data-toggle="modal" data-target="#add_widget">
-				<i class="fa fa-4x fa-plus-circle" aria-hidden="true"></i>
-			</div>-->
 			<div id="dashboard-content">

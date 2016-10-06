@@ -84,7 +84,7 @@ function show_confirm(message, type, callback_func) {
 }
 
 function widget_layout(widget_id, widget_module_name, widget_name, widget_type_id, widget_rawname, widget_content){
-	var html = '<li data-widget_module_name="'+widget_module_name+'" data-id="'+widget_id+'" data-name="'+widget_name+'" data-rawname="'+widget_rawname+'" data-widget_type_id="'+widget_type_id+'"><div class="widget-title"><div class="widget-module-name">'+widget_module_name+'</div><div class="widget-module-subname">('+widget_name+')</div><div class="remove-widget" data-widget_id="'+widget_id+'"><i class="fa fa-times" aria-hidden="true"></i></div></div><div class="widget-content">'+widget_content+'</div></li>';
+	var html = '<li data-widget_module_name="'+widget_module_name+'" data-id="'+widget_id+'" data-name="'+widget_name+'" data-rawname="'+widget_rawname+'" data-widget_type_id="'+widget_type_id+'"><div class="widget-title"><div class="widget-module-name truncate-text">'+widget_module_name+'</div><div class="widget-module-subname truncate-text">('+widget_name+')</div><div class="widget-options"><div class="widget-option remove-widget" data-widget_id="'+widget_id+'"><i class="fa fa-times" aria-hidden="true"></i></div><div class="widget-option edit-widget" data-widget_id="'+widget_id+'"><i class="fa fa-cog" aria-hidden="true"></i></div></div></div><div class="widget-content">'+widget_content+'</div></li>';
 
 	return html;
 }
@@ -269,14 +269,6 @@ $('#add_dashboard').on('shown.bs.modal', function () {
 
 $('#add_dashboard').on('hidden.bs.modal', function () {
 	$('#dashboard_name').val("");
-});
-
-$(document).on("mouseover", ".gs-w .widget-title, .gs-w .widget-title .remove-widget", function() {
-	$(this).find(".remove-widget").fadeIn("slow");
-});
-
-$(document).on("mouseleave", ".gs-w .widget-title", function() {
-	$(this).find(".remove-widget").fadeOut("slow");
 });
 
 $(document).on("click", "#modal_confirm_button", function(){
