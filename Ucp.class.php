@@ -258,7 +258,11 @@ class Ucp implements \BMO {
 
 		$user['token'] = $token['token'];
 		$user['brand'] = $this->brand;
-		$user['host'] = (!empty($_SERVER["HTTPS"]) ? 'https://' : 'http://') . $_SERVER["SERVER_NAME"];
+		if (isset($_SERVER["HTTPS"])) {
+			$user['host'] =  'https://'.$_SERVER["SERVER_NAME"];
+		} else {
+			$user['host'] =  'http://'.$_SERVER["SERVER_NAME"];
+		}
 		$user['link'] = $user['host'] . "/ucp/?forgot=".$user['token'];
 		$user['valid'] = date("h:i:s A", $token['valid']);
 
