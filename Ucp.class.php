@@ -275,7 +275,7 @@ class Ucp implements \BMO {
 			}
 		}
 
-		if(!empty($ports['ucp'])) {
+		if(!empty($ports['ucp']) && is_numeric($ports['ucp'])) {
 			$user['host'] = $user['host'].":".$ports['ucp'];
 			$user['link'] = $user['host'] . "/?forgot=".$user['token'];
 		}
