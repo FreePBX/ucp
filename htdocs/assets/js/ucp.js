@@ -78,7 +78,7 @@ var UCPC = Class.extend({
 					queryString = queryString + "&quietmode=1&module=User&command=forgot";
 					$.post( "index.php", queryString, function( data ) {
 						if (!data.status) {
-							$("#error-msg").html(data.message).fadeIn("fast");
+							alert(data.message);
 						} else {
 							alert(_("Your reset link is in the mail!"));
 						}

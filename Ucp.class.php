@@ -249,10 +249,11 @@ class Ucp implements \BMO {
 			return false;
 		}
 
-		$token = $this->Userman->generatePasswordResetToken($id);
+		// Forcefully create reset token
+		$token = $this->Userman->generatePasswordResetToken($id, null, true);
 
-		if(empty($token)) {
-			freepbx_log(FPBX_LOG_NOTICE,sprintf(_("A token has already been generated for %s, not sending email again"),$user['username']));
+		if(!$token) {
+			freepbx_log(FPBX_LOG_NOTICE, "Unable to generate password token for ".$user['username']);
 			return false;
 		}
 
@@ -307,7 +308,7 @@ class Ucp implements \BMO {
 			$template = str_replace('%'.$match.'%',$replacement,$template);
 		}
 
-		$this->Userman->sendEmail($user['id'],$this->brand . " password reset",$template);
+		return $this->Userman->sendEmail($user['id'],$this->brand . " password reset",$template);
 	}
 
 	public function delGroup($id,$display,$data) {
