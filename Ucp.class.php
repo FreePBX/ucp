@@ -279,8 +279,24 @@ class Ucp implements \BMO {
 			}
 		}
 
-		if(!empty($ports['ucp']) && is_numeric($ports['ucp'])) {
-			$user['host'] = $user['host'].":".$ports['ucp'];
+		// If UCP has its own ports defined in Sysadmin, prefer to use that
+		// rather than making users go in via the admin interface
+		//
+		// If we have SSL enabled for UCP, try to use that first
+		if (isset($ports['sslucp']) && is_numeric($ports['sslucp'])) {
+			if ($ports['sslucp'] == 443) {
+				$user['host'] = 'https://'.$_SERVER["SERVER_NAME"];
+			} else {
+				$user['host'] = 'https://'.$_SERVER["SERVER_NAME"].":".$ports['sslucp'];
+			}
+			$user['link'] = $user['host'] . "/?forgot=".$user['token'];
+		// Not SSL, how about normal unencrypted HTTP?
+		} else if(isset($ports['ucp']) && is_numeric($ports['ucp'])) {
+			if ($ports['ucp'] == 80) {
+				$user['host'] = 'http://'.$_SERVER["SERVER_NAME"];
+			} else {
+				$user['host'] = 'http://'.$_SERVER["SERVER_NAME"].":".$ports['ucp'];
+			}
 			$user['link'] = $user['host'] . "/?forgot=".$user['token'];
 		}
 
