@@ -1,28 +1,9 @@
-function save_layout_content(){
-	activate_full_loading();
-
-	var gridster_object = $(".gridster ul").gridster().data('gridster');
-	var gridData = gridster_object.serialize();
-	var gridDataSerialized = JSON.stringify(gridData);
-
-	$.post( "?quietmode=1&module=Dashboards&command=savedashlayout",
-		{
-			id: UCP.activeDashboard,
-			data: gridDataSerialized
-		},
-		function( data ) {
-			if(data.status){
-				console.log("saved grid");
-			}else {
-				show_alert("Something went wrong saving the information", "danger");
-			}
-			deactivate_full_loading();
-		}
-	);
-}
-
-var WidgetsO = Class.extend({
+var WidgetsC = Class.extend({
 	init: function() {
+		var $this = this;
+		if(!$(".gridster ul").length) {
+			return;
+		}
 		$(".gridster ul").gridster({
 			serialize_params: function($w, wgd){
 				return {
@@ -50,12 +31,12 @@ var WidgetsO = Class.extend({
 			resize: {
 				enabled: true,
 				stop: function(){
-					save_layout_content();
+					$this.save_layout_content();
 				}
 			},
 			draggable: {
 				stop: function(){
-					save_layout_content();
+					$this.save_layout_content();
 				}
 			}
 		});
@@ -72,12 +53,27 @@ var WidgetsO = Class.extend({
 		});
 
 		//
-	}
+	},
+	save_layout_content: function() {
+		activate_full_loading();
 
-}), dashboard_widgets = new WidgetsO();
+		var gridster_object = $(".gridster ul").gridster().data('gridster');
+		var gridData = gridster_object.serialize();
+		var gridDataSerialized = JSON.stringify(gridData);
 
-$(function(){ //DOM Ready
-	if($(".gridster ul").length) {
-		dashboard_widgets.init();
+		$.post( "?quietmode=1&module=Dashboards&command=savedashlayout",
+			{
+				id: UCP.activeDashboard,
+				data: gridDataSerialized
+			},
+			function( data ) {
+				if(data.status){
+					console.log("saved grid");
+				}else {
+					show_alert("Something went wrong saving the information", "danger");
+				}
+				deactivate_full_loading();
+			}
+		);
 	}
 });

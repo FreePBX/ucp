@@ -143,7 +143,7 @@ function init_remove_item_buttons(){
 
 		show_confirm("Are you sure you want to delete this widget?", "warning", function() {
 			$(".gs-w[data-id='" + widget_id + "']").remove();
-			save_layout_content();
+			UCP.Modules.Widgets.save_layout_content();
 		});
 
 	});
@@ -219,7 +219,11 @@ function init_add_widgets_buttons(){
 					//We are adding the widget always on the position 1,1
 					gridster_object.add_widget(full_widget_html, default_size_x, default_size_y, 1, 1);
 
-					save_layout_content();
+					var rawname = widget_rawname.charAt(0).toUpperCase() + widget_rawname.toLowerCase().slice(1);
+					if (UCP.validMethod(rawname, "displayWidget")) {
+						UCP.Modules[rawname].displayWidget(widget_id);
+					}
+					UCP.Modules.Widgets.save_layout_content();
 				}else {
 					show_alert("There was an error retriving the widget information, try again later", "danger");
 				}
@@ -243,7 +247,11 @@ function init_categories_widgets(){
 
 function get_widget_content(widget_content_object, widget_id, widget_rawname){
 
+	console.log([widget_content_object, widget_id, widget_rawname])
+
 	activate_widget_loading(widget_content_object);
+
+	var rawname = widget_rawname.charAt(0).toUpperCase() + widget_rawname.toLowerCase().slice(1);
 
 	$.post( "?quietmode=1&module=Dashboards&command=getwidgetcontent",
 		{
@@ -255,10 +263,13 @@ function get_widget_content(widget_content_object, widget_id, widget_rawname){
 			var widget_html = data.html;
 
 			if(typeof data.html === "undefined"){
-				widget_html = '<div class="alert alert-danger">Something went wrong retriving the content of the widget</div>';
+				widget_html = '<div class="alert alert-danger">'+_('Something went wrong retrieving the content of the widget')+'</div>';
 			}
 
 			widget_content_object.html(widget_html);
+			if (UCP.validMethod(rawname, "displayWidget")) {
+				UCP.Modules[rawname].displayWidget(widget_id);
+			}
 
 		}, "json");
 }
