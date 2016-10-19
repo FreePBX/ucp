@@ -47,10 +47,33 @@ class Widgets extends Modules{
 
 		if(!empty($widgets_info)){
 			foreach($widgets_info as $data) {
-				$html .= '<li data-widget_module_name="'.$data->widget_module_name.'" data-id="'.$data->id.'" data-name="'.$data->name.'" data-row="'.$data->row.'" data-col="'.$data->col.'" data-sizex="'.$data->size_x.'" data-sizey="'.$data->size_y.'" data-rawname="'.$data->rawname.'" data-widget_type_id="'.$data->widget_type_id.'">
-					<div class="widget-title"><div class="widget-module-name truncate-text">'.$data->widget_module_name.'</div><div class="widget-module-subname truncate-text">('.$data->name.')</div><div class="widget-options"><div class="widget-option remove-widget" data-widget_id="'.$data->id.'"><i class="fa fa-times" aria-hidden="true"></i></div><div class="widget-option edit-widget" data-widget_id="'.$data->id.'"><i class="fa fa-cog" aria-hidden="true"></i></div></div></div>
-					<div class="widget-content"></div>
-				</li>';
+				$html .= '
+						<li data-widget_module_name="'.$data->widget_module_name.'" data-id="'.$data->id.'" data-name="'.$data->name.'" data-row="'.$data->row.'" data-col="'.$data->col.'" data-sizex="'.$data->size_x.'" data-sizey="'.$data->size_y.'" data-rawname="'.$data->rawname.'" data-widget_type_id="'.$data->widget_type_id.'" class="flip-container">
+							<div class="widget-title">
+								<div class="widget-module-name truncate-text">'.$data->widget_module_name.'</div>
+								<div class="widget-module-subname truncate-text">('.$data->name.')</div>
+								<div class="widget-options">
+									<div class="widget-option remove-widget" data-widget_id="'.$data->id.'">
+										<i class="fa fa-times" aria-hidden="true"></i>
+									</div>
+									<div class="widget-option edit-widget" data-widget_id="'.$data->id.'">
+										<i class="fa fa-cog" aria-hidden="true"></i>
+									</div>
+								</div>
+							</div>
+							<div class="flipper">
+								<div class="front">
+									<div class="widget-content"></div>
+								</div>
+								<div class="back">
+									<p>SETTINGS</p>
+									<p>SETTINGS</p>
+									<p>SETTINGS</p>
+									<p>SETTINGS</p>
+									<p>SETTINGS</p>
+								</div>
+							</div>
+						</li>';
 			}
 		}
 

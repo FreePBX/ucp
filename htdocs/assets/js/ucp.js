@@ -21,7 +21,12 @@ function deactivate_full_loading(){
 
 function activate_widget_loading(widget_object){
 
-	var loading_html = '<div class="widget-loading-box"><span class="fa-stack fa"><i class="fa fa-cloud fa-stack-2x text-internal-blue"></i><i class="fa fa-cog fa-spin fa-stack-1x secundary-color"></i></span></div>';
+	var loading_html = '<div class="widget-loading-box">' +
+		'					<span class="fa-stack fa">' +
+		'						<i class="fa fa-cloud fa-stack-2x text-internal-blue"></i>' +
+		'						<i class="fa fa-cog fa-spin fa-stack-1x secundary-color"></i>' +
+		'					</span>' +
+		'				</div>';
 
 	widget_object.html(loading_html);
 
@@ -84,7 +89,33 @@ function show_confirm(message, type, callback_func) {
 }
 
 function widget_layout(widget_id, widget_module_name, widget_name, widget_type_id, widget_rawname, widget_content){
-	var html = '<li data-widget_module_name="'+widget_module_name+'" data-id="'+widget_id+'" data-name="'+widget_name+'" data-rawname="'+widget_rawname+'" data-widget_type_id="'+widget_type_id+'"><div class="widget-title"><div class="widget-module-name truncate-text">'+widget_module_name+'</div><div class="widget-module-subname truncate-text">('+widget_name+')</div><div class="widget-options"><div class="widget-option remove-widget" data-widget_id="'+widget_id+'"><i class="fa fa-times" aria-hidden="true"></i></div><div class="widget-option edit-widget" data-widget_id="'+widget_id+'"><i class="fa fa-cog" aria-hidden="true"></i></div></div></div><div class="widget-content">'+widget_content+'</div></li>';
+	var html = '' +
+				'<li data-widget_module_name="'+widget_module_name+'" data-id="'+widget_id+'" data-name="'+widget_name+'" data-rawname="'+widget_rawname+'" data-widget_type_id="'+widget_type_id+'" class="flip-container">' +
+					'<div class="widget-title">' +
+						'<div class="widget-module-name truncate-text">' + widget_module_name + '</div>' +
+						'<div class="widget-module-subname truncate-text">('+widget_name+')</div>' +
+						'<div class="widget-options">' +
+							'<div class="widget-option remove-widget" data-widget_id="'+widget_id+'">' +
+								'<i class="fa fa-times" aria-hidden="true"></i>' +
+							'</div>' +
+							'<div class="widget-option edit-widget" data-widget_id="'+widget_id+'">' +
+								'<i class="fa fa-cog" aria-hidden="true"></i>' +
+							'</div>' +
+						'</div>' +
+					'</div>' +
+					'<div class="flipper">' +
+						'<div class="front">' +
+							'<div class="widget-content">'+widget_content+'</div>' +
+						'</div>' +
+						'<div class="back">' +
+							'<p>SETTINGS</p>' +
+							'<p>SETTINGS</p>' +
+							'<p>SETTINGS</p>' +
+							'<p>SETTINGS</p>' +
+							'<p>SETTINGS</p>' +
+						'</div>' +
+					'</div>' +
+				'</li>';
 
 	return html;
 }
@@ -189,8 +220,6 @@ function init_remove_item_buttons(){
 function init_add_widgets_buttons(){
 	$(".add-widget-button").click(function(){
 
-		activate_full_loading();
-
 		var widget_id = $(this).data('widget_id');
 		var widget_module_name = $(this).data('widget_module_name');
 		var widget_rawname = $(this).data('rawname');
@@ -201,32 +230,42 @@ function init_add_widgets_buttons(){
 		var default_size_x = $(this).data('size_x');
 		var default_size_y = $(this).data('size_y');
 
-		$.post( "?quietmode=1&module=Dashboards&command=getwidgetcontent",
-			{
-				id: widget_id,
-				rawname: widget_rawname
-			},
-			function( data ) {
+		//Checking if the widget is already on the dashboard
+		var object_on_dashboard = $("li[data-id='"+new_widget_id+"']");
 
-				$("#add_widget").modal("hide");
+		if(object_on_dashboard.length <= 0){
 
-				if(typeof data.html !== "undefined"){
-					//So first we go the HTML content to add it to the widget
-					var widget_html = data.html;
-					var full_widget_html = widget_layout(new_widget_id, widget_module_name, widget_name, widget_id, widget_rawname, widget_html);
+			activate_full_loading();
 
-					var gridster_object = $(".gridster ul").gridster().data('gridster');
-					//We are adding the widget always on the position 1,1
-					gridster_object.add_widget(full_widget_html, default_size_x, default_size_y, 1, 1);
+			$.post( "?quietmode=1&module=Dashboards&command=getwidgetcontent",
+				{
+					id: widget_id,
+					rawname: widget_rawname
+				},
+				function( data ) {
 
-					save_layout_content();
-				}else {
-					show_alert("There was an error retriving the widget information, try again later", "danger");
-				}
+					$("#add_widget").modal("hide");
 
-				deactivate_full_loading();
+					if(typeof data.html !== "undefined"){
+						//So first we go the HTML content to add it to the widget
+						var widget_html = data.html;
+						var full_widget_html = widget_layout(new_widget_id, widget_module_name, widget_name, widget_id, widget_rawname, widget_html);
 
-			}, "json");
+						var gridster_object = $(".gridster ul").gridster().data('gridster');
+						//We are adding the widget always on the position 1,1
+						gridster_object.add_widget(full_widget_html, default_size_x, default_size_y, 1, 1);
+
+						save_layout_content();
+					}else {
+						show_alert("There was an error getting the widget information, try again later", "danger");
+					}
+
+					deactivate_full_loading();
+
+				}, "json");
+		}else {
+			show_alert("You already have this widget on this dashboard", "info");
+		}
 	});
 }
 
@@ -255,7 +294,7 @@ function get_widget_content(widget_content_object, widget_id, widget_rawname){
 			var widget_html = data.html;
 
 			if(typeof data.html === "undefined"){
-				widget_html = '<div class="alert alert-danger">Something went wrong retriving the content of the widget</div>';
+				widget_html = '<div class="alert alert-danger">Something went wrong getting the content of the widget</div>';
 			}
 
 			widget_content_object.html(widget_html);
@@ -274,6 +313,17 @@ $('#add_dashboard').on('hidden.bs.modal', function () {
 $(document).on("click", "#modal_confirm_button", function(){
 	if(typeof modal_confirm_function == "function"){
 		modal_confirm_function();
+	}
+});
+
+$(document).on("click", ".edit-widget", function(){
+
+	var container_object = $(this).parents(".flip-container");
+
+	if(container_object.hasClass("flip")){
+		container_object.removeClass("flip");
+	}else {
+		container_object.addClass("flip");
 	}
 });
 
