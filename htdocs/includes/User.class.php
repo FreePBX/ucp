@@ -74,8 +74,15 @@ class User {
 					$return['message'] = _('Nothing was Provided!');
 					return $return;
 				}
-				if(!empty($user['email'])) {
-					$this->UCP->FreePBX->Ucp->sendPassResetEmail($user['id']);
+				if(empty($user['email'])) {
+					$return['message'] = _('Email address unknown!');
+					$return['status'] = false;
+					return $return;
+				}
+				if (!$this->UCP->FreePBX->Ucp->sendPassResetEmail($user['id'])) {
+					// For some reason, we weren't able to send the email
+					$return['message'] = _('Unable to send Password Reset Email');
+					$return['status'] = false;
 				}
 				return $return;
 			break;
