@@ -91,28 +91,37 @@ function show_confirm(message, type, callback_func) {
 function widget_layout(widget_id, widget_module_name, widget_name, widget_type_id, widget_rawname, widget_content){
 	var html = '' +
 				'<li data-widget_module_name="'+widget_module_name+'" data-id="'+widget_id+'" data-name="'+widget_name+'" data-rawname="'+widget_rawname+'" data-widget_type_id="'+widget_type_id+'" class="flip-container">' +
-					'<div class="widget-title">' +
-						'<div class="widget-module-name truncate-text">' + widget_module_name + '</div>' +
-						'<div class="widget-module-subname truncate-text">('+widget_name+')</div>' +
-						'<div class="widget-options">' +
-							'<div class="widget-option remove-widget" data-widget_id="'+widget_id+'">' +
-								'<i class="fa fa-times" aria-hidden="true"></i>' +
-							'</div>' +
-							'<div class="widget-option edit-widget" data-widget_id="'+widget_id+'">' +
-								'<i class="fa fa-cog" aria-hidden="true"></i>' +
-							'</div>' +
-						'</div>' +
-					'</div>' +
 					'<div class="flipper">' +
 						'<div class="front">' +
+							'<div class="widget-title">' +
+								'<div class="widget-module-name truncate-text">' + widget_module_name + '</div>' +
+								'<div class="widget-module-subname truncate-text">('+widget_name+')</div>' +
+								'<div class="widget-options">' +
+									'<div class="widget-option remove-widget" data-widget_id="'+widget_id+'">' +
+										'<i class="fa fa-times" aria-hidden="true"></i>' +
+									'</div>' +
+									'<div class="widget-option edit-widget" data-widget_id="'+widget_id+'">' +
+										'<i class="fa fa-cog" aria-hidden="true"></i>' +
+									'</div>' +
+								'</div>' +
+							'</div>' +
 							'<div class="widget-content">'+widget_content+'</div>' +
 						'</div>' +
 						'<div class="back">' +
-							'<p>SETTINGS</p>' +
-							'<p>SETTINGS</p>' +
-							'<p>SETTINGS</p>' +
-							'<p>SETTINGS</p>' +
-							'<p>SETTINGS</p>' +
+							'<div class="widget-title settings-title">' +
+								'<div class="widget-module-name truncate-text">' + widget_module_name + ' Settings</div>' +
+								'<div class="widget-module-subname truncate-text">('+widget_name+')</div>' +
+							'</div>' +
+							'<div class="widget-settings-content">' +
+								'<p>SETTINGS</p>' +
+								'<p>SETTINGS</p>' +
+								'<p>SETTINGS</p>' +
+								'<p>SETTINGS</p>' +
+								'<p>SETTINGS</p>' +
+							'</div>' +
+							'<div class="settings-back">' +
+								'<i class="fa fa-share fa-rotate-180 fa-2x" aria-hidden="true"></i>' +
+							'</div>' +
 						'</div>' +
 					'</div>' +
 				'</li>';
@@ -320,10 +329,17 @@ $(document).on("click", ".edit-widget", function(){
 
 	var container_object = $(this).parents(".flip-container");
 
+	if(!container_object.hasClass("flip")){
+		container_object.addClass("flip");
+	}
+});
+
+$(document).on("click", ".settings-back", function(){
+
+	var container_object = $(this).parents(".flip-container");
+
 	if(container_object.hasClass("flip")){
 		container_object.removeClass("flip");
-	}else {
-		container_object.addClass("flip");
 	}
 });
 

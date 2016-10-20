@@ -27,7 +27,7 @@
 		overflow-y: hidden;
 		width: 98%;
 		.gs-w{
-			background-color: @main_widget_color;
+			background-color: transparent;
 			color: @widget_text_color;
 			cursor: pointer;
 			.widget-title{
@@ -36,9 +36,10 @@
 				padding-top: 3px;
 				padding-bottom: 3px;
 				text-transform: uppercase;
-				border-bottom: 1px solid @main_color;
 				line-height: 14px;
 				padding-left: 6px;
+				background-color: @third_color;
+				color: #fff;
 				.widget-module-name{
 					font-size: 14px;
 					width: 66%;
@@ -58,7 +59,7 @@
 						float: right;
 						margin-right: 3px;
 						&:hover{
-							color: @third_color;
+							color: @main_color;
 						}
 
 						&.remove-widget{
@@ -70,11 +71,14 @@
 						}
 					}
 				}
+
+				&.settings-title{
+					background-color: @light_main_color;
+				}
 			}
 			.widget-content{
 				width: 100%;
-				height: 100%;
-				border-bottom: 3px solid @third_color;
+				height: ~"calc(100% - @{widget_title_height})";
 			}
 
 			&.add-widget-widget{
@@ -92,11 +96,31 @@
 			}
 		}
 
-		.gs-resize-handle-both{
-			bottom: 0;
-			right: 0;
-			background-position: 80% 66%;
-			cursor: nwse-resize;
+		.flip-container{
+			.gs-resize-handle-both{
+				bottom: 0;
+				right: 0;
+				background-position: 80% 66%;
+				cursor: nwse-resize;
+			}
+
+			&.flip{
+				.gs-resize-handle-both{
+					display: none;
+				}
+			}
+
+			.settings-back{
+				position: absolute;
+				bottom: 5px;
+				right: 5px;
+				color: @light_main_color;
+				cursor: pointer;
+
+				&:hover{
+					color: @third_color;
+				}
+			}
 		}
 	}
 
@@ -144,7 +168,6 @@
 
 /* entire container, keeps perspective */
 .flip-container {
-	height: ~"calc(100% - @{widget_title_height})";
 	width: 100%;
 	-webkit-perspective: 1000px;
 	-moz-perspective: 1000px;
@@ -162,13 +185,12 @@
 
 .flip-container, .front, .back {
 	width: 100%;
-	height: ~"calc(100% - @{widget_title_height})";
+	height: 100%;
 }
 
 .flipper {
 	position: relative;
-	height: ~"calc(100% - @{widget_title_height})";
-	background-color: #f3f3f4;
+	height: 100%;
 	-webkit-transition: 0.6s;
 	transition: 0.6s;
 	-ms-transition: 0.6s;
@@ -186,6 +208,7 @@
 	left: 0;
 	width: 100%;
 	height: 100%;
+	background-color: @main_widget_color;
 	-webkit-backface-visibility: hidden;
 	-moz-backface-visibility: hidden;
 	-ms-backface-visibility: hidden;
@@ -212,6 +235,7 @@
 	transform: rotateY(0deg);
 	-webkit-transform: rotateY(0deg);
 	-ms-transform: rotateY(0deg);
+	border-bottom: 3px solid @third_color;
 }
 
 .back {
@@ -222,4 +246,5 @@
 	-o-transform: rotateY(-180deg);
 	-ms-transform: rotateY(-180deg);
 	transform: rotateY(-180deg);
+	border-bottom: 3px solid @light_main_color;
 }
