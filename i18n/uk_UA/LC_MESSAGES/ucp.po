@@ -9,17 +9,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-07-29 16:54-0700\n"
+"POT-Creation-Date: 2016-10-20 16:40-0700\n"
 "PO-Revision-Date: 2016-10-04 20:32+0200\n"
 "Last-Translator: Maxim <maxim@ua.fm>\n"
-"Language-Team: Ukrainian "
-"<http://weblate.freepbx.org/projects/freepbx/ucp/uk_UA/>\n"
-"Language: uk_UA\n"
+"Language-Team: Ukrainian <http://weblate.freepbx.org/projects/freepbx/ucp/"
+"uk_UA/>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<="
-"4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"Language: uk_UA\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%"
+"10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Generator: Weblate 2.4\n"
 
 #: htdocs/assets/js/bootstrap-table-1.9.0.js:635
@@ -48,12 +48,6 @@ msgstr ""
 #: htdocs/index.php:103
 msgid ".htaccess files are not supported on this webserver."
 msgstr ".htaccess файли не підтримуються на цьому веб-сервері."
-
-#: Ucp.class.php:255
-#, php-format
-msgid "A token has already been generated for %s, not sending email again"
-msgstr ""
-"Маркер вже був створений для %s, електрону пошту повторно не відправлено"
 
 #: htdocs/views/templates/phone.php:41
 msgid "ABC"
@@ -154,11 +148,11 @@ msgstr "DEF"
 msgid "Delete Image"
 msgstr "Видалити зображення"
 
-#: Ucp.class.php:749
+#: Ucp.class.php:770
 msgid "Deleted Session"
 msgstr "Видалена сесія"
 
-#: Ucp.class.php:126 Ucp.class.php:592
+#: Ucp.class.php:126 Ucp.class.php:613
 msgid "Deleted User Session"
 msgstr "Видалена користувацька сесія"
 
@@ -166,7 +160,7 @@ msgstr "Видалена користувацька сесія"
 msgid "Display Name"
 msgstr "Відображене ім'я"
 
-#: Ucp.class.php:843 Ucp.class.php:847 Ucp.class.php:851 Ucp.class.php:855
+#: Ucp.class.php:864 Ucp.class.php:868 Ucp.class.php:872 Ucp.class.php:876
 msgid "Done"
 msgstr "Виконано"
 
@@ -177,6 +171,10 @@ msgstr "Киньте нове зображення тут"
 #: htdocs/views/login.php:29 htdocs/views/settings.php:49
 msgid "Email"
 msgstr "Електронна пошта"
+
+#: htdocs/includes/User.class.php:78
+msgid "Email address unknown!"
+msgstr ""
 
 #: views/users_hook.php:144
 msgid "Enable Originating Calls"
@@ -227,19 +225,19 @@ msgstr "GHI"
 msgid "General"
 msgstr "Загальні"
 
-#: Ucp.class.php:853
+#: Ucp.class.php:874
 msgid "Generating Main CSS..."
 msgstr "Створення головного CSS..."
 
-#: Ucp.class.php:849
+#: Ucp.class.php:870
 msgid "Generating Main Scripts..."
 msgstr "Створення головного сценарію..."
 
-#: Ucp.class.php:845
+#: Ucp.class.php:866
 msgid "Generating Module CSS..."
 msgstr "Створення модуля CSS..."
 
-#: Ucp.class.php:841
+#: Ucp.class.php:862
 msgid "Generating Module Scripts..."
 msgstr "Створення модуля сценарію..."
 
@@ -278,7 +276,7 @@ msgstr ""
 "Internet Explorer %s не підтримується. Функціональність буде погіршуватися, "
 "поки ви не оновитеся до %s або вище"
 
-#: htdocs/includes/User.class.php:86
+#: htdocs/includes/User.class.php:93
 msgid "Invalid"
 msgstr "Недійсний"
 
@@ -287,7 +285,7 @@ msgstr "Недійсний"
 msgid "Invalid Device"
 msgstr "Недійсний пристрій"
 
-#: htdocs/includes/User.class.php:94
+#: htdocs/includes/User.class.php:101
 msgid "Invalid Login Credentials"
 msgstr "Невірні логін або пароль"
 
@@ -567,6 +565,10 @@ msgid "Unable to get a token to use UCP Node Server because: '%s'"
 msgstr ""
 "Не вдалося одержати ключ для використання вузла серверу UCP, так як: '%s'"
 
+#: htdocs/includes/User.class.php:84
+msgid "Unable to send Password Reset Email"
+msgstr ""
+
 #: htdocs/index.php:194
 #, php-format
 msgid "Unknown Module %s"
@@ -720,3 +722,7 @@ msgstr ""
 #: htdocs/views/login.php:24
 msgid "or"
 msgstr "або"
+
+#~ msgid "A token has already been generated for %s, not sending email again"
+#~ msgstr ""
+#~ "Маркер вже був створений для %s, електрону пошту повторно не відправлено"

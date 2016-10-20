@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-07-29 16:54-0700\n"
+"POT-Creation-Date: 2016-10-20 16:40-0700\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -41,11 +41,6 @@ msgstr ""
 
 #: htdocs/index.php:103
 msgid ".htaccess files are not supported on this webserver."
-msgstr ""
-
-#: Ucp.class.php:255
-#, php-format
-msgid "A token has already been generated for %s, not sending email again"
 msgstr ""
 
 #: htdocs/views/templates/phone.php:41
@@ -144,12 +139,12 @@ msgstr ""
 msgid "Delete Image"
 msgstr ""
 
-#: Ucp.class.php:749
+#: Ucp.class.php:770
 msgid "Deleted Session"
 msgstr ""
 
 #: Ucp.class.php:126
-#: Ucp.class.php:592
+#: Ucp.class.php:613
 msgid "Deleted User Session"
 msgstr ""
 
@@ -157,10 +152,10 @@ msgstr ""
 msgid "Display Name"
 msgstr ""
 
-#: Ucp.class.php:843
-#: Ucp.class.php:847
-#: Ucp.class.php:851
-#: Ucp.class.php:855
+#: Ucp.class.php:864
+#: Ucp.class.php:868
+#: Ucp.class.php:872
+#: Ucp.class.php:876
 msgid "Done"
 msgstr ""
 
@@ -171,6 +166,10 @@ msgstr ""
 #: htdocs/views/login.php:29
 #: htdocs/views/settings.php:49
 msgid "Email"
+msgstr ""
+
+#: htdocs/includes/User.class.php:78
+msgid "Email address unknown!"
 msgstr ""
 
 #: views/users_hook.php:144
@@ -222,19 +221,19 @@ msgstr ""
 msgid "General"
 msgstr ""
 
-#: Ucp.class.php:853
+#: Ucp.class.php:874
 msgid "Generating Main CSS..."
 msgstr ""
 
-#: Ucp.class.php:849
+#: Ucp.class.php:870
 msgid "Generating Main Scripts..."
 msgstr ""
 
-#: Ucp.class.php:845
+#: Ucp.class.php:866
 msgid "Generating Module CSS..."
 msgstr ""
 
-#: Ucp.class.php:841
+#: Ucp.class.php:862
 msgid "Generating Module Scripts..."
 msgstr ""
 
@@ -273,7 +272,7 @@ msgid ""
 "until you upgrade to %s or higher"
 msgstr ""
 
-#: htdocs/includes/User.class.php:86
+#: htdocs/includes/User.class.php:93
 msgid "Invalid"
 msgstr ""
 
@@ -282,7 +281,7 @@ msgstr ""
 msgid "Invalid Device"
 msgstr ""
 
-#: htdocs/includes/User.class.php:94
+#: htdocs/includes/User.class.php:101
 msgid "Invalid Login Credentials"
 msgstr ""
 
@@ -554,6 +553,10 @@ msgstr ""
 #: htdocs/assets/js/ucp.js:395
 #, perl-format
 msgid "Unable to get a token to use UCP Node Server because: '%s'"
+msgstr ""
+
+#: htdocs/includes/User.class.php:84
+msgid "Unable to send Password Reset Email"
 msgstr ""
 
 #: htdocs/index.php:194

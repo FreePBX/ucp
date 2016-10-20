@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-07-29 16:54-0700\n"
+"POT-Creation-Date: 2016-10-20 16:40-0700\n"
 "PO-Revision-Date: 2016-05-11 00:30+0200\n"
 "Last-Translator: Jens <jens@schaewel.com>\n"
 "Language-Team: German <http://weblate.freepbx.org/projects/freepbx/ucp/de_DE/"
@@ -46,13 +46,6 @@ msgstr ".htaccess sind auf diesem Server deaktiviert. Bitte aktiviere diese"
 #: htdocs/index.php:103
 msgid ".htaccess files are not supported on this webserver."
 msgstr ".htaccess Dateien werden von diesem Webserver nicht unterstütz."
-
-#: Ucp.class.php:255
-#, php-format
-msgid "A token has already been generated for %s, not sending email again"
-msgstr ""
-"Ein Token wurde für %s bereits generiert. Eine E-Mail wird nicht erneut "
-"versendet"
 
 #: htdocs/views/templates/phone.php:41
 msgid "ABC"
@@ -154,11 +147,11 @@ msgstr "DEF"
 msgid "Delete Image"
 msgstr ""
 
-#: Ucp.class.php:749
+#: Ucp.class.php:770
 msgid "Deleted Session"
 msgstr "Gelöschte Sitzung"
 
-#: Ucp.class.php:126 Ucp.class.php:592
+#: Ucp.class.php:126 Ucp.class.php:613
 msgid "Deleted User Session"
 msgstr "Gelöschte Benutzer Sitzung"
 
@@ -166,7 +159,7 @@ msgstr "Gelöschte Benutzer Sitzung"
 msgid "Display Name"
 msgstr "Anzeigename"
 
-#: Ucp.class.php:843 Ucp.class.php:847 Ucp.class.php:851 Ucp.class.php:855
+#: Ucp.class.php:864 Ucp.class.php:868 Ucp.class.php:872 Ucp.class.php:876
 msgid "Done"
 msgstr "Erledigt"
 
@@ -177,6 +170,10 @@ msgstr ""
 #: htdocs/views/login.php:29 htdocs/views/settings.php:49
 msgid "Email"
 msgstr "Email"
+
+#: htdocs/includes/User.class.php:78
+msgid "Email address unknown!"
+msgstr ""
 
 #: views/users_hook.php:144
 msgid "Enable Originating Calls"
@@ -230,19 +227,19 @@ msgstr "GHI"
 msgid "General"
 msgstr "Allgemein"
 
-#: Ucp.class.php:853
+#: Ucp.class.php:874
 msgid "Generating Main CSS..."
 msgstr "Generiere Main CSS..."
 
-#: Ucp.class.php:849
+#: Ucp.class.php:870
 msgid "Generating Main Scripts..."
 msgstr "Generiere Main Scripts..."
 
-#: Ucp.class.php:845
+#: Ucp.class.php:866
 msgid "Generating Module CSS..."
 msgstr "Generiere Module CSS..."
 
-#: Ucp.class.php:841
+#: Ucp.class.php:862
 msgid "Generating Module Scripts..."
 msgstr "Generiere Module Scripts..."
 
@@ -283,7 +280,7 @@ msgstr ""
 "Der Internet Explorer %s wird nicht unterstützt. Die Funktionalität ist "
 "eingeschränkt, bis Sie auf die Version %s aktualisieren oder höher"
 
-#: htdocs/includes/User.class.php:86
+#: htdocs/includes/User.class.php:93
 msgid "Invalid"
 msgstr "Ungültig"
 
@@ -292,7 +289,7 @@ msgstr "Ungültig"
 msgid "Invalid Device"
 msgstr "Ungültiges Gerät"
 
-#: htdocs/includes/User.class.php:94
+#: htdocs/includes/User.class.php:101
 msgid "Invalid Login Credentials"
 msgstr "Ungültige Login Zugangsdaten"
 
@@ -570,6 +567,10 @@ msgstr ""
 msgid "Unable to get a token to use UCP Node Server because: '%s'"
 msgstr "Es kann kein Token vom UCP Knoten Server erhalten werden, weil: '% s'"
 
+#: htdocs/includes/User.class.php:84
+msgid "Unable to send Password Reset Email"
+msgstr ""
+
 #: htdocs/index.php:194
 #, php-format
 msgid "Unknown Module %s"
@@ -725,6 +726,11 @@ msgstr ""
 #: htdocs/views/login.php:24
 msgid "or"
 msgstr "oder"
+
+#~ msgid "A token has already been generated for %s, not sending email again"
+#~ msgstr ""
+#~ "Ein Token wurde für %s bereits generiert. Eine E-Mail wird nicht erneut "
+#~ "versendet"
 
 #~ msgid "Allow users to change thier username in UCP"
 #~ msgstr "Dem Benutzer erlauben im UCP seinen Benutzernamen zu ändern"
