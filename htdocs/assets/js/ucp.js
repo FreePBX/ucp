@@ -109,8 +109,8 @@ function widget_layout(widget_id, widget_module_name, widget_name, widget_type_i
 						'</div>' +
 						'<div class="back">' +
 							'<div class="widget-title settings-title">' +
-								'<div class="widget-module-name truncate-text">' + widget_module_name + ' Settings</div>' +
-								'<div class="widget-module-subname truncate-text">('+widget_name+')</div>' +
+								'<div class="widget-module-name truncate-text">Settings</div>' +
+								'<div class="widget-module-subname truncate-text">(' + widget_module_name + ' '+widget_name+')</div>' +
 							'</div>' +
 							'<div class="widget-settings-content">' +
 								'<p>SETTINGS</p>' +
@@ -125,6 +125,27 @@ function widget_layout(widget_id, widget_module_name, widget_name, widget_type_i
 						'</div>' +
 					'</div>' +
 				'</li>';
+
+	return html;
+}
+
+function small_widget_layout(widget_id, widget_module_name, widget_name, widget_type_id, widget_rawname, widget_icon, widget_content){
+	var html = '' +
+		'<li class="custom-widget" data-widget_id="'+widget_id+'">' +
+			'<a href="#" data-module_name="'+widget_module_name+'" data-id="'+widget_id+'" data-name="'+widget_name+'" data-rawname="'+widget_rawname+'" data-type_id="'+widget_type_id+'" data-icon="' + widget_icon + '"><i class="' + widget_icon + '" aria-hidden="true"></i></a>' +
+		'</li>';
+
+	return html;
+}
+
+function small_widget_menu_layout(widget_id, widget_rawname){
+	var html = '' +
+		'<div class="widget-extra-menu" id="menu_'+widget_rawname+'" data-module="'+widget_rawname+'">' +
+			'<a href="#" class="closebtn" onclick="close_extra_widget_menu()"><i class="fa fa-times-circle-o" aria-hidden="true"></i></a>' +
+				'<div class="small-widget-content">' +
+				'</div>' +
+				'<button type="button" class="btn btn-xs btn-danger remove-small-widget" data-widget_id="'+widget_id+'">Remove Widget</button>' +
+		'</div>';
 
 	return html;
 }
@@ -154,12 +175,13 @@ function close_extra_widget_menu() {
 
 function init_left_nav_bar_menus(){
 
-	$(".custom-widgets").click(function(event){
+	$(document).on("click", ".custom-widget", function(event){
 
 		event.preventDefault();
 		event.stopPropagation();
 
-		var clicked_module = $(this).data("module");
+		var clicked_module = $(this).find("a").data("rawname");
+		var clicked_id = $(this).find("a").data("id");
 
 		if(!$("#menu_"+clicked_module).is(":visible")){
 			$(".widget-extra-menu").fadeOut("slow", function(){
@@ -169,6 +191,26 @@ function init_left_nav_bar_menus(){
 
 		open_extra_widget_menu();
 
+		var content_object = $("#menu_"+clicked_module).find(".small-widget-content");
+
+		activate_widget_loading(content_object);
+
+		$.post( "?quietmode=1&module=Dashboards&command=getwidgetcontent",
+			{
+				id: clicked_id,
+				rawname: clicked_module
+			},
+			function( data ) {
+
+				if(typeof data.html !== "undefined"){
+
+					content_object.html(data.html);
+
+				}else {
+					show_alert("There was an error getting the widget information, try again later", "danger");
+				}
+
+			}, "json");
 	});
 
 }
@@ -186,6 +228,19 @@ function init_remove_item_buttons(){
 			save_layout_content();
 		});
 
+	});
+
+	$(document).on("click", ".remove-small-widget", function(event){
+
+		var widget_to_remove = $(this).data("widget_id");
+
+		var sidebar_object_to_remove = $("#side_bar_content li.custom-widget[data-widget_id='" + widget_to_remove + "']");
+
+		sidebar_object_to_remove.remove();
+
+		close_extra_widget_menu();
+
+		save_sidebar_content();
 	});
 
 	$(document).on("click", ".remove-dashboard", function(event){
@@ -274,6 +329,57 @@ function init_add_widgets_buttons(){
 				}, "json");
 		}else {
 			show_alert("You already have this widget on this dashboard", "info");
+		}
+	});
+
+	$(".add-small-widget-button").click(function(){
+
+		var widget_id = $(this).data('id');
+		var widget_module_name = $(this).data('module_name');
+		var widget_rawname = $(this).data('rawname');
+		var widget_name = $(this).data('name');
+
+		var widget_icon = $(this).data('icon');
+
+		//Checking if the widget is already on the bar
+		var object_on_bar = $("#side_bar_content li.custom-widget[data-widget_id='"+widget_id+"']");
+
+		if(object_on_bar.length <= 0){
+
+			activate_full_loading();
+
+			$.post( "?quietmode=1&module=Dashboards&command=getwidgetcontent",
+				{
+					id: widget_id,
+					rawname: widget_rawname
+				},
+				function( data ) {
+
+					$("#add_widget").modal("hide");
+
+					if(typeof data.html !== "undefined"){
+
+						//So first we go the HTML content to add it to the widget
+						var widget_html = data.html;
+
+						var full_widget_html = small_widget_layout(widget_id, widget_module_name, widget_name, widget_id, widget_rawname, widget_icon, widget_html);
+
+						var menu_widget_html = small_widget_menu_layout(widget_id, widget_rawname);
+
+						$("#side_bar_content .last-widget").before(full_widget_html);
+
+						$(".side-menu-widgets-container").append(menu_widget_html);
+
+						save_sidebar_content();
+					}else {
+						show_alert("There was an error getting the widget information, try again later", "danger");
+					}
+
+					deactivate_full_loading();
+
+				}, "json");
+		}else {
+			show_alert("You already have this widget on the side bar", "info");
 		}
 	});
 }

@@ -67,8 +67,8 @@ class Widgets extends Modules{
 								</div>
 								<div class="back">
 									<div class="widget-title settings-title">
-										<div class="widget-module-name truncate-text">'.$data->widget_module_name.' Settings</div>
-										<div class="widget-module-subname truncate-text">('.$data->name.')</div>
+										<div class="widget-module-name truncate-text">Settings</div>
+										<div class="widget-module-subname truncate-text">('.$data->widget_module_name .' '. $data->name.')</div>
 									</div>
 									<div class="widget-settings-content">
 										<p>SETTINGS</p>

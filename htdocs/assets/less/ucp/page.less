@@ -56,6 +56,10 @@ input, textarea {
 @forth_color:#5EC9B4;
 @loading_size: 65px;
 
+@loading_size_widget: 15px;
+@sidebar_main_padding: 45px;
+@sidebar_content_margin: 50px;
+
 /* MIXINS */
 .border-radius (@radius: 5px) {
 	-webkit-border-radius: @radius;
@@ -272,7 +276,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 	.navbar-nav li {
 		float: none;
 		width: 55px;
-		font-size: 2em;
+		font-size: 20px;
 
 		&:first-child{
 			background: @main_color;
@@ -345,10 +349,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 		position: absolute;
 		top: 45px;
 		width: 100%;
-		ul{
-			padding-left: 0;
-			padding-top: 35px;
-		}
+		height: ~"calc(100% - @{sidebar_main_padding})";
 	}
 
 	a {
@@ -1479,6 +1480,30 @@ div.bhoechie-tab div.bhoechie-tab-content:not(.active){
 	text-overflow: ellipsis;
 }
 
+.widget-loading-box{
+	position: relative;
+	height: 100%;
+	width: 100%;
+
+	.fa-stack.fa{
+		position: absolute;
+		top: ~"calc(50% - @{loading_size_widget})";
+		left: ~"calc(50% - @{loading_size_widget})";
+	}
+}
+
+.small-widget-content{
+	height: ~"calc(100% - @{sidebar_content_margin})";
+	width: 100%;
+	margin-top: @sidebar_content_margin;
+	text-align: center;
+}
+
+.remove-small-widget{
+	position: absolute;
+	bottom: 25px;
+	left: 75px;
+}
 
 /*.add-widget{
 	position: fixed;

@@ -6,9 +6,9 @@
 @main_widget_color: #FFF;
 @widget_text_color: #2F4050;
 
-@loading_size_widget: 15px;
 @widget_title_height: 34px;
 @widget_content_height: 55px;
+
 
 .module-page-widgets {
 
@@ -23,14 +23,14 @@
 		list-style: none;
 	}
 
-	.gridster{
+	.gridster {
 		overflow-y: hidden;
 		width: 98%;
-		.gs-w{
+		.gs-w {
 			background-color: transparent;
 			color: @widget_text_color;
 			cursor: pointer;
-			.widget-title{
+			.widget-title {
 				position: relative;
 				text-align: left;
 				padding-top: 3px;
@@ -40,99 +40,87 @@
 				padding-left: 6px;
 				background-color: @third_color;
 				color: #fff;
-				.widget-module-name{
+				.widget-module-name {
 					font-size: 14px;
 					width: 66%;
 				}
-				.widget-module-subname{
+				.widget-module-subname {
 					font-size: 9px;
 					width: 90%;
 				}
-				.widget-options{
+				.widget-options {
 					position: absolute;
 					top: 8px;
 					font-size: 18px;
 					right: 6px;
 					border-left: 1px solid;
 					padding-left: 6px;
-					.widget-option{
+					.widget-option {
 						float: right;
 						margin-right: 3px;
-						&:hover{
+						&:hover {
 							color: @main_color;
 						}
 
-						&.remove-widget{
+						&.remove-widget {
 
 						}
 
-						&.edit-widget{
+						&.edit-widget {
 
 						}
 					}
 				}
 
-				&.settings-title{
+				&.settings-title {
 					background-color: @light_main_color;
 				}
 			}
-			.widget-content{
+			.widget-content {
 				width: 100%;
 				height: ~"calc(100% - @{widget_title_height})";
 			}
 
-			&.add-widget-widget{
+			&.add-widget-widget {
 				color: @secundary_color;
-				background-color: rgba(0,0,0,0.0);
+				background-color: rgba(0, 0, 0, 0.0);
 				text-align: center;
-				.widget-content{
+				.widget-content {
 					border: 3px dashed @secundary_color;
 					height: 100%;
 					padding-top: ~"calc(50% - @{widget_content_height})";
-					&:hover{
+					&:hover {
 						color: @third_color;
 					}
 				}
 			}
 		}
 
-		.flip-container{
-			.gs-resize-handle-both{
+		.flip-container {
+			.gs-resize-handle-both {
 				bottom: 0;
 				right: 0;
 				background-position: 80% 66%;
 				cursor: nwse-resize;
 			}
 
-			&.flip{
-				.gs-resize-handle-both{
+			&.flip {
+				.gs-resize-handle-both {
 					display: none;
 				}
 			}
 
-			.settings-back{
+			.settings-back {
 				position: absolute;
 				bottom: 5px;
 				right: 5px;
 				color: @light_main_color;
 				cursor: pointer;
 
-				&:hover{
+				&:hover {
 					color: @third_color;
 				}
 			}
-		}
-	}
-
-	.widget-loading-box{
-		position: relative;
-		height: 100%;
-		width: 100%;
-
-		.fa-stack.fa{
-			position: absolute;
-			top: ~"calc(50% - @{loading_size_widget})";
-			left: ~"calc(50% - @{loading_size_widget})";
 		}
 	}
 

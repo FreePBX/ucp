@@ -36,6 +36,7 @@ class Dashboards {
 			case 'remove':
 			case 'dashboards':
 			case 'savedashlayout':
+			case 'savesimplelayout':
 			case 'getdashlayout':
 			case 'getallwidgets':
 			case 'getwidgetcontent':
@@ -106,8 +107,15 @@ class Dashboards {
 				$user = $this->UCP->User->getUser();
 				return $this->UCP->setGlobalSettingByID($user['id'],'dashboard-layout-'.$_POST['id'],$_POST['data']);
 			break;
+			case 'savesimplelayout':
+				$user = $this->UCP->User->getUser();
+				return $this->UCP->setGlobalSettingByID($user['id'],'dashboard-simple-layout',$_POST['data']);
+			break;
 			case 'getdashlayout':
 				return $this->getLayoutByID($_POST['id']);
+			break;
+			case 'getsimplelayout':
+				return $this->getSimpleLayout();
 			break;
 			case 'getallwidgets':
 				return $this->getAllWidgets();
@@ -134,6 +142,11 @@ class Dashboards {
 		return $this->UCP->getGlobalSettingByID($user['id'],'dashboard-layout-'.$id);
 	}
 
+	public function getSimpleLayout() {
+		$user = $this->UCP->User->getUser();
+		return $this->UCP->getGlobalSettingByID($user['id'],'dashboard-simple-layout');
+	}
+
 	public function getAllWidgets() {
 		$modules = $this->UCP->Modules->getModulesByMethod('getWidgetList');
 		$list = array();
@@ -147,6 +160,23 @@ class Dashboards {
 				$list[$module] = $mm;
 			}
 		}
+		return array("status" => true, "widget" => $list);
+	}
+
+	public function getAllSimpleWidgets() {
+		$modules = $this->UCP->Modules->getModulesByMethod('getSimpleWidgetList');
+		$list = array();
+		foreach($modules as $module) {
+			$module = ucfirst(strtolower($module));
+			$lc = strtolower($module);
+			$this->UCP->Modgettext->push_textdomain($lc);
+			$mm = $this->UCP->Modules->$module->getSimpleWidgetList();
+			$this->UCP->Modgettext->pop_textdomain();
+			if(!empty($mm)) {
+				$list[$module] = $mm;
+			}
+		}
+
 		return array("status" => true, "widget" => $list);
 	}
 

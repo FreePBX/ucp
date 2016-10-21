@@ -41,7 +41,6 @@
 					<div class="col-lg-12 col-md-12 bhoechie-tab-container">
 						<div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 bhoechie-tab-menu">
 							<?php if(!empty($all_widgets) && $all_widgets["status"]) { ?>
-
 								<div class="list-group">
 									<?php $first = true; foreach($all_widgets["widget"] as $widget_category_info){ ?>
 										<a href="#" class="list-group-item text-center <?php echo ($first) ? "active" : ""; ?>">
@@ -80,35 +79,30 @@
 										<?php } ?>
 									</div>
 									<?php $first = false; } ?>
-									<div class="bhoechie-tab-content <?php echo ($first) ? "active" : ""; ?>">
 
-										<div class="ibox-content-widget">
-											<div class="row">
-												<div class="widget-title col-md-11">
-													<h4>Small Widget 1
-														<br>
-														<small class="m-r">Small Widget description</small>
-													</h4>
-												</div>
-												<div class="widget-add-container top-offset text-center">
-													<button type="button" class="btn btn-sm btn-primary btn-outline add-widget-button" data-widget_module_name="smallwidget" data-widget_name="smallwidgetname" data-widget_id="smallwidgetid" data-rawname="smallwidgetrawname"><i class="fa fa-plus-circle" aria-hidden="true"></i></button>
-												</div>
-											</div>
+									<?php if(!empty($all_simple_widgets) && $all_simple_widgets["status"]) { ?>
+										<div class="bhoechie-tab-content <?php echo ($first) ? "active" : ""; ?>">
+											<?php foreach($all_simple_widgets["widget"] as $widget_category_info){ ?>
+												<?php if(!empty($widget_category_info["list"])) { ?>
+													<?php foreach($widget_category_info["list"] as $widget_id => $widget_list){ ?>
+														<div class="ibox-content-widget">
+															<div class="row">
+																<div class="widget-title col-md-11">
+																	<h4><?php echo $widget_list["display"]; ?>
+																		<br>
+																		<small class="m-r">Small Widget description</small>
+																	</h4>
+																</div>
+																<div class="widget-add-container top-offset text-center">
+																	<button type="button" class="btn btn-sm btn-primary btn-outline add-small-widget-button" data-module_name="<?php echo $widget_category_info["display"]; ?>" data-name="<?php echo $widget_category_info["display"]; ?>" data-id="<?php echo $widget_id; ?>" data-rawname="<?php echo $widget_category_info["rawname"]; ?>" data-icon="<?php echo $widget_category_info["icon"]; ?>"><i class="fa fa-plus-circle" aria-hidden="true"></i></button>
+																</div>
+															</div>
+														</div>
+													<?php } ?>
+												<?php } ?>
+											<?php } ?>
 										</div>
-										<div class="ibox-content-widget">
-											<div class="row">
-												<div class="widget-title col-md-11">
-													<h4>Small Widget 2
-														<br>
-														<small class="m-r">Small Widget description</small>
-													</h4>
-												</div>
-												<div class="widget-add-container top-offset text-center">
-													<button type="button" class="btn btn-sm btn-primary btn-outline add-widget-button" data-widget_module_name="smallwidget" data-widget_name="smallwidgetname" data-widget_id="smallwidgetid" data-rawname="smallwidgetrawname"><i class="fa fa-plus-circle" aria-hidden="true"></i></button>
-												</div>
-											</div>
-										</div>
-									</div>
+									<?php } ?>
 							<?php } ?>
 						</div>
 					</div>

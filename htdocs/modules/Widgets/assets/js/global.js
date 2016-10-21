@@ -14,7 +14,48 @@ function save_layout_content(){
 			if(data.status){
 				console.log("saved grid");
 			}else {
-				show_alert("Something went wrong saving the information", "danger");
+				show_alert("Something went wrong saving the information (grid)", "danger");
+			}
+			deactivate_full_loading();
+		}
+	);
+}
+
+function save_sidebar_content(){
+	activate_full_loading();
+
+	var sidebar_objects = $("#side_bar_content li.custom-widget a");
+
+	var all_content = [];
+
+	sidebar_objects.each(function(){
+
+		var widget_id = $(this).data('id');
+		var widget_module_name = $(this).data('module_name');
+		var widget_rawname = $(this).data('rawname');
+		var widget_name = $(this).data('name');
+		var widget_icon = $(this).data('icon');
+
+		var small_widget = {id:widget_id,
+							module_name: widget_module_name,
+							rawname: widget_rawname,
+							name: widget_name,
+							icon: widget_icon};
+
+		all_content.push(small_widget);
+	});
+
+	var gridDataSerialized = JSON.stringify(all_content);
+
+	$.post( "?quietmode=1&module=Dashboards&command=savesimplelayout",
+		{
+			data: gridDataSerialized
+		},
+		function( data ) {
+			if(data.status){
+				console.log("sidebar saved");
+			}else {
+				show_alert("Something went wrong saving the information (sidebar)", "danger");
 			}
 			deactivate_full_loading();
 		}
