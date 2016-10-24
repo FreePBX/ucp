@@ -184,9 +184,15 @@ function init_left_nav_bar_menus(){
 		var clicked_id = $(this).find("a").data("id");
 
 		if(!$("#menu_"+clicked_module).is(":visible")){
-			$(".widget-extra-menu").fadeOut("slow", function(){
+
+			if($(".widget-extra-menu").is(":visible")){
+				$(".widget-extra-menu:visible").fadeOut("slow", function(){
+					$("#menu_"+clicked_module).fadeIn("slow");
+				});
+			}else {
 				$("#menu_"+clicked_module).fadeIn("slow");
-			});
+			}
+
 		}
 
 		open_extra_widget_menu();
