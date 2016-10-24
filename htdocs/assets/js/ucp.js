@@ -92,7 +92,7 @@ function widget_layout(widget_id, widget_module_name, widget_name, widget_type_i
 
 	var settings_html = '';
 	if(widget_has_settings == "1"){
-		settings_html = '<div class="widget-option edit-widget" data-widget_id="'+widget_id+'">' +
+		settings_html = '<div class="widget-option edit-widget" data-rawname="'+widget_rawname+'" data-widget_type_id="'+widget_type_id+'">' +
 							'<i class="fa fa-cog" aria-hidden="true"></i>' +
 						'</div>';
 	}
@@ -119,13 +119,8 @@ function widget_layout(widget_id, widget_module_name, widget_name, widget_type_i
 								'<div class="widget-module-subname truncate-text">(' + widget_module_name + ' '+widget_name+')</div>' +
 							'</div>' +
 							'<div class="widget-settings-content">' +
-								'<p>SETTINGS</p>' +
-								'<p>SETTINGS</p>' +
-								'<p>SETTINGS</p>' +
-								'<p>SETTINGS</p>' +
-								'<p>SETTINGS</p>' +
 							'</div>' +
-							'<div class="settings-back">' +
+							'<div class="settings-back" data-rawname="'+widget_rawname+'" data-widget_type_id="'+widget_type_id+'">' +
 								'<i class="fa fa-share fa-rotate-180 fa-2x" aria-hidden="true"></i>' +
 							'</div>' +
 						'</div>' +
@@ -431,6 +426,28 @@ function get_widget_content(widget_content_object, widget_id, widget_rawname){
 		}, "json");
 }
 
+function get_settings_content(widget_content_object, widget_id, widget_rawname){
+
+	activate_widget_loading(widget_content_object);
+
+	$.post( "?quietmode=1&module=Dashboards&command=getwidgetsettingscontent",
+		{
+			id: widget_id,
+			rawname: widget_rawname
+		},
+		function( data ) {
+
+			var widget_html = data.html;
+
+			if(typeof data.html === "undefined"){
+				widget_html = '<div class="alert alert-danger">Something went wrong getting the settings from the widget</div>';
+			}
+
+			widget_content_object.html(widget_html);
+
+		}, "json");
+}
+
 $('#add_dashboard').on('shown.bs.modal', function () {
 	$('#dashboard_name').focus();
 });
@@ -448,18 +465,28 @@ $(document).on("click", "#modal_confirm_button", function(){
 $(document).on("click", ".edit-widget", function(){
 
 	var container_object = $(this).parents(".flip-container");
+	var rawname = $(this).data("rawname");
+	var widget_id = $(this).data("widget_type_id");
 
 	if(!container_object.hasClass("flip")){
 		container_object.addClass("flip");
+
+		var settings_container = container_object.find(".widget-settings-content");
+		get_settings_content(settings_container, widget_id, rawname);
 	}
 });
 
 $(document).on("click", ".settings-back", function(){
 
 	var container_object = $(this).parents(".flip-container");
-
+	var rawname = $(this).data("rawname");
+	var widget_id = $(this).data("widget_type_id");
+	
 	if(container_object.hasClass("flip")){
 		container_object.removeClass("flip");
+
+		var widget_content_container = container_object.find(".widget-content");
+		get_widget_content(widget_content_container, widget_id, rawname);
 	}
 });
 

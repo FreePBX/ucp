@@ -50,7 +50,7 @@ class Widgets extends Modules{
 
 				$settings_html = '';
 				if($data->has_settings == 1){
-					$settings_html = '<div class="widget-option edit-widget" data-widget_id="'.$data->id.'">
+					$settings_html = '<div class="widget-option edit-widget" data-widget_type_id="'.$data->widget_type_id.'" data-rawname="'.$data->rawname.'">
 												<i class="fa fa-cog" aria-hidden="true"></i>
 											</div>';
 				}
@@ -77,13 +77,8 @@ class Widgets extends Modules{
 										<div class="widget-module-subname truncate-text">('.$data->widget_module_name .' '. $data->name.')</div>
 									</div>
 									<div class="widget-settings-content">
-										<p>SETTINGS</p>
-										<p>SETTINGS</p>
-										<p>SETTINGS</p>
-										<p>SETTINGS</p>
-										<p>SETTINGS</p>
 									</div>
-									<div class="settings-back">
+									<div class="settings-back" data-widget_type_id="'.$data->widget_type_id.'" data-rawname="'.$data->rawname.'">
 										<i class="fa fa-share fa-rotate-180 fa-2x" aria-hidden="true"></i>
 									</div>
 								</div>
