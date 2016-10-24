@@ -120,7 +120,7 @@ try {
 	die();
 }
 
-$all_widgets = $ucp->Dashboards->getallwidgets();
+$all_widgets = $ucp->Dashboards->getAllWidgets();
 $all_simple_widgets = $ucp->Dashboards->getAllSimpleWidgets();
 
 //Simple widgets by user

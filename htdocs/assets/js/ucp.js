@@ -88,9 +88,17 @@ function show_confirm(message, type, callback_func) {
 	modal_confirm_function = callback_func;
 }
 
-function widget_layout(widget_id, widget_module_name, widget_name, widget_type_id, widget_rawname, widget_content){
+function widget_layout(widget_id, widget_module_name, widget_name, widget_type_id, widget_rawname, widget_has_settings, widget_content){
+
+	var settings_html = '';
+	if(widget_has_settings == "1"){
+		settings_html = '<div class="widget-option edit-widget" data-widget_id="'+widget_id+'">' +
+							'<i class="fa fa-cog" aria-hidden="true"></i>' +
+						'</div>';
+	}
+
 	var html = '' +
-				'<li data-widget_module_name="'+widget_module_name+'" data-id="'+widget_id+'" data-name="'+widget_name+'" data-rawname="'+widget_rawname+'" data-widget_type_id="'+widget_type_id+'" class="flip-container">' +
+				'<li data-widget_module_name="'+widget_module_name+'" data-id="'+widget_id+'" data-name="'+widget_name+'" data-rawname="'+widget_rawname+'" data-widget_type_id="'+widget_type_id+'" data-has_settings="'+widget_has_settings+'" class="flip-container">' +
 					'<div class="flipper">' +
 						'<div class="front">' +
 							'<div class="widget-title">' +
@@ -100,9 +108,7 @@ function widget_layout(widget_id, widget_module_name, widget_name, widget_type_i
 									'<div class="widget-option remove-widget" data-widget_id="'+widget_id+'">' +
 										'<i class="fa fa-times" aria-hidden="true"></i>' +
 									'</div>' +
-									'<div class="widget-option edit-widget" data-widget_id="'+widget_id+'">' +
-										'<i class="fa fa-cog" aria-hidden="true"></i>' +
-									'</div>' +
+									settings_html +
 								'</div>' +
 							'</div>' +
 							'<div class="widget-content">'+widget_content+'</div>' +
@@ -290,11 +296,13 @@ function init_remove_item_buttons(){
 function init_add_widgets_buttons(){
 	$(".add-widget-button").click(function(){
 
+		var current_dashboard_id = UCP.activeDashboard;
 		var widget_id = $(this).data('widget_id');
 		var widget_module_name = $(this).data('widget_module_name');
 		var widget_rawname = $(this).data('rawname');
-		var current_dashboard_id = UCP.activeDashboard;
 		var widget_name = $(this).data('widget_name');
+		var widget_has_settings = $(this).data('has_settings');
+
 		var new_widget_id = current_dashboard_id + "-" + widget_id;
 
 		var default_size_x = $(this).data('size_x');
@@ -319,7 +327,7 @@ function init_add_widgets_buttons(){
 					if(typeof data.html !== "undefined"){
 						//So first we go the HTML content to add it to the widget
 						var widget_html = data.html;
-						var full_widget_html = widget_layout(new_widget_id, widget_module_name, widget_name, widget_id, widget_rawname, widget_html);
+						var full_widget_html = widget_layout(new_widget_id, widget_module_name, widget_name, widget_id, widget_rawname, widget_has_settings, widget_html);
 
 						var gridster_object = $(".gridster ul").gridster().data('gridster');
 						//We are adding the widget always on the position 1,1

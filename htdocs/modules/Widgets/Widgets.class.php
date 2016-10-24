@@ -47,8 +47,16 @@ class Widgets extends Modules{
 
 		if(!empty($widgets_info)){
 			foreach($widgets_info as $data) {
+
+				$settings_html = '';
+				if($data->has_settings == 1){
+					$settings_html = '<div class="widget-option edit-widget" data-widget_id="'.$data->id.'">
+												<i class="fa fa-cog" aria-hidden="true"></i>
+											</div>';
+				}
+
 				$html .= '
-						<li data-widget_module_name="'.$data->widget_module_name.'" data-id="'.$data->id.'" data-name="'.$data->name.'" data-row="'.$data->row.'" data-col="'.$data->col.'" data-sizex="'.$data->size_x.'" data-sizey="'.$data->size_y.'" data-rawname="'.$data->rawname.'" data-widget_type_id="'.$data->widget_type_id.'" class="flip-container">
+						<li data-widget_module_name="'.$data->widget_module_name.'" data-id="'.$data->id.'" data-name="'.$data->name.'" data-row="'.$data->row.'" data-col="'.$data->col.'" data-sizex="'.$data->size_x.'" data-sizey="'.$data->size_y.'" data-rawname="'.$data->rawname.'" data-widget_type_id="'.$data->widget_type_id.'" data-has_settings="' . $data->has_settings . '" class="flip-container">
 							<div class="flipper">
 								<div class="front">
 									<div class="widget-title">
@@ -58,9 +66,7 @@ class Widgets extends Modules{
 											<div class="widget-option remove-widget" data-widget_id="'.$data->id.'">
 												<i class="fa fa-times" aria-hidden="true"></i>
 											</div>
-											<div class="widget-option edit-widget" data-widget_id="'.$data->id.'">
-												<i class="fa fa-cog" aria-hidden="true"></i>
-											</div>
+											'.$settings_html.'
 										</div>
 									</div>
 									<div class="widget-content"></div>	

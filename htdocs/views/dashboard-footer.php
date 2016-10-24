@@ -71,7 +71,7 @@
 															</h4>
 														</div>
 														<div class="widget-add-container top-offset text-center">
-															<button type="button" class="btn btn-sm btn-primary btn-outline add-widget-button" data-widget_module_name="<?php echo $widget_category_info["display"]; ?>" data-widget_name="<?php echo $widget_list["display"]; ?>" data-widget_id="<?php echo $widget_id; ?>" data-rawname="<?php echo $widget_category_info["rawname"]; ?>" data-size_x="<?php echo $widget_list["defaultsize"]["width"]; ?>" data-size_y="<?php echo $widget_list["defaultsize"]["height"]; ?>"><i class="fa fa-plus-circle" aria-hidden="true"></i></button>
+															<button type="button" class="btn btn-sm btn-primary btn-outline add-widget-button" data-widget_module_name="<?php echo $widget_category_info["display"]; ?>" data-widget_name="<?php echo $widget_list["display"]; ?>" data-widget_id="<?php echo $widget_id; ?>" data-rawname="<?php echo $widget_category_info["rawname"]; ?>" data-size_x="<?php echo $widget_list["defaultsize"]["width"]; ?>" data-size_y="<?php echo $widget_list["defaultsize"]["height"]; ?>" data-has_settings="<?php echo (!empty($widget_list["hasSettings"]) && $widget_list["hasSettings"]) ? "1" : "0"; ?>"><i class="fa fa-plus-circle" aria-hidden="true"></i></button>
 														</div>
 													</div>
 												</div>

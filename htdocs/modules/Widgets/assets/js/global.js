@@ -72,6 +72,7 @@ var WidgetsO = Class.extend({
 					name: $w.attr('data-name'),
 					rawname: $w.attr('data-rawname'),
 					widget_type_id: $w.attr('data-widget_type_id'),
+					has_settings: $w.attr('data-has_settings'),
 					col: wgd.col,
 					row: wgd.row,
 					size_x: wgd.size_x,
