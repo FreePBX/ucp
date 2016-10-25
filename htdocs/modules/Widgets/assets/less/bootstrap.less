@@ -14,12 +14,11 @@
 	height: 100%;
 	width: 100%;
 	position: fixed;
-	z-index: 2051;
+	z-index: 1031;
 	pointer-events: fill;
-	background: rgba(219, 219, 219, 0.4);
+	background: rgba(219,219,219,0.7);
 	text-align: center;
 	overflow-y: hidden;
-	color: @main_color;
 }
 
 .module-page-widgets {
@@ -44,14 +43,14 @@
 			cursor: pointer;
 
 			&.settings-shown{
-				transition: 0.5s;
-				position: fixed;
+				transition: 0.5s !important;
+				position: fixed !important;
 				top: 0;
 				left: 0;
 				right: 0;
 				bottom: 0;
 				height: 60%;
-				z-index: 4000;
+				z-index: 1032 !important;
 				margin: 0 auto;
 				width: 50%;
 			}
@@ -81,6 +80,7 @@
 					right: 6px;
 					border-left: 1px solid;
 					padding-left: 6px;
+					cursor: pointer;
 					.widget-option {
 						float: right;
 						margin-right: 3px;
@@ -136,17 +136,6 @@
 				}
 			}
 
-			.settings-back {
-				position: absolute;
-				bottom: 5px;
-				right: 5px;
-				color: @light_main_color;
-				cursor: pointer;
-
-				&:hover {
-					color: @third_color;
-				}
-			}
 			.widget-settings-content{
 				padding: 20px;
 			}

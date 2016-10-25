@@ -41,7 +41,7 @@ class Widgets extends Modules{
 
 		$widgets_info = json_decode($widgets_info_serialized);
 
-		$html = '<div class="gridster"><ul>';
+		$html = '<div class="gridster" data-dashboard_id="'.$dashboard_id.'"><ul>';
 
 		$this->UCP->Modgettext->push_textdomain("widgets");
 
@@ -75,11 +75,13 @@ class Widgets extends Modules{
 									<div class="widget-title settings-title">
 										<div class="widget-module-name truncate-text">Settings</div>
 										<div class="widget-module-subname truncate-text">('.$data->widget_module_name .' '. $data->name.')</div>
+										<div class="widget-options">
+											<div class="widget-option close-settings" data-widget_type_id="'.$data->widget_type_id.'" data-rawname="'.$data->rawname.'">
+												<i class="fa fa-times" aria-hidden="true"></i>
+											</div>
+										</div>
 									</div>
 									<div class="widget-settings-content">
-									</div>
-									<div class="settings-back" data-widget_type_id="'.$data->widget_type_id.'" data-rawname="'.$data->rawname.'">
-										<i class="fa fa-share fa-rotate-180 fa-2x" aria-hidden="true"></i>
 									</div>
 								</div>
 							</div>

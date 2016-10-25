@@ -117,11 +117,13 @@ function widget_layout(widget_id, widget_module_name, widget_name, widget_type_i
 							'<div class="widget-title settings-title">' +
 								'<div class="widget-module-name truncate-text">Settings</div>' +
 								'<div class="widget-module-subname truncate-text">(' + widget_module_name + ' '+widget_name+')</div>' +
+								'<div class="widget-options">' +
+									'<div class="widget-option close-settings" data-rawname="'+widget_rawname+'" data-widget_type_id="'+widget_type_id+'">' +
+										'<i class="fa fa-times" aria-hidden="true"></i>' +
+									'</div>' +
+								'</div>' +
 							'</div>' +
 							'<div class="widget-settings-content">' +
-							'</div>' +
-							'<div class="settings-back" data-rawname="'+widget_rawname+'" data-widget_type_id="'+widget_type_id+'">' +
-								'<i class="fa fa-share fa-rotate-180 fa-2x" aria-hidden="true"></i>' +
 							'</div>' +
 						'</div>' +
 					'</div>' +
@@ -480,7 +482,7 @@ $(document).on("click", ".edit-widget", function(){
 	}
 });
 
-$(document).on("click", ".settings-back", function(){
+$(document).on("click", ".close-settings", function(){
 
 	var container_object = $(this).parents(".flip-container");
 	var rawname = $(this).data("rawname");
@@ -544,7 +546,7 @@ var UCPC = Class.extend({
 			UCP.setupLogin();
 		}
 
-		var dashboard_id = $.url().param("dashboard");
+		var dashboard_id = $(".gridster").data("dashboard_id");
 		this.activeDashboard = dashboard_id;
 
 		/********************/

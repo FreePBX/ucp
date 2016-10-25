@@ -1,1 +1,1 @@
-<?php echo $dashboard_content?>
+<?php echo $dashboard_content;
