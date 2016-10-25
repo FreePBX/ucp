@@ -499,6 +499,19 @@ $(document).on("click", ".close-settings", function(){
 	}
 });
 
+//If got a click outside... we hide everything without saving
+$(document).on("click", ".settings-shown-blocker", function(){
+
+	var container_object = $(".flip-container.gs-w.flip.settings-shown");
+
+	if(container_object.hasClass("flip")){
+
+		$(".settings-shown-blocker").hide();
+		container_object.removeClass("settings-shown");
+		container_object.removeClass("flip");
+	}
+});
+
 /********************/
 /* NEW LAYOUT STUFF */
 /********************/
