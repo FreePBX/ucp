@@ -69,6 +69,8 @@
 				<i class="fa fa-cog fa-spin fa-stack-1x secundary-color"></i>
 			</span>
 		</div>
+		<div class="settings-shown-blocker">
+		</div>
 
 		<!-- small device nav menu -->
 		<nav class="pushmenu pushmenu-left">

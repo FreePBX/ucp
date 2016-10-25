@@ -9,6 +9,18 @@
 @widget_title_height: 34px;
 @widget_content_height: 55px;
 
+.settings-shown-blocker{
+	display: none;
+	height: 100%;
+	width: 100%;
+	position: fixed;
+	z-index: 2051;
+	pointer-events: fill;
+	background: rgba(219, 219, 219, 0.4);
+	text-align: center;
+	overflow-y: hidden;
+	color: @main_color;
+}
 
 .module-page-widgets {
 
@@ -30,6 +42,20 @@
 			background-color: transparent;
 			color: @widget_text_color;
 			cursor: pointer;
+
+			&.settings-shown{
+				transition: 0.5s;
+				position: fixed;
+				top: 0;
+				left: 0;
+				right: 0;
+				bottom: 0;
+				height: 60%;
+				z-index: 4000;
+				margin: 0 auto;
+				width: 50%;
+			}
+
 			.widget-title {
 				position: relative;
 				text-align: left;

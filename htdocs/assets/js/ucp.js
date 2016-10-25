@@ -469,7 +469,11 @@ $(document).on("click", ".edit-widget", function(){
 	var widget_id = $(this).data("widget_type_id");
 
 	if(!container_object.hasClass("flip")){
+
+		$(".settings-shown-blocker").show();
+
 		container_object.addClass("flip");
+		container_object.addClass("settings-shown");
 
 		var settings_container = container_object.find(".widget-settings-content");
 		get_settings_content(settings_container, widget_id, rawname);
@@ -483,6 +487,9 @@ $(document).on("click", ".settings-back", function(){
 	var widget_id = $(this).data("widget_type_id");
 	
 	if(container_object.hasClass("flip")){
+
+		$(".settings-shown-blocker").hide();
+		container_object.removeClass("settings-shown");
 		container_object.removeClass("flip");
 
 		var widget_content_container = container_object.find(".widget-content");
