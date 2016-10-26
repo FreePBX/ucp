@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-10-20 16:40-0700\n"
+"POT-Creation-Date: 2016-10-26 20:41+1000\n"
 "PO-Revision-Date: 2015-08-30 14:46+0200\n"
 "Last-Translator: Vidar Skjelanger <vidar@unimicro.no>\n"
 "Language-Team: Norwegian Bokmål <http://weblate.freepbx.org/projects/freepbx/"
@@ -143,11 +143,11 @@ msgstr "DEF"
 msgid "Delete Image"
 msgstr ""
 
-#: Ucp.class.php:770
+#: Ucp.class.php:777
 msgid "Deleted Session"
 msgstr "Slettet sesjon"
 
-#: Ucp.class.php:126 Ucp.class.php:613
+#: Ucp.class.php:126 Ucp.class.php:620
 msgid "Deleted User Session"
 msgstr "Slettet brukersesjon"
 
@@ -155,7 +155,7 @@ msgstr "Slettet brukersesjon"
 msgid "Display Name"
 msgstr "Visningsnavn"
 
-#: Ucp.class.php:864 Ucp.class.php:868 Ucp.class.php:872 Ucp.class.php:876
+#: Ucp.class.php:871 Ucp.class.php:875 Ucp.class.php:879 Ucp.class.php:883
 msgid "Done"
 msgstr "Ferdig"
 
@@ -220,19 +220,19 @@ msgstr "GHI"
 msgid "General"
 msgstr ""
 
-#: Ucp.class.php:874
+#: Ucp.class.php:881
 msgid "Generating Main CSS..."
 msgstr "Genererer hoved-CSS..."
 
-#: Ucp.class.php:870
+#: Ucp.class.php:877
 msgid "Generating Main Scripts..."
 msgstr "Genererer hovedscript..."
 
-#: Ucp.class.php:866
+#: Ucp.class.php:873
 msgid "Generating Module CSS..."
 msgstr "Genererer modul-CSS..."
 
-#: Ucp.class.php:862
+#: Ucp.class.php:869
 msgid "Generating Module Scripts..."
 msgstr "Genererer modulscript..."
 
@@ -389,7 +389,7 @@ msgstr "Passord"
 msgid "Password Confirmation Didn't Match!"
 msgstr "Passordbekreftelse stemte ikke!"
 
-#: Ucp.class.php:218 Ucp.class.php:228
+#: Ucp.class.php:203
 #, php-format
 msgid "Password Reset Link (Valid Until: %s): %s"
 msgstr "Link for å resette passordet (Gyldig til: %s): %s"
@@ -582,7 +582,7 @@ msgstr "Innstillinger for UCP"
 msgid "User Control Panel is released as %s or newer"
 msgstr "UCP er distribuert som %s eller nyere"
 
-#: Ucp.class.php:214 Ucp.class.php:224
+#: Ucp.class.php:199
 #, php-format
 msgid "User Control Panel: %s"
 msgstr "Kontrollpanel for brukere: %s"
