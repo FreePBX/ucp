@@ -120,7 +120,11 @@ try {
 	die();
 }
 
-$all_widgets = $ucp->Dashboards->getallwidgets();
+$all_widgets = $ucp->Dashboards->getAllWidgets();
+$all_simple_widgets = $ucp->Dashboards->getAllSimpleWidgets();
+
+//Simple widgets by user
+$user_small_widgets = json_decode($ucp->Dashboards->getSimpleLayout());
 
 $user_dashboards = $ucp->Dashboards->getDashboards();
 $active_dashboard_id = "";
@@ -138,9 +142,12 @@ if(!empty($_REQUEST["dashboard"])){
 }
 
 $displayvars['all_widgets'] = $all_widgets;
+$displayvars['all_simple_widgets'] = $all_simple_widgets;
 
 $displayvars['active_dashboard'] = $active_dashboard_id;
 $displayvars['user_dashboards'] = $user_dashboards;
+
+$displayvars['user_small_widgets'] = $user_small_widgets;
 
 $displayvars['navItems'] = array();
 foreach($ucp->Modules->getModulesByMethod('getNavItems') as $m) {

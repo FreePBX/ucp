@@ -41,16 +41,51 @@ class Widgets extends Modules{
 
 		$widgets_info = json_decode($widgets_info_serialized);
 
-		$html = '<div class="gridster"><ul>';
+		$html = '<div class="gridster" data-dashboard_id="'.$dashboard_id.'"><ul>';
 
 		$this->UCP->Modgettext->push_textdomain("widgets");
 
 		if(!empty($widgets_info)){
 			foreach($widgets_info as $data) {
-				$html .= '<li data-widget_module_name="'.$data->widget_module_name.'" data-id="'.$data->id.'" data-name="'.$data->name.'" data-row="'.$data->row.'" data-col="'.$data->col.'" data-sizex="'.$data->size_x.'" data-sizey="'.$data->size_y.'" data-rawname="'.$data->rawname.'" data-widget_type_id="'.$data->widget_type_id.'">
-					<div class="widget-title"><div class="widget-module-name truncate-text">'.$data->widget_module_name.'</div><div class="widget-module-subname truncate-text">('.$data->name.')</div><div class="widget-options"><div class="widget-option remove-widget" data-widget_id="'.$data->id.'"><i class="fa fa-times" aria-hidden="true"></i></div><div class="widget-option edit-widget" data-widget_id="'.$data->id.'"><i class="fa fa-cog" aria-hidden="true"></i></div></div></div>
-					<div class="widget-content"></div>
-				</li>';
+
+				$settings_html = '';
+				if($data->has_settings == 1){
+					$settings_html = '<div class="widget-option edit-widget" data-widget_type_id="'.$data->widget_type_id.'" data-rawname="'.$data->rawname.'">
+												<i class="fa fa-cog" aria-hidden="true"></i>
+											</div>';
+				}
+
+				$html .= '
+						<li data-widget_module_name="'.$data->widget_module_name.'" data-id="'.$data->id.'" data-name="'.$data->name.'" data-row="'.$data->row.'" data-col="'.$data->col.'" data-sizex="'.$data->size_x.'" data-sizey="'.$data->size_y.'" data-rawname="'.$data->rawname.'" data-widget_type_id="'.$data->widget_type_id.'" data-has_settings="' . $data->has_settings . '" class="flip-container">
+							<div class="flipper">
+								<div class="front">
+									<div class="widget-title">
+										<div class="widget-module-name truncate-text">'.$data->widget_module_name.'</div>
+										<div class="widget-module-subname truncate-text">('.$data->name.')</div>
+										<div class="widget-options">
+											<div class="widget-option remove-widget" data-widget_id="'.$data->id.'">
+												<i class="fa fa-times" aria-hidden="true"></i>
+											</div>
+											'.$settings_html.'
+										</div>
+									</div>
+									<div class="widget-content"></div>	
+								</div>
+								<div class="back">
+									<div class="widget-title settings-title">
+										<div class="widget-module-name truncate-text">Settings</div>
+										<div class="widget-module-subname truncate-text">('.$data->widget_module_name .' '. $data->name.')</div>
+										<div class="widget-options">
+											<div class="widget-option close-settings" data-widget_type_id="'.$data->widget_type_id.'" data-rawname="'.$data->rawname.'">
+												<i class="fa fa-times" aria-hidden="true"></i>
+											</div>
+										</div>
+									</div>
+									<div class="widget-settings-content">
+									</div>
+								</div>
+							</div>
+						</li>';
 			}
 		}
 

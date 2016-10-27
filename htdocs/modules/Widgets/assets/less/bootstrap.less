@@ -1,17 +1,41 @@
+
+/* COMMON COLORS */
 @main_color: #2F4050;
-@secundary_color: #F3F3F4;
+@secundary_color: #e7eaec;
 @third_color: #18A689;
+@light_hover: #a7b1c2;
+@dark_hover: #2F4050;
+/* COMMON COLORS */
 
-@main_widget_color: #FFF;
-@widget_text_color: #2F4050;
+/* WIDGET COLORS */
+@widget_title_background: #2F4050;
+@widget_title_color: #FFF;
+@widget_content_background: #e7eaec;
+@widget_content_color: #2F4050;
+@widget_settings_title_background: #A77B66;
+@widget_settings_title_color: #FFF;
+/* WIDGET COLORS */
 
-@loading_size_widget: 15px;
+/* WIDGET SIZES */
 @widget_title_height: 34px;
 @widget_content_height: 55px;
+/* WIDGET SIZES */
+
+.settings-shown-blocker{
+	display: none;
+	height: 100%;
+	width: 100%;
+	position: fixed;
+	z-index: 1031;
+	pointer-events: fill;
+	background: rgba(219,219,219,0.7);
+	text-align: center;
+	overflow-y: hidden;
+}
 
 .module-page-widgets {
 
-	background-color: @main_color;
+	background-color: #FFF;
 
 	ol, ul{
 		margin-top: 0;
@@ -22,92 +46,111 @@
 		list-style: none;
 	}
 
-	.gridster{
+	.gridster {
 		overflow-y: hidden;
 		width: 98%;
-		.gs-w{
-			background-color: @main_widget_color;
-			color: @widget_text_color;
+		.gs-w {
+			background-color: transparent;
+			color: @widget_content_color;
 			cursor: pointer;
-			.widget-title{
+
+			&.settings-shown{
+				transition: 0.5s !important;
+				position: fixed !important;
+				top: 0;
+				left: 0;
+				right: 0;
+				bottom: 0;
+				height: 60%;
+				z-index: 1032 !important;
+				margin: 0 auto;
+				width: 50%;
+			}
+
+			.widget-title {
 				position: relative;
 				text-align: left;
 				padding-top: 3px;
 				padding-bottom: 3px;
 				text-transform: uppercase;
-				border-bottom: 1px solid @main_color;
 				line-height: 14px;
 				padding-left: 6px;
-				.widget-module-name{
+				background-color: @widget_title_background;
+				color: @widget_title_color;
+				.widget-module-name {
 					font-size: 14px;
 					width: 66%;
 				}
-				.widget-module-subname{
+				.widget-module-subname {
 					font-size: 9px;
 					width: 90%;
 				}
-				.widget-options{
+				.widget-options {
 					position: absolute;
 					top: 8px;
 					font-size: 18px;
 					right: 6px;
 					border-left: 1px solid;
 					padding-left: 6px;
-					.widget-option{
+					cursor: pointer;
+					.widget-option {
 						float: right;
 						margin-right: 3px;
-						&:hover{
-							color: @third_color;
+						&:hover {
+							color: @light_hover;
 						}
 
-						&.remove-widget{
+						&.remove-widget {
 
 						}
 
-						&.edit-widget{
+						&.edit-widget {
 
 						}
 					}
 				}
+
+				&.settings-title {
+					background-color: @widget_settings_title_background;
+				}
 			}
-			.widget-content{
+			.widget-content {
 				width: 100%;
 				height: ~"calc(100% - @{widget_title_height})";
-				border-bottom: 3px solid @third_color;
 			}
 
-			&.add-widget-widget{
+			&.add-widget-widget {
 				color: @secundary_color;
-				background-color: rgba(0,0,0,0.0);
+				background-color: rgba(0, 0, 0, 0.0);
 				text-align: center;
-				.widget-content{
+				.widget-content {
 					border: 3px dashed @secundary_color;
 					height: 100%;
 					padding-top: ~"calc(50% - @{widget_content_height})";
-					&:hover{
+					&:hover {
 						color: @third_color;
 					}
 				}
 			}
 		}
 
-		.gs-resize-handle-both{
-			bottom: 0;
-			right: 0;
-			background-position: 80% 66%;
-			cursor: nwse-resize;
-		}
-	}
+		.flip-container {
+			.gs-resize-handle-both {
+				bottom: 0;
+				right: 0;
+				background-position: 80% 66%;
+				cursor: nwse-resize;
+			}
 
-	.widget-loading-box{
-		position: relative;
-		height: 100%;
-		width: 100%;
+			&.flip {
+				.gs-resize-handle-both {
+					display: none;
+				}
+			}
 
-		.fa-stack.fa{
-			position: absolute;
-			top: ~"calc(50% - @{loading_size_widget})";
-			left: ~"calc(50% - @{loading_size_widget})";
+			.widget-settings-content{
+				padding: 20px;
+			}
 		}
 	}
 
@@ -116,14 +159,12 @@
 	}
 
 	.widget {
-		background-color: aliceblue;
 		border-radius: 5px;
 
 		.title {
 			padding-top: 5px;
 			text-align: center;
 			font-weight: bold;
-			background-color: whitesmoke;
 			border-top-left-radius: 5px;
 			border-top-right-radius: 5px;
 			.fa-refresh {
@@ -139,4 +180,90 @@
 			padding: 5px;
 		}
 	}
+}
+
+/* entire container, keeps perspective */
+.flip-container {
+	width: 100%;
+	-webkit-perspective: 1000px;
+	-moz-perspective: 1000px;
+	-ms-perspective: 1000;
+	perspective: 1000px;
+	-ms-transform: perspective(1000px);
+	-moz-transform: perspective(1000px);
+	-moz-transform-style: preserve-3d;
+	-ms-transform-style: preserve-3d;
+}
+
+.flip-container.flip .flipper {
+	transform: rotateY(180deg);
+}
+
+.flip-container, .front, .back {
+	width: 100%;
+	height: 100%;
+}
+
+.flipper {
+	position: relative;
+	height: 100%;
+	-webkit-transition: 0.6s;
+	transition: 0.6s;
+	-ms-transition: 0.6s;
+	-moz-transition: 0.6s;
+	-moz-transform: perspective(1000px);
+	-moz-transform-style: preserve-3d;
+	-ms-transform-style: preserve-3d;
+	transform-style: preserve-3d;
+	-webkit-transform-style: preserve-3d;
+}
+
+.front, .back {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: @widget_content_background;
+	-webkit-backface-visibility: hidden;
+	-moz-backface-visibility: hidden;
+	-ms-backface-visibility: hidden;
+	backface-visibility: hidden;
+	-webkit-transition: 0.6s;
+	-webkit-transform-style: preserve-3d;
+	-webkit-transform: rotateY(0deg);
+	-moz-transition: 0.6s;
+	-moz-transform-style: preserve-3d;
+	-moz-transform: rotateY(0deg);
+	-o-transition: 0.6s;
+	-o-transform-style: preserve-3d;
+	-o-transform: rotateY(0deg);
+	-ms-transition: 0.6s;
+	-ms-transform-style: preserve-3d;
+	-ms-transform: rotateY(0deg);
+	transition: 0.6s;
+	transform-style: preserve-3d;
+	transform: rotateY(0deg);
+}
+
+.front {
+	z-index: 2;
+	transform: rotateY(0deg);
+	-webkit-transform: rotateY(0deg);
+	-ms-transform: rotateY(0deg);
+	border-bottom: 3px solid @widget_title_background;
+}
+
+.back {
+	cursor: default;
+	-webkit-transform: rotateY(-180deg);
+	-moz-transform: rotateY(-180deg);
+	-o-transform: rotateY(-180deg);
+	-ms-transform: rotateY(-180deg);
+	transform: rotateY(-180deg);
+	border-bottom: 3px solid @widget_settings_title_background;
+}
+
+.gridster .preview-holder{
+	background-color: @main_color;
 }
