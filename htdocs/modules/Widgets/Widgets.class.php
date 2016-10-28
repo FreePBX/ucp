@@ -63,13 +63,13 @@ class Widgets extends Modules{
 										<div class="widget-module-name truncate-text">'.$data->widget_module_name.'</div>
 										<div class="widget-module-subname truncate-text">('.$data->name.')</div>
 										<div class="widget-options">
-											<div class="widget-option remove-widget" data-widget_id="'.$data->id.'">
+											<div class="widget-option remove-widget" data-widget_id="'.$data->id.'" data-widget_type_id="'.$data->widget_type_id.'" data-widget_rawname="'.$data->rawname.'">
 												<i class="fa fa-times" aria-hidden="true"></i>
 											</div>
 											'.$settings_html.'
 										</div>
 									</div>
-									<div class="widget-content"></div>	
+									<div class="widget-content"></div>
 								</div>
 								<div class="back">
 									<div class="widget-title settings-title">
@@ -89,6 +89,8 @@ class Widgets extends Modules{
 			}
 		}
 
+		$html .= '</ul></div></br>';
+
 		$this->UCP->Modgettext->pop_textdomain();
 
 		return $html;
@@ -99,9 +101,7 @@ class Widgets extends Modules{
 	}
 
 	public function getWidgetsFromDashboard($dashboard_id) {
-
 		$dashboard_layout = $this->UCP->Dashboards->getLayoutByID($dashboard_id);
-
 		return $dashboard_layout;
 	}
 
@@ -116,15 +116,8 @@ class Widgets extends Modules{
 	*/
 	function ajaxRequest($command, $settings) {
 		switch($command) {
-			case 'contacts':
-				return true;
-			break;
 			case 'homeRefresh':
 				return true;
-			break;
-			case 'originate':
-				$o = $this->UCP->FreePBX->Userman->getCombinedModuleSettingByID($this->user['id'],'ucp|Global','originate');
-				return !empty($o) ? true : false;
 			break;
 			default:
 				return false;
@@ -146,56 +139,6 @@ class Widgets extends Modules{
 				$data = $this->getWidgetsFromDashboard($_REQUEST['id']);
 				return array("status" => true, "content" => $data[0]['content']);
 			break;
-			case "originate":
-				if($this->_checkExtension($_REQUEST['from'])) {
-					// prevent caller id spoofing
-					if($this->user['default_extension'] == $_REQUEST['from']) {
-						$out = $this->astman->originate(array(
-							"Channel" => "Local/".$_REQUEST['from']."@originate-skipvm",
-							"Exten" => $_REQUEST['to'],
-							"Context" => "from-internal",
-							"Priority" => 1,
-							"Async" => "yes",
-							"CallerID" => "UCP <".$_REQUEST['from'].">"
-						));
-						if($out['Response'] == "Error") {
-							$return['status'] = false;
-							$return['message'] = $out['Message'];
-						} else {
-							$return['status'] = true;
-						}
-					} else {
-						$return['status'] = false;
-						$return['message'] = _('Invalid Device');
-					}
-				} else {
-					$return['status'] = false;
-					$return['message'] = _('Invalid Device');
-				}
-				return $return;
-			break;
-			case "contacts":
-				if($this->Modules->moduleHasMethod('Contactmanager','lookupMultiple')) {
-					$search = !empty($_REQUEST['search']) ? $_REQUEST['search'] : "";
-					$results = $this->Modules->Contactmanager->lookupMultiple($search);
-					if(!empty($results)) {
-						$return = array();
-						foreach($results as $res) {
-							foreach($res['numbers'] as $type => $num) {
-								if(!empty($num)) {
-									$return[] = array(
-										"value" => $num,
-										"text" => $res['displayname'] . " (".$type.")"
-									);
-								}
-							}
-						}
-					} else {
-						return array();
-					}
-				}
-				return $return;
-			break;
 			default:
 				return false;
 			break;
@@ -206,12 +149,7 @@ class Widgets extends Modules{
 	* Send settings to UCP upon initalization
 	*/
 	function getStaticSettings() {
-		$user = $this->UCP->User->getUser();
-		$extensions = array($this->user['default_extension']);
-		return array(
-			'extensions' => $extensions,
-			'enableOriginate' => $this->UCP->getCombinedSettingByID($user['id'],'Global','originate')
-		);
+		return array();
 	}
 
 	public function getMenuItems() {
@@ -221,10 +159,5 @@ class Widgets extends Modules{
 			"badge" => false,
 			"menu" => false
 		);
-	}
-
-	private function _checkExtension($extension) {
-		$user = $this->UCP->User->getUser();
-		return $this->UCP->getCombinedSettingByID($user['id'],'Global','originate');
 	}
 }

@@ -5,517 +5,6 @@
  * Copyright 2006-2014 Schmooze Com Inc.
  */
 
-/********************/
-/* NEW LAYOUT STUFF */
-/********************/
-
-var modal_confirm_function;
-
-function activate_full_loading(){
-	$(".main-block").show();
-}
-
-function deactivate_full_loading(){
-	$(".main-block").hide();
-}
-
-function activate_widget_loading(widget_object){
-
-	var loading_html = '<div class="widget-loading-box">' +
-		'					<span class="fa-stack fa">' +
-		'						<i class="fa fa-cloud fa-stack-2x text-internal-blue"></i>' +
-		'						<i class="fa fa-cog fa-spin fa-stack-1x secundary-color"></i>' +
-		'					</span>' +
-		'				</div>';
-
-	widget_object.html(loading_html);
-
-}
-
-function show_alert(message, type, callback_func){
-
-	var type_class = "";
-	if(type == 'success'){
-		type_class = "alert-success";
-	}else if(type == 'info'){
-		type_class = "alert-info";
-	}else if(type == 'warning'){
-		type_class = "alert-warning";
-	}else if(type == 'danger'){
-		type_class = "alert-danger";
-	}
-
-	$("#alert_message").removeClass("alert-success alert-info alert-warning alert-danger");
-
-	$("#alert_message").addClass(type_class);
-
-	$("#alert_message").html(message);
-
-	if(typeof callback_func == "function") {
-		$(document).on("click", "#close_alert_button", function () {
-			$("#alert_modal").modal("hide");
-			callback_func();
-		});
-	}else {
-		$(document).on("click", "#close_alert_button", function () {
-			$("#alert_modal").modal("hide");
-		});
-	}
-
-	$("#alert_modal").modal("show");
-}
-
-function show_confirm(message, type, callback_func) {
-
-	var type_class = "";
-	if(type == 'success'){
-		type_class = "alert-success";
-	}else if(type == 'info'){
-		type_class = "alert-info";
-	}else if(type == 'warning'){
-		type_class = "alert-warning";
-	}else if(type == 'danger'){
-		type_class = "alert-danger";
-	}
-
-	$("#confirm_content").removeClass("alert-success alert-info alert-warning alert-danger");
-
-	$("#confirm_content").addClass(type_class);
-	$("#confirm_content").html(message);
-
-	$('#confirm_modal').modal('show');
-
-	modal_confirm_function = callback_func;
-}
-
-function widget_layout(widget_id, widget_module_name, widget_name, widget_type_id, widget_rawname, widget_has_settings, widget_content){
-
-	var settings_html = '';
-	if(widget_has_settings == "1"){
-		settings_html = '<div class="widget-option edit-widget" data-rawname="'+widget_rawname+'" data-widget_type_id="'+widget_type_id+'">' +
-							'<i class="fa fa-cog" aria-hidden="true"></i>' +
-						'</div>';
-	}
-
-	var html = '' +
-				'<li data-widget_module_name="'+widget_module_name+'" data-id="'+widget_id+'" data-name="'+widget_name+'" data-rawname="'+widget_rawname+'" data-widget_type_id="'+widget_type_id+'" data-has_settings="'+widget_has_settings+'" class="flip-container">' +
-					'<div class="flipper">' +
-						'<div class="front">' +
-							'<div class="widget-title">' +
-								'<div class="widget-module-name truncate-text">' + widget_module_name + '</div>' +
-								'<div class="widget-module-subname truncate-text">('+widget_name+')</div>' +
-								'<div class="widget-options">' +
-									'<div class="widget-option remove-widget" data-widget_id="'+widget_id+'">' +
-										'<i class="fa fa-times" aria-hidden="true"></i>' +
-									'</div>' +
-									settings_html +
-								'</div>' +
-							'</div>' +
-							'<div class="widget-content">'+widget_content+'</div>' +
-						'</div>' +
-						'<div class="back">' +
-							'<div class="widget-title settings-title">' +
-								'<div class="widget-module-name truncate-text">Settings</div>' +
-								'<div class="widget-module-subname truncate-text">(' + widget_module_name + ' '+widget_name+')</div>' +
-								'<div class="widget-options">' +
-									'<div class="widget-option close-settings" data-rawname="'+widget_rawname+'" data-widget_type_id="'+widget_type_id+'">' +
-										'<i class="fa fa-times" aria-hidden="true"></i>' +
-									'</div>' +
-								'</div>' +
-							'</div>' +
-							'<div class="widget-settings-content">' +
-							'</div>' +
-						'</div>' +
-					'</div>' +
-				'</li>';
-
-	return html;
-}
-
-function small_widget_layout(widget_id, widget_module_name, widget_name, widget_type_id, widget_rawname, widget_icon, widget_content){
-	var html = '' +
-		'<li class="custom-widget" data-widget_id="'+widget_id+'">' +
-			'<a href="#" data-module_name="'+widget_module_name+'" data-id="'+widget_id+'" data-name="'+widget_name+'" data-rawname="'+widget_rawname+'" data-type_id="'+widget_type_id+'" data-icon="' + widget_icon + '"><i class="' + widget_icon + '" aria-hidden="true"></i></a>' +
-		'</li>';
-
-	return html;
-}
-
-function small_widget_menu_layout(widget_id, widget_rawname){
-	var html = '' +
-		'<div class="widget-extra-menu" id="menu_'+widget_rawname+'" data-module="'+widget_rawname+'">' +
-			'<a href="#" class="closebtn" onclick="close_extra_widget_menu()"><i class="fa fa-times-circle-o" aria-hidden="true"></i></a>' +
-				'<div class="small-widget-content">' +
-				'</div>' +
-				'<button type="button" class="btn btn-xs btn-danger remove-small-widget" data-widget_id="'+widget_id+'">Remove Widget</button>' +
-		'</div>';
-
-	return html;
-}
-
-function init_menu_dragabble(){
-	/*$(".menu-order").draggable({ axis: "x" });
-
-	 $(".menu-space").droppable({
-	 accept: ".menu-order",
-	 activeClass: "droppable-menu-empty",
-	 hoverClass: "droppable-menu-hover",
-	 drop: function( event, ui ) {
-
-	 console.log("bagre");
-	 }
-	 });*/
-}
-
-function open_extra_widget_menu() {
-	$(".side-menu-widgets-container").css({ width: "250px", left: "55px"});
-}
-
-function close_extra_widget_menu() {
-	$(".side-menu-widgets-container").css({ width: "0", left: "45px"});
-
-}
-
-function init_left_nav_bar_menus(){
-
-	$(document).on("click", ".custom-widget", function(event){
-
-		event.preventDefault();
-		event.stopPropagation();
-
-		var clicked_module = $(this).find("a").data("rawname");
-		var clicked_id = $(this).find("a").data("id");
-
-		if(!$("#menu_"+clicked_module).is(":visible")){
-
-			if($(".widget-extra-menu").is(":visible")){
-				$(".widget-extra-menu:visible").fadeOut("slow", function(){
-					$("#menu_"+clicked_module).fadeIn("slow");
-				});
-			}else {
-				$("#menu_"+clicked_module).fadeIn("slow");
-			}
-
-		}
-
-		open_extra_widget_menu();
-
-		var content_object = $("#menu_"+clicked_module).find(".small-widget-content");
-
-		activate_widget_loading(content_object);
-
-		$.post( "?quietmode=1&module=Dashboards&command=getwidgetcontent",
-			{
-				id: clicked_id,
-				rawname: clicked_module
-			},
-			function( data ) {
-
-				if(typeof data.html !== "undefined"){
-
-					content_object.html(data.html);
-
-				}else {
-					show_alert("There was an error getting the widget information, try again later", "danger");
-				}
-
-			}, "json");
-	});
-
-}
-
-function init_remove_item_buttons(){
-
-	$(document).on("click", ".remove-widget", function(event){
-		event.preventDefault();
-		event.stopPropagation();
-
-		var widget_id = $(this).data("widget_id");
-
-		show_confirm("Are you sure you want to delete this widget?", "warning", function() {
-			$(".gs-w[data-id='" + widget_id + "']").remove();
-			save_layout_content();
-		});
-
-	});
-
-	$(document).on("click", ".remove-small-widget", function(event){
-
-		var widget_to_remove = $(this).data("widget_id");
-
-		var sidebar_object_to_remove = $("#side_bar_content li.custom-widget[data-widget_id='" + widget_to_remove + "']");
-
-		sidebar_object_to_remove.remove();
-
-		close_extra_widget_menu();
-
-		save_sidebar_content();
-	});
-
-	$(document).on("click", ".remove-dashboard", function(event){
-
-		event.preventDefault();
-		event.stopPropagation();
-
-		var dashboard_id = $(this).data("dashboard_id");
-
-		show_confirm("Are you sure you want to delete this dashboard?", "warning", function() {
-
-			activate_full_loading();
-
-			$.post( "?quietmode=1&module=Dashboards&command=remove",
-				{
-					id: dashboard_id
-				},
-				function( data ) {
-					if (data.status) {
-						$(".dashboard-menu[data-id='" + dashboard_id + "']").remove();
-
-						if($(".dashboard-menu").length > 0) {
-							if(dashboard_id == UCP.activeDashboard){
-								$(".dashboard-menu").first().find("a").click();
-							}
-						}else {
-							$(".gridster.ready").empty();
-						}
-
-					}else {
-						show_alert("Something went wrong removing the dashboard", "danger");
-					}
-					deactivate_full_loading();
-				}
-			);
-		});
-
-	});
-}
-
-function init_add_widgets_buttons(){
-	$(".add-widget-button").click(function(){
-
-		var current_dashboard_id = UCP.activeDashboard;
-		var widget_id = $(this).data('widget_id');
-		var widget_module_name = $(this).data('widget_module_name');
-		var widget_rawname = $(this).data('rawname');
-		var widget_name = $(this).data('widget_name');
-		var widget_has_settings = $(this).data('has_settings');
-
-		var new_widget_id = current_dashboard_id + "-" + widget_id;
-
-		var default_size_x = $(this).data('size_x');
-		var default_size_y = $(this).data('size_y');
-
-		//Checking if the widget is already on the dashboard
-		var object_on_dashboard = $("li[data-id='"+new_widget_id+"']");
-
-		if(object_on_dashboard.length <= 0){
-
-			activate_full_loading();
-
-			$.post( "?quietmode=1&module=Dashboards&command=getwidgetcontent",
-				{
-					id: widget_id,
-					rawname: widget_rawname
-				},
-				function( data ) {
-
-					$("#add_widget").modal("hide");
-
-					if(typeof data.html !== "undefined"){
-						//So first we go the HTML content to add it to the widget
-						var widget_html = data.html;
-						var full_widget_html = widget_layout(new_widget_id, widget_module_name, widget_name, widget_id, widget_rawname, widget_has_settings, widget_html);
-
-						var gridster_object = $(".gridster ul").gridster().data('gridster');
-						//We are adding the widget always on the position 1,1
-						gridster_object.add_widget(full_widget_html, default_size_x, default_size_y, 1, 1);
-
-						save_layout_content();
-					}else {
-						show_alert("There was an error getting the widget information, try again later", "danger");
-					}
-
-					deactivate_full_loading();
-
-				}, "json");
-		}else {
-			show_alert("You already have this widget on this dashboard", "info");
-		}
-	});
-
-	$(".add-small-widget-button").click(function(){
-
-		var widget_id = $(this).data('id');
-		var widget_module_name = $(this).data('module_name');
-		var widget_rawname = $(this).data('rawname');
-		var widget_name = $(this).data('name');
-
-		var widget_icon = $(this).data('icon');
-
-		//Checking if the widget is already on the bar
-		var object_on_bar = $("#side_bar_content li.custom-widget[data-widget_id='"+widget_id+"']");
-
-		if(object_on_bar.length <= 0){
-
-			activate_full_loading();
-
-			$.post( "?quietmode=1&module=Dashboards&command=getwidgetcontent",
-				{
-					id: widget_id,
-					rawname: widget_rawname
-				},
-				function( data ) {
-
-					$("#add_widget").modal("hide");
-
-					if(typeof data.html !== "undefined"){
-
-						//So first we go the HTML content to add it to the widget
-						var widget_html = data.html;
-
-						var full_widget_html = small_widget_layout(widget_id, widget_module_name, widget_name, widget_id, widget_rawname, widget_icon, widget_html);
-
-						var menu_widget_html = small_widget_menu_layout(widget_id, widget_rawname);
-
-						$("#side_bar_content .last-widget").before(full_widget_html);
-
-						$(".side-menu-widgets-container").append(menu_widget_html);
-
-						save_sidebar_content();
-					}else {
-						show_alert("There was an error getting the widget information, try again later", "danger");
-					}
-
-					deactivate_full_loading();
-
-				}, "json");
-		}else {
-			show_alert("You already have this widget on the side bar", "info");
-		}
-	});
-}
-
-function init_categories_widgets(){
-	$("div.bhoechie-tab-menu>div.list-group>a").click(function(e) {
-		e.preventDefault();
-		$(this).siblings('a.active').removeClass("active");
-		$(this).addClass("active");
-		var index = $(this).index();
-		$("div.bhoechie-tab>div.bhoechie-tab-content").removeClass("active");
-		$("div.bhoechie-tab>div.bhoechie-tab-content").eq(index).addClass("active");
-	});
-}
-
-function get_widget_content(widget_content_object, widget_id, widget_rawname){
-
-	activate_widget_loading(widget_content_object);
-
-	$.post( "?quietmode=1&module=Dashboards&command=getwidgetcontent",
-		{
-			id: widget_id,
-			rawname: widget_rawname
-		},
-		function( data ) {
-
-			var widget_html = data.html;
-
-			if(typeof data.html === "undefined"){
-				widget_html = '<div class="alert alert-danger">Something went wrong getting the content of the widget</div>';
-			}
-
-			widget_content_object.html(widget_html);
-
-		}, "json");
-}
-
-function get_settings_content(widget_content_object, widget_id, widget_rawname){
-
-	activate_widget_loading(widget_content_object);
-
-	$.post( "?quietmode=1&module=Dashboards&command=getwidgetsettingscontent",
-		{
-			id: widget_id,
-			rawname: widget_rawname
-		},
-		function( data ) {
-
-			var widget_html = data.html;
-
-			if(typeof data.html === "undefined"){
-				widget_html = '<div class="alert alert-danger">Something went wrong getting the settings from the widget</div>';
-			}
-
-			widget_content_object.html(widget_html);
-
-		}, "json");
-}
-
-$('#add_dashboard').on('shown.bs.modal', function () {
-	$('#dashboard_name').focus();
-});
-
-$('#add_dashboard').on('hidden.bs.modal', function () {
-	$('#dashboard_name').val("");
-});
-
-$(document).on("click", "#modal_confirm_button", function(){
-	if(typeof modal_confirm_function == "function"){
-		modal_confirm_function();
-	}
-});
-
-$(document).on("click", ".edit-widget", function(){
-
-	var container_object = $(this).parents(".flip-container");
-	var rawname = $(this).data("rawname");
-	var widget_id = $(this).data("widget_type_id");
-
-	if(!container_object.hasClass("flip")){
-
-		$(".settings-shown-blocker").show();
-
-		container_object.addClass("flip");
-		container_object.addClass("settings-shown");
-
-		var settings_container = container_object.find(".widget-settings-content");
-		get_settings_content(settings_container, widget_id, rawname);
-	}
-});
-
-$(document).on("click", ".close-settings", function(){
-
-	var container_object = $(this).parents(".flip-container");
-	var rawname = $(this).data("rawname");
-	var widget_id = $(this).data("widget_type_id");
-	
-	if(container_object.hasClass("flip")){
-
-		$(".settings-shown-blocker").hide();
-		container_object.removeClass("settings-shown");
-		container_object.removeClass("flip");
-
-		var widget_content_container = container_object.find(".widget-content");
-		get_widget_content(widget_content_container, widget_id, rawname);
-	}
-});
-
-//If got a click outside... we hide everything without saving
-$(document).on("click", ".settings-shown-blocker", function(){
-
-	var container_object = $(".flip-container.gs-w.flip.settings-shown");
-
-	if(container_object.hasClass("flip")){
-
-		$(".settings-shown-blocker").hide();
-		container_object.removeClass("settings-shown");
-		container_object.removeClass("flip");
-	}
-});
-
-/********************/
-/* NEW LAYOUT STUFF */
-/********************/
-
 var UCPC = Class.extend({
 	init: function() {
 		this.loggedIn = false;
@@ -536,7 +25,6 @@ var UCPC = Class.extend({
 		this.Modules = {};
 		this.calibrating = false;
 		this.UCPSettings = {packery: true};
-		this.activeDashboard = "first";
 
 		textdomain("ucp");
 	},
@@ -559,20 +47,39 @@ var UCPC = Class.extend({
 			UCP.setupLogin();
 		}
 
-		var dashboard_id = $(".gridster").data("dashboard_id");
-		this.activeDashboard = dashboard_id;
+		this.callModulesByMethod("ready",$.url().param());
+	},
+	callModuleByMethod: function() {
+		var args = [],
+				mdata = [];
 
-		/********************/
-		/* NEW LAYOUT STUFF */
-		/********************/
-		init_menu_dragabble();
-		init_categories_widgets();
-		init_add_widgets_buttons();
-		init_remove_item_buttons();
-		init_left_nav_bar_menus();
-		/********************/
-		/* NEW LAYOUT STUFF */
-		/********************/
+		Array.prototype.push.apply( args, arguments );
+		module = UCP.toTitleCase(args.shift());
+		method = args.shift();
+		if(UCP.validMethod(module, method)) {
+			if (typeof window[module] == "object" && typeof window[module][method] == "function") {
+				return window[module][method].apply( window[module] , args );
+			} else if (UCP.validMethod(module, method)) {
+				return UCP.Modules[module][method].apply( UCP.Modules[module] , args );
+			}
+		} else {
+			return null;
+		}
+	},
+	callModulesByMethod: function() {
+		var args = [],
+				mdata = [];
+
+		Array.prototype.push.apply( args, arguments );
+		method = args.shift();
+		$.each(modules, function( index, module ) {
+			if (typeof window[module] == "object" && typeof window[module][method] == "function") {
+				mdata[module] = window[module][method].apply( window[module] , args );
+			} else if (UCP.validMethod(module, method)) {
+				mdata[module] = UCP.Modules[module][method].apply( UCP.Modules[module] , args );
+			}
+		});
+		return mdata;
 	},
 	ajaxStart: function() {
 		$("#nav-btn-settings i").addClass("fa-spin");
@@ -954,19 +461,14 @@ var UCPC = Class.extend({
 		}
 	},
 	connect: function(username, password) {
+		var $this = this;
 		//Interval is in a callback to shortpoll to make sure we are "online"
 		UCP.displayGlobalMessage(_("Connecting...."), "rgba(128, 128, 128, 0.5)", true);
 		UCP.shortpoll(function() {
 			UCP.pollID = setInterval(function() {
 				UCP.shortpoll();
 			},5000);
-			$.each(modules, function( index, module ) {
-				if (typeof window[module] == "object" && typeof window[module].connect == "function") {
-					window[module].connect(username, password);
-				} else if (UCP.validMethod(module, "connect")) {
-					UCP.Modules[module].connect(username, password);
-				}
-			});
+			$this.callModulesByMethod("connect",username,password);
 			UCP.removeGlobalMessage();
 			UCP.websocketConnect();
 		});
@@ -976,13 +478,7 @@ var UCPC = Class.extend({
 		this.pollID = null;
 		this.polling = false;
 		$("#nav-btn-settings i").removeClass("fa-spin");
-		$.each(modules, function( index, module ) {
-			if (typeof window[module] == "object" && typeof window[module].disconnect == "function") {
-				window[module].disconnect();
-			} else if (UCP.validMethod(module, "disconnect")) {
-				UCP.Modules[module].disconnect();
-			}
-		});
+		this.callModulesByMethod("disconnect");
 		UCP.displayGlobalMessage(_("You are currently working in offline mode."), "rgba(128, 128, 128, 0.5)", true);
 		UCP.websocketDisconnect();
 	},
@@ -1013,13 +509,7 @@ var UCPC = Class.extend({
 		if (!UCP.polling) {
 			UCP.polling = true;
 			var mdata = {};
-			$.each(modules, function( index, module ) {
-				if (typeof window[module] == "object" && typeof window[module].prepoll == "function") {
-					mdata[module] = window[module].prepoll($.url().param());
-				} else if (UCP.validMethod(module, "prepoll")) {
-					mdata[module] = UCP.Modules[module].prepoll($.url().param());
-				}
-			});
+			mdata = this.callModulesByMethod("prepoll",$.url().param());
 			$.ajax({ url: "index.php", data: { quietmode: 1, command: "poll", data: $.url().param(), mdata: mdata }, success: function(data) {
 				if (data.status) {
 					if (typeof callback === "function") {
@@ -1337,25 +827,12 @@ var UCPC = Class.extend({
 		var display = $.url().param("display"),
 				sub = $.url().param("sub");
 
-		dashboard_widgets.init();
-
 		$("#nav-btn-settings .icon i").removeClass("out");
 		if (typeof window[this.activeModule] == "object" &&
 			typeof window[this.activeModule].hide == "function") {
 			window[this.activeModule].hide(event);
 		} else if (this.validMethod(this.activeModule, "hide")) {
 			this.Modules[this.activeModule].hide(event);
-		}
-
-		//Are we looking a dashboard?
-		var dashboard_id = $.url().param("dashboard");
-
-		if(typeof dashboard_id !== "undefined") {
-			this.activeDashboard = dashboard_id;
-
-			$(".dashboard-menu").removeClass("active");
-
-			$(".dashboard-menu[data-id='"+this.activeDashboard+"']").addClass("active");
 		}
 
 		if (typeof display === "undefined" || display == "dashboard") {
@@ -1382,12 +859,13 @@ var UCPC = Class.extend({
 
 		this.binds();
 
-		deactivate_full_loading();
+		this.callModulesByMethod("pjaxEnd",event);
+
 		NProgress.done();
 	},
 	pjaxStart: function(event) {
-		activate_full_loading();
 		NProgress.start();
+		this.callModulesByMethod("pjaxStart",event);
 	},
 	pjaxTimeout: function(event) {
 		//query higher up event here
