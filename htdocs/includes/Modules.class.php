@@ -167,7 +167,7 @@ class Modules extends Module_Helpers {
 	 * Get all module Javascripts
 	 * @param bool $force Whether to forcefully regenerate all cache even if we dont need to do so
 	 */
-	public function getGlobalScripts($force = false) {
+	public function getGlobalScripts($force = false,$packaged=true) {
 		$cache = dirname(__DIR__).'/assets/js/compiled/modules';
 		if(!file_exists($cache) && !mkdir($cache,0777,true)) {
 			die('Can Not Create Cache Folder at '.$cache);
@@ -185,7 +185,7 @@ class Modules extends Module_Helpers {
 				$dir = dirname(__DIR__)."/modules/".$module."/assets/js";
 				if(is_dir($dir)) {
 					foreach (glob($dir."/*.js") as $file) {
-						$files[] = $file;
+						$files[] = str_replace(dirname(__DIR__).'/modules/','modules/',$file);
 						$contents .= file_get_contents($file)."\n";
 					}
 				}
@@ -200,7 +200,8 @@ class Modules extends Module_Helpers {
 			$output = \JShrink\Minifier::minify($contents);
 			file_put_contents($cache.'/'.$filename,$output);
 		}
-		return $filename;
+
+		return (!$packaged) ? $files : array("assets/js/compiled/modules/".$filename);
 	}
 
 	/**

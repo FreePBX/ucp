@@ -86,6 +86,7 @@ var HomeC = UCPMC.extend({
 		);
 	},
 	resize: function() {
+		return;
 		var wasPackeryEnabled = this.packery;
 		this.packery = $(window).width() >= 768;
 		if (this.packery !== wasPackeryEnabled) {

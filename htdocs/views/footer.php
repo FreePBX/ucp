@@ -10,7 +10,9 @@
 			});
 			var languages = { locale_data : <?php echo $language ?> };
 		</script>
-		<script type="text/javascript" src="assets/js/compiled/main/<?php echo $gScripts?>"></script>
+		<?php foreach($gScripts as $file) { ?>
+			<script type="text/javascript" src="assets/js/<?php echo $file.$version_tag?>"></script>
+		<?php } ?>
 		<script src="assets/js/bootstrap-table-locale/bootstrap-table-en-US.js"></script>
 		<?php if($lang != "en_US") {
 			$html = '';
@@ -26,7 +28,9 @@
 			}
 			echo $html;
 		}?>
-		<script type="text/javascript" src="assets/js/compiled/modules/<?php echo $scripts?>"></script>
+		<?php foreach($scripts as $file) { ?>
+			<script type="text/javascript" src="<?php echo $file.$version_tag?>"></script>
+		<?php } ?>
 		<script>
 			var modules = <?php echo $modules?>;
 			var desktop = <?php echo $desktop ? "true" : "false"?>;

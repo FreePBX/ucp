@@ -4,6 +4,7 @@ var WidgetsC = Class.extend({
 		this.widgetMenuOpen = false;
 	},
 	ready: function() {
+		this.setupAddDashboard();
 		this.loadDashboard();
 		this.initMenuDragabble();
 		this.initCategoriesWidgets();
@@ -102,7 +103,7 @@ var WidgetsC = Class.extend({
 				};
 			},
 			widget_margins: [5, 5],
-			widget_base_dimensions: [75, 75],
+			widget_base_dimensions: ['auto', 75],
 			min_cols: 10,
 			min_rows: 15,
 			max_cols: 10,
@@ -412,7 +413,7 @@ var WidgetsC = Class.extend({
 						UCP.callModuleByMethod(clicked_module,"displaySmallWidgetSettings",clicked_id);
 
 					}else {
-						showAlert("There was an error getting the widget information, try again later", "danger");
+						$this.showAlert("There was an error getting the widget information, try again later", "danger");
 					}
 
 				}, "json");
@@ -484,7 +485,7 @@ var WidgetsC = Class.extend({
 							}
 
 						}else {
-							showAlert("Something went wrong removing the dashboard", "danger");
+							$this.showAlert("Something went wrong removing the dashboard", "danger");
 						}
 						$this.deactivateFullLoading();
 					}
@@ -655,6 +656,33 @@ var WidgetsC = Class.extend({
 				UCP.callModuleByMethod(widget_rawname,"displayWidgetSettings",widget_id,$this.activeDashboard);
 
 			}, "json");
+	},
+	setupAddDashboard: function() {
+		var $this = this;
+		$("#create_dashboard").click(function() {
+			if ($("#dashboard_name").length > 0) {
+				if ($("#dashboard_name").val().trim() === "") {
+					show_alert("You must put a dashboard name" , "danger", function(){ $("#add_dashboard").modal("show") });
+					$("#add_dashboard").modal("hide");
+				} else {
+					var queryString = $("#add_dashboard_form").attr("action") + "&" + $("#add_dashboard_form").formSerialize();
+
+					$this.activateFullLoading();
+
+					$.post( "index.php?", queryString, function( data ) {
+						if (!data.status) {
+							$("#error-msg").html(data.message).fadeIn("fast");
+						} else {
+							var new_dashboard_html = '<li class="menu-order dashboard-menu" data-id="'+data.id+'"><a data-pjax href="?dashboard='+data.id+'">'+$("#dashboard_name").val()+' <div class="remove-dashboard" data-dashboard_id="'+data.id+'"><i class="fa fa-times" aria-hidden="true"></i></div></a></li>';
+							$("#all_dashboards").append(new_dashboard_html);
+
+							$("#add_dashboard").modal("hide");
+						}
+						$this.deactivateFullLoading();
+					}, "json");
+				}
+			}
+		});
 	}
 
 });

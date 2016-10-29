@@ -165,7 +165,7 @@ class UCP extends UCP_Helpers {
 	 * Minified all scripts.
 	 * @param bool $force Whether to forcefully regenerate the minified JS
 	 */
-	public function getScripts($force = false) {
+	public function getScripts($force = false,$packaged=false) {
 		$cache = dirname(__DIR__).'/assets/js/compiled/main';
 		if(!file_exists($cache) && !mkdir($cache,0777,true)) {
 			die('Can Not Create Cache Folder at '.$cache);
@@ -173,42 +173,39 @@ class UCP extends UCP_Helpers {
 
 		//Loading order is important here
 		$globalJavascripts = array(
-			"socket.io.js",
-			"bootstrap-3.3.5.custom.min.js",
-			"bootstrap-table-1.9.0.js",
-			"bootstrap-table-cookie.js",
-			"bootstrap-table-toolbar.js",
-			"bootstrap-table-mobile.js",
-			"bootstrap-table-export.js",
-			"tableExport.js",
-			"jquery-ui-1.10.4.custom.min.js",
+			"jquery-migrate-3.0.0.js",
+			"socket.io-1.5.1.js",
+			"bootstrap-3.3.7.custom.min.js",
+			"bootstrap-table-1.11.0.min.js",
+			"bootstrap-table-extensions-1.11.0/bootstrap-table-cookie.min.js",
+			"bootstrap-table-extensions-1.11.0/bootstrap-table-toolbar.min.js",
+			"bootstrap-table-extensions-1.11.0/bootstrap-table-mobile.min.js",
+			"bootstrap-table-extensions-1.11.0/bootstrap-table-export.min.js",
+			"bootstrap-multiselect-0.9.13.js",
+			"tableexport-3.2.10.min.js",
+			"jquery-ui-1.12.1.min.js",
 			"gridster/jquery.gridster.with-extras.min.js",
-			/*"jquery.keyframes.min.js",*/
-			"fileinput.js",
+			"fileinput-3.1.3.js",
 			"recorder.js",
-			"jquery.iframe-transport.js",
-			"jquery.fileupload.js",
-			"jquery.form.min.js",
-			"jquery.jplayer.min.js",
-			/*"quo.js",*/
-			"localforage.js",
-			"purl.js",
-			"modernizr.js",
-			"jquery.pjax.js",
-			"notify.js",
-			"packery.pkgd.min.js",
+			"jquery.iframe-transport-9.12.5.js",
+			"jquery.fileupload-9.12.5.js",
+			"jquery.form-3.51.min.js",
+			"jquery.jplayer-2.9.2.min.js",
+			"purl-2.3.1.js",
+			"modernizr-3.3.1.js",
+			"jquery.pjax-1.9.6.js",
+			"notify-2.0.3.js",
 			"class.js",
-			/*"jquery.transit.min.js",*/
-			"jquery.textfill.min.js",
-			"jed.js",
+			"jquery.textfill-0.6.0.min.js",
+			"jed-1.1.1.js",
 			"modgettext.js",
-			"jquery.cookie.js",
-			"emojione.min.js",
-			"jquery.tokenize.js",
-			"moment.js",
-			"moment-timezone.js",
-			"nprogress.js",
-			"imagesloaded.pkgd.min.js",
+			"js.cookie-2.1.3.min.js",
+			"emojione-2.2.6.min.js",
+			"jquery.tokenize-2.6.js",
+			"moment-with-locales-2.15.1.min.js",
+			"moment-timezone-with-data-2010-2020-0.5.6.min.js",
+			"nprogress-0.2.0.js",
+			"imagesloaded.pkgd-4.1.1.min.js",
 			"ucp.js",
 			"module.js"
 		);
@@ -217,22 +214,28 @@ class UCP extends UCP_Helpers {
 		foreach ($globalJavascripts as $f) {
 			$file = dirname(__DIR__).'/assets/js/'.$f;
 			if(file_exists($file)) {
-				$files[] = $file;
-				$contents .= file_get_contents($file)."\n\n";
+				$files[] = str_replace(dirname(__DIR__).'/assets/js/','',$file);
+				$raw = file_get_contents($file);
+				if(!preg_match("/min\.js$/",$file)) {
+					$contents .= \JShrink\Minifier::minify($raw)."\n\n";
+				} else {
+					$contents .= $raw."\n\n";
+				}
+			} else {
+				throw new \Exception("Cant find $file");
 			}
 		}
 
 		$md5 = md5($contents);
 		$filename = 'jsphpg_'.$md5.'.js';
 		if(!file_exists($cache.'/'.$filename) || $force) {
-			foreach(glob($cache.'/jsphp_*.js') as $f) {
+			foreach(glob($cache.'/jsphpg_*.js') as $f) {
 				unlink($f);
 			}
-			$output = \JShrink\Minifier::minify($contents);
-			file_put_contents($cache.'/'.$filename,$output);
+			file_put_contents($cache.'/'.$filename,$contents);
 		}
 
-		return $filename;
+		return (!$packaged) ? $files : array("compiled/main/".$filename);
 	}
 
 	/**

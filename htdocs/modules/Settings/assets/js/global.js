@@ -19,6 +19,7 @@ var SettingsC = UCPMC.extend({
 		});
 	},
 	hide: function(event) {
+		return;
 		$(window).off("resize.Settings");
 		//$(".masonry-container").packery("destroy");
 		Settings.packery = false;
@@ -31,6 +32,7 @@ var SettingsC = UCPMC.extend({
 		});
 	},
 	resize: function() {
+		return;
 		var wasPackeryEnabled = Settings.packery;
 		Settings.packery = $(window).width() >= 768;
 		if (Settings.packery !== wasPackeryEnabled) {

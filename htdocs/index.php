@@ -314,8 +314,16 @@ if(!isset($_SERVER['HTTP_X_PJAX'])) {
 	$displayvars['lang'] = $lang;
 	$displayvars['ucpserver'] = json_encode($ucp->getServerSettings());
 	$displayvars['modules'] = json_encode($active_modules);
-	$displayvars['gScripts'] = $ucp->getScripts();
-	$displayvars['scripts'] = $ucp->Modules->getGlobalScripts();
+	$compressed = FreePBX::Config()->get("USE_PACKAGED_JS");
+	$version	 = $ucp->getVersion();
+	$version_tag = '?load_version=' . urlencode($version);
+	if (FreePBX::Config()->get('FORCE_JS_CSS_IMG_DOWNLOAD')) {
+		$this_time_append	= '.' . time();
+		$version_tag 		.= $this_time_append;
+	}
+	$displayvars['version_tag'] = $version_tag;
+	$displayvars['gScripts'] = $ucp->getScripts(false,$compressed);
+	$displayvars['scripts'] = $ucp->Modules->getGlobalScripts(false,$compressed);
 	$displayvars['timezone'] = $ucp->View->getTimezone();
 	$displayvars['timeformat'] = $ucp->View->getTimeFormat();
 	$displayvars['datetimeformat'] = $ucp->View->getDateTimeFormat();

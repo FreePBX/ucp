@@ -28,7 +28,7 @@ var UCPC = Class.extend({
 
 		textdomain("ucp");
 	},
-	ready: function() {
+	ready: function(loggedIn) {
 		$(window).resize(function() {UCP.windowResize();});
 		$(document).bind("logIn", function( event, username, password ) {UCP.logIn(event, username, password);});
 		$(document).bind("logOut", function( event ) {UCP.logOut(event);});
@@ -42,19 +42,23 @@ var UCPC = Class.extend({
 		if (!$("#login-window").length) {
 			UCP.setupDashboard();
 			$(document).trigger("logIn", [null, null]);
-			UCP.setupAddDashboard();
 		} else {
 			UCP.setupLogin();
 		}
 
+		this.binds();
+
 		this.callModulesByMethod("ready",$.url().param());
+	},
+	windowResize: function() {
+
 	},
 	callModuleByMethod: function() {
 		var args = [],
 				mdata = [];
 
 		Array.prototype.push.apply( args, arguments );
-		module = UCP.toTitleCase(args.shift());
+		module = args.shift().modularize();
 		method = args.shift();
 		if(UCP.validMethod(module, method)) {
 			if (typeof window[module] == "object" && typeof window[module][method] == "function") {
@@ -82,9 +86,11 @@ var UCPC = Class.extend({
 		return mdata;
 	},
 	ajaxStart: function() {
+		//TODO: this doesnt exit anymore
 		$("#nav-btn-settings i").addClass("fa-spin");
 	},
 	ajaxStop: function() {
+		//TODO: this doesnt exit anymore
 		$("#nav-btn-settings i").removeClass("fa-spin");
 	},
 	ajaxError: function(event, jqxhr, settings, exception) {
@@ -188,7 +194,7 @@ var UCPC = Class.extend({
 			$(".jsalert").text(_("Your browser is unsupported at this time. Please upgrade or talk to your system administrator"));
 			$("#login-window").height("300");
 		}
-		$("#loading-container").fadeOut("fast");
+		$(".main-block").addClass("hidden");
 	},
 	setupDashboard: function() {
 		var totalNavs = 0, navWidth = 33, Ucp = this;
@@ -214,22 +220,9 @@ var UCPC = Class.extend({
 				var container = $("#dashboard-content"),
 						clicker = $(this).data("mod");
 				$.pjax.click(event, { container: container });
-
-				$( ".pushmenu li").each(function( index ) {
-					if ($(this).data("mod") == clicker) {
-						$(this).addClass("active");
-					} else {
-						$(this).removeClass("active");
-					}
-				});
-				if ($(".pushmenu-left").hasClass("pushmenu-open")) {
-					$(".pushmenu-push").removeClass("pushmenu-push-toright");
-					$(".pushmenu-left").removeClass("pushmenu-open");
-				}
 			});
 		} else {
-			//no pjax support
-			//TODO: Im not sure what happens if we hit this?
+			alert(_("UCP is not supported in your browser"));
 		}
 		$("a.logout").click(function(event) {
 			event.preventDefault();
@@ -242,43 +235,6 @@ var UCPC = Class.extend({
 		$(document).on("pjax:start", function() {UCP.pjaxStart();});
 		$(document).on("pjax:timeout", function(event) {UCP.pjaxTimeout(event);});
 		$(document).on("pjax:error", function(event) {UCP.pjaxError(event);});
-
-		//Show/Hide Side Bar
-		$("#bc-mobile-icon").click(function() {
-			UCP.toggleMenu();
-		});
-
-		//mobile submenu display
-		$(".mobileSubMenu").click(function() {
-			var menu = $(this).data("mod");
-			$("#submenu-" + menu).slideToggle();
-		});
-
-		$("#footer").bind("transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd", function() { UCP.transitioning = false; });
-		$("#footer").bind("transitionstart webkitTransitionStart oTransitionStart MSTransitionStart", function() { UCP.transitioning = true; });
-
-		/*$("#dashboard-content").bind("scroll", function() {
-			if (UCP.transitioning || $( window ).width() > 767) {
-				return true;
-			}
-			st = $("#dashboard-content").scrollTop();
-			if (st > 40) {
-				UCP.footerHidden = true;
-				$("#footer").addClass("shrink");
-				$(document).trigger("hideFooter");
-				UCP.windowResize();
-			} else {
-				UCP.footerHidden = false;
-				$("#footer").removeClass("shrink");
-				$(document).trigger("mobileScrollUp");
-				$(document).trigger("showFooter");
-				UCP.windowResize();
-			}
-
-			UCP.lastScrollTop = st;
-		});*/
-
-		//UCP.windowResize();
 
 		//This allows browsers to request user notifications from said user.
 		$(document).click(function() {
@@ -307,83 +263,6 @@ var UCPC = Class.extend({
 			$(window).on("onpageshow onpagehide onfocus onblur", UCP.onchange);
 		}
 
-		//Detect if the client allows touch access.
-		if (Modernizr.touch) {
-			/*
-			$$("#dashboard").swipeLeft(function() {
-				if ($(".pushmenu-left").hasClass("pushmenu-open")) {
-					toggleMenu();
-				}
-			});
-			$$("#dashboard").swipeRight(function() {
-				if (!$(".pushmenu-left").hasClass("pushmenu-open")) {
-					toggleMenu();
-				}
-			});
-			*/
-		}
-		this.calibrateMenus();
-		$("#loading-container").fadeOut("fast");
-	},
-	calibrateMenus: function() {
-		//If we are currently calibrating or a menu is being displayed
-		//then dont calibrate
-		if(this.calibrating || $(".nav-btn-menu.active").length > 0) {
-			return;
-		}
-		this.calibrating = true;
-		//Menu adjustments
-		//$("#presence-box2").css("right", $(".nav-btns").width() + "px");
-		//$("#presence-menu2").css("right", $(".nav-btns").width() + "px");
-
-		totalNavs = $(".module-container").filter(":visible").length;
-		navWidth = $(".module-container").filter(":visible").last().outerWidth();
-
-		count = totalNavs;
-		$(".module-container").filter(":visible").each(function() {
-			var module = $(this).data("module"),
-			menuObj = $("#" + module + "-menu"),
-			btnObj = $("#nav-btn-" + module),
-			hidden = menuObj.outerHeight() + 30;
-			count--;
-			if (menuObj.length > 0) {
-				menuObj.css("right", (navWidth * count) + "px");
-				//reposition placement of menu
-				//hidding the full length of it
-				menuObj.data("hidden", hidden);
-				menuObj.css("top", "-" + hidden + "px");
-				//now "show" it (really it's hidden so show it to the dom)
-				menuObj.show();
-
-				//Show/Hide Settings Drop Down
-				$("#nav-btn-" + module).off("click");
-				$("#nav-btn-" + module).click(function() {
-					menuObj.toggleClass("active");
-					$("#nav-btn-" + module).toggleClass("active");
-					if (menuObj.css("top") == "36px") {
-						menuObj.css("top", "-" + menuObj.data("hidden") + "px");
-					} else {
-						menuObj.css("top", "36px");
-					}
-					//hide menu when clicked outside
-					$("html").on("click." + module, function(event) {
-						if ($(event.target).parents().index($("#nav-btn-" + module)) == -1) {
-							if ((menuObj.hasClass("active") &&
-									(menuObj.data("keep-on-click") != "false")) ||
-									(menuObj.hasClass("active") &&
-									(menuObj.data("keep-on-click") == "false") &&
-									($(event.target).parents().index($("#" + module + "-menu")) == -1))) {
-								menuObj.removeClass("active");
-								$("#nav-btn-" + module).removeClass("active");
-								menuObj.css("top", "-" + menuObj.data("hidden") + "px");
-								$("html").off("click." + module);
-							}
-						}
-					});
-				});
-			}
-		});
-		this.calibrating = false;
 	},
 	onchange: function(evt) {
 		var v = "visible", h = "hidden",
@@ -398,6 +277,7 @@ var UCPC = Class.extend({
 		} else {
 			state = this[UCP.hidden] ? "hidden" : "visible";
 		}
+		//TODO: call windowState of modules
 		if (typeof window[UCP.activeModule] == "object" &&
 			typeof window[UCP.activeModule].windowState == "function") {
 			window[UCP.activeModule].windowState(state);
@@ -533,63 +413,6 @@ var UCPC = Class.extend({
 			}, dataType: "json", type: "POST" });
 		}
 	},
-	windowResize: function() {
-		if($("#ucp-settings").length) {
-			var wasPackeryEnabled = this.UCPSettings.packery;
-			this.UCPSettings.packery = $(window).width() >= 768;
-			if (this.UCPSettings.packery !== wasPackeryEnabled) {
-				if (this.UCPSettings.packery) {
-					clearTimeout(this.doit);
-					this.doit = setTimeout(function() {
-						$(".section").css("width", "300px");
-						$(".section").css("margin-bottom", "");
-						$(".masonry-container").packery({
-							columnWidth: 40,
-							itemSelector: ".section"
-						});
-					}, 100);
-				} else {
-					this.UCPSettings.packery = false;
-					$(".masonry-container").packery("destroy");
-					$(".section").css("width", "100%");
-					$(".section").css("margin-bottom", "10px");
-				}
-			} else if (!this.UCPSettings.packery) {
-				$(".section").css("width", "100%");
-				$(".section").css("margin-bottom", "10px");
-			}
-		}
-		if ($( window ).width() > 767 && $(".pushmenu-left").hasClass("pushmenu-open")) {
-			UCP.toggleMenu();
-		}
-		if($(window).width() < 992) {
-			$('table[data-toggle=table]').each(function() {
-				if(!$(this).bootstrapTable('getOptions').cardView) {
-					//$(this).bootstrapTable('toggleView');
-				}
-			});
-			resizeMode = 'mobile';
-		} else {
-			$('table[data-toggle=table]').each(function() {
-				if($(this).bootstrapTable('getOptions').cardView) {
-					//$(this).bootstrapTable('toggleView');
-				}
-			});
-			resizeMode = 'desktop';
-		}
-
-		//run the resize hack against dashboard content
-		/*if ($("#dashboard-content").length) {
-			if (!UCP.footerHidden) {
-				$("#dashboard-content").height($("#dashboard").height() - 135);
-				$("#fs-navside").height($("#dashboard").height() - 135);
-				//presence-box2
-			} else {
-				$("#dashboard-content").height($("#dashboard").height() - 59);
-				$("#fs-navside").height($("#dashboard").height() - 59);
-			}
-		}*/
-	},
 	notificationsAllowed: function() {
 		this.notify = true;
 	},
@@ -597,6 +420,7 @@ var UCPC = Class.extend({
 		this.notify = false;
 	},
 	closeDialog: function(callback) {
+		//TODO: Use Carlos-Bootstrap Dialog
 		$(".dialog").fadeOut("fast", function(event) {
 			$(this).remove();
 			if (typeof callback === "function") {
@@ -605,6 +429,7 @@ var UCPC = Class.extend({
 		});
 	},
 	showDialog: function(title, content, height, width, callback) {
+		//TODO: Use Carlos-Bootstrap Dialog
 		var w = (typeof width !== "undefined") ? width : "250px",
 				h = (typeof height !== "undefined") ? height : "250px",
 				html = "<div class=\"dialog\" style=\"height:" + h + "px;width:" + w + "px;margin-top:-" + (h / 2) + "px;margin-left:-" + (w / 2) + "px;\"><div class=\"title\">" + title + "<i class=\"fa fa-times\" onclick=\"UCP.closeDialog()\"></i></div><div class=\"content\">" + content + "</div></div>";
@@ -794,16 +619,6 @@ var UCPC = Class.extend({
 			});
 		}
 	},
-	toggleMenu: function() {
-		$(".pushmenu-push").toggleClass("pushmenu-push-toright");
-		$(".pushmenu-left").toggleClass("pushmenu-open");
-		//dropdown-pushmenu
-		$( ".pushmenu .dropdown-pushmenu" ).each(function( index ) {
-			if ($(this).is(":visible")) {
-				$(this).slideToggle();
-			}
-		});
-	},
 	displayGlobalMessage: function(message, color, sticky) {
 		color = (typeof color !== "undefined") ? color : "#f76a6a;";
 		sticky = (typeof sticky !== "undefined") ? sticky : false;
@@ -824,43 +639,8 @@ var UCPC = Class.extend({
 		return str.replace(/\w\S*/g, function(txt) { return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase(); });
 	},
 	pjaxEnd: function(event) {
-		var display = $.url().param("display"),
-				sub = $.url().param("sub");
-
-		$("#nav-btn-settings .icon i").removeClass("out");
-		if (typeof window[this.activeModule] == "object" &&
-			typeof window[this.activeModule].hide == "function") {
-			window[this.activeModule].hide(event);
-		} else if (this.validMethod(this.activeModule, "hide")) {
-			this.Modules[this.activeModule].hide(event);
-		}
-
-		if (typeof display === "undefined" || display == "dashboard") {
-			this.activeModule = $.url().param("mod");
-			this.activeModule = (this.activeModule !== undefined) ? UCP.toTitleCase(this.activeModule) : "Home";
-			textdomain(this.activeModule.toLowerCase());
-			if (typeof window[this.activeModule] == "object" &&
-				typeof window[this.activeModule].display == "function") {
-				window[this.activeModule].display(event);
-			} else if (this.validMethod(this.activeModule, "display")) {
-				this.Modules[this.activeModule].display(event);
-			}
-
-		} else if (display == "settings") {
-			this.settingsBinds();
-		}
-
-		if (typeof UCP.Modules[this.activeModule] !== "undefined" && typeof UCP.Modules[this.activeModule].getInfo !== "undefined") {
-			var tmp = UCP.Modules[this.activeModule].getInfo();
-			name = tmp.name;
-		} else {
-			name = this.activeModule;
-		}
-
 		this.binds();
-
 		this.callModulesByMethod("pjaxEnd",event);
-
 		NProgress.done();
 	},
 	pjaxStart: function(event) {
@@ -898,330 +678,19 @@ var UCPC = Class.extend({
 		this.disconnect();
 	},
 	logIn: function(event, username, password) {
-		this.activeModule = $.url().param("mod");
-		this.activeModule = (this.activeModule !== undefined) ? UCP.toTitleCase(this.activeModule) : "Home";
+		//TODO: need to figure out text domains!
 		textdomain(this.activeModule.toLowerCase());
 		this.loggedIn = true;
 		this.connect(username, password);
 		if (!Notify.needsPermission() && this.notify === null) {
 			this.notify = true;
 		}
-		var display = $.url().param("display");
-		if (typeof display === "undefined" || display == "dashboard") {
-			if (typeof window[this.activeModule] == "object" &&
-				typeof window[this.activeModule].display == "function") {
-				window[this.activeModule].display(event);
-			} else if (this.validMethod(this.activeModule, "display")) {
-				this.Modules[this.activeModule].display(event);
-			}
-		} else if (display == "settings") {
-			this.settingsBinds();
-		}
-		this.binds();
 	},
 	logOut: function(event) {
-		if (typeof window[this.activeModule] == "object" &&
-			typeof window[this.activeModule].hide == "function") {
-			window[this.activeModule].hide(event);
-		} else if (this.validMethod(this.activeModule, "hide")) {
-			this.Modules[this.activeModule].hide(event);
-		}
-		localforage.clear();
 		this.loggedIn = false;
 		this.disconnect();
 	},
-	settingsBinds: function() {
-		$("#ucp-settings .masonry-container").packery({
-			columnWidth: 40,
-			itemSelector: ".section"
-		});
-		if (Notify.isSupported()) {
-			$("#ucp-settings input[name=\"desktopnotifications\"]").prop("checked", UCP.notify);
-			$("#ucp-settings input[name=\"desktopnotifications\"]").off();
-			$("#ucp-settings input[name=\"desktopnotifications\"]").change(function() {
-				if (!UCP.notify && $(this).is(":checked")) {
-					Notify.requestPermission(function() {
-						UCP.notificationsAllowed();
-						$("#ucp-settings input[name=\"desktopnotifications\"]").prop("checked", true);
-						$("#message").addClass("alert-success");
-						$("#message").text("Saved!");
-						$("#message").fadeIn( "slow", function() {
-							setTimeout(function() { $("#message").fadeOut("slow"); }, 2000);
-						});
-					}, function() {
-						UCP.notificationsDenied();
-						$("#ucp-settings input[name=\"desktopnotifications\"]").prop("checked", false);
-					});
-				} else {
-					UCP.notify = false;
-					$("#message").addClass("alert-success");
-					$("#message").text("Saved!");
-					$("#message").fadeIn( "slow", function() {
-						setTimeout(function() { $("#message").fadeOut("slow"); }, 2000);
-					});
-				}
-			});
-			$("#ucp-settings .desktopnotifications-group").show(function() {
-				$("#ucp-settings .masonry-container").packery();
-			});
-		}
-
-		if (typeof $.cookie("lang") !== "undefined") {
-			$("#ucp-settings select[name=\"lang\"]").val($.cookie("lang"));
-		}
-		$("#ucp-settings select[name=\"lang\"]").change(function() {
-			$.cookie("lang", $(this).val());
-			if (confirm(_("UCP needs to reload, ok?"))) {
-				window.location.reload();
-			}
-		});
-
-		$("#ucp-settings input[type!=\"checkbox\"]").off();
-		$("#ucp-settings input[name=username]").keyup(function() {
-			var parent = $(this).parents(".form-group"), green = "rgba(60, 118, 61, 0.11)", red = 'rgba(169, 68, 66, 0.11)', $this = this;
-			parent.removeClass("has-success has-error");
-			$(this).css("background-color","");
-			//check username input
-			if($(this).val() != $(this).data("prevusername")) {
-				$.post( "?quietmode=1&command=ucpsettings", { key: "usernamecheck", value: $(this).val() }, function( data ) {
-					if(data.status) {
-						parent.addClass("has-success");
-						$($this).css("background-color",green);
-					} else {
-						parent.addClass("has-error");
-						$($this).css("background-color",red);
-					}
-				});
-			}
-		});
-		$("#update-pwd").click(function(e) {
-			e.preventDefault();
-			e.stopPropagation();
-			var password = $("#pwd").val(), confirm = $("#pwd-confirm").val();
-			if (password !== "" && password != "******" && confirm !== "") {
-				if (confirm != password) {
-					$("#message").addClass("alert-danger");
-					$("#message").text(_("Password Confirmation Didn't Match!"));
-					$("#message").fadeIn( "fast" );
-				} else {
-					$.post( "?quietmode=1&command=ucpsettings", { key: "password", value: confirm }, function( data ) {
-						if (data.status) {
-							$("#message").addClass("alert-success");
-							$("#message").text(_("Saved!"));
-							$("#message").fadeIn( "slow", function() {
-								setTimeout(function() { $("#message").fadeOut("slow"); }, 2000);
-							});
-						} else {
-							$("#message").addClass("alert-danger");
-							$("#message").text(data.message);
-						}
-					});
-				}
-			} else {
-				$("#message").addClass("alert-danger");
-				$("#message").text(_("Password has not changed!"));
-				$("#message").fadeIn( "fast" );
-			}
-		});
-		$("#ucp-settings input[type!=\"checkbox\"]").change(function() {
-			var password = $(this).val();
-			if ($(this).prop("type") == "password") {
-				return;
-			}
-			$(this).blur(function() {
-				$(this).off("blur");
-				if($(this).prop("name") == "username") {
-					if($(this).val() != $(this).data("prevusername")) {
-						//do ajax
-						if($(this).parents(".form-group").hasClass("has-success")) {
-							if(confirm(_("Are you sure you wish to change your username?"))) {
-								$.post( "?quietmode=1&command=ucpsettings", { key: "username", value: $(this).val() }, function( data ) {
-									if(data.status) {
-										alert(_("Username has been changed, reloading"));
-										location.reload();
-									} else {
-										alert(data.message);
-									}
-								});
-							}
-						} else {
-
-						}
-					}
-				} else {
-					$.post( "?quietmode=1&command=ucpsettings", { key: $(this).prop("name"), value: $(this).val() }, function( data ) {
-						if (data.status) {
-							$("#message").addClass("alert-success");
-							$("#message").text(_("Saved!"));
-							$("#message").fadeIn( "slow", function() {
-								setTimeout(function() { $("#message").fadeOut("slow"); }, 2000);
-							});
-						} else {
-							$("#message").addClass("alert-danger");
-							$("#message").text(data.message);
-						}
-						$(this).off("blur");
-					});
-				}
-			});
-		});
-		if($("#Contactmanager-image").length) {
-			/**
-			 * Drag/Drop/Upload Files
-			 */
-			$('#contactmanager_dropzone').on('drop dragover', function (e) {
-				e.preventDefault();
-			});
-			$('#contactmanager_dropzone').on('dragleave drop', function (e) {
-				$(this).removeClass("activate");
-			});
-			$('#contactmanager_dropzone').on('dragover', function (e) {
-				$(this).addClass("activate");
-			});
-			var supportedRegExp = "png|jpg|jpeg";
-			$( document ).ready(function() {
-				$('#contactmanager_imageupload').fileupload({
-					dataType: 'json',
-					dropZone: $("#contactmanager_dropzone"),
-					add: function (e, data) {
-						//TODO: Need to check all supported formats
-						var sup = "\.("+supportedRegExp+")$",
-								patt = new RegExp(sup),
-								submit = true;
-						$.each(data.files, function(k, v) {
-							if(!patt.test(v.name.toLowerCase())) {
-								submit = false;
-								alert(_("Unsupported file type"));
-								return false;
-							}
-						});
-						if(submit) {
-							$("#contactmanager_upload-progress .progress-bar").addClass("progress-bar-striped active");
-							data.submit();
-						}
-					},
-					drop: function () {
-						$("#contactmanager_upload-progress .progress-bar").css("width", "0%");
-					},
-					dragover: function (e, data) {
-					},
-					change: function (e, data) {
-					},
-					done: function (e, data) {
-						$("#contactmanager_upload-progress .progress-bar").removeClass("progress-bar-striped active");
-						$("#contactmanager_upload-progress .progress-bar").css("width", "0%");
-
-						if(data.result.status) {
-							$("#contactmanager_dropzone img").attr("src",data.result.url);
-							$("#contactmanager_image").val(data.result.filename);
-							$("#contactmanager_dropzone img").removeClass("hidden");
-							$("#contactmanager_del-image").removeClass("hidden");
-							$("#contactmanager_gravatar").prop('checked', false);
-						} else {
-							alert(data.result.message);
-						}
-					},
-					progressall: function (e, data) {
-						var progress = parseInt(data.loaded / data.total * 100, 10);
-						$("#contactmanager_upload-progress .progress-bar").css("width", progress+"%");
-					},
-					fail: function (e, data) {
-					},
-					always: function (e, data) {
-					}
-				});
-
-				$("#contactmanager_del-image").click(function(e) {
-					e.preventDefault();
-					e.stopPropagation();
-					var id = $("input[name=user]").val(),
-							grouptype = 'userman';
-					$.post( "?quietmode=1&module=Contactmanager&command=delimage", {id: id, img: $("#contactmanager_image").val()}, function( data ) {
-						if(data.status) {
-							$("#contactmanager_image").val("");
-							$("#contactmanager_dropzone img").addClass("hidden");
-							$("#contactmanager_dropzone img").attr("src","");
-							$("#contactmanager_del-image").addClass("hidden");
-							$("#contactmanager_gravatar").prop('checked', false);
-						}
-					});
-				});
-
-				$("#contactmanager_gravatar").change(function() {
-					if($(this).is(":checked")) {
-						var id = $("input[name=user]").val(),
-								grouptype = 'userman';
-						if($("#email").val() === "") {
-							alert(_("No email defined"));
-							$("#contactmanager_gravatar").prop('checked', false);
-							return;
-						}
-						var t = $("label[for=contactmanager_gravatar]").text();
-						$("label[for=contactmanager_gravatar]").text(_("Loading..."));
-						$.post( "?quietmode=1&module=Contactmanager&command=getgravatar", {id: id, grouptype: grouptype, email: $("#email").val()}, function( data ) {
-							$("label[for=contactmanager_gravatar]").text(t);
-							if(data.status) {
-								$("#contactmanager_dropzone img").data("oldsrc",$("#dropzone img").attr("src"));
-								$("#contactmanager_dropzone img").attr("src",data.url);
-								$("#contactmanager_image").data("old",$("#image").val());
-								$("#contactmanager_image").val(data.filename);
-								$("#contactmanager_dropzone img").removeClass("hidden");
-								$("#contactmanager_del-image").removeClass("hidden");
-							} else {
-								alert(data.message);
-								$("#contactmanager_gravatar").prop('checked', false);
-							}
-						});
-					} else {
-						var oldsrc = $("#contactmanager_dropzone img").data("oldsrc");
-						if(typeof oldsrc !== "undefined" && oldsrc !== "") {
-							$("#contactmanager_dropzone img").attr("src",oldsrc);
-							$("#contactmanager_image").val($("#image").data("old"));
-						} else {
-							$("#contactmanager_image").val("");
-							$("#contactmanager_dropzone img").addClass("hidden");
-							$("#contactmanager_dropzone img").attr("src","");
-							$("#contactmanager_del-image").addClass("hidden");
-						}
-					}
-				});
-			});
-		}
-	},
 	binds: function() {
-		var UCPSettings = this.UCPSettings;
-		$(".form-group label.help").off("click");
-		$(".form-group label.help").click(function() {
-			var f = $(this).prop("for");
-			if (!$(".help-hidden[data-for=\"" + f + "\"]").is(":visible")) {
-				//hide all others
-				$(".help-hidden").fadeOut("slow", function() {
-					if (("#ucp-settings .masonry-container").length && UCPSettings.packery) {
-						$("#ucp-settings .masonry-container").packery();
-					}
-					if (("#module-page-settings .masonry-container").length && Settings.packery) {
-						$("#module-page-settings .masonry-container").packery();
-					}
-				});
-				//display our reference
-				$(".help-hidden[data-for=\"" + f + "\"]").fadeIn("slow");
-				if (("#ucp-settings .masonry-container").length && UCPSettings.packery) {
-					$("#ucp-settings .masonry-container").packery();
-				}
-				if (("#module-page-settings .masonry-container").length && Settings.packery) {
-					$("#module-page-settings .masonry-container").packery();
-				}
-			} else {
-				$(".help-hidden[data-for=\"" + f + "\"]").fadeOut("slow", function() {
-					if (("#ucp-settings .masonry-container").length && UCPSettings.packery) {
-						$("#ucp-settings .masonry-container").packery();
-					}
-					if (("#module-page-settings .masonry-container").length && Settings.packery) {
-						$("#module-page-settings .masonry-container").packery();
-					}
-				});
-			}
-		});
 		$('table[data-toggle="table"]').bootstrapTable();
 	},
 	dateTimeFormatter: function(unixtimestamp) {
@@ -1235,48 +704,10 @@ var UCPC = Class.extend({
 	dateFormatter: function(unixtimestamp) {
 		unixtimestamp = parseInt(unixtimestamp);
 		return moment.unix(unixtimestamp).tz(timezone).format(dateformat);
-	},
-	updateNavBadge: function(button, num) {
-		var badge = $("#nav-btn-" + button + " .badge");
-		if (num > 0) {
-			badge.text(num);
-			badge.fadeIn("fast");
-		} else {
-			badge.fadeOut("fast", function() {
-				badge.text(0);
-			});
-		}
-	},
-	setupAddDashboard: function() {
-		$("#create_dashboard").click(function() {
-			if ($("#dashboard_name").length > 0) {
-				if ($("#dashboard_name").val().trim() === "") {
-					show_alert("You must put a dashboard name" , "danger", function(){ $("#add_dashboard").modal("show") });
-					$("#add_dashboard").modal("hide");
-				} else {
-					var queryString = $("#add_dashboard_form").attr("action") + "&" + $("#add_dashboard_form").formSerialize();
-
-					activate_full_loading();
-
-					$.post( "index.php?", queryString, function( data ) {
-						if (!data.status) {
-							$("#error-msg").html(data.message).fadeIn("fast");
-						} else {
-							var new_dashboard_html = '<li class="menu-order dashboard-menu" data-id="'+data.id+'"><a data-pjax href="?dashboard='+data.id+'">'+$("#dashboard_name").val()+' <div class="remove-dashboard" data-dashboard_id="'+data.id+'"><i class="fa fa-times" aria-hidden="true"></i></div></a></li>';
-							$("#all_dashboards").append(new_dashboard_html);
-
-							$("#add_dashboard").modal("hide");
-						}
-						deactivate_full_loading();
-					}, "json");
-				}
-			}
-		});
 	}
-
 }), UCP = new UCPC();
 $(function() {
-	UCP.ready();
+	UCP.ready(UCP.loggedIn);
 });
 
 String.prototype.modularize = function() {

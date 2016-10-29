@@ -9,13 +9,12 @@
 		<![endif]-->
 		<?php } ?>
 
-		<link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css">
-		<link href="assets/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+		<link href="assets/css/bootstrap-3.3.7.min.css" rel="stylesheet" type="text/css">
+		<link href="assets/css/font-awesome.min-4.7.0.css" rel="stylesheet" type="text/css">
 		<link href="assets/css/compiled/main/<?php echo $sfcssless?>" rel="stylesheet" type="text/css">
 
-		<link href="assets/css/bootstrap-select.min.css" rel="stylesheet" type="text/css">
-		<link href="assets/css/emojione.min.css" rel="stylesheet" type="text/css">
-		<link href="assets/css/jquery.tokenize.css" rel="stylesheet" type="text/css">
+		<link href="assets/css/emojione-2.2.6.min.css" rel="stylesheet" type="text/css">
+		<link href="assets/css/jquery.tokenize-2.6.css" rel="stylesheet" type="text/css">
 		<link href="assets/css/gridster/jquery.gridster.min.css" rel="stylesheet" type="text/css">
 		<link href="assets/css/compiled/main/<?php echo $ucpcssless?>" rel="stylesheet" type="text/css">
 
@@ -51,7 +50,7 @@
 		  </style>
 		<![endif]-->
 		<?php } ?>
-		<script type="text/javascript" src="assets/js/jquery-1.11.3.min.js"></script>
+		<script type="text/javascript" src="assets/js/jquery-3.1.1.min.js"></script>
 		<!-- Display hack for localization on checkbox switches -->
 		<style>
 			.onoffswitch-inner:before {
