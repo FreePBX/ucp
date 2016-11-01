@@ -115,7 +115,7 @@ class Modules extends Module_Helpers {
 	 */
 	function getAssignedDevices() {
 		$user = $this->UCP->User->getUser();
-		return $user['assigned'];
+		return !empty($user['assigned']) ? $user['assigned'] : array();
 	}
 
 	/**
