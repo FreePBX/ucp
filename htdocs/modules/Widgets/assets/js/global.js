@@ -27,7 +27,7 @@ var WidgetsC = Class.extend({
 	},
 	loadDashboard: function() {
 		var $this = this;
-		if(!$(".gridster ul").length) {
+		if(!$(".gridster > ul").length) {
 			return;
 		}
 
@@ -87,7 +87,7 @@ var WidgetsC = Class.extend({
 			}
 		});
 
-		$(".gridster ul").gridster({
+		$(".gridster > ul").gridster({
 			serialize_params: function($w, wgd){
 				return {
 					id: $w.attr('data-id'),
@@ -126,7 +126,7 @@ var WidgetsC = Class.extend({
 			}
 		});
 
-		var gridster = $(".gridster ul").gridster().data('gridster');
+		var gridster = $(".gridster > ul").gridster().data('gridster');
 
 		gridster.$widgets.each(function(){
 			if(!$(this).hasClass("add-widget-widget")){
@@ -149,7 +149,7 @@ var WidgetsC = Class.extend({
 	saveLayoutContent: function() {
 		this.activateFullLoading();
 		var $this = this;
-		var gridster_object = $(".gridster ul").gridster().data('gridster');
+		var gridster_object = $(".gridster > ul").gridster().data('gridster');
 		var gridData = gridster_object.serialize();
 		var gridDataSerialized = JSON.stringify(gridData);
 
@@ -430,7 +430,7 @@ var WidgetsC = Class.extend({
 			var widget_type_id = $(this).data("widget_type_id");
 
 			$this.showConfirm("Are you sure you want to delete this widget?", "warning", function() {
-				var gridster_object = $(".gridster ul").gridster().data('gridster');
+				var gridster_object = $(".gridster > ul").gridster().data('gridster');
 				UCP.callModuleByMethod(widget_rawname,"deleteWidget",widget_type_id,$this.activeDashboard);
 				gridster_object.remove_widget($(".gs-w[data-id='" + widget_id + "']"), function() {
 					$this.saveLayoutContent();
@@ -533,7 +533,7 @@ var WidgetsC = Class.extend({
 							var widget_html = data.html;
 							var full_widget_html = $this.widget_layout(new_widget_id, widget_module_name, widget_name, widget_id, widget_rawname, widget_has_settings, widget_html);
 
-							var gridster_object = $(".gridster ul").gridster().data('gridster');
+							var gridster_object = $(".gridster > ul").gridster().data('gridster');
 							//We are adding the widget always on the position 1,1
 							gridster_object.add_widget(full_widget_html, default_size_x, default_size_y, 1, 1);
 							UCP.callModuleByMethod(widget_rawname,"displayWidget",widget_id,$this.activeDashboard);
