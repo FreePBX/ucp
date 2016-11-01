@@ -506,7 +506,7 @@ var WidgetsC = Class.extend({
 			var widget_name = $(this).data('widget_name');
 			var widget_has_settings = $(this).data('has_settings');
 
-			var new_widget_id = current_dashboard_id + "-" + widget_id;
+			var new_widget_id = current_dashboard_id + "-" + widget_rawname + "-" + widget_id;
 
 			var default_size_x = $(this).data('size_x');
 			var default_size_y = $(this).data('size_y');
