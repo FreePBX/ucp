@@ -116,6 +116,7 @@ var WidgetsC = Class.extend({
 			resize: {
 				enabled: true,
 				stop: function(){
+					UCP.callModulesByMethod("resize",this.activeDashboard);
 					$this.saveLayoutContent();
 				}
 			},
@@ -632,6 +633,7 @@ var WidgetsC = Class.extend({
 
 				widget_content_object.html(widget_html);
 				UCP.callModuleByMethod(widget_rawname,"displayWidget",widget_id,$this.activeDashboard);
+				UCP.callModuleByMethod(widget_rawname,"resize",$this.activeDashboard);
 
 			}, "json");
 	},
