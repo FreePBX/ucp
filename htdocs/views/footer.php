@@ -31,6 +31,7 @@
 		<?php foreach($scripts as $file) { ?>
 			<script type="text/javascript" src="<?php echo $file.$version_tag?>"></script>
 		<?php } ?>
+		<script src="assets/js/bootstrap-toggle-2.2.2.min.js"></script>
 		<script>
 			var modules = <?php echo $modules?>;
 			var desktop = <?php echo $desktop ? "true" : "false"?>;
@@ -41,6 +42,13 @@
 			var datetimeformat = '<?php echo $datetimeformat ?>';
 			emojione.imagePathPNG = 'assets/images/emoji/png/';
 			emojione.imagePathSVG = 'assets/images/emoji/svg/';
+			$(document).on("post-body.widgets",function(){
+				$('input[type=checkbox]').each(function(){
+					if($(this).data('toggle') === 'toggle'){
+						$(this).bootstrapToggle();
+					}
+				});
+			});
 		</script>
 		<div id="shade"></div>
 	</body>
