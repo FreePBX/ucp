@@ -16,6 +16,7 @@
 		<link href="assets/css/emojione-2.2.6.min.css" rel="stylesheet" type="text/css">
 		<link href="assets/css/jquery.tokenize-2.6.css" rel="stylesheet" type="text/css">
 		<link href="assets/css/gridster/jquery.gridster.min.css" rel="stylesheet" type="text/css">
+		<link href="assets/css/bootstrap-toggle-2.2.2.min.css" rel="stylesheet" type="text/css">
 		<link href="assets/css/compiled/main/<?php echo $ucpcssless?>" rel="stylesheet" type="text/css">
 
 		<link href="assets/css/compiled/modules/<?php echo $ucpmoduleless?>" rel="stylesheet" type="text/css">

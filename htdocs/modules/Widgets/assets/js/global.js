@@ -70,7 +70,9 @@ var WidgetsC = Class.extend({
 				container_object.removeClass("flip");
 
 				var widget_content_container = container_object.find(".widget-content");
-				$this.getWidgetContent(widget_content_container, widget_id, rawname);
+				$this.getWidgetContent(widget_content_container, widget_id, rawname, function() {
+					$(document).trigger("post-body.widgets",[ $this.activeDashboard ]);
+				});
 			}
 		});
 
@@ -128,13 +130,17 @@ var WidgetsC = Class.extend({
 		});
 
 		var gridster = $(".gridster > ul").gridster().data('gridster');
-
-		gridster.$widgets.each(function(){
+		var count = gridster.$widgets.length;
+		gridster.$widgets.each(function(i,v){
 			if(!$(this).hasClass("add-widget-widget")){
 				var widget_id = $(this).attr('data-widget_type_id');
 				var widget_rawname = $(this).attr('data-rawname');
 				var widget_content_container = $(this).find(".widget-content");
-				$this.getWidgetContent(widget_content_container, widget_id, widget_rawname);
+				$this.getWidgetContent(widget_content_container, widget_id, widget_rawname, function() {
+					if((count - 1) == i) {
+						$(document).trigger("post-body.widgets",[ $this.activeDashboard ]);
+					}
+				});
 			}
 		});
 
@@ -538,6 +544,7 @@ var WidgetsC = Class.extend({
 							//We are adding the widget always on the position 1,1
 							gridster_object.add_widget(full_widget_html, default_size_x, default_size_y, 1, 1);
 							UCP.callModuleByMethod(widget_rawname,"displayWidget",widget_id,$this.activeDashboard);
+							$(document).trigger("post-body.widgets",[ $this.activeDashboard ]);
 							$this.saveLayoutContent();
 						}else {
 							$this.showAlert("There was an error getting the widget information, try again later", "danger");
@@ -614,7 +621,7 @@ var WidgetsC = Class.extend({
 			$("div.bhoechie-tab>div.bhoechie-tab-content").eq(index).addClass("active");
 		});
 	},
-	getWidgetContent: function(widget_content_object, widget_id, widget_rawname){
+	getWidgetContent: function(widget_content_object, widget_id, widget_rawname, callback){
 		var $this = this;
 		this.activateWidgetLoading(widget_content_object);
 
@@ -635,6 +642,9 @@ var WidgetsC = Class.extend({
 				UCP.callModuleByMethod(widget_rawname,"displayWidget",widget_id,$this.activeDashboard);
 				UCP.callModuleByMethod(widget_rawname,"resize",$this.activeDashboard);
 
+				if(typeof callback === "function") {
+					callback(data);
+				}
 			}, "json");
 	},
 	getSettingsContent: function(widget_content_object, widget_id, widget_rawname){
@@ -686,5 +696,4 @@ var WidgetsC = Class.extend({
 			}
 		});
 	}
-
 });
