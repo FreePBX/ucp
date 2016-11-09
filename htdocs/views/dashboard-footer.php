@@ -67,7 +67,7 @@
 														<div class="widget-title col-md-11">
 															<h4><?php echo $widget_list["display"]; ?>
 																<br>
-																<small class="m-r">Widget description</small>
+																<small class="m-r"><?php echo isset($widget_category_info["description"])?$widget_category_info["description"]:''?></small>
 															</h4>
 														</div>
 														<div class="widget-add-container top-offset text-center">
@@ -90,7 +90,7 @@
 																<div class="widget-title col-md-11">
 																	<h4><?php echo $widget_list["display"]; ?>
 																		<br>
-																		<small class="m-r">Small Widget description</small>
+																		<small class="m-r"><?php echo isset($widget_category_info["description"])?$widget_category_info["description"]:''?></small>
 																	</h4>
 																</div>
 																<div class="widget-add-container top-offset text-center">
