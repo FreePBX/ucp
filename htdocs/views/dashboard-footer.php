@@ -171,7 +171,7 @@
 					<h4 class="modal-title" id="globalModalLabel"></h4>
 				</div>
 				<div class="modal-body" id="globalModalBody">
-				<div class="modal-footer" id="globalModslFooter">
+				<div class="modal-footer" id="globalModalFooter">
 				</div>
 			</div>
 		</div>
