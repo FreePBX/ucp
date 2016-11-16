@@ -160,3 +160,19 @@
 			</div>
 		</div>
 	</div>
+	<!-- Global empty Modal -->
+	<div class="modal fade" id="globalModal"  role="dialog" aria-hidden="true" data-backdrop="false">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+					<h4 class="modal-title" id="globalModalLabel"></h4>
+				</div>
+				<div class="modal-body" id="globalModalBody">
+				<div class="modal-footer" id="globalModslFooter">
+				</div>
+			</div>
+		</div>
+	</div>

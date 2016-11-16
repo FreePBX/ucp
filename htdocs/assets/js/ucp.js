@@ -732,5 +732,17 @@ function htmlDecode( html ) {
 	return a.textContent;
 }
 
+$('#globalModal').on('shown.bs.modal',function(){
+	//z-index issue in chrome. backdrop loads in front of modal so we just trash it.
+	//This is a twbs 3.x issue https://github.com/twbs/bootstrap/issues/16148
+	$('.modal-backdrop').css('display','none');
+});
+$('#globalModal').on('hide.bs.modal',function(){
+	$('#globalModalLabel').html("");
+	$('#globalModalBody').html("");
+	$('#globalModalFooter').html("");
+});
+
+
 /** Language, global functions so they act like php procedurals **/
 UCP.i18n = new Jed(languages);
