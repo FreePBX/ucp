@@ -10,16 +10,16 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-10-26 20:41+1000\n"
-"PO-Revision-Date: 2016-02-05 11:16+0200\n"
-"Last-Translator: Nicolas Riendeau <freepbx@riendeau.org>\n"
-"Language-Team: French <http://weblate.freepbx.org/projects/freepbx/ucp/fr_FR/"
-">\n"
+"PO-Revision-Date: 2016-11-19 23:44+0200\n"
+"Last-Translator: Pascal <pascal.noyel@ipexia.com>\n"
+"Language-Team: French "
+"<http://weblate.freepbx.org/projects/freepbx/ucp/fr_FR/>\n"
+"Language: fr_FR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: fr_FR\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 2.2-dev\n"
+"X-Generator: Weblate 2.4\n"
 
 #: htdocs/assets/js/bootstrap-table-1.9.0.js:635
 #: htdocs/assets/js/bootstrap-table-1.9.0.js:636
@@ -55,7 +55,7 @@ msgstr "ABC"
 
 #: htdocs/views/settings.php:8
 msgid "Account Settings"
-msgstr ""
+msgstr "Paramètres du compte"
 
 #: views/users_hook.php:78
 msgid "Active Sessions"
@@ -69,6 +69,8 @@ msgstr "Admin"
 msgid ""
 "All fields update when unfocused (selecting another field) except password"
 msgstr ""
+"Tous les champs se mettent à jour lorsqu'ils ne sont pas mi en valeur (en "
+"sélectionnant un autre champs) à l'exception du mot de passe"
 
 #: htdocs/views/settings.php:111
 msgid "Allow Desktop Notifications"
@@ -102,7 +104,7 @@ msgstr ""
 
 #: ucp.i18n.php:24
 msgid "Allow users to change their username in UCP"
-msgstr ""
+msgstr "Autoriser les utilisateurs à changer leur nom d'utilisateur dans l'UCP"
 
 #: ucp.i18n.php:18
 msgid "Allow users to change thier password in UCP"
@@ -118,7 +120,7 @@ msgstr "Êtes-vous sûr de vouloir changer votre nom d'utilisateur ?"
 
 #: htdocs/views/settings.php:140
 msgid "Browse"
-msgstr ""
+msgstr "Naviguer"
 
 #: htdocs/views/templates/phone.php:7 htdocs/views/templates/phone.php:95
 msgid "Call"
@@ -138,7 +140,7 @@ msgstr "Confirmer le mot de passe"
 
 #: htdocs/views/settings.php:127
 msgid "Contact Image"
-msgstr ""
+msgstr "Image du contact"
 
 #: htdocs/views/templates/phone.php:45
 msgid "DEF"
@@ -146,7 +148,7 @@ msgstr "DEF"
 
 #: htdocs/views/settings.php:135
 msgid "Delete Image"
-msgstr ""
+msgstr "Supprimer l'image"
 
 #: Ucp.class.php:777
 msgid "Deleted Session"
@@ -166,7 +168,7 @@ msgstr "Terminé"
 
 #: htdocs/views/settings.php:132
 msgid "Drop a new image here"
-msgstr ""
+msgstr "Déposer une nouvelle image ici"
 
 #: htdocs/views/login.php:29 htdocs/views/settings.php:49
 msgid "Email"
@@ -174,7 +176,7 @@ msgstr "Courriel"
 
 #: htdocs/includes/User.class.php:78
 msgid "Email address unknown!"
-msgstr ""
+msgstr "Adresse email inconnue !"
 
 #: views/users_hook.php:144
 msgid "Enable Originating Calls"
@@ -182,7 +184,7 @@ msgstr "Permettre de placer des appels"
 
 #: htdocs/modules/Settings/Settings.class.php:83
 msgid "Endpoint Settings"
-msgstr ""
+msgstr "Paramètres Endpoint"
 
 #: htdocs/index.php:156
 msgid "English"
@@ -268,7 +270,7 @@ msgstr "Hérite"
 
 #: htdocs/views/settings.php:99
 msgid "Interface Settings"
-msgstr ""
+msgstr "Paramètres de l'interface"
 
 #: htdocs/index.php:253
 #, php-format
@@ -349,7 +351,7 @@ msgstr "Module ou commande nulle. Vérifiez votre code."
 
 #: htdocs/assets/js/ucp.js:95
 msgid "New password and old password do not match"
-msgstr ""
+msgstr "Le nouveau et l'ancien mot de passe ne correspondent pas"
 
 #: views/users_hook.php:53 views/users_hook.php:151
 msgid "No"
@@ -357,7 +359,7 @@ msgstr "Non"
 
 #: htdocs/assets/js/ucp.js:1151
 msgid "No email defined"
-msgstr ""
+msgstr "Pas d'email défini"
 
 #: htdocs/modules/Home/assets/js/global.js:75
 msgid "Nothing Entered"
@@ -410,15 +412,15 @@ msgstr "Réinitialiser le mot de passe pour: %s"
 
 #: htdocs/assets/js/ucp.js:98
 msgid "Password fields can't be blank!"
-msgstr ""
+msgstr "Le mot de passe ne peut être vide !"
 
 #: htdocs/assets/js/ucp.js:107
 msgid "Password has been changed!"
-msgstr ""
+msgstr "Le mot de passe a été changé !"
 
 #: htdocs/assets/js/ucp.js:1018
 msgid "Password has not changed!"
-msgstr ""
+msgstr "Le mot de passe n'a pas changé !"
 
 #: htdocs/assets/js/ucp.js:73
 msgid "Please enter either a username or email address"
@@ -475,6 +477,8 @@ msgid ""
 "The number of days a session token will be valid for. Clear this setting if "
 "you want tokens to last forever (Not Recommended)"
 msgstr ""
+"Nombre de jour ou un jeton est valide. Laisser vide si vous voulez que les "
+"jetons durent à l'infini (non recommandé)"
 
 #: htdocs/views/settings.php:24 htdocs/views/settings.php:29
 msgid "The password used to login to User Control Panel and other services"
@@ -491,6 +495,8 @@ msgid ""
 "The user control panel is a way for users to control call handling and "
 "personal settings from a web browser."
 msgstr ""
+"L'UCP (User Control panel) est un moyen à l'utilisateur de contrôler et de "
+"manipuler les paramètres personnels à partir d'un navigateur web."
 
 #: htdocs/views/settings.php:15
 msgid "The username used to login to User Control Panel and other services"
@@ -541,7 +547,7 @@ msgstr "Langue UCP"
 
 #: ucp.i18n.php:32
 msgid "UCP Session Timeout"
-msgstr ""
+msgstr "Session UCP expirée"
 
 #: htdocs/index.php:27
 msgid "UCP is currently disabled. Please talk to your system Administrator"
@@ -570,7 +576,7 @@ msgstr ""
 
 #: htdocs/includes/User.class.php:84
 msgid "Unable to send Password Reset Email"
-msgstr ""
+msgstr "Impossible d'envoyer l'email de réinitialisation du mot de passe"
 
 #: htdocs/index.php:194
 #, php-format
@@ -579,15 +585,15 @@ msgstr "Module inconnu %s"
 
 #: htdocs/assets/js/ucp.js:1090
 msgid "Unsupported file type"
-msgstr ""
+msgstr "Type de fichier non supporté"
 
 #: htdocs/views/settings.php:31
 msgid "Update Password"
-msgstr ""
+msgstr "Mettre à jour le mot de passe"
 
 #: htdocs/views/settings.php:149
 msgid "Use Gravatar"
-msgstr ""
+msgstr "utiliser le Gravatar"
 
 #: htdocs/views/forgot.php:5 htdocs/views/header.php:4
 #: htdocs/views/login.php:4 ucp.i18n.php:4
@@ -612,7 +618,7 @@ msgstr "Panneau de l'utilisateur : %s"
 
 #: htdocs/views/settings.php:41
 msgid "User Details"
-msgstr ""
+msgstr "Détail de l'utilisateur"
 
 #: ucp.i18n.php:12
 msgid "User Panel"
@@ -624,7 +630,7 @@ msgstr "Poste primaire de l'utilisateur"
 
 #: htdocs/index.php:229
 msgid "User Settings"
-msgstr ""
+msgstr "Paramètres utilisateurs"
 
 #: htdocs/views/login.php:15 htdocs/views/settings.php:13
 msgid "Username"
