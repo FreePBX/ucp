@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-10-26 20:41+1000\n"
-"PO-Revision-Date: 2016-11-19 23:44+0200\n"
+"PO-Revision-Date: 2016-11-20 00:08+0200\n"
 "Last-Translator: Pascal <pascal.noyel@ipexia.com>\n"
 "Language-Team: French "
 "<http://weblate.freepbx.org/projects/freepbx/ucp/fr_FR/>\n"
@@ -69,7 +69,7 @@ msgstr "Admin"
 msgid ""
 "All fields update when unfocused (selecting another field) except password"
 msgstr ""
-"Tous les champs se mettent à jour lorsqu'ils ne sont pas mi en valeur (en "
+"Tous les champs se mettent à jour lorsqu'ils ne sont pas mis en valeur (en "
 "sélectionnant un autre champs) à l'exception du mot de passe"
 
 #: htdocs/views/settings.php:111
@@ -82,11 +82,11 @@ msgstr "Permettre la connexion"
 
 #: ucp.i18n.php:14
 msgid "Allow Password Changes"
-msgstr "Allouer la modification du mot de passe"
+msgstr "Permettre la modification du mot de passe"
 
 #: ucp.i18n.php:20
 msgid "Allow Username Changes"
-msgstr "Allouer la modification du nom d'utilisateur"
+msgstr "Permettre la modification du nom d'utilisateur"
 
 #: htdocs/views/settings.php:119
 msgid "Allow browser desktop notifications from UCP modules."
@@ -128,11 +128,11 @@ msgstr "Appel"
 
 #: htdocs/views/settings.php:74
 msgid "Cell Phone"
-msgstr "Téléphone cellulaire"
+msgstr "Téléphone mobile"
 
 #: htdocs/views/settings.php:69
 msgid "Company"
-msgstr "Compagnie"
+msgstr "Entreprise"
 
 #: htdocs/views/settings.php:27
 msgid "Confirm Password"
@@ -172,7 +172,7 @@ msgstr "Déposer une nouvelle image ici"
 
 #: htdocs/views/login.php:29 htdocs/views/settings.php:49
 msgid "Email"
-msgstr "Courriel"
+msgstr "Email"
 
 #: htdocs/includes/User.class.php:78
 msgid "Email address unknown!"
@@ -180,7 +180,7 @@ msgstr "Adresse email inconnue !"
 
 #: views/users_hook.php:144
 msgid "Enable Originating Calls"
-msgstr "Permettre de placer des appels"
+msgstr "Permettre d'émettre des appels"
 
 #: htdocs/modules/Settings/Settings.class.php:83
 msgid "Endpoint Settings"
@@ -238,7 +238,7 @@ msgstr "Génération des scripts principaux ..."
 
 #: Ucp.class.php:873
 msgid "Generating Module CSS..."
-msgstr "Génération du CSS Module ..."
+msgstr "Génération du Module CSS ..."
 
 #: Ucp.class.php:869
 msgid "Generating Module Scripts..."
@@ -246,16 +246,16 @@ msgstr "Génération des scripts module ..."
 
 #: htdocs/views/templates/phone.php:98
 msgid "Hold"
-msgstr "Attente"
+msgstr "Attendre"
 
 #: htdocs/modules/Home/Home.class.php:252 htdocs/views/dashboard.php:32
 #: htdocs/assets/js/ucp.js:813
 msgid "Home"
-msgstr "Acceuil"
+msgstr "Accueil"
 
 #: htdocs/views/settings.php:84
 msgid "Home Phone"
-msgstr "Numéro à la maison"
+msgstr "Numéro personnel"
 
 #: htdocs/views/settings.php:46
 msgid ""
@@ -289,7 +289,7 @@ msgstr "Invalide"
 #: htdocs/modules/Home/Home.class.php:201
 #: htdocs/modules/Home/Home.class.php:205
 msgid "Invalid Device"
-msgstr "Dispositif invalide"
+msgstr "Appareil invalide"
 
 #: htdocs/includes/User.class.php:101
 msgid "Invalid Login Credentials"
@@ -327,7 +327,7 @@ msgstr "Chargement..."
 #: htdocs/views/forgot.php:45 htdocs/views/login.php:37
 #: htdocs/assets/js/ucp.js:129 htdocs/assets/js/ucp.js:142
 msgid "Login"
-msgstr "Se connecter"
+msgstr "Connexion"
 
 #: htdocs/index.php:229
 msgid "Logout"
@@ -386,7 +386,7 @@ msgstr "Placer un appel"
 #: htdocs/modules/Home/assets/js/global.js:45
 #: htdocs/modules/Home/assets/js/global.js:123
 msgid "Originate Call"
-msgstr "Placer un appel"
+msgstr "Passer un appel"
 
 #: htdocs/views/templates/phone.php:65
 msgid "PQRS"
@@ -424,7 +424,7 @@ msgstr "Le mot de passe n'a pas changé !"
 
 #: htdocs/assets/js/ucp.js:73
 msgid "Please enter either a username or email address"
-msgstr "Veuillez entrer un nom d'utilisateur ou une adresse courriel"
+msgstr "Veuillez entrer un nom d'utilisateur ou une adresse email"
 
 #: htdocs/assets/js/ucp.js:71 htdocs/assets/js/ucp.js:122
 msgid "Processing..."
@@ -436,12 +436,12 @@ msgstr "flux RSS"
 
 #: ucp.i18n.php:30
 msgid "RSS Feeds that are displayed in UCP. This overrides "
-msgstr "Flux RSS qui sont affichés dans UCP . Ceci remplace "
+msgstr "Flux RSS affichés dans UCP . Ceci remplace "
 
 #: Ucp.class.php:29
 msgid "Refreshing all UCP Assets, this could take a while..."
 msgstr ""
-"Actualisation de tous les assets, cela pourrait prendre un certain temps ..."
+"Actualisation de tous les actifs, cela pourrait prendre un certain temps ..."
 
 #: htdocs/views/forgot.php:48 htdocs/views/login.php:40
 msgid "Remember Me"
@@ -457,7 +457,7 @@ msgstr "Enregistré !"
 
 #: htdocs/views/login.php:54
 msgid "Send Me A Password Reset Link"
-msgstr "Envoyez-moi un lien pour réinitialiser mot de passe"
+msgstr "Envoyez-moi un lien pour réinitialiser le mot de passe"
 
 #: htdocs/views/templates/chat.php:25
 #, php-format
@@ -477,14 +477,14 @@ msgid ""
 "The number of days a session token will be valid for. Clear this setting if "
 "you want tokens to last forever (Not Recommended)"
 msgstr ""
-"Nombre de jour ou un jeton est valide. Laisser vide si vous voulez que les "
-"jetons durent à l'infini (non recommandé)"
+"Nombre de jours ou une session de jeton sera valide. Laissez ce paramètre "
+"vide si vous voulez que les jetons durent à l'infini (pas recommandé)"
 
 #: htdocs/views/settings.php:24 htdocs/views/settings.php:29
 msgid "The password used to login to User Control Panel and other services"
 msgstr ""
-"Le mot de passe permettant de se connecter au panneau de l'utilisateur et "
-"d'autres services"
+"Le mot de passe permettant de se connecter au panneau de l'utilisateur (UCP) "
+"et d'autres services"
 
 #: htdocs/views/dashfootercontent.php:10
 msgid "The removal of this copyright notice is stricly prohibited"
@@ -502,11 +502,12 @@ msgstr ""
 msgid "The username used to login to User Control Panel and other services"
 msgstr ""
 "Le nom d'utilisateur utilisé pour vous connecter au panneau de l'utilisateur "
-"et autres services"
+"(UCP) et autres services"
 
 #: htdocs/index.php:118
 msgid "There was an error trying to load UCP"
-msgstr "Il y eu une erreur en essayant de charger UCP"
+msgstr ""
+"Il y eu une erreur en essayant de charger le panneau de l'utilisateur (UCP)"
 
 #: views/users_hook.php:134
 msgid ""
@@ -531,7 +532,7 @@ msgid ""
 msgstr ""
 "Pour protéger l'intégrité de votre serveur, vous devez autoriser \"allow "
 "overrides\" dans le fichier de configuration de votre serveur web pour le "
-"Panneau de l'utilisateur. Pour plus d'informations, voir:%s"
+"Panneau de l'utilisateur (UCP). Pour plus d'informations, voir:%s"
 
 #: ucp.i18n.php:10
 msgid "UCP"
@@ -551,9 +552,7 @@ msgstr "Session UCP expirée"
 
 #: htdocs/index.php:27
 msgid "UCP is currently disabled. Please talk to your system Administrator"
-msgstr ""
-"UCP est actuellement désactivé. Veuillez parler à votre administrateur "
-"système"
+msgstr "UCP est actuellement désactivé. Contactez votre administrateur système"
 
 #: htdocs/assets/js/ucp.js:970
 msgid "UCP needs to reload, ok?"
@@ -593,28 +592,28 @@ msgstr "Mettre à jour le mot de passe"
 
 #: htdocs/views/settings.php:149
 msgid "Use Gravatar"
-msgstr "utiliser le Gravatar"
+msgstr "Utiliser le Gravatar"
 
 #: htdocs/views/forgot.php:5 htdocs/views/header.php:4
 #: htdocs/views/login.php:4 ucp.i18n.php:4
 #: /usr/src/freepbx/ucp/ucp.i18n.php:16 ucp.i18n.php:22
 #: /usr/src/freepbx/ucp/ucp.i18n.php:28 ucp.i18n.php:34
 msgid "User Control Panel"
-msgstr "Panneau de l'utilisateur"
+msgstr "Panneau de l'utilisateur (UCP)"
 
 #: htdocs/views/settings.php:2
 msgid "User Control Panel Settings"
-msgstr "Paramètres du panneau de l'utilisateur"
+msgstr "Paramètres du panneau de l'utilisateur (UCP)"
 
 #: htdocs/views/dashfootercontent.php:7
 #, php-format
 msgid "User Control Panel is released as %s or newer"
-msgstr "Le panneau de l'utilisateur %s ou plus récent est disponible"
+msgstr "Le panneau de l'utilisateur (UCP) %s ou plus récent est disponible"
 
 #: Ucp.class.php:199
 #, php-format
 msgid "User Control Panel: %s"
-msgstr "Panneau de l'utilisateur : %s"
+msgstr "Panneau de l'utilisateur (UCP): %s"
 
 #: htdocs/views/settings.php:41
 msgid "User Details"
@@ -671,15 +670,15 @@ msgstr "Votre navigateur n'est pas supporté pour le moment."
 
 #: htdocs/views/settings.php:76
 msgid "Your Cell Phone Number"
-msgstr "Votre numéro de téléphone cellulaire"
+msgstr "Votre numéro de téléphone mobile"
 
 #: htdocs/views/settings.php:71
 msgid "Your Company"
-msgstr "Votre compagnie"
+msgstr "Votre Entreprise"
 
 #: htdocs/views/settings.php:51
 msgid "Your Email Address"
-msgstr "Votre adresse courriel"
+msgstr "Votre adresse email"
 
 #: htdocs/views/settings.php:91
 msgid "Your Fax Number"
@@ -691,7 +690,7 @@ msgstr "Votre prénom"
 
 #: htdocs/views/settings.php:86
 msgid "Your Home Number"
-msgstr "Votre numéro de téléphone à la maison"
+msgstr "Votre numéro de téléphone personnel"
 
 #: htdocs/views/settings.php:61
 msgid "Your Last Name"
@@ -703,7 +702,7 @@ msgstr "Votre Titre"
 
 #: htdocs/views/settings.php:81
 msgid "Your Work Number"
-msgstr "Votre numéro de téléphone au travail"
+msgstr "Votre numéro de téléphone professionel"
 
 #: htdocs/assets/js/ucp.js:149
 msgid ""
@@ -715,7 +714,7 @@ msgstr ""
 
 #: htdocs/assets/js/ucp.js:83
 msgid "Your reset link is in the mail!"
-msgstr "Votre lien de réinitialisation est dans le courriel !"
+msgstr "Votre lien de ré-initialisation est dans l'email !"
 
 #: htdocs/index.php:104
 #, php-format
