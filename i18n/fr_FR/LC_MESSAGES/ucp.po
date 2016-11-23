@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-10-26 20:41+1000\n"
-"PO-Revision-Date: 2016-11-22 22:33+0200\n"
+"PO-Revision-Date: 2016-11-23 14:05+0200\n"
 "Last-Translator: Pascal <pascal.noyel@ipexia.com>\n"
 "Language-Team: French "
 "<http://weblate.freepbx.org/projects/freepbx/ucp/fr_FR/>\n"
@@ -184,7 +184,7 @@ msgstr "Permettre d'émettre des appels"
 
 #: htdocs/modules/Settings/Settings.class.php:83
 msgid "Endpoint Settings"
-msgstr "Paramètres Endpoint"
+msgstr "Paramètres du poste"
 
 #: htdocs/index.php:156
 msgid "English"
