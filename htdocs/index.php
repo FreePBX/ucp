@@ -10,9 +10,7 @@ $bootstrap_settings = array();
 $bootstrap_settings['freepbx_auth'] = false;
 //TODO: We need to make sure security is 100%!
 $restrict_mods = true; //Set to true so that we just load framework and the page wont bomb out because we have no session
-if (!@include_once(getenv('FREEPBX_CONF') ? getenv('FREEPBX_CONF') : '/etc/freepbx.conf')) {
-	include_once('/etc/asterisk/freepbx.conf');
-}
+include '/etc/freepbx.conf';
 
 $lang = function_exists('set_language') ? set_language() : 'en_US';
 
