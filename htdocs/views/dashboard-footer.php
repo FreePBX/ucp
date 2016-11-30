@@ -170,7 +170,7 @@
 					</button>
 					<h4 class="modal-title" id="globalModalLabel"></h4>
 				</div>
-				<div class="modal-body" id="globalModalBody">
+				<div class="modal-body" id="globalModalBody"></div>
 				<div class="modal-footer" id="globalModalFooter">
 				</div>
 			</div>
