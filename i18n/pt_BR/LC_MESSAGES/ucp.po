@@ -10,16 +10,16 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-10-26 20:41+1000\n"
-"PO-Revision-Date: 2015-05-02 20:55+0200\n"
-"Last-Translator: Renato <fiuza@tecnologia.inf.br>\n"
-"Language-Team: Portuguese (Brazil) <http://weblate.freepbx.org/projects/"
-"freepbx/ucp/pt_BR/>\n"
+"PO-Revision-Date: 2016-12-03 08:46+0200\n"
+"Last-Translator: Alexander <alexander.schley@paranagua.pr.gov.br>\n"
+"Language-Team: Portuguese (Brazil) "
+"<http://weblate.freepbx.org/projects/freepbx/ucp/pt_BR/>\n"
+"Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: pt_BR\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.2-dev\n"
+"X-Generator: Weblate 2.4\n"
 
 #: htdocs/assets/js/bootstrap-table-1.9.0.js:635
 #: htdocs/assets/js/bootstrap-table-1.9.0.js:636
@@ -312,7 +312,7 @@ msgstr "Carregando"
 #: htdocs/views/forgot.php:61 htdocs/views/login.php:53
 #: htdocs/assets/js/ucp.js:1156
 msgid "Loading..."
-msgstr "Carregando…"
+msgstr "Carregando..."
 
 #: htdocs/views/forgot.php:45 htdocs/views/login.php:37
 #: htdocs/assets/js/ucp.js:129 htdocs/assets/js/ucp.js:142
@@ -345,7 +345,7 @@ msgstr ""
 
 #: views/users_hook.php:53 views/users_hook.php:151
 msgid "No"
-msgstr ""
+msgstr "Não"
 
 #: htdocs/assets/js/ucp.js:1151
 msgid "No email defined"
@@ -610,7 +610,7 @@ msgstr ""
 
 #: htdocs/views/login.php:15 htdocs/views/settings.php:13
 msgid "Username"
-msgstr "Usuário"
+msgstr "Nome de Usuário"
 
 #: htdocs/assets/js/ucp.js:1036
 msgid "Username has been changed, reloading"
@@ -635,7 +635,7 @@ msgstr "Fone Trabalho"
 
 #: views/users_hook.php:51 views/users_hook.php:149
 msgid "Yes"
-msgstr ""
+msgstr "Sim"
 
 #: htdocs/assets/js/ucp.js:461
 msgid "You are currently working in offline mode."
