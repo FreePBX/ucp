@@ -452,8 +452,8 @@ class Ajax extends UCP {
 	 * @return string XML or JSON or WHATever
 	 * @access private
 	 */
-    private function generateResponse($body) {
-        $ret = false;
+	private function generateResponse($body) {
+		$ret = false;
 
 		if(!is_array($body)) {
 			$body = array("message" => $body);
@@ -463,10 +463,8 @@ class Ajax extends UCP {
 		foreach($accepts as $accept) {
 			//strip off content accept priority
 			$accept = preg_replace('/;(.*)/i','',$accept);
-			dbug($accept);
-	        switch($accept) {
-				case "text/xml":
-				case "application/xml":
+			switch($accept) {
+				case "*/*";
 				case "text/json":
 				case "application/json":
 					$this->addHeader('Content-Type', 'application/json');

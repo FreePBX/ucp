@@ -21,6 +21,33 @@
 @widget_content_height: 55px;
 /* WIDGET SIZES */
 
+.grid-stack .grid-stack-item .grid-stack-item-content,
+.grid-stack .grid-stack-item .placeholder-content {
+	left: 5px;
+	right: 5px;
+}
+
+.grid-stack>.grid-stack-item>.ui-resizable-se {
+	right: 4px;
+}
+
+.module-page-widgets .grid-stack {
+	margin-top: 5px;
+}
+
+.module-page-widgets .grid-stack {
+	overflow-x: hidden;
+}
+
+.widget-title {
+	cursor: move;
+}
+
+.front {
+	overflow-x: hidden;
+	overflow-y: hidden;
+}
+
 .settings-shown-blocker{
 	display: none;
 	height: 100%;
@@ -46,13 +73,12 @@
 		list-style: none;
 	}
 
-	.gridster {
+	.grid-stack {
 		overflow-y: hidden;
 		width: 98%;
-		.gs-w {
+		.grid-stack-item {
 			background-color: transparent;
 			color: @widget_content_color;
-			cursor: pointer;
 
 			&.settings-shown{
 				transition: 0.5s !important;
@@ -116,7 +142,7 @@
 			}
 			.widget-content {
 				width: 100%;
-				height: ~"calc(100% - @{widget_title_height})";
+				//height: ~"calc(100% - @{widget_title_height})";
 			}
 
 			&.add-widget-widget {

@@ -206,6 +206,9 @@ class UCP extends UCP_Helpers {
 			"moment-timezone-with-data-2010-2020-0.5.6.min.js",
 			"nprogress-0.2.0.js",
 			"imagesloaded.pkgd-4.1.1.min.js",
+			"lodash-4.17.2.js",
+			"jquery.ui.touch-punch-0.2.3.min.js",
+			"gridstack-0.2.6.min.js",
 			"ucp.js",
 			"module.js"
 		);

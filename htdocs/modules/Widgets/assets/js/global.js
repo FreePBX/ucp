@@ -27,7 +27,7 @@ var WidgetsC = Class.extend({
 	},
 	loadDashboard: function() {
 		var $this = this;
-		if(!$(".gridster > ul").length) {
+		if(!$(".grid-stack").length) {
 			return;
 		}
 
@@ -89,53 +89,40 @@ var WidgetsC = Class.extend({
 			}
 		});
 
-		$(".gridster > ul").gridster({
-			serialize_params: function($w, wgd){
-				return {
-					id: $w.attr('data-id'),
-					widget_module_name: $w.attr('data-widget_module_name'),
-					name: $w.attr('data-name'),
-					rawname: $w.attr('data-rawname'),
-					widget_type_id: $w.attr('data-widget_type_id'),
-					has_settings: $w.attr('data-has_settings'),
-					col: wgd.col,
-					row: wgd.row,
-					size_x: wgd.size_x,
-					size_y: wgd.size_y
-				};
-			},
-			widget_margins: [5, 5],
-			widget_base_dimensions: ['auto', 75],
-			min_cols: 10,
-			min_rows: 15,
-			max_cols: 10,
-			extra_rows: 5,
-			shift_widgets_up: false,
-			shift_larger_widgets_down: false,
-			collision: {
-				wait_for_mouseup: true
-			},
-			resize: {
-				enabled: true,
-				stop: function(){
-					UCP.callModulesByMethod("resize",this.activeDashboard);
-					$this.saveLayoutContent();
-				}
-			},
+		$('.grid-stack').gridstack({
+			cellHeight: 60,
+			verticalMargin: 10,
+			animate: true,
+			float: true,
 			draggable: {
-				stop: function(){
-					$this.saveLayoutContent();
-				}
+				handle: '.widget-title',
+				scroll: false,
+				appendTo: 'body'
 			}
 		});
 
-		var gridster = $(".gridster > ul").gridster().data('gridster');
-		var count = gridster.$widgets.length;
-		gridster.$widgets.each(function(i,v){
-			if(!$(this).hasClass("add-widget-widget")){
-				var widget_id = $(this).attr('data-widget_type_id');
-				var widget_rawname = $(this).attr('data-rawname');
-				var widget_content_container = $(this).find(".widget-content");
+		$('.grid-stack').on('resizestop', function(event, ui) {
+			UCP.callModulesByMethod("resize",$this.activeDashboard);
+		});
+
+		$('.grid-stack').on('dragstop', function(event, ui) {
+		});
+
+		$('.grid-stack').on('removed', function(event, items) {
+		});
+
+		$('.grid-stack').on('change', function(event, items) {
+			$this.saveLayoutContent();
+		});
+
+		var gridstack = $(".grid-stack").data('gridstack');
+		var count = gridstack.grid.nodes.length;
+		$.each(gridstack.grid.nodes, function(i,v){
+			var el = v.el;
+			if(!el.hasClass("add-widget-widget")){
+				var widget_id = $(el).attr('data-widget_type_id');
+				var widget_rawname = $(el).attr('data-rawname');
+				var widget_content_container = $(el).find(".widget-content");
 				$this.getWidgetContent(widget_content_container, widget_id, widget_rawname, function() {
 					if((count - 1) == i) {
 						$(document).trigger("post-body.widgets",[ $this.activeDashboard ]);
@@ -145,7 +132,7 @@ var WidgetsC = Class.extend({
 		});
 
 		//Are we looking a dashboard?
-		var dashboard_id = $(".gridster").data("dashboard_id");
+		var dashboard_id = $(".grid-stack").data("dashboard_id");
 		this.activeDashboard = dashboard_id;
 
 		$(".dashboard-menu").removeClass("active");
@@ -156,14 +143,28 @@ var WidgetsC = Class.extend({
 	saveLayoutContent: function() {
 		this.activateFullLoading();
 		var $this = this;
-		var gridster_object = $(".gridster > ul").gridster().data('gridster');
-		var gridData = gridster_object.serialize();
-		var gridDataSerialized = JSON.stringify(gridData);
+
+		var gridDataSerialized = _.map($('.grid-stack .grid-stack-item:visible').not(".grid-stack-placeholder"), function (el) {
+			el = $(el);
+			var node = el.data('_gridstack_node');
+			return {
+				id: el.data('id'),
+				widget_module_name: el.data('widget_module_name'),
+				name: el.data('name'),
+				rawname: el.data('rawname'),
+				widget_type_id: el.data('widget_type_id'),
+				has_settings: el.data('has_settings'),
+				size_x: node.x,
+				size_y: node.y,
+				col: node.width,
+				row: node.height
+			};
+		});
 
 		$.post( "?quietmode=1&module=Dashboards&command=savedashlayout",
 			{
 				id: $this.activeDashboard,
-				data: gridDataSerialized
+				data: JSON.stringify(gridDataSerialized)
 			},
 			function( data ) {
 				if(data.status){
@@ -304,8 +305,8 @@ var WidgetsC = Class.extend({
 		}
 
 		var html = '' +
-					'<li data-widget_module_name="'+widget_module_name+'" data-id="'+widget_id+'" data-name="'+widget_name+'" data-rawname="'+widget_rawname+'" data-widget_type_id="'+widget_type_id+'" data-has_settings="'+widget_has_settings+'" class="flip-container">' +
-						'<div class="flipper">' +
+					'<div data-widget_module_name="'+widget_module_name+'" data-id="'+widget_id+'" data-name="'+widget_name+'" data-rawname="'+widget_rawname+'" data-widget_type_id="'+widget_type_id+'" data-has_settings="'+widget_has_settings+'" class="flip-container">' +
+						'<div class="grid-stack-item-content flipper">' +
 							'<div class="front">' +
 								'<div class="widget-title">' +
 									'<div class="widget-module-name truncate-text">' + widget_module_name + '</div>' +
@@ -333,7 +334,7 @@ var WidgetsC = Class.extend({
 								'</div>' +
 							'</div>' +
 						'</div>' +
-					'</li>';
+					'</div>';
 
 		return html;
 	},
@@ -437,11 +438,11 @@ var WidgetsC = Class.extend({
 			var widget_type_id = $(this).data("widget_type_id");
 
 			$this.showConfirm("Are you sure you want to delete this widget?", "warning", function() {
-				var gridster_object = $(".gridster > ul").gridster().data('gridster');
+				//TODO
+				var grid = $('.grid-stack').data('gridstack');
+				//We are adding the widget always on the position 1,1
+				grid.removeWidget($(".grid-stack-item[data-id='" + widget_id + "']"));
 				UCP.callModuleByMethod(widget_rawname,"deleteWidget",widget_type_id,$this.activeDashboard);
-				gridster_object.remove_widget($(".gs-w[data-id='" + widget_id + "']"), function() {
-					$this.saveLayoutContent();
-				});
 			});
 
 		});
@@ -488,7 +489,9 @@ var WidgetsC = Class.extend({
 									$(".dashboard-menu").first().find("a").click();
 								}
 							}else {
-								$(".gridster.ready").empty();
+								var grid = $('.grid-stack').data('gridstack');
+								grid.destroy();
+								$('.grid-stack').empty();
 							}
 
 						}else {
@@ -539,13 +542,12 @@ var WidgetsC = Class.extend({
 							//So first we go the HTML content to add it to the widget
 							var widget_html = data.html;
 							var full_widget_html = $this.widget_layout(new_widget_id, widget_module_name, widget_name, widget_id, widget_rawname, widget_has_settings, widget_html);
-
-							var gridster_object = $(".gridster > ul").gridster().data('gridster');
+							//TODO
+							var grid = $('.grid-stack').data('gridstack');
 							//We are adding the widget always on the position 1,1
-							gridster_object.add_widget(full_widget_html, default_size_x, default_size_y, 1, 1);
+							grid.addWidget($(full_widget_html), 1, 1, default_size_x, default_size_y, true);
 							UCP.callModuleByMethod(widget_rawname,"displayWidget",widget_id,$this.activeDashboard);
 							$(document).trigger("post-body.widgets",[ $this.activeDashboard ]);
-							$this.saveLayoutContent();
 						}else {
 							$this.showAlert("There was an error getting the widget information, try again later", "danger");
 						}
