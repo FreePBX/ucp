@@ -102,16 +102,20 @@ var WidgetsC = Class.extend({
 		});
 
 		$('.grid-stack').on('resizestop', function(event, ui) {
+			//Never on Desktop, Always on mobile
 			UCP.callModulesByMethod("resize",$this.activeDashboard);
 		});
 
-		$('.grid-stack').on('dragstop', function(event, ui) {
+		$('.grid-stack').on('removed', function(event, items) {
+			//Never on Desktop, Always on mobile
 		});
 
-		$('.grid-stack').on('removed', function(event, items) {
+		$('.grid-stack').on('added', function(event, items) {
+			//Never on Desktop, Always on mobile
 		});
 
 		$('.grid-stack').on('change', function(event, items) {
+			//Always on Desktop, Never on mobile
 			$this.saveLayoutContent();
 		});
 
