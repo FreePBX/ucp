@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-10-26 20:41+1000\n"
-"PO-Revision-Date: 2016-12-05 21:11+0200\n"
+"PO-Revision-Date: 2016-12-06 17:30+0200\n"
 "Last-Translator: Sven <spiderrs4@web.de>\n"
 "Language-Team: German "
 "<http://weblate.freepbx.org/projects/freepbx/ucp/de_DE/>\n"
@@ -263,9 +263,8 @@ msgstr ""
 "Wie möchten Sie Ihren Namen im UCP und Kontakt Manager angezeigt bekommen"
 
 #: views/users_hook.php:56 views/users_hook.php:154
-#, fuzzy
 msgid "Inherit"
-msgstr "geerbt"
+msgstr "Erben"
 
 #: htdocs/views/settings.php:99
 msgid "Interface Settings"
@@ -621,7 +620,7 @@ msgstr "Benutzerbedienfeld"
 
 #: Ucp.class.php:70 /usr/src/freepbx/ucp/Ucp.class.php:98
 msgid "User Primary Extension"
-msgstr "Benutzer Primäre Nebenstelle"
+msgstr "Primäre Benutzernebenstelle"
 
 #: htdocs/index.php:229
 msgid "User Settings"
