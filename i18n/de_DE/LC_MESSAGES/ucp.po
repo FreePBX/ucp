@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-10-26 20:41+1000\n"
-"PO-Revision-Date: 2016-12-06 17:30+0200\n"
+"PO-Revision-Date: 2016-12-06 21:57+0200\n"
 "Last-Translator: Sven <spiderrs4@web.de>\n"
 "Language-Team: German "
 "<http://weblate.freepbx.org/projects/freepbx/ucp/de_DE/>\n"
@@ -117,7 +117,7 @@ msgstr "Sind Sie sicher, dass Sie Ihren Benutzernamen ändern möchten?"
 
 #: htdocs/views/settings.php:140
 msgid "Browse"
-msgstr ""
+msgstr "Durchsuchen"
 
 #: htdocs/views/templates/phone.php:7 htdocs/views/templates/phone.php:95
 msgid "Call"
@@ -137,7 +137,7 @@ msgstr "Passwort bestätigen"
 
 #: htdocs/views/settings.php:127
 msgid "Contact Image"
-msgstr ""
+msgstr "Kontaktblid"
 
 #: htdocs/views/templates/phone.php:45
 msgid "DEF"
@@ -145,7 +145,7 @@ msgstr "DEF"
 
 #: htdocs/views/settings.php:135
 msgid "Delete Image"
-msgstr ""
+msgstr "Bild löschen"
 
 #: Ucp.class.php:777
 msgid "Deleted Session"
@@ -165,7 +165,7 @@ msgstr "Erledigt"
 
 #: htdocs/views/settings.php:132
 msgid "Drop a new image here"
-msgstr ""
+msgstr "Neues Bild hier rein ziehen"
 
 #: htdocs/views/login.php:29 htdocs/views/settings.php:49
 msgid "Email"
