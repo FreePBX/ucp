@@ -46,7 +46,15 @@ var UCPC = Class.extend({
 			UCP.setupLogin();
 		}
 
-		this.binds();
+
+		$(document).on("post-body.simplewidget", function() {
+			$('.small-widget-content input[type=checkbox][data-toggle="toggle"]').bootstrapToggle();
+			$('.small-widget-content table[data-toggle="table"]').bootstrapTable();
+		});
+		$(document).on("post-body.widgets",function(){
+			$('.grid-stack input[type=checkbox][data-toggle="toggle"]').bootstrapToggle();
+			$('.grid-stack table[data-toggle="table"]').bootstrapTable();
+		});
 
 		this.callModulesByMethod("ready",$.url().param());
 	},
@@ -639,7 +647,6 @@ var UCPC = Class.extend({
 		return str.replace(/\w\S*/g, function(txt) { return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase(); });
 	},
 	pjaxEnd: function(event) {
-		this.binds();
 		this.callModulesByMethod("pjaxEnd",event);
 		NProgress.done();
 	},
@@ -689,9 +696,6 @@ var UCPC = Class.extend({
 	logOut: function(event) {
 		this.loggedIn = false;
 		this.disconnect();
-	},
-	binds: function() {
-		$('table[data-toggle="table"]').bootstrapTable();
 	},
 	dateTimeFormatter: function(unixtimestamp) {
 		unixtimestamp = parseInt(unixtimestamp);

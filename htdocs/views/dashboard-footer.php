@@ -12,19 +12,19 @@
 			<div class="modal-content">
 				<div class="modal-header">
 					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-					<h4 class="modal-title" id="add_dashboard_label">Add Dashboard</h4>
+					<h4 class="modal-title" id="add_dashboard_label"><?php echo _("Add Dashboard")?></h4>
 				</div>
 				<div class="modal-body">
-					<form id="add_dashboard_form" method="POST" action="quietmode=1&module=Dashboards&command=add">
+					<form id="add_dashboard_form" method="POST" action="quietmode=1&amp;module=Dashboards&amp;command=add">
 						<div class="form-group">
-							<label for="dashboard_name">Dashboard Name</label>
+							<label for="dashboard_name"><?php echo _("Dashboard Name")?></label>
 							<input type="text" class="form-control" id="dashboard_name" name="name" pattern=".{1,50}" autocomplete="off" required>
 						</div>
 					</form>
 				</div>
 				<div class="modal-footer">
-					<button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
-					<button type="submit" id="create_dashboard" class="btn btn-primary">Create Dashboard</button>
+					<button type="button" class="btn btn-danger" data-dismiss="modal"><?php echo _("Cancel")?></button>
+					<button type="submit" id="create_dashboard" class="btn btn-primary"><?php echo _("Create Dashboard")?></button>
 				</div>
 			</div>
 		</div>
@@ -35,7 +35,7 @@
 			<div class="modal-content">
 				<div class="modal-header">
 					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-					<h4 class="modal-title" id="add_widget_label">Add Widget</h4>
+					<h4 class="modal-title" id="add_widget_label"><?php echo _("Add Widget")?></h4>
 				</div>
 				<div class="modal-body">
 					<div class="col-lg-12 col-md-12 bhoechie-tab-container">
@@ -48,7 +48,7 @@
 										</a>
 									<?php $first = false; } ?>
 									<a href="#" class="list-group-item text-center">
-										<h4 class="fa fa-list"></h4><br/>Side Bar Widgets
+										<h4 class="fa fa-list"></h4><br/><?php echo _("Side Bar Widgets")?>
 									</a>
 								</div>
 							<?php } ?>
@@ -61,7 +61,32 @@
 									<div class="bhoechie-tab-content <?php echo ($first) ? "active" : ""; ?>">
 
 										<?php if(!empty($widget_category_info["list"])) { ?>
-											<?php foreach($widget_category_info["list"] as $widget_id => $widget_list){ ?>
+											<?php foreach($widget_category_info["list"] as $widget_id => $widget_list){
+												$minsize = '';
+												if(!empty($widget_list['minsize'])) {
+													if($widget_list['minsize']['height'] > $widget_list['defaultsize']['height']) {
+														throw new \Exception("Minsize height is less than defaultsize height in ".$widget_id."!!");
+													}
+													if($widget_list['minsize']['width'] > $widget_list['defaultsize']['width']) {
+														throw new \Exception("Minsize width is less than defaultsize width in ".$widget_id."!!");
+													}
+													$minsize = 'data-min_y="'.$widget_list['minsize']['height'].'" data-min_x="'.$widget_list['minsize']['width'].'"';
+												}
+												$maxsize = '';
+												if(!empty($widget_list['maxsize'])) {
+													if($widget_list['maxsize']['height'] < $widget_list['defaultsize']['height']) {
+														throw new \Exception("Maxsize height is greater than defaultsize height in ".$data->rawname."!!");
+													}
+													if($widget_list['maxsize']['width'] < $widget_list['defaultsize']['width']) {
+														throw new \Exception("Maxsize width is greater than defaultsize width in ".$data->rawname."!!");
+													}
+													$maxsize = 'data-max_y="'.$widget_list['maxsize']['height'].'" data-max_x="'.$widget_list['maxsize']['width'].'"';
+												}
+												$noresize = '';
+												if(!empty($widget_list['noresize'])) {
+													$noresize = 'data-no_resize="true"';
+												}
+												?>
 												<div class="ibox-content-widget">
 													<div class="row">
 														<div class="widget-title col-md-11">
@@ -71,7 +96,7 @@
 															</h4>
 														</div>
 														<div class="widget-add-container top-offset text-center">
-															<button type="button" class="btn btn-sm btn-primary btn-outline add-widget-button" data-widget_module_name="<?php echo $widget_category_info["display"]; ?>" data-widget_name="<?php echo $widget_list["display"]; ?>" data-widget_id="<?php echo $widget_id; ?>" data-rawname="<?php echo $widget_category_info["rawname"]; ?>" data-size_x="<?php echo $widget_list["defaultsize"]["width"]; ?>" data-size_y="<?php echo $widget_list["defaultsize"]["height"]; ?>" data-has_settings="<?php echo (!empty($widget_list["hasSettings"]) && $widget_list["hasSettings"]) ? "1" : "0"; ?>"><i class="fa fa-plus-circle" aria-hidden="true"></i></button>
+															<button type="button" class="btn btn-sm btn-primary btn-outline add-widget-button" <?php echo $minsize?> <?php echo $maxsize?> <?php echo $noresize?> data-widget_module_name="<?php echo $widget_category_info["display"]; ?>" data-widget_name="<?php echo $widget_list["display"]; ?>" data-widget_id="<?php echo $widget_id; ?>" data-rawname="<?php echo $widget_category_info["rawname"]; ?>" data-size_x="<?php echo $widget_list["defaultsize"]["width"]; ?>" data-size_y="<?php echo $widget_list["defaultsize"]["height"]; ?>" data-has_settings="<?php echo (!empty($widget_list["hasSettings"]) && $widget_list["hasSettings"]) ? "1" : "0"; ?>"><i class="fa fa-plus-circle" aria-hidden="true"></i></button>
 														</div>
 													</div>
 												</div>
@@ -108,7 +133,7 @@
 					</div>
 				</div>
 				<div class="modal-footer">
-					<button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+					<button type="button" class="btn btn-danger" data-dismiss="modal"><?php echo _('Cancel')?></button>
 				</div>
 			</div>
 		</div>
@@ -120,7 +145,7 @@
 			<div class="modal-content">
 				<div class="modal-header">
 					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-					<h4 class="modal-title" id="alert_label">Alert</h4>
+					<h4 class="modal-title" id="alert_label"><?php echo _("Alert")?></h4>
 				</div>
 				<div class="modal-body">
 					<div class="row">
@@ -132,7 +157,7 @@
 				<div class="modal-footer">
 					<div class="row">
 						<div class="col-sm-4 col-sm-offset-4">
-							<button class="btn btn-primary btn-block" id="close_alert_button" type="button">Close</button>
+							<button class="btn btn-primary btn-block" id="close_alert_button" type="button"><?php echo _("Close")?></button>
 						</div>
 					</div>
 				</div>
@@ -146,7 +171,7 @@
 			<div class="modal-content">
 				<div class="modal-header">
 					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-					<h4 class="modal-title" id="confirm_message_title">Confirm action</h4>
+					<h4 class="modal-title" id="confirm_message_title"><?php echo _("Confirm Action")?></h4>
 				</div>
 				<div class="modal-body">
 					<div class="alert" role="alert" id="confirm_content">
@@ -154,9 +179,20 @@
 					</div>
 				</div>
 				<div class="modal-footer">
-					<button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
-					<button type="button" class="btn btn-primary" data-dismiss="modal" id="modal_confirm_button">Accept</button>
+					<button type="button" class="btn btn-danger" data-dismiss="modal"><?php echo _("Cancel")?></button>
+					<button type="button" class="btn btn-primary" data-dismiss="modal" id="modal_confirm_button"><?php echo _("Accept")?></button>
 				</div>
+			</div>
+		</div>
+	</div>
+	<div class="modal fade" id="widget_settings" tabindex="-1" role="dialog" aria-labelledby="widget_settings_label">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					<h4 class="modal-title" id="widget_settings_label"><?php echo _("Widget Settings")?></h4>
+				</div>
+				<div class="modal-body"></div>
 			</div>
 		</div>
 	</div>

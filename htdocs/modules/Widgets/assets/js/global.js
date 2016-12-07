@@ -15,7 +15,6 @@ var WidgetsC = Class.extend({
 		$(".custom-widget").each(function() {
 			var widget_rawname = $(this).data("widget_rawname");
 			var widget_id = $(this).data("widget_id");
-			UCP.callModuleByMethod(widget_rawname,"displaySmallWidget",widget_id);
 		});
 	},
 	pjaxEnd: function(event) {
@@ -24,6 +23,23 @@ var WidgetsC = Class.extend({
 	},
 	pjaxStart: function(event) {
 		this.activateFullLoading();
+	},
+	resize: function() {
+		var gridstack = $(".grid-stack").data('gridstack');
+		if(typeof gridstack === "undefined") {
+			return;
+		}
+		$(window).resize(function() {
+			setTimeout(function() {
+				if(window.innerWidth <= 768) {
+					gridstack.resizable($(".grid-stack-item").not('[data-gs-no-resize]'),false);
+					gridstack.enableMove(false);
+				} else {
+					gridstack.resizable($(".grid-stack-item").not('[data-gs-no-resize]'),true);
+					gridstack.enableMove(true);
+				}
+			},100);
+		});
 	},
 	loadDashboard: function() {
 		var $this = this;
@@ -40,53 +56,20 @@ var WidgetsC = Class.extend({
 		});
 
 		$(document).on("click", ".edit-widget", function(){
-
-			var container_object = $(this).parents(".flip-container");
 			var rawname = $(this).data("rawname");
 			var widget_id = $(this).data("widget_type_id");
 
-			if(!container_object.hasClass("flip")){
 
-				$(".settings-shown-blocker").show();
-
-				container_object.addClass("flip");
-				container_object.addClass("settings-shown");
-
-				var settings_container = container_object.find(".widget-settings-content");
-				$this.getSettingsContent(settings_container, widget_id, rawname);
-			}
-		});
-
-		$(document).on("click", ".close-settings", function(){
-
-			var container_object = $(this).parents(".flip-container");
-			var rawname = $(this).data("rawname");
-			var widget_id = $(this).data("widget_type_id");
-
-			if(container_object.hasClass("flip")){
-
+			$('#widget_settings').one('hidden.bs.modal', function (e) {
 				$(".settings-shown-blocker").hide();
-				container_object.removeClass("settings-shown");
-				container_object.removeClass("flip");
-
-				var widget_content_container = container_object.find(".widget-content");
-				$this.getWidgetContent(widget_content_container, widget_id, rawname, function() {
-					$(document).trigger("post-body.widgets",[ $this.activeDashboard ]);
-				});
-			}
-		});
-
-		//If got a click outside... we hide everything without saving
-		$(document).on("click", ".settings-shown-blocker", function(){
-
-			var container_object = $(".flip-container.gs-w.flip.settings-shown");
-
-			if(container_object.hasClass("flip")){
-
-				$(".settings-shown-blocker").hide();
-				container_object.removeClass("settings-shown");
-				container_object.removeClass("flip");
-			}
+			});
+			var settings_container = $('#widget_settings .modal-body');
+			$this.activateSettingsLoading();
+			$(".settings-shown-blocker").show();
+			$('#widget_settings').modal('show');
+			$this.getSettingsContent(settings_container, widget_id, rawname, function() {
+				UCP.callModuleByMethod(rawname,"displayWidgetSettings",widget_id,$this.activeDashboard);
+			});
 		});
 
 		$('.grid-stack').gridstack({
@@ -108,19 +91,36 @@ var WidgetsC = Class.extend({
 
 		$('.grid-stack').on('removed', function(event, items) {
 			//Never on Desktop, Always on mobile
+			if(window.innerWidth <= 768) {
+				$this.saveLayoutContent();
+			}
 		});
 
 		$('.grid-stack').on('added', function(event, items) {
 			//Never on Desktop, Always on mobile
+			if(window.innerWidth <= 768) {
+				$this.saveLayoutContent();
+			}
 		});
 
 		$('.grid-stack').on('change', function(event, items) {
+			//This triggers on any bubbling change so if items
+			//is undefined then return
+			if(typeof items === "undefined") {
+				return;
+			}
 			//Always on Desktop, Never on mobile
-			$this.saveLayoutContent();
+			if(window.innerWidth > 768) {
+				$this.saveLayoutContent();
+			}
+
 		});
 
+		$this.resize();
+
 		var gridstack = $(".grid-stack").data('gridstack');
-		var count = gridstack.grid.nodes.length;
+		var total = gridstack.grid.nodes.length;
+		var count = 0;
 		$.each(gridstack.grid.nodes, function(i,v){
 			var el = v.el;
 			if(!el.hasClass("add-widget-widget")){
@@ -128,7 +128,8 @@ var WidgetsC = Class.extend({
 				var widget_rawname = $(el).attr('data-rawname');
 				var widget_content_container = $(el).find(".widget-content");
 				$this.getWidgetContent(widget_content_container, widget_id, widget_rawname, function() {
-					if((count - 1) == i) {
+					count++;
+					if(count == total) {
 						$(document).trigger("post-body.widgets",[ $this.activeDashboard ]);
 					}
 				});
@@ -174,7 +175,7 @@ var WidgetsC = Class.extend({
 				if(data.status){
 					console.log("saved grid");
 				}else {
-					$this.showAlert("Something went wrong saving the information (grid)", "danger");
+					$this.showAlert(_("Something went wrong saving the information (grid)"), "danger");
 				}
 				$this.deactivateFullLoading();
 			}
@@ -215,7 +216,7 @@ var WidgetsC = Class.extend({
 				if(data.status){
 					console.log("sidebar saved");
 				}else {
-					$this.showAlert("Something went wrong saving the information (sidebar)", "danger");
+					$this.showAlert(_("Something went wrong saving the information (sidebar)"), "danger");
 				}
 				$this.deactivateFullLoading();
 			}
@@ -237,7 +238,15 @@ var WidgetsC = Class.extend({
 			'				</div>';
 
 		widget_object.html(loading_html);
-
+	},
+	activateSettingsLoading: function() {
+		var loading_html = '<div class="settings-loading-box">' +
+			'					<span class="fa-stack fa">' +
+			'						<i class="fa fa-cloud fa-stack-2x text-internal-blue"></i>' +
+			'						<i class="fa fa-cog fa-spin fa-stack-1x secundary-color"></i>' +
+			'					</span>' +
+			'				</div>';
+		$("#widget_settings .modal-body").html(loading_html);
 	},
 	showAlert: function(message, type, callback_func){
 
@@ -326,7 +335,7 @@ var WidgetsC = Class.extend({
 							'</div>' +
 							'<div class="back">' +
 								'<div class="widget-title settings-title">' +
-									'<div class="widget-module-name truncate-text">Settings</div>' +
+									'<div class="widget-module-name truncate-text">'+_('Settings')+'</div>' +
 									'<div class="widget-module-subname truncate-text">(' + widget_module_name + ' '+widget_name+')</div>' +
 									'<div class="widget-options">' +
 										'<div class="widget-option close-settings" data-rawname="'+widget_rawname+'" data-widget_type_id="'+widget_type_id+'">' +
@@ -356,7 +365,7 @@ var WidgetsC = Class.extend({
 				'<a href="#" class="closebtn" onclick="UCP.Modules.Widgets.closeExtraWidgetMenu()"><i class="fa fa-times-circle-o" aria-hidden="true"></i></a>' +
 					'<div class="small-widget-content">' +
 					'</div>' +
-					'<button type="button" class="btn btn-xs btn-danger remove-small-widget" data-widget_id="'+widget_id+'" data-widget_rawname="'+widget_rawname+'">Remove Widget</button>' +
+					'<button type="button" class="btn btn-xs btn-danger remove-small-widget" data-widget_id="'+widget_id+'" data-widget_rawname="'+widget_rawname+'">'+_('Remove Widget')+'</button>' +
 			'</div>';
 
 		return html;
@@ -385,12 +394,14 @@ var WidgetsC = Class.extend({
 	initLeftNavBarMenus: function(){
 		var $this = this;
 		$(document).on("click", ".custom-widget", function(event){
-			if($this.widgetMenuOpen) {
-				return; //the widget is already open. Dont reload the content
-			}
-
 			event.preventDefault();
 			event.stopPropagation();
+
+			//the widget is already open. close it
+			if($this.widgetMenuOpen) {
+				$this.closeExtraWidgetMenu();
+				return;
+			}
 
 			var clicked_module = $(this).find("a").data("rawname");
 			var clicked_id = $(this).find("a").data("id");
@@ -412,7 +423,7 @@ var WidgetsC = Class.extend({
 
 			$this.activateWidgetLoading(content_object);
 
-			$.post( "?quietmode=1&module=Dashboards&command=getwidgetcontent",
+			$.post( "?quietmode=1&module=Dashboards&command=getsimplewidgetcontent",
 				{
 					id: clicked_id,
 					rawname: clicked_module
@@ -422,10 +433,10 @@ var WidgetsC = Class.extend({
 					if(typeof data.html !== "undefined"){
 
 						content_object.html(data.html);
-						UCP.callModuleByMethod(clicked_module,"displaySmallWidgetSettings",clicked_id);
-
+						UCP.callModuleByMethod(clicked_module,"displaySimpleWidget",clicked_id);
+						$(document).trigger("post-body.simplewidget",[ $this.activeDashboard ]);
 					}else {
-						$this.showAlert("There was an error getting the widget information, try again later", "danger");
+						$this.showAlert(_("There was an error getting the widget information, try again later"), "danger");
 					}
 
 				}, "json");
@@ -441,7 +452,7 @@ var WidgetsC = Class.extend({
 			var widget_rawname = $(this).data("widget_rawname");
 			var widget_type_id = $(this).data("widget_type_id");
 
-			$this.showConfirm("Are you sure you want to delete this widget?", "warning", function() {
+			$this.showConfirm(_("Are you sure you want to delete this widget?"), "warning", function() {
 				//TODO
 				var grid = $('.grid-stack').data('gridstack');
 				//We are adding the widget always on the position 1,1
@@ -460,7 +471,7 @@ var WidgetsC = Class.extend({
 
 			var sidebar_object_to_remove = $("#side_bar_content li.custom-widget[data-widget_id='" + widget_to_remove + "']");
 
-			UCP.callModuleByMethod(widget_rawname,"deleteSmallWidget",widget_to_remove);
+			UCP.callModuleByMethod(widget_rawname,"deleteSimpleWidget",widget_to_remove);
 
 			sidebar_object_to_remove.remove();
 
@@ -476,7 +487,7 @@ var WidgetsC = Class.extend({
 
 			var dashboard_id = $(this).data("dashboard_id");
 
-			$this.showConfirm("Are you sure you want to delete this dashboard?", "warning", function() {
+			$this.showConfirm(_("Are you sure you want to delete this dashboard?"), "warning", function() {
 
 				$this.activateFullLoading();
 
@@ -499,7 +510,7 @@ var WidgetsC = Class.extend({
 							}
 
 						}else {
-							$this.showAlert("Something went wrong removing the dashboard", "danger");
+							$this.showAlert(_("Something went wrong removing the dashboard"), "danger");
 						}
 						$this.deactivateFullLoading();
 					}
@@ -523,9 +534,17 @@ var WidgetsC = Class.extend({
 
 			var default_size_x = $(this).data('size_x');
 			var default_size_y = $(this).data('size_y');
+			var min_size_x = $(this).data('min_x');
+			var min_size_y = $(this).data('min_y');
+			var max_size_x = $(this).data('max_x');
+			var max_size_y = $(this).data('max_y');
+			var icon = $(this).data('icon');
+			var no_resize = $(this).data('no_resize');
+			no_resize = (typeof no_resize !== "undefined") ? no_resize : false;
+			var resizable = !no_resize;
 
 			//Checking if the widget is already on the dashboard
-			var object_on_dashboard = $("li[data-id='"+new_widget_id+"']");
+			var object_on_dashboard = $("div[data-id='"+new_widget_id+"']");
 
 			if(object_on_dashboard.length <= 0){
 
@@ -549,18 +568,19 @@ var WidgetsC = Class.extend({
 							//TODO
 							var grid = $('.grid-stack').data('gridstack');
 							//We are adding the widget always on the position 1,1
-							grid.addWidget($(full_widget_html), 1, 1, default_size_x, default_size_y, true);
+							grid.addWidget($(full_widget_html), 1, 1, default_size_x, default_size_y, true, min_size_x, max_size_x, min_size_y, max_size_y);
+							grid.resizable($("div[data-id='"+new_widget_id+"']"), resizable);
 							UCP.callModuleByMethod(widget_rawname,"displayWidget",widget_id,$this.activeDashboard);
 							$(document).trigger("post-body.widgets",[ $this.activeDashboard ]);
 						}else {
-							$this.showAlert("There was an error getting the widget information, try again later", "danger");
+							$this.showAlert(_("There was an error getting the widget information, try again later"), "danger");
 						}
 
 						$this.deactivateFullLoading();
 
 					}, "json");
 			}else {
-				$this.showAlert("You already have this widget on this dashboard", "info");
+				$this.showAlert(_("You already have this widget on this dashboard"), "info");
 			}
 		});
 
@@ -580,7 +600,7 @@ var WidgetsC = Class.extend({
 
 				$this.activateFullLoading();
 
-				$.post( "?quietmode=1&module=Dashboards&command=getwidgetcontent",
+				$.post( "?quietmode=1&module=Dashboards&command=getsimplewidgetcontent",
 					{
 						id: widget_id,
 						rawname: widget_rawname
@@ -602,18 +622,20 @@ var WidgetsC = Class.extend({
 
 							$(".side-menu-widgets-container").append(menu_widget_html);
 
-							UCP.callModuleByMethod(widget_rawname,"displaySmallWidget",widget_id);
+							$(document).trigger("post-body.simplewidget",[ $this.activeDashboard ]);
+
+							UCP.callModuleByMethod(widget_rawname,"displaySimpleWidget",widget_id);
 
 							$this.saveSidebarContent();
 						}else {
-							$this.showAlert("There was an error getting the widget information, try again later", "danger");
+							$this.showAlert(_("There was an error getting the widget information, try again later"), "danger");
 						}
 
 						$this.deactivateFullLoading();
 
 					}, "json");
 			}else {
-				$this.showAlert("You already have this widget on the side bar", "info");
+				$this.showAlert(_("You already have this widget on the side bar"), "info");
 			}
 		});
 	},
@@ -641,7 +663,7 @@ var WidgetsC = Class.extend({
 				var widget_html = data.html;
 
 				if(typeof data.html === "undefined"){
-					widget_html = '<div class="alert alert-danger">Something went wrong getting the content of the widget</div>';
+					widget_html = '<div class="alert alert-danger">'+_('Something went wrong getting the content of the widget')+'</div>';
 				}
 
 				widget_content_object.html(widget_html);
@@ -653,7 +675,7 @@ var WidgetsC = Class.extend({
 				}
 			}, "json");
 	},
-	getSettingsContent: function(widget_content_object, widget_id, widget_rawname){
+	getSettingsContent: function(widget_content_object, widget_id, widget_rawname, callback){
 		var $this = this;
 		this.activateWidgetLoading(widget_content_object);
 
@@ -667,11 +689,13 @@ var WidgetsC = Class.extend({
 				var widget_html = data.html;
 
 				if(typeof data.html === "undefined"){
-					widget_html = '<div class="alert alert-danger">Something went wrong getting the settings from the widget</div>';
+					widget_html = '<div class="alert alert-danger">'+_('Something went wrong getting the settings from the widget')+'</div>';
 				}
 
 				widget_content_object.html(widget_html);
-				UCP.callModuleByMethod(widget_rawname,"displayWidgetSettings",widget_id,$this.activeDashboard);
+				if(typeof callback === "function") {
+					callback();
+				}
 
 			}, "json");
 	},
@@ -680,7 +704,7 @@ var WidgetsC = Class.extend({
 		$("#create_dashboard").click(function() {
 			if ($("#dashboard_name").length > 0) {
 				if ($("#dashboard_name").val().trim() === "") {
-					show_alert("You must put a dashboard name" , "danger", function(){ $("#add_dashboard").modal("show") });
+					show_alert(_("You must have a dashboard name") , "danger", function(){ $("#add_dashboard").modal("show"); });
 					$("#add_dashboard").modal("hide");
 				} else {
 					var queryString = $("#add_dashboard_form").attr("action") + "&" + $("#add_dashboard_form").formSerialize();

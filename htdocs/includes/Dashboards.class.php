@@ -40,6 +40,7 @@ class Dashboards {
 			case 'getdashlayout':
 			case 'getallwidgets':
 			case 'getwidgetcontent':
+			case 'getsimplewidgetcontent':
 			case 'getwidgetsettingscontent':
 				return true;
 			default:
@@ -123,6 +124,9 @@ class Dashboards {
 			case 'getwidgetcontent':
 				return $this->getWidgetContent($_POST['rawname'],$_POST['id']);
 			break;
+			case 'getsimplewidgetcontent':
+				return $this->getSimpleWidgetContent($_POST['rawname'],$_POST['id']);
+			break;
 			case 'getwidgetsettingscontent':
 				return $this->getWidgetSettingsContent($_POST['rawname'],$_POST['id']);
 			break;
@@ -181,6 +185,17 @@ class Dashboards {
 	}
 
 	public function getWidgetContent($rawname, $id) {
+		if($this->UCP->Modules->moduleHasMethod($rawname, 'getWidgetDisplay')) {
+			$module = ucfirst(strtolower($rawname));
+			return $this->UCP->Modules->$module->getWidgetDisplay($id);
+		}
+	}
+
+	public function getSimpleWidgetContent($rawname, $id) {
+		if($this->UCP->Modules->moduleHasMethod($rawname, 'getSimpleWidgetDisplay')) {
+			$module = ucfirst(strtolower($rawname));
+			return $this->UCP->Modules->$module->getSimpleWidgetDisplay($id);
+		}
 		if($this->UCP->Modules->moduleHasMethod($rawname, 'getWidgetDisplay')) {
 			$module = ucfirst(strtolower($rawname));
 			return $this->UCP->Modules->$module->getWidgetDisplay($id);

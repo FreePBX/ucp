@@ -42,13 +42,6 @@
 			var datetimeformat = '<?php echo $datetimeformat ?>';
 			emojione.imagePathPNG = 'assets/images/emoji/png/';
 			emojione.imagePathSVG = 'assets/images/emoji/svg/';
-			$(document).on("post-body.widgets",function(){
-				$('input[type=checkbox]').each(function(){
-					if($(this).data('toggle') === 'toggle'){
-						$(this).bootstrapToggle();
-					}
-				});
-			});
 		</script>
 		<div id="shade"></div>
 	</body>

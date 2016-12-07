@@ -37,6 +37,8 @@ class Widgets extends Modules{
 
 	function getDisplay($dashboard_id) {
 
+		$widgets = $this->UCP->Dashboards->getAllWidgets();
+
 		$widgets_info_serialized = $this->Modules->Widgets->getWidgetsFromDashboard($dashboard_id);
 
 		$widgets_info = json_decode($widgets_info_serialized);
@@ -47,6 +49,35 @@ class Widgets extends Modules{
 
 		if(!empty($widgets_info)){
 			foreach($widgets_info as $data) {
+				if(empty($widgets['widget'][ucfirst($data->rawname)]['list'][$data->widget_type_id])) {
+					continue;
+				}
+				$widgetData = $widgets['widget'][ucfirst($data->rawname)]['list'][$data->widget_type_id];
+				$minsize = '';
+				if(!empty($widgetData['minsize'])) {
+					if($widgetData['minsize']['height'] > $widgetData['defaultsize']['height']) {
+						throw new \Exception("Minsize height is less than defaultsize height in ".$data->rawname."!!");
+					}
+					if($widgetData['minsize']['width'] > $widgetData['defaultsize']['width']) {
+						throw new \Exception("Minsize width is less than defaultsize width in ".$data->rawname."!!");
+					}
+					$minsize = 'data-gs-min-height="'.$widgetData['minsize']['height'].'" data-gs-min-width="'.$widgetData['minsize']['width'].'"';
+				}
+				$maxsize = '';
+				if(!empty($widgetData['maxsize'])) {
+					if($widgetData['maxsize']['height'] < $widgetData['defaultsize']['height']) {
+						throw new \Exception("Maxsize height is greater than defaultsize height in ".$data->rawname."!!");
+					}
+					if($widgetData['maxsize']['width'] < $widgetData['defaultsize']['width']) {
+						throw new \Exception("Maxsize width is greater than defaultsize width in ".$data->rawname."!!");
+					}
+					$maxsize = 'data-gs-max-height="'.$widgetData['maxsize']['height'].'" data-gs-max-width="'.$widgetData['maxsize']['width'].'"';
+				}
+				$noresize = '';
+				if(!empty($widgetData['noresize'])) {
+					$noresize = 'data-gs-no-resize="true"';
+				}
+				$iconClass = !empty($widgetData['icon']) ? $widgetData['icon'] : $widgets['widget'][ucfirst($data->rawname)]['icon'];
 				$settings_html = '';
 				if($data->has_settings == 1){
 					$settings_html = '<div class="widget-option edit-widget" data-widget_type_id="'.$data->widget_type_id.'" data-rawname="'.$data->rawname.'">
@@ -54,12 +85,12 @@ class Widgets extends Modules{
 											</div>';
 				}
 
-				$html .= '<div class="grid-stack-item" data-gs-x="'.$data->size_x.'" data-gs-y="'.$data->size_y.'" data-gs-width="'.$data->col.'" data-gs-height="'.$data->row.'" data-widget_module_name="'.$data->widget_module_name.'" data-gs-id="'.$data->id.'" data-id="'.$data->id.'" data-name="'.$data->name.'" data-rawname="'.$data->rawname.'" data-widget_type_id="'.$data->widget_type_id.'" data-has_settings="' . $data->has_settings . '">';
+				$html .= '<div class="grid-stack-item flip-container" '.$maxsize.' '.$minsize.' '.$noresize.' data-gs-x="'.$data->size_x.'" data-gs-y="'.$data->size_y.'" data-gs-width="'.$data->col.'" data-gs-height="'.$data->row.'" data-widget_module_name="'.$data->widget_module_name.'" data-gs-id="'.$data->id.'" data-id="'.$data->id.'" data-name="'.$data->name.'" data-rawname="'.$data->rawname.'" data-widget_type_id="'.$data->widget_type_id.'" data-has_settings="' . $data->has_settings . '">';
 
 				$html .= '<div class="grid-stack-item-content flipper">
 						<div class="front">
 							<div class="widget-title">
-								<div class="widget-module-name truncate-text">'.$data->widget_module_name.'</div>
+								<div class="widget-module-name truncate-text"><i class="fa-fw '.$iconClass.'"></i>'.$data->widget_module_name.'</div>
 								<div class="widget-module-subname truncate-text">('.$data->name.')</div>
 								<div class="widget-options">
 									<div class="widget-option remove-widget" data-widget_id="'.$data->id.'" data-widget_type_id="'.$data->widget_type_id.'" data-widget_rawname="'.$data->rawname.'">
@@ -85,51 +116,8 @@ class Widgets extends Modules{
 						</div>
 				</div>';
 				$html .= '</div>';
-
-				/*
-				$html .= '
-						<li data-widget_module_name="'.$data->widget_module_name.'" data-id="'.$data->id.'" data-name="'.$data->name.'" data-row="'.$data->row.'" data-col="'.$data->col.'" data-sizex="'.$data->size_x.'" data-sizey="'.$data->size_y.'" data-rawname="'.$data->rawname.'" data-widget_type_id="'.$data->widget_type_id.'" data-has_settings="' . $data->has_settings . '" class="flip-container">
-							<div class="flipper">
-								<div class="front">
-									<div class="widget-title">
-										<div class="widget-module-name truncate-text">'.$data->widget_module_name.'</div>
-										<div class="widget-module-subname truncate-text">('.$data->name.')</div>
-										<div class="widget-options">
-											<div class="widget-option remove-widget" data-widget_id="'.$data->id.'" data-widget_type_id="'.$data->widget_type_id.'" data-widget_rawname="'.$data->rawname.'">
-												<i class="fa fa-times" aria-hidden="true"></i>
-											</div>
-											'.$settings_html.'
-										</div>
-									</div>
-									<div class="widget-content"></div>
-								</div>
-								<div class="back">
-									<div class="widget-title settings-title">
-										<div class="widget-module-name truncate-text">Settings</div>
-										<div class="widget-module-subname truncate-text">('.$data->widget_module_name .' '. $data->name.')</div>
-										<div class="widget-options">
-											<div class="widget-option close-settings" data-widget_type_id="'.$data->widget_type_id.'" data-rawname="'.$data->rawname.'">
-												<i class="fa fa-times" aria-hidden="true"></i>
-											</div>
-										</div>
-									</div>
-									<div class="widget-settings-content">
-									</div>
-								</div>
-							</div>
-						</li>';
-						*/
 			}
 		}
-
-		/*
-		$html .= '<div class="grid-stack-item"
-		data-gs-x="0" data-gs-y="0"
-		data-gs-width="4" data-gs-height="2">
-				<div class="grid-stack-item-content">CONTENT</div>
-</div>';
-		*/
-
 		$html .= '</div></br>';
 
 		$this->UCP->Modgettext->pop_textdomain();

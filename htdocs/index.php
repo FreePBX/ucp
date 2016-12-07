@@ -39,10 +39,8 @@ if(isset($_REQUEST['logout']) && $user) {
 	$user = $ucp->User->getUser();
 }
 
-if(empty($ucp->Session->isMobile)) {
-	$ucp->Session->isMobile = $ucp->detect->isMobile();
-	$ucp->Session->isTablet = $ucp->detect->isTablet();
-}
+$ucp->Session->isMobile = $ucp->detect->isMobile();
+$ucp->Session->isTablet = $ucp->detect->isTablet();
 
 //Send back only PJAX relevant data
 //This is to force a complete page refresh if/when UCP gets updates
