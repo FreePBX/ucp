@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-10-26 20:41+1000\n"
-"PO-Revision-Date: 2016-12-10 22:42+0200\n"
+"PO-Revision-Date: 2016-12-11 02:09+0200\n"
 "Last-Translator: Ernesto <ecasas@sangoma.com>\n"
 "Language-Team: Spanish "
 "<http://weblate.freepbx.org/projects/freepbx/ucp/es_ES/>\n"
@@ -134,7 +134,7 @@ msgstr "Confirmar Contraseña"
 
 #: htdocs/views/settings.php:127
 msgid "Contact Image"
-msgstr ""
+msgstr "Imagen de Contacto"
 
 #: htdocs/views/templates/phone.php:45
 msgid "DEF"
@@ -142,7 +142,7 @@ msgstr "DEF"
 
 #: htdocs/views/settings.php:135
 msgid "Delete Image"
-msgstr ""
+msgstr "Borrar Imagen"
 
 #: Ucp.class.php:777
 msgid "Deleted Session"
@@ -162,7 +162,7 @@ msgstr "Hecho"
 
 #: htdocs/views/settings.php:132
 msgid "Drop a new image here"
-msgstr ""
+msgstr "Deje una nueva imagen aquí"
 
 #: htdocs/views/login.php:29 htdocs/views/settings.php:49
 msgid "Email"
@@ -273,7 +273,7 @@ msgstr ""
 
 #: htdocs/includes/User.class.php:93
 msgid "Invalid"
-msgstr "Inválido"
+msgstr "Invalido"
 
 #: htdocs/modules/Home/Home.class.php:201
 #: htdocs/modules/Home/Home.class.php:205
@@ -348,7 +348,7 @@ msgstr "No"
 
 #: htdocs/assets/js/ucp.js:1151
 msgid "No email defined"
-msgstr ""
+msgstr "No se definió email"
 
 #: htdocs/modules/Home/assets/js/global.js:75
 msgid "Nothing Entered"
@@ -568,7 +568,7 @@ msgstr ""
 
 #: htdocs/views/settings.php:149
 msgid "Use Gravatar"
-msgstr ""
+msgstr "Usar Gravatar"
 
 #: htdocs/views/forgot.php:5 htdocs/views/header.php:4
 #: htdocs/views/login.php:4 ucp.i18n.php:4
