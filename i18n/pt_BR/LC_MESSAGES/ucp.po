@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-10-26 20:41+1000\n"
-"PO-Revision-Date: 2016-12-10 21:43+0200\n"
+"PO-Revision-Date: 2016-12-11 02:37+0200\n"
 "Last-Translator: Alexander <alexander.schley@paranagua.pr.gov.br>\n"
 "Language-Team: Portuguese (Brazil) "
 "<http://weblate.freepbx.org/projects/freepbx/ucp/pt_BR/>\n"
@@ -365,7 +365,7 @@ msgstr "DESLIGADO"
 
 #: htdocs/views/header.php:57
 msgid "ON"
-msgstr "LIGADO"
+msgstr "EM"
 
 #: htdocs/modules/Home/assets/js/global.js:46
 #: htdocs/modules/Home/assets/js/global.js:124
