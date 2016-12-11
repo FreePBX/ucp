@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-10-26 20:41+1000\n"
-"PO-Revision-Date: 2016-12-09 22:09+0200\n"
+"PO-Revision-Date: 2016-12-10 21:43+0200\n"
 "Last-Translator: Alexander <alexander.schley@paranagua.pr.gov.br>\n"
 "Language-Team: Portuguese (Brazil) "
 "<http://weblate.freepbx.org/projects/freepbx/ucp/pt_BR/>\n"
@@ -113,9 +113,8 @@ msgid "Are you sure you wish to change your username?"
 msgstr "Você tem certeza que deseja mudar seu usuário?"
 
 #: htdocs/views/settings.php:140
-#, fuzzy
 msgid "Browse"
-msgstr "Navegar"
+msgstr "Visualizar"
 
 #: htdocs/views/templates/phone.php:7 htdocs/views/templates/phone.php:95
 msgid "Call"
