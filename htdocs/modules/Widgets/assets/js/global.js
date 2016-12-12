@@ -149,7 +149,7 @@ var WidgetsC = Class.extend({
 		this.activateFullLoading();
 		var $this = this;
 
-		var gridDataSerialized = _.map($('.grid-stack .grid-stack-item:visible').not(".grid-stack-placeholder"), function (el) {
+		var gridDataSerialized = lodash.map($('.grid-stack .grid-stack-item:visible').not(".grid-stack-placeholder"), function (el) {
 			el = $(el);
 			var node = el.data('_gridstack_node');
 			return {
