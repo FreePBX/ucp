@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-10-26 20:41+1000\n"
-"PO-Revision-Date: 2016-12-09 20:32+0200\n"
+"PO-Revision-Date: 2016-12-12 15:34+0200\n"
 "Last-Translator: Maxim <maxim@ua.fm>\n"
 "Language-Team: Ukrainian "
 "<http://weblate.freepbx.org/projects/freepbx/ucp/uk_UA/>\n"
@@ -211,7 +211,7 @@ msgstr "Ім'я"
 
 #: htdocs/modules/Settings/Settings.class.php:38
 msgid "Forbidden"
-msgstr "Заборонено"
+msgstr "Заборонений"
 
 #: htdocs/views/login.php:36
 msgid "Forgot Password"
@@ -261,7 +261,7 @@ msgstr "Як ви бажаєте відображати ваше ім'я в UCP 
 
 #: views/users_hook.php:56 views/users_hook.php:154
 msgid "Inherit"
-msgstr "Успадкувати"
+msgstr "Успадковувати"
 
 #: htdocs/views/settings.php:99
 msgid "Interface Settings"
