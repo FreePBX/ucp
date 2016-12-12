@@ -29,7 +29,6 @@ var UCPC = Class.extend({
 		textdomain("ucp");
 	},
 	ready: function(loggedIn) {
-		$(window).resize(function() {UCP.windowResize();});
 		$(document).bind("logIn", function( event, username, password ) {UCP.logIn(event, username, password);});
 		$(document).bind("logOut", function( event ) {UCP.logOut(event);});
 		$(window).bind("online", function( event ) {UCP.online(event);});
@@ -57,9 +56,6 @@ var UCPC = Class.extend({
 		});
 
 		this.callModulesByMethod("ready",$.url().param());
-	},
-	windowResize: function() {
-
 	},
 	callModuleByMethod: function() {
 		var args = [],

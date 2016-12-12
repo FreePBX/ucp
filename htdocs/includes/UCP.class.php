@@ -184,7 +184,6 @@ class UCP extends UCP_Helpers {
 			"bootstrap-multiselect-0.9.13.js",
 			"tableexport-3.2.10.min.js",
 			"jquery-ui-1.12.1.min.js",
-			"gridster/jquery.gridster.with-extras.min.js",
 			"fileinput-3.1.3.js",
 			"recorder.js",
 			"jquery.iframe-transport-9.12.5.js",
@@ -208,7 +207,7 @@ class UCP extends UCP_Helpers {
 			"imagesloaded.pkgd-4.1.1.min.js",
 			"lodash-4.17.2.js",
 			"jquery.ui.touch-punch-0.2.3.min.js",
-			"gridstack-0.2.6.min.js",
+			"gridstack-0.2.6.js",
 			"ucp.js",
 			"module.js"
 		);
