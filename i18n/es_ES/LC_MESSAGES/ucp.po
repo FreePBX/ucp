@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-10-26 20:41+1000\n"
-"PO-Revision-Date: 2016-12-12 04:50+0200\n"
+"PO-Revision-Date: 2016-12-12 11:51+0200\n"
 "Last-Translator: Ernesto <ecasas@sangoma.com>\n"
 "Language-Team: Spanish "
 "<http://weblate.freepbx.org/projects/freepbx/ucp/es_ES/>\n"
@@ -428,7 +428,7 @@ msgstr "Procesando..."
 
 #: ucp.i18n.php:26
 msgid "RSS Feeds"
-msgstr "RSS Feeds"
+msgstr "Feeds RSS"
 
 #: ucp.i18n.php:30
 msgid "RSS Feeds that are displayed in UCP. This overrides "
