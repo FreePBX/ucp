@@ -1259,7 +1259,7 @@ select[multiple].Tokenize, select[size].Tokenize {
 	}
 	.fixed-table-loading {
 		z-index: 1199;
-		background-color: #EEF6FF;
+		background-color: #f7f8f8;
 		opacity: 0.95;
 		font-weight: bold;
 	}
@@ -1541,4 +1541,26 @@ div.bhoechie-tab div.bhoechie-tab-content:not(.active){
 	.grid-stack-item {
 		margin-bottom: 5px;
 	}
+}
+
+.modal-body {
+	max-height: ~"calc(100vh - 130px)";
+	overflow-y: auto;
+}
+
+.widget-content {
+	height: ~"calc(100% - 34px)";
+	overflow-y: auto;
+	overflow-x: hidden;
+}
+
+.widget-content.container, .widget-content.container-fluid {
+	margin-right: auto;
+	margin-left: auto;
+	padding-left: 2px;
+	padding-right: 2px;
+	padding-top: 2px;
+}
+
+.grid-stack-item-content .front {
 }

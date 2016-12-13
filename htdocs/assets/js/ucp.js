@@ -45,7 +45,6 @@ var UCPC = Class.extend({
 			UCP.setupLogin();
 		}
 
-
 		$(document).on("post-body.simplewidget", function() {
 			$('.small-widget-content input[type=checkbox][data-toggle="toggle"]').bootstrapToggle();
 			$('.small-widget-content table[data-toggle="table"]').bootstrapTable();

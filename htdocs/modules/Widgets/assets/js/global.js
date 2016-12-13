@@ -63,17 +63,26 @@ var WidgetsC = Class.extend({
 			$('#widget_settings').one('hidden.bs.modal', function (e) {
 				$(".settings-shown-blocker").hide();
 			});
+			$('#widget_settings').attr("data-rawname",rawname);
+			$('#widget_settings').data('rawname',rawname);
 			var settings_container = $('#widget_settings .modal-body');
 			$this.activateSettingsLoading();
 			$(".settings-shown-blocker").show();
 			$('#widget_settings').modal('show');
 			$this.getSettingsContent(settings_container, widget_id, rawname, function() {
+				$("#widget_settings .modal-body .fa-question-circle").click(function(e) {
+					e.preventDefault();
+					e.stopPropagation();
+					var f = $(this).parents("label").attr("for");
+					$(".help-block").addClass('help-hidden');
+					$('.help-block[data-for="'+f+'"]').removeClass('help-hidden');
+				});
 				UCP.callModuleByMethod(rawname,"displayWidgetSettings",widget_id,$this.activeDashboard);
 			});
 		});
 
 		$('.grid-stack').gridstack({
-			cellHeight: 60,
+			cellHeight: 40,
 			verticalMargin: 10,
 			animate: true,
 			float: true,

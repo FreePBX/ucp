@@ -192,7 +192,7 @@
 					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 					<h4 class="modal-title" id="widget_settings_label"><?php echo _("Widget Settings")?></h4>
 				</div>
-				<div class="modal-body"></div>
+				<div class="modal-body widget-settings-content"></div>
 			</div>
 		</div>
 	</div>

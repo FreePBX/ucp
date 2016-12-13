@@ -99,20 +99,7 @@ class Widgets extends Modules{
 									'.$settings_html.'
 								</div>
 							</div>
-							<div class="widget-content"></div>
-						</div>
-						<div class="back">
-							<div class="widget-title settings-title">
-								<div class="widget-module-name truncate-text">Settings</div>
-								<div class="widget-module-subname truncate-text">('.$data->widget_module_name .' '. $data->name.')</div>
-								<div class="widget-options">
-									<div class="widget-option close-settings" data-widget_type_id="'.$data->widget_type_id.'" data-rawname="'.$data->rawname.'">
-										<i class="fa fa-times" aria-hidden="true"></i>
-									</div>
-								</div>
-							</div>
-							<div class="widget-settings-content">
-							</div>
+							<div class="widget-content container"></div>
 						</div>
 				</div>';
 				$html .= '</div>';
