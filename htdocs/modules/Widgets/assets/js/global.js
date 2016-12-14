@@ -57,8 +57,8 @@ var WidgetsC = Class.extend({
 
 		$(document).on("click", ".edit-widget", function(){
 			var rawname = $(this).data("rawname");
-			var widget_id = $(this).data("widget_type_id");
-
+			var widget_type_id = $(this).data("widget_type_id");
+			var widget_id = $(this).parents(".grid-stack-item").data("id");
 
 			$('#widget_settings').one('hidden.bs.modal', function (e) {
 				$(".settings-shown-blocker").hide();
@@ -66,10 +66,14 @@ var WidgetsC = Class.extend({
 			$('#widget_settings').attr("data-rawname",rawname);
 			$('#widget_settings').data('rawname',rawname);
 			var settings_container = $('#widget_settings .modal-body');
+			var parent = $(this).parents(".grid-stack-item");
+			var title = parent.data("widget_module_name");
+			var name = parent.data("name");
 			$this.activateSettingsLoading();
 			$(".settings-shown-blocker").show();
+			$("#widget_settings .modal-title").html('<i class="fa fa-cog" aria-hidden="true"></i> '+title+" "+_("Settings")+" ("+name+")");
 			$('#widget_settings').modal('show');
-			$this.getSettingsContent(settings_container, widget_id, rawname, function() {
+			$this.getSettingsContent(settings_container, widget_type_id, rawname, function() {
 				$("#widget_settings .modal-body .fa-question-circle").click(function(e) {
 					e.preventDefault();
 					e.stopPropagation();
@@ -78,11 +82,12 @@ var WidgetsC = Class.extend({
 					$('.help-block[data-for="'+f+'"]').removeClass('help-hidden');
 				});
 				UCP.callModuleByMethod(rawname,"displayWidgetSettings",widget_id,$this.activeDashboard);
+				$(document).trigger("post-body.widgetsettings",[ widget_id, widget_type_id, $this.activeDashboard ]);
 			});
 		});
 
 		$('.grid-stack').gridstack({
-			cellHeight: 40,
+			cellHeight: 35,
 			verticalMargin: 10,
 			animate: true,
 			float: true,
@@ -133,10 +138,10 @@ var WidgetsC = Class.extend({
 		$.each(gridstack.grid.nodes, function(i,v){
 			var el = v.el;
 			if(!el.hasClass("add-widget-widget")){
-				var widget_id = $(el).attr('data-widget_type_id');
-				var widget_rawname = $(el).attr('data-rawname');
-				var widget_content_container = $(el).find(".widget-content");
-				$this.getWidgetContent(widget_content_container, widget_id, widget_rawname, function() {
+				var widget_id = $(el).data('id');
+				var widget_type_id = $(el).data('widget_type_id');
+				var widget_rawname = $(el).data('rawname');
+				$this.getWidgetContent(widget_id, widget_type_id, widget_rawname, function() {
 					count++;
 					if(count == total) {
 						$(document).trigger("post-body.widgets",[ $this.activeDashboard ]);
@@ -340,7 +345,7 @@ var WidgetsC = Class.extend({
 										settings_html +
 									'</div>' +
 								'</div>' +
-								'<div class="widget-content">'+widget_content+'</div>' +
+								'<div class="widget-content container">'+widget_content+'</div>' +
 							'</div>' +
 							'<div class="back">' +
 								'<div class="widget-title settings-title">' +
@@ -658,13 +663,14 @@ var WidgetsC = Class.extend({
 			$("div.bhoechie-tab>div.bhoechie-tab-content").eq(index).addClass("active");
 		});
 	},
-	getWidgetContent: function(widget_content_object, widget_id, widget_rawname, callback){
-		var $this = this;
+	getWidgetContent: function(widget_id, widget_type_id, widget_rawname, callback){
+		var $this = this,
+				widget_content_object = $(".grid-stack-item[data-id='"+widget_id+"'] .widget-content");
 		this.activateWidgetLoading(widget_content_object);
 
 		$.post( "?quietmode=1&module=Dashboards&command=getwidgetcontent",
 			{
-				id: widget_id,
+				id: widget_type_id,
 				rawname: widget_rawname
 			},
 			function( data ) {
