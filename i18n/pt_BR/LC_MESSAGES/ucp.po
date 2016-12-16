@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-10-26 20:41+1000\n"
-"PO-Revision-Date: 2016-12-13 21:15+0200\n"
+"PO-Revision-Date: 2016-12-16 01:50+0200\n"
 "Last-Translator: Alexander <alexander.schley@paranagua.pr.gov.br>\n"
 "Language-Team: Portuguese (Brazil) "
 "<http://weblate.freepbx.org/projects/freepbx/ucp/pt_BR/>\n"
@@ -162,7 +162,7 @@ msgstr "Nome de Exibição"
 
 #: Ucp.class.php:871 Ucp.class.php:875 Ucp.class.php:879 Ucp.class.php:883
 msgid "Done"
-msgstr "Feito"
+msgstr "Concluído"
 
 #: htdocs/views/settings.php:132
 msgid "Drop a new image here"
@@ -626,7 +626,7 @@ msgstr "Configurações do Usuário"
 
 #: htdocs/views/login.php:15 htdocs/views/settings.php:13
 msgid "Username"
-msgstr "Nome de usuário"
+msgstr "Nome de Usuário"
 
 #: htdocs/assets/js/ucp.js:1036
 msgid "Username has been changed, reloading"
