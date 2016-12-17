@@ -327,6 +327,14 @@ if(!isset($_SERVER['HTTP_X_PJAX'])) {
 	$displayvars['datetimeformat'] = $ucp->View->getDateTimeFormat();
 	$displayvars['dateformat'] = $ucp->View->getDateFormat();
 	$displayvars['desktop'] = (!$ucp->Session->isMobile && !$ucp->Session->isTablet);
+	$mods = $ucp->Modules->getModulesByMethod('getStaticSettings');
+	$displayvars['moduleSettings'] = array();
+	foreach($mods as $m) {
+		$ucp->Modgettext->push_textdomain(strtolower($m));
+		$displayvars['moduleSettings'][$m] = $ucp->Modules->$m->getStaticSettings();
+		$ucp->Modgettext->pop_textdomain();
+	}
+	$ucp->Modgettext->push_textdomain("ucp");
 
 	if(!empty($user["id"])) {
 		$ucp->View->show_view(__DIR__ . '/views/dashboard-footer.php', $displayvars);

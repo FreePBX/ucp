@@ -218,19 +218,6 @@ var UCPC = Class.extend({
 		UCP.autoload();
 		//Start PJAX Stuff
 		if ($.support.pjax) {
-			$.post( "index.php", { "quietmode": 1, "command": "staticsettings" }, function( data ) {
-				if (data.status) {
-					$.each(data.settings, function(i, v) {
-						if (typeof window[i] !== "undefined") {
-							window[i].staticsettings = v;
-						} else if (typeof Ucp.Modules[i] !== "undefined") {
-							Ucp.Modules[i].staticsettings = v;
-						}
-					});
-					$(document).trigger("staticSettingsFinished");
-				}
-			});
-
 			//Navigation Clicks
 			$(document).on("click", "[data-pjax] a, a[data-pjax]", function(event) {
 				var container = $("#dashboard-content"),
@@ -436,35 +423,25 @@ var UCPC = Class.extend({
 		this.notify = false;
 	},
 	closeDialog: function(callback) {
-		//TODO: Use Carlos-Bootstrap Dialog
-		$(".dialog").fadeOut("fast", function(event) {
-			$(this).remove();
+		$("#globalModal").one('hidden.bs.modal', function (e) {
 			if (typeof callback === "function") {
 				callback();
 			}
 		});
+		$("#globalModal").modal('hide');
 	},
 	showDialog: function(title, content, height, width, callback) {
-		//TODO: Use Carlos-Bootstrap Dialog
-		var w = (typeof width !== "undefined") ? width : "250px",
-				h = (typeof height !== "undefined") ? height : "250px",
-				html = "<div class=\"dialog\" style=\"height:" + h + "px;width:" + w + "px;margin-top:-" + (h / 2) + "px;margin-left:-" + (w / 2) + "px;\"><div class=\"title\">" + title + "<i class=\"fa fa-times\" onclick=\"UCP.closeDialog()\"></i></div><div class=\"content\">" + content + "</div></div>";
-		if ($(".dialog").length) {
-			$(".dialog").fadeOut("fast", function(event) {
-				$(this).remove();
-				$(html).appendTo("#dashboard-content").hide().fadeIn("fast", function(event) {
-					if (typeof callback === "function") {
-						callback();
-					}
-				});
-			});
-		} else {
-			$(html).appendTo("#dashboard-content").hide().fadeIn("fast", function(event) {
-				if (typeof callback === "function") {
-					callback();
-				}
-			});
+		if($("#globalModal").is(":visible")) {
+			$("#globalModal").modal('hide');
 		}
+		$('#globalModal .modal-title').html(title);
+		$('#globalModal .modal-body').html(content);
+		$("#globalModal").one('shown.bs.modal', function (e) {
+			if (typeof callback === "function") {
+				callback();
+			}
+		});
+		$("#globalModal").modal('show');
 	},
 	addPhone: function(module, id, s, msg, contacts, callback) {
 		var message = (typeof msg !== "undefined") ? msg : "",

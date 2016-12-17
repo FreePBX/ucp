@@ -77,6 +77,12 @@ class Widgets extends Modules{
 				if(!empty($widgetData['noresize'])) {
 					$noresize = 'data-gs-no-resize="true"';
 				}
+				$locked = '';
+				$lockedIcon = 'fa-unlock-alt';
+				if(!empty($data->locked)) {
+					$locked = 'data-gs-locked="true" data-gs-no-resize="true" data-gs-no-move="true"';
+					$lockedIcon = 'fa-lock';
+				}
 				$iconClass = !empty($widgetData['icon']) ? $widgetData['icon'] : $widgets['widget'][ucfirst($data->rawname)]['icon'];
 				$settings_html = '';
 				if($data->has_settings == 1){
@@ -85,7 +91,7 @@ class Widgets extends Modules{
 											</div>';
 				}
 
-				$html .= '<div class="grid-stack-item flip-container" '.$maxsize.' '.$minsize.' '.$noresize.' data-gs-x="'.$data->size_x.'" data-gs-y="'.$data->size_y.'" data-gs-width="'.$data->col.'" data-gs-height="'.$data->row.'" data-widget_module_name="'.$data->widget_module_name.'" data-gs-id="'.$data->id.'" data-id="'.$data->id.'" data-name="'.$data->name.'" data-rawname="'.$data->rawname.'" data-widget_type_id="'.$data->widget_type_id.'" data-has_settings="' . $data->has_settings . '">';
+				$html .= '<div class="grid-stack-item flip-container" '.$maxsize.' '.$minsize.' '.$noresize.' '.$locked.' data-gs-x="'.$data->size_x.'" data-gs-y="'.$data->size_y.'" data-gs-width="'.$data->col.'" data-gs-height="'.$data->row.'" data-widget_module_name="'.$data->widget_module_name.'" data-gs-id="'.$data->id.'" data-id="'.$data->id.'" data-name="'.$data->name.'" data-rawname="'.$data->rawname.'" data-widget_type_id="'.$data->widget_type_id.'" data-has_settings="' . $data->has_settings . '">';
 
 				$html .= '<div class="grid-stack-item-content flipper">
 						<div class="front">
@@ -97,6 +103,9 @@ class Widgets extends Modules{
 										<i class="fa fa-times" aria-hidden="true"></i>
 									</div>
 									'.$settings_html.'
+									<div class="widget-option lock-widget" data-widget_id="'.$data->id.'" data-widget_type_id="'.$data->widget_type_id.'" data-widget_rawname="'.$data->rawname.'">
+										<i class="fa '.$lockedIcon.'" aria-hidden="true"></i>
+									</div>
 								</div>
 							</div>
 							<div class="widget-content container"></div>

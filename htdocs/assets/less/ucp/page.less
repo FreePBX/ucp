@@ -63,7 +63,6 @@ input, textarea {
 @loading_size: 65px;
 @loading_size_widget: 15px;
 @sidebar_main_padding: 45px;
-@sidebar_content_margin: 50px;
 /* COMMON SIZES */
 
 /* TOP BAR COLORS */
@@ -300,16 +299,6 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 		width: 55px;
 		font-size: 20px;
 
-		&:first-child{
-			background: @button_background_color;
-			a{
-				color: @button_color;
-				&:hover{
-					background: @button_background_color;
-				}
-			}
-		}
-
 		&:last-child{
 			position: absolute;
 			bottom: 64px;
@@ -321,13 +310,20 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 		}
 
 		> a{
-			padding-top: 20px;
-			padding-bottom: 20px;
+			padding-top: 8px;
+			padding-bottom: 8px;
 			text-align: center;
 			color: @main_color;
 		}
 
-		> a:hover, a:focus{
+		> a:hover, a:focus {
+			background-color: @button_background_color;
+			color: @button_color;
+		}
+	}
+
+	.navbar-nav {
+		> .active > a, > a.active:hover, > a.active:focus {
 			background-color: @button_background_color;
 			color: @button_color;
 		}
@@ -340,6 +336,10 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 
 .navbar-inverse{
 	border: none;
+	.navbar-nav>.active>a, .navbar-nav>.active>a:hover, .navbar-nav>.active>a:focus {
+		background-color: @button_background_color;
+		color: @button_color;
+	}
 }
 
 .right-bar{
@@ -367,7 +367,6 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 	transition: 0.5s;
 	border-left: 10px solid @menu_secundary_color;
 	.widget-extra-menu {
-		display: none;
 		position: absolute;
 		top: 45px;
 		width: 100%;
@@ -1525,15 +1524,17 @@ div.bhoechie-tab div.bhoechie-tab-content:not(.active){
 }
 
 .small-widget-content{
-	height: ~"calc(100% - @{sidebar_content_margin})";
+	height: ~"calc(100% - 63px)";
 	width: 100%;
-	margin-top: @sidebar_content_margin;
+	margin-top: 32px;
 	text-align: center;
+	overflow-y: auto;
+	overflow-x: hidden;
 }
 
 .remove-small-widget{
 	position: absolute;
-	bottom: 25px;
+	bottom: 5px;
 	left: 75px;
 }
 

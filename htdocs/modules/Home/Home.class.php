@@ -35,106 +35,41 @@ class Home extends Modules{
 		$this->user = $this->UCP->User->getUser();
 	}
 
-	function getDisplay() {
-		$modules = $this->Modules->getModulesByMethod('getHomeWidgets');
-		$html = '<div class="masonry-container">';
-		foreach($modules as $module) {
-			$this->UCP->Modgettext->push_textdomain(strtolower($module));
-			$widgets = $this->Modules->$module->getHomeWidgets();
-			$this->UCP->Modgettext->pop_textdomain();
-			foreach($widgets as $data) {
-				$html .= '<div id="'.$module.'-widget-'.$data['id'].'" class="widget" style="width:'.$data['size'].';">';
-				$html .= '<div id="'.$module.'-title-'.$data['id'].'" class="title">'.$data['title'].'<a onclick="UCP.Modules.Home.refresh(\''.$module.'\',\''.$data['id'].'\')"><i class="fa fa-refresh"></i></a></div>';
-				$html .= '<div id="'.$module.'-content-'.$data['id'].'" class="content">';
-				$html .= $data['content'];
-				$html .= '</div></div>';
-			}
+	function getWidgetList() {
+		$raws = $this->getFeeds();
+		$list = array();
+		foreach($raws as $id=>$raw) {
+			$list[$id] = array(
+				"display" => $raw['display'],
+				"defaultsize" => array("height" => 4, "width" => 4)
+			);
 		}
-		$html .= '</div>';
-		return $html;
+		if(empty($list)) {
+			return;
+		}
+
+		return array(
+			"rawname" => "home",
+			"display" => _("RSS Feeds"),
+			"icon" => "fa fa-rss",
+			"list" => $list
+		);
 	}
+
+	function getWidgetDisplay($id) {
+		$feeds = $this->getFeeds();
+		if(!empty($feeds[$id])) {
+			return array(
+				'title' => $feeds[$id]['display'],
+				'html' => $feeds[$id]['content']
+			);
+		}
+		return array();
+	}
+
 
 	public function poll() {
 		return array("status" => true, "data" => array());
-	}
-
-	public function getHomeWidgets($feed=null) {
-		//return array();
-		$fpbxfeeds = $this->UCP->FreePBX->Config->get('UCPRSSFEEDS');
-		$fpbxfeeds = !empty($fpbxfeeds) ? $fpbxfeeds : $this->UCP->FreePBX->Config->get('RSSFEEDS');
-
-		$fpbxfeeds = trim($fpbxfeeds);
-		if(empty($fpbxfeeds)) {
-			return array();
-		}
-
-		$feeds = array();
-		$fpbxfeeds = str_replace("\r","",$fpbxfeeds);
-		foreach(explode("\n",$fpbxfeeds) as $k => $f) {
-			$feeds['feed-'.$k] = $f;
-		}
-		if(!empty($feed) && !empty($feeds[$feed])) {
-			$feeds = array($feeds[$feed]);
-		}
-		$out = array();
-		$reader = new Reader;
-
-		//Check if dashboard is installed and enabled,
-		//if so then we will use the same cache engine dashboard uses
-		if($this->UCP->FreePBX->Modules->moduleHasMethod("dashboard","getConfig")) {
-			$storage = $this->UCP->FreePBX->Dashboard;
-		} else {
-			$storage = $this->UCP->FreePBX->Ucp;
-		}
-		foreach($feeds as $k => $feed) {
-			$etag = $storage->getConfig($feed, "etag");
-			$last_modified = $storage->getConfig($feed, "last_modified");
-			$content = '';
-			try {
-				$resource = $reader->download($feed, $last_modified, $etag);
-				if ($resource->isModified()) {
-
-					$parser = $reader->getParser(
-						$resource->getUrl(),
-						$resource->getContent(),
-						$resource->getEncoding()
-					);
-
-					$content = $parser->execute();
-					$etag = $resource->getEtag();
-					$last_modified = $resource->getLastModified();
-
-					$storage->setConfig($feed, $content, "content");
-					$storage->setConfig($feed, $etag, "etag");
-					$storage->setConfig($feed, $last_modified, "last_modified");
-				} else {
-					$content = $storage->getConfig($feed, "content");
-				}
-			}	catch (\PicoFeed\PicoFeedException $e) {
-				$content = $storage->getConfig($feed, "content");
-			}
-			if(empty($content)) {
-				continue;
-			}
-			$htmlcontent = '<ul>';
-			$i = 1;
-			foreach($content->items as $item) {
-				if($i > 5) {
-					break;
-				}
-				$htmlcontent .= '<li><a href="'.$item->url.'" target="_blank">'.$item->title.'</a></li>';
-				$i++;
-			}
-			$htmlcontent .= '</ul>';
-			$out[] = array(
-				"id" => $k,
-				"title" => '<a href="'.$content->site_url.'" target="_blank">'.$content->title.'</a>',
-				"content" => $htmlcontent,
-				"size" => '33.33%'
-			);
-		}
-
-		return $out;
 	}
 
 	/**
@@ -259,4 +194,78 @@ class Home extends Modules{
 		$user = $this->UCP->User->getUser();
 		return $this->UCP->getCombinedSettingByID($user['id'],'Global','originate');
 	}
+
+	private function getFeeds() {
+		$fpbxfeeds = $this->UCP->FreePBX->Config->get('UCPRSSFEEDS');
+		$fpbxfeeds = !empty($fpbxfeeds) ? $fpbxfeeds : $this->UCP->FreePBX->Config->get('RSSFEEDS');
+		if(empty($fpbxfeeds)) {
+			return array();
+		}
+
+		$feeds = array();
+		$fpbxfeeds = str_replace("\r","",$fpbxfeeds);
+		foreach(explode("\n",$fpbxfeeds) as $k => $f) {
+			$feeds['feed-'.$k] = $f;
+		}
+		if(!empty($feed) && !empty($feeds[$feed])) {
+			$feeds = array($feeds[$feed]);
+		}
+		$widgets = array();
+		$reader = new Reader;
+
+		//Check if dashboard is installed and enabled,
+		//if so then we will use the same cache engine dashboard uses
+		if($this->UCP->FreePBX->Modules->moduleHasMethod("dashboard","getConfig")) {
+			$storage = $this->UCP->FreePBX->Dashboard;
+		} else {
+			$storage = $this->UCP->FreePBX->Ucp;
+		}
+		foreach($feeds as $k => $feed) {
+			$etag = $storage->getConfig($feed, "etag");
+			$last_modified = $storage->getConfig($feed, "last_modified");
+			$content = '';
+			try {
+				$resource = $reader->download($feed, $last_modified, $etag);
+				if ($resource->isModified()) {
+
+					$parser = $reader->getParser(
+						$resource->getUrl(),
+						$resource->getContent(),
+						$resource->getEncoding()
+					);
+
+					$content = $parser->execute();
+					$etag = $resource->getEtag();
+					$last_modified = $resource->getLastModified();
+
+					$storage->setConfig($feed, $content, "content");
+					$storage->setConfig($feed, $etag, "etag");
+					$storage->setConfig($feed, $last_modified, "last_modified");
+				} else {
+					$content = $storage->getConfig($feed, "content");
+				}
+			}	catch (\PicoFeed\PicoFeedException $e) {
+				$content = $storage->getConfig($feed, "content");
+			}
+			if(empty($content)) {
+				continue;
+			}
+			$htmlcontent = '<ul>';
+			$i = 1;
+			foreach($content->items as $item) {
+				if($i > 5) {
+					break;
+				}
+				$htmlcontent .= '<li><a href="'.$item->url.'" target="_blank">'.$item->title.'</a></li>';
+				$i++;
+			}
+			$htmlcontent .= '</ul>';
+			$widgets[$k] = array(
+				"display" => $content->title,
+				"content" => $htmlcontent,
+			);
+		}
+		return $widgets;
+	}
+
 }

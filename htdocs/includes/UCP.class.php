@@ -173,6 +173,7 @@ class UCP extends UCP_Helpers {
 
 		//Loading order is important here
 		$globalJavascripts = array(
+			"async-2.1.4.min.js",
 			"jquery-migrate-3.0.0.js",
 			"socket.io-1.5.1.js",
 			"bootstrap-3.3.7.custom.min.js",

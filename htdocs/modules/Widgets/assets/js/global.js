@@ -10,11 +10,15 @@ var WidgetsC = Class.extend({
 		this.initCategoriesWidgets();
 		this.initAddWidgetsButtons();
 		this.initRemoveItemButtons();
+		this.initLockItemButtons();
 		this.initLeftNavBarMenus();
 		this.deactivateFullLoading();
+		var $this = this;
 		$(".custom-widget").each(function() {
 			var widget_rawname = $(this).data("widget_rawname");
 			var widget_id = $(this).data("widget_id");
+			//$(document).trigger("post-body.addsimplewidget",[ widget_id, $this.activeDashboard ]); //needs to happen at end
+			UCP.callModuleByMethod(widget_rawname,"addSimpleWidget",widget_id);
 		});
 	},
 	pjaxEnd: function(event) {
@@ -23,23 +27,6 @@ var WidgetsC = Class.extend({
 	},
 	pjaxStart: function(event) {
 		this.activateFullLoading();
-	},
-	resize: function() {
-		var gridstack = $(".grid-stack").data('gridstack');
-		if(typeof gridstack === "undefined") {
-			return;
-		}
-		$(window).resize(function() {
-			setTimeout(function() {
-				if(window.innerWidth <= 768) {
-					gridstack.resizable($(".grid-stack-item").not('[data-gs-no-resize]'),false);
-					gridstack.enableMove(false);
-				} else {
-					gridstack.resizable($(".grid-stack-item").not('[data-gs-no-resize]'),true);
-					gridstack.enableMove(true);
-				}
-			},100);
-		});
 	},
 	loadDashboard: function() {
 		var $this = this;
@@ -99,8 +86,8 @@ var WidgetsC = Class.extend({
 		});
 
 		$('.grid-stack').on('resizestop', function(event, ui) {
-			//Never on Desktop, Always on mobile
-			UCP.callModulesByMethod("resize",$this.activeDashboard);
+			//Never on mobile, Always on Desktop
+			UCP.callModulesByMethod("resize",ui.element.data("id"),$this.activeDashboard);
 		});
 
 		$('.grid-stack').on('removed', function(event, items) {
@@ -130,9 +117,20 @@ var WidgetsC = Class.extend({
 
 		});
 
-		$this.resize();
-
 		var gridstack = $(".grid-stack").data('gridstack');
+
+		$(window).resize(function() {
+			setTimeout(function() {
+				if(window.innerWidth <= 768) {
+					gridstack.resizable($(".grid-stack-item").not('[data-gs-no-resize]'),false);
+					gridstack.enableMove(false);
+				} else {
+					gridstack.resizable($(".grid-stack-item").not('[data-gs-no-resize]'),true);
+					gridstack.enableMove(true);
+				}
+			},100);
+		});
+
 		var total = gridstack.grid.nodes.length;
 		var count = 0;
 		$.each(gridstack.grid.nodes, function(i,v){
@@ -176,7 +174,8 @@ var WidgetsC = Class.extend({
 				size_x: node.x,
 				size_y: node.y,
 				col: node.width,
-				row: node.height
+				row: node.height,
+				locked: $(el).find(".lock-widget i").hasClass("fa-lock")
 			};
 		});
 
@@ -343,6 +342,9 @@ var WidgetsC = Class.extend({
 											'<i class="fa fa-times" aria-hidden="true"></i>' +
 										'</div>' +
 										settings_html +
+										'<div class="widget-option lock-widget" data-widget_id="'+widget_id+'" data-widget_type_id="'+widget_type_id+'" data-widget_rawname="'+widget_rawname+'">' +
+											'<i class="fa fa-unlock-alt" aria-hidden="true"></i>' +
+										'</div>' +
 									'</div>' +
 								'</div>' +
 								'<div class="widget-content container">'+widget_content+'</div>' +
@@ -397,12 +399,39 @@ var WidgetsC = Class.extend({
 		 }
 		 });*/
 	},
-	openExtraWidgetMenu: function() {
+	openExtraWidgetMenu: function(callback) {
+		var previous = this.widgetMenuOpen;
 		this.widgetMenuOpen = true;
+		if(previous) {
+			if(typeof callback === "function") {
+				callback();
+			}
+			return;
+		}
+		$(".side-menu-widgets-container").one("transitionend",function() {
+			if(typeof callback === "function") {
+				callback();
+			}
+		});
 		$(".side-menu-widgets-container").css({ width: "250px", left: "55px"});
 	},
-	closeExtraWidgetMenu: function() {
+	closeExtraWidgetMenu: function(callback) {
+		var previous = this.widgetMenuOpen;
 		this.widgetMenuOpen = false;
+		if(!previous) {
+			$("#side_bar_content li.active").removeClass("active");
+			if(typeof callback === "function") {
+				callback();
+			}
+			return;
+		}
+		$(".side-menu-widgets-container").one("transitionend",function() {
+			$(".widget-extra-menu:visible").addClass("hidden");
+			$("#side_bar_content li.active").removeClass("active");
+			if(typeof callback === "function") {
+				callback();
+			}
+		});
 		$(".side-menu-widgets-container").css({ width: "0", left: "45px"});
 	},
 	initLeftNavBarMenus: function(){
@@ -411,31 +440,22 @@ var WidgetsC = Class.extend({
 			event.preventDefault();
 			event.stopPropagation();
 
-			//the widget is already open. close it
-			if($this.widgetMenuOpen) {
-				$this.closeExtraWidgetMenu();
+			//We are already looking at it so do nothing
+			if($(this).hasClass("active")) {
 				return;
 			}
 
 			var clicked_module = $(this).find("a").data("rawname");
 			var clicked_id = $(this).find("a").data("id");
 
-			if(!$("#menu_"+clicked_module).is(":visible")){
+			$("#side_bar_content li.active").removeClass("active");
+			$(this).addClass("active");
 
-				if($(".widget-extra-menu").is(":visible")){
-					$(".widget-extra-menu:visible").fadeOut("slow", function(){
-						$("#menu_"+clicked_module).fadeIn("slow");
-					});
-				}else {
-					$("#menu_"+clicked_module).fadeIn("slow");
-				}
-			}
-
-			$this.openExtraWidgetMenu();
-
+			$(".widget-extra-menu:visible").addClass("hidden");
 			var content_object = $("#menu_"+clicked_module).find(".small-widget-content");
-
 			$this.activateWidgetLoading(content_object);
+			$("#menu_"+clicked_module).removeClass("hidden");
+			$this.openExtraWidgetMenu();
 
 			$.post( "?quietmode=1&module=Dashboards&command=getsimplewidgetcontent",
 				{
@@ -443,17 +463,39 @@ var WidgetsC = Class.extend({
 					rawname: clicked_module
 				},
 				function( data ) {
-
 					if(typeof data.html !== "undefined"){
-
 						content_object.html(data.html);
+
 						UCP.callModuleByMethod(clicked_module,"displaySimpleWidget",clicked_id);
-						$(document).trigger("post-body.simplewidget",[ $this.activeDashboard ]);
+						$(document).trigger("post-body.simplewidget",[ clicked_id, $this.activeDashboard ]);
 					}else {
 						$this.showAlert(_("There was an error getting the widget information, try again later"), "danger");
 					}
-
 				}, "json");
+		});
+	},
+	initLockItemButtons: function(){
+		var $this = this;
+		$(document).on("click", ".lock-widget", function(event){
+			event.preventDefault();
+			event.stopPropagation();
+			if(window.innerWidth <= 768) {
+				alert(_("Widgets can not be locked"));
+				return;
+			}
+			var locked = $(this).find("i").hasClass("fa-lock"),
+				id = $(this).data("widget_id"),
+				grid = $('.grid-stack').data('gridstack');
+			if(locked) {
+				$(this).find("i").removeClass().addClass("fa fa-unlock-alt");
+			} else {
+				$(this).find("i").removeClass().addClass("fa fa-lock");
+			}
+			grid.resizable($(".grid-stack-item[data-id="+id+"]"), locked);
+			grid.movable($(".grid-stack-item[data-id="+id+"]"), locked);
+			grid.locked($(".grid-stack-item[data-id="+id+"]"), !locked);
+
+			$this.saveLayoutContent();
 		});
 	},
 	initRemoveItemButtons: function(){
@@ -534,9 +576,15 @@ var WidgetsC = Class.extend({
 		});
 	},
 	initAddWidgetsButtons: function(){
+		$("#add_widget").on("show.bs.modal",function() {
+			$this.closeExtraWidgetMenu();
+			$(".navbar-nav .add-widget").addClass("active");
+		});
+		$("#add_widget").on("hidden.bs.modal",function() {
+			$(".navbar-nav .add-widget").removeClass("active");
+		});
 		var $this = this;
 		$(".add-widget-button").click(function(){
-
 			var current_dashboard_id = $this.activeDashboard;
 			var widget_id = $(this).data('widget_id');
 			var widget_module_name = $(this).data('widget_module_name');
@@ -547,7 +595,9 @@ var WidgetsC = Class.extend({
 			var new_widget_id = current_dashboard_id + "-" + widget_rawname + "-" + widget_id;
 
 			var default_size_x = $(this).data('size_x');
+			default_size_x = (typeof default_size_x === "undefined" || Number(default_size_x) === 0) ? 2 : default_size_x;
 			var default_size_y = $(this).data('size_y');
+			default_size_y = (typeof default_size_y === "undefined" || Number(default_size_y) === 0) ? 2 : default_size_y;
 			var min_size_x = $(this).data('min_x');
 			var min_size_y = $(this).data('min_y');
 			var max_size_x = $(this).data('max_x');
@@ -636,9 +686,9 @@ var WidgetsC = Class.extend({
 
 							$(".side-menu-widgets-container").append(menu_widget_html);
 
-							$(document).trigger("post-body.simplewidget",[ $this.activeDashboard ]);
+							//$(document).trigger("post-body.addsimplewidget",[ widget_id, $this.activeDashboard ]);
 
-							UCP.callModuleByMethod(widget_rawname,"displaySimpleWidget",widget_id);
+							UCP.callModuleByMethod(widget_rawname,"addSimpleWidget",widget_id);
 
 							$this.saveSidebarContent();
 						}else {
@@ -683,7 +733,7 @@ var WidgetsC = Class.extend({
 
 				widget_content_object.html(widget_html);
 				UCP.callModuleByMethod(widget_rawname,"displayWidget",widget_id,$this.activeDashboard);
-				UCP.callModuleByMethod(widget_rawname,"resize",$this.activeDashboard);
+				UCP.callModuleByMethod(widget_rawname,"resize",widget_id,$this.activeDashboard);
 
 				if(typeof callback === "function") {
 					callback(data);
