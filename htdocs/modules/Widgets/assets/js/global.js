@@ -686,8 +686,6 @@ var WidgetsC = Class.extend({
 					},
 					function( data ) {
 
-						console.log(data);
-
 						$("#add_widget").modal("hide");
 
 						if(typeof data.html !== "undefined"){
@@ -699,7 +697,7 @@ var WidgetsC = Class.extend({
 							//We are adding the widget always on the position 1,1
 							grid.addWidget($(full_widget_html), 1, 1, default_size_x, default_size_y, true, min_size_x, max_size_x, min_size_y, max_size_y);
 							grid.resizable($("div[data-id='"+new_widget_id+"']"), resizable);
-							UCP.callModuleByMethod(widget_rawname,"displayWidget",widget_id,$this.activeDashboard);
+							UCP.callModuleByMethod(widget_rawname,"displayWidget",new_widget_id,$this.activeDashboard);
 							$(document).trigger("post-body.widgets",[ $this.activeDashboard ]);
 						}else {
 							$this.showAlert(_("There was an error getting the widget information, try again later"), "danger");

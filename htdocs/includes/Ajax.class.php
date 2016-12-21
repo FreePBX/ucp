@@ -128,6 +128,7 @@ class Ajax extends UCP {
 				$this->UCP->Modgettext->pop_textdomain();
 			break;
 			case 'poll':
+				session_write_close(); //prevent other calls from binding up on polling
 				$ret = $this->poll();
 				if($ret === false) {
 					$this->triggerFatal();
