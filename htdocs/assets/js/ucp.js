@@ -59,7 +59,7 @@ var UCPC = Class.extend({
 			});
 			$('.grid-stack table[data-toggle="table"]').bootstrapTable();
 		});
-		$(document).on("post-body.widgetsettings",function(){
+		$(document).on("post-body.widgetsettings post-body.simplewidgetsettings",function(){
 			$('.widget-settings-content input[type=checkbox][data-toggle="toggle"]').bootstrapToggle({
 				on: _('Enable'),
 				off: _('Disable')

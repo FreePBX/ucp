@@ -121,7 +121,7 @@
 																	</h4>
 																</div>
 																<div class="widget-add-container top-offset text-center">
-																	<button type="button" class="btn btn-sm btn-primary btn-outline add-small-widget-button" data-module_name="<?php echo $widget_category_info["display"]; ?>" data-name="<?php echo $widget_category_info["display"]; ?>" data-id="<?php echo $widget_id; ?>" data-rawname="<?php echo $widget_category_info["rawname"]; ?>" data-icon="<?php echo $widget_category_info["icon"]; ?>"><i class="fa fa-plus-circle" aria-hidden="true"></i></button>
+																	<button type="button" class="btn btn-sm btn-primary btn-outline add-small-widget-button" <?php echo !empty($widget_list['hasSettings']) ? 'data-widget_settings="true"' : ''?> data-module_name="<?php echo $widget_category_info["display"]; ?>" data-name="<?php echo $widget_category_info["display"]; ?>" data-widget_type_id="<?php echo $widget_list['display']?>" data-id="<?php echo $widget_id; ?>" data-rawname="<?php echo $widget_category_info["rawname"]; ?>" data-icon="<?php echo $widget_category_info["icon"]; ?>"><i class="fa fa-plus-circle" aria-hidden="true"></i></button>
 																</div>
 															</div>
 														</div>

@@ -10,9 +10,7 @@ $bootstrap_settings = array();
 $bootstrap_settings['freepbx_auth'] = false;
 //TODO: We need to make sure security is 100%!
 $restrict_mods = true; //Set to true so that we just load framework and the page wont bomb out because we have no session
-if (!@include_once(getenv('FREEPBX_CONF') ? getenv('FREEPBX_CONF') : '/etc/freepbx.conf')) {
-	include_once('/etc/asterisk/freepbx.conf');
-}
+include '/etc/freepbx.conf';
 
 include(dirname(__FILE__).'/includes/bootstrap.php');
 try {
@@ -114,15 +112,28 @@ if ( !isset($_SERVER['HTACCESS']) && preg_match("/apache/i", $_SERVER['SERVER_SO
 try {
 	$active_modules = $ucp->Modules->getActiveModules();
 } catch(\Exception $e) {
-	echo "<html><head><title>UCP</title></head><body style='background-color: rgb(211, 234, 255);'><div style='border-radius: 5px;border: 1px solid black;text-align: center;padding: 5px;width: 90%;margin: auto;left: 0px;right: 0px;background-color: rgba(53, 77, 255, 0.18);'>"._('There was an error trying to load UCP').":<br>".$e->getMessage()."</div></body></html>";
+	echo "<html><head><title>"._("UCP")."</title></head><body style='background-color: rgb(211, 234, 255);'><div style='border-radius: 5px;border: 1px solid black;text-align: center;padding: 5px;width: 90%;margin: auto;left: 0px;right: 0px;background-color: rgba(53, 77, 255, 0.18);'>"._('There was an error trying to load UCP').":<br>".$e->getMessage()."</div></body></html>";
 	die();
 }
 
 $all_widgets = $ucp->Dashboards->getAllWidgets();
 $all_simple_widgets = $ucp->Dashboards->getAllSimpleWidgets();
-
 //Simple widgets by user
-$user_small_widgets = json_decode($ucp->Dashboards->getSimpleLayout());
+$usw = json_decode($ucp->Dashboards->getSimpleLayout(),true);
+$user_small_widgets = array();
+foreach($usw as $id => $widget) {
+	$name = ucfirst(strtolower($widget['rawname']));
+	$id = $widget['id'];
+	$info = $all_simple_widgets['widget'][$name]['list'][$id];
+	$display = $all_simple_widgets['widget'][$name]['display'];
+	if(empty($info)) {
+		continue;
+	}
+	$user_small_widgets[$id] = $widget;
+	$user_small_widgets[$id]['widget_name'] = $info['display'];
+	$user_small_widgets[$id]['name'] = $display;
+	$user_small_widgets[$id]['hasSettings'] = !empty($info['hasSettings']);
+}
 
 $user_dashboards = $ucp->Dashboards->getDashboards();
 $active_dashboard_id = "";

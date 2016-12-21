@@ -382,14 +382,21 @@ var WidgetsC = Class.extend({
 
 		return html;
 	},
-	smallWidgetMenuLayout: function(widget_id, widget_rawname){
+	smallWidgetMenuLayout: function(widget_id, widget_rawname, name, widget_name, widget_icon, hasSettings){
+		var settings_html = '';
+		if(hasSettings) {
+			settings_html = '<i class="fa fa-cog show-simple-widget-settings" aria-hidden="true"></i>';
+		}
 		var html = '' +
-			'<div class="widget-extra-menu" id="menu_'+widget_rawname+'" data-module="'+widget_rawname+'">' +
-				'<a href="#" class="closebtn" onclick="UCP.Modules.Widgets.closeExtraWidgetMenu()"><i class="fa fa-times-circle-o" aria-hidden="true"></i></a>' +
-					'<h5 class="small-widget-title"><i class="fa"></i> <span></span></h5>' +
-					'<div class="small-widget-content">' +
-					'</div>' +
-					'<button type="button" class="btn btn-xs btn-danger remove-small-widget" data-widget_id="'+widget_id+'" data-widget_rawname="'+widget_rawname+'">'+_('Remove Widget')+'</button>' +
+			'<div class="widget-extra-menu" id="menu_'+widget_rawname+'_'+widget_id+'" data-id="menu_'+widget_rawname+'_'+widget_id+'" data-widget_type_id="'+widget_id+'" data-module="'+widget_rawname+'" data-name="'+name+'" data-widget_name="'+widget_name+'" data-icon="'+widget_icon+'">' +
+				'<div class="menu-actions">' +
+					'<i class="fa fa-times-circle-o close-simple-widget-menu" aria-hidden="true"></i>' +
+					settings_html +
+				'</div>' +
+				'<h5 class="small-widget-title"><i class="fa"></i> <span></span> <small></small></h5>' +
+				'<div class="small-widget-content">' +
+				'</div>' +
+				'<button type="button" class="btn btn-xs btn-danger remove-small-widget" data-widget_id="'+widget_id+'" data-widget_rawname="'+widget_rawname+'">'+_('Remove Widget')+'</button>' +
 			'</div>';
 
 		return html;
@@ -444,6 +451,45 @@ var WidgetsC = Class.extend({
 	},
 	initLeftNavBarMenus: function(){
 		var $this = this;
+
+		$(document).on("click", ".close-simple-widget-menu", function() {
+			$this.closeExtraWidgetMenu();
+		});
+
+		$(document).on("click", ".show-simple-widget-settings", function() {
+			var parent = $(this).parents(".widget-extra-menu"),
+					rawname = parent.data("module"),
+					widget_type_id = parent.data("widget_type_id"),
+					widget_id = parent.data("id");
+
+			$('#widget_settings').one('hidden.bs.modal', function (e) {
+				$(".settings-shown-blocker").hide();
+			});
+
+			$('#widget_settings').attr("data-rawname",rawname);
+			$('#widget_settings').data('rawname',rawname);
+
+			var settings_container = $('#widget_settings .modal-body');
+			var title = parent.data("name");
+			var name = parent.data("widget_name");
+
+			$this.activateSettingsLoading();
+			$(".settings-shown-blocker").show();
+			$("#widget_settings .modal-title").html('<i class="fa fa-cog" aria-hidden="true"></i> '+title+" "+_("Settings")+" ("+name+")");
+			$('#widget_settings').modal('show');
+			$this.getSimpleSettingsContent(settings_container, widget_type_id, rawname, function() {
+				$("#widget_settings .modal-body .fa-question-circle").click(function(e) {
+					e.preventDefault();
+					e.stopPropagation();
+					var f = $(this).parents("label").attr("for");
+					$(".help-block").addClass('help-hidden');
+					$('.help-block[data-for="'+f+'"]').removeClass('help-hidden');
+				});
+				UCP.callModuleByMethod(rawname,"displaySimpleWidgetSettings",widget_id);
+				$(document).trigger("post-body.simplewidgetsettings",[ widget_id, widget_type_id ]);
+			});
+		});
+
 		$(document).on("click", ".custom-widget", function(event){
 			event.preventDefault();
 			event.stopPropagation();
@@ -455,16 +501,22 @@ var WidgetsC = Class.extend({
 
 			var clicked_module = $(this).find("a").data("rawname");
 			var clicked_id = $(this).find("a").data("id");
+			var widget_id = clicked_module + "_" + clicked_id;
 
 			$("#side_bar_content li.active").removeClass("active");
 			$(this).addClass("active");
 
 			$(".widget-extra-menu:visible").addClass("hidden");
-			var content_object = $("#menu_"+clicked_module).find(".small-widget-content");
-			$("#menu_"+clicked_module).find(".small-widget-title i").removeClass().addClass($("#menu_"+clicked_module).data("icon"));
-			$("#menu_"+clicked_module).find(".small-widget-title span").text($("#menu_"+clicked_module).data("name"));
+			var content_object = $("#menu_"+widget_id).find(".small-widget-content");
+			$("#menu_"+widget_id).find(".small-widget-title i").removeClass().addClass($("#menu_"+widget_id).data("icon"));
+			$("#menu_"+widget_id).find(".small-widget-title span").text($("#menu_"+widget_id).data("name"));
+			if($("#menu_"+widget_id).data("name") != $("#menu_"+widget_id).data("widget_name")) {
+				$("#menu_"+widget_id).find(".small-widget-title small").text("("+$("#menu_"+widget_id).data("widget_name")+")");
+			} else {
+				$("#menu_"+widget_id).find(".small-widget-title small").text("");
+			}
 			$this.activateWidgetLoading(content_object);
-			$("#menu_"+clicked_module).removeClass("hidden");
+			$("#menu_"+widget_id).removeClass("hidden");
 			$this.openExtraWidgetMenu();
 
 			$.post( "?quietmode=1&module=Dashboards&command=getsimplewidgetcontent",
@@ -667,8 +719,10 @@ var WidgetsC = Class.extend({
 			var widget_module_name = $(this).data('module_name');
 			var widget_rawname = $(this).data('rawname');
 			var widget_name = $(this).data('name');
-
 			var widget_icon = $(this).data('icon');
+			var widget_type_id = $(this).data('widget_type_id');
+			var hasSettings = $(this).data('widget_settings');
+			hasSettings = (hasSettings == "true") ? true : false;
 
 			//Checking if the widget is already on the bar
 			var object_on_bar = $("#side_bar_content li.custom-widget[data-widget_id='"+widget_id+"']");
@@ -693,7 +747,7 @@ var WidgetsC = Class.extend({
 
 							var full_widget_html = $this.smallWidgetLayout(widget_id, widget_module_name, widget_name, widget_id, widget_rawname, widget_icon, widget_html);
 
-							var menu_widget_html = $this.smallWidgetMenuLayout(widget_id, widget_rawname);
+							var menu_widget_html = $this.smallWidgetMenuLayout(widget_id, widget_rawname, widget_name, widget_type_id, widget_icon, hasSettings);
 
 							$("#side_bar_content .last-widget").before(full_widget_html);
 
@@ -753,9 +807,31 @@ var WidgetsC = Class.extend({
 				}
 			}, "json");
 	},
+	getSimpleSettingsContent: function(widget_content_object, widget_id, widget_rawname, callback){
+		var $this = this;
+
+		$.post( "?quietmode=1&module=Dashboards&command=getsimplewidgetsettingscontent",
+			{
+				id: widget_id,
+				rawname: widget_rawname
+			},
+			function( data ) {
+
+				var widget_html = data.html;
+
+				if(typeof data.html === "undefined"){
+					widget_html = '<div class="alert alert-danger">'+_('Something went wrong getting the settings from the widget')+'</div>';
+				}
+
+				widget_content_object.html(widget_html);
+				if(typeof callback === "function") {
+					callback();
+				}
+
+			}, "json");
+	},
 	getSettingsContent: function(widget_content_object, widget_id, widget_rawname, callback){
 		var $this = this;
-		this.activateWidgetLoading(widget_content_object);
 
 		$.post( "?quietmode=1&module=Dashboards&command=getwidgetsettingscontent",
 			{

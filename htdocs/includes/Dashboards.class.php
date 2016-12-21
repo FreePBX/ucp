@@ -42,6 +42,7 @@ class Dashboards {
 			case 'getwidgetcontent':
 			case 'getsimplewidgetcontent':
 			case 'getwidgetsettingscontent':
+			case 'getsimplewidgetsettingscontent':
 				return true;
 			default:
 				return false;
@@ -130,6 +131,9 @@ class Dashboards {
 			case 'getwidgetsettingscontent':
 				return $this->getWidgetSettingsContent($_POST['rawname'],$_POST['id']);
 			break;
+			case 'getsimplewidgetsettingscontent':
+				return $this->getSimpleWidgetSettingsContent($_POST['rawname'],$_POST['id']);
+			break;
 		}
 		return false;
 	}
@@ -206,6 +210,12 @@ class Dashboards {
 		if($this->UCP->Modules->moduleHasMethod($rawname, 'getWidgetSettingsDisplay')) {
 			$module = ucfirst(strtolower($rawname));
 			return $this->UCP->Modules->$module->getWidgetSettingsDisplay($id);
+		}
+	}
+	public function getSimpleWidgetSettingsContent($rawname, $id) {
+		if($this->UCP->Modules->moduleHasMethod($rawname, 'getSimpleWidgetSettingsDisplay')) {
+			$module = ucfirst(strtolower($rawname));
+			return $this->UCP->Modules->$module->getSimpleWidgetSettingsDisplay($id);
 		}
 	}
 }

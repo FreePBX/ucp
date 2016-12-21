@@ -24,8 +24,8 @@
 		<li class="add-widget first-widget" data-toggle="modal" data-target="#add_widget"><a href="#"><i class="fa fa-plus-circle" aria-hidden="true"></i></a></li>
 		<?php if(!empty($user_small_widgets)) { ?>
 			<?php foreach($user_small_widgets as $small_widget) { ?>
-				<li class="custom-widget" data-widget_id="<?php echo $small_widget->id; ?>" data-widget_rawname="<?php echo $small_widget->rawname; ?>">
-					<a href="#" data-module_name="<?php echo $small_widget->module_name; ?>" data-id="<?php echo $small_widget->id; ?>" data-name="<?php echo $small_widget->name; ?>" data-rawname="<?php echo $small_widget->rawname; ?>" data-type_id="<?php echo $small_widget->type_id; ?>" data-icon="<?php echo $small_widget->icon; ?>"><i class="<?php echo $small_widget->icon; ?>" aria-hidden="true"></i></a>
+				<li class="custom-widget" data-widget_id="<?php echo $small_widget['id']; ?>" data-widget_rawname="<?php echo $small_widget['rawname']; ?>">
+					<a href="#" data-module_name="<?php echo $small_widget['module_name']; ?>" data-id="<?php echo $small_widget['id']; ?>" data-name="<?php echo $small_widget['name']; ?>" data-rawname="<?php echo $small_widget['rawname']; ?>" data-type_id="<?php echo $small_widget['type_id']; ?>" data-icon="<?php echo $small_widget['icon']; ?>"><i class="<?php echo $small_widget['icon']; ?>" aria-hidden="true"></i></a>
 				</li>
 			<?php } ?>
 		<?php } ?>
@@ -36,12 +36,17 @@
 <div class="side-menu-widgets-container">
 	<?php if(!empty($user_small_widgets)) { ?>
 		<?php foreach($user_small_widgets as $small_widget) { ?>
-			<div class="widget-extra-menu" id="menu_<?php echo $small_widget->rawname; ?>" data-module="<?php echo $small_widget->rawname; ?>" data-name="<?php echo $small_widget->name; ?>" data-icon="<?php echo $small_widget->icon; ?>">
-				<a href="#" class="closebtn" onclick="UCP.Modules.Widgets.closeExtraWidgetMenu()"><i class="fa fa-times-circle-o" aria-hidden="true"></i></a>
-				<h5 class="small-widget-title"><i class="fa"></i> <span></span></h5>
+			<div class="widget-extra-menu" id="menu_<?php echo $small_widget['rawname'];?>_<?php echo $small_widget['id'];?>" data-id="menu_<?php echo $small_widget['rawname'];?>_<?php echo $small_widget['id'];?>" data-widget_type_id="<?php echo $small_widget['id'];?>" data-module="<?php echo $small_widget['rawname']; ?>" data-name="<?php echo $small_widget['name']?>" data-widget_name="<?php echo $small_widget['widget_name']; ?>" data-icon="<?php echo $small_widget['icon']; ?>">
+				<div class="menu-actions">
+					<i class="fa fa-times-circle-o close-simple-widget-menu" aria-hidden="true"></i>
+					<?php if($small_widget['hasSettings']) { ?>
+						<i class="fa fa-cog show-simple-widget-settings" aria-hidden="true"></i>
+					<?php } ?>
+				</div>
+				<h5 class="small-widget-title"><i class="fa"></i> <span></span> <small></small></h5>
 				<div class="small-widget-content">
 				</div>
-				<button type="button" class="btn btn-xs btn-danger remove-small-widget" data-widget_id="<?php echo $small_widget->id; ?>" data-widget_rawname="<?php echo $small_widget->rawname; ?>">Remove Widget</button>
+				<button type="button" class="btn btn-xs btn-danger remove-small-widget" data-widget_id="<?php echo $small_widget['id']; ?>" data-widget_rawname="<?php echo $small_widget['rawname']; ?>"><?php echo _("Remove Widget")?></button>
 			</div>
 		<?php } ?>
 	<?php } ?>
