@@ -159,11 +159,14 @@ var WidgetsC = Class.extend({
 	},
 	saveLayoutContent: function() {
 		this.activateFullLoading();
-		var $this = this;
+		var $this = this,
+				grid = $('.grid-stack').data('gridstack');
 
 		var gridDataSerialized = lodash.map($('.grid-stack .grid-stack-item:visible').not(".grid-stack-placeholder"), function (el) {
 			el = $(el);
-			var node = el.data('_gridstack_node');
+			var node = el.data('_gridstack_node'),
+					locked = el.find(".lock-widget i").hasClass("fa-lock");
+			grid.movable(el, !locked); //some gitchy crap going on here, we have to relock the widget
 			return {
 				id: el.data('id'),
 				widget_module_name: el.data('widget_module_name'),
@@ -175,7 +178,7 @@ var WidgetsC = Class.extend({
 				size_y: node.y,
 				col: node.width,
 				row: node.height,
-				locked: $(el).find(".lock-widget i").hasClass("fa-lock")
+				locked: locked
 			};
 		});
 
@@ -321,7 +324,7 @@ var WidgetsC = Class.extend({
 
 		$('#confirm_modal').modal('show');
 	},
-	widget_layout: function(widget_id, widget_module_name, widget_name, widget_type_id, widget_rawname, widget_has_settings, widget_content){
+	widget_layout: function(widget_id, widget_module_name, widget_name, widget_type_id, widget_rawname, widget_has_settings, widget_content, resizable){
 
 		var settings_html = '';
 		if(widget_has_settings == "1"){
@@ -329,9 +332,13 @@ var WidgetsC = Class.extend({
 								'<i class="fa fa-cog" aria-hidden="true"></i>' +
 							'</div>';
 		}
+		var rs_html = '';
+		if(!resizable) {
+			rs_html = 'data-no-resize="true"';
+		}
 
 		var html = '' +
-					'<div data-widget_module_name="'+widget_module_name+'" data-id="'+widget_id+'" data-name="'+widget_name+'" data-rawname="'+widget_rawname+'" data-widget_type_id="'+widget_type_id+'" data-has_settings="'+widget_has_settings+'" class="flip-container">' +
+					'<div data-widget_module_name="'+widget_module_name+'" data-id="'+widget_id+'" data-name="'+widget_name+'" data-rawname="'+widget_rawname+'" data-widget_type_id="'+widget_type_id+'" data-has_settings="'+widget_has_settings+'" class="flip-container" '+rs_html+'>' +
 						'<div class="grid-stack-item-content flipper">' +
 							'<div class="front">' +
 								'<div class="widget-title">' +
@@ -379,6 +386,7 @@ var WidgetsC = Class.extend({
 		var html = '' +
 			'<div class="widget-extra-menu" id="menu_'+widget_rawname+'" data-module="'+widget_rawname+'">' +
 				'<a href="#" class="closebtn" onclick="UCP.Modules.Widgets.closeExtraWidgetMenu()"><i class="fa fa-times-circle-o" aria-hidden="true"></i></a>' +
+					'<h5 class="small-widget-title"><i class="fa"></i> <span></span></h5>' +
 					'<div class="small-widget-content">' +
 					'</div>' +
 					'<button type="button" class="btn btn-xs btn-danger remove-small-widget" data-widget_id="'+widget_id+'" data-widget_rawname="'+widget_rawname+'">'+_('Remove Widget')+'</button>' +
@@ -453,6 +461,8 @@ var WidgetsC = Class.extend({
 
 			$(".widget-extra-menu:visible").addClass("hidden");
 			var content_object = $("#menu_"+clicked_module).find(".small-widget-content");
+			$("#menu_"+clicked_module).find(".small-widget-title i").removeClass().addClass($("#menu_"+clicked_module).data("icon"));
+			$("#menu_"+clicked_module).find(".small-widget-title span").text($("#menu_"+clicked_module).data("name"));
 			$this.activateWidgetLoading(content_object);
 			$("#menu_"+clicked_module).removeClass("hidden");
 			$this.openExtraWidgetMenu();
@@ -491,7 +501,10 @@ var WidgetsC = Class.extend({
 			} else {
 				$(this).find("i").removeClass().addClass("fa fa-lock");
 			}
-			grid.resizable($(".grid-stack-item[data-id="+id+"]"), locked);
+			if($(".grid-stack-item[data-id="+id+"]").data("no-resize") != "true") {
+				grid.resizable($(".grid-stack-item[data-id="+id+"]"), locked);
+			}
+
 			grid.movable($(".grid-stack-item[data-id="+id+"]"), locked);
 			grid.locked($(".grid-stack-item[data-id="+id+"]"), !locked);
 
@@ -628,7 +641,7 @@ var WidgetsC = Class.extend({
 						if(typeof data.html !== "undefined"){
 							//So first we go the HTML content to add it to the widget
 							var widget_html = data.html;
-							var full_widget_html = $this.widget_layout(new_widget_id, widget_module_name, widget_name, widget_id, widget_rawname, widget_has_settings, widget_html);
+							var full_widget_html = $this.widget_layout(new_widget_id, widget_module_name, widget_name, widget_id, widget_rawname, widget_has_settings, widget_html, resizable);
 							//TODO
 							var grid = $('.grid-stack').data('gridstack');
 							//We are adding the widget always on the position 1,1

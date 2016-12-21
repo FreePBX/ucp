@@ -75,7 +75,7 @@ class Widgets extends Modules{
 				}
 				$noresize = '';
 				if(!empty($widgetData['noresize'])) {
-					$noresize = 'data-gs-no-resize="true"';
+					$noresize = 'data-gs-no-resize="true" data-no-resize="true"';
 				}
 				$locked = '';
 				$lockedIcon = 'fa-unlock-alt';

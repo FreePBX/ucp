@@ -107,13 +107,15 @@
 
 									<?php if(!empty($all_simple_widgets) && $all_simple_widgets["status"]) { ?>
 										<div class="bhoechie-tab-content <?php echo ($first) ? "active" : ""; ?>">
-											<?php foreach($all_simple_widgets["widget"] as $widget_category_info){ ?>
+											<?php foreach($all_simple_widgets["widget"] as $widget_category_info){?>
 												<?php if(!empty($widget_category_info["list"])) { ?>
 													<?php foreach($widget_category_info["list"] as $widget_id => $widget_list){ ?>
 														<div class="ibox-content-widget">
 															<div class="row">
 																<div class="widget-title col-md-11">
-																	<h4><?php echo $widget_list["display"]; ?>
+																	<h4><i class="<?php echo $widget_category_info['icon'] ?>"></i> <?php echo $widget_list["display"]; ?>
+																		<br>
+																		<small class="m-r"><?php echo isset($widget_category_info["display"])?$widget_category_info["display"]:''?></small>
 																		<br>
 																		<small class="m-r"><?php echo isset($widget_category_info["description"])?$widget_category_info["description"]:''?></small>
 																	</h4>

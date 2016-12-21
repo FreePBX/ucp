@@ -41,6 +41,7 @@ class Home extends Modules{
 		foreach($raws as $id=>$raw) {
 			$list[$id] = array(
 				"display" => $raw['display'],
+				"description" => $raw['description'],
 				"defaultsize" => array("height" => 4, "width" => 4)
 			);
 		}
@@ -263,6 +264,7 @@ class Home extends Modules{
 			$widgets[$k] = array(
 				"display" => $content->title,
 				"content" => $htmlcontent,
+				"description" => $content->description
 			);
 		}
 		return $widgets;

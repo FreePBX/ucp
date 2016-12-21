@@ -36,8 +36,9 @@
 <div class="side-menu-widgets-container">
 	<?php if(!empty($user_small_widgets)) { ?>
 		<?php foreach($user_small_widgets as $small_widget) { ?>
-			<div class="widget-extra-menu" id="menu_<?php echo $small_widget->rawname; ?>" data-module="<?php echo $small_widget->rawname; ?>">
+			<div class="widget-extra-menu" id="menu_<?php echo $small_widget->rawname; ?>" data-module="<?php echo $small_widget->rawname; ?>" data-name="<?php echo $small_widget->name; ?>" data-icon="<?php echo $small_widget->icon; ?>">
 				<a href="#" class="closebtn" onclick="UCP.Modules.Widgets.closeExtraWidgetMenu()"><i class="fa fa-times-circle-o" aria-hidden="true"></i></a>
+				<h5 class="small-widget-title"><i class="fa"></i> <span></span></h5>
 				<div class="small-widget-content">
 				</div>
 				<button type="button" class="btn btn-xs btn-danger remove-small-widget" data-widget_id="<?php echo $small_widget->id; ?>" data-widget_rawname="<?php echo $small_widget->rawname; ?>">Remove Widget</button>
