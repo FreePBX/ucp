@@ -209,6 +209,7 @@ class UCP extends UCP_Helpers {
 			"lodash-4.17.2.js",
 			"jquery.ui.touch-punch-0.2.3.min.js",
 			"gridstack-0.2.6.js",
+			"Sortable-1.4.2.min.js",
 			"ucp.js",
 			"module.js"
 		);

@@ -3,7 +3,7 @@
  * This is the User Control Panel Object.
  *
  * License for all code of this FreePBX module can be found in the license file inside the module directory
- * Copyright 2006-2014 Schmooze Com Inc.
+ * Copyright 2006 Sangoma Technologies, Inc
  */
 ob_start();
 $bootstrap_settings = array();
@@ -119,7 +119,7 @@ try {
 $all_widgets = $ucp->Dashboards->getAllWidgets();
 $all_simple_widgets = $ucp->Dashboards->getAllSimpleWidgets();
 //Simple widgets by user
-$usw = json_decode($ucp->Dashboards->getSimpleLayout(),true);
+$usw = (array)json_decode($ucp->Dashboards->getSimpleLayout(),true);
 $user_small_widgets = array();
 foreach($usw as $id => $widget) {
 	$name = ucfirst(strtolower($widget['rawname']));

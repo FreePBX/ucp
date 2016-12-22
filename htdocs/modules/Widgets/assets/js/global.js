@@ -197,7 +197,7 @@ var WidgetsC = Class.extend({
 			}
 		);
 	},
-	saveSidebarContent: function() {
+	saveSidebarContent: function(callback) {
 		var $this = this;
 		this.activateFullLoading();
 
@@ -235,6 +235,9 @@ var WidgetsC = Class.extend({
 					$this.showAlert(_("Something went wrong saving the information (sidebar)"), "danger");
 				}
 				$this.deactivateFullLoading();
+				if(typeof callback === "function") {
+					callback();
+				}
 			}
 		);
 	},
@@ -402,17 +405,17 @@ var WidgetsC = Class.extend({
 		return html;
 	},
 	initMenuDragabble: function(){
-		/*$(".menu-order").draggable({ axis: "x" });
-
-		 $(".menu-space").droppable({
-		 accept: ".menu-order",
-		 activeClass: "droppable-menu-empty",
-		 hoverClass: "droppable-menu-hover",
-		 drop: function( event, ui ) {
-
-		 console.log("bagre");
-		 }
-		 });*/
+		var $this = this;
+		var el = document.getElementById('side_bar_content');
+		var sortable = Sortable.create(el, {
+			draggable: ".custom-widget",
+			onUpdate: function (evt) {
+				sortable.option("disabled",true);
+				$this.saveSidebarContent(function() {
+					sortable.option("disabled",false);
+				});
+			},
+		});
 	},
 	openExtraWidgetMenu: function(callback) {
 		var previous = this.widgetMenuOpen;

@@ -3,7 +3,7 @@
  * This is the User Control Panel Object.
  *
  * License for all code of this FreePBX module can be found in the license file inside the module directory
- * Copyright 2006-2014 Schmooze Com Inc.
+ * Copyright 2006 Sangoma Technologies, Inc
  */
 ob_start();
 $bootstrap_settings = array();
@@ -21,7 +21,7 @@ try {
 }
 ob_end_clean();
 $user = $ucp->User->getUser();
-$d = $ucp->View->setGUILocales($user);
+$ucp->View->setGUILocales($user);
 
 if(!isset($_REQUEST['command']) || !isset($_REQUEST['module'])) {
 	header("HTTP/1.0 403 Forbidden");

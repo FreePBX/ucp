@@ -21,7 +21,7 @@
 <!-- left navbar -->
 <nav class="navbar navbar-inverse navbar-fixed-left">
 	<ul class="nav navbar-nav" id="side_bar_content">
-		<li class="add-widget first-widget" data-toggle="modal" data-target="#add_widget"><a href="#"><i class="fa fa-plus-circle" aria-hidden="true"></i></a></li>
+		<li class="add-widget first-widget locked" data-toggle="modal" data-target="#add_widget"><a href="#"><i class="fa fa-plus-circle" aria-hidden="true"></i></a></li>
 		<?php if(!empty($user_small_widgets)) { ?>
 			<?php foreach($user_small_widgets as $small_widget) { ?>
 				<li class="custom-widget" data-widget_id="<?php echo $small_widget['id']; ?>" data-widget_rawname="<?php echo $small_widget['rawname']; ?>">
@@ -29,7 +29,12 @@
 				</li>
 			<?php } ?>
 		<?php } ?>
-		<li class="last-widget"><a href="?logout"><i class="fa fa-sign-out fa-rotate-180" aria-hidden="true"></i></a></li>
+		<li class="settings-widget locked">
+			<a href="#"><i class="fa fa-cog" aria-hidden="true"></i></a>
+		</li>
+		<li class="logout-widget locked">
+			<a href="?logout"><i class="fa fa-sign-out fa-rotate-180" aria-hidden="true"></i></a>
+		</li>
 	</ul>
 </nav>
 

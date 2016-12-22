@@ -285,10 +285,12 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 }
 
 .navbar-fixed-left {
+	height: ~"calc(100% - 65px)";
+	overflow-x: hidden;
+	overflow-y: auto;
 	width: 55px;
 	position: fixed;
 	border-radius: 0;
-	height: 100%;
 	background-color: @bar_background_color;
 	color: @button_color;
 	top: 45px;
@@ -299,9 +301,14 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 		width: 55px;
 		font-size: 20px;
 
-		&:last-child{
+		&.settings-widget {
 			position: absolute;
-			bottom: 64px;
+			bottom: 36px;
+		}
+
+		&.logout-widget{
+			position: absolute;
+			bottom: 0px;
 		}
 
 		> .dropdown-menu {
