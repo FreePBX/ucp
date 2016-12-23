@@ -15,16 +15,35 @@
 					<h4 class="modal-title" id="add_dashboard_label"><?php echo _("Add Dashboard")?></h4>
 				</div>
 				<div class="modal-body">
-					<form id="add_dashboard_form" method="POST" action="quietmode=1&amp;module=Dashboards&amp;command=add">
-						<div class="form-group">
-							<label for="dashboard_name"><?php echo _("Dashboard Name")?></label>
-							<input type="text" class="form-control" id="dashboard_name" name="name" pattern=".{1,50}" autocomplete="off" required>
-						</div>
-					</form>
+					<div class="form-group">
+						<label for="dashboard_name"><?php echo _("Dashboard Name")?></label>
+						<input type="text" class="form-control" id="dashboard_name" name="name" pattern=".{1,50}" autocomplete="off" required>
+					</div>
 				</div>
 				<div class="modal-footer">
 					<button type="button" class="btn btn-danger" data-dismiss="modal"><?php echo _("Cancel")?></button>
 					<button type="submit" id="create_dashboard" class="btn btn-primary"><?php echo _("Create Dashboard")?></button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Edit dashboard Modal -->
+	<div class="modal fade" id="edit_dashboard" tabindex="-1" role="dialog" aria-labelledby="edit_dashboard_label">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					<h4 class="modal-title" id="edit_dashboard_label"><?php echo _("Edit Dashboard")?></h4>
+				</div>
+				<div class="modal-body">
+					<div class="form-group">
+						<label for="dashboard_name"><?php echo _("Dashboard Name")?></label>
+						<input type="text" class="form-control" id="edit_dashboard_name" name="name" pattern=".{1,50}" autocomplete="off" required>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-danger" data-dismiss="modal"><?php echo _("Cancel")?></button>
+					<button type="submit" id="edit_dashboard_btn" class="btn btn-primary"><?php echo _("Edit Dashboard")?></button>
 				</div>
 			</div>
 		</div>

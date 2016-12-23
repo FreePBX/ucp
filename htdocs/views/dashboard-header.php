@@ -11,7 +11,12 @@
 		<?php if(!empty($user_dashboards)) { ?>
 			<?php foreach($user_dashboards as $dashboard_info) { ?>
 				<li class="<?php echo ($dashboard_info["id"] == $active_dashboard) ? 'active' : ''?> menu-order dashboard-menu" data-id="<?php echo $dashboard_info["id"]?>">
-					<a data-pjax href="?dashboard=<?php echo $dashboard_info["id"]?>"><?php echo $dashboard_info["name"]?></a> <div class="remove-dashboard" data-dashboard_id="<?php echo $dashboard_info["id"]?>"><i class="fa fa-times" aria-hidden="true"></i></div>
+					<a data-pjax href="?dashboard=<?php echo $dashboard_info["id"]?>"><?php echo $dashboard_info["name"]?></a>
+					<div class="dashboard-actions" data-dashboard_id="<?php echo $dashboard_info["id"]?>">
+						<i class="fa fa-unlock-alt lock-dashboard" aria-hidden="true"></i>
+						<i class="fa fa-pencil edit-dashboard" aria-hidden="true"></i>
+						<i class="fa fa-times remove-dashboard" aria-hidden="true"></i>
+					</div>
 				</li>
 			<?php } ?>
 		<?php } ?>
@@ -25,7 +30,9 @@
 		<?php if(!empty($user_small_widgets)) { ?>
 			<?php foreach($user_small_widgets as $small_widget) { ?>
 				<li class="custom-widget" data-widget_id="<?php echo $small_widget['id']; ?>" data-widget_rawname="<?php echo $small_widget['rawname']; ?>">
-					<a href="#" data-module_name="<?php echo $small_widget['module_name']; ?>" data-id="<?php echo $small_widget['id']; ?>" data-name="<?php echo $small_widget['name']; ?>" data-rawname="<?php echo $small_widget['rawname']; ?>" data-type_id="<?php echo $small_widget['type_id']; ?>" data-icon="<?php echo $small_widget['icon']; ?>"><i class="<?php echo $small_widget['icon']; ?>" aria-hidden="true"></i></a>
+					<a href="#" data-module_name="<?php echo $small_widget['module_name']; ?>" data-id="<?php echo $small_widget['id']; ?>" data-name="<?php echo $small_widget['name']; ?>" data-rawname="<?php echo $small_widget['rawname']; ?>" data-type_id="<?php echo $small_widget['type_id']; ?>" data-icon="<?php echo $small_widget['icon']; ?>">
+						<i class="<?php echo $small_widget['icon']; ?>" aria-hidden="true"></i>
+					</a>
 				</li>
 			<?php } ?>
 		<?php } ?>

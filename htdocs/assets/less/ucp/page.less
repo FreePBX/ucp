@@ -301,6 +301,17 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 		width: 55px;
 		font-size: 20px;
 
+		&.custom-widget {
+			a {
+				cursor: move;
+				i {
+					cursor: pointer;
+					width: 1.28571429em;
+					text-align: center;
+				}
+			}
+		}
+
 		&.settings-widget {
 			position: absolute;
 			bottom: 36px;
@@ -472,8 +483,11 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 				}
 			}
 
-			.remove-dashboard{
+			.dashboard-actions .fa{
 				color: @tab_color;
+				&:hover {
+					color: @tab_inactive_color;
+				}
 			}
 
 			a::after{
@@ -482,7 +496,8 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 		}
 
 		a{
-			padding-right: 30px;
+			padding-right: 62px;
+			padding-left: 9px;
 			color: @tab_inactive_color;
 			border-radius: 0;
 			margin-right: 0;
@@ -506,18 +521,19 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 			}
 		}
 
-		.remove-dashboard{
+		.dashboard-actions {
 			position: absolute;
 			right: 5px;
 			top: 10px;
 			color: @tab_inactive_color;
 			border-left: 1px solid;
-			padding-left: 3px;
-
+			padding-left: 6px;
+			cursor: pointer;
 			.fa {
 				cursor: pointer;
-				&:hover{
-					color: @tab_color;
+				margin-right: 3px;
+				&:last-child {
+					margin-right: 0px;
 				}
 			}
 		}
@@ -530,8 +546,11 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 				transform: scale(1);
 			}
 
-			.remove-dashboard{
+			.dashboard-actions .fa {
 				color: @tab_color !important;
+				&:hover {
+					color: @tab_inactive_color !important;
+				}
 			}
 		}
 	}

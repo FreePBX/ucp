@@ -34,6 +34,7 @@ class Dashboards {
 			case 'add':
 			case 'rename':
 			case 'remove':
+			case 'reorder':
 			case 'dashboards':
 			case 'savedashlayout':
 			case 'savesimplelayout':
@@ -99,6 +100,19 @@ class Dashboards {
 						break;
 					}
 				}
+			break;
+			case 'reorder':
+				$order = $_POST['order'];
+				$user = $this->UCP->User->getUser();
+				$dashboards = $this->UCP->getGlobalSettingByID($user['id'],'dashboards');
+				$dashboards = is_array($dashboards) ? $dashboards : array();
+				@usort($dashboards, function($a,$b) use ($order) {
+					$keya = array_search($a['id'],$order);
+					$keyb = array_search($b['id'],$order);
+					return ($keya < $keyb) ? -1 : 1;
+				});
+				$this->UCP->setGlobalSettingByID($user['id'],'dashboards',$dashboards);
+				return array("status" => true);
 			break;
 			case 'dashboards':
 				return $this->getDashboards();

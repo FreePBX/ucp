@@ -28,6 +28,7 @@ class Ajax extends UCP {
 	}
 
 	public function doRequest($module = null, $command = null) {
+		session_write_close(); //speed up
 		$this->UCP->Modgettext->textdomain("ucp");
 		switch($command) {
 			case 'ucpsettings':
@@ -112,23 +113,7 @@ class Ajax extends UCP {
 				}
 				$this->UCP->Modgettext->pop_textdomain();
 			break;
-			case 'staticsettings':
-				$this->UCP->Modgettext->push_textdomain("ucp");
-				$mods = $this->UCP->Modules->getModulesByMethod('getStaticSettings');
-				$settings = array();
-				foreach($mods as $m) {
-					$this->UCP->Modgettext->push_textdomain(strtolower($m));
-					$settings[$m] = $this->UCP->Modules->$m->getStaticSettings();
-					$this->UCP->Modgettext->pop_textdomain();
-				}
-				$ret = array(
-					"status" => true,
-					"settings" => $settings
-				);
-				$this->UCP->Modgettext->pop_textdomain();
-			break;
 			case 'poll':
-				session_write_close(); //prevent other calls from binding up on polling
 				$ret = $this->poll();
 				if($ret === false) {
 					$this->triggerFatal();

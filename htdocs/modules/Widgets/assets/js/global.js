@@ -7,6 +7,7 @@ var WidgetsC = Class.extend({
 		this.setupAddDashboard();
 		this.loadDashboard();
 		this.initMenuDragabble();
+		this.initDashboardDragabble();
 		this.initCategoriesWidgets();
 		this.initAddWidgetsButtons();
 		this.initRemoveItemButtons();
@@ -14,11 +15,16 @@ var WidgetsC = Class.extend({
 		this.initLeftNavBarMenus();
 		this.deactivateFullLoading();
 		var $this = this;
+		var total = $(".custom-widget").length;
+		var count = 0;
 		$(".custom-widget").each(function() {
 			var widget_rawname = $(this).data("widget_rawname");
 			var widget_id = $(this).data("widget_id");
-			//$(document).trigger("post-body.addsimplewidget",[ widget_id, $this.activeDashboard ]); //needs to happen at end
 			UCP.callModuleByMethod(widget_rawname,"addSimpleWidget",widget_id);
+			count++;
+			if(total == count) {
+				//$(document).trigger("post-body.addsimplewidget",[ widget_id, $this.activeDashboard ]);
+			}
 		});
 	},
 	pjaxEnd: function(event) {
@@ -36,10 +42,26 @@ var WidgetsC = Class.extend({
 
 		$('#add_dashboard').on('shown.bs.modal', function () {
 			$('#dashboard_name').focus();
+			$("#add_dashboard").off("keydown");
+			$("#add_dashboard").on('keydown', function(event) {
+				switch(event.keyCode) {
+					case 13:
+						$("#create_dashboard").click();
+					break;
+				}
+			});
 		});
 
 		$('#add_dashboard').on('hidden.bs.modal', function () {
 			$('#dashboard_name').val("");
+		});
+
+		$('#edit_dashboard').on('shown.bs.modal', function () {
+			$('#edit_dashboard_name').focus();
+		});
+
+		$('#edit_dashboard').on('hidden.bs.modal', function () {
+			$('#edit_dashboard_name').val("");
 		});
 
 		$(document).on("click", ".edit-widget", function(){
@@ -379,7 +401,7 @@ var WidgetsC = Class.extend({
 	},
 	smallWidgetLayout: function(widget_id, widget_module_name, widget_name, widget_type_id, widget_rawname, widget_icon, widget_content){
 		var html = '' +
-			'<li class="custom-widget" data-widget_id="'+widget_id+'">' +
+			'<li class="custom-widget" data-widget_id="'+widget_id+'" data-widget_rawname="'+widget_rawname+'">' +
 				'<a href="#" data-module_name="'+widget_module_name+'" data-id="'+widget_id+'" data-name="'+widget_name+'" data-rawname="'+widget_rawname+'" data-type_id="'+widget_type_id+'" data-icon="' + widget_icon + '"><i class="' + widget_icon + '" aria-hidden="true"></i></a>' +
 			'</li>';
 
@@ -409,6 +431,7 @@ var WidgetsC = Class.extend({
 		var el = document.getElementById('side_bar_content');
 		var sortable = Sortable.create(el, {
 			draggable: ".custom-widget",
+			filter: "i",
 			onUpdate: function (evt) {
 				sortable.option("disabled",true);
 				$this.saveSidebarContent(function() {
@@ -416,6 +439,37 @@ var WidgetsC = Class.extend({
 				});
 			},
 		});
+	},
+	initDashboardDragabble: function() {
+		var $this = this;
+		var el = document.getElementById('all_dashboards');
+		var sortable = Sortable.create(el, {
+			draggable: ".dashboard-menu",
+			onUpdate: function (evt) {
+				sortable.option("disabled",true);
+				$this.saveDashboardOrder(function() {
+					sortable.option("disabled",false);
+				});
+			},
+		});
+	},
+	saveDashboardOrder: function(callback) {
+		var dashboards = [],
+				$this = this;
+		$this.activateFullLoading();
+		$("#all_dashboards li").each(function() {
+			dashboards.push($(this).data("id"));
+		});
+		$.post( "?quietmode=1&module=Dashboards&command=reorder",
+			{
+				order: dashboards
+			},
+			function( data ) {
+				$this.deactivateFullLoading();
+				if(typeof callback === "function") {
+					callback();
+				}
+			}, "json");
 	},
 	openExtraWidgetMenu: function(callback) {
 		var previous = this.widgetMenuOpen;
@@ -493,21 +547,23 @@ var WidgetsC = Class.extend({
 			});
 		});
 
-		$(document).on("click", ".custom-widget", function(event){
+		$(document).on("click", ".custom-widget i", function(event){
 			event.preventDefault();
 			event.stopPropagation();
 
+			var widget = $(this).parents(".custom-widget");
+
 			//We are already looking at it so do nothing
-			if($(this).hasClass("active")) {
+			if(widget.hasClass("active")) {
 				return;
 			}
 
-			var clicked_module = $(this).find("a").data("rawname");
-			var clicked_id = $(this).find("a").data("id");
+			var clicked_module = widget.find("a").data("rawname");
+			var clicked_id = widget.find("a").data("id");
 			var widget_id = clicked_module + "_" + clicked_id;
 
 			$("#side_bar_content li.active").removeClass("active");
-			$(this).addClass("active");
+			widget.addClass("active");
 
 			$(".widget-extra-menu:visible").addClass("hidden");
 			var content_object = $("#menu_"+widget_id).find(".small-widget-content");
@@ -604,12 +660,51 @@ var WidgetsC = Class.extend({
 			$this.saveSidebarContent();
 		});
 
+		$(document).on("click", ".lock-dashboard", function(event){
+
+			event.preventDefault();
+			event.stopPropagation();
+
+		});
+
+		$(document).on("click", ".edit-dashboard", function(event){
+
+			event.preventDefault();
+			event.stopPropagation();
+
+			var parent = $(this).parents('.dashboard-menu');
+			var dashboard_id = parent.data("id");
+			var title = parent.find("a");
+
+			$('#edit_dashboard_name').val(title.text());
+
+			$('#edit_dashboard').one('shown.bs.modal', function () {
+				$("#edit_dashboard_btn").off("click");
+				$("#edit_dashboard").off("keydown");
+				$("#edit_dashboard").on('keydown', function(event) {
+					switch(event.keyCode) {
+						case 13:
+							$("#edit_dashboard_btn").click();
+						break;
+					}
+				});
+				$("#edit_dashboard_btn").one("click",function() {
+					var name = $('#edit_dashboard_name').val();
+					title.text(name);
+					$("#edit_dashboard").modal('hide');
+				});
+				$('#dashboard_name').focus();
+			});
+
+			$("#edit_dashboard").modal('show');
+		});
+
 		$(document).on("click", ".remove-dashboard", function(event){
 
 			event.preventDefault();
 			event.stopPropagation();
 
-			var dashboard_id = $(this).data("dashboard_id");
+			var dashboard_id = $(this).parents('.dashboard-actions').data("dashboard_id");
 
 			$this.showConfirm(_("Are you sure you want to delete this dashboard?"), "warning", function() {
 
@@ -750,7 +845,7 @@ var WidgetsC = Class.extend({
 
 							var menu_widget_html = $this.smallWidgetMenuLayout(widget_id, widget_rawname, widget_name, widget_type_id, widget_icon, hasSettings);
 
-							$("#side_bar_content .last-widget").before(full_widget_html);
+							$("#side_bar_content .custom-widget").last().after(full_widget_html);
 
 							$(".side-menu-widgets-container").append(menu_widget_html);
 
@@ -859,18 +954,16 @@ var WidgetsC = Class.extend({
 		$("#create_dashboard").click(function() {
 			if ($("#dashboard_name").length > 0) {
 				if ($("#dashboard_name").val().trim() === "") {
-					show_alert(_("You must have a dashboard name") , "danger", function(){ $("#add_dashboard").modal("show"); });
+					alert(_("You must have a dashboard name"));
 					$("#add_dashboard").modal("hide");
 				} else {
-					var queryString = $("#add_dashboard_form").attr("action") + "&" + $("#add_dashboard_form").formSerialize();
-
 					$this.activateFullLoading();
 
-					$.post( "index.php?", queryString, function( data ) {
+					$.post( "index.php?", {quietmode:1, module: "Dashboards", command: "add", name: $("#dashboard_name").val()}, function( data ) {
 						if (!data.status) {
 							$("#error-msg").html(data.message).fadeIn("fast");
 						} else {
-							var new_dashboard_html = '<li class="menu-order dashboard-menu" data-id="'+data.id+'"><a data-pjax href="?dashboard='+data.id+'">'+$("#dashboard_name").val()+' <div class="remove-dashboard" data-dashboard_id="'+data.id+'"><i class="fa fa-times" aria-hidden="true"></i></div></a></li>';
+							var new_dashboard_html = '<li class="menu-order dashboard-menu" data-id="'+data.id+'"><a data-pjax href="?dashboard='+data.id+'">'+$("#dashboard_name").val()+'</a> <div class="dashboard-actions" data-dashboard_id="'+data.id+'"><i class="fa fa-unlock-alt lock-dashboard" aria-hidden="true"></i><i class="fa fa-pencil edit-dashboard" aria-hidden="true"></i><i class="fa fa-times remove-dashboard" aria-hidden="true"></i></div></li>';
 							$("#all_dashboards").append(new_dashboard_html);
 
 							$("#add_dashboard").modal("hide");
