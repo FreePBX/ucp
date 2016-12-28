@@ -16,6 +16,8 @@ use \Ramsey\Uuid\Uuid;
 use \Ramsey\Uuid\Exception\UnsatisfiedDependencyException;
 class Dashboards {
 
+	private $dashboardsCache;
+
 	public function __construct($UCP) {
 		$this->UCP = $UCP;
 	}
@@ -153,10 +155,24 @@ class Dashboards {
 	}
 
 	public function getDashboards() {
+		if(!empty($this->dashboardCache)) {
+			return $this->dashboardCache;
+		}
 		$user = $this->UCP->User->getUser();
 		$dashboards = $this->UCP->getGlobalSettingByID($user['id'],'dashboards');
 		$dashboards = is_array($dashboards) ? $dashboards : array();
-		return $dashboards;
+		$this->dashboardCache = $dashboards;
+		return $this->dashboardCache;
+	}
+
+	public function getDashboardByID($id) {
+		$dashboards = $this->getDashboards();
+		foreach($dashboards as $dashboard) {
+			if($dashboard['id'] == $id) {
+				return $dashboard;
+			}
+		}
+		return false;
 	}
 
 	public function getLayoutByID($id) {

@@ -285,7 +285,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 }
 
 .navbar-fixed-left {
-	height: ~"calc(100% - 65px)";
+	height: ~"calc(100% - 64px)";
 	overflow-x: hidden;
 	overflow-y: auto;
 	width: 55px;
@@ -293,7 +293,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 	border-radius: 0;
 	background-color: @bar_background_color;
 	color: @button_color;
-	top: 45px;
+	top: 44px;
 	z-index: 1030;
 
 	.navbar-nav li {
@@ -445,16 +445,6 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 	}
 }
 
-.dashboards{
-	float: right;
-	margin-top: 5px;
-	margin-right: 5px;
-
-	li{
-		position: relative;
-	}
-}
-
 .add-dashboard{
 	float: right;
 	margin-top: 11px;
@@ -466,12 +456,38 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 	}
 }
 
-.nav-tabs {
+.dashboards {
 	border-bottom: none;
-	li {
+	float: right;
+	margin-top: 5px;
+	margin-right: 5px;
+	.dashboard-menu {
+		position: relative;
+		padding-right: 62px;
+		padding-left: 9px;
+		background-color: #ffffff;
+		height: 39px;
 		margin-right: 2px;
 		margin-bottom: 0;
-		&.active{
+		cursor: move;
+		border: 1px solid #ddd;
+		&::after{
+			content: "";
+			background: @tab_border_color;
+			height: 4px;
+			position: absolute;
+			width: 100%;
+			left: 0;
+			top: -1px;
+			transition: all 250ms ease 0s;
+			transform: scale(0);
+		}
+
+
+		&.active, &:focus, &:hover{
+			&::after{
+				transform: scale(1);
+			}
 			a {
 				color: @tab_color;
 				background-color: @tab_background;
@@ -489,36 +505,29 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 					color: @tab_inactive_color;
 				}
 			}
+		}
 
-			a::after{
-				transform: scale(1);
+		&.active {
+			border-bottom-color: transparent;
+			&:focus, &:hover{
+				a {
+					cursor: move;
+				}
+			}
+			a {
+				cursor: move;
 			}
 		}
 
 		a{
-			padding-right: 62px;
-			padding-left: 9px;
+			padding: 6px 1px;
+			top: 3px;
 			color: @tab_inactive_color;
 			border-radius: 0;
 			margin-right: 0;
 			background-color: @tab_background;
 			border: none;
-			&::after{
-				content: "";
-				background: @tab_border_color;
-				height: 4px;
-				position: absolute;
-				width: 100%;
-				left: 0;
-				top: -1px;
-				transition: all 250ms ease 0s;
-				transform: scale(0);
-			}
-
-			&:focus, &:hover{
-				color: @tab_color;
-				background-color: @tab_background;
-			}
+			cursor: pointer;
 		}
 
 		.dashboard-actions {

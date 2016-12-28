@@ -26,6 +26,10 @@ var WidgetsC = Class.extend({
 				//$(document).trigger("post-body.addsimplewidget",[ widget_id, $this.activeDashboard ]);
 			}
 		});
+		$(document).on("click", ".dashboards li a[data-pjax]", function(e) {
+			$(".dashboards a[data-pjax]").removeClass("pjax-block");
+			$(this).addClass("pjax-block");
+		});
 	},
 	pjaxEnd: function(event) {
 		this.loadDashboard();
@@ -37,8 +41,14 @@ var WidgetsC = Class.extend({
 	loadDashboard: function() {
 		var $this = this;
 		if(!$(".grid-stack").length) {
+			this.activeDashboard = null;
 			return;
 		}
+
+		var dashboard_id = $(".grid-stack").data("dashboard_id");
+
+		//Are we looking a dashboard?
+		this.activeDashboard = dashboard_id;
 
 		$('#add_dashboard').on('shown.bs.modal', function () {
 			$('#dashboard_name').focus();
@@ -170,10 +180,6 @@ var WidgetsC = Class.extend({
 			}
 		});
 
-		//Are we looking a dashboard?
-		var dashboard_id = $(".grid-stack").data("dashboard_id");
-		this.activeDashboard = dashboard_id;
-
 		$(".dashboard-menu").removeClass("active");
 
 		$(".dashboard-menu[data-id='"+this.activeDashboard+"']").addClass("active");
@@ -204,7 +210,7 @@ var WidgetsC = Class.extend({
 			};
 		});
 
-		$.post( "?quietmode=1&module=Dashboards&command=savedashlayout",
+		$.post( "ajax.php?module=Dashboards&command=savedashlayout",
 			{
 				id: $this.activeDashboard,
 				data: JSON.stringify(gridDataSerialized)
@@ -213,7 +219,7 @@ var WidgetsC = Class.extend({
 				if(data.status){
 					console.log("saved grid");
 				}else {
-					$this.showAlert(_("Something went wrong saving the information (grid)"), "danger");
+					UCP.showAlert(_("Something went wrong saving the information (grid)"), "danger");
 				}
 				$this.deactivateFullLoading();
 			}
@@ -246,7 +252,7 @@ var WidgetsC = Class.extend({
 
 		var gridDataSerialized = JSON.stringify(all_content);
 
-		$.post( "?quietmode=1&module=Dashboards&command=savesimplelayout",
+		$.post( "ajax.php?module=Dashboards&command=savesimplelayout",
 			{
 				data: gridDataSerialized
 			},
@@ -254,7 +260,7 @@ var WidgetsC = Class.extend({
 				if(data.status){
 					console.log("sidebar saved");
 				}else {
-					$this.showAlert(_("Something went wrong saving the information (sidebar)"), "danger");
+					UCP.showAlert(_("Something went wrong saving the information (sidebar)"), "danger");
 				}
 				$this.deactivateFullLoading();
 				if(typeof callback === "function") {
@@ -288,66 +294,6 @@ var WidgetsC = Class.extend({
 			'					</span>' +
 			'				</div>';
 		$("#widget_settings .modal-body").html(loading_html);
-	},
-	showAlert: function(message, type, callback_func){
-
-		var type_class = "";
-		if(type == 'success'){
-			type_class = "alert-success";
-		}else if(type == 'info'){
-			type_class = "alert-info";
-		}else if(type == 'warning'){
-			type_class = "alert-warning";
-		}else if(type == 'danger'){
-			type_class = "alert-danger";
-		}
-
-		$("#alert_message").removeClass("alert-success alert-info alert-warning alert-danger");
-
-		$("#alert_message").addClass(type_class);
-
-		$("#alert_message").html(message);
-
-		if(typeof callback_func == "function") {
-			$(document).on("click", "#close_alert_button", function () {
-				$("#alert_modal").modal("hide");
-				callback_func();
-			});
-		}else {
-			$(document).on("click", "#close_alert_button", function () {
-				$("#alert_modal").modal("hide");
-			});
-		}
-
-		$("#alert_modal").modal("show");
-	},
-	showConfirm: function(html, type, callback_func) {
-
-		var type_class = "";
-		if(type == 'success'){
-			type_class = "alert-success";
-		}else if(type == 'info'){
-			type_class = "alert-info";
-		}else if(type == 'warning'){
-			type_class = "alert-warning";
-		}else if(type == 'danger'){
-			type_class = "alert-danger";
-		}
-
-		$("#confirm_content").removeClass("alert-success alert-info alert-warning alert-danger");
-
-		$("#confirm_content").addClass(type_class);
-		$("#confirm_content").html(html);
-
-		$('#confirm_modal').one('shown.bs.modal', function () {
-			$(document).one("click", "#modal_confirm_button", function(){
-				if(typeof callback_func == "function"){
-					callback_func();
-				}
-			});
-		});
-
-		$('#confirm_modal').modal('show');
 	},
 	widget_layout: function(widget_id, widget_module_name, widget_name, widget_type_id, widget_rawname, widget_has_settings, widget_content, resizable){
 
@@ -426,6 +372,9 @@ var WidgetsC = Class.extend({
 
 		return html;
 	},
+	showDashboardError: function(message) {
+		$("#dashboard-content .module-page-widgets").html('<div class="dashboard-error"><div class="message"><i class="fa fa-exclamation-circle" aria-hidden="true"></i><br/>'+message+'</div></div>');
+	},
 	initMenuDragabble: function(){
 		var $this = this;
 		var el = document.getElementById('side_bar_content');
@@ -437,7 +386,7 @@ var WidgetsC = Class.extend({
 				$this.saveSidebarContent(function() {
 					sortable.option("disabled",false);
 				});
-			},
+			}
 		});
 	},
 	initDashboardDragabble: function() {
@@ -445,12 +394,13 @@ var WidgetsC = Class.extend({
 		var el = document.getElementById('all_dashboards');
 		var sortable = Sortable.create(el, {
 			draggable: ".dashboard-menu",
+			filter: "i",
 			onUpdate: function (evt) {
 				sortable.option("disabled",true);
 				$this.saveDashboardOrder(function() {
 					sortable.option("disabled",false);
 				});
-			},
+			}
 		});
 	},
 	saveDashboardOrder: function(callback) {
@@ -460,7 +410,7 @@ var WidgetsC = Class.extend({
 		$("#all_dashboards li").each(function() {
 			dashboards.push($(this).data("id"));
 		});
-		$.post( "?quietmode=1&module=Dashboards&command=reorder",
+		$.post( "ajax.php?module=Dashboards&command=reorder",
 			{
 				order: dashboards
 			},
@@ -578,7 +528,7 @@ var WidgetsC = Class.extend({
 			$("#menu_"+widget_id).removeClass("hidden");
 			$this.openExtraWidgetMenu();
 
-			$.post( "?quietmode=1&module=Dashboards&command=getsimplewidgetcontent",
+			$.post( "ajax.php?module=Dashboards&command=getsimplewidgetcontent",
 				{
 					id: clicked_id,
 					rawname: clicked_module
@@ -590,7 +540,7 @@ var WidgetsC = Class.extend({
 						UCP.callModuleByMethod(clicked_module,"displaySimpleWidget",clicked_id);
 						$(document).trigger("post-body.simplewidget",[ clicked_id, $this.activeDashboard ]);
 					}else {
-						$this.showAlert(_("There was an error getting the widget information, try again later"), "danger");
+						UCP.showAlert(_("There was an error getting the widget information, try again later"), "danger");
 					}
 				}, "json");
 		});
@@ -632,11 +582,11 @@ var WidgetsC = Class.extend({
 			var widget_rawname = $(this).data("widget_rawname");
 			var widget_type_id = $(this).data("widget_type_id");
 
-			$this.showConfirm(_("Are you sure you want to delete this widget?"), "warning", function() {
-				//TODO
+			UCP.showConfirm(_("Are you sure you want to delete this widget?"), "warning", function() {
 				var grid = $('.grid-stack').data('gridstack');
 				//We are adding the widget always on the position 1,1
 				grid.removeWidget($(".grid-stack-item[data-id='" + widget_id + "']"));
+				$this.saveLayoutContent();
 				UCP.callModuleByMethod(widget_rawname,"deleteWidget",widget_type_id,$this.activeDashboard);
 			});
 
@@ -661,17 +611,20 @@ var WidgetsC = Class.extend({
 		});
 
 		$(document).on("click", ".lock-dashboard", function(event){
-
 			event.preventDefault();
 			event.stopPropagation();
-
+			if($(this).hasClass("fa-unlock-alt")) {
+				$(this).removeClass("fa-unlock-alt").addClass("fa-lock");
+				$(".widget-options .fa-unlock-alt").click();
+			} else {
+				$(this).removeClass("fa-lock").addClass("fa-unlock-alt");
+				$(".widget-options .fa-lock").click();
+			}
 		});
 
 		$(document).on("click", ".edit-dashboard", function(event){
-
 			event.preventDefault();
 			event.stopPropagation();
-
 			var parent = $(this).parents('.dashboard-menu');
 			var dashboard_id = parent.data("id");
 			var title = parent.find("a");
@@ -690,8 +643,20 @@ var WidgetsC = Class.extend({
 				});
 				$("#edit_dashboard_btn").one("click",function() {
 					var name = $('#edit_dashboard_name').val();
-					title.text(name);
-					$("#edit_dashboard").modal('hide');
+					$.post( "ajax.php?module=Dashboards&command=rename",
+						{
+							id: dashboard_id,
+							name: name
+						},
+						function( data ) {
+							if(data.status) {
+								title.text(name);
+								$("#edit_dashboard").modal('hide');
+							} else {
+								UCP.showAlert(_("Something went wrong removing the dashboard"), "danger");
+							}
+						}
+					);
 				});
 				$('#dashboard_name').focus();
 			});
@@ -706,11 +671,11 @@ var WidgetsC = Class.extend({
 
 			var dashboard_id = $(this).parents('.dashboard-actions').data("dashboard_id");
 
-			$this.showConfirm(_("Are you sure you want to delete this dashboard?"), "warning", function() {
+			UCP.showConfirm(_("Are you sure you want to delete this dashboard?"), "warning", function() {
 
 				$this.activateFullLoading();
 
-				$.post( "?quietmode=1&module=Dashboards&command=remove",
+				$.post( "ajax.php?module=Dashboards&command=remove",
 					{
 						id: dashboard_id
 					},
@@ -718,18 +683,12 @@ var WidgetsC = Class.extend({
 						if (data.status) {
 							$(".dashboard-menu[data-id='" + dashboard_id + "']").remove();
 
-							if($(".dashboard-menu").length > 0) {
-								if(dashboard_id == $this.activeDashboard){
-									$(".dashboard-menu").first().find("a").click();
-								}
-							}else {
-								var grid = $('.grid-stack').data('gridstack');
-								grid.destroy();
-								$('.grid-stack').empty();
+							if(dashboard_id == $this.activeDashboard){
+								$this.showDashboardError(_("Invalid Dashboard ID"));
 							}
 
-						}else {
-							$this.showAlert(_("Something went wrong removing the dashboard"), "danger");
+						} else {
+							UCP.showAlert(_("Something went wrong removing the dashboard"), "danger");
 						}
 						$this.deactivateFullLoading();
 					}
@@ -748,6 +707,10 @@ var WidgetsC = Class.extend({
 		});
 		var $this = this;
 		$(".add-widget-button").click(function(){
+			if($this.activeDashboard === null) {
+				UCP.showAlert(_("There is no active dashboard to add widgets to"), "danger");
+				return;
+			}
 			var current_dashboard_id = $this.activeDashboard;
 			var widget_id = $(this).data('widget_id');
 			var widget_module_name = $(this).data('widget_module_name');
@@ -777,7 +740,7 @@ var WidgetsC = Class.extend({
 
 				$this.activateFullLoading();
 
-				$.post( "?quietmode=1&module=Dashboards&command=getwidgetcontent",
+				$.post( "ajax.php?module=Dashboards&command=getwidgetcontent",
 					{
 						id: widget_id,
 						rawname: widget_rawname
@@ -798,14 +761,14 @@ var WidgetsC = Class.extend({
 							UCP.callModuleByMethod(widget_rawname,"displayWidget",new_widget_id,$this.activeDashboard);
 							$(document).trigger("post-body.widgets",[ $this.activeDashboard ]);
 						}else {
-							$this.showAlert(_("There was an error getting the widget information, try again later"), "danger");
+							UCP.showAlert(_("There was an error getting the widget information, try again later"), "danger");
 						}
 
 						$this.deactivateFullLoading();
 
 					}, "json");
 			}else {
-				$this.showAlert(_("You already have this widget on this dashboard"), "info");
+				UCP.showAlert(_("You already have this widget on this dashboard"), "info");
 			}
 		});
 
@@ -827,7 +790,7 @@ var WidgetsC = Class.extend({
 
 				$this.activateFullLoading();
 
-				$.post( "?quietmode=1&module=Dashboards&command=getsimplewidgetcontent",
+				$.post( "ajax.php?module=Dashboards&command=getsimplewidgetcontent",
 					{
 						id: widget_id,
 						rawname: widget_rawname
@@ -855,14 +818,14 @@ var WidgetsC = Class.extend({
 
 							$this.saveSidebarContent();
 						}else {
-							$this.showAlert(_("There was an error getting the widget information, try again later"), "danger");
+							UCP.showAlert(_("There was an error getting the widget information, try again later"), "danger");
 						}
 
 						$this.deactivateFullLoading();
 
 					}, "json");
 			}else {
-				$this.showAlert(_("You already have this widget on the side bar"), "info");
+				UCP.showAlert(_("You already have this widget on the side bar"), "info");
 			}
 		});
 	},
@@ -881,7 +844,7 @@ var WidgetsC = Class.extend({
 				widget_content_object = $(".grid-stack-item[data-id='"+widget_id+"'] .widget-content");
 		this.activateWidgetLoading(widget_content_object);
 
-		$.post( "?quietmode=1&module=Dashboards&command=getwidgetcontent",
+		$.post( "ajax.php?module=Dashboards&command=getwidgetcontent",
 			{
 				id: widget_type_id,
 				rawname: widget_rawname
@@ -906,7 +869,7 @@ var WidgetsC = Class.extend({
 	getSimpleSettingsContent: function(widget_content_object, widget_id, widget_rawname, callback){
 		var $this = this;
 
-		$.post( "?quietmode=1&module=Dashboards&command=getsimplewidgetsettingscontent",
+		$.post( "ajax.php?module=Dashboards&command=getsimplewidgetsettingscontent",
 			{
 				id: widget_id,
 				rawname: widget_rawname
@@ -929,7 +892,7 @@ var WidgetsC = Class.extend({
 	getSettingsContent: function(widget_content_object, widget_id, widget_rawname, callback){
 		var $this = this;
 
-		$.post( "?quietmode=1&module=Dashboards&command=getwidgetsettingscontent",
+		$.post( "ajax.php?module=Dashboards&command=getwidgetsettingscontent",
 			{
 				id: widget_id,
 				rawname: widget_rawname

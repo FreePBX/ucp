@@ -198,6 +198,7 @@ class Modules extends Module_Helpers {
 				unlink($f);
 			}
 			$output = \JShrink\Minifier::minify($contents);
+			$output = $contents;
 			file_put_contents($cache.'/'.$filename,$output);
 		}
 

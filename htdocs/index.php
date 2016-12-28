@@ -25,8 +25,7 @@ try {
 	die();
 }
 ob_end_clean();
-
-
+//TIME: 0.069080114364624
 
 $user = $ucp->User->getUser();
 $d = $ucp->View->setGUILocales($user);
@@ -39,6 +38,8 @@ if(isset($_REQUEST['logout']) && $user) {
 
 $ucp->Session->isMobile = $ucp->detect->isMobile();
 $ucp->Session->isTablet = $ucp->detect->isTablet();
+//TIME: 0.1443829536438
+
 
 //Send back only PJAX relevant data
 //This is to force a complete page refresh if/when UCP gets updates
@@ -64,17 +65,11 @@ if((isset($_REQUEST['quietmode']) && $user !== false && !empty($user)) ||
 	$json = json_encode(array("status" => "false", "message" => "forbidden"));
 	die($json);
 }
+//TIME: 0.11812996864319
 
 /* Start Display GUI Items */
 $displayvars = array();
 $displayvars['user'] = $user;
-
-$lesses = $ucp->getLess();
-
-$displayvars['ucpcssless'] = $lesses['ucpcssless'];
-$displayvars['sfcssless'] = $lesses['sfcssless'];
-
-$displayvars['ucpmoduleless'] = $ucp->Modules->getGlobalLess();
 
 $displayvars['error_warning'] = '';
 $displayvars['error_danger'] = '';
@@ -108,6 +103,8 @@ if ( !isset($_SERVER['HTACCESS']) && preg_match("/apache/i", $_SERVER['SERVER_SO
 		$nt->delete('ucp', 'htaccess');
 	}
 }
+//TIME: 0.1096019744873
+
 
 try {
 	$active_modules = $ucp->Modules->getActiveModules();
@@ -115,9 +112,14 @@ try {
 	echo "<html><head><title>"._("UCP")."</title></head><body style='background-color: rgb(211, 234, 255);'><div style='border-radius: 5px;border: 1px solid black;text-align: center;padding: 5px;width: 90%;margin: auto;left: 0px;right: 0px;background-color: rgba(53, 77, 255, 0.18);'>"._('There was an error trying to load UCP').":<br>".$e->getMessage()."</div></body></html>";
 	die();
 }
+//TIME: 0.37255001068115
 
 $all_widgets = $ucp->Dashboards->getAllWidgets();
 $all_simple_widgets = $ucp->Dashboards->getAllSimpleWidgets();
+
+//TIME: 1.2794749736786
+
+
 //Simple widgets by user
 $usw = (array)json_decode($ucp->Dashboards->getSimpleLayout(),true);
 $user_small_widgets = array();
@@ -150,6 +152,8 @@ if(!empty($_REQUEST["dashboard"])){
 	}
 }
 
+//TIME: 1.2543160915375
+
 $displayvars['all_widgets'] = $all_widgets;
 $displayvars['all_simple_widgets'] = $all_simple_widgets;
 
@@ -174,6 +178,10 @@ foreach($ucp->Modules->getModulesByMethod('getNavItems') as $m) {
 /***********************/
 
 if(!isset($_SERVER['HTTP_X_PJAX'])) {
+	$compressed = FreePBX::Config()->get("USE_PACKAGED_JS");
+	$displayvars['ucpcss'] = $ucp->getCss();
+	$displayvars['ucpmoduleless'] = $ucp->Modules->getGlobalLess();
+
 	$displayvars['version'] = $ucp->getVersion();
 	$displayvars['iconsdir'] = FreePBX::Config()->get('VIEW_UCP_ICONS_FOLDER');
 	//TODO: needs to not be global
@@ -183,6 +191,14 @@ if(!isset($_SERVER['HTTP_X_PJAX'])) {
 	$displayvars['shiv'] = ($browser->getName() === \Sinergi\BrowserDetector\Browser::IE && $browser->getVersion() < $ie);
 	$displayvars['menu'] = ($user && !empty($user)) ? $ucp->Modules->generateMenu() : array();
 
+	$version	 = $ucp->getVersion();
+	$version_tag = '?load_version=' . urlencode($version);
+	if (FreePBX::Config()->get('FORCE_JS_CSS_IMG_DOWNLOAD')) {
+		$this_time_append	= '.' . time();
+		$version_tag 		.= $this_time_append;
+	}
+	$displayvars['version_tag'] = $version_tag;
+
 	$ucp->View->show_view(__DIR__.'/views/header.php',$displayvars);
 
 	if(!empty($user["id"])){
@@ -191,15 +207,13 @@ if(!isset($_SERVER['HTTP_X_PJAX'])) {
 }
 
 if($user && !empty($user)) {
-	$display = !empty($_REQUEST['display']) ? $_REQUEST['display'] : 'dashboard';
-	$module = !empty($_REQUEST['mod']) ? $_REQUEST['mod'] : 'widgets';
+	$display = 'dashboard';
 } else {
 	if(isset($_REQUEST['forgot'])) {
 		$display = 'forgot';
 	} else {
 		$display = '';
 	}
-	$module = '';
 	if(!empty($_REQUEST['display']) || !empty($_REQUEST['mod']) || isset($_REQUEST['logout'])) {
 		//TODO: logout code?
 	}
@@ -208,90 +222,8 @@ if($user && !empty($user)) {
 switch($display) {
 	case "settings":
 	case "dashboard":
-		/*if($display == "settings") {
-			$ucp->Modgettext->push_textdomain("ucp");
-			$displayvars['desktop'] = (!$ucp->Session->isMobile && !$ucp->Session->isTablet);
-			$displayvars['lang'] = $lang;
-			$displayvars['languages'] = array(
-				'en_US' => _('English'). " (US)"
-			);
-			foreach(glob(FreePBX::Config()->get('AMPWEBROOT')."/admin/modules/ucp/i18n/*",GLOB_ONLYDIR) as $langDir) {
-				$l = basename($langDir);
-				$displayvars['languages'][$l] = function_exists('locale_get_display_name') ? locale_get_display_name($l, $lang) : $l;
-			}
-
-			$displayvars['changepassword'] = $ucp->User->canChange("password");
-			$displayvars['changeusername'] = $ucp->User->canChange("username");
-			$displayvars['changedetails'] = $ucp->User->canChange("details");
-			$displayvars['username'] = $user['username'];
-
-			if($ucp->Modules->moduleHasMethod('Contactmanager', 'userDetails')) {
-				$displayvars['contactmanager'] = array(
-					"status" => true,
-					"data" => $ucp->Modules->Contactmanager->userDetails()
-				);
-			} else {
-				$displayvars['contactmanager'] = array(
-					"status" => false
-				);
-			}
-
-			$dashboard_content = $ucp->View->load_view(__DIR__.'/views/settings.php',$displayvars);
-			$displayvars['active_module'] = 'ucpsettings';
-			$ucp->Modgettext->pop_textdomain();
-		} else {
-			if($module != "home") {
-				$ucp->Modgettext->push_textdomain(strtolower($module));
-			} else {
-				$ucp->Modgettext->push_textdomain("ucp");
-			}
-			$displayvars['active_module'] = $module;
-			$mclass = ucfirst(strtolower($module));
-			if(in_array($mclass,$active_modules)) {
-				$dashboard_content = $ucp->View->load_view(__DIR__.'/views/module.php',array("module" => $module, "display" => $ucp->Modules->$mclass->getDisplay()));
-			} else {
-				$ucp->Modgettext->pop_textdomain();
-				$dashboard_content = sprintf(_('Unknown Module %s'),$module);
-			}
-			$ucp->Modgettext->pop_textdomain();
-		}
-
-		if(isset($_SERVER['HTTP_X_PJAX'])) {
-			if(!empty($_REQUEST['mod']) || ($display == 'settings')) {
-				echo $dashboard_content;
-				exit();
-			}
-		}*/
-
-		$ucp->Modgettext->push_textdomain("ucp");
-
-		$displayvars['active_module'] = $module;
-		$mclass = ucfirst(strtolower($module));
-		if(in_array($mclass,$active_modules)) {
-			$dashboard_content = $ucp->View->load_view(__DIR__.'/views/module.php',array("module" => $module, "display" => $ucp->Modules->$mclass->getDisplay($active_dashboard_id)));
-		} else {
-			$ucp->Modgettext->pop_textdomain();
-			$dashboard_content = sprintf(_('Unknown Module %s'),$module);
-		}
-		$ucp->Modgettext->pop_textdomain();
-
-		$displayvars['dashboard_content'] = $dashboard_content;
-		$displayvars['year'] = date('Y',time());
-		$dbfc = FreePBX::Config()->get('VIEW_UCP_FOOTER_CONTENT');
-		$displayvars['dashboard_footer_content'] = $ucp->View->load_view(__DIR__."/".$dbfc, array("year" => date('Y',time())));
-
-		$o = FreePBX::Userman()->getCombinedModuleSettingByID($user['id'],'ucp|Global','originate');
-		$originate = !empty($o) ? '<a class="originate">'._("Originate Call").'</a>' : '';
-		$displayvars['navItems']['settings'] = array(
-			"rawname" => "settings",
-			"badge" => false,
-			"icon" => "fa-cog",
-			"menu" => array(
-				"html" => '<li>' . $originate . '</li><li><a data-pjax href="?display=settings">' . _('User Settings') . '</a></li><li><a class="logout" href="?logout=1">' . _('Logout') . '</a></li>'
-			)
-		);
+		$displayvars['display'] = $ucp->Modules->Widgets->getDisplay($active_dashboard_id);
 		$ucp->View->show_view(__DIR__.'/views/dashboard.php',$displayvars);
-
 	break;
 	case "forgot":
 		$displayvars['token'] = $ucp->Session->generateToken('login');
@@ -323,14 +255,6 @@ if(!isset($_SERVER['HTTP_X_PJAX'])) {
 	$displayvars['lang'] = $lang;
 	$displayvars['ucpserver'] = json_encode($ucp->getServerSettings());
 	$displayvars['modules'] = json_encode($active_modules);
-	$compressed = FreePBX::Config()->get("USE_PACKAGED_JS");
-	$version	 = $ucp->getVersion();
-	$version_tag = '?load_version=' . urlencode($version);
-	if (FreePBX::Config()->get('FORCE_JS_CSS_IMG_DOWNLOAD')) {
-		$this_time_append	= '.' . time();
-		$version_tag 		.= $this_time_append;
-	}
-	$displayvars['version_tag'] = $version_tag;
 	$displayvars['gScripts'] = $ucp->getScripts(false,$compressed);
 	$displayvars['scripts'] = $ucp->Modules->getGlobalScripts(false,$compressed);
 	$displayvars['timezone'] = $ucp->View->getTimezone();
@@ -348,6 +272,9 @@ if(!isset($_SERVER['HTTP_X_PJAX'])) {
 	$ucp->Modgettext->push_textdomain("ucp");
 
 	if(!empty($user["id"])) {
+		$displayvars['year'] = date('Y',time());
+		$dbfc = FreePBX::Config()->get('VIEW_UCP_FOOTER_CONTENT');
+		$displayvars['dashboard_footer_content'] = $ucp->View->load_view(__DIR__."/".$dbfc, array("year" => date('Y',time())));
 		$ucp->View->show_view(__DIR__ . '/views/dashboard-footer.php', $displayvars);
 	}
 

@@ -210,31 +210,40 @@ class UCP extends UCP_Helpers {
 			"jquery.ui.touch-punch-0.2.3.min.js",
 			"gridstack-0.2.6.js",
 			"Sortable-1.4.2.min.js",
+			"bootstrap-toggle-2.2.2.min.js",
 			"ucp.js",
 			"module.js"
 		);
+
+		$time_start = microtime(true);
+
 		$contents = '';
 		$files = array();
+		$md5string = '';
 		foreach ($globalJavascripts as $f) {
 			$file = dirname(__DIR__).'/assets/js/'.$f;
 			if(file_exists($file)) {
 				$files[] = str_replace(dirname(__DIR__).'/assets/js/','',$file);
+				$md5string .= md5_file($file);
+			} else {
+				throw new \Exception("Cant find $file");
+			}
+		}
+
+		$md5 = md5($md5string);
+		$filename = 'jsphpg_'.$md5.'.js';
+		if(!file_exists($cache.'/'.$filename) || $force) {
+			foreach(glob($cache.'/jsphpg_*.js') as $f) {
+				unlink($f);
+			}
+			foreach($globalJavascripts as $f) {
+				$file = dirname(__DIR__).'/assets/js/'.$f;
 				$raw = file_get_contents($file);
 				if(!preg_match("/min\.js$/",$file)) {
 					$contents .= \JShrink\Minifier::minify($raw)."\n\n";
 				} else {
 					$contents .= $raw."\n\n";
 				}
-			} else {
-				throw new \Exception("Cant find $file");
-			}
-		}
-
-		$md5 = md5($contents);
-		$filename = 'jsphpg_'.$md5.'.js';
-		if(!file_exists($cache.'/'.$filename) || $force) {
-			foreach(glob($cache.'/jsphpg_*.js') as $f) {
-				unlink($f);
 			}
 			file_put_contents($cache.'/'.$filename,$contents);
 		}
@@ -247,7 +256,7 @@ class UCP extends UCP_Helpers {
 	 * These Scripts persist throughout the navigation of UCP
 	 * @param bool $force Whether to forcefully regenerate the minified CSS
 	 */
-	public function getLess($force = false) {
+	public function getCss($force = false, $packaged=false) {
 		$cache = dirname(__DIR__).'/assets/css/compiled/main';
 		//TODO: needs to be an array of directories that need to be created on install
 		if(!file_exists($cache) && !mkdir($cache,0777,true)) {
@@ -259,19 +268,65 @@ class UCP extends UCP_Helpers {
 			}
 		}
 
-		$options = array( 'cache_dir' => $cache );
+		$globalCssFiles = array(
+			"bootstrap-3.3.7.min.css",
+			"bootstrap-toggle-2.2.2.min.css",
+			"emojione-2.2.6.min.css",
+			"font-awesome.min-4.7.0.css",
+			"gridstack.min.css",
+			"jquery.tokenize-2.6.css"
+		);
+
+
+		$contents = '';
+		$files = array();
+		$md5string = '';
+		foreach($globalCssFiles as $f) {
+			$file = dirname(__DIR__).'/assets/css/'.$f;
+			if(file_exists($file)) {
+				$files[] = str_replace(dirname(__DIR__).'/assets/css/','',$file);
+				$md5string .= md5_file($file);
+			} else {
+				throw new \Exception("Cant find $file");
+			}
+		}
 
 		$final = array();
-		//Needs to be one unified LESS file along with the module LESS file
+
+		$md5 = md5($md5string);
+		$filename = 'cssphpg_'.$md5.'.css';
+		if(!file_exists($cache.'/'.$filename) || $force) {
+			foreach(glob($cache.'/cssphpg_*.css') as $f) {
+				unlink($f);
+			}
+			foreach($globalCssFiles as $f) {
+				$minifier = new \MatthiasMullie\Minify\CSS();
+				$file = dirname(__DIR__).'/assets/css/'.$f;
+				$raw = file_get_contents($file);
+				if(!preg_match("/min\.css$/",$file)) {
+					$minifier->add($raw);
+					$contents .= $minifier->minify()."\n";
+				} else {
+					$contents .= $raw."\n";
+				}
+			}
+			file_put_contents($cache.'/'.$filename,$contents);
+		}
+
+		$final[] = "compiled/main/".$filename;
+
+		$options = array( 'cache_dir' => $cache );
 
 		$ucpfiles = array();
 		$ucpfiles[dirname(__DIR__).'/assets/less/ucp/ucp.less'] = '../../../../';
-		$final['ucpcssless'] = \Less_Cache::Get( $ucpfiles, $options );
+		dbug($ucpfiles);
+		$final[] = "compiled/main/".\Less_Cache::Get( $ucpfiles, $options );
 
 		$ucpfiles = array();
 		$vars = array("fa-font-path" => '"fonts"');
 		$ucpfiles[dirname(__DIR__).'/assets/less/schmooze-font/schmooze-font.less'] = '../../';
-		$final['sfcssless'] = \Less_Cache::Get( $ucpfiles, $options, $vars );
+		dbug($ucpfiles);
+		$final[] = "compiled/main/".\Less_Cache::Get( $ucpfiles, $options, $vars );
 
 		return $final;
 	}

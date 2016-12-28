@@ -9,18 +9,10 @@
 		<![endif]-->
 		<?php } ?>
 
-		<link href="assets/css/bootstrap-3.3.7.min.css" rel="stylesheet" type="text/css">
-		<link href="assets/css/font-awesome.min-4.7.0.css" rel="stylesheet" type="text/css">
-		<link href="assets/css/compiled/main/<?php echo $sfcssless?>" rel="stylesheet" type="text/css">
-
-		<link href="assets/css/emojione-2.2.6.min.css" rel="stylesheet" type="text/css">
-		<link href="assets/css/jquery.tokenize-2.6.css" rel="stylesheet" type="text/css">
-		<link href="assets/css/gridster/jquery.gridster.min.css" rel="stylesheet" type="text/css">
-		<link href="assets/css/gridstack.min.css" rel="stylesheet" type="text/css">
-		<link href="assets/css/bootstrap-toggle-2.2.2.min.css" rel="stylesheet" type="text/css">
-		<link href="assets/css/compiled/main/<?php echo $ucpcssless?>" rel="stylesheet" type="text/css">
-
-		<link href="assets/css/compiled/modules/<?php echo $ucpmoduleless?>" rel="stylesheet" type="text/css">
+		<?php foreach($ucpcss as $file) { ?>
+			<link href="assets/css/<?php echo $file.$version_tag?>" rel="stylesheet" type="text/css">
+		<?php } ?>
+		<link href="assets/css/compiled/modules/<?php echo $ucpmoduleless.$version_tag?>" rel="stylesheet" type="text/css">
 
 		<meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
 		<!-- Apple Specific -->
@@ -52,7 +44,7 @@
 		  </style>
 		<![endif]-->
 		<?php } ?>
-		<script type="text/javascript" src="assets/js/jquery-3.1.1.min.js"></script>
+		<script type="text/javascript" src="assets/js/jquery-3.1.1.min.js<?php echo $version_tag?>"></script>
 		<!-- Display hack for localization on checkbox switches -->
 		<style>
 			.onoffswitch-inner:before {

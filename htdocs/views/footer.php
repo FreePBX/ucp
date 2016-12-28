@@ -13,16 +13,16 @@
 		<?php foreach($gScripts as $file) { ?>
 			<script type="text/javascript" src="assets/js/<?php echo $file.$version_tag?>"></script>
 		<?php } ?>
-		<script src="assets/js/bootstrap-table-locale/bootstrap-table-en-US.js"></script>
+		<script src="assets/js/bootstrap-table-locale/bootstrap-table-en-US.js<?php echo $version_tag?>?>"></script>
 		<?php if($lang != "en_US") {
 			$html = '';
 			switch($lang) {
 				case "es_ES":
-					$html .= '<script src="assets/js/bootstrap-table-locale/bootstrap-table-es-SP.js"></script>';
+					$html .= '<script src="assets/js/bootstrap-table-locale/bootstrap-table-es-SP.js<?php echo $version_tag?>"></script>';
 					$html .= "<script>$.extend($.fn.bootstrapTable.defaults, $.fn.bootstrapTable.locales['es-SP']);</script>";
 				break;
 				default:
-					$html .= '<script src="assets/js/bootstrap-table-locale/bootstrap-table-'.str_replace("_","-",$lang).'.js"></script>';
+					$html .= '<script src="assets/js/bootstrap-table-locale/bootstrap-table-'.str_replace("_","-",$lang).'.js<?php echo $version_tag?>"></script>';
 					$html .= "<script>$.extend($.fn.bootstrapTable.defaults, $.fn.bootstrapTable.locales['".str_replace("_","-",$lang)."']);</script>";
 				break;
 			}
@@ -31,7 +31,6 @@
 		<?php foreach($scripts as $file) { ?>
 			<script type="text/javascript" src="<?php echo $file.$version_tag?>"></script>
 		<?php } ?>
-		<script src="assets/js/bootstrap-toggle-2.2.2.min.js"></script>
 		<script>
 			var modules = <?php echo $modules?>;
 			var desktop = <?php echo $desktop ? "true" : "false"?>;

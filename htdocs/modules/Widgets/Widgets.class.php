@@ -36,6 +36,14 @@ class Widgets extends Modules{
 	}
 
 	function getDisplay($dashboard_id) {
+		if(empty($dashboard_id)) {
+			return '<div class="dashboard-error"><div class="message"><i class="fa fa-exclamation-circle" aria-hidden="true"></i><br/>'._("You need to add at least one dashboard to continue").'</div></div>';
+		}
+
+		$dashboard = $this->UCP->Dashboards->getDashboardByID($dashboard_id);
+		if(empty($dashboard)) {
+			return '<div class="dashboard-error"><div class="message"><i class="fa fa-exclamation-circle" aria-hidden="true"></i><br/>'._('Invalid dashboard id').'</div></div>';
+		}
 
 		$widgets = $this->UCP->Dashboards->getAllWidgets();
 

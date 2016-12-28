@@ -219,10 +219,14 @@ var UCPC = Class.extend({
 		//Start PJAX Stuff
 		if ($.support.pjax) {
 			//Navigation Clicks
-			$(document).on("click", "[data-pjax] a, a[data-pjax]", function(event) {
+			$(document).on("click", ".dashboards li a[data-pjax]", function(e) {
+				if($(this).hasClass("pjax-block")) {
+					e.preventDefault();
+					return;
+				}
 				var container = $("#dashboard-content"),
 						clicker = $(this).data("mod");
-				$.pjax.click(event, { container: container });
+				$.pjax.click(e, { container: container });
 			});
 		} else {
 			alert(_("UCP is not supported in your browser"));
@@ -429,6 +433,65 @@ var UCPC = Class.extend({
 			}
 		});
 		$("#globalModal").modal('hide');
+	},
+	showAlert: function(message, type, callback_func){
+
+		var type_class = "";
+		if(type == 'success'){
+			type_class = "alert-success";
+		}else if(type == 'info'){
+			type_class = "alert-info";
+		}else if(type == 'warning'){
+			type_class = "alert-warning";
+		}else if(type == 'danger'){
+			type_class = "alert-danger";
+		}
+
+		$("#alert_message").removeClass("alert-success alert-info alert-warning alert-danger");
+
+		$("#alert_message").addClass(type_class);
+
+		$("#alert_message").html(message);
+
+		if(typeof callback_func == "function") {
+			$(document).on("click", "#close_alert_button", function () {
+				$("#alert_modal").modal("hide");
+				callback_func();
+			});
+		}else {
+			$(document).on("click", "#close_alert_button", function () {
+				$("#alert_modal").modal("hide");
+			});
+		}
+
+		$("#alert_modal").modal("show");
+	},
+	showConfirm: function(html, type, callback_func) {
+		var type_class = "";
+		if(type == 'success'){
+			type_class = "alert-success";
+		}else if(type == 'info'){
+			type_class = "alert-info";
+		}else if(type == 'warning'){
+			type_class = "alert-warning";
+		}else if(type == 'danger'){
+			type_class = "alert-danger";
+		}
+
+		$("#confirm_content").removeClass("alert-success alert-info alert-warning alert-danger");
+
+		$("#confirm_content").addClass(type_class);
+		$("#confirm_content").html(html);
+
+		$('#confirm_modal').one('shown.bs.modal', function () {
+			$(document).one("click", "#modal_confirm_button", function(){
+				if(typeof callback_func == "function"){
+					callback_func();
+				}
+			});
+		});
+
+		$('#confirm_modal').modal('show');
 	},
 	showDialog: function(title, content, height, width, callback) {
 		if($("#globalModal").is(":visible")) {
