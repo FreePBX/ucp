@@ -79,9 +79,7 @@ var WidgetsC = Class.extend({
 			var widget_type_id = $(this).data("widget_type_id");
 			var widget_id = $(this).parents(".grid-stack-item").data("id");
 
-			$('#widget_settings').one('hidden.bs.modal', function (e) {
-				$(".settings-shown-blocker").hide();
-			});
+
 			$('#widget_settings').attr("data-rawname",rawname);
 			$('#widget_settings').data('rawname',rawname);
 			var settings_container = $('#widget_settings .modal-body');
@@ -89,7 +87,6 @@ var WidgetsC = Class.extend({
 			var title = parent.data("widget_module_name");
 			var name = parent.data("name");
 			$this.activateSettingsLoading();
-			$(".settings-shown-blocker").show();
 			$("#widget_settings .modal-title").html('<i class="fa fa-cog" aria-hidden="true"></i> '+title+" "+_("Settings")+" ("+name+")");
 			$('#widget_settings').modal('show');
 			$this.getSettingsContent(settings_container, widget_type_id, rawname, function() {
@@ -469,10 +466,6 @@ var WidgetsC = Class.extend({
 					widget_type_id = parent.data("widget_type_id"),
 					widget_id = parent.data("id");
 
-			$('#widget_settings').one('hidden.bs.modal', function (e) {
-				$(".settings-shown-blocker").hide();
-			});
-
 			$('#widget_settings').attr("data-rawname",rawname);
 			$('#widget_settings').data('rawname',rawname);
 
@@ -481,9 +474,32 @@ var WidgetsC = Class.extend({
 			var name = parent.data("widget_name");
 
 			$this.activateSettingsLoading();
-			$(".settings-shown-blocker").show();
 			$("#widget_settings .modal-title").html('<i class="fa fa-cog" aria-hidden="true"></i> '+title+" "+_("Settings")+" ("+name+")");
 			$('#widget_settings').modal('show');
+			$this.getSimpleSettingsContent(settings_container, widget_type_id, rawname, function() {
+				$("#widget_settings .modal-body .fa-question-circle").click(function(e) {
+					e.preventDefault();
+					e.stopPropagation();
+					var f = $(this).parents("label").attr("for");
+					$(".help-block").addClass('help-hidden');
+					$('.help-block[data-for="'+f+'"]').removeClass('help-hidden');
+				});
+				UCP.callModuleByMethod(rawname,"displaySimpleWidgetSettings",widget_id);
+				$(document).trigger("post-body.simplewidgetsettings",[ widget_id, widget_type_id ]);
+			});
+		});
+
+		$(document).on("click", ".settings-widget", function(event){
+			var widget_type_id = null,
+					widget_id = 'user',
+					rawname = 'settings',
+					settings_container = $('#widget_settings .modal-body');
+			event.preventDefault();
+			event.stopPropagation();
+			$this.activateSettingsLoading();
+			$("#widget_settings .modal-title").html('<i class="fa fa-cog" aria-hidden="true"></i> '+_("User Settings"));
+			$('#widget_settings').modal('show');
+
 			$this.getSimpleSettingsContent(settings_container, widget_type_id, rawname, function() {
 				$("#widget_settings .modal-body .fa-question-circle").click(function(e) {
 					e.preventDefault();

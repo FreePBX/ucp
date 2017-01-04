@@ -46,25 +46,36 @@ var UCPC = Class.extend({
 		}
 
 		$(document).on("post-body.simplewidget", function() {
-			$('.small-widget-content input[type=checkbox][data-toggle="toggle"]').bootstrapToggle({
+			$('.small-widget-content input[type=checkbox][data-toggle="toggle"]:visible').bootstrapToggle({
 				on: _('Enable'),
 				off: _('Disable')
 			});
-			$('.small-widget-content table[data-toggle="table"]').bootstrapTable();
+			$('.small-widget-content table[data-toggle="table"]:visible').bootstrapTable();
 		});
 		$(document).on("post-body.widgets",function(){
-			$('.grid-stack input[type=checkbox][data-toggle="toggle"]').bootstrapToggle({
+			$('.grid-stack input[type=checkbox][data-toggle="toggle"]:visible').bootstrapToggle({
 				on: _('Enable'),
 				off: _('Disable')
 			});
-			$('.grid-stack table[data-toggle="table"]').bootstrapTable();
+			$('.grid-stack table[data-toggle="table"]:visible').bootstrapTable();
 		});
 		$(document).on("post-body.widgetsettings post-body.simplewidgetsettings",function(){
-			$('.widget-settings-content input[type=checkbox][data-toggle="toggle"]').bootstrapToggle({
-				on: _('Enable'),
-				off: _('Disable')
+			var load = function() {
+				$('.widget-settings-content input[type=checkbox][data-toggle="toggle"]:visible').bootstrapToggle({
+					on: _('Enable'),
+					off: _('Disable')
+				});
+				$('.widget-settings-content table[data-toggle="table"]:visible').bootstrapTable();
+			};
+			load();
+			var loaded = [];
+			$('.widget-settings-content a[data-toggle="tab"]').on("shown.bs.tab", function(e) {
+				var href = $(e.target).attr("href");
+				if(loaded.indexOf(href) === -1) {
+					loaded.push(href);
+					load();
+				}
 			});
-			$('.widget-settings-content table[data-toggle="table"]').bootstrapTable();
 		});
 
 		this.callModulesByMethod("ready",$.url().param());

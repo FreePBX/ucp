@@ -159,6 +159,18 @@
 			</div>
 		</div>
 	</div>
+	<!-- widget settings -->
+	<div class="modal fade" id="widget_settings" tabindex="-1" role="dialog" aria-labelledby="widget_settings_label">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><i class="fa fa-times" aria-hidden="true"></i></button>
+					<h4 class="modal-title" id="widget_settings_label"><?php echo _("Widget Settings")?></h4>
+				</div>
+				<div class="modal-body widget-settings-content"></div>
+			</div>
+		</div>
+	</div>
 
 	<!-- MODAL, ALERTS -->
 	<div id="alert_modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="alert_label">
@@ -203,17 +215,6 @@
 					<button type="button" class="btn btn-danger" data-dismiss="modal"><?php echo _("Cancel")?></button>
 					<button type="button" class="btn btn-primary" data-dismiss="modal" id="modal_confirm_button"><?php echo _("Accept")?></button>
 				</div>
-			</div>
-		</div>
-	</div>
-	<div class="modal fade" id="widget_settings" tabindex="-1" role="dialog" aria-labelledby="widget_settings_label">
-		<div class="modal-dialog">
-			<div class="modal-content">
-				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><i class="fa fa-times" aria-hidden="true"></i></button>
-					<h4 class="modal-title" id="widget_settings_label"><?php echo _("Widget Settings")?></h4>
-				</div>
-				<div class="modal-body widget-settings-content"></div>
 			</div>
 		</div>
 	</div>

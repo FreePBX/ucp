@@ -1194,27 +1194,6 @@ section{
 	bottom: 23px;
 }
 
-#ucp-settings {
-	.password-set {
-		border: 1px solid #CCCCCC;
-		padding: 6px;
-		border-radius: 5px;
-		margin-bottom: 8px;
-		legend {
-			margin-bottom: 3px;
-		}
-	}
-	.vmsettings {
-		background-color: aliceblue;
-		border-radius: 10px;
-		padding: 10px;
-		width: 370px;
-		@media only screen and (max-width : 991px) {
-			width: 100%;
-		}
-	}
-}
-
 #loading-container {
 	background-color: rgba(211, 211, 211, 0.2);
 	position: absolute;
@@ -1306,6 +1285,30 @@ select[multiple].Tokenize, select[size].Tokenize {
 }
 
 #ucp-settings {
+	.tab-content {
+		background-color: white;
+		border: 1px solid #dddddd;
+		border-top: none;
+	}
+	.password-set {
+		border: 1px solid #CCCCCC;
+		padding: 6px;
+		border-radius: 5px;
+		margin-bottom: 8px;
+		legend {
+			margin-bottom: 3px;
+		}
+	}
+	.vmsettings {
+		background-color: aliceblue;
+		border-radius: 10px;
+		padding: 10px;
+		width: 370px;
+		@media only screen and (max-width : 991px) {
+			width: 100%;
+		}
+	}
+
 	.settings {
 		background-color: aliceblue;
 		border-radius: 10px;
@@ -1313,7 +1316,6 @@ select[multiple].Tokenize, select[size].Tokenize {
 			padding: 5px;
 			font-weight: bold;
 			text-align: center;
-			background-color: whitesmoke;
 			border-top-left-radius: 5px;
 			border-top-right-radius: 5px;
 		}
@@ -1323,7 +1325,6 @@ select[multiple].Tokenize, select[size].Tokenize {
 	}
 	.section {
 		margin-bottom: 10px;
-		width: 33.3%
 	}
 
 	#contactmanager_dropzone {
@@ -1635,4 +1636,9 @@ div.bhoechie-tab div.bhoechie-tab-content:not(.active){
 		border-bottom: 1px solid rgba(167, 123, 102, 0.3);
 		height: ~"calc(100% - 65px)";
 	}
+}
+
+.multiselect-container {
+    max-height: 300px;
+    overflow: auto;
 }

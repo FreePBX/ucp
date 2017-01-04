@@ -211,6 +211,7 @@ class UCP extends UCP_Helpers {
 			"gridstack-0.2.6.js",
 			"Sortable-1.4.2.min.js",
 			"bootstrap-toggle-2.2.2.min.js",
+			"browser-locale-1.0.0.min.js",
 			"ucp.js",
 			"module.js"
 		);

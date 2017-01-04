@@ -220,7 +220,6 @@ if($user && !empty($user)) {
 }
 
 switch($display) {
-	case "settings":
 	case "dashboard":
 		$displayvars['display'] = $ucp->Modules->Widgets->getDisplay($active_dashboard_id);
 		$ucp->View->show_view(__DIR__.'/views/dashboard.php',$displayvars);

@@ -847,7 +847,7 @@ class Ucp implements \BMO {
 		out(_("Done"));
 
 		outn(_("Generating Main Scripts..."));
-		$ucp->getLess(true);
+		$ucp->getCss(true);
 		out(_("Done"));
 
 		outn(_("Generating Main CSS..."));

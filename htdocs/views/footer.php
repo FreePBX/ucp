@@ -13,16 +13,16 @@
 		<?php foreach($gScripts as $file) { ?>
 			<script type="text/javascript" src="assets/js/<?php echo $file.$version_tag?>"></script>
 		<?php } ?>
-		<script src="assets/js/bootstrap-table-locale/bootstrap-table-en-US.js<?php echo $version_tag?>?>"></script>
+		<script src="assets/js/bootstrap-table-locale/bootstrap-table-en-US.js<?php echo $version_tag?>"></script>
 		<?php if($lang != "en_US") {
 			$html = '';
 			switch($lang) {
 				case "es_ES":
-					$html .= '<script src="assets/js/bootstrap-table-locale/bootstrap-table-es-SP.js<?php echo $version_tag?>"></script>';
+					$html .= '<script src="assets/js/bootstrap-table-locale/bootstrap-table-es-SP.js'.$version_tag.'"></script>';
 					$html .= "<script>$.extend($.fn.bootstrapTable.defaults, $.fn.bootstrapTable.locales['es-SP']);</script>";
 				break;
 				default:
-					$html .= '<script src="assets/js/bootstrap-table-locale/bootstrap-table-'.str_replace("_","-",$lang).'.js<?php echo $version_tag?>"></script>';
+					$html .= '<script src="assets/js/bootstrap-table-locale/bootstrap-table-'.str_replace("_","-",$lang).'.js'.$version_tag.'"></script>';
 					$html .= "<script>$.extend($.fn.bootstrapTable.defaults, $.fn.bootstrapTable.locales['".str_replace("_","-",$lang)."']);</script>";
 				break;
 			}
@@ -36,6 +36,9 @@
 			var desktop = <?php echo $desktop ? "true" : "false"?>;
 			var ucpserver = <?php echo $ucpserver ?>;
 			var timezone = '<?php echo $timezone ?>';
+			var language = '<?php echo FreePBX::View()->getLocale()?>';
+			var UIDEFAULTLANG = '<?php echo FreePBX::Config()->get('UIDEFAULTLANG')?>';
+			var PHPTIMEZONE = '<?php echo FreePBX::Config()->get('PHPTIMEZONE')?>';
 			var timeformat = '<?php echo $timeformat ?>';
 			var dateformat = '<?php echo $dateformat ?>';
 			var datetimeformat = '<?php echo $datetimeformat ?>';

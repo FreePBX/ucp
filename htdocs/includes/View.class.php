@@ -36,7 +36,7 @@ class View extends UCP {
 	 * @return	string
 	 *
 	 */
-	function load_view($view_filename_protected, $vars = array()) {
+	public function load_view($view_filename_protected, $vars = array()) {
 
 		//return false if we cant find the file or if we cant open it
 		if (!$view_filename_protected || !file_exists($view_filename_protected) || !is_readable($view_filename_protected) ) {
@@ -80,7 +80,7 @@ class View extends UCP {
 	 * @return	string
 	 *
 	 */
-	function show_view($view_filename_protected, $vars = array()) {
+	public function show_view($view_filename_protected, $vars = array()) {
 		$buffer = $this->load_view($view_filename_protected, $vars);
 		if ($buffer !== false) {
 			echo $buffer;
@@ -129,6 +129,10 @@ class View extends UCP {
 		}
 
 		return array("timezone" => $timezone, "language" => $language, "datetimeformat" => "", "timeformat" => "", "dateformat" => "");
+	}
+
+	public function getLocale() {
+		return $this->UCP->FreePBX->View->getLocale();
 	}
 
 	/**

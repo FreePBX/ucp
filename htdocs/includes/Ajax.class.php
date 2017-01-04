@@ -31,62 +31,6 @@ class Ajax extends UCP {
 		session_write_close(); //speed up
 		$this->UCP->Modgettext->textdomain("ucp");
 		switch($command) {
-			case 'ucpsettings':
-				$this->addHeader('HTTP/1.0','200');
-				$user = $this->UCP->User->getUser();
-				if(($_POST['key'] == 'username' || $_POST['key'] == 'password') && !$this->UCP->User->canChange($_POST['key'])) {
-					return array(
-						"status" => false
-					);
-				}
-				$this->UCP->Modgettext->push_textdomain("ucp");
-				switch($_POST['key']) {
-					case 'fname':
-					case 'lname':
-					case 'email':
-					case 'title':
-					case 'company':
-					case 'fax':
-					case 'cell':
-					case 'displayname':
-					case 'work':
-					case 'home':
-						$val = htmlentities(strip_tags($_POST['value']));
-						$this->UCP->FreePBX->Userman->updateUserExtraData($user['id'],array($_POST['key'] => $val));
-						$ret = array(
-							"status" => true
-						);
-					break;
-					case 'notifications':
-					break;
-					case 'usernamecheck':
-						$val = htmlentities(strip_tags($_POST['value']));
-						$user = $this->UCP->FreePBX->Userman->getUserByUsername($val);
-						$ret = array(
-							"status" => empty($user)
-						);
-					break;
-					case 'username':
-						$val = htmlentities(strip_tags($_POST['value']));
-						$status = $this->UCP->FreePBX->Userman->updateUser($user['id'],$user['username'], $val, $user['default_extension'], $user['description']);
-						$ret = array(
-							"status" => $status['status']
-						);
-					break;
-					case 'password':
-						$status = $this->UCP->FreePBX->Userman->updateUser($user['id'],$user['username'], $user['username'], $user['default_extension'], $user['description'], array(), $_POST['value']);
-						$ret = array(
-							"status" => $status['status']
-						);
-					break;
-					default:
-						$ret = array(
-							"status" => false,
-							"message" => 'Invalid Parameter'
-						);
-				}
-				$this->UCP->Modgettext->pop_textdomain();
-			break;
 			case 'template':
 				$this->UCP->Modgettext->push_textdomain("ucp");
 				$file = dirname(__DIR__).'/views/templates/'.basename($_REQUEST['type']).'.php';
@@ -127,10 +71,11 @@ class Ajax extends UCP {
 
 				$ucMod = ucfirst(strtolower($module));
 				if ($module != 'UCP' && $module != 'User' && class_exists(__NAMESPACE__."\\".$ucMod)) {
-					$this->triggerFatal(_("The class $module already existed. Ajax MUST load it, for security reasons"));
+					$this->triggerFatal(sprintf(_("The class %s already existed. Ajax MUST load it, for security reasons"),$module));
 				}
 
 				//Part of the login functionality, thats the only place its used!
+				//TODO: security check
 				if($module == 'User' || $module == 'UCP' || $module == 'Dashboards') {
 					// Is someone trying to be tricky with filenames?
 					$file = dirname(__FILE__).'/'.$ucMod.'.class.php';

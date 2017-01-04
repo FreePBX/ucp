@@ -32,78 +32,142 @@ class Settings extends Modules{
 		$this->Modules = $Modules;
 	}
 
-	function getDisplay() {
-		$ext = !empty($_REQUEST['sub']) ? $_REQUEST['sub'] : '';
-		if(!empty($ext) && !$this->_checkExtension($ext)) {
-			return _("Forbidden");
+	/**
+	* Determine what commands are allowed
+	*
+	* Used by Ajax Class to determine what commands are allowed by this class
+	*
+	* @param string $command The command something is trying to perform
+	* @param string $settings The Settings being passed through $_POST or $_PUT
+	* @return bool True if pass
+	*/
+	function ajaxRequest($command, $settings) {
+		switch($command) {
+			case 'settings':
+				return true;
+			break;
 		}
-		$modules = $this->Modules->getModulesByMethod('getSettingsDisplay');
-		$html = '';
-
-		$sections = array();
-		foreach($modules as $module) {
-			$this->UCP->Modgettext->push_textdomain(strtolower($module));
-			$data = $this->Modules->$module->getSettingsDisplay($ext);
-			$this->UCP->Modgettext->pop_textdomain();
-			foreach($data as $section) {
-				$section['section'] = !empty($section['section']) ? $section['section'] : $module;
-				if(isset($section['order'])) {
-					$o = $section['order'];
-					$sections1 = array_slice($sections, 0, $o, true);
-					$sections2 = array_slice($sections, $o, count($sections)-$o, true);
-					$sections = $sections1;
-					$sections[] = $section;
-					$sections = array_merge($sections, $sections2);
-				} else {
-					$sections[] = $section;
-				}
-			}
-		}
-		$html .= '<div class="masonry-container">';
-		foreach($sections as $data) {
-			$html .= '<div class="section" data-module="'.$data['section'].'" id="module-'.$data['section'].'">';
-			$html .= '<div id="'.$data['section'].'-setting" class="settings">';
-			$html .= '<div id="'.$data['section'].'-setting-title" class="title">'.$data['title'].'</div>';
-			$html .= '<div id="'.$data['section'].'-setting-content" class="content">';
-			$html .= $data['content'];
-			$html .= '</div></div></div>';
-
-		}
-		$html .= '</div><script>var ext = "'.$ext.'";</script>';
-		return $html;
 	}
 
-	public function getMenuItems() {
+	/**
+	* The Handler for all ajax events releated to this class
+	*
+	* Used by Ajax Class to process commands
+	*
+	* @return mixed Output if success, otherwise false will generate a 500 error serverside
+	*/
+	function ajaxHandler() {
+		$return = array("status" => false, "message" => "");
+		switch($_REQUEST['command']) {
+			case 'settings':
+				$user = $this->UCP->User->getUser();
+				if(($_POST['key'] == 'username' || $_POST['key'] == 'password') && !$this->UCP->User->canChange($_POST['key'])) {
+					return array(
+						"status" => false
+					);
+				}
+				switch($_POST['key']) {
+					case 'fname':
+					case 'lname':
+					case 'email':
+					case 'title':
+					case 'company':
+					case 'fax':
+					case 'cell':
+					case 'displayname':
+					case 'work':
+					case 'home':
+						$val = htmlentities(strip_tags($_POST['value']));
+						$this->UCP->FreePBX->Userman->updateUserExtraData($user['id'],array($_POST['key'] => $val));
+						$ret = array(
+							"status" => true
+						);
+					break;
+					case 'notifications':
+					break;
+					case 'usernamecheck':
+						$val = htmlentities(strip_tags($_POST['value']));
+						$user = $this->UCP->FreePBX->Userman->getUserByUsername($val);
+						$ret = array(
+							"status" => empty($user)
+						);
+					break;
+					case 'username':
+						$val = htmlentities(strip_tags($_POST['value']));
+						$status = $this->UCP->FreePBX->Userman->updateUser($user['id'],$user['username'], $val, $user['default_extension'], $user['description']);
+						$ret = array(
+							"status" => $status['status']
+						);
+					break;
+					case 'password':
+						$status = $this->UCP->FreePBX->Userman->updateUser($user['id'],$user['username'], $user['username'], $user['default_extension'], $user['description'], array(), $_POST['value']);
+						$ret = array(
+							"status" => $status['status']
+						);
+					break;
+					case 'timezone':
+						$val = !empty($_POST['value']) ? $_POST['value'] : null;
+						$status = $this->UCP->FreePBX->Userman->getAuthObject()->updateUserData($user['id'], array("timezone" => $val));
+						$ret = array(
+							"status" => $status
+						);
+					break;
+					case 'language':
+						$val = !empty($_POST['value']) ? $_POST['value'] : null;
+						$status = $this->UCP->FreePBX->Userman->getAuthObject()->updateUserData($user['id'], array("timezone" => $val));
+						$ret = array(
+							"status" => $status
+						);
+					break;
+					default:
+						$ret = array(
+							"status" => false,
+							"message" => 'Invalid Parameter'
+						);
+				}
+				return $ret;
+			break;
+		}
+		return $return;
+	}
+
+	public function getSimpleWidgetSettingsDisplay($id) {
 		$user = $this->UCP->User->getUser();
-		$extensions = $this->UCP->getCombinedSettingByID($user['id'],$this->module,'assigned');
-		$menu = array();
-		if(!empty($extensions)) {
-			$menu = array(
-				"rawname" => "settings",
-				"name" => _("Endpoint Settings"),
-				"badge" => false,
+		if(empty($user)) {
+			return array();
+		}
+		$lang = $this->UCP->View->getLocale();
+		$displayvars = array();
+		$displayvars['desktop'] = (!$this->UCP->Session->isMobile && !$this->UCP->Session->isTablet);
+		$displayvars['lang'] = $lang;
+		$displayvars['user'] = $user;
+		$displayvars['languages'] = array(
+			'en_US' => _('English'). " (US)"
+		);
+		foreach(glob($this->UCP->FreePBX->Config()->get('AMPWEBROOT')."/admin/modules/ucp/i18n/*",GLOB_ONLYDIR) as $langDir) {
+			$l = basename($langDir);
+			$displayvars['languages'][$l] = function_exists('locale_get_display_name') ? locale_get_display_name($l, $lang) : $l;
+		}
+		$displayvars['changepassword'] = $this->UCP->User->canChange("password");
+		$displayvars['changeusername'] = $this->UCP->User->canChange("username");
+		$displayvars['changedetails'] = $this->UCP->User->canChange("details");
+		$displayvars['username'] = $user['username'];
+		if($this->UCP->Modules->moduleHasMethod('Contactmanager', 'userDetails')) {
+			$displayvars['contactmanager'] = array(
+				"status" => true,
+				"data" => $this->UCP->Modules->Contactmanager->userDetails()
 			);
-			foreach($extensions as $e) {
-				$data = $this->UCP->FreePBX->Core->getDevice($e);
-				if(empty($data) || empty($data['description'])) {
-					$data = $this->UCP->FreePBX->Core->getUser($e);
-					$name = $data['name'];
-				} else {
-					$name = $data['description'];
-				}
-				$menu["menu"][] = array(
-					"rawname" => $e,
-					"name" => $e . (!empty($name) ? " - " . $name : ""),
-					"badge" => false
-				);
-			}
+		} else {
+			$displayvars['contactmanager'] = array(
+				"status" => false
+			);
 		}
-		return $menu;
-	}
 
-	private function _checkExtension($extension) {
-		$user = $this->UCP->User->getUser();
-		$extensions = $this->UCP->getCombinedSettingByID($user['id'],$this->module,'assigned');
-		return in_array($extension,$extensions);
+		$display = array(
+			'title' => _("User"),
+			'html' => $this->UCP->View->load_view(__DIR__.'/views/settings.php',$displayvars)
+		);
+
+		return $display;
 	}
 }
