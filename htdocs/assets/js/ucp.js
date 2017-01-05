@@ -57,7 +57,7 @@ var UCPC = Class.extend({
 			});
 		};
 		var setupBootstrapTable = function(el) {
-			$(this).bootstrapTable();
+			$(el).bootstrapTable();
 		};
 
 		$(document).on("post-body.simplewidget", function() {
