@@ -45,30 +45,49 @@ var UCPC = Class.extend({
 			UCP.setupLogin();
 		}
 
-		$(document).on("post-body.simplewidget", function() {
-			$('.small-widget-content input[type=checkbox][data-toggle="toggle"]:visible').bootstrapToggle({
-				on: _('Enable'),
-				off: _('Disable')
+		var setupBootstrapToggle = function(el) {
+			var on = _('Enable'),
+					off = _('Disable');
+
+			on = typeof $(el).data("on") !== "undefined" ? $(el).data("on") : on;
+			off = typeof $(el).data("off") !== "undefined" ? $(el).data("off") : off;
+			$(el).bootstrapToggle({
+				on: on,
+				off: off
 			});
-			$('.small-widget-content table[data-toggle="table"]:visible').bootstrapTable();
+		};
+		var setupBootstrapTable = function(el) {
+			$(this).bootstrapTable();
+		};
+
+		$(document).on("post-body.simplewidget", function() {
+			$('.small-widget-content input[type=checkbox][data-toggle="toggle"]:visible').each(function() {
+				setupBootstrapToggle(this);
+			});
+			$('.small-widget-content table[data-toggle="table"]:visible').each(function() {
+				setupBootstrapTable(this);
+			});
 		});
 		$(document).on("post-body.widgets",function(){
-			$('.grid-stack input[type=checkbox][data-toggle="toggle"]:visible').bootstrapToggle({
-				on: _('Enable'),
-				off: _('Disable')
+			$('.grid-stack input[type=checkbox][data-toggle="toggle"]:visible').each(function() {
+				setupBootstrapToggle(this);
 			});
-			$('.grid-stack table[data-toggle="table"]:visible').bootstrapTable();
+			$('.grid-stack table[data-toggle="table"]:visible').each(function() {
+				setupBootstrapTable(this);
+			});
 		});
 		$(document).on("post-body.widgetsettings post-body.simplewidgetsettings",function(){
 			var load = function() {
-				$('.widget-settings-content input[type=checkbox][data-toggle="toggle"]:visible').bootstrapToggle({
-					on: _('Enable'),
-					off: _('Disable')
+				$('.widget-settings-content input[type=checkbox][data-toggle="toggle"]:visible').each(function() {
+					setupBootstrapToggle(this);
 				});
-				$('.widget-settings-content table[data-toggle="table"]:visible').bootstrapTable();
+				$('.widget-settings-content table[data-toggle="table"]:visible').each(function() {
+					setupBootstrapTable(this);
+				});
 			};
 			load();
 			var loaded = [];
+			//tab navigation
 			$('.widget-settings-content a[data-toggle="tab"]').on("shown.bs.tab", function(e) {
 				var href = $(e.target).attr("href");
 				if(loaded.indexOf(href) === -1) {
