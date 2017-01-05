@@ -767,6 +767,10 @@ var UCPC = Class.extend({
 	dateFormatter: function(unixtimestamp) {
 		unixtimestamp = parseInt(unixtimestamp);
 		return moment.unix(unixtimestamp).tz(timezone).format(dateformat);
+	},
+	humanDiff: function(unixtimestamp) {
+		unixtimestamp = parseInt(unixtimestamp);
+		return moment.duration(moment.unix(unixtimestamp).diff(moment(new Date()))).humanize(true);
 	}
 }), UCP = new UCPC();
 $(function() {

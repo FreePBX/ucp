@@ -37,6 +37,7 @@
 			var ucpserver = <?php echo $ucpserver ?>;
 			var timezone = '<?php echo $timezone ?>';
 			var language = '<?php echo FreePBX::View()->getLocale()?>';
+			moment.locale(language);
 			var UIDEFAULTLANG = '<?php echo FreePBX::Config()->get('UIDEFAULTLANG')?>';
 			var PHPTIMEZONE = '<?php echo FreePBX::Config()->get('PHPTIMEZONE')?>';
 			var timeformat = '<?php echo $timeformat ?>';

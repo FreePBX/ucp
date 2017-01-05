@@ -106,15 +106,12 @@ class Settings extends Modules{
 						);
 					break;
 					case 'timezone':
-						$val = !empty($_POST['value']) ? $_POST['value'] : null;
-						$status = $this->UCP->FreePBX->Userman->getAuthObject()->updateUserData($user['id'], array("timezone" => $val));
-						$ret = array(
-							"status" => $status
-						);
-					break;
 					case 'language':
+					case 'timeformat':
+					case 'dateformat':
+					case 'datetimeformat':
 						$val = !empty($_POST['value']) ? $_POST['value'] : null;
-						$status = $this->UCP->FreePBX->Userman->getAuthObject()->updateUserData($user['id'], array("timezone" => $val));
+						$status = $this->UCP->FreePBX->Userman->updateUserExtraData($user['id'], array($_POST['key'] => $val));
 						$ret = array(
 							"status" => $status
 						);
@@ -133,6 +130,7 @@ class Settings extends Modules{
 
 	public function getSimpleWidgetSettingsDisplay($id) {
 		$user = $this->UCP->User->getUser();
+		dbug($user);
 		if(empty($user)) {
 			return array();
 		}

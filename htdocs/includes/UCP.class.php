@@ -320,13 +320,11 @@ class UCP extends UCP_Helpers {
 
 		$ucpfiles = array();
 		$ucpfiles[dirname(__DIR__).'/assets/less/ucp/ucp.less'] = '../../../../';
-		dbug($ucpfiles);
 		$final[] = "compiled/main/".\Less_Cache::Get( $ucpfiles, $options );
 
 		$ucpfiles = array();
 		$vars = array("fa-font-path" => '"fonts"');
 		$ucpfiles[dirname(__DIR__).'/assets/less/schmooze-font/schmooze-font.less'] = '../../';
-		dbug($ucpfiles);
 		$final[] = "compiled/main/".\Less_Cache::Get( $ucpfiles, $options, $vars );
 
 		return $final;

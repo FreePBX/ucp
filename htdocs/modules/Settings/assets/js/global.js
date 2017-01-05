@@ -1,6 +1,10 @@
 var SettingsC = UCPMC.extend({
 	init: function() {
-
+		this.language = language;
+		this.timezone = timezone;
+		this.datetimeformat = datetimeformat;
+		this.timeformat = timeformat;
+		this.dateformat = dateformat;
 	},
 	poll: function(data) {
 		//console.log(data)
@@ -13,8 +17,36 @@ var SettingsC = UCPMC.extend({
 			$("#settings-message").addClass("hidden");
 		}, timeout);
 	},
+	updateTimeDisplay: function() {
+		if(language === "") {
+			language = this.language;
+			Cookies.set("lang", language, { path: window.location.pathname.replace(/\/?$/,'') });
+		}
+		if(timezone === "") {
+			timezone = this.timezone;
+		}
+		moment.locale(language);
+
+		var userdtf = $("#datetimeformat").val();
+		userdtf = (userdtf !== "") ? userdtf : datetimeformat;
+		$("#datetimeformat-now").text(moment().tz(timezone).format(userdtf));
+
+		var usertf = $("#timeformat").val();
+		usertf = (usertf !== "") ? usertf : timeformat;
+		$("#timeformat-now").text(moment().tz(timezone).format(usertf));
+
+		var userdf = $("#dateformat").val();
+		userdf = (userdf !== "") ? userdf : dateformat;
+		$("#dateformat-now").text(moment().tz(timezone).format(userdf));
+	},
 	displaySimpleWidgetSettings: function(widget_id) {
 		var $this = this;
+		setInterval(function() {
+			$this.updateTimeDisplay();
+		},1000);
+		$("#datetimeformat, #timeformat, #dateformat").keydown(function() {
+			$this.updateTimeDisplay();
+		});
 		$("#browserlang").on("click", function(e){
 			e.preventDefault();
 			var bl =  browserLocale();
@@ -64,6 +96,7 @@ var SettingsC = UCPMC.extend({
 			$.post( "ajax.php?module=Settings&command=settings", { key: "timezone", value: option.val() }, function( data ) {
 				if(data.status) {
 					timezone = option.val();
+					$this.updateTimeDisplay();
 					$this.showMessage(_("Success!"),"success");
 					UCP.showConfirm(_("UCP needs to reload, ok?"), 'warning', function() {
 						window.location.reload();
@@ -76,7 +109,9 @@ var SettingsC = UCPMC.extend({
 		$("#lang").on("onchange", function(el, option, checked) {
 			$.post( "ajax.php?module=Settings&command=settings", { key: "language", value: option.val() }, function( data ) {
 				if(data.status) {
+					language = option.val();
 					$this.showMessage(_("Success!"),"success");
+					$this.updateTimeDisplay();
 					Cookies.set("lang", option.val(), { path: window.location.pathname.replace(/\/?$/,'') });
 					UCP.showConfirm(_("UCP needs to reload, ok?"), 'warning', function() {
 						window.location.reload();
@@ -162,9 +197,25 @@ var SettingsC = UCPMC.extend({
 			}
 		});
 		$("#userinfo input[type!=checkbox][type!=radio]").blur(function() {
-			console.log({ key: $(this).prop("name"), value: $(this).val() });
 			$.post( "ajax.php?module=Settings&command=settings", { key: $(this).prop("name"), value: $(this).val() }, function( data ) {
 				if (data.status) {
+					$this.showMessage(_("Saved!"),"success");
+				} else {
+					$this.showMessage(data.message,"danger");
+				}
+				$(this).off("blur");
+			});
+		});
+		$("#datetimeformat, #timeformat, #datetimeformat").blur(function() {
+			var name = $(this).prop("name"),
+					value = $(this).val();
+			$.post( "ajax.php?module=Settings&command=settings", { key: name, value: value }, function( data ) {
+				if (data.status) {
+					if(value === "" && typeof $this[name] === "string") {
+						window[name] = $this[name];
+					} else {
+						window[name] = value;
+					}
 					$this.showMessage(_("Saved!"),"success");
 				} else {
 					$this.showMessage(data.message,"danger");
