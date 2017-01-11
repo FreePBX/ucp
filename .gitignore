@@ -3,6 +3,7 @@ htdocs/modules/*
 !htdocs/modules/Widgets
 !htdocs/modules/Home
 !htdocs/modules/Settings
+!htdocs/modules/Ucptour
 htdocs/modules/Home/assets/less/cache/*
 htdocs/modules/Settings/assets/less/cache/*
 htdocs/assets/less/compiled/*
