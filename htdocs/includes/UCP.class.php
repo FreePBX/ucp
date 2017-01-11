@@ -193,7 +193,7 @@ class UCP extends UCP_Helpers {
 			"jquery.jplayer-2.9.2.min.js",
 			"purl-2.3.1.js",
 			"modernizr-3.3.1.js",
-			"jquery.pjax-1.9.6.js",
+			/*"jquery.pjax-1.9.6.js",*/
 			"notify-2.0.3.js",
 			"class.js",
 			"jquery.textfill-0.6.0.min.js",

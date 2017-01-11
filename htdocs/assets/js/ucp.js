@@ -25,10 +25,13 @@ var UCPC = Class.extend({
 		this.Modules = {};
 		this.calibrating = false;
 		this.UCPSettings = {packery: true};
+		this.ajaxUrl = '';
+		this.urlParams = {};
 
 		textdomain("ucp");
 	},
 	ready: function(loggedIn) {
+		this.parseUrl();
 		$(document).bind("logIn", function( event, username, password ) {UCP.logIn(event, username, password);});
 		$(document).bind("logOut", function( event ) {UCP.logOut(event);});
 		$(window).bind("online", function( event ) {UCP.online(event);});
@@ -40,14 +43,14 @@ var UCPC = Class.extend({
 		//in then throw the loggedIn trigger
 		if (!$("#login-window").length) {
 			UCP.setupDashboard();
-			$(document).trigger("logIn", [null, null]);
+			$(document).trigger("logIn");
 		} else {
 			UCP.setupLogin();
 		}
 
 		var setupBootstrapToggle = function(el) {
 			var on = _('Enable'),
-					off = _('Disable');
+				off = _('Disable');
 
 			on = typeof $(el).data("on") !== "undefined" ? $(el).data("on") : on;
 			off = typeof $(el).data("off") !== "undefined" ? $(el).data("off") : off;
@@ -99,6 +102,27 @@ var UCPC = Class.extend({
 
 		this.callModulesByMethod("ready",$.url().param());
 	},
+	parseUrl: function() {
+		var self = this;
+		var path = window.location.pathname.toString().split('/');
+		path[path.length - 1] = 'ajax.php';
+		if (typeof window.location.origin == 'undefined') {
+			// Oh look, IE. Hur Dur, I'm a bwowsah.
+			window.location.origin = window.location.protocol+'//'+window.location.host;
+			if (window.location.port.length !== 0) {
+				window.location.origin = window.location.origin+':'+window.location.port;
+			}
+		}
+		this.ajaxUrl = window.location.origin + path.join('/');
+		if (window.location.search.length) {
+			var params = window.location.search.split(/\?|&/);
+			for (var i = 0, len = params.length; i < len; i++) {
+				if (res = params[i].match(/(.+)=(.+)/)) {
+					self.urlParams[res[1]] = res[2];
+				}
+			}
+		}
+	},
 	callModuleByMethod: function() {
 		var args = [],
 				mdata = [];
@@ -107,11 +131,7 @@ var UCPC = Class.extend({
 		module = args.shift().modularize();
 		method = args.shift();
 		if(UCP.validMethod(module, method)) {
-			if (typeof window[module] == "object" && typeof window[module][method] == "function") {
-				return window[module][method].apply( window[module] , args );
-			} else if (UCP.validMethod(module, method)) {
-				return UCP.Modules[module][method].apply( UCP.Modules[module] , args );
-			}
+			return UCP.Modules[module][method].apply( UCP.Modules[module] , args );
 		} else {
 			return null;
 		}
@@ -123,9 +143,7 @@ var UCPC = Class.extend({
 		Array.prototype.push.apply( args, arguments );
 		method = args.shift();
 		$.each(modules, function( index, module ) {
-			if (typeof window[module] == "object" && typeof window[module][method] == "function") {
-				mdata[module] = window[module][method].apply( window[module] , args );
-			} else if (UCP.validMethod(module, method)) {
+			if (UCP.validMethod(module, method)) {
 				mdata[module] = UCP.Modules[module][method].apply( UCP.Modules[module] , args );
 			}
 		});
@@ -200,7 +218,7 @@ var UCPC = Class.extend({
 				}
 			}
 		});
-		if ($.support.pjax) {
+		if ($("html").hasClass("history")) {
 			$(document).on("submit", "#frm-login", function(event) {
 				var queryString = $(this).formSerialize(),
 						username = $("input[name=username]").val(),
@@ -217,14 +235,6 @@ var UCPC = Class.extend({
 						btn.text(_("Login"));
 					} else {
 						location.reload();
-						/*
-						UCP.token = data.token;
-						$.pjax.submit(event, "#content-container");
-						$(document).one("pjax:end", function() {
-							UCP.setupDashboard();
-							$(document).trigger("logIn", [username, password]);
-						});
-						*/
 					}
 				}, "json");
 				return false;
@@ -246,32 +256,17 @@ var UCPC = Class.extend({
 		var totalNavs = 0, navWidth = 33, Ucp = this;
 		//inite class autoloader
 		UCP.autoload();
-		//Start PJAX Stuff
-		if ($.support.pjax) {
-			//Navigation Clicks
-			$(document).on("click", ".dashboards li a[data-pjax]", function(e) {
-				if($(this).hasClass("pjax-block")) {
-					e.preventDefault();
-					return;
-				}
-				var container = $("#dashboard-content"),
-						clicker = $(this).data("mod");
-				$.pjax.click(e, { container: container });
-			});
-		} else {
-			alert(_("UCP is not supported in your browser"));
+
+		if (!$("html").hasClass("history")) {
+			UCP.showAlert(_("UCP is not supported in your browser"));
 		}
 		$("a.logout").click(function(event) {
 			event.preventDefault();
 			event.stopPropagation();
 			$(document).trigger("logOut");
-			location.href = "?logout=1";
+			Cookies.remove("PHPSESSID"); //kind of suprised this works
+			location.reload();
 		});
-
-		$(document).on("pjax:end", function() {UCP.pjaxEnd();});
-		$(document).on("pjax:start", function() {UCP.pjaxStart();});
-		$(document).on("pjax:timeout", function(event) {UCP.pjaxTimeout(event);});
-		$(document).on("pjax:error", function(event) {UCP.pjaxError(event);});
 
 		//This allows browsers to request user notifications from said user.
 		$(document).click(function() {
@@ -280,7 +275,6 @@ var UCPC = Class.extend({
 			}
 		});
 
-		//TODO: Do something with this eventually, hidden/display tabs
 		UCP.hidden = "hidden";
 
 		// Standards:
@@ -312,13 +306,9 @@ var UCPC = Class.extend({
 		if (evt.type in evtMap) {
 			state = evtMap[evt.type];
 		} else {
-			state = this[UCP.hidden] ? "hidden" : "visible";
+			state = UCP.hidden ? "hidden" : "visible";
 		}
-		//TODO: call windowState of modules
-		if (typeof window[UCP.activeModule] == "object" &&
-			typeof window[UCP.activeModule].windowState == "function") {
-			window[UCP.activeModule].windowState(state);
-		}
+		UCP.callModulesByMethod("windowState",state);
 	},
 	wsconnect: function(namespace, callback) {
 		//console.log(namespace);
@@ -418,6 +408,9 @@ var UCPC = Class.extend({
 					UCPclass = window[className];
 					console.log("Auto Loading " + className);
 					Ucp.Modules[module] = new UCPclass(Ucp);
+					if(typeof moduleSettings[module] !== "undefined") {
+						Ucp.Modules[module].staticsettings = moduleSettings[module];
+					}
 				}
 			}
 		});
@@ -433,9 +426,7 @@ var UCPC = Class.extend({
 						callback();
 					}
 					$.each(data.modData, function( module, data ) {
-						if (typeof window[module] == "object" && typeof window[module].poll == "function") {
-							window[module].poll(data, $.url().param());
-						} else if (UCP.validMethod(module, "poll")) {
+						if (UCP.validMethod(module, "poll")) {
 							UCP.Modules[module].poll(data, $.url().param());
 						}
 					});
@@ -445,7 +436,8 @@ var UCPC = Class.extend({
 				//We probably should logout on every event here... but
 				if (jqXHR.status === 403) {
 					$(document).trigger("logOut");
-					location.href = "?logout=1";
+					Cookies.remove("PHPSESSID"); //kind of suprised this works
+					location.reload();
 				}
 			}, dataType: "json", type: "POST" });
 		}
@@ -456,6 +448,9 @@ var UCPC = Class.extend({
 	notificationsDenied: function() {
 		this.notify = false;
 	},
+	hideDialog: function(callback) {
+		this.closeDialog(callback);
+	},
 	closeDialog: function(callback) {
 		$("#globalModal").one('hidden.bs.modal', function (e) {
 			if (typeof callback === "function") {
@@ -465,16 +460,21 @@ var UCPC = Class.extend({
 		$("#globalModal").modal('hide');
 	},
 	showAlert: function(message, type, callback_func){
-
 		var type_class = "";
-		if(type == 'success'){
-			type_class = "alert-success";
-		}else if(type == 'info'){
-			type_class = "alert-info";
-		}else if(type == 'warning'){
-			type_class = "alert-warning";
-		}else if(type == 'danger'){
-			type_class = "alert-danger";
+		switch(type) {
+			case 'success':
+				type_class = "alert-success";
+			break;
+			case 'warning':
+				type_class = "alert-warning";
+			break;
+			case 'danger':
+				type_class = "alert-danger";
+			break;
+			case 'info':
+			default:
+				type_class = "alert-info";
+			break;
 		}
 
 		$("#alert_message").removeClass("alert-success alert-info alert-warning alert-danger");
@@ -498,14 +498,20 @@ var UCPC = Class.extend({
 	},
 	showConfirm: function(html, type, callback_func) {
 		var type_class = "";
-		if(type == 'success'){
-			type_class = "alert-success";
-		}else if(type == 'info'){
-			type_class = "alert-info";
-		}else if(type == 'warning'){
-			type_class = "alert-warning";
-		}else if(type == 'danger'){
-			type_class = "alert-danger";
+		switch(type) {
+			case 'success':
+				type_class = "alert-success";
+			break;
+			case 'warning':
+				type_class = "alert-warning";
+			break;
+			case 'danger':
+				type_class = "alert-danger";
+			break;
+			case 'info':
+			default:
+				type_class = "alert-info";
+			break;
 		}
 
 		$("#confirm_content").removeClass("alert-success alert-info alert-warning alert-danger");
@@ -514,75 +520,32 @@ var UCPC = Class.extend({
 		$("#confirm_content").html(html);
 
 		$('#confirm_modal').one('shown.bs.modal', function () {
-			$(document).one("click", "#modal_confirm_button", function(){
+			$("#modal_confirm_button").one("click", function(){
 				if(typeof callback_func == "function"){
 					callback_func();
 				}
 			});
 		});
 
+		$('#confirm_modal').one('hidden.bs.modal', function () {
+			$("#modal_confirm_button").off("click");
+		});
+
 		$('#confirm_modal').modal('show');
 	},
-	showDialog: function(title, content, height, width, callback) {
+	showDialog: function(title, content, footer, callback) {
 		if($("#globalModal").is(":visible")) {
 			$("#globalModal").modal('hide');
 		}
 		$('#globalModal .modal-title').html(title);
 		$('#globalModal .modal-body').html(content);
+		$('#globalModal .modal-footer').html(footer);
 		$("#globalModal").one('shown.bs.modal', function (e) {
 			if (typeof callback === "function") {
 				callback();
 			}
 		});
 		$("#globalModal").modal('show');
-	},
-	addPhone: function(module, id, s, msg, contacts, callback) {
-		var message = (typeof msg !== "undefined") ? msg : "",
-				state = (typeof s !== "undefined") ? s : "call";
-		if ($( ".phone-box[data-id=\"" + id + "\"]" ).length > 0) {
-			return;
-		}
-		$.ajax({ url: "index.php", data: { quietmode: 1, command: "template", type: "phone", template: { id: id, state: state, message: message, module: module, contacts: contacts } }, success: function(data) {
-			$( "#messages-container" ).append( data.contents );
-			if (typeof callback === "function") {
-				callback(id, state, message);
-			}
-			$( ".phone-box[data-id=\"" + id + "\"]" ).fadeIn("fast", function() {
-				$(document).trigger( "phoneWindowAdded" );
-				if (!$( "#messages-container .phone-box[data-id=\"" + id + "\"]" ).hasClass("expand")) {
-					$( "#messages-container .phone-box[data-id=\"" + id + "\"]" ).one("webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend", function() {
-						$("#messages-container .phone-box[data-id=\"" + id + "\"] input").focus();
-					});
-					$( "#messages-container .phone-box[data-id=\"" + id + "\"]" ).addClass("expand");
-					$( "#messages-container .phone-box[data-id=\"" + id + "\"]" ).find(".fa-arrow-up").addClass("fa-arrow-down").removeClass("fa-arrow-up");
-				}
-			});
-			$( "#messages-container .phone-box[data-id=\"" + id + "\"] .title-bar" ).on("click", function(event) {
-				if (!$(event.target).hasClass("cancelExpand")) {
-					var container = $("#messages-container .phone-box");
-					if (!container.hasClass("expand")) {
-						container.find(".fa-arrow-up").addClass("fa-arrow-down").removeClass("fa-arrow-up");
-					} else {
-						container.find(".fa-arrow-down").addClass("fa-arrow-up").removeClass("fa-arrow-down");
-					}
-					container.one("webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend", function() {
-						if (container.hasClass("expand")) {
-							$("#messages-container .phone-box[data-id=\"" + id + "\"] input").focus();
-						}
-					});
-					container.toggleClass("expand");
-				} else {
-					UCP.removePhone(id);
-				}
-			});
-		}, dataType: "json", type: "POST" });
-	},
-	removePhone: function(id) {
-		$( "#messages-container .phone-box[data-id=\"" + id + "\"]" ).off("click");
-		$( "#messages-container .phone-box[data-id=\"" + id + "\"]" ).fadeOut("fast", function() {
-			$(this).remove();
-			$(document).trigger( "phoneWindowRemoved");
-		});
 	},
 	addChat: function(module, id, icon, from, to, cnam, msgid, message, callback, htmlV, direction) {
 		var html = (typeof htmlV !== "undefined") ? htmlV : false;
@@ -724,28 +687,6 @@ var UCPC = Class.extend({
 	toTitleCase: function(str) {
 		return str.replace(/\w\S*/g, function(txt) { return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase(); });
 	},
-	pjaxEnd: function(event) {
-		this.callModulesByMethod("pjaxEnd",event);
-		NProgress.done();
-	},
-	pjaxStart: function(event) {
-		NProgress.start();
-		this.callModulesByMethod("pjaxStart",event);
-	},
-	pjaxTimeout: function(event) {
-		//query higher up event here
-		event.preventDefault();
-		return false;
-	},
-	pjaxError: function(event) {
-		//query higher up event here
-		console.log("error");
-		console.log(event);
-		event.preventDefault();
-		NProgress.done();
-		$("#nav-btn-settings .icon i").removeClass("out");
-		return false;
-	},
 	validMethod: function(module, method) {
 		if (typeof this.Modules[module] == "object" &&
 			typeof this.Modules[module][method] == "function") {
@@ -818,11 +759,6 @@ function htmlDecode( html ) {
 	return a.textContent;
 }
 
-$('#globalModal').on('shown.bs.modal',function(){
-	//z-index issue in chrome. backdrop loads in front of modal so we just trash it.
-	//This is a twbs 3.x issue https://github.com/twbs/bootstrap/issues/16148
-	$('.modal-backdrop').css('display','none');
-});
 $('#globalModal').on('hide.bs.modal',function(){
 	$('#globalModalLabel').html("");
 	$('#globalModalBody').html("");

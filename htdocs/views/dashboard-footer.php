@@ -219,7 +219,7 @@
 		</div>
 	</div>
 	<!-- Global empty Modal -->
-	<div class="modal fade" id="globalModal"  role="dialog" aria-hidden="true" data-backdrop="false">
+	<div class="modal fade" id="globalModal" role="dialog" aria-hidden="true">
 		<div class="modal-dialog" role="document">
 			<div class="modal-content">
 				<div class="modal-header">
@@ -234,6 +234,3 @@
 			</div>
 		</div>
 	</div>
-	<script>
-		var moduleSettings = <?php echo json_encode($moduleSettings)?>;
-	</script>

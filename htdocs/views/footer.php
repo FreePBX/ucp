@@ -43,6 +43,10 @@
 			var timeformat = '<?php echo $timeformat ?>';
 			var dateformat = '<?php echo $dateformat ?>';
 			var datetimeformat = '<?php echo $datetimeformat ?>';
+			var moduleSettings = <?php echo json_encode($moduleSettings)?>;
+			var dashboards = <?php echo json_encode($dashboards_info)?>;
+			var allWidgets = <?php echo json_encode($all_widgets['widget'])?>;
+			var allSimpleWidgets = <?php echo json_encode($all_simple_widgets['widget'])?>;
 			emojione.imagePathPNG = 'assets/images/emoji/png/';
 			emojione.imagePathSVG = 'assets/images/emoji/svg/';
 		</script>

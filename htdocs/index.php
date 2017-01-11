@@ -138,6 +138,11 @@ foreach($usw as $id => $widget) {
 }
 
 $user_dashboards = $ucp->Dashboards->getDashboards();
+foreach($user_dashboards as $dashboard_info){
+	$tmp = $ucp->Modules->Widgets->getWidgetsFromDashboard($dashboard_info["id"]);
+	$id = $dashboard_info["id"];
+	$displayvars['dashboards_info'][$id] = json_decode($tmp,true);
+}
 $active_dashboard_id = "";
 
 if(!empty($_REQUEST["dashboard"])){

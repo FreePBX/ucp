@@ -11,7 +11,7 @@
 		<?php if(!empty($user_dashboards)) { ?>
 			<?php foreach($user_dashboards as $dashboard_info) { ?>
 				<li class="<?php echo ($dashboard_info["id"] == $active_dashboard) ? 'active' : ''?> menu-order dashboard-menu" data-id="<?php echo $dashboard_info["id"]?>">
-					<a data-pjax href="?dashboard=<?php echo $dashboard_info["id"]?>" class="<?php echo ($dashboard_info["id"] == $active_dashboard) ? 'pjax-block' : ''?>"><?php echo $dashboard_info["name"]?></a>
+					<a data-dashboard class="<?php echo ($dashboard_info["id"] == $active_dashboard) ? 'pjax-block' : ''?>"><?php echo $dashboard_info["name"]?></a>
 					<div class="dashboard-actions" data-dashboard_id="<?php echo $dashboard_info["id"]?>">
 						<i class="fa fa-unlock-alt lock-dashboard" aria-hidden="true"></i>
 						<i class="fa fa-pencil edit-dashboard" aria-hidden="true"></i>
