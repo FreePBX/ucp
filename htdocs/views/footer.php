@@ -31,25 +31,27 @@
 		<?php foreach($scripts as $file) { ?>
 			<script type="text/javascript" src="<?php echo $file.$version_tag?>"></script>
 		<?php } ?>
-		<script>
-			var modules = <?php echo $modules?>;
-			var desktop = <?php echo $desktop ? "true" : "false"?>;
-			var ucpserver = <?php echo $ucpserver ?>;
-			var timezone = '<?php echo $timezone ?>';
-			var language = '<?php echo FreePBX::View()->getLocale()?>';
-			moment.locale(language);
-			var UIDEFAULTLANG = '<?php echo FreePBX::Config()->get('UIDEFAULTLANG')?>';
-			var PHPTIMEZONE = '<?php echo FreePBX::Config()->get('PHPTIMEZONE')?>';
-			var timeformat = '<?php echo $timeformat ?>';
-			var dateformat = '<?php echo $dateformat ?>';
-			var datetimeformat = '<?php echo $datetimeformat ?>';
-			var moduleSettings = <?php echo json_encode($moduleSettings)?>;
-			var dashboards = <?php echo json_encode($dashboards_info)?>;
-			var allWidgets = <?php echo json_encode($all_widgets['widget'])?>;
-			var allSimpleWidgets = <?php echo json_encode($all_simple_widgets['widget'])?>;
-			emojione.imagePathPNG = 'assets/images/emoji/png/';
-			emojione.imagePathSVG = 'assets/images/emoji/svg/';
-		</script>
+		<?php if(!empty($user)) {?>
+			<script>
+				var modules = <?php echo $modules?>;
+				var desktop = <?php echo $desktop ? "true" : "false"?>;
+				var ucpserver = <?php echo $ucpserver ?>;
+				var timezone = '<?php echo $timezone ?>';
+				var language = '<?php echo FreePBX::View()->getLocale()?>';
+				moment.locale(language);
+				var UIDEFAULTLANG = '<?php echo FreePBX::Config()->get('UIDEFAULTLANG')?>';
+				var PHPTIMEZONE = '<?php echo FreePBX::Config()->get('PHPTIMEZONE')?>';
+				var timeformat = '<?php echo $timeformat ?>';
+				var dateformat = '<?php echo $dateformat ?>';
+				var datetimeformat = '<?php echo $datetimeformat ?>';
+				var moduleSettings = <?php echo json_encode($moduleSettings)?>;
+				var dashboards = <?php echo !empty($dashboards_info) ? json_encode($dashboards_info) : '{}'?>;
+				var allWidgets = <?php echo json_encode($all_widgets['widget'])?>;
+				var allSimpleWidgets = <?php echo json_encode($all_simple_widgets['widget'])?>;
+				emojione.imagePathPNG = 'assets/images/emoji/png/';
+				emojione.imagePathSVG = 'assets/images/emoji/svg/';
+			</script>
+		<?php } ?>
 		<div id="shade"></div>
 	</body>
 </html>

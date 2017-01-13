@@ -140,6 +140,10 @@ var UCPC = Class.extend({
 		var args = [],
 				mdata = [];
 
+		if(typeof modules === "undefined") {
+			return mdata;
+		}
+
 		Array.prototype.push.apply( args, arguments );
 		method = args.shift();
 		$.each(modules, function( index, module ) {

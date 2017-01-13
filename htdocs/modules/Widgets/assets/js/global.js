@@ -755,14 +755,17 @@ var WidgetsC = Class.extend({
 
 			var widget_to_remove = $(this).data("widget_id"),
 					widget_rawname = $(this).data("widget_rawname"),
-					sidebar_object_to_remove = $("#side_bar_content li.custom-widget[data-widget_id='" + widget_to_remove + "']");
+					sidebar_object_to_remove = $("#side_bar_content li.custom-widget[data-widget_id='" + widget_to_remove + "']"),
+					sidebar_menu_to_remove = $(".side-menu-widgets-container .widget-extra-menu[data-id='menu_" + widget_rawname + "_"+widget_to_remove+"']");
 
 			UCP.callModuleByMethod(widget_rawname,"deleteSimpleWidget",widget_to_remove);
 
 			sidebar_object_to_remove.remove();
 
 			//close the menu
-			$this.closeExtraWidgetMenu();
+			$this.closeExtraWidgetMenu(function() {
+				sidebar_menu_to_remove.remove();
+			});
 
 			//save the page
 			$this.saveSidebarContent();
@@ -963,8 +966,6 @@ var WidgetsC = Class.extend({
 					widget_icon = $(this).data('icon'),
 					widget_type_id = $(this).data('widget_type_id'),
 					hasSettings = $(this).data('widget_settings');
-
-			hasSettings = (hasSettings == "true") ? true : false;
 
 			//Checking if the widget is already on the bar
 			if($("#side_bar_content li.custom-widget[data-widget_id='"+widget_id+"']").length <= 0){
@@ -1229,10 +1230,17 @@ var WidgetsC = Class.extend({
 					if (!data.status) {
 						UCP.showAlert(data.message,'warning');
 					} else {
+						var select = $("#all_dashboards li").length;
 						var new_dashboard_html = '<li class="menu-order dashboard-menu" data-id="'+data.id+'"><a data-dashboard>'+$("#dashboard_name").val()+'</a> <div class="dashboard-actions" data-dashboard_id="'+data.id+'"><i class="fa fa-unlock-alt lock-dashboard" aria-hidden="true"></i><i class="fa fa-pencil edit-dashboard" aria-hidden="true"></i><i class="fa fa-times remove-dashboard" aria-hidden="true"></i></div></li>';
 						$("#all_dashboards").append(new_dashboard_html);
 
+						dashboards[data.id] = null;
+
 						$(document).trigger("addDashboard",[data.id]);
+
+						if(!select) {
+							$("#all_dashboards li a").click();
+						}
 
 						//hide modal we are done
 						$("#add_dashboard").modal("hide");

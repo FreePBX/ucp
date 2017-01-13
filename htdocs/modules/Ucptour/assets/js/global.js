@@ -23,37 +23,47 @@ $(document).bind("logIn", function( event ) {
 				orphan: true,
 				title: sprintf(_("Welcome to %s!"),UCP.Modules.Ucptour.staticsettings.brand),
 				content: _("Congratulations!")+"<br><br> "+_("You just successfully logged in for the first time!")+" <br>"+_("This tour will take you on a brief walkthrough of the new User Control Panel in a few simple steps.")+"<br><br>"+_("You can always exit the tour if you'd like, and you can restart the tour at anytime by clicking your User Settings and then 'Restart Tour'")+"<br><br><u>"+_("To continue just click Next")+"</u>",
-				backdrop: true
+				backdrop: true,
 			}, {
+				backdrop: true,
+				backdropContainer: "#nav-bar-background",
 				element: "#add_new_dashboard",
 				placement: "left",
 				title: _("Adding a dashboard"),
 				content: _("The User Control Panel is now separated by 'Dashboards'. You can add a new dashboard by clicking this symbol")+"<br><br>"+_("Click this symbol to continue"),
 				next: -1,
 				reflex: true,
+				onShow: function() {
+					$(".navbar.navbar-inverse.navbar-fixed-left").css("z-index","1029");
+				},
 				onShown: function() {
+
 					var step = tour.getCurrentStep();
 					$("#add_dashboard").one("shown.bs.modal", function() {
 						tour.goTo(step + 1);
 					});
 				}
 			}, {
+				backdrop: true,
+				backdropContainer: "#add_dashboard .modal-dialog",
 				element: "#dashboard_name",
 				placement: "bottom",
 				title: _("Name your dashboard"),
 				content: _("Enter a name for your dashboard in this input box"),
-				reflex: true
 			}, {
+				backdrop: true,
+				backdropContainer: "#add_dashboard .modal-dialog",
 				element: "#create_dashboard",
 				placement: "bottom",
 				title: _("Save your dashboard"),
 				content: _("When you are finished simply hit 'Create Dashboard' to create your dashboard"),
 				reflex: true,
 				next: -1,
-				onShown: function() {
-					setTimeout(function() {
-						$("#dashboard_name").focus();
-					},200);
+				onShown: function(tour) {
+					var step = tour.getCurrentStep();
+					if($("#dashboard_name").val() === "") {
+						tour.goTo(step - 1);
+					}
 				},
 				onNext: function() {
 					var step = tour.getCurrentStep();
@@ -65,27 +75,40 @@ $(document).bind("logIn", function( event ) {
 					return (new jQuery.Deferred()).promise();
 				}
 			}, {
+				backdrop: true,
+				backdropContainer: "#nav-bar-background",
 				element: ".dashboard-menu.tour-step",
 				placement: "bottom",
 				title: _("Dashboards"),
 				content: _("Your dashboard has been added here"),
 				previous: -1
 			}, {
+				backdrop: true,
+				backdropContainer: "#nav-bar-background",
 				element: ".dashboard-menu.tour-step .edit-dashboard",
 				placement: "bottom",
 				title: _("Editing a Dashboard"),
 				content: _("The dashboard's name can be changed by clicking the pencil")
 			}, {
+				backdrop: true,
+				backdropContainer: "#nav-bar-background",
 				element: ".dashboard-menu.tour-step .remove-dashboard",
 				placement: "left",
 				title: _("Delete a Dashboard"),
 				content: sprintf(_("A dashboard can be deleted by clicking the '%s'"),'X')
 			}, {
-				element: ".dashboard-menu.tour-step.tour-step",
+				backdrop: true,
+				backdropContainer: "#nav-bar-background",
+				element: ".dashboard-menu.tour-step",
 				placement: "bottom",
 				title: _("Ordering dashboards"),
-				content: _("Multiple dashboard can be re-ordered by hovering with your mouse until the move cursor is shown. Then clicking and dragging the dashboard in the order you want")
+				content: _("Multiple dashboard can be re-ordered by hovering with your mouse until the move cursor is shown. Then clicking and dragging the dashboard in the order you want"),
+				onHidden: function() {
+					$(".navbar.navbar-inverse.navbar-fixed-left").css("z-index","");
+				}
 			}, {
+				backdrop: true,
+				backdropContainer: "#side_bar_content",
 				element: "#side_bar_content .add-widget",
 				placement: "right",
 				title: _("Adding Widgets"),
@@ -97,8 +120,11 @@ $(document).bind("logIn", function( event ) {
 					$("#add_widget").one("shown.bs.modal", function() {
 						tour.goTo(step + 1);
 					});
+					$(".tour-step-background").css("background-color","white");
 				}
 			}, {
+				backdrop: true,
+				backdropContainer: "#add_widget .modal-dialog",
 				element: "#add_widget .list-group-item.active",
 				placement: "right",
 				title: _("Selecting Widgets"),
