@@ -31,9 +31,14 @@ $user = $ucp->User->getUser();
 $d = $ucp->View->setGUILocales($user);
 $lang = $d['language'];
 
-if(isset($_REQUEST['logout']) && $user) {
-	$ucp->User->logout();
-	$user = $ucp->User->getUser();
+if(isset($_REQUEST['logout'])) {
+	if($user) {
+		$ucp->User->logout();
+	}
+	$uri_parts = explode('?', $_SERVER['REQUEST_URI'], 2);
+	$url = ((isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') ? "https" : "http") . "://".$_SERVER['HTTP_HOST']. $uri_parts[0];
+	header('Location: '.$url);
+	die();
 }
 
 $ucp->Session->isMobile = $ucp->detect->isMobile();

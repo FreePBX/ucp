@@ -42,15 +42,6 @@ var WidgetsC = Class.extend({
 	},
 	loadDashboard: function() {
 		var $this = this;
-		if(!$(".grid-stack").length) {
-			this.activeDashboard = null;
-			return;
-		}
-
-		var dashboard_id = $(".grid-stack").data("dashboard_id");
-
-		//Are we looking a dashboard?
-		this.activeDashboard = dashboard_id;
 
 		$('#add_dashboard').on('shown.bs.modal', function () {
 			$('#dashboard_name').focus();
@@ -104,12 +95,11 @@ var WidgetsC = Class.extend({
 			});
 		});
 
-		$this.setupGridStack();
-		$this.bindGridChanges();
-
-		var gridstack = $(".grid-stack").data('gridstack');
-
 		$(window).resize(function() {
+			var gridstack = $(".grid-stack").data('gridstack');
+			if(typeof gridstack === "undefined") {
+				return;
+			}
 			setTimeout(function() {
 				if(window.innerWidth <= 768) {
 					gridstack.resizable($(".grid-stack-item").not('[data-gs-no-resize]'),false);
@@ -121,27 +111,39 @@ var WidgetsC = Class.extend({
 			},100);
 		});
 
-		var total = gridstack.grid.nodes.length;
-		var count = 0;
-		$.each(gridstack.grid.nodes, function(i,v){
-			var el = v.el;
-			if(!el.hasClass("add-widget-widget")){
-				var widget_id = $(el).data('id');
-				var widget_type_id = $(el).data('widget_type_id');
-				var widget_rawname = $(el).data('rawname');
-				$this.getWidgetContent(widget_id, widget_type_id, widget_rawname, function() {
-					count++;
-					if(count == total) {
-						$(document).trigger("post-body.widgets",[ null, $this.activeDashboard ]);
-					}
-				});
-			}
-		});
+		if(!$(".grid-stack").length) {
+			this.activeDashboard = null;
+		} else {
+			var dashboard_id = $(".grid-stack").data("dashboard_id");
+			//Are we looking a dashboard?
+			this.activeDashboard = dashboard_id;
 
-		$(".dashboard-menu").removeClass("active");
+			$this.setupGridStack();
+			$this.bindGridChanges();
 
-		$(".dashboard-menu[data-id='"+this.activeDashboard+"']").addClass("active");
-		UCP.callModulesByMethod("showDashboard",this.activeDashboard);
+			var gridstack = $(".grid-stack").data('gridstack');
+			var total = gridstack.grid.nodes.length;
+			var count = 0;
+			$.each(gridstack.grid.nodes, function(i,v){
+				var el = v.el;
+				if(!el.hasClass("add-widget-widget")){
+					var widget_id = $(el).data('id');
+					var widget_type_id = $(el).data('widget_type_id');
+					var widget_rawname = $(el).data('rawname');
+					$this.getWidgetContent(widget_id, widget_type_id, widget_rawname, function() {
+						count++;
+						if(count == total) {
+							$(document).trigger("post-body.widgets",[ null, $this.activeDashboard ]);
+						}
+					});
+				}
+			});
+
+			$(".dashboard-menu").removeClass("active");
+
+			$(".dashboard-menu[data-id='"+this.activeDashboard+"']").addClass("active");
+			UCP.callModulesByMethod("showDashboard",this.activeDashboard);
+		}
 	},
 	/**
 	 * Save Dashboard Layout State
@@ -897,21 +899,40 @@ var WidgetsC = Class.extend({
 					widget_module_name = $(this).data('widget_module_name'),
 					widget_rawname = $(this).data('rawname'),
 					widget_name = $(this).data('widget_name'),
-					widget_has_settings = $(this).data('has_settings'),
 					new_widget_id = current_dashboard_id + "-" + widget_rawname + "-" + widget_id,
-					default_size_x = $(this).data('size_x'),
-					default_size_y = $(this).data('size_y'),
-					min_size_x = $(this).data('min_x'),
-					min_size_y = $(this).data('min_y'),
-					max_size_x = $(this).data('max_x'),
-					max_size_y = $(this).data('max_y'),
-					icon = $(this).data('icon'),
-					no_resize = $(this).data('no_resize'),
-					resizable = !no_resize;
+					icon = allWidgets[widget_rawname.modularize()].icon,
+					widget_info = allWidgets[widget_rawname.modularize()].list[widget_id],
+					widget_has_settings = false,
+					default_size_x = 2,
+					default_size_y = 2,
+					min_size_x = null,
+					min_size_y = null,
+					max_size_x = null,
+					max_size_y = null,
+					resizable = true;
 
-			default_size_x = (typeof default_size_x === "undefined" || Number(default_size_x) === 0) ? 2 : default_size_x;
-			default_size_y = (typeof default_size_y === "undefined" || Number(default_size_y) === 0) ? 2 : default_size_y;
-			no_resize = (typeof no_resize !== "undefined") ? no_resize : false;
+			if(typeof widget_info.defaultsize !== "undefined") {
+				default_size_x = widget_info.defaultsize.width;
+				default_size_y = widget_info.defaultsize.height;
+			}
+
+			if(typeof widget_info.maxsize !== "undefined") {
+				max_size_x = widget_info.maxsize.width;
+				max_size_y = widget_info.maxsize.height;
+			}
+
+			if(typeof widget_info.minsize !== "undefined") {
+				min_size_x = widget_info.minsize.width;
+				min_size_y = widget_info.minsize.height;
+			}
+
+			if(typeof widget_info.hasSettings !== "undefined") {
+				widget_has_settings = widget_info.hasSettings;
+			}
+
+			if(typeof widget_info.resizable !== "undefined") {
+				resizable = widget_info.resizable;
+			}
 
 			//Checking if the widget is already on the dashboard
 			var object_on_dashboard = $("div[data-id='"+new_widget_id+"']");
@@ -963,9 +984,14 @@ var WidgetsC = Class.extend({
 					widget_module_name = $(this).data('module_name'),
 					widget_rawname = $(this).data('rawname'),
 					widget_name = $(this).data('name'),
-					widget_icon = $(this).data('icon'),
 					widget_type_id = $(this).data('widget_type_id'),
-					hasSettings = $(this).data('widget_settings');
+					widget_info = allSimpleWidgets[widget_rawname.modularize()].list[widget_id],
+					widget_icon = allSimpleWidgets[widget_rawname.modularize()].icon,
+					hasSettings = false;
+
+			if(typeof widget_info.hasSettings !== "undefined") {
+				hasSettings = widget_info.hasSettings;
+			}
 
 			//Checking if the widget is already on the bar
 			if($("#side_bar_content li.custom-widget[data-widget_id='"+widget_id+"']").length <= 0){
@@ -1026,13 +1052,16 @@ var WidgetsC = Class.extend({
 	 * @method initCategoriesWidgets
 	 */
 	initCategoriesWidgets: function(){
-		$("div.bhoechie-tab-menu > div.list-group > a").click(function(e) {
-			e.preventDefault();
-			$(this).siblings('a.active').removeClass("active");
-			$(this).addClass("active");
-			var index = $(this).index();
-			$("div.bhoechie-tab > div.bhoechie-tab-content").removeClass("active");
-			$("div.bhoechie-tab > div.bhoechie-tab-content").eq(index).addClass("active");
+		$("#add_widget .bhoechie-tab-container").each(function() {
+			var parent = $(this);
+			$(this).find(".list-group-item").click(function(e) {
+				e.preventDefault();
+				$(this).siblings('a.active').removeClass("active");
+				$(this).addClass("active");
+				var id = $(this).data("id");
+				parent.find(".bhoechie-tab-content").removeClass("active");
+				parent.find(".bhoechie-tab-content[data-id='"+id+"']").addClass("active");
+			});
 		});
 	},
 	/**

@@ -264,12 +264,8 @@ var UCPC = Class.extend({
 		if (!$("html").hasClass("history")) {
 			UCP.showAlert(_("UCP is not supported in your browser"));
 		}
-		$("a.logout").click(function(event) {
-			event.preventDefault();
-			event.stopPropagation();
+		$("li.logout-widget").click(function(event) {
 			$(document).trigger("logOut");
-			Cookies.remove("PHPSESSID"); //kind of suprised this works
-			location.reload();
 		});
 
 		//This allows browsers to request user notifications from said user.
@@ -439,9 +435,7 @@ var UCPC = Class.extend({
 			}, error: function(jqXHR, textStatus, errorThrown) {
 				//We probably should logout on every event here... but
 				if (jqXHR.status === 403) {
-					$(document).trigger("logOut");
-					Cookies.remove("PHPSESSID"); //kind of suprised this works
-					location.reload();
+					$("li.logout-widget").click();
 				}
 			}, dataType: "json", type: "POST" });
 		}
@@ -538,18 +532,26 @@ var UCPC = Class.extend({
 		$('#confirm_modal').modal('show');
 	},
 	showDialog: function(title, content, footer, callback) {
+		var show = function() {
+			$('#globalModal .modal-title').html(title);
+			$('#globalModal .modal-body').html(content);
+			$('#globalModal .modal-footer').html(footer);
+			$("#globalModal").one('shown.bs.modal', function (e) {
+				if (typeof callback === "function") {
+					callback();
+				}
+			});
+			$("#globalModal").modal('show');
+		};
 		if($("#globalModal").is(":visible")) {
 			$("#globalModal").modal('hide');
+			$("#globalModal").one('hidden.bs.modal', function (e) {
+				show();
+			});
+		} else {
+			show();
 		}
-		$('#globalModal .modal-title').html(title);
-		$('#globalModal .modal-body').html(content);
-		$('#globalModal .modal-footer').html(footer);
-		$("#globalModal").one('shown.bs.modal', function (e) {
-			if (typeof callback === "function") {
-				callback();
-			}
-		});
-		$("#globalModal").modal('show');
+
 	},
 	addChat: function(module, id, icon, from, to, cnam, msgid, message, callback, htmlV, direction) {
 		var html = (typeof htmlV !== "undefined") ? htmlV : false;

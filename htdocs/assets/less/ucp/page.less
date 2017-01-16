@@ -1388,14 +1388,55 @@ select[multiple].Tokenize, select[size].Tokenize {
 	color: @third_color;
 }
 
+#add_widget {
+	.tab-content {
+		max-height: ~"calc(95vh - 212px)";
+		overflow-y: auto;
+		padding-top: 0px;
+		padding-bottom: 0px;
+	}
+
+	.modal-body {
+		overflow-y: hidden;
+		padding: 0px;
+	}
+}
+
+.modal {
+	.modal-dialog {
+		border-bottom: 3px solid #2f4050;
+		.modal-content {
+			border-radius: 0px;
+			background-color: #e7eaec;
+			.modal-header {
+				padding: 5px;
+				padding-left: 15px;
+				background-color: #2f4050;
+				color: white;
+				text-transform: uppercase;
+				.close {
+					text-shadow: none;
+					opacity: 1;
+					margin-top: 1px;
+					color: white;
+				}
+			}
+			.modal-footer {
+				border-top: 1px solid #2f4050;
+			}
+		}
+	}
+}
+
+#add_widget {
+	.tab-content {
+		background-color: white;
+	}
+}
+
 div.bhoechie-tab-container{
-	z-index: 10;
-	background-color: @secundary_color;
-	padding: 10px 0 10px 10px !important;
-	border-radius: 4px;
-	border:1px solid @secundary_color;
-	margin-top: 0;
-	margin-left: 0;
+	background-color: white;
+	padding: 0px;
 	background-clip: padding-box;
 	opacity: 0.97;
 	filter: alpha(opacity=97);
@@ -1441,7 +1482,7 @@ div.bhoechie-tab-menu div.list-group>a.active:after{
 }
 
 div.bhoechie-tab-content{
-	background-color: @secundary_color;
+	background-color: white;
 	text-align: center;
 	color: @main_color;
 	overflow-y: auto;
@@ -1455,14 +1496,11 @@ div.bhoechie-tab div.bhoechie-tab-content:not(.active){
 	background-color: #ffffff;
 	color: inherit;
 	padding: 15px 20px 20px 20px;
-	border-color: #e7eaec;
-	border-image: none;
-	border-style: solid solid none;
-	border-width: 1px 0;
 	margin-bottom: 5px;
 	text-align: left;
 	overflow: auto;
 	position: relative;
+	border: 1px solid #dedede;
 
 	.widget-title{
 		text-align: justify;
