@@ -62,8 +62,14 @@ var UCPC = Class.extend({
 		var setupBootstrapTable = function(el) {
 			$(el).bootstrapTable();
 		};
+		var setupBootstrapMultiselect = function(el) {
+			$(el).multiselect();
+		};
 
 		$(document).on("post-body.simplewidget", function() {
+			$('.small-widget-content select[data-toggle="multiselect"]:visible').each(function() {
+				setupBootstrapMultiselect(this);
+			});
 			$('.small-widget-content input[type=checkbox][data-toggle="toggle"]:visible').each(function() {
 				setupBootstrapToggle(this);
 			});
@@ -72,6 +78,9 @@ var UCPC = Class.extend({
 			});
 		});
 		$(document).on("post-body.widgets",function(){
+			$('.grid-stack select[data-toggle="multiselect"]:visible').each(function() {
+				setupBootstrapMultiselect(this);
+			});
 			$('.grid-stack input[type=checkbox][data-toggle="toggle"]:visible').each(function() {
 				setupBootstrapToggle(this);
 			});
@@ -81,6 +90,9 @@ var UCPC = Class.extend({
 		});
 		$(document).on("post-body.widgetsettings post-body.simplewidgetsettings",function(){
 			var load = function() {
+				$('.widget-settings-content select[data-toggle="multiselect"]:visible').each(function() {
+					setupBootstrapMultiselect(this);
+				});
 				$('.widget-settings-content input[type=checkbox][data-toggle="toggle"]:visible').each(function() {
 					setupBootstrapToggle(this);
 				});
@@ -138,7 +150,7 @@ var UCPC = Class.extend({
 	},
 	callModulesByMethod: function() {
 		var args = [],
-				mdata = [];
+				mdata = {};
 
 		if(typeof modules === "undefined") {
 			return mdata;
@@ -420,7 +432,7 @@ var UCPC = Class.extend({
 			UCP.polling = true;
 			var mdata = {};
 			mdata = this.callModulesByMethod("prepoll",$.url().param());
-			$.ajax({ url: "index.php", data: { quietmode: 1, command: "poll", data: $.url().param(), mdata: mdata }, success: function(data) {
+			$.ajax({ url: "index.php", data: { quietmode: 1, command: "poll", data: mdata }, success: function(data) {
 				if (data.status) {
 					if (typeof callback === "function") {
 						callback();
