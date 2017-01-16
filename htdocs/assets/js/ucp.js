@@ -63,7 +63,10 @@ var UCPC = Class.extend({
 			$(el).bootstrapTable();
 		};
 		var setupBootstrapMultiselect = function(el) {
-			$(el).multiselect();
+			$(el).multiselect({
+				enableFiltering: true,
+				enableCaseInsensitiveFiltering: true
+			});
 		};
 
 		$(document).on("post-body.simplewidget", function() {
