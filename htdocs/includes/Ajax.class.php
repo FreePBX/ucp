@@ -145,15 +145,13 @@ class Ajax extends UCP {
 	public function poll() {
 		$modules = $this->UCP->Modules->getModulesByMethod('poll');
 		$modData = array();
-		//TODO: Use Request Handler object from BMO
-		$data = !empty($_POST['data']) ? $_POST['data'] : array();
 		foreach($modules as $module) {
-			$mdata = !empty($_POST['mdata'][$module]) ? $_POST['mdata'][$module] : array();
+			$mdata = !empty($_POST['data'][$module]) ? $_POST['data'][$module] : array();
 			$this->UCP->Modgettext->push_textdomain(strtolower($module));
 			if(!empty($mdata)) {
-				$modData[$module] = $this->UCP->Modules->$module->poll($data,$mdata);
+				$modData[$module] = $this->UCP->Modules->$module->poll($mdata);
 			} else {
-				$modData[$module] = $this->UCP->Modules->$module->poll($data);
+				$modData[$module] = $this->UCP->Modules->$module->poll(array());
 			}
 			$this->UCP->Modgettext->pop_textdomain();
 		}
