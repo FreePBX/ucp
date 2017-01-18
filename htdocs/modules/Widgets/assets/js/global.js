@@ -505,7 +505,7 @@ var WidgetsC = Class.extend({
 				callback();
 			}
 		});
-		$(".side-menu-widgets-container").css({ width: "250px", left: "55px"});
+		$(".side-menu-widgets-container").addClass("open");
 	},
 	/**
 	 * Close the side bar menu
@@ -530,7 +530,7 @@ var WidgetsC = Class.extend({
 				callback();
 			}
 		});
-		$(".side-menu-widgets-container").css({ width: "0", left: "45px"});
+		$(".side-menu-widgets-container").removeClass("open");
 	},
 	/**
 	 * Initialize Side Bar Widgets
