@@ -14,6 +14,7 @@
 			<script type="text/javascript" src="assets/js/<?php echo $file.$version_tag?>"></script>
 		<?php } ?>
 		<script src="assets/js/bootstrap-table-locale/bootstrap-table-en-US.js<?php echo $version_tag?>"></script>
+		<script src="assets/js/ajax-bootstrap-select-locale/ajax-bootstrap-select.en-US.js<?php echo $version_tag?>"></script>
 		<?php if($lang != "en_US") {
 			$html = '';
 			switch($lang) {

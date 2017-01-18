@@ -37,7 +37,7 @@ var WidgetsC = Class.extend({
 		var title = $("#all_dashboards .dashboard-menu.active a").text();
 		//set tab title
 		if(title !== "") {
-			$("title").text(_("User Control Panel") + " - " + $(this).text());
+			$("title").text(_("User Control Panel") + " - " + title);
 		}
 	},
 	loadDashboard: function() {
@@ -994,7 +994,7 @@ var WidgetsC = Class.extend({
 			}
 
 			//Checking if the widget is already on the bar
-			if($("#side_bar_content li.custom-widget[data-widget_id='"+widget_id+"']").length <= 0){
+			if($("#side_bar_content li.custom-widget[data-rawname='"+widget_rawname+"'][data-widget_id='"+widget_id+"']").length <= 0){
 
 				$this.activateFullLoading();
 
