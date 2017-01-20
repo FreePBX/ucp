@@ -398,13 +398,11 @@ var UCPC = Class.extend({
 	connect: function(username, password) {
 		var $this = this;
 		//Interval is in a callback to shortpoll to make sure we are "online"
-		UCP.displayGlobalMessage(_("Connecting...."), "rgba(128, 128, 128, 0.5)", true);
 		UCP.shortpoll(function() {
 			UCP.pollID = setInterval(function() {
 				UCP.shortpoll();
 			},5000);
 			$this.callModulesByMethod("connect",username,password);
-			UCP.removeGlobalMessage();
 			UCP.websocketConnect();
 		});
 	},
@@ -703,20 +701,10 @@ var UCPC = Class.extend({
 		}
 	},
 	displayGlobalMessage: function(message, color, sticky) {
-		color = (typeof color !== "undefined") ? color : "#f76a6a;";
-		sticky = (typeof sticky !== "undefined") ? sticky : false;
-		$("#global-message").text(message);
-		$("#global-message-container").css("background-color", color);
-		$("#global-message-container").fadeIn("slow", function() {
-			if (!sticky) {
-				setTimeout(function() {
-					$("#global-message-container").fadeOut("slow");
-				}, 3000);
-			}
-		});
+		UCP.showAlert(message,'danger');
 	},
 	removeGlobalMessage: function() {
-		$("#global-message-container").fadeOut("slow");
+		//nothing
 	},
 	toTitleCase: function(str) {
 		return str.replace(/\w\S*/g, function(txt) { return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase(); });

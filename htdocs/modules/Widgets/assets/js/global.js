@@ -1095,7 +1095,9 @@ var WidgetsC = Class.extend({
 
 				widget_content_object.html(widget_html);
 				UCP.callModuleByMethod(widget_rawname,"displayWidget",widget_id,$this.activeDashboard);
-				UCP.callModuleByMethod(widget_rawname,"resize",widget_id,$this.activeDashboard);
+				setTimeout(function() {
+					UCP.callModuleByMethod(widget_rawname,"resize",widget_id,$this.activeDashboard);
+				},100);
 
 			}).done(function() {
 				if(typeof callback === "function") {
@@ -1206,7 +1208,9 @@ var WidgetsC = Class.extend({
 		var $this = this;
 		$('.grid-stack').on('resizestop', function(event, ui) {
 			//Never on mobile, Always on Desktop
-			UCP.callModulesByMethod("resize",ui.element.data("id"),$this.activeDashboard);
+			if(window.innerWidth > 768) {
+				UCP.callModulesByMethod("resize",ui.element.data("id"),$this.activeDashboard);
+			}
 		});
 
 		$('.grid-stack').on('removed', function(event, items) {
@@ -1351,7 +1355,9 @@ var WidgetsC = Class.extend({
 				gridstack.addWidget($(full_widget_html), widget.size_x, widget.size_y, widget.col, widget.row, false, min_size_x, max_size_x, min_size_y, max_size_y);
 
 				//set resizable
-				gridstack.resizable($(".grid-stack-item[data-id="+widget.id+"]"), !widget.locked);
+				setTimeout(function() {
+					gridstack.resizable($(".grid-stack-item[data-id="+widget.id+"]"), !widget.locked);
+				});
 
 				//set locked/or not
 				gridstack.movable($(".grid-stack-item[data-id="+widget.id+"]"), !widget.locked);
@@ -1371,7 +1377,10 @@ var WidgetsC = Class.extend({
 						//execute module method
 						UCP.callModuleByMethod(widget.rawname,"displayWidget",widget.id,$this.activeDashboard);
 						//execute resize module method
-						UCP.callModuleByMethod(widget.rawname,"resize",widget.id,$this.activeDashboard);
+						setTimeout(function() {
+							UCP.callModuleByMethod(widget.rawname,"resize",widget.id,$this.activeDashboard);
+						},100);
+
 						//trigger event
 						$(document).trigger("post-body.widgets",[ widget.id, $this.activeDashboard ]);
 					}
