@@ -9,15 +9,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-10-26 20:41+1000\n"
+"POT-Creation-Date: 2017-01-25 12:48-0800\n"
 "PO-Revision-Date: 2016-12-12 11:51+0200\n"
 "Last-Translator: Ernesto <ecasas@sangoma.com>\n"
-"Language-Team: Spanish "
-"<http://weblate.freepbx.org/projects/freepbx/ucp/es_ES/>\n"
-"Language: es_ES\n"
+"Language-Team: Spanish <http://weblate.freepbx.org/projects/freepbx/ucp/"
+"es_ES/>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: es_ES\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 2.4\n"
 
@@ -39,13 +39,13 @@ msgstr ""
 msgid " + field + "
 msgstr " + campo + "
 
-#: htdocs/index.php:90
+#: htdocs/index.php:88
 msgid ".htaccess files are disabled on this webserver. Please enable them"
 msgstr ""
 "los ficheros .htaccess están deshabilitados en ente webserver. Por favor "
 "habilitelos"
 
-#: htdocs/index.php:103
+#: htdocs/index.php:101
 msgid ".htaccess files are not supported on this webserver."
 msgstr "archivos .htaccess no son compatibles con este servidor web."
 
@@ -184,7 +184,7 @@ msgstr "Habilitar Originar Llamadas"
 msgid "Endpoint Settings"
 msgstr "Configuración EndPoint"
 
-#: htdocs/index.php:156
+#: htdocs/index.php:154
 msgid "English"
 msgstr "Inglés"
 
@@ -268,7 +268,7 @@ msgstr "Heredar"
 msgid "Interface Settings"
 msgstr "Configuración de Interface"
 
-#: htdocs/index.php:253
+#: htdocs/index.php:251
 #, php-format
 msgid ""
 "Internet Explorer %s is not supported. Functionality will be deteriorated "
@@ -290,7 +290,7 @@ msgstr "Dispositivo Invalido"
 msgid "Invalid Login Credentials"
 msgstr "Credenciales de acceso inválidas"
 
-#: htdocs/index.php:242
+#: htdocs/index.php:240
 msgid "Invalid Token"
 msgstr "Llave inválida"
 
@@ -324,7 +324,7 @@ msgstr "Cargando..."
 msgid "Login"
 msgstr "Usuario"
 
-#: htdocs/index.php:229
+#: htdocs/index.php:227
 msgid "Logout"
 msgstr "Salir"
 
@@ -377,7 +377,7 @@ msgstr "ON"
 msgid "Originate"
 msgstr "Originar"
 
-#: htdocs/index.php:223 htdocs/modules/Home/assets/js/global.js:22
+#: htdocs/index.php:221 htdocs/modules/Home/assets/js/global.js:22
 #: htdocs/modules/Home/assets/js/global.js:45
 #: htdocs/modules/Home/assets/js/global.js:123
 msgid "Originate Call"
@@ -497,7 +497,7 @@ msgstr ""
 "El nombre de usuario para entrar al Panel de Control del Usuario y otros "
 "servicios"
 
-#: htdocs/index.php:118
+#: htdocs/index.php:116
 msgid "There was an error trying to load UCP"
 msgstr "Hubo un error tratando de cargar el UCP"
 
@@ -515,7 +515,7 @@ msgstr ""
 msgid "Title"
 msgstr "Titulo"
 
-#: htdocs/index.php:91
+#: htdocs/index.php:89
 #, php-format
 msgid ""
 "To protect the integrity of your server, you must allow overrides in your "
@@ -542,7 +542,7 @@ msgstr "Idioma UCP"
 msgid "UCP Session Timeout"
 msgstr "Tiempo de espera de la sesión UCP"
 
-#: htdocs/index.php:27
+#: htdocs/index.php:25
 msgid "UCP is currently disabled. Please talk to your system Administrator"
 msgstr ""
 "UCP esta actualmente deshabilitado. Hable con su Administrador del Sistema"
@@ -570,7 +570,7 @@ msgid "Unable to send Password Reset Email"
 msgstr ""
 "No se puede enviar el correo electrónico de restablecimiento de contraseña"
 
-#: htdocs/index.php:194
+#: htdocs/index.php:192
 #, php-format
 msgid "Unknown Module %s"
 msgstr "Modulo desconocido %s"
@@ -620,7 +620,7 @@ msgstr "Panel de usuario"
 msgid "User Primary Extension"
 msgstr "Extensión Primaria del Usuario"
 
-#: htdocs/index.php:229
+#: htdocs/index.php:227
 msgid "User Settings"
 msgstr "Configuración de Usuario"
 
@@ -709,7 +709,7 @@ msgstr ""
 msgid "Your reset link is in the mail!"
 msgstr "Su enlace de restauración esta en su correo!"
 
-#: htdocs/index.php:104
+#: htdocs/index.php:102
 #, php-format
 msgid ""
 "htaccess files help protect the integrity of your server. Please make sure "
@@ -777,8 +777,8 @@ msgstr "o"
 #~ "These are the assigned and active extensions which will show up for this "
 #~ "user to control and edit in UCP"
 #~ msgstr ""
-#~ "Estas son las extensiones asignadas y activas que se mostrarán para que este "
-#~ "usuario pueda controlar y editar en UCP"
+#~ "Estas son las extensiones asignadas y activas que se mostrarán para que "
+#~ "este usuario pueda controlar y editar en UCP"
 
 #~ msgid "Styling and Logos"
 #~ msgstr "Logos y Estilos"

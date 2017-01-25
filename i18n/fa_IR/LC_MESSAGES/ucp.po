@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-10-26 20:41+1000\n"
+"POT-Creation-Date: 2017-01-25 12:48-0800\n"
 "PO-Revision-Date: 2016-10-08 12:14+0200\n"
 "Last-Translator: psdk <hyavari26@gmail.com>\n"
 "Language-Team: Persian (Iran) <http://weblate.freepbx.org/projects/freepbx/"
@@ -39,12 +39,12 @@ msgstr ""
 msgid " + field + "
 msgstr " + فیلد + "
 
-#: htdocs/index.php:90
+#: htdocs/index.php:88
 msgid ".htaccess files are disabled on this webserver. Please enable them"
 msgstr ""
 "فایلهای htaccess. در این سرور وب غیرفعال هستند. لطفا آن ها را فعال کنید"
 
-#: htdocs/index.php:103
+#: htdocs/index.php:101
 msgid ".htaccess files are not supported on this webserver."
 msgstr "فایلهای htaccess. در این سرور وب پشتیبانی نمی شوند."
 
@@ -181,7 +181,7 @@ msgstr "فعال سازی ایجاد تماس"
 msgid "Endpoint Settings"
 msgstr "تنظیمات کاربر نهایی"
 
-#: htdocs/index.php:156
+#: htdocs/index.php:154
 msgid "English"
 msgstr "انگلیسی"
 
@@ -264,7 +264,7 @@ msgstr "موروثی"
 msgid "Interface Settings"
 msgstr "تنظیمات اینترفیس"
 
-#: htdocs/index.php:253
+#: htdocs/index.php:251
 #, php-format
 msgid ""
 "Internet Explorer %s is not supported. Functionality will be deteriorated "
@@ -286,7 +286,7 @@ msgstr "دستگاه نامعتبر"
 msgid "Invalid Login Credentials"
 msgstr "اطلاعات کاربری نامعتبر"
 
-#: htdocs/index.php:242
+#: htdocs/index.php:240
 msgid "Invalid Token"
 msgstr "توکن نامعتبر"
 
@@ -320,7 +320,7 @@ msgstr "در حال بارگذاری…"
 msgid "Login"
 msgstr "ورود"
 
-#: htdocs/index.php:229
+#: htdocs/index.php:227
 msgid "Logout"
 msgstr "خروج"
 
@@ -373,7 +373,7 @@ msgstr "روشن"
 msgid "Originate"
 msgstr "شروع تماس"
 
-#: htdocs/index.php:223 htdocs/modules/Home/assets/js/global.js:22
+#: htdocs/index.php:221 htdocs/modules/Home/assets/js/global.js:22
 #: htdocs/modules/Home/assets/js/global.js:45
 #: htdocs/modules/Home/assets/js/global.js:123
 msgid "Originate Call"
@@ -494,7 +494,7 @@ msgstr ""
 "از این نام کاربری برای ورود به پنل کنترل کاربری و دیگر سرویس ها استفاده می "
 "شود"
 
-#: htdocs/index.php:118
+#: htdocs/index.php:116
 msgid "There was an error trying to load UCP"
 msgstr "خطایی در هنگام بارگذاری پنل کنترل کاربری رخ داده است"
 
@@ -511,7 +511,7 @@ msgstr ""
 msgid "Title"
 msgstr "عنوان"
 
-#: htdocs/index.php:91
+#: htdocs/index.php:89
 #, php-format
 msgid ""
 "To protect the integrity of your server, you must allow overrides in your "
@@ -537,7 +537,7 @@ msgstr "زبان پنل کنترل کاربری"
 msgid "UCP Session Timeout"
 msgstr "زمان اعتبار اتصال پنل کنترل کاربری"
 
-#: htdocs/index.php:27
+#: htdocs/index.php:25
 msgid "UCP is currently disabled. Please talk to your system Administrator"
 msgstr ""
 "پنل کنترل کاربری در حال حاضر غیرفعال است. لطفا با مدیر سیستم خود تماس بگیرید"
@@ -562,7 +562,7 @@ msgstr "عدم توانایی در دریافت نشانه از سرور پنل 
 msgid "Unable to send Password Reset Email"
 msgstr ""
 
-#: htdocs/index.php:194
+#: htdocs/index.php:192
 #, php-format
 msgid "Unknown Module %s"
 msgstr "ماژول ناشناس %s"
@@ -612,7 +612,7 @@ msgstr "پنل کاربر"
 msgid "User Primary Extension"
 msgstr "داخلی اصلی کاربر"
 
-#: htdocs/index.php:229
+#: htdocs/index.php:227
 msgid "User Settings"
 msgstr "تنظیمات کاربر"
 
@@ -701,7 +701,7 @@ msgstr ""
 msgid "Your reset link is in the mail!"
 msgstr "لینک بازنشانی کلمه عبور در ایمیل شماست!"
 
-#: htdocs/index.php:104
+#: htdocs/index.php:102
 #, php-format
 msgid ""
 "htaccess files help protect the integrity of your server. Please make sure "

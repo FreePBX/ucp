@@ -9,17 +9,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-10-26 20:41+1000\n"
+"POT-Creation-Date: 2017-01-25 12:48-0800\n"
 "PO-Revision-Date: 2016-12-13 14:49+0200\n"
 "Last-Translator: Maxim <maxim@ua.fm>\n"
-"Language-Team: Ukrainian "
-"<http://weblate.freepbx.org/projects/freepbx/ucp/uk_UA/>\n"
-"Language: uk_UA\n"
+"Language-Team: Ukrainian <http://weblate.freepbx.org/projects/freepbx/ucp/"
+"uk_UA/>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<="
-"4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"Language: uk_UA\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%"
+"10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Generator: Weblate 2.4\n"
 
 #: htdocs/assets/js/bootstrap-table-1.9.0.js:635
@@ -40,12 +40,12 @@ msgstr ""
 msgid " + field + "
 msgstr " + поле + "
 
-#: htdocs/index.php:90
+#: htdocs/index.php:88
 msgid ".htaccess files are disabled on this webserver. Please enable them"
 msgstr ""
 ".htaccess файли відключені на цьому веб-сервері. Будь ласка, активуйте їх"
 
-#: htdocs/index.php:103
+#: htdocs/index.php:101
 msgid ".htaccess files are not supported on this webserver."
 msgstr ".htaccess файли не підтримуються на цьому веб-сервері."
 
@@ -184,7 +184,7 @@ msgstr "Активувати вихідні виклики"
 msgid "Endpoint Settings"
 msgstr "Налаштування кінцевих точок"
 
-#: htdocs/index.php:156
+#: htdocs/index.php:154
 msgid "English"
 msgstr "Англійська"
 
@@ -267,7 +267,7 @@ msgstr "Успадковувати"
 msgid "Interface Settings"
 msgstr "Налаштування інтерфейсу"
 
-#: htdocs/index.php:253
+#: htdocs/index.php:251
 #, php-format
 msgid ""
 "Internet Explorer %s is not supported. Functionality will be deteriorated "
@@ -289,7 +289,7 @@ msgstr "Недійсний пристрій"
 msgid "Invalid Login Credentials"
 msgstr "Невірні логін або пароль"
 
-#: htdocs/index.php:242
+#: htdocs/index.php:240
 msgid "Invalid Token"
 msgstr "Неприпустимий маркер"
 
@@ -323,7 +323,7 @@ msgstr "Завантаження..."
 msgid "Login"
 msgstr "Ввійти"
 
-#: htdocs/index.php:229
+#: htdocs/index.php:227
 msgid "Logout"
 msgstr "Вийти"
 
@@ -376,7 +376,7 @@ msgstr "ON"
 msgid "Originate"
 msgstr "Ініціювати"
 
-#: htdocs/index.php:223 htdocs/modules/Home/assets/js/global.js:22
+#: htdocs/index.php:221 htdocs/modules/Home/assets/js/global.js:22
 #: htdocs/modules/Home/assets/js/global.js:45
 #: htdocs/modules/Home/assets/js/global.js:123
 msgid "Originate Call"
@@ -497,7 +497,7 @@ msgstr ""
 "Ім'я користувача використовується для входу в Панель управління та інші "
 "послуги"
 
-#: htdocs/index.php:118
+#: htdocs/index.php:116
 msgid "There was an error trying to load UCP"
 msgstr "Сталася помилка при спробі завантажити UCP"
 
@@ -515,7 +515,7 @@ msgstr ""
 msgid "Title"
 msgstr "Назва"
 
-#: htdocs/index.php:91
+#: htdocs/index.php:89
 #, php-format
 msgid ""
 "To protect the integrity of your server, you must allow overrides in your "
@@ -542,7 +542,7 @@ msgstr "Мова UCP"
 msgid "UCP Session Timeout"
 msgstr "Тайм-аут сеансу UCP"
 
-#: htdocs/index.php:27
+#: htdocs/index.php:25
 msgid "UCP is currently disabled. Please talk to your system Administrator"
 msgstr ""
 "UCP в даний час відключена. Будь ласка, зверніться до адміністратора системи"
@@ -569,7 +569,7 @@ msgstr ""
 msgid "Unable to send Password Reset Email"
 msgstr "Неможливо відправити скидання пароля на електронну пошту"
 
-#: htdocs/index.php:194
+#: htdocs/index.php:192
 #, php-format
 msgid "Unknown Module %s"
 msgstr "Невідомий модуль %s"
@@ -619,7 +619,7 @@ msgstr "Панель користувача"
 msgid "User Primary Extension"
 msgstr "Основний додатковий номер користувача"
 
-#: htdocs/index.php:229
+#: htdocs/index.php:227
 msgid "User Settings"
 msgstr "Налаштування користувача"
 
@@ -708,7 +708,7 @@ msgstr ""
 msgid "Your reset link is in the mail!"
 msgstr "Ваше посилання на скидання в пошті!"
 
-#: htdocs/index.php:104
+#: htdocs/index.php:102
 #, php-format
 msgid ""
 "htaccess files help protect the integrity of your server. Please make sure "
