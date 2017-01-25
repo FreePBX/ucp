@@ -10,16 +10,16 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-10-26 20:41+1000\n"
-"PO-Revision-Date: 2015-05-02 20:55+0200\n"
-"Last-Translator: Renato <fiuza@tecnologia.inf.br>\n"
-"Language-Team: Portuguese (Brazil) <http://weblate.freepbx.org/projects/"
-"freepbx/ucp/pt_BR/>\n"
+"PO-Revision-Date: 2016-12-20 23:26+0200\n"
+"Last-Translator: Alexander <alexander.schley@paranagua.pr.gov.br>\n"
+"Language-Team: Portuguese (Brazil) "
+"<http://weblate.freepbx.org/projects/freepbx/ucp/pt_BR/>\n"
+"Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: pt_BR\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.2-dev\n"
+"X-Generator: Weblate 2.4\n"
 
 #: htdocs/assets/js/bootstrap-table-1.9.0.js:635
 #: htdocs/assets/js/bootstrap-table-1.9.0.js:636
@@ -37,7 +37,7 @@ msgstr ""
 #: htdocs/assets/js/bootstrap-table-1.9.0.js:1479
 #: htdocs/assets/js/bootstrap-table-1.9.0.js:1480
 msgid " + field + "
-msgstr ""
+msgstr " + campo + "
 
 #: htdocs/index.php:90
 msgid ".htaccess files are disabled on this webserver. Please enable them"
@@ -55,7 +55,7 @@ msgstr "ABC"
 
 #: htdocs/views/settings.php:8
 msgid "Account Settings"
-msgstr ""
+msgstr "Configurações de Conta"
 
 #: views/users_hook.php:78
 msgid "Active Sessions"
@@ -63,12 +63,14 @@ msgstr "Sessões Ativas"
 
 #: ucp.i18n.php:6
 msgid "Admin"
-msgstr "Admin"
+msgstr "Administrador"
 
 #: htdocs/views/settings.php:11
 msgid ""
 "All fields update when unfocused (selecting another field) except password"
 msgstr ""
+"Todos os campos são atualizados quando desfocados (selecionando outro campo)"
+", exceto a senha"
 
 #: htdocs/views/settings.php:111
 msgid "Allow Desktop Notifications"
@@ -95,10 +97,12 @@ msgid ""
 "Allow this user to originate calls from within UCP. This is not the same as "
 "WebRTC"
 msgstr ""
+"Permitir que este usuário origine chamadas pelo PCU. Isso não é o mesmo que "
+"WebRTC"
 
 #: ucp.i18n.php:24
 msgid "Allow users to change their username in UCP"
-msgstr ""
+msgstr "Permitir que os usuários alterem seu nome de usuário no PCU"
 
 #: ucp.i18n.php:18
 msgid "Allow users to change thier password in UCP"
@@ -106,7 +110,7 @@ msgstr "Permitir usuários mudarem suas senhas no PCU"
 
 #: views/users_hook.php:118
 msgid "Allowed Extension Settings"
-msgstr ""
+msgstr "Configurações de Ramais Permitidos"
 
 #: htdocs/assets/js/ucp.js:1033
 msgid "Are you sure you wish to change your username?"
@@ -114,11 +118,11 @@ msgstr "Você tem certeza que deseja mudar seu usuário?"
 
 #: htdocs/views/settings.php:140
 msgid "Browse"
-msgstr ""
+msgstr "Visualizar"
 
 #: htdocs/views/templates/phone.php:7 htdocs/views/templates/phone.php:95
 msgid "Call"
-msgstr "Chamada"
+msgstr "Chamar"
 
 #: htdocs/views/settings.php:74
 msgid "Cell Phone"
@@ -134,7 +138,7 @@ msgstr "Confirmar Senha"
 
 #: htdocs/views/settings.php:127
 msgid "Contact Image"
-msgstr ""
+msgstr "Imagem de Contato"
 
 #: htdocs/views/templates/phone.php:45
 msgid "DEF"
@@ -142,7 +146,7 @@ msgstr "DEF"
 
 #: htdocs/views/settings.php:135
 msgid "Delete Image"
-msgstr ""
+msgstr "Apagar Imagem"
 
 #: Ucp.class.php:777
 msgid "Deleted Session"
@@ -158,11 +162,11 @@ msgstr "Nome de Exibição"
 
 #: Ucp.class.php:871 Ucp.class.php:875 Ucp.class.php:879 Ucp.class.php:883
 msgid "Done"
-msgstr "Feito"
+msgstr "Concluído"
 
 #: htdocs/views/settings.php:132
 msgid "Drop a new image here"
-msgstr ""
+msgstr "Solte uma nova imagem aqui"
 
 #: htdocs/views/login.php:29 htdocs/views/settings.php:49
 msgid "Email"
@@ -170,15 +174,15 @@ msgstr "Email"
 
 #: htdocs/includes/User.class.php:78
 msgid "Email address unknown!"
-msgstr ""
+msgstr "Endereço de e-mail desconhecido!"
 
 #: views/users_hook.php:144
 msgid "Enable Originating Calls"
-msgstr ""
+msgstr "Habilitar Originar Chamadas"
 
 #: htdocs/modules/Settings/Settings.class.php:83
 msgid "Endpoint Settings"
-msgstr ""
+msgstr "Configurações de Ponto de Extremidade"
 
 #: htdocs/index.php:156
 msgid "English"
@@ -191,7 +195,7 @@ msgstr "Desculpe-nos enquanto tentamos recuperar seu conteúdo"
 #: install.inc.php:20
 #, php-format
 msgid "Failed to install %s due to the following conflicting module(s): %s"
-msgstr ""
+msgstr "Falha ao instalar %s devido ao(s) seguinte(s) módulo(s) em conflito: %s"
 
 #: htdocs/views/settings.php:89
 msgid "Fax"
@@ -219,7 +223,7 @@ msgstr "GHI"
 
 #: views/users_hook.php:19
 msgid "General"
-msgstr ""
+msgstr "Geral"
 
 #: Ucp.class.php:881
 msgid "Generating Main CSS..."
@@ -259,11 +263,11 @@ msgstr ""
 
 #: views/users_hook.php:56 views/users_hook.php:154
 msgid "Inherit"
-msgstr ""
+msgstr "Herdar"
 
 #: htdocs/views/settings.php:99
 msgid "Interface Settings"
-msgstr ""
+msgstr "Configurações da Interface"
 
 #: htdocs/index.php:253
 #, php-format
@@ -271,6 +275,8 @@ msgid ""
 "Internet Explorer %s is not supported. Functionality will be deteriorated "
 "until you upgrade to %s or higher"
 msgstr ""
+"O Internet Explorer %s não é suportado. A funcionalidade estará prejudicada "
+"até que você atualize para  %s ou superior"
 
 #: htdocs/includes/User.class.php:93
 msgid "Invalid"
@@ -279,7 +285,7 @@ msgstr "Inválido"
 #: htdocs/modules/Home/Home.class.php:201
 #: htdocs/modules/Home/Home.class.php:205
 msgid "Invalid Device"
-msgstr ""
+msgstr "Dispositivo Inválido"
 
 #: htdocs/includes/User.class.php:101
 msgid "Invalid Login Credentials"
@@ -303,7 +309,7 @@ msgstr "Último"
 
 #: htdocs/views/settings.php:59
 msgid "Last Name"
-msgstr "Último Nome"
+msgstr "Sobrenome"
 
 #: htdocs/views/header.php:67
 msgid "Loading"
@@ -312,7 +318,7 @@ msgstr "Carregando"
 #: htdocs/views/forgot.php:61 htdocs/views/login.php:53
 #: htdocs/assets/js/ucp.js:1156
 msgid "Loading..."
-msgstr "Carregando…"
+msgstr "Carregando..."
 
 #: htdocs/views/forgot.php:45 htdocs/views/login.php:37
 #: htdocs/assets/js/ucp.js:129 htdocs/assets/js/ucp.js:142
@@ -329,11 +335,11 @@ msgstr "MNO"
 
 #: views/users_hook.php:65
 msgid "May this user log in to UCP"
-msgstr ""
+msgstr "Este usuário pode fazer login no PCU"
 
 #: views/users_hook.php:24
 msgid "Miscellaneous"
-msgstr ""
+msgstr "Variações"
 
 #: htdocs/includes/Ajax.class.php:139
 msgid "Module or Command were null. Check your code."
@@ -341,19 +347,19 @@ msgstr "Módulo ou Commando foi nulo. Verifique seu código."
 
 #: htdocs/assets/js/ucp.js:95
 msgid "New password and old password do not match"
-msgstr ""
+msgstr "Nova senha e senha antiga não coincidem"
 
 #: views/users_hook.php:53 views/users_hook.php:151
 msgid "No"
-msgstr ""
+msgstr "Não"
 
 #: htdocs/assets/js/ucp.js:1151
 msgid "No email defined"
-msgstr ""
+msgstr "Nenhum e-mail definido"
 
 #: htdocs/modules/Home/assets/js/global.js:75
 msgid "Nothing Entered"
-msgstr ""
+msgstr "Nada Introduzido"
 
 #: htdocs/includes/User.class.php:74
 msgid "Nothing was Provided!"
@@ -365,12 +371,12 @@ msgstr "DESLIGADO"
 
 #: htdocs/views/header.php:57
 msgid "ON"
-msgstr "LIGADO"
+msgstr "EM"
 
 #: htdocs/modules/Home/assets/js/global.js:46
 #: htdocs/modules/Home/assets/js/global.js:124
 msgid "Originate"
-msgstr ""
+msgstr "Originar"
 
 #: htdocs/index.php:223 htdocs/modules/Home/assets/js/global.js:22
 #: htdocs/modules/Home/assets/js/global.js:45
@@ -402,15 +408,15 @@ msgstr "Redefinição de Senha para: %s"
 
 #: htdocs/assets/js/ucp.js:98
 msgid "Password fields can't be blank!"
-msgstr ""
+msgstr "Os campos de senha não podem ficar em branco!"
 
 #: htdocs/assets/js/ucp.js:107
 msgid "Password has been changed!"
-msgstr ""
+msgstr "A senha foi alterada!"
 
 #: htdocs/assets/js/ucp.js:1018
 msgid "Password has not changed!"
-msgstr ""
+msgstr "A senha não mudou!"
 
 #: htdocs/assets/js/ucp.js:73
 msgid "Please enter either a username or email address"
@@ -466,6 +472,8 @@ msgid ""
 "The number of days a session token will be valid for. Clear this setting if "
 "you want tokens to last forever (Not Recommended)"
 msgstr ""
+"O número de dias em que um token de sessão será válido. Limpe esta definição "
+"se pretender que os tokens durem para sempre (Não recomendado)"
 
 #: htdocs/views/settings.php:24 htdocs/views/settings.php:29
 msgid "The password used to login to User Control Panel and other services"
@@ -481,6 +489,8 @@ msgid ""
 "The user control panel is a way for users to control call handling and "
 "personal settings from a web browser."
 msgstr ""
+"O painel de controle do usuário é uma maneira de os usuários controlarem o "
+"gerenciamento de chamadas e as configurações pessoais de um navegador da Web."
 
 #: htdocs/views/settings.php:15
 msgid "The username used to login to User Control Panel and other services"
@@ -497,6 +507,9 @@ msgid ""
 "extension settings such as Call Waiting, Call Forwarding, Find Me/Follow Me "
 "and others"
 msgstr ""
+"Estes são ramais atribuídos e ativos os quais são permitidos editar "
+"configurações de ramal como Chamada em Espera, Encaminhamento de Chamada, "
+"Localizar-me/Siga-me e outros"
 
 #: htdocs/views/settings.php:64
 msgid "Title"
@@ -527,7 +540,7 @@ msgstr "Idioma PCU"
 
 #: ucp.i18n.php:32
 msgid "UCP Session Timeout"
-msgstr ""
+msgstr "Tempo limite da sessão do PCU"
 
 #: htdocs/index.php:27
 msgid "UCP is currently disabled. Please talk to your system Administrator"
@@ -544,15 +557,18 @@ msgid ""
 "UCP, otherwise known as the User Control Panel, is a user interface for "
 "FreePBX."
 msgstr ""
+"PCU, também conhecido como Painel de Controle do Usuário, é uma interface de "
+"usuário para o FreePBX."
 
 #: htdocs/assets/js/ucp.js:395
 #, perl-format
 msgid "Unable to get a token to use UCP Node Server because: '%s'"
 msgstr ""
+"Não é possível obter um token para usar o Servidor de Nó PCU porque: '%s'"
 
 #: htdocs/includes/User.class.php:84
 msgid "Unable to send Password Reset Email"
-msgstr ""
+msgstr "Não é possível enviar o Email de Redefinição de Senha"
 
 #: htdocs/index.php:194
 #, php-format
@@ -561,15 +577,15 @@ msgstr "Módulo Desconhecido %s"
 
 #: htdocs/assets/js/ucp.js:1090
 msgid "Unsupported file type"
-msgstr ""
+msgstr "Tipo de arquivo não suportado"
 
 #: htdocs/views/settings.php:31
 msgid "Update Password"
-msgstr ""
+msgstr "Atualizar Senha"
 
 #: htdocs/views/settings.php:149
 msgid "Use Gravatar"
-msgstr ""
+msgstr "Usar Gravatar"
 
 #: htdocs/views/forgot.php:5 htdocs/views/header.php:4
 #: htdocs/views/login.php:4 ucp.i18n.php:4
@@ -594,7 +610,7 @@ msgstr "Painel de Controle do Usuário: %s"
 
 #: htdocs/views/settings.php:41
 msgid "User Details"
-msgstr ""
+msgstr "Detalhes do Usuário"
 
 #: ucp.i18n.php:12
 msgid "User Panel"
@@ -602,15 +618,15 @@ msgstr "Painel do Usuário"
 
 #: Ucp.class.php:70 /usr/src/freepbx/ucp/Ucp.class.php:98
 msgid "User Primary Extension"
-msgstr ""
+msgstr "Ramal Principal do Usuário"
 
 #: htdocs/index.php:229
 msgid "User Settings"
-msgstr ""
+msgstr "Configurações do Usuário"
 
 #: htdocs/views/login.php:15 htdocs/views/settings.php:13
 msgid "Username"
-msgstr "Usuário"
+msgstr "Nome de Usuário"
 
 #: htdocs/assets/js/ucp.js:1036
 msgid "Username has been changed, reloading"
@@ -627,7 +643,7 @@ msgstr "Bem vindo %s"
 
 #: views/users_hook.php:4
 msgid "What is UCP"
-msgstr ""
+msgstr "O que é PCU"
 
 #: htdocs/views/settings.php:79
 msgid "Work Phone"
@@ -635,7 +651,7 @@ msgstr "Fone Trabalho"
 
 #: views/users_hook.php:51 views/users_hook.php:149
 msgid "Yes"
-msgstr ""
+msgstr "Sim"
 
 #: htdocs/assets/js/ucp.js:461
 msgid "You are currently working in offline mode."

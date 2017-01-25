@@ -10,14 +10,14 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-10-26 20:41+1000\n"
-"PO-Revision-Date: 2016-05-11 00:30+0200\n"
-"Last-Translator: Jens <jens@schaewel.com>\n"
-"Language-Team: German <http://weblate.freepbx.org/projects/freepbx/ucp/de_DE/"
-">\n"
+"PO-Revision-Date: 2017-01-09 14:39+0200\n"
+"Last-Translator: Sven <spiderrs4@web.de>\n"
+"Language-Team: German "
+"<http://weblate.freepbx.org/projects/freepbx/ucp/de_DE/>\n"
+"Language: de_DE\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: de_DE\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 2.4\n"
 
@@ -53,7 +53,7 @@ msgstr "ABC"
 
 #: htdocs/views/settings.php:8
 msgid "Account Settings"
-msgstr ""
+msgstr "Account Einstellungen"
 
 #: views/users_hook.php:78
 msgid "Active Sessions"
@@ -117,7 +117,7 @@ msgstr "Sind Sie sicher, dass Sie Ihren Benutzernamen ändern möchten?"
 
 #: htdocs/views/settings.php:140
 msgid "Browse"
-msgstr ""
+msgstr "Durchsuchen"
 
 #: htdocs/views/templates/phone.php:7 htdocs/views/templates/phone.php:95
 msgid "Call"
@@ -137,7 +137,7 @@ msgstr "Passwort bestätigen"
 
 #: htdocs/views/settings.php:127
 msgid "Contact Image"
-msgstr ""
+msgstr "Kontaktblid"
 
 #: htdocs/views/templates/phone.php:45
 msgid "DEF"
@@ -145,7 +145,7 @@ msgstr "DEF"
 
 #: htdocs/views/settings.php:135
 msgid "Delete Image"
-msgstr ""
+msgstr "Bild löschen"
 
 #: Ucp.class.php:777
 msgid "Deleted Session"
@@ -165,11 +165,11 @@ msgstr "Erledigt"
 
 #: htdocs/views/settings.php:132
 msgid "Drop a new image here"
-msgstr ""
+msgstr "Neues Bild hier rein ziehen"
 
 #: htdocs/views/login.php:29 htdocs/views/settings.php:49
 msgid "Email"
-msgstr "Email"
+msgstr "E-Mail"
 
 #: htdocs/includes/User.class.php:78
 msgid "Email address unknown!"
@@ -250,7 +250,7 @@ msgstr "Halten"
 #: htdocs/modules/Home/Home.class.php:252 htdocs/views/dashboard.php:32
 #: htdocs/assets/js/ucp.js:813
 msgid "Home"
-msgstr "Home"
+msgstr "Privat"
 
 #: htdocs/views/settings.php:84
 msgid "Home Phone"
@@ -263,9 +263,8 @@ msgstr ""
 "Wie möchten Sie Ihren Namen im UCP und Kontakt Manager angezeigt bekommen"
 
 #: views/users_hook.php:56 views/users_hook.php:154
-#, fuzzy
 msgid "Inherit"
-msgstr "geerbt"
+msgstr "Erben"
 
 #: htdocs/views/settings.php:99
 msgid "Interface Settings"
@@ -357,7 +356,7 @@ msgstr "Nein"
 
 #: htdocs/assets/js/ucp.js:1151
 msgid "No email defined"
-msgstr ""
+msgstr "Keine E-Mail definiert"
 
 #: htdocs/modules/Home/assets/js/global.js:75
 msgid "Nothing Entered"
@@ -531,11 +530,11 @@ msgstr ""
 
 #: ucp.i18n.php:10
 msgid "UCP"
-msgstr "UCP"
+msgstr ""
 
 #: views/header.php:1
 msgid "UCP Admin"
-msgstr "UCP Admin"
+msgstr "UCP Administrator"
 
 #: htdocs/views/settings.php:108
 msgid "UCP Language"
@@ -578,7 +577,7 @@ msgstr "Unbekanntes Modul %s"
 
 #: htdocs/assets/js/ucp.js:1090
 msgid "Unsupported file type"
-msgstr ""
+msgstr "Nicht unterstützter Dateityp"
 
 #: htdocs/views/settings.php:31
 msgid "Update Password"
@@ -586,7 +585,7 @@ msgstr "Passwort geändert"
 
 #: htdocs/views/settings.php:149
 msgid "Use Gravatar"
-msgstr ""
+msgstr "Gravatar benutzen"
 
 #: htdocs/views/forgot.php:5 htdocs/views/header.php:4
 #: htdocs/views/login.php:4 ucp.i18n.php:4
@@ -621,7 +620,7 @@ msgstr "Benutzerbedienfeld"
 
 #: Ucp.class.php:70 /usr/src/freepbx/ucp/Ucp.class.php:98
 msgid "User Primary Extension"
-msgstr "Benutzer Primäre Nebenstelle"
+msgstr "Primäre Benutzernebenstelle"
 
 #: htdocs/index.php:229
 msgid "User Settings"
