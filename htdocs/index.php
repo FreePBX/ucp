@@ -45,15 +45,6 @@ $ucp->Session->isMobile = $ucp->detect->isMobile();
 $ucp->Session->isTablet = $ucp->detect->isTablet();
 //TIME: 0.1443829536438
 
-
-//Send back only PJAX relevant data
-//This is to force a complete page refresh if/when UCP gets updates
-//The header HTTP_X_PJAX comes from the JS PJAX lib, letting us know we don't need the whole html document
-if(isset($_SERVER['HTTP_X_PJAX'])) {
-	$forceRefresh = $ucp->User->refresh() ? '-force' : '';
-	header("X-PJAX-Version: ".$ucp->getVersion().$forceRefresh);
-}
-
 //http://htmlpurifier.org/docs/enduser-utf8.html#fixcharset
 header('Content-Type:text/html; charset=UTF-8');
 
@@ -66,7 +57,7 @@ if((isset($_REQUEST['quietmode']) && $user !== false && !empty($user)) ||
 	$ucp->Ajax->doRequest($m,$_REQUEST['command']);
 	die();
 } elseif(isset($_REQUEST['quietmode']) && ($user === false || empty($user))) {
-	header("HTTP/1.0 403 Forbidden");
+	header("HTTP/1.0 401 Unauthorized");
 	$json = json_encode(array("status" => "false", "message" => "forbidden"));
 	die($json);
 }
@@ -187,33 +178,31 @@ foreach($ucp->Modules->getModulesByMethod('getNavItems') as $m) {
 /* DASHBOARD SELECTION */
 /***********************/
 
-if(!isset($_SERVER['HTTP_X_PJAX'])) {
-	$compressed = FreePBX::Config()->get("USE_PACKAGED_JS");
-	$displayvars['ucpcss'] = $ucp->getCss();
-	$displayvars['ucpmoduleless'] = $ucp->Modules->getGlobalLess();
+$compressed = FreePBX::Config()->get("USE_PACKAGED_JS");
+$displayvars['ucpcss'] = $ucp->getCss();
+$displayvars['ucpmoduleless'] = $ucp->Modules->getGlobalLess();
 
-	$displayvars['version'] = $ucp->getVersion();
-	$displayvars['iconsdir'] = FreePBX::Config()->get('VIEW_UCP_ICONS_FOLDER');
-	//TODO: needs to not be global
-	$browser = new \Sinergi\BrowserDetector\Browser();
+$displayvars['version'] = $ucp->getVersion();
+$displayvars['iconsdir'] = FreePBX::Config()->get('VIEW_UCP_ICONS_FOLDER');
+//TODO: needs to not be global
+$browser = new \Sinergi\BrowserDetector\Browser();
 
-	$ie = 10;
-	$displayvars['shiv'] = ($browser->getName() === \Sinergi\BrowserDetector\Browser::IE && $browser->getVersion() < $ie);
-	$displayvars['menu'] = ($user && !empty($user)) ? $ucp->Modules->generateMenu() : array();
+$ie = 10;
+$displayvars['shiv'] = ($browser->getName() === \Sinergi\BrowserDetector\Browser::IE && $browser->getVersion() < $ie);
+$displayvars['menu'] = ($user && !empty($user)) ? $ucp->Modules->generateMenu() : array();
 
-	$version	 = $ucp->getVersion();
-	$version_tag = '?load_version=' . urlencode($version);
-	if (FreePBX::Config()->get('FORCE_JS_CSS_IMG_DOWNLOAD')) {
-		$this_time_append	= '.' . time();
-		$version_tag 		.= $this_time_append;
-	}
-	$displayvars['version_tag'] = $version_tag;
+$version	 = $ucp->getVersion();
+$version_tag = '?load_version=' . urlencode($version);
+if (FreePBX::Config()->get('FORCE_JS_CSS_IMG_DOWNLOAD')) {
+	$this_time_append	= '.' . time();
+	$version_tag 		.= $this_time_append;
+}
+$displayvars['version_tag'] = $version_tag;
 
-	$ucp->View->show_view(__DIR__.'/views/header.php',$displayvars);
+$ucp->View->show_view(__DIR__.'/views/header.php',$displayvars);
 
-	if(!empty($user["id"])){
-		$ucp->View->show_view(__DIR__.'/views/dashboard-header.php',$displayvars);
-	}
+if(!empty($user["id"])){
+	$ucp->View->show_view(__DIR__.'/views/dashboard-header.php',$displayvars);
 }
 
 if($user && !empty($user)) {
@@ -259,33 +248,31 @@ switch($display) {
 	break;
 }
 
-if(!isset($_SERVER['HTTP_X_PJAX'])) {
-	$displayvars['language'] = $ucp->Modules->getGlobalLanguageJSON($lang);
-	$displayvars['lang'] = $lang;
-	$displayvars['ucpserver'] = json_encode($ucp->getServerSettings());
-	$displayvars['modules'] = json_encode($active_modules);
-	$displayvars['gScripts'] = $ucp->getScripts(false,$compressed);
-	$displayvars['scripts'] = $ucp->Modules->getGlobalScripts(false,$compressed);
-	$displayvars['timezone'] = $ucp->View->getTimezone();
-	$displayvars['timeformat'] = $ucp->View->getTimeFormat();
-	$displayvars['datetimeformat'] = $ucp->View->getDateTimeFormat();
-	$displayvars['dateformat'] = $ucp->View->getDateFormat();
-	$displayvars['desktop'] = (!$ucp->Session->isMobile && !$ucp->Session->isTablet);
-	$mods = $ucp->Modules->getModulesByMethod('getStaticSettings');
-	$displayvars['moduleSettings'] = array();
-	foreach($mods as $m) {
-		$ucp->Modgettext->push_textdomain(strtolower($m));
-		$displayvars['moduleSettings'][$m] = $ucp->Modules->$m->getStaticSettings();
-		$ucp->Modgettext->pop_textdomain();
-	}
-	$ucp->Modgettext->push_textdomain("ucp");
-
-	if(!empty($user["id"])) {
-		$displayvars['year'] = date('Y',time());
-		$dbfc = FreePBX::Config()->get('VIEW_UCP_FOOTER_CONTENT');
-		$displayvars['dashboard_footer_content'] = $ucp->View->load_view(__DIR__."/".$dbfc, array("year" => date('Y',time())));
-		$ucp->View->show_view(__DIR__ . '/views/dashboard-footer.php', $displayvars);
-	}
-
-	$ucp->View->show_view(dirname(__FILE__).'/views/footer.php',$displayvars);
+$displayvars['language'] = $ucp->Modules->getGlobalLanguageJSON($lang);
+$displayvars['lang'] = $lang;
+$displayvars['ucpserver'] = json_encode($ucp->getServerSettings());
+$displayvars['modules'] = json_encode($active_modules);
+$displayvars['gScripts'] = $ucp->getScripts(false,$compressed);
+$displayvars['scripts'] = $ucp->Modules->getGlobalScripts(false,$compressed);
+$displayvars['timezone'] = $ucp->View->getTimezone();
+$displayvars['timeformat'] = $ucp->View->getTimeFormat();
+$displayvars['datetimeformat'] = $ucp->View->getDateTimeFormat();
+$displayvars['dateformat'] = $ucp->View->getDateFormat();
+$displayvars['desktop'] = (!$ucp->Session->isMobile && !$ucp->Session->isTablet);
+$mods = $ucp->Modules->getModulesByMethod('getStaticSettings');
+$displayvars['moduleSettings'] = array();
+foreach($mods as $m) {
+	$ucp->Modgettext->push_textdomain(strtolower($m));
+	$displayvars['moduleSettings'][$m] = $ucp->Modules->$m->getStaticSettings();
+	$ucp->Modgettext->pop_textdomain();
 }
+$ucp->Modgettext->push_textdomain("ucp");
+
+if(!empty($user["id"])) {
+	$displayvars['year'] = date('Y',time());
+	$dbfc = FreePBX::Config()->get('VIEW_UCP_FOOTER_CONTENT');
+	$displayvars['dashboard_footer_content'] = $ucp->View->load_view(__DIR__."/".$dbfc, array("year" => date('Y',time())));
+	$ucp->View->show_view(__DIR__ . '/views/dashboard-footer.php', $displayvars);
+}
+
+$ucp->View->show_view(dirname(__FILE__).'/views/footer.php',$displayvars);

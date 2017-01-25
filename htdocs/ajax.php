@@ -10,6 +10,10 @@ $bootstrap_settings = array();
 $bootstrap_settings['freepbx_auth'] = false;
 //TODO: We need to make sure security is 100%!
 $restrict_mods = true; //Set to true so that we just load framework and the page wont bomb out because we have no session
+
+//for error handling mode
+$bootstrap_settings['whoops_handler'] = 'JsonResponseHandler';
+
 include '/etc/freepbx.conf';
 
 include(dirname(__FILE__).'/includes/bootstrap.php');

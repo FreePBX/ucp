@@ -36,9 +36,29 @@ var UCPC = Class.extend({
 		$(document).bind("logOut", function( event ) {UCP.logOut(event);});
 		$(window).bind("online", function( event ) {UCP.online(event);});
 		$(window).bind("offline", function( event ) {UCP.offline(event);});
-		$(document).ajaxError(UCP.ajaxError);
-		$(document).ajaxStart(UCP.ajaxStart);
-		$(document).ajaxStop(UCP.ajaxStop);
+		$(document).ajaxError(function( event, jqxhr, settings, thrownError ) {
+			//you can set jqxhr.hideGlobal = true in your .fail(jqXHR, textStatus, errorThrown) { jqxhr.hideGlobal = true } function to not show this message
+			if ((jqxhr.status === 500 || jqxhr.status === 403) && (typeof jqxhr.hideGlobal === "undefined" || jqxhr.hideGlobal === false)) {
+				setTimeout(function() {
+					if(!$("#alert_modal").is(":visible")) {
+						UCP.showAlert(_("There was an error. See the console log for more details"),'danger');
+						try {
+							var obj = JSON.parse(jqxhr.responseText);
+							if(typeof obj.error.file !== "undefined") {
+								console.error(thrownError + ": " + obj.error.message);
+								console.error(obj.error.file + ": " + obj.error.line);
+							} else if(typeof obj.error !== "undefined") {
+								console.error(thrownError + ": " + obj.error);
+							} else if(typeof obj.message !== "undefined") {
+								console.error(thrownError + ": " + obj.message);
+							}
+						} catch(e) {
+							console.error(thrownError + ": " + e);
+						}
+					}
+				},200);
+			}
+		});
 		//if we are already logged in (the login window is missing)
 		//in then throw the loggedIn trigger
 		if (!$("#login-window").length) {
@@ -145,7 +165,8 @@ var UCPC = Class.extend({
 		if (window.location.search.length) {
 			var params = window.location.search.split(/\?|&/);
 			for (var i = 0, len = params.length; i < len; i++) {
-				if (res = params[i].match(/(.+)=(.+)/)) {
+				var res = params[i].match(/(.+)=(.+)/);
+				if (res) {
 					self.urlParams[res[1]] = res[2];
 				}
 			}
@@ -180,19 +201,6 @@ var UCPC = Class.extend({
 			}
 		});
 		return mdata;
-	},
-	ajaxStart: function() {
-		//TODO: this doesnt exit anymore
-		$("#nav-btn-settings i").addClass("fa-spin");
-	},
-	ajaxStop: function() {
-		//TODO: this doesnt exit anymore
-		$("#nav-btn-settings i").removeClass("fa-spin");
-	},
-	ajaxError: function(event, jqxhr, settings, exception) {
-		if (exception !== "abort" && !$("#global-message-container").is(":visible")) {
-			UCP.disconnect();
-		}
 	},
 	setupLogin: function() {
 		var btn = $("#btn-login"), fbtn = $("#btn-forgot");
@@ -410,9 +418,7 @@ var UCPC = Class.extend({
 		clearInterval(this.pollID);
 		this.pollID = null;
 		this.polling = false;
-		$("#nav-btn-settings i").removeClass("fa-spin");
 		this.callModulesByMethod("disconnect");
-		UCP.displayGlobalMessage(_("You are currently working in offline mode."), "rgba(128, 128, 128, 0.5)", true);
 		UCP.websocketDisconnect();
 	},
 	websocketConnect: function() {
@@ -446,7 +452,19 @@ var UCPC = Class.extend({
 			UCP.polling = true;
 			var mdata = {};
 			mdata = this.callModulesByMethod("prepoll",$.url().param());
-			$.ajax({ url: "index.php", data: { quietmode: 1, command: "poll", data: mdata }, success: function(data) {
+			$.ajax(
+				{
+					url: "index.php",
+					dataType: "json",
+					type: "POST",
+					data:
+					{
+						quietmode: 1,
+						command: "poll",
+						data: mdata
+					}
+				}
+			).done(function(data) {
 				if (data.status) {
 					if (typeof callback === "function") {
 						callback();
@@ -458,12 +476,15 @@ var UCPC = Class.extend({
 					});
 				}
 				UCP.polling = false;
-			}, error: function(jqXHR, textStatus, errorThrown) {
-				//We probably should logout on every event here... but
-				if (jqXHR.status === 403) {
-					$("li.logout-widget").click();
+			}).fail(function(jqXHR, textStatus, errorThrown) {
+				if (jqXHR.status === 401) {
+					UCP.showAlert(_("The session has expired and you are being forcibly logged out"),'danger');
+					$("#alert_modal .modal-footer").remove();
+					$("#alert_modal .modal-header button").remove();
+					UCP.disconnect();
+					window.location = "?logout";
 				}
-			}, dataType: "json", type: "POST" });
+			});
 		}
 	},
 	notificationsAllowed: function() {
@@ -483,6 +504,13 @@ var UCPC = Class.extend({
 		});
 		$("#globalModal").modal('hide');
 	},
+	/**
+	 * Show Alert Modal Box
+	 * @method showAlert
+	 * @param  {string}  message       The HTML to show
+	 * @param  {string}  type          The alert info type
+	 * @param  {function}  callback_func Callback function when the alert is shown
+	 */
 	showAlert: function(message, type, callback_func){
 		var type_class = "";
 		switch(type) {
@@ -520,6 +548,13 @@ var UCPC = Class.extend({
 
 		$("#alert_modal").modal("show");
 	},
+	/**
+	 * Show Confirmation Modal Box
+	 * @method showConfirm
+	 * @param  {string}    html          The HTML to show
+	 * @param  {string}    type          The alert info type
+	 * @param  {function}    callback_func Callback function when the user presses accept
+	 */
 	showConfirm: function(html, type, callback_func) {
 		var type_class = "";
 		switch(type) {
@@ -557,6 +592,14 @@ var UCPC = Class.extend({
 
 		$('#confirm_modal').modal('show');
 	},
+	/**
+	 * Show a global dialog box
+	 * @method showDialog
+	 * @param  {string}   title    The HTML title of the modal
+	 * @param  {string}   content  The HTML content of the modal
+	 * @param  {string}   footer   The HTML footer of the modal
+	 * @param  {Function} callback Callback function when the modal is displayed
+	 */
 	showDialog: function(title, content, footer, callback) {
 		var show = function() {
 			$('#globalModal .modal-title').html(title);
