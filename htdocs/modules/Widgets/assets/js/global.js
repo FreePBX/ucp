@@ -611,8 +611,10 @@ var WidgetsC = Class.extend({
 
 			var widget = $(this).parents(".custom-widget");
 
-			//We are already looking at it so do nothing
+			//We are already looking at it so close it and move on
 			if(widget.hasClass("active")) {
+				$this.closeExtraWidgetMenu();
+
 				return;
 			}
 
