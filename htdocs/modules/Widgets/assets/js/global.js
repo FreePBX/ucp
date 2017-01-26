@@ -82,16 +82,17 @@ var WidgetsC = Class.extend({
 			$this.activateSettingsLoading();
 			$("#widget_settings .modal-title").html('<i class="fa fa-cog" aria-hidden="true"></i> '+title+" "+_("Settings")+" ("+name+")");
 			$('#widget_settings').modal('show');
-			$this.getSettingsContent(settings_container, widget_type_id, rawname, function() {
-				$("#widget_settings .modal-body .fa-question-circle").click(function(e) {
-					e.preventDefault();
-					e.stopPropagation();
-					var f = $(this).parents("label").attr("for");
-					$(".help-block").addClass('help-hidden');
-					$('.help-block[data-for="'+f+'"]').removeClass('help-hidden');
+			$('#widget_settings').on('shown.bs.modal', function() {
+				$this.getSettingsContent(settings_container, widget_type_id, rawname, function() {
+					$("#widget_settings .modal-body .fa-question-circle").click(function(e) {
+						e.preventDefault();
+						e.stopPropagation();
+						var f = $(this).parents("label").attr("for");
+						$(".help-block").addClass('help-hidden');
+						$('.help-block[data-for="'+f+'"]').removeClass('help-hidden');
+					});
+					$(document).trigger("post-body.widgetsettings",[ widget_id, widget_type_id, $this.activeDashboard ]);
 				});
-				UCP.callModuleByMethod(rawname,"displayWidgetSettings",widget_id,$this.activeDashboard);
-				$(document).trigger("post-body.widgetsettings",[ widget_id, widget_type_id, $this.activeDashboard ]);
 			});
 		});
 
@@ -561,16 +562,17 @@ var WidgetsC = Class.extend({
 			$this.activateSettingsLoading();
 			$("#widget_settings .modal-title").html('<i class="fa fa-cog" aria-hidden="true"></i> '+title+" "+_("Settings")+" ("+name+")");
 			$('#widget_settings').modal('show');
-			$this.getSimpleSettingsContent(settings_container, widget_type_id, rawname, function() {
-				$("#widget_settings .modal-body .fa-question-circle").click(function(e) {
-					e.preventDefault();
-					e.stopPropagation();
-					var f = $(this).parents("label").attr("for");
-					$(".help-block").addClass('help-hidden');
-					$('.help-block[data-for="'+f+'"]').removeClass('help-hidden');
+			$('#widget_settings').on('shown.bs.modal', function() {
+				$this.getSimpleSettingsContent(settings_container, widget_type_id, rawname, function() {
+					$("#widget_settings .modal-body .fa-question-circle").click(function(e) {
+						e.preventDefault();
+						e.stopPropagation();
+						var f = $(this).parents("label").attr("for");
+						$(".help-block").addClass('help-hidden');
+						$('.help-block[data-for="'+f+'"]').removeClass('help-hidden');
+					});
+					$(document).trigger("post-body.simplewidgetsettings",[ widget_id, widget_type_id ]);
 				});
-				UCP.callModuleByMethod(rawname,"displaySimpleWidgetSettings",widget_id);
-				$(document).trigger("post-body.simplewidgetsettings",[ widget_id, widget_type_id ]);
 			});
 		});
 
@@ -588,17 +590,17 @@ var WidgetsC = Class.extend({
 			$this.activateSettingsLoading();
 			$("#widget_settings .modal-title").html('<i class="fa fa-cog" aria-hidden="true"></i> '+_("User Settings"));
 			$('#widget_settings').modal('show');
-
-			$this.getSimpleSettingsContent(settings_container, widget_type_id, rawname, function() {
-				$("#widget_settings .modal-body .fa-question-circle").click(function(e) {
-					e.preventDefault();
-					e.stopPropagation();
-					var f = $(this).parents("label").attr("for");
-					$(".help-block").addClass('help-hidden');
-					$('.help-block[data-for="'+f+'"]').removeClass('help-hidden');
+			$('#widget_settings').on('shown.bs.modal', function() {
+				$this.getSimpleSettingsContent(settings_container, widget_type_id, rawname, function() {
+					$("#widget_settings .modal-body .fa-question-circle").click(function(e) {
+						e.preventDefault();
+						e.stopPropagation();
+						var f = $(this).parents("label").attr("for");
+						$(".help-block").addClass('help-hidden');
+						$('.help-block[data-for="'+f+'"]').removeClass('help-hidden');
+					});
+					$(document).trigger("post-body.simplewidgetsettings",[ widget_id, widget_type_id ]);
 				});
-				UCP.callModuleByMethod(rawname,"displaySimpleWidgetSettings",widget_id);
-				$(document).trigger("post-body.simplewidgetsettings",[ widget_id, widget_type_id ]);
 			});
 		});
 
@@ -1136,6 +1138,7 @@ var WidgetsC = Class.extend({
 				}
 
 				widget_content_object.html(widget_html);
+				UCP.callModuleByMethod(widget_rawname,"displaySimpleWidgetSettings",widget_id);
 			}).done(function() {
 				if(typeof callback === "function") {
 					callback();
@@ -1171,6 +1174,7 @@ var WidgetsC = Class.extend({
 				}
 
 				widget_content_object.html(widget_html);
+				UCP.callModuleByMethod(widget_rawname,"displayWidgetSettings",widget_id,$this.activeDashboard);
 			}).done(function() {
 				if(typeof callback === "function") {
 					callback();
