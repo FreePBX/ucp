@@ -82,7 +82,7 @@ var WidgetsC = Class.extend({
 			$this.activateSettingsLoading();
 			$("#widget_settings .modal-title").html('<i class="fa fa-cog" aria-hidden="true"></i> '+title+" "+_("Settings")+" ("+name+")");
 			$('#widget_settings').modal('show');
-			$('#widget_settings').on('shown.bs.modal', function() {
+			$('#widget_settings').one('shown.bs.modal', function() {
 				$this.getSettingsContent(settings_container, widget_type_id, rawname, function() {
 					$("#widget_settings .modal-body .fa-question-circle").click(function(e) {
 						e.preventDefault();
@@ -562,7 +562,7 @@ var WidgetsC = Class.extend({
 			$this.activateSettingsLoading();
 			$("#widget_settings .modal-title").html('<i class="fa fa-cog" aria-hidden="true"></i> '+title+" "+_("Settings")+" ("+name+")");
 			$('#widget_settings').modal('show');
-			$('#widget_settings').on('shown.bs.modal', function() {
+			$('#widget_settings').one('shown.bs.modal', function() {
 				$this.getSimpleSettingsContent(settings_container, widget_type_id, rawname, function() {
 					$("#widget_settings .modal-body .fa-question-circle").click(function(e) {
 						e.preventDefault();
@@ -590,7 +590,7 @@ var WidgetsC = Class.extend({
 			$this.activateSettingsLoading();
 			$("#widget_settings .modal-title").html('<i class="fa fa-cog" aria-hidden="true"></i> '+_("User Settings"));
 			$('#widget_settings').modal('show');
-			$('#widget_settings').on('shown.bs.modal', function() {
+			$('#widget_settings').one('shown.bs.modal', function() {
 				$this.getSimpleSettingsContent(settings_container, widget_type_id, rawname, function() {
 					$("#widget_settings .modal-body .fa-question-circle").click(function(e) {
 						e.preventDefault();
