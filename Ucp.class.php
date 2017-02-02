@@ -191,41 +191,16 @@ class Ucp implements \BMO {
 	 * @param {array} $data    Array of data to be able to use
 	 */
 	public function usermanSendEmail($id, $display, $data) {
-		$ports = array();
-		if($this->FreePBX->Modules->moduleHasMethod("sysadmin","getPorts")) {
-			$ports = \FreePBX::Sysadmin()->getPorts();
-		} else {
-			if(!function_exists('sysadmin_get_portmgmt') && $this->FreePBX->Modules->checkStatus('sysadmin') && file_exists($this->FreePBX->Config()->get('AMPWEBROOT').'/admin/modules/sysadmin/functions.inc.php')) {
-				include $this->FreePBX->Config()->get('AMPWEBROOT').'/admin/modules/sysadmin/functions.inc.php';
-			}
-
-			if(function_exists('sysadmin_get_portmgmt')) {
-				$ports = sysadmin_get_portmgmt();
-			}
-		}
+		$link = $this->getUcpLink();
 
 		$usettings = $this->FreePBX->Userman->getAuthAllPermissions();
 
-		if(!empty($ports['ucp'])) {
-			//sslucp
-			$p = preg_match("/^https/",$data['host']) && !empty($ports['ucpssl']) ? $ports['ucpssl'] : $ports['ucp'];
-			$data['host'] = $data['host'].":".$p;
-			$final = array(
-				"\t".sprintf(_('User Control Panel: %s'),$data['host']),
-			);
-			if(!$data['password'] && $usettings['changePassword']) {
-				$token = $this->FreePBX->Userman->generatePasswordResetToken($id,"1 day",true);
-				$final[] = "\n".sprintf(_('Password Reset Link (Valid Until: %s): %s'),date("h:i:s A", $token['valid']),$data['host']."/?forgot=".$token['token']);
-			}
-			return $final;
-		}
-
 		$final = array(
-			"\t".sprintf(_('User Control Panel: %s'),$data['host']."/ucp"),
+			"\t".sprintf(_('User Control Panel: %s'),$link),
 		);
 		if(!$data['password'] && $usettings['changePassword']) {
 			$token = $this->FreePBX->Userman->generatePasswordResetToken($id,"1 day",true);
-			$final[] = "\n".sprintf(_('Password Reset Link (Valid Until: %s): %s'),date("h:i:s A", $token['valid']),$data['host']."/ucp/?forgot=".$token['token']);
+			$final[] = "\n".sprintf(_('Password Reset Link (Valid Until: %s): %s'),date("h:i:s A", $token['valid']),$link."/?forgot=".$token['token']);
 		}
 		return $final;
 	}
@@ -236,6 +211,76 @@ class Ucp implements \BMO {
 
 	public function resetPasswordWithToken($token,$newpassword) {
 		return $this->FreePBX->Userman->resetPasswordWithToken($token,$newpassword);
+	}
+
+
+	/**
+	 * Get the correct URL for UCP
+	 *
+	 * This tries to use the UCP port specified in sysadmin,
+	 * if available. Otherwise it defaults to however this
+	 * was requested, with the /ucp/ path.
+	 *
+	 * return string $url
+	 */
+	private function getUcpLink() {
+		// Start by checking if Sysadmin exists. If it does, try using that.
+		if($this->FreePBX->Modules->moduleHasMethod("sysadmin","getPorts")) {
+			$ports = \FreePBX::Sysadmin()->getPorts();
+		} else {
+			if(!function_exists('sysadmin_get_portmgmt')) {
+				// Is sysadmin installed on this machine, but just not loaded?
+				if (file_exists($this->FreePBX->Config()->get('AMPWEBROOT').'/admin/modules/sysadmin/functions.inc.php')) {
+					include $this->FreePBX->Config()->get('AMPWEBROOT').'/admin/modules/sysadmin/functions.inc.php';
+				}
+			}
+			if(function_exists('sysadmin_get_portmgmt')) {
+				$ports = sysadmin_get_portmgmt();
+			} else {
+				// No sysadmin on this machine. Let's try and figure out what we've got.
+				if (isset($_SERVER["HTTPS"])) {
+					// We're using a SSL connection to request this
+					$ports = array("sslacp" => $_SERVER["SERVER_PORT"]);
+				} else {
+					$ports = array("acp" => $_SERVER["SERVER_PORT"]);
+				}
+			}
+		}
+
+		// 1. Prefer SSL Ucp port over anything.
+		if (isset($ports['sslucp']) && is_numeric($ports['sslucp'])) {
+			if ($ports['sslucp'] == 443) {
+				$url = 'https://'.$_SERVER["SERVER_NAME"];
+			} else {
+				$url = 'https://'.$_SERVER["SERVER_NAME"].":".$ports['sslucp'];
+			}
+		// 2. Try http UCP Port next
+		} else if(isset($ports['ucp']) && is_numeric($ports['ucp'])) {
+			if ($ports['ucp'] == 80) {
+				$url = 'http://'.$_SERVER["SERVER_NAME"];
+			} else {
+				$url = 'http://'.$_SERVER["SERVER_NAME"].":".$ports['ucp'];
+			}
+		// 3. Try sslacp as our third option
+		} else if(isset($ports['sslacp']) && is_numeric($ports['sslacp'])) {
+			if ($ports['sslacp'] == 443) {
+				$url = 'https://'.$_SERVER["SERVER_NAME"].'/ucp';
+			} else {
+				$url = 'https://'.$_SERVER["SERVER_NAME"].":".$ports['sslacp'].'/ucp';
+			}
+		// 4. Try normal acp as our third option
+		} else if(isset($ports['acp']) && is_numeric($ports['acp'])) {
+			if ($ports['acp'] == 80) {
+				$url = 'http://'.$_SERVER["SERVER_NAME"].'/ucp';
+			} else {
+				$url = 'http://'.$_SERVER["SERVER_NAME"].":".$ports['acp'].'/ucp';
+			}
+		} else {
+			// Somehow I didn't get a SERVER_NAME, so I don't know what url
+			// to hand back.
+			$url = 'invalid://unknown.server.name/ucp';
+		}
+		return $url;
 	}
 
 	/**
@@ -249,36 +294,19 @@ class Ucp implements \BMO {
 			return false;
 		}
 
-		$token = $this->Userman->generatePasswordResetToken($id);
+		// Forcefully create reset token
+		$token = $this->Userman->generatePasswordResetToken($id, null, true);
 
-		if(empty($token)) {
-			freepbx_log(FPBX_LOG_NOTICE,sprintf(_("A token has already been generated for %s, not sending email again"),$user['username']));
+		if(!$token) {
+			freepbx_log(FPBX_LOG_NOTICE, "Unable to generate password token for ".$user['username']);
 			return false;
 		}
 
 		$user['token'] = $token['token'];
 		$user['brand'] = $this->brand;
-		$user['host'] = (!empty($_SERVER["HTTPS"]) ? 'https://' : 'http://') . $_SERVER["SERVER_NAME"];
-		$user['link'] = $user['host'] . "/ucp/?forgot=".$user['token'];
+
+		$user['link'] = $this->getUcpLink()."/?forgot=".$user['token'];
 		$user['valid'] = date("h:i:s A", $token['valid']);
-
-		$ports = array();
-		if($this->FreePBX->Modules->moduleHasMethod("sysadmin","getPorts")) {
-			$ports = \FreePBX::Sysadmin()->getPorts();
-		} else {
-			if(!function_exists('sysadmin_get_portmgmt') && $this->FreePBX->Modules->checkStatus('sysadmin') && file_exists($this->FreePBX->Config()->get('AMPWEBROOT').'/admin/modules/sysadmin/functions.inc.php')) {
-				include $this->FreePBX->Config()->get('AMPWEBROOT').'/admin/modules/sysadmin/functions.inc.php';
-			}
-
-			if(function_exists('sysadmin_get_portmgmt')) {
-				$ports = sysadmin_get_portmgmt();
-			}
-		}
-
-		if(!empty($ports['ucp'])) {
-			$user['host'] = $user['host'].":".$ports['ucp'];
-			$user['link'] = $user['host'] . "/?forgot=".$user['token'];
-		}
 
 		$template = file_get_contents(__DIR__.'/views/emails/reset_text.tpl');
 		preg_match_all('/%([\w|\d]*)%/',$template,$matches);
@@ -287,7 +315,7 @@ class Ucp implements \BMO {
 			$template = str_replace('%'.$match.'%',$replacement,$template);
 		}
 
-		$this->Userman->sendEmail($user['id'],$this->brand . " password reset",$template);
+		return $this->Userman->sendEmail($user['id'],$this->brand . " password reset",$template);
 	}
 
 	public function delGroup($id,$display,$data) {

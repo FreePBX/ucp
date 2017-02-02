@@ -3,22 +3,23 @@
 # For licensing information, please see the file named LICENSE located in the module directory
 #
 # FreePBX language template for ucp
-# Copyright (C) 2008-2015 Sangoma, Inc.
+# Copyright (C) 2008-2016 Sangoma, Inc.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-01-25 12:48-0800\n"
-"PO-Revision-Date: 2016-09-02 16:04+0200\n"
-"Last-Translator: Kenichi <k.kitani@qloog.com>\n"
-"Language-Team: Japanese <http://weblate.freepbx.org/projects/freepbx/ucp/"
-"ja_JP/>\n"
+"PO-Revision-Date: 2016-12-13 14:49+0200\n"
+"Last-Translator: Maxim <maxim@ua.fm>\n"
+"Language-Team: Ukrainian <http://weblate.freepbx.org/projects/freepbx/ucp/"
+"uk_UA/>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: ja_JP\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
+"Language: uk_UA\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%"
+"10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Generator: Weblate 2.4\n"
 
 #: htdocs/assets/js/bootstrap-table-1.9.0.js:635
@@ -37,16 +38,16 @@ msgstr ""
 #: htdocs/assets/js/bootstrap-table-1.9.0.js:1479
 #: htdocs/assets/js/bootstrap-table-1.9.0.js:1480
 msgid " + field + "
-msgstr " + field + "
+msgstr " + поле + "
 
 #: htdocs/index.php:88
 msgid ".htaccess files are disabled on this webserver. Please enable them"
 msgstr ""
-"このサーバーでは .htaccess ファイルが無効化されています。有効にしてください。"
+".htaccess файли відключені на цьому веб-сервері. Будь ласка, активуйте їх"
 
 #: htdocs/index.php:101
 msgid ".htaccess files are not supported on this webserver."
-msgstr "このサーバーは .htaccess ファイルをサポートしていません。"
+msgstr ".htaccess файли не підтримуються на цьому веб-сервері."
 
 #: htdocs/views/templates/phone.php:41
 msgid "ABC"
@@ -54,87 +55,90 @@ msgstr "ABC"
 
 #: htdocs/views/settings.php:8
 msgid "Account Settings"
-msgstr "アカウント設定"
+msgstr "Налаштування облікового запису"
 
 #: views/users_hook.php:78
 msgid "Active Sessions"
-msgstr "有効セッション"
+msgstr "Активні сеанси"
 
 #: ucp.i18n.php:6
 msgid "Admin"
-msgstr "アドミン"
+msgstr "Адміністратор"
 
 #: htdocs/views/settings.php:11
 msgid ""
 "All fields update when unfocused (selecting another field) except password"
-msgstr "他の枠を選択すると、パスワード以外の情報は更新されます。"
+msgstr ""
+"Всі поля оновлюються, коли стають поза фокусом (вибравши інше поле) за "
+"винятком паролю"
 
 #: htdocs/views/settings.php:111
 msgid "Allow Desktop Notifications"
-msgstr "デスクトップ通知を許可する"
+msgstr "Дозволити сповіщення на робочому столі"
 
 #: views/users_hook.php:46
 msgid "Allow Login"
-msgstr "ログインを許可する"
+msgstr "Дозволити вхід"
 
 #: ucp.i18n.php:14
 msgid "Allow Password Changes"
-msgstr "パスワードの変更を許可"
+msgstr "Дозволити зміну паролю"
 
 #: ucp.i18n.php:20
 msgid "Allow Username Changes"
-msgstr "ユーザ名の変更を許可"
+msgstr "Дозволити зміну ім'я користувача"
 
 #: htdocs/views/settings.php:119
 msgid "Allow browser desktop notifications from UCP modules."
-msgstr "UCPモジュールからのデスクトップ通知（ブラウザ経由）を許可します。"
+msgstr "Дозволити браузеру сповіщення на робочому столі від модулів UCP."
 
 #: views/users_hook.php:163
 msgid ""
 "Allow this user to originate calls from within UCP. This is not the same as "
 "WebRTC"
 msgstr ""
-"このユーザにUCPからの発信権限を付与する。注意: WebRTCとは別の設定です。"
+"Дозволити цьому користувачу здійснювати дзвінки всередині UCP. Це не те ж "
+"саме, що WebRTC"
 
 #: ucp.i18n.php:24
 msgid "Allow users to change their username in UCP"
-msgstr "UCPでユーザ名の変更を可能にする権限をユーザに与えます。"
+msgstr "Дозволити користувачам змінювати своє ім'я користувача в UCP"
 
 #: ucp.i18n.php:18
 msgid "Allow users to change thier password in UCP"
-msgstr "UCPでパスワードの変更を可能にする権限をユーザに与えます。"
+msgstr "Дозволити користувачам змінювати свій пароль в UCP"
 
 #: views/users_hook.php:118
 msgid "Allowed Extension Settings"
-msgstr "許可された内線の設定"
+msgstr "Дозволені налаштування додаткового номеру"
 
 #: htdocs/assets/js/ucp.js:1033
 msgid "Are you sure you wish to change your username?"
-msgstr "ユーザー名を変更してよろしいですか？"
+msgstr "Ви впевнені, що хочете змінити ім'я користувача?"
 
 #: htdocs/views/settings.php:140
 msgid "Browse"
-msgstr "ブラウズ"
+msgstr "Перегляд"
 
 #: htdocs/views/templates/phone.php:7 htdocs/views/templates/phone.php:95
 msgid "Call"
-msgstr "発信"
+msgstr "Виклик"
 
 #: htdocs/views/settings.php:74
 msgid "Cell Phone"
-msgstr "携帯"
+msgstr "Мобільний телефон"
 
 #: htdocs/views/settings.php:69
 msgid "Company"
-msgstr "会社"
+msgstr "Компанія"
 
 #: htdocs/views/settings.php:27
 msgid "Confirm Password"
-msgstr "パスワードを確認"
+msgstr "Підтвердження пароля"
 
 #: htdocs/views/settings.php:127
 msgid "Contact Image"
-msgstr "連絡先の画像"
+msgstr "Зображення контакту"
 
 #: htdocs/views/templates/phone.php:45
 msgid "DEF"
@@ -142,76 +146,76 @@ msgstr "DEF"
 
 #: htdocs/views/settings.php:135
 msgid "Delete Image"
-msgstr "画像を削除"
+msgstr "Видалити зображення"
 
 #: Ucp.class.php:777
 msgid "Deleted Session"
-msgstr "セッションを削除しました"
+msgstr "Видалена сесія"
 
 #: Ucp.class.php:126 Ucp.class.php:620
 msgid "Deleted User Session"
-msgstr "ユーザーのセッションを削除しました"
+msgstr "Видалена користувацька сесія"
 
 #: htdocs/views/settings.php:44
 msgid "Display Name"
-msgstr "表示名"
+msgstr "Відображене ім'я"
 
 #: Ucp.class.php:871 Ucp.class.php:875 Ucp.class.php:879 Ucp.class.php:883
 msgid "Done"
-msgstr "完了"
+msgstr "Зроблено"
 
 #: htdocs/views/settings.php:132
 msgid "Drop a new image here"
-msgstr "新しい画像をここにドロップしてください"
+msgstr "Киньте нове зображення тут"
 
 #: htdocs/views/login.php:29 htdocs/views/settings.php:49
 msgid "Email"
-msgstr "メール"
+msgstr "Електронна пошта"
 
 #: htdocs/includes/User.class.php:78
 msgid "Email address unknown!"
-msgstr ""
+msgstr "Невідома адреса електронної пошти!"
 
 #: views/users_hook.php:144
 msgid "Enable Originating Calls"
-msgstr "発信元を有効にする"
+msgstr "Активувати вихідні виклики"
 
 #: htdocs/modules/Settings/Settings.class.php:83
 msgid "Endpoint Settings"
-msgstr "エンドポイント設定"
+msgstr "Налаштування кінцевих точок"
 
 #: htdocs/index.php:154
 msgid "English"
-msgstr "英語"
+msgstr "Англійська"
 
 #: htdocs/views/dashboard.php:92
 msgid "Excuse us while we try to retrieve your content"
-msgstr "コンテンツを読み込み中"
+msgstr "Вибачте нас, коли ми намагаємося отримати ваш контент"
 
 #: install.inc.php:20
 #, php-format
 msgid "Failed to install %s due to the following conflicting module(s): %s"
-msgstr "%s のインストールに失敗しました。モジュール: %s と衝突しています。"
+msgstr "Не вдалося встановити %s через наступний конфлікт модуля(ів): %s"
 
 #: htdocs/views/settings.php:89
 msgid "Fax"
-msgstr "FAX"
+msgstr "Факс"
 
 #: htdocs/views/templates/pagnation.php:4
 msgid "First"
-msgstr "名"
+msgstr "Перший"
 
 #: htdocs/views/settings.php:54
 msgid "First Name"
-msgstr "名"
+msgstr "Ім'я"
 
 #: htdocs/modules/Settings/Settings.class.php:38
 msgid "Forbidden"
-msgstr "アクセス拒否"
+msgstr "Заборонений"
 
 #: htdocs/views/login.php:36
 msgid "Forgot Password"
-msgstr "パスワードお忘れの場合"
+msgstr "Забули пароль"
 
 #: htdocs/views/templates/phone.php:51
 msgid "GHI"
@@ -219,49 +223,49 @@ msgstr "GHI"
 
 #: views/users_hook.php:19
 msgid "General"
-msgstr "一般"
+msgstr "Загальні"
 
 #: Ucp.class.php:881
 msgid "Generating Main CSS..."
-msgstr "メインCSSを生成中..."
+msgstr "Створення головного CSS..."
 
 #: Ucp.class.php:877
 msgid "Generating Main Scripts..."
-msgstr "メインスクリプトを生成中..."
+msgstr "Створення головного сценарію..."
 
 #: Ucp.class.php:873
 msgid "Generating Module CSS..."
-msgstr "モジュールCSSを生成中..."
+msgstr "Створення модуля CSS..."
 
 #: Ucp.class.php:869
 msgid "Generating Module Scripts..."
-msgstr "モジュールスクリプトを生成中..."
+msgstr "Створення модуля сценарію..."
 
 #: htdocs/views/templates/phone.php:98
 msgid "Hold"
-msgstr "保留"
+msgstr "Тримати"
 
 #: htdocs/modules/Home/Home.class.php:252 htdocs/views/dashboard.php:32
 #: htdocs/assets/js/ucp.js:813
 msgid "Home"
-msgstr "ホーム"
+msgstr "До дому"
 
 #: htdocs/views/settings.php:84
 msgid "Home Phone"
-msgstr "自宅電話"
+msgstr "Домашній телефон"
 
 #: htdocs/views/settings.php:46
 msgid ""
 "How you would like your name displayed throughout UCP and Contact Manager"
-msgstr "UCPとコンタクトマネージャーで使う表示名"
+msgstr "Як ви бажаєте відображати ваше ім'я в UCP та менеджері контактів"
 
 #: views/users_hook.php:56 views/users_hook.php:154
 msgid "Inherit"
-msgstr "引き継ぐ"
+msgstr "Успадковувати"
 
 #: htdocs/views/settings.php:99
 msgid "Interface Settings"
-msgstr "インターフェイス設定"
+msgstr "Налаштування інтерфейсу"
 
 #: htdocs/index.php:251
 #, php-format
@@ -269,25 +273,25 @@ msgid ""
 "Internet Explorer %s is not supported. Functionality will be deteriorated "
 "until you upgrade to %s or higher"
 msgstr ""
-"インターネットエクスプローラー %s はサポートされていません。 %s かそれ以上に"
-"アップグレードするまで機能は制限されます。"
+"Internet Explorer %s не підтримується. Функціональність буде погіршуватися, "
+"поки ви не оновитеся до %s або вище"
 
 #: htdocs/includes/User.class.php:93
 msgid "Invalid"
-msgstr "不正"
+msgstr "Недійсний"
 
 #: htdocs/modules/Home/Home.class.php:201
 #: htdocs/modules/Home/Home.class.php:205
 msgid "Invalid Device"
-msgstr "無効なデバイス"
+msgstr "Недійсний пристрій"
 
 #: htdocs/includes/User.class.php:101
 msgid "Invalid Login Credentials"
-msgstr "ログイン情報が間違っています"
+msgstr "Невірні логін або пароль"
 
 #: htdocs/index.php:240
 msgid "Invalid Token"
-msgstr "不正トークン"
+msgstr "Неприпустимий маркер"
 
 #: htdocs/views/templates/phone.php:55
 msgid "JKL"
@@ -295,33 +299,33 @@ msgstr "JKL"
 
 #: htdocs/views/settings.php:102
 msgid "Language"
-msgstr "言語"
+msgstr "Мова"
 
 #: htdocs/views/templates/pagnation.php:20
 msgid "Last"
-msgstr "姓"
+msgstr "Останній"
 
 #: htdocs/views/settings.php:59
 msgid "Last Name"
-msgstr "姓"
+msgstr "Прізвище"
 
 #: htdocs/views/header.php:67
 msgid "Loading"
-msgstr "読み込み中"
+msgstr "Завантажується"
 
 #: htdocs/views/forgot.php:61 htdocs/views/login.php:53
 #: htdocs/assets/js/ucp.js:1156
 msgid "Loading..."
-msgstr "読み込み中..."
+msgstr "Завантаження..."
 
 #: htdocs/views/forgot.php:45 htdocs/views/login.php:37
 #: htdocs/assets/js/ucp.js:129 htdocs/assets/js/ucp.js:142
 msgid "Login"
-msgstr "ログイン"
+msgstr "Ввійти"
 
 #: htdocs/index.php:227
 msgid "Logout"
-msgstr "ログアウト"
+msgstr "Вийти"
 
 #: htdocs/views/templates/phone.php:59
 msgid "MNO"
@@ -329,54 +333,54 @@ msgstr "MNO"
 
 #: views/users_hook.php:65
 msgid "May this user log in to UCP"
-msgstr "このユーザーが UCP にログインします"
+msgstr "Нехай цей користувач увійде до UCP"
 
 #: views/users_hook.php:24
 msgid "Miscellaneous"
-msgstr "諸々"
+msgstr "Різне"
 
 #: htdocs/includes/Ajax.class.php:139
 msgid "Module or Command were null. Check your code."
-msgstr "モジュールかコマンドはnull。コードを確認してください。"
+msgstr "Модуль або команда нульові. Перевірте свій код."
 
 #: htdocs/assets/js/ucp.js:95
 msgid "New password and old password do not match"
-msgstr "新しいパスワードと古いパスワードが一致しません"
+msgstr "Новий пароль та старий пароль не збігаються"
 
 #: views/users_hook.php:53 views/users_hook.php:151
 msgid "No"
-msgstr "いいえ"
+msgstr "Ні"
 
 #: htdocs/assets/js/ucp.js:1151
 msgid "No email defined"
-msgstr "Emailが設定されていません"
+msgstr "Електронна пошта не визначена"
 
 #: htdocs/modules/Home/assets/js/global.js:75
 msgid "Nothing Entered"
-msgstr "何も入力されていません"
+msgstr "Нічого не введено"
 
 #: htdocs/includes/User.class.php:74
 msgid "Nothing was Provided!"
-msgstr "情報は入力されていません！"
+msgstr "Нічого не вказано!"
 
 #: htdocs/views/header.php:60
 msgid "OFF"
-msgstr "オフ"
+msgstr "OFF"
 
 #: htdocs/views/header.php:57
 msgid "ON"
-msgstr "オン"
+msgstr "ON"
 
 #: htdocs/modules/Home/assets/js/global.js:46
 #: htdocs/modules/Home/assets/js/global.js:124
 msgid "Originate"
-msgstr "生成"
+msgstr "Ініціювати"
 
 #: htdocs/index.php:221 htdocs/modules/Home/assets/js/global.js:22
 #: htdocs/modules/Home/assets/js/global.js:45
 #: htdocs/modules/Home/assets/js/global.js:123
 msgid "Originate Call"
-msgstr "発信する"
+msgstr "Вихідний виклик"
 
 #: htdocs/views/templates/phone.php:65
 msgid "PQRS"
@@ -384,78 +388,78 @@ msgstr "PQRS"
 
 #: htdocs/views/login.php:20 htdocs/views/settings.php:22
 msgid "Password"
-msgstr "パスワード"
+msgstr "Пароль"
 
 #: htdocs/assets/js/ucp.js:1000
 msgid "Password Confirmation Didn't Match!"
-msgstr "パスワードは一致しません！"
+msgstr "Підтвердження пароля не відповідає!"
 
 #: Ucp.class.php:203
 #, php-format
 msgid "Password Reset Link (Valid Until: %s): %s"
-msgstr "パスワードリセットリンク（%sまで有効）: %s"
+msgstr "Посилання на скидання пароля  (дійсне до: %s): %s"
 
 #: htdocs/views/forgot.php:27
 #, php-format
 msgid "Password Reset for: %s"
-msgstr "%s のパスワードをリセットしました"
+msgstr "Скидання пароля для: %s"
 
 #: htdocs/assets/js/ucp.js:98
 msgid "Password fields can't be blank!"
-msgstr "パスワード入力欄は空白にできません！"
+msgstr "Поле пароля не може бути порожнім!"
 
 #: htdocs/assets/js/ucp.js:107
 msgid "Password has been changed!"
-msgstr "パスワードは変更されました！"
+msgstr "Пароль змінено!"
 
 #: htdocs/assets/js/ucp.js:1018
 msgid "Password has not changed!"
-msgstr "パスワードは変更されていません！"
+msgstr "Пароль не змінено!"
 
 #: htdocs/assets/js/ucp.js:73
 msgid "Please enter either a username or email address"
-msgstr "ユーザー名もしくはメールアドレスを入力してください"
+msgstr "Будь ласка, введіть ім'я користувача або адресу електронної пошти"
 
 #: htdocs/assets/js/ucp.js:71 htdocs/assets/js/ucp.js:122
 msgid "Processing..."
-msgstr "処理中..."
+msgstr "Обробка..."
 
 #: ucp.i18n.php:26
 msgid "RSS Feeds"
-msgstr "RSSフィード"
+msgstr "RSS-канали"
 
 #: ucp.i18n.php:30
 msgid "RSS Feeds that are displayed in UCP. This overrides "
-msgstr "RSSフィードがUCPで表示され、上書きします "
+msgstr "RSS-канали, які відображаються в UCP. Це перекриває "
 
 #: Ucp.class.php:29
 msgid "Refreshing all UCP Assets, this could take a while..."
-msgstr "UCPアセットを再読み込みしています。お待ちください..."
+msgstr "Оновлення усіх активів UCP, це може зайняти деякий час..."
 
 #: htdocs/views/forgot.php:48 htdocs/views/login.php:40
 msgid "Remember Me"
-msgstr "保存する"
+msgstr "Запам'ятати мене"
 
 #: htdocs/views/forgot.php:62
 msgid "Reset Password"
-msgstr "パスワードをリセット"
+msgstr "Скинути пароль"
 
 #: htdocs/assets/js/ucp.js:1006 htdocs/assets/js/ucp.js:1051
 msgid "Saved!"
-msgstr "保存しました！"
+msgstr "Збережено!"
 
 #: htdocs/views/login.php:54
 msgid "Send Me A Password Reset Link"
-msgstr "パスワードリセットリンクを送信する"
+msgstr "Надіслати мені посилання на відновлення паролю"
 
 #: htdocs/views/templates/chat.php:25
 #, php-format
 msgid "Sent at %s"
-msgstr "%s に送信された"
+msgstr "Надіслано в %s"
 
 #: htdocs/views/dashboard.php:39 htdocs/assets/js/ucp.js:855
 msgid "Settings"
-msgstr "設定"
+msgstr "Налаштування"
 
 #: htdocs/views/templates/phone.php:69
 msgid "TUV"
@@ -466,46 +470,50 @@ msgid ""
 "The number of days a session token will be valid for. Clear this setting if "
 "you want tokens to last forever (Not Recommended)"
 msgstr ""
-"セッショントークンが有効な日数。トークンが永久に有効になることを希望する場合"
-"この設定をクリアしてください（非推奨）"
+"Кількість днів протягом яких буде дійсний маркер сеансу. Очистити цю "
+"настройку, якщо ви хочете, щоб маркери тривали вічно (не рекомендується)"
 
 #: htdocs/views/settings.php:24 htdocs/views/settings.php:29
 msgid "The password used to login to User Control Panel and other services"
-msgstr "UCPやその他のサービスのログインに使うパスワード"
+msgstr ""
+"Пароль, який використовується для входу в UCP (панель управління) і інші "
+"послуги"
 
 #: htdocs/views/dashfootercontent.php:10
 msgid "The removal of this copyright notice is stricly prohibited"
-msgstr "著作権情報の削除は禁止されています"
+msgstr "Видалення цього повідомлення про авторське право суворо заборонено"
 
 #: ucp.i18n.php:8
 msgid ""
 "The user control panel is a way for users to control call handling and "
 "personal settings from a web browser."
 msgstr ""
-"ユーザーコントロールパネルを使用すると呼の処理と個人設定をウェブブラウザから"
-"コントロールできます。"
+"Панель керування користувача надає можливість користувачам, контролювати "
+"обробку викликів та персональні налаштування за допомогою веб-браузера."
 
 #: htdocs/views/settings.php:15
 msgid "The username used to login to User Control Panel and other services"
-msgstr "ユーザーコントロールパネルとたのサービスにログインするためのユーザー名"
+msgstr ""
+"Ім'я користувача використовується для входу в Панель управління та інші "
+"послуги"
 
 #: htdocs/index.php:116
 msgid "There was an error trying to load UCP"
-msgstr "UCPをロード中にエラーが発生しました"
+msgstr "Сталася помилка при спробі завантажити UCP"
 
 #: views/users_hook.php:134
-#, fuzzy
 msgid ""
 "These are the assigned and active extensions which will be allowed to edit "
 "extension settings such as Call Waiting, Call Forwarding, Find Me/Follow Me "
 "and others"
 msgstr ""
-"これらはアサインされアクティブな内線です。コールウェイティング、通話転送、"
-"ファインドミー / フォロミー、などで内線設定を変更することを許可されています。"
+"Ці призначені і активні додаткові номери, які будуть мати можливість "
+"редагувати налаштування додаткових номерів, такі як очікування виклику, "
+"переадресація викликів, Знайти Мене / Слідувати За Мною тощо"
 
 #: htdocs/views/settings.php:64
 msgid "Title"
-msgstr "肩書"
+msgstr "Назва"
 
 #: htdocs/index.php:89
 #, php-format
@@ -514,9 +522,9 @@ msgid ""
 "webserver's configuration file for the User Control Panel. For more "
 "information see: %s"
 msgstr ""
-"ユーザー・コントロール・パネルを使用するには、サーバーの整合性を保つために"
-"ウェブサーバーの設定ファイルにオーバーライドを許可する必要があります。詳しく"
-"はこちら： %s"
+"Для захиститу цілісністі вашого сервера, ви повинні дозволити перевизначення "
+"в файлі конфігурації веб-сервера для панелі керування користувача. Для "
+"отримання додаткової інформації див: %s"
 
 #: ucp.i18n.php:10
 msgid "UCP"
@@ -524,103 +532,104 @@ msgstr "UCP"
 
 #: views/header.php:1
 msgid "UCP Admin"
-msgstr "UCP管理者"
+msgstr "Адміністратор UCP"
 
 #: htdocs/views/settings.php:108
 msgid "UCP Language"
-msgstr "UCPの言語"
+msgstr "Мова UCP"
 
 #: ucp.i18n.php:32
 msgid "UCP Session Timeout"
-msgstr "UCP セッション タイムアウト"
+msgstr "Тайм-аут сеансу UCP"
 
 #: htdocs/index.php:25
 msgid "UCP is currently disabled. Please talk to your system Administrator"
-msgstr "UCPは無効です。システムの管理者にご相談ください。"
+msgstr ""
+"UCP в даний час відключена. Будь ласка, зверніться до адміністратора системи"
 
 #: htdocs/assets/js/ucp.js:970
 msgid "UCP needs to reload, ok?"
-msgstr "UCPを再読み込みします。よろしいですか？"
+msgstr "UCP потрібно перезавантажити, гаразд?"
 
 #: views/users_hook.php:9
 msgid ""
 "UCP, otherwise known as the User Control Panel, is a user interface for "
 "FreePBX."
 msgstr ""
-"UCP（ユーザーコントロールパネル）はFreePBXのユーザーインターフェイスです。"
+"UCP, інакше відома як Панель Керування Користувача являє собою "
+"користувацький інтерфейс для FreePBX."
 
 #: htdocs/assets/js/ucp.js:395
 #, perl-format
 msgid "Unable to get a token to use UCP Node Server because: '%s'"
-msgstr "UCPノードサーバーを使用するためのトークンを取得できません。理由 : '%s'"
+msgstr ""
+"Не вдалося одержати ключ для використання вузла серверу UCP, так як: '%s'"
 
 #: htdocs/includes/User.class.php:84
 msgid "Unable to send Password Reset Email"
-msgstr ""
+msgstr "Неможливо відправити скидання пароля на електронну пошту"
 
 #: htdocs/index.php:192
 #, php-format
 msgid "Unknown Module %s"
-msgstr "不明モジュール %s"
+msgstr "Невідомий модуль %s"
 
 #: htdocs/assets/js/ucp.js:1090
 msgid "Unsupported file type"
-msgstr "サポートされていないファイル形式"
+msgstr "Непідтримуваний тип файлу"
 
 #: htdocs/views/settings.php:31
 msgid "Update Password"
-msgstr "パスワード更新"
+msgstr "Оновлення пароля"
 
 #: htdocs/views/settings.php:149
 msgid "Use Gravatar"
-msgstr "グラバターを使用"
+msgstr "Використовувати Gravatar"
 
 #: htdocs/views/forgot.php:5 htdocs/views/header.php:4
 #: htdocs/views/login.php:4 ucp.i18n.php:4
 #: /usr/src/freepbx/ucp/ucp.i18n.php:16 ucp.i18n.php:22
 #: /usr/src/freepbx/ucp/ucp.i18n.php:28 ucp.i18n.php:34
 msgid "User Control Panel"
-msgstr "UCP"
+msgstr "Панель керування користувача"
 
 #: htdocs/views/settings.php:2
 msgid "User Control Panel Settings"
-msgstr "ユーザーコントロールパネル設定"
+msgstr "Налаштування панелі керування користувача"
 
 #: htdocs/views/dashfootercontent.php:7
 #, php-format
 msgid "User Control Panel is released as %s or newer"
-msgstr ""
-"ユーザーコントロールパネルのライセンスは %s もしくは最新のライセンスで提供さ"
-"れています"
+msgstr "Користувацька панель керування випущена як %s чи новіше"
 
 #: Ucp.class.php:199
 #, php-format
 msgid "User Control Panel: %s"
-msgstr "ユーザーコントロールパネル： %s"
+msgstr "Панель керування користувача: %s"
 
 #: htdocs/views/settings.php:41
 msgid "User Details"
-msgstr "ユーザー詳細"
+msgstr "Відомості про користувача"
 
 #: ucp.i18n.php:12
 msgid "User Panel"
-msgstr "ユーザーパネル"
+msgstr "Панель користувача"
 
 #: Ucp.class.php:70 /usr/src/freepbx/ucp/Ucp.class.php:98
 msgid "User Primary Extension"
-msgstr "ユーザープライマリ内線"
+msgstr "Основний додатковий номер користувача"
 
 #: htdocs/index.php:227
 msgid "User Settings"
-msgstr "ユーザー設定"
+msgstr "Налаштування користувача"
 
 #: htdocs/views/login.php:15 htdocs/views/settings.php:13
 msgid "Username"
-msgstr "ユーザー名"
+msgstr "Ім'я користувача"
 
 #: htdocs/assets/js/ucp.js:1036
 msgid "Username has been changed, reloading"
-msgstr "ユーザー名は変更されました、リロード中。"
+msgstr "Ім'я користувача було змінено, перезавантаження"
 
 #: htdocs/views/templates/phone.php:73
 msgid "WXYZ"
@@ -629,75 +638,75 @@ msgstr "WXYZ"
 #: htdocs/views/dashboard.php:3
 #, php-format
 msgid "Welcome %s"
-msgstr "こんにちは %s"
+msgstr "Ласкаво просимо %s"
 
 #: views/users_hook.php:4
 msgid "What is UCP"
-msgstr "UCPとは何か"
+msgstr "Що таке UCP"
 
 #: htdocs/views/settings.php:79
 msgid "Work Phone"
-msgstr "オフィス電話"
+msgstr "Робочий телефон"
 
 #: views/users_hook.php:51 views/users_hook.php:149
 msgid "Yes"
-msgstr "はい"
+msgstr "Так"
 
 #: htdocs/assets/js/ucp.js:461
 msgid "You are currently working in offline mode."
-msgstr "オフラインモードを利用中です。"
+msgstr "Наразі ви працюєте в автономному режимі."
 
 #: htdocs/assets/js/ucp.js:147
 msgid "Your Browser is unsupported at this time."
-msgstr "このブラウザはサポートされていません。"
+msgstr "Ваш браузер наразі не підтримується."
 
 #: htdocs/views/settings.php:76
 msgid "Your Cell Phone Number"
-msgstr "あなたの携帯電話番号"
+msgstr "Номер вашого мобільного телефону"
 
 #: htdocs/views/settings.php:71
 msgid "Your Company"
-msgstr "あなたの会社名"
+msgstr "Ваша компанія"
 
 #: htdocs/views/settings.php:51
 msgid "Your Email Address"
-msgstr "あなたのメールアドレス"
+msgstr "Адреса вашої електронної пошти"
 
 #: htdocs/views/settings.php:91
 msgid "Your Fax Number"
-msgstr "あなたのFAX番号"
+msgstr "Номер вашого факсу"
 
 #: htdocs/views/settings.php:56
 msgid "Your First Name"
-msgstr "あなたの名前"
+msgstr "Ваше ім'я"
 
 #: htdocs/views/settings.php:86
 msgid "Your Home Number"
-msgstr "あなたの自宅電話番号"
+msgstr "Ваш домашній номер"
 
 #: htdocs/views/settings.php:61
 msgid "Your Last Name"
-msgstr "あなたの苗字"
+msgstr "Ваше прізвище"
 
 #: htdocs/views/settings.php:66
 msgid "Your Title"
-msgstr "あなたの役職"
+msgstr "Ваша посада"
 
 #: htdocs/views/settings.php:81
 msgid "Your Work Number"
-msgstr "あなたの勤務先電話番号"
+msgstr "Ваш робочій номер"
 
 #: htdocs/assets/js/ucp.js:149
 msgid ""
 "Your browser is unsupported at this time. Please upgrade or talk to your "
 "system administrator"
 msgstr ""
-"ご利用のブラウザはサポートされていません。アップグレードするか、システムの管"
-"理者にご相談ください。"
+"Ваш браузер наразі не підтримується. Будь ласка, оновіть або зверніться до "
+"свого системного адміністратора"
 
 #: htdocs/assets/js/ucp.js:83
 msgid "Your reset link is in the mail!"
-msgstr "リセットリンクはメールで送信しました！"
+msgstr "Ваше посилання на скидання в пошті!"
 
 #: htdocs/index.php:102
 #, php-format
@@ -706,57 +715,14 @@ msgid ""
 "file paths and directories are locked down properly. For more information "
 "see: %s"
 msgstr ""
-"htaccessファイルはサーバーの整合性を保つために重要なファイルです。関連するパ"
-"スとディレクトリのセキュリティ設定をご確認ください。詳しくはこちら： %s"
+"Файли htaccess допомагають захистити цілісність вашого сервера. Будь ласка, "
+"переконайтеся, що шляхи до файлів і каталогів заблоковані правильно. Для "
+"отримання додаткової інформації див: %s"
 
 #: htdocs/views/login.php:24
 msgid "or"
-msgstr "もしくは"
+msgstr "або"
 
 #~ msgid "A token has already been generated for %s, not sending email again"
-#~ msgstr "%sのトーケンが既に発行済みのため、メールは再送しません。"
-
-#~ msgid "Allowed Settings"
-#~ msgstr "可能な設定"
-
-#~ msgid "Formerly ARI, now called User Control Panel"
 #~ msgstr ""
-#~ "かつてARIと呼ばれたモジュールに代わる「ユーザーコントロールパネル」です。"
-
-#~ msgid "Connecting...."
-#~ msgstr "接続中...."
-
-#~ msgid "Copyright 2013-%s Schmooze Com Inc"
-#~ msgstr "Copyright 2013-%s Schmooze Com Inc"
-
-#~ msgid "Failed to install "
-#~ msgstr "インストールが失敗しました "
-
-#~ msgid "Module Settings"
-#~ msgstr "モジュール設定"
-
-#~ msgid "Passwords can't be blank!"
-#~ msgstr "パスワードは空にできません！"
-
-#~ msgid "Passwords changed!"
-#~ msgstr "パスワードを変更しました！"
-
-#~ msgid "Passwords do not match"
-#~ msgstr "パスワードが一致しません"
-
-#~ msgid "Styling and Logos"
-#~ msgstr "デザインとロゴ"
-
-#~ msgid "Submit"
-#~ msgstr "送信"
-
-#~ msgid ""
-#~ "These are the assigned and active extensions which will show up for this "
-#~ "user to control and edit in UCP"
-#~ msgstr "UCPでこのユーザーが使える内線を設定します"
-
-#~ msgid "UCP Password"
-#~ msgstr "UCPパスワード"
-
-#~ msgid "You Title"
-#~ msgstr "あなたの肩書"
+#~ "Маркер вже був створений для %s, електрону пошту повторно не відправлено"
