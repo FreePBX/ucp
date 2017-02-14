@@ -83,7 +83,7 @@ var WidgetsC = Class.extend({
 			$("#widget_settings .modal-title").html('<i class="fa fa-cog" aria-hidden="true"></i> '+title+" "+_("Settings")+" ("+name+")");
 			$('#widget_settings').modal('show');
 			$('#widget_settings').one('shown.bs.modal', function() {
-				$this.getSettingsContent(settings_container, widget_type_id, rawname, function() {
+				$this.getSettingsContent(settings_container, widget_id, widget_type_id, rawname, function() {
 					$("#widget_settings .modal-body .fa-question-circle").click(function(e) {
 						e.preventDefault();
 						e.stopPropagation();
@@ -1152,17 +1152,18 @@ var WidgetsC = Class.extend({
 	 * @method getSettingsContent
 	 * @param  {object}           widget_content_object jQuery object of the settings container
 	 * @param  {string}           widget_id             The widget ID
+	 * @param  {string}           widget_type_id        The widget type ID
 	 * @param  {string}           widget_rawname        The widget rawname
 	 * @param  {Function}         callback              Callback Function when done (success + complete)
 	 */
-	getSettingsContent: function(widget_content_object, widget_id, widget_rawname, callback){
+	getSettingsContent: function(widget_content_object, widget_id, widget_type_id, widget_rawname, callback){
 		var $this = this;
 
 		$.post( UCP.ajaxUrl,
 			{
 				module: "Dashboards",
 				command: "getwidgetsettingscontent",
-				id: widget_id,
+				id: widget_type_id,
 				rawname: widget_rawname
 			},
 			function( data ) {
@@ -1341,10 +1342,14 @@ var WidgetsC = Class.extend({
 			//load widgets
 			$this.activateFullLoading();
 			async.each(dashboards[id], function(widget, callback) {
-				//get loading html
-				var widget_html = $this.activateWidgetLoading();
 				//uppercase the module rawname
 				var cased = widget.rawname.modularize();
+				if(typeof allWidgets[cased] === "undefined") {
+					callback();
+					return;
+				}
+				//get loading html
+				var widget_html = $this.activateWidgetLoading();
 				//TODO: fix this
 				widget.resizable = true;
 				//get widget content
