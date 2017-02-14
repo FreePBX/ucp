@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-02-01 18:08-0800\n"
+"POT-Creation-Date: 2017-02-14 15:14-0800\n"
 "PO-Revision-Date: 2016-02-05 11:16+0200\n"
 "Last-Translator: Nicolas Riendeau <freepbx@riendeau.org>\n"
 "Language-Team: French <http://weblate.freepbx.org/projects/freepbx/ucp/fr_FR/"
@@ -746,7 +746,7 @@ msgid "Something went wrong getting the content of the widget"
 msgstr ""
 
 #: htdocs/modules/Widgets/assets/js/global.js:1137
-#: htdocs/modules/Widgets/assets/js/global.js:1173
+#: htdocs/modules/Widgets/assets/js/global.js:1174
 msgid "Something went wrong getting the settings from the widget"
 msgstr ""
 
@@ -1182,7 +1182,7 @@ msgstr ""
 msgid "You just successfully logged in for the first time!"
 msgstr ""
 
-#: htdocs/modules/Widgets/assets/js/global.js:1261
+#: htdocs/modules/Widgets/assets/js/global.js:1262
 msgid "You must set a dashboard name!"
 msgstr ""
 
