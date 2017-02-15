@@ -161,6 +161,20 @@ class Settings extends Modules{
 			);
 		}
 
+		$modules = $this->UCP->Modules->getModulesByMethod('getUserSettingsDisplay');
+		$displayvars['extra'] = [];
+		foreach($modules as $module) {
+			$out = $this->UCP->Modules->$module->getUserSettingsDisplay();
+			dbug($out);
+			if(!empty($out)) {
+				foreach($out as $o) {
+					if(!empty($o)) {
+						$displayvars['extra'][$module][] = $o;
+					}
+				}
+			}
+		}
+
 		$display = array(
 			'title' => _("User"),
 			'html' => $this->UCP->View->load_view(__DIR__.'/views/settings.php',$displayvars)

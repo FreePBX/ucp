@@ -5,6 +5,11 @@
 		<li class="active"><a href="#accountsettings" data-toggle="tab"><?php echo _("Account Settings")?></a></li>
 		<li><a href="#userinfo" data-toggle="tab"><?php echo _("User Details")?></a></li>
 		<li><a href="#ucpsettings" data-toggle="tab"><?php echo _("Interface Settings")?></a></li>
+		<?php foreach($extra as $module => $data) { ?>
+			<?php foreach($data as $e) { ?>
+				<li><a href="#settings-<?php echo $e['module']?>-<?php echo $e['rawname']?>" data-toggle="tab"><?php echo $e['name']?></a></li>
+			<?php }?>
+		<?php }?>
 	</ul>
 	<div class="tab-content">
 		<div class="tab-pane fade in active" id="accountsettings">
@@ -165,5 +170,12 @@
 				<span class="help-block help-hidden" data-for="timeformat"><?php echo sprintf(_('The format times should display in. The default of "LT" is locale aware. If left blank this will use the group/system format. For more formats please see: %s'),'http://momentjs.com/docs/#/displaying/format/')?></span>
 			</div>
 		</div>
+		<?php foreach($extra as $module => $data) { ?>
+			<?php foreach($data as $e) { ?>
+				<div class="tab-pane fade" id="settings-<?php echo $e['module']?>-<?php echo $e['rawname']?>">
+					<?php echo $e['html']?>
+				</div>
+			<?php }?>
+		<?php }?>
 	</div>
 </div>

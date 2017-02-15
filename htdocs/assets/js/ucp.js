@@ -622,8 +622,8 @@ var UCPC = Class.extend({
 		}
 
 	},
-	addChat: function(module, id, icon, from, to, cnam, msgid, message, callback, htmlV, direction) {
-		var html = (typeof htmlV !== "undefined") ? htmlV : false;
+	addChat: function(module, id, icon, from, to, cnam, msgid, message, callback, html, direction) {
+		html = (typeof html !== "undefined") ? html : false;
 		if (!$( "#messages-container .message-box[data-id=\"" + id + "\"]" ).length && (typeof this.messageBuffer[id] === "undefined")) {
 			//add placeholder
 			if (typeof msgid !== "undefined") {
