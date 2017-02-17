@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-02-14 15:14-0800\n"
+"POT-Creation-Date: 2017-02-16 17:03-0800\n"
 "PO-Revision-Date: 2015-08-30 14:46+0200\n"
 "Last-Translator: Vidar Skjelanger <vidar@unimicro.no>\n"
 "Language-Team: Norwegian Bokmål <http://weblate.freepbx.org/projects/freepbx/"
@@ -123,7 +123,7 @@ msgstr ""
 msgid "ABC"
 msgstr "ABC"
 
-#: htdocs/views/dashboard-footer.php:204
+#: htdocs/views/dashboard-footer.php:202
 msgid "Accept"
 msgstr ""
 
@@ -135,11 +135,11 @@ msgstr ""
 msgid "Active Sessions"
 msgstr "Aktive Sesjoner"
 
-#: htdocs/views/dashboard-footer.php:15
+#: htdocs/views/dashboard-footer.php:13
 msgid "Add Dashboard"
 msgstr ""
 
-#: htdocs/views/dashboard-footer.php:57
+#: htdocs/views/dashboard-footer.php:55
 msgid "Add Widget"
 msgstr ""
 
@@ -164,7 +164,7 @@ msgstr ""
 msgid "Admin"
 msgstr ""
 
-#: htdocs/views/dashboard-footer.php:216
+#: htdocs/views/dashboard-footer.php:214
 msgid "Alert"
 msgstr ""
 
@@ -180,7 +180,7 @@ msgid ""
 "symbol on the dashboard tab"
 msgstr ""
 
-#: htdocs/modules/Settings/views/settings.php:139
+#: htdocs/modules/Settings/views/settings.php:144
 msgid "Allow Desktop Notifications"
 msgstr "Tillat varsler på skrivebordet"
 
@@ -196,7 +196,7 @@ msgstr ""
 msgid "Allow Username Changes"
 msgstr ""
 
-#: htdocs/modules/Settings/views/settings.php:141
+#: htdocs/modules/Settings/views/settings.php:146
 msgid "Allow browser desktop notifications from UCP modules."
 msgstr "Tillat meldinger på nettleser-skrivebordet fra UCP-moduler."
 
@@ -226,7 +226,7 @@ msgstr ""
 msgid "Are you sure you wish to change your username? UCP will reload after"
 msgstr ""
 
-#: htdocs/modules/Settings/views/settings.php:97
+#: htdocs/modules/Settings/views/settings.php:102
 msgid "Browse"
 msgstr ""
 
@@ -234,12 +234,12 @@ msgstr ""
 msgid "Call"
 msgstr "Ring"
 
-#: htdocs/views/dashboard-footer.php:24 htdocs/views/dashboard-footer.php:45
-#: htdocs/views/dashboard-footer.php:153 htdocs/views/dashboard-footer.php:203
+#: htdocs/views/dashboard-footer.php:22 htdocs/views/dashboard-footer.php:43
+#: htdocs/views/dashboard-footer.php:151 htdocs/views/dashboard-footer.php:201
 msgid "Cancel"
 msgstr ""
 
-#: htdocs/modules/Settings/views/settings.php:67
+#: htdocs/modules/Settings/views/settings.php:72
 msgid "Cell Phone"
 msgstr "Mobiltelefon"
 
@@ -271,19 +271,19 @@ msgid ""
 "dashboard."
 msgstr ""
 
-#: htdocs/views/dashboard-footer.php:228
+#: htdocs/views/dashboard-footer.php:226
 msgid "Close"
 msgstr ""
 
-#: htdocs/modules/Settings/views/settings.php:62
+#: htdocs/modules/Settings/views/settings.php:67
 msgid "Company"
 msgstr "Bedrift"
 
-#: htdocs/views/dashboard-footer.php:195
+#: htdocs/views/dashboard-footer.php:193
 msgid "Confirm Action"
 msgstr ""
 
-#: htdocs/modules/Settings/views/settings.php:27
+#: htdocs/modules/Settings/views/settings.php:32
 msgid "Confirm Password"
 msgstr "Bekreft passord"
 
@@ -291,7 +291,7 @@ msgstr "Bekreft passord"
 msgid "Congratulations!"
 msgstr ""
 
-#: htdocs/views/dashboard-footer.php:25
+#: htdocs/views/dashboard-footer.php:23
 msgid "Create Dashboard"
 msgstr ""
 
@@ -303,7 +303,7 @@ msgstr "DEF"
 msgid "Dashboard Locking"
 msgstr ""
 
-#: htdocs/views/dashboard-footer.php:19 htdocs/views/dashboard-footer.php:40
+#: htdocs/views/dashboard-footer.php:17 htdocs/views/dashboard-footer.php:38
 msgid "Dashboard Name"
 msgstr ""
 
@@ -311,7 +311,7 @@ msgstr ""
 msgid "Dashboard Widget"
 msgstr ""
 
-#: htdocs/views/dashboard-footer.php:61
+#: htdocs/views/dashboard-footer.php:59
 msgid "Dashboard Widgets"
 msgstr ""
 
@@ -319,20 +319,20 @@ msgstr ""
 msgid "Dashboards"
 msgstr ""
 
-#: htdocs/modules/Settings/views/settings.php:152
+#: htdocs/modules/Settings/views/settings.php:157
 msgid "Date Format"
 msgstr ""
 
-#: htdocs/modules/Settings/views/settings.php:144
+#: htdocs/modules/Settings/views/settings.php:149
 msgid "Date and Time Format"
 msgstr ""
 
-#: htdocs/modules/Settings/views/settings.php:115
-#: htdocs/modules/Settings/views/settings.php:128
+#: htdocs/modules/Settings/views/settings.php:120
+#: htdocs/modules/Settings/views/settings.php:133
 msgid "Default"
 msgstr ""
 
-#: htdocs/modules/Settings/views/settings.php:92
+#: htdocs/modules/Settings/views/settings.php:97
 msgid "Delete Image"
 msgstr ""
 
@@ -352,7 +352,7 @@ msgstr "Slettet brukersesjon"
 msgid "Disable"
 msgstr ""
 
-#: htdocs/modules/Settings/views/settings.php:37
+#: htdocs/modules/Settings/views/settings.php:42
 msgid "Display Name"
 msgstr "Visningsnavn"
 
@@ -360,11 +360,11 @@ msgstr "Visningsnavn"
 msgid "Done"
 msgstr "Ferdig"
 
-#: htdocs/modules/Settings/views/settings.php:89
+#: htdocs/modules/Settings/views/settings.php:94
 msgid "Drop a new image here"
 msgstr ""
 
-#: htdocs/views/dashboard-footer.php:36 htdocs/views/dashboard-footer.php:46
+#: htdocs/views/dashboard-footer.php:34 htdocs/views/dashboard-footer.php:44
 msgid "Edit Dashboard"
 msgstr ""
 
@@ -372,7 +372,7 @@ msgstr ""
 msgid "Editing a Dashboard"
 msgstr ""
 
-#: htdocs/modules/Settings/views/settings.php:42 htdocs/views/login.php:30
+#: htdocs/modules/Settings/views/settings.php:47 htdocs/views/login.php:30
 msgid "Email"
 msgstr "Epost"
 
@@ -409,7 +409,7 @@ msgstr ""
 msgid "Failed to install %s due to the following conflicting module(s): %s"
 msgstr ""
 
-#: htdocs/modules/Settings/views/settings.php:82
+#: htdocs/modules/Settings/views/settings.php:87
 msgid "Fax"
 msgstr "Fax"
 
@@ -417,7 +417,7 @@ msgstr "Fax"
 msgid "First"
 msgstr "Første"
 
-#: htdocs/modules/Settings/views/settings.php:47
+#: htdocs/modules/Settings/views/settings.php:52
 msgid "First Name"
 msgstr "Fornavn"
 
@@ -457,11 +457,11 @@ msgstr "Parker"
 msgid "Home"
 msgstr "Hjem"
 
-#: htdocs/modules/Settings/views/settings.php:77
+#: htdocs/modules/Settings/views/settings.php:82
 msgid "Home Phone"
 msgstr "Fasttelefon"
 
-#: htdocs/modules/Settings/views/settings.php:39
+#: htdocs/modules/Settings/views/settings.php:44
 msgid ""
 "How you would like your name displayed throughout UCP and Contact Manager"
 msgstr ""
@@ -476,7 +476,7 @@ msgstr ""
 msgid "Interface Settings"
 msgstr ""
 
-#: htdocs/index.php:245
+#: htdocs/index.php:234
 #, php-format
 msgid ""
 "Internet Explorer %s is not supported. Functionality will be deteriorated "
@@ -500,7 +500,7 @@ msgstr ""
 msgid "Invalid Login Credentials"
 msgstr "Ugyldig påloggingsinfo"
 
-#: htdocs/index.php:234
+#: htdocs/index.php:223
 msgid "Invalid Token"
 msgstr "Ugyldig token"
 
@@ -512,7 +512,7 @@ msgstr ""
 msgid "JKL"
 msgstr "JKL"
 
-#: htdocs/modules/Settings/views/settings.php:113
+#: htdocs/modules/Settings/views/settings.php:118
 msgid "Language"
 msgstr "Språk"
 
@@ -520,7 +520,7 @@ msgstr "Språk"
 msgid "Last"
 msgstr "Siste"
 
-#: htdocs/modules/Settings/views/settings.php:52
+#: htdocs/modules/Settings/views/settings.php:57
 msgid "Last Name"
 msgstr "Etternavn"
 
@@ -529,7 +529,7 @@ msgid "Loading..."
 msgstr "Laster..."
 
 #: htdocs/views/forgot.php:45 htdocs/views/login.php:38
-#: htdocs/assets/js/ucp.js:275 htdocs/assets/js/ucp.js:283
+#: htdocs/assets/js/ucp.js:290 htdocs/assets/js/ucp.js:298
 msgid "Login"
 msgstr "Brukernavn"
 
@@ -611,8 +611,8 @@ msgstr "Opprett samtale"
 msgid "PQRS"
 msgstr "PQRS"
 
-#: htdocs/modules/Settings/views/settings.php:20
-#: htdocs/modules/Settings/views/settings.php:22 htdocs/views/login.php:21
+#: htdocs/modules/Settings/views/settings.php:25
+#: htdocs/modules/Settings/views/settings.php:27 htdocs/views/login.php:21
 msgid "Password"
 msgstr "Passord"
 
@@ -630,7 +630,7 @@ msgstr "Link for å resette passordet (Gyldig til: %s): %s"
 msgid "Password Reset for: %s"
 msgstr "Tilbakestilling av passord for: %s"
 
-#: htdocs/assets/js/ucp.js:253
+#: htdocs/assets/js/ucp.js:268
 msgid "Password has been changed!"
 msgstr ""
 
@@ -638,7 +638,7 @@ msgstr ""
 msgid "Password has not changed!"
 msgstr ""
 
-#: htdocs/assets/js/ucp.js:268
+#: htdocs/assets/js/ucp.js:283
 msgid "Processing..."
 msgstr "Behandler..."
 
@@ -701,7 +701,7 @@ msgstr "Sendt %s"
 msgid "Settings"
 msgstr "Innstillinger"
 
-#: htdocs/views/dashboard-footer.php:62
+#: htdocs/views/dashboard-footer.php:60
 msgid "Side Bar Widgets"
 msgstr ""
 
@@ -790,7 +790,7 @@ msgstr ""
 msgid "The dashboard's name can be changed by clicking the pencil"
 msgstr ""
 
-#: htdocs/modules/Settings/views/settings.php:149
+#: htdocs/modules/Settings/views/settings.php:154
 #, php-format
 msgid ""
 "The format dates and times should display in. The default of \"llll\" is "
@@ -798,7 +798,7 @@ msgid ""
 "formats please see: %s"
 msgstr ""
 
-#: htdocs/modules/Settings/views/settings.php:157
+#: htdocs/modules/Settings/views/settings.php:162
 #, php-format
 msgid ""
 "The format dates should display in. The default of \"l\" is locale aware. If "
@@ -806,7 +806,7 @@ msgid ""
 "see: %s"
 msgstr ""
 
-#: htdocs/modules/Settings/views/settings.php:165
+#: htdocs/modules/Settings/views/settings.php:170
 #, php-format
 msgid ""
 "The format times should display in. The default of \"LT\" is locale aware. "
@@ -820,8 +820,8 @@ msgid ""
 "you want tokens to last forever (Not Recommended)"
 msgstr ""
 
-#: htdocs/modules/Settings/views/settings.php:24
 #: htdocs/modules/Settings/views/settings.php:29
+#: htdocs/modules/Settings/views/settings.php:34
 msgid "The password used to login to User Control Panel and other services"
 msgstr "Passordet som brukes for å logge inn i UCP og andre tjenester"
 
@@ -829,7 +829,7 @@ msgstr "Passordet som brukes for å logge inn i UCP og andre tjenester"
 msgid "The removal of this copyright notice is stricly prohibited"
 msgstr "Å fjerne dette varselet om opphavsrett er ikke tillatt"
 
-#: htdocs/assets/js/ucp.js:481
+#: htdocs/assets/js/ucp.js:496
 msgid "The session has expired and you are being forcibly logged out"
 msgstr ""
 
@@ -839,7 +839,7 @@ msgid ""
 "personal settings from a web browser."
 msgstr ""
 
-#: htdocs/modules/Settings/views/settings.php:15
+#: htdocs/modules/Settings/views/settings.php:20
 msgid "The username used to login to User Control Panel and other services"
 msgstr "Brukernavnet som brukes for å logge inn i UCP og andre tjenester"
 
@@ -881,15 +881,15 @@ msgid ""
 "in a few simple steps."
 msgstr ""
 
-#: htdocs/modules/Settings/views/settings.php:160
+#: htdocs/modules/Settings/views/settings.php:165
 msgid "Time Format"
 msgstr ""
 
-#: htdocs/modules/Settings/views/settings.php:126
+#: htdocs/modules/Settings/views/settings.php:131
 msgid "Timezone"
 msgstr ""
 
-#: htdocs/modules/Settings/views/settings.php:57
+#: htdocs/modules/Settings/views/settings.php:62
 msgid "Title"
 msgstr "Tittel"
 
@@ -939,7 +939,7 @@ msgid "UCP is currently disabled. Please talk to your system Administrator"
 msgstr ""
 "UCP er for øyeblikket deaktivert. Vennligst kontakt din systemadministrator"
 
-#: htdocs/assets/js/ucp.js:301
+#: htdocs/assets/js/ucp.js:316
 msgid "UCP is not supported in your browser"
 msgstr ""
 
@@ -964,31 +964,31 @@ msgstr ""
 msgid "Unsupported file type"
 msgstr ""
 
-#: htdocs/modules/Settings/views/settings.php:31
+#: htdocs/modules/Settings/views/settings.php:36
 msgid "Update Password"
 msgstr ""
 
-#: htdocs/modules/Settings/views/settings.php:117
+#: htdocs/modules/Settings/views/settings.php:122
 msgid "Use Browser Language"
 msgstr ""
 
-#: htdocs/modules/Settings/views/settings.php:130
+#: htdocs/modules/Settings/views/settings.php:135
 msgid "Use Browser Timezone"
 msgstr ""
 
-#: htdocs/modules/Settings/views/settings.php:106
+#: htdocs/modules/Settings/views/settings.php:111
 msgid "Use Gravatar"
 msgstr ""
 
-#: htdocs/modules/Settings/views/settings.php:120
+#: htdocs/modules/Settings/views/settings.php:125
 msgid "Use PBX Language"
 msgstr ""
 
-#: htdocs/modules/Settings/views/settings.php:133
+#: htdocs/modules/Settings/views/settings.php:138
 msgid "Use PBX Timezone"
 msgstr ""
 
-#: htdocs/modules/Settings/Settings.class.php:165
+#: htdocs/modules/Settings/Settings.class.php:179
 msgid "User"
 msgstr ""
 
@@ -1025,7 +1025,7 @@ msgstr ""
 msgid "User Settings"
 msgstr ""
 
-#: htdocs/modules/Settings/views/settings.php:13 htdocs/views/login.php:16
+#: htdocs/modules/Settings/views/settings.php:18 htdocs/views/login.php:16
 msgid "Username"
 msgstr "Brukernavn"
 
@@ -1073,7 +1073,7 @@ msgstr ""
 msgid "Widget Placement"
 msgstr ""
 
-#: htdocs/views/dashboard-footer.php:164
+#: htdocs/views/dashboard-footer.php:162
 msgid "Widget Settings"
 msgstr ""
 
@@ -1126,7 +1126,7 @@ msgid ""
 "Click and drag to resize the widget."
 msgstr ""
 
-#: htdocs/modules/Settings/views/settings.php:72
+#: htdocs/modules/Settings/views/settings.php:77
 msgid "Work Phone"
 msgstr "Telefon arbeid"
 
@@ -1167,55 +1167,55 @@ msgstr ""
 msgid "You need to add at least one dashboard to continue"
 msgstr ""
 
-#: htdocs/assets/js/ucp.js:288
+#: htdocs/assets/js/ucp.js:303
 msgid "Your Browser is unsupported at this time."
 msgstr "Din nettleser er ikke støttet på nåværende tidspunkt."
 
-#: htdocs/modules/Settings/views/settings.php:69
+#: htdocs/modules/Settings/views/settings.php:74
 msgid "Your Cell Phone Number"
 msgstr "Ditt mobilnummer"
 
-#: htdocs/modules/Settings/views/settings.php:64
+#: htdocs/modules/Settings/views/settings.php:69
 msgid "Your Company"
 msgstr "Din bedrift"
 
-#: htdocs/modules/Settings/views/settings.php:44
+#: htdocs/modules/Settings/views/settings.php:49
 msgid "Your Email Address"
 msgstr "Din epostadresse"
 
-#: htdocs/modules/Settings/views/settings.php:84
+#: htdocs/modules/Settings/views/settings.php:89
 msgid "Your Fax Number"
 msgstr "Ditt faksnummer"
 
-#: htdocs/modules/Settings/views/settings.php:49
+#: htdocs/modules/Settings/views/settings.php:54
 msgid "Your First Name"
 msgstr "Ditt fornavn"
 
-#: htdocs/modules/Settings/views/settings.php:79
+#: htdocs/modules/Settings/views/settings.php:84
 msgid "Your Home Number"
 msgstr "Ditt hjemmenummer"
 
-#: htdocs/modules/Settings/views/settings.php:123
+#: htdocs/modules/Settings/views/settings.php:128
 msgid "Your Language"
 msgstr ""
 
-#: htdocs/modules/Settings/views/settings.php:54
+#: htdocs/modules/Settings/views/settings.php:59
 msgid "Your Last Name"
 msgstr "Ditt etternavn"
 
-#: htdocs/modules/Settings/views/settings.php:136
+#: htdocs/modules/Settings/views/settings.php:141
 msgid "Your Timezone"
 msgstr ""
 
-#: htdocs/modules/Settings/views/settings.php:59
+#: htdocs/modules/Settings/views/settings.php:64
 msgid "Your Title"
 msgstr "Din tittel"
 
-#: htdocs/modules/Settings/views/settings.php:74
+#: htdocs/modules/Settings/views/settings.php:79
 msgid "Your Work Number"
 msgstr "Ditt telefonnummer (arbeid)"
 
-#: htdocs/assets/js/ucp.js:290
+#: htdocs/assets/js/ucp.js:305
 msgid ""
 "Your browser is unsupported at this time. Please upgrade or talk to your "
 "system administrator"
