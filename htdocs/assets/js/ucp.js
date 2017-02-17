@@ -93,6 +93,21 @@ var UCPC = Class.extend({
 			$(el).selectpicker();
 		};
 
+		$("#globalModal").on("shown.bs.modal",function() {
+			$('#globalModal .modal-body select[data-toggle="select"]:visible').each(function() {
+				setupBootstrapSelect(this);
+			});
+			$('#globalModal .modal-body select[data-toggle="multiselect"]:visible').each(function() {
+				setupBootstrapMultiselect(this);
+			});
+			$('#globalModal .modal-body input[type=checkbox][data-toggle="toggle"]:visible').each(function() {
+				setupBootstrapToggle(this);
+			});
+			$('#globalModal .modal-body table[data-toggle="table"]:visible').each(function() {
+				setupBootstrapTable(this);
+			});
+		});
+
 		$(document).on("post-body.simplewidget", function() {
 			$('.small-widget-content select[data-toggle="select"]:visible').each(function() {
 				setupBootstrapSelect(this);
@@ -637,6 +652,18 @@ var UCPC = Class.extend({
 			var newWindow = (typeof msgid === "undefined");
 			$.ajax({ url: "index.php", data: { quietmode: 1, command: "template", type: "chat", newWindow: newWindow, template: { module: module, icon: icon, id: id, to: to, from: from } }, success: function(data) {
 				$( "#messages-container" ).append( data.contents );
+				$("#messages-container .message-box[data-id=\"" + id + "\"] .response textarea").emojioneArea({
+					pickerPosition: "top",
+					filtersPosition: "top",
+					tonesStyle: "checkbox",
+					inline: true,
+					useInternalCDN: false,
+					imageType: 'svg',
+					textcomplete: {
+						maxCount: 5,
+						placement: 'top'
+					}
+				});
 				$( "#messages-container .message-box[data-id=\"" + id + "\"]" ).fadeIn("fast", function() {
 					if (typeof msgid !== "undefined") {
 						if (typeof UCP.messageBuffer[id] !== "undefined") {

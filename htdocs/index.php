@@ -163,17 +163,6 @@ $displayvars['user_dashboards'] = $user_dashboards;
 
 $displayvars['user_small_widgets'] = $user_small_widgets;
 
-$displayvars['navItems'] = array();
-foreach($ucp->Modules->getModulesByMethod('getNavItems') as $m) {
-	$mc = ucfirst(strtolower($m));
-	$item = $ucp->Modules->$mc->getNavItems();
-	if(!empty($item)) {
-		foreach($item as $i) {
-			$displayvars['navItems'][] = $i;
-		}
-	}
-}
-
 /***********************/
 /* DASHBOARD SELECTION */
 /***********************/

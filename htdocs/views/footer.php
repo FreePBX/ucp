@@ -49,8 +49,8 @@
 				var dashboards = <?php echo !empty($dashboards_info) ? json_encode($dashboards_info) : '{}'?>;
 				var allWidgets = <?php echo json_encode($all_widgets['widget'])?>;
 				var allSimpleWidgets = <?php echo json_encode($all_simple_widgets['widget'])?>;
-				emojione.imagePathPNG = 'assets/images/emoji/png/';
 				emojione.imagePathSVG = 'assets/images/emoji/svg/';
+				emojione.imageType = 'svg';
 			</script>
 		<?php } ?>
 		<div id="shade"></div>

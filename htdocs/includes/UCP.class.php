@@ -35,7 +35,7 @@ class UCP extends UCP_Helpers {
 		}
 
 		$this->emoji = new Client(new Ruleset());
-		$this->emoji->imagePathPNG = 'assets/images/emoji/png/'; // defaults to jsdelivr's free CDN
+		$this->emoji->imageType = 'svg';
 		$this->emoji->imagePathSVG = 'assets/images/emoji/svg/'; // defaults to jsdelivr's free CDN
 
 		$this->detect = new \Mobile_Detect;
@@ -195,14 +195,14 @@ class UCP extends UCP_Helpers {
 			"jquery.jplayer-2.9.2.min.js",
 			"purl-2.3.1.js",
 			"modernizr-3.3.1.js",
-			/*"jquery.pjax-1.9.6.js",*/
 			"notify-2.0.3.js",
 			"class.js",
 			"jquery.textfill-0.6.0.min.js",
 			"jed-1.1.1.js",
 			"modgettext.js",
 			"js.cookie-2.1.3.min.js",
-			"emojione-2.2.6.min.js",
+			"emojione-2.2.7.min.js",
+			"emojionearea-3.1.6.min.js",
 			"jquery.tokenize-2.6.js",
 			"moment-with-locales-2.15.1.min.js",
 			"moment-timezone-with-data-2010-2020-0.5.6.min.js",
@@ -276,7 +276,8 @@ class UCP extends UCP_Helpers {
 			"bootstrap-toggle-2.2.2.min.css",
 			"bootstrap-select-1.12.1.min.css",
 			"ajax-bootstrap-select-1.3.8.min.css",
-			"emojione-2.2.6.min.css",
+			"emojione-2.2.7.min.css",
+			"emojionearea-3.1.6.min.css",
 			"font-awesome.min-4.7.0.css",
 			"gridstack.min.css",
 			"jquery.tokenize-2.6.css"

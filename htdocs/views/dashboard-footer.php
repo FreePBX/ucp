@@ -1,8 +1,6 @@
 					</div>
 				</div>
 			</div>
-			<div id="messages-container">
-			</div>
 		</div>
 	</div>
 
@@ -231,4 +229,6 @@
 				</div>
 			</div>
 		</div>
+	</div>
+	<div id="messages-container">
 	</div>
