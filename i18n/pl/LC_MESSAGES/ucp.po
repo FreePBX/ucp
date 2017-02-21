@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-01-25 12:48-0800\n"
-"PO-Revision-Date: 2017-02-19 20:51+0200\n"
+"PO-Revision-Date: 2017-02-20 20:38+0200\n"
 "Last-Translator: Michal <mboltz@tlen.pl>\n"
 "Language-Team: Polish <http://weblate.freepbx.org/projects/freepbx/ucp/pl/>\n"
 "Language: pl\n"
@@ -37,7 +37,7 @@ msgstr ""
 #: htdocs/assets/js/bootstrap-table-1.9.0.js:1479
 #: htdocs/assets/js/bootstrap-table-1.9.0.js:1480
 msgid " + field + "
-msgstr ""
+msgstr " + pole + "
 
 #: htdocs/index.php:88
 msgid ".htaccess files are disabled on this webserver. Please enable them"
@@ -53,7 +53,7 @@ msgstr "ABC"
 
 #: htdocs/views/settings.php:8
 msgid "Account Settings"
-msgstr ""
+msgstr "Ustawienia Konta"
 
 #: views/users_hook.php:78
 msgid "Active Sessions"
@@ -67,6 +67,8 @@ msgstr "Administrator"
 msgid ""
 "All fields update when unfocused (selecting another field) except password"
 msgstr ""
+"Kiedy nie wymuszone. Aktualizacja wszystkich pól za wyjątkiem hasła (wybiera "
+"kolejne pole)."
 
 #: htdocs/views/settings.php:111
 msgid "Allow Desktop Notifications"
@@ -78,11 +80,11 @@ msgstr "Zazwalaj na logowanie"
 
 #: ucp.i18n.php:14
 msgid "Allow Password Changes"
-msgstr ""
+msgstr "Zezwól na zmianę hasła"
 
 #: ucp.i18n.php:20
 msgid "Allow Username Changes"
-msgstr ""
+msgstr "Zezwól na zmianę nazwy użytkownika"
 
 #: htdocs/views/settings.php:119
 msgid "Allow browser desktop notifications from UCP modules."
@@ -93,18 +95,21 @@ msgid ""
 "Allow this user to originate calls from within UCP. This is not the same as "
 "WebRTC"
 msgstr ""
+"Zezwól użytkownikowi na inicjowanie połączenia z Panelu Użytkownika (UCP). "
+"To nie jest równoznaczne z klientem WebRTC"
 
 #: ucp.i18n.php:24
 msgid "Allow users to change their username in UCP"
 msgstr ""
+"Zezwól użytkownikowi na zmianę nazwy użytkownika w Panelu Użytkownika (UCP)"
 
 #: ucp.i18n.php:18
 msgid "Allow users to change thier password in UCP"
-msgstr ""
+msgstr "Zezwól użytkownikowi na zmianę hasła w Panelu Użytkownika (UCP)"
 
 #: views/users_hook.php:118
 msgid "Allowed Extension Settings"
-msgstr ""
+msgstr "Dopuszczone ustawienia numeru wewnętrznego"
 
 #: htdocs/assets/js/ucp.js:1033
 msgid "Are you sure you wish to change your username?"
