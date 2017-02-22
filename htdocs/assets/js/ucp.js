@@ -32,7 +32,7 @@ var UCPC = Class.extend({
 	},
 	ready: function(loggedIn) {
 		this.parseUrl();
-		$(document).bind("logIn", function( event, username, password ) {UCP.logIn(event, username, password);});
+		$(document).bind("logIn", function( event) {UCP.logIn(event);});
 		$(document).bind("logOut", function( event ) {UCP.logOut(event);});
 		$(window).bind("online", function( event ) {UCP.online(event);});
 		$(window).bind("offline", function( event ) {UCP.offline(event);});
@@ -218,6 +218,7 @@ var UCPC = Class.extend({
 		return mdata;
 	},
 	setupLogin: function() {
+		var $this = this;
 		var btn = $("#btn-login"), fbtn = $("#btn-forgot");
 		$(".action-switch span").click(function() {
 			var hide = $(this).data("hide"), show = $(this).data("show");
@@ -281,17 +282,19 @@ var UCPC = Class.extend({
 
 				btn.prop("disabled", true);
 				btn.text(_("Processing..."));
-				queryString = queryString + "&quietmode=1&module=User&command=login";
-				$.post( "index.php", queryString, function( data ) {
+				queryString = queryString + "&module=User&command=login";
+				$.post( UCP.ajaxUrl, queryString, function( data ) {
 					if (!data.status) {
 						$("#error-msg").html(data.message).fadeIn("fast");
 						$("#login-window").height("300");
 						btn.prop("disabled", false);
 						btn.text(_("Login"));
 					} else {
+						sessionStorage.setItem('username', username);
+						sessionStorage.setItem('password', password);
 						location.reload();
 					}
-				}, "json");
+				});
 				return false;
 			});
 			btn.prop("disabled", false);
@@ -795,7 +798,11 @@ var UCPC = Class.extend({
 	offline: function(event) {
 		this.disconnect();
 	},
-	logIn: function(event, username, password) {
+	logIn: function(event) {
+		var username = sessionStorage.getItem('username');
+		var password = sessionStorage.getItem('password');
+		sessionStorage.removeItem('username');
+		sessionStorage.removeItem('password');
 		//TODO: need to figure out text domains!
 		textdomain(this.activeModule.toLowerCase());
 		this.loggedIn = true;

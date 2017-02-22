@@ -32,7 +32,7 @@ if(!isset($_REQUEST['command']) || !isset($_REQUEST['module'])) {
 	$json = json_encode(array("status" => "false", "message" => "forbidden"));
 	die($json);
 }
-if(($user === false || empty($user))) {
+if(($_REQUEST['command'] != "login" && $_REQUEST['module'] != "User") && ($user === false || empty($user))) {
 	header("HTTP/1.0 403 Forbidden");
 	$json = json_encode(array("status" => "false", "message" => "forbidden"));
 	die($json);
