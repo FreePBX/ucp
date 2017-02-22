@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-02-16 17:03-0800\n"
+"POT-Creation-Date: 2017-02-22 10:57-0800\n"
 "PO-Revision-Date: 2015-05-02 20:55+0200\n"
 "Last-Translator: Renato <fiuza@tecnologia.inf.br>\n"
 "Language-Team: Portuguese (Brazil) <http://weblate.freepbx.org/projects/"
@@ -530,7 +530,7 @@ msgid "Loading..."
 msgstr "Carregando…"
 
 #: htdocs/views/forgot.php:45 htdocs/views/login.php:38
-#: htdocs/assets/js/ucp.js:290 htdocs/assets/js/ucp.js:298
+#: htdocs/assets/js/ucp.js:291 htdocs/assets/js/ucp.js:301
 msgid "Login"
 msgstr "Login"
 
@@ -631,7 +631,7 @@ msgstr "Link de Redefinição de Senha (Válido Até: %s): %s"
 msgid "Password Reset for: %s"
 msgstr "Redefinição de Senha para: %s"
 
-#: htdocs/assets/js/ucp.js:268
+#: htdocs/assets/js/ucp.js:269
 msgid "Password has been changed!"
 msgstr ""
 
@@ -639,7 +639,7 @@ msgstr ""
 msgid "Password has not changed!"
 msgstr ""
 
-#: htdocs/assets/js/ucp.js:283
+#: htdocs/assets/js/ucp.js:284
 msgid "Processing..."
 msgstr "Processando…"
 
@@ -831,7 +831,7 @@ msgstr ""
 msgid "The removal of this copyright notice is stricly prohibited"
 msgstr "A remoção deste aviso de direitos autorais é estritamente proibida"
 
-#: htdocs/assets/js/ucp.js:496
+#: htdocs/assets/js/ucp.js:499
 msgid "The session has expired and you are being forcibly logged out"
 msgstr ""
 
@@ -946,7 +946,7 @@ msgstr ""
 "PCU está desabilitado atualmente. Por favor fale com seu Administrador de "
 "sistema"
 
-#: htdocs/assets/js/ucp.js:316
+#: htdocs/assets/js/ucp.js:319
 msgid "UCP is not supported in your browser"
 msgstr ""
 
@@ -1174,7 +1174,7 @@ msgstr ""
 msgid "You need to add at least one dashboard to continue"
 msgstr ""
 
-#: htdocs/assets/js/ucp.js:303
+#: htdocs/assets/js/ucp.js:306
 msgid "Your Browser is unsupported at this time."
 msgstr "Seu Navegador não é suportado neste momento."
 
@@ -1222,7 +1222,7 @@ msgstr "Seu Título"
 msgid "Your Work Number"
 msgstr "Seu Número de Trabalho"
 
-#: htdocs/assets/js/ucp.js:305
+#: htdocs/assets/js/ucp.js:308
 msgid ""
 "Your browser is unsupported at this time. Please upgrade or talk to your "
 "system administrator"

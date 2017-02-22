@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-02-16 17:03-0800\n"
+"POT-Creation-Date: 2017-02-22 10:57-0800\n"
 "PO-Revision-Date: 2016-02-05 11:16+0200\n"
 "Last-Translator: Nicolas Riendeau <freepbx@riendeau.org>\n"
 "Language-Team: French <http://weblate.freepbx.org/projects/freepbx/ucp/fr_FR/"
@@ -538,7 +538,7 @@ msgid "Loading..."
 msgstr "Chargement..."
 
 #: htdocs/views/forgot.php:45 htdocs/views/login.php:38
-#: htdocs/assets/js/ucp.js:290 htdocs/assets/js/ucp.js:298
+#: htdocs/assets/js/ucp.js:291 htdocs/assets/js/ucp.js:301
 msgid "Login"
 msgstr "Se connecter"
 
@@ -639,7 +639,7 @@ msgstr "Lien pour réinitialiser le mot de passe (Valide jusqu'au:%s): %s"
 msgid "Password Reset for: %s"
 msgstr "Réinitialiser le mot de passe pour: %s"
 
-#: htdocs/assets/js/ucp.js:268
+#: htdocs/assets/js/ucp.js:269
 msgid "Password has been changed!"
 msgstr ""
 
@@ -647,7 +647,7 @@ msgstr ""
 msgid "Password has not changed!"
 msgstr ""
 
-#: htdocs/assets/js/ucp.js:283
+#: htdocs/assets/js/ucp.js:284
 msgid "Processing..."
 msgstr "Traitement en cours ..."
 
@@ -841,7 +841,7 @@ msgstr ""
 msgid "The removal of this copyright notice is stricly prohibited"
 msgstr "La suppression de cette mention de copyright est strictement interdite"
 
-#: htdocs/assets/js/ucp.js:496
+#: htdocs/assets/js/ucp.js:499
 msgid "The session has expired and you are being forcibly logged out"
 msgstr ""
 
@@ -960,7 +960,7 @@ msgstr ""
 "UCP est actuellement désactivé. Veuillez parler à votre administrateur "
 "système"
 
-#: htdocs/assets/js/ucp.js:316
+#: htdocs/assets/js/ucp.js:319
 msgid "UCP is not supported in your browser"
 msgstr ""
 
@@ -1190,7 +1190,7 @@ msgstr ""
 msgid "You need to add at least one dashboard to continue"
 msgstr ""
 
-#: htdocs/assets/js/ucp.js:303
+#: htdocs/assets/js/ucp.js:306
 msgid "Your Browser is unsupported at this time."
 msgstr "Votre navigateur n'est pas supporté pour le moment."
 
@@ -1238,7 +1238,7 @@ msgstr "Votre Titre"
 msgid "Your Work Number"
 msgstr "Votre numéro de téléphone au travail"
 
-#: htdocs/assets/js/ucp.js:305
+#: htdocs/assets/js/ucp.js:308
 msgid ""
 "Your browser is unsupported at this time. Please upgrade or talk to your "
 "system administrator"

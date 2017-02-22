@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-02-16 17:03-0800\n"
+"POT-Creation-Date: 2017-02-22 10:57-0800\n"
 "PO-Revision-Date: 2016-07-06 05:21+0200\n"
 "Last-Translator: Media <mousavi.media@gmail.com>\n"
 "Language-Team: Persian (Iran) <http://weblate.freepbx.org/projects/freepbx/"
@@ -531,7 +531,7 @@ msgid "Loading..."
 msgstr "در حال بارگذاری…"
 
 #: htdocs/views/forgot.php:45 htdocs/views/login.php:38
-#: htdocs/assets/js/ucp.js:290 htdocs/assets/js/ucp.js:298
+#: htdocs/assets/js/ucp.js:291 htdocs/assets/js/ucp.js:301
 msgid "Login"
 msgstr "ورود"
 
@@ -632,7 +632,7 @@ msgstr "لینک بازنشانی کلمه عبور (معتبر تا : %s): %s"
 msgid "Password Reset for: %s"
 msgstr "بازنشانی کلمه عبور برای:%s"
 
-#: htdocs/assets/js/ucp.js:268
+#: htdocs/assets/js/ucp.js:269
 msgid "Password has been changed!"
 msgstr "کلمه عبور تغییر یافت!"
 
@@ -640,7 +640,7 @@ msgstr "کلمه عبور تغییر یافت!"
 msgid "Password has not changed!"
 msgstr "کلمه عبور تغییری نکرده است!"
 
-#: htdocs/assets/js/ucp.js:283
+#: htdocs/assets/js/ucp.js:284
 msgid "Processing..."
 msgstr "در حال پردازش..."
 
@@ -835,7 +835,7 @@ msgstr ""
 msgid "The removal of this copyright notice is stricly prohibited"
 msgstr "حذف اعلان کپی رایت اکیدا ممنوع است"
 
-#: htdocs/assets/js/ucp.js:496
+#: htdocs/assets/js/ucp.js:499
 msgid "The session has expired and you are being forcibly logged out"
 msgstr ""
 
@@ -951,7 +951,7 @@ msgid "UCP is currently disabled. Please talk to your system Administrator"
 msgstr ""
 "پنل کنترل کاربری در حال حاضر غیرفعال است. لطفا با مدیر سیستم خود تماس بگیرید"
 
-#: htdocs/assets/js/ucp.js:316
+#: htdocs/assets/js/ucp.js:319
 msgid "UCP is not supported in your browser"
 msgstr ""
 
@@ -1180,7 +1180,7 @@ msgstr ""
 msgid "You need to add at least one dashboard to continue"
 msgstr ""
 
-#: htdocs/assets/js/ucp.js:303
+#: htdocs/assets/js/ucp.js:306
 msgid "Your Browser is unsupported at this time."
 msgstr "در حال حاضر مرورگر شما پشتیبانی نمی شود."
 
@@ -1228,7 +1228,7 @@ msgstr "عنوان شما"
 msgid "Your Work Number"
 msgstr "تلفن محل کار شما"
 
-#: htdocs/assets/js/ucp.js:305
+#: htdocs/assets/js/ucp.js:308
 msgid ""
 "Your browser is unsupported at this time. Please upgrade or talk to your "
 "system administrator"

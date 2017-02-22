@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-02-16 17:03-0800\n"
+"POT-Creation-Date: 2017-02-22 10:57-0800\n"
 "PO-Revision-Date: 2016-12-13 14:49+0200\n"
 "Last-Translator: Maxim <maxim@ua.fm>\n"
 "Language-Team: Ukrainian <http://weblate.freepbx.org/projects/freepbx/ucp/"
@@ -534,7 +534,7 @@ msgid "Loading..."
 msgstr "Завантаження..."
 
 #: htdocs/views/forgot.php:45 htdocs/views/login.php:38
-#: htdocs/assets/js/ucp.js:290 htdocs/assets/js/ucp.js:298
+#: htdocs/assets/js/ucp.js:291 htdocs/assets/js/ucp.js:301
 msgid "Login"
 msgstr "Ввійти"
 
@@ -635,7 +635,7 @@ msgstr "Посилання на скидання пароля  (дійсне д�
 msgid "Password Reset for: %s"
 msgstr "Скидання пароля для: %s"
 
-#: htdocs/assets/js/ucp.js:268
+#: htdocs/assets/js/ucp.js:269
 msgid "Password has been changed!"
 msgstr "Пароль змінено!"
 
@@ -643,7 +643,7 @@ msgstr "Пароль змінено!"
 msgid "Password has not changed!"
 msgstr "Пароль не змінено!"
 
-#: htdocs/assets/js/ucp.js:283
+#: htdocs/assets/js/ucp.js:284
 msgid "Processing..."
 msgstr "Обробка..."
 
@@ -838,7 +838,7 @@ msgstr ""
 msgid "The removal of this copyright notice is stricly prohibited"
 msgstr "Видалення цього повідомлення про авторське право суворо заборонено"
 
-#: htdocs/assets/js/ucp.js:496
+#: htdocs/assets/js/ucp.js:499
 msgid "The session has expired and you are being forcibly logged out"
 msgstr ""
 
@@ -956,7 +956,7 @@ msgid "UCP is currently disabled. Please talk to your system Administrator"
 msgstr ""
 "UCP в даний час відключена. Будь ласка, зверніться до адміністратора системи"
 
-#: htdocs/assets/js/ucp.js:316
+#: htdocs/assets/js/ucp.js:319
 msgid "UCP is not supported in your browser"
 msgstr ""
 
@@ -1186,7 +1186,7 @@ msgstr ""
 msgid "You need to add at least one dashboard to continue"
 msgstr ""
 
-#: htdocs/assets/js/ucp.js:303
+#: htdocs/assets/js/ucp.js:306
 msgid "Your Browser is unsupported at this time."
 msgstr "Ваш браузер наразі не підтримується."
 
@@ -1234,7 +1234,7 @@ msgstr "Ваша посада"
 msgid "Your Work Number"
 msgstr "Ваш робочій номер"
 
-#: htdocs/assets/js/ucp.js:305
+#: htdocs/assets/js/ucp.js:308
 msgid ""
 "Your browser is unsupported at this time. Please upgrade or talk to your "
 "system administrator"

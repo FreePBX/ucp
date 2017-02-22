@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-02-16 17:03-0800\n"
+"POT-Creation-Date: 2017-02-22 10:57-0800\n"
 "PO-Revision-Date: 2016-09-02 16:04+0200\n"
 "Last-Translator: Kenichi <k.kitani@qloog.com>\n"
 "Language-Team: Japanese <http://weblate.freepbx.org/projects/freepbx/ucp/"
@@ -530,7 +530,7 @@ msgid "Loading..."
 msgstr "読み込み中..."
 
 #: htdocs/views/forgot.php:45 htdocs/views/login.php:38
-#: htdocs/assets/js/ucp.js:290 htdocs/assets/js/ucp.js:298
+#: htdocs/assets/js/ucp.js:291 htdocs/assets/js/ucp.js:301
 msgid "Login"
 msgstr "ログイン"
 
@@ -631,7 +631,7 @@ msgstr "パスワードリセットリンク（%sまで有効）: %s"
 msgid "Password Reset for: %s"
 msgstr "%s のパスワードをリセットしました"
 
-#: htdocs/assets/js/ucp.js:268
+#: htdocs/assets/js/ucp.js:269
 msgid "Password has been changed!"
 msgstr "パスワードは変更されました！"
 
@@ -639,7 +639,7 @@ msgstr "パスワードは変更されました！"
 msgid "Password has not changed!"
 msgstr "パスワードは変更されていません！"
 
-#: htdocs/assets/js/ucp.js:283
+#: htdocs/assets/js/ucp.js:284
 msgid "Processing..."
 msgstr "処理中..."
 
@@ -832,7 +832,7 @@ msgstr "UCPやその他のサービスのログインに使うパスワード"
 msgid "The removal of this copyright notice is stricly prohibited"
 msgstr "著作権情報の削除は禁止されています"
 
-#: htdocs/assets/js/ucp.js:496
+#: htdocs/assets/js/ucp.js:499
 msgid "The session has expired and you are being forcibly logged out"
 msgstr ""
 
@@ -947,7 +947,7 @@ msgstr ""
 msgid "UCP is currently disabled. Please talk to your system Administrator"
 msgstr "UCPは無効です。システムの管理者にご相談ください。"
 
-#: htdocs/assets/js/ucp.js:316
+#: htdocs/assets/js/ucp.js:319
 msgid "UCP is not supported in your browser"
 msgstr ""
 
@@ -1178,7 +1178,7 @@ msgstr ""
 msgid "You need to add at least one dashboard to continue"
 msgstr ""
 
-#: htdocs/assets/js/ucp.js:303
+#: htdocs/assets/js/ucp.js:306
 msgid "Your Browser is unsupported at this time."
 msgstr "このブラウザはサポートされていません。"
 
@@ -1226,7 +1226,7 @@ msgstr "あなたの役職"
 msgid "Your Work Number"
 msgstr "あなたの勤務先電話番号"
 
-#: htdocs/assets/js/ucp.js:305
+#: htdocs/assets/js/ucp.js:308
 msgid ""
 "Your browser is unsupported at this time. Please upgrade or talk to your "
 "system administrator"
