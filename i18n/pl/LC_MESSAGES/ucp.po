@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-01-25 12:48-0800\n"
-"PO-Revision-Date: 2017-02-20 20:38+0200\n"
+"PO-Revision-Date: 2017-03-01 02:14+0200\n"
 "Last-Translator: Michal <mboltz@tlen.pl>\n"
 "Language-Team: Polish <http://weblate.freepbx.org/projects/freepbx/ucp/pl/>\n"
 "Language: pl\n"
@@ -366,7 +366,7 @@ msgstr "OFF"
 
 #: htdocs/views/header.php:57
 msgid "ON"
-msgstr "ON"
+msgstr "Włącz"
 
 #: htdocs/modules/Home/assets/js/global.js:46
 #: htdocs/modules/Home/assets/js/global.js:124
