@@ -145,6 +145,11 @@
 				<input type="checkbox" name="desktopnotifications" data-toggle="toggle" id="desktopnotifications">
 				<span class="help-block help-hidden" data-for="desktopnotifications-h"><?php echo _('Allow browser desktop notifications from UCP modules.')?></span>
 			</div>
+			<div class="form-group tour-group">
+				<label for="tour-h" class="help"><?php echo _('Restart Tour')?> <i class="fa fa-question-circle"></i></label><br/>
+				<input type="checkbox" name="tour" data-toggle="toggle" id="tour">
+				<span class="help-block help-hidden" data-for="tour-h"><?php echo _('When set to yes the tour will restart when this window closes')?></span>
+			</div>
 			<div class="form-group">
 				<label for="datetimeformat" class="help"><?php echo _('Date and Time Format')?> <i class="fa fa-question-circle"></i></label><br/>
 				<div class="input-group">

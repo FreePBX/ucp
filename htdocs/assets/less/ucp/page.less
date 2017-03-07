@@ -50,38 +50,6 @@ input, textarea {
 	font-family: 'lato', sans-serif;
 }
 
-/* COMMON COLORS */
-@main_color: #2F4050;
-@secundary_color: #e7eaec;
-@third_color: #18A689;
-@light_hover: #a7b1c2;
-@dark_hover: #2F4050;
-@cancel_color: #885156;
-/* COMMON COLORS */
-
-/* COMMON SIZES */
-@loading_size: 65px;
-@loading_size_widget: 15px;
-@sidebar_main_padding: 45px;
-/* COMMON SIZES */
-
-/* TOP BAR COLORS */
-@tab_background: #FFF;
-@tab_color: #2F4050;
-@tab_border_color: #2F4050;
-@tab_inactive_color: #b2b2b2;
-@add_dashboard_color: #45596C;
-/* TOP BAR COLORS */
-
-
-/* SIDE BAR COLORS */
-@bar_background_color: #e7eaec;
-@button_background_color: #2F4050;
-@button_color: #e7eaec;
-@menu_secundary_color: #A77B66;
-/* SIDE BAR COLORS */
-
-
 /* MIXINS */
 .border-radius (@radius: 5px) {
 	-webkit-border-radius: @radius;
@@ -1429,6 +1397,16 @@ div.bhoechie-tab-menu{
 	padding-right: 0;
 	padding-left: 0;
 	padding-bottom: 0;
+	.list-group-item.top-locked {
+		position: fixed;
+		top: 79px;
+		width: 143px;
+	}
+	.list-group-item.bottom-locked {
+		position: fixed;
+		bottom: 66px;
+		width: 143px;
+	}
 }
 div.bhoechie-tab-menu div.list-group{
 	margin-bottom: 0;
@@ -1470,6 +1448,7 @@ div.bhoechie-tab-content{
 	text-align: center;
 	color: @main_color;
 	overflow-y: auto;
+	height: ~"calc(100vh - 247px)";
 }
 
 div.bhoechie-tab div.bhoechie-tab-content:not(.active){

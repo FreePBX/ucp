@@ -889,11 +889,47 @@ var WidgetsC = Class.extend({
 			$this.closeExtraWidgetMenu();
 			$(".navbar-nav .add-widget").addClass("active");
 		});
+		//tab select scroll position memory
+		$('#add_widget .nav-tabs a[data-toggle=tab]').on('shown.bs.tab', function (e) {
+			$("#add_widget .bhoechie-tab-menu .list-group-item").each(function() {
+				$(this).data("position",$(this).position().top);
+			});
+			var container = $("#add_widget .tab-content");
+			$(e.relatedTarget).data("scroll",container.scrollTop());
+
+			var scroll = $(e.target).data("scroll");
+			if(typeof scroll !== "undefined") {
+				container.scrollTop(scroll);
+			} else {
+				container.scrollTop(0);
+			}
+		});
+		$("#add_widget").on("shown.bs.modal",function() {
+			$("#add_widget .bhoechie-tab-menu .list-group-item").each(function() {
+				$(this).data("position",$(this).position().top);
+			});
+			$("#add_widget .tab-content").off("scroll");
+			$("#add_widget .tab-content").scroll(function() {
+				var top = $(this).scrollTop();
+				var bottom = $(this).scrollTop() + $(this).height();
+				if(($(this).find(".tab-pane.active .bhoechie-tab-menu").height() - (top - 30)) > $(this).height()) {
+					$(this).find(".tab-pane.active .bhoechie-tab").css("top",top);
+				}
+
+				var active  = $(this).find(".tab-pane.active .list-group-item.active");
+				active.removeClass("top-locked bottom-locked");
+				if(top > (active.data("position") + 10)) {
+					active.addClass("top-locked");
+				} else if(bottom < (active.data("position") + active.height())) {
+					active.addClass("bottom-locked");
+				}
+			});
+		});
 		$("#add_widget").on("hidden.bs.modal",function() {
-			$(".navbar-nav .add-widget").removeClass("active");
+			$(".navbar-nav .add-widget").removeClass("active top-locked bottom-locked");
 		});
 		var $this = this;
-		$(".add-widget-button").click(function(){
+		$(document).on("click",".add-widget-button", function(){
 			if($this.activeDashboard === null) {
 				UCP.showAlert(_("There is no active dashboard to add widgets to"), "danger");
 				return;
@@ -941,7 +977,7 @@ var WidgetsC = Class.extend({
 			//Checking if the widget is already on the dashboard
 			var object_on_dashboard = $("div[data-id='"+new_widget_id+"']");
 
-			if(object_on_dashboard.length <= 0){
+			if(object_on_dashboard.length <= 0) {
 
 				$this.activateFullLoading();
 
@@ -1060,10 +1096,10 @@ var WidgetsC = Class.extend({
 			var parent = $(this);
 			$(this).find(".list-group-item").click(function(e) {
 				e.preventDefault();
-				$(this).siblings('a.active').removeClass("active");
+				$(this).siblings('a.active').removeClass("active top-locked bottom-locked");
 				$(this).addClass("active");
 				var id = $(this).data("id");
-				parent.find(".bhoechie-tab-content").removeClass("active");
+				parent.find(".bhoechie-tab-content").removeClass("active top-locked bottom-locked");
 				parent.find(".bhoechie-tab-content[data-id='"+id+"']").addClass("active");
 			});
 		});

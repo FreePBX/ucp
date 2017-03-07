@@ -141,6 +141,25 @@ var SettingsC = UCPMC.extend({
 			});
 		}
 
+		var restartTour = false;
+		$("#ucp-settings input[name=\"tour\"]").prop("checked", false);
+		$("#ucp-settings input[name=\"tour\"]").change(function() {
+			if($(this).is(":checked")) {
+				restartTour = true;
+			} else {
+				restartTour = false;
+			}
+			$.post( UCP.ajaxUrl + "?module=ucptour&command=tour", { state: (restartTour ? 1 : 0) }, function( data ) {
+
+			});
+		});
+
+		$("#widget_settings").one('hidden.bs.modal', function() {
+			if(restartTour) {
+				UCP.Modules.Ucptour.tour.restart();
+			}
+		});
+
 		$("#ucp-settings input[name=username]").blur(function() {
 			var parent = $(this).parents(".form-group"), green = "rgba(60, 118, 61, 0.11)", red = 'rgba(169, 68, 66, 0.11)', $this = this;
 			parent.removeClass("has-success has-error");
