@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-02-22 10:57-0800\n"
+"POT-Creation-Date: 2017-03-14 17:33-0700\n"
 "PO-Revision-Date: 2015-11-23 13:55+0200\n"
 "Last-Translator: james <zhulizhong@gmail.com>\n"
 "Language-Team: Simplified Chinese <http://weblate.freepbx.org/projects/"
@@ -101,10 +101,6 @@ msgid ""
 "     * // => "
 msgstr ""
 
-#: htdocs/assets/js/jquery-ui-1.12.1.min.js:6
-msgid "+t,e.props.alpha={idx:3,type:"
-msgstr ""
-
 #: htdocs/index.php:78
 msgid ".htaccess files are disabled on this webserver. Please enable them"
 msgstr ".htaccess 文件已经关闭，请开启此功能"
@@ -113,7 +109,7 @@ msgstr ".htaccess 文件已经关闭，请开启此功能"
 msgid ".htaccess files are not supported on this webserver."
 msgstr "页面服务器不支持.htaccess 文件。"
 
-#: htdocs/modules/Ucptour/assets/js/global.js:98
+#: htdocs/modules/Ucptour/assets/js/global.js:123
 #, perl-format
 msgid "A dashboard can be deleted by clicking the '%s'"
 msgstr ""
@@ -130,7 +126,7 @@ msgstr ""
 msgid "Account Settings"
 msgstr ""
 
-#: views/users_hook.php:78
+#: views/users_hook.php:107
 msgid "Active Sessions"
 msgstr "活动的会话"
 
@@ -142,21 +138,21 @@ msgstr ""
 msgid "Add Widget"
 msgstr ""
 
-#: htdocs/modules/Ucptour/assets/js/global.js:224
+#: htdocs/modules/Ucptour/assets/js/global.js:250
+msgid "Adding Side Bar Widgets"
+msgstr ""
+
+#: htdocs/modules/Ucptour/assets/js/global.js:299
 msgid "Adding Small Widgets"
 msgstr ""
 
-#: htdocs/modules/Ucptour/assets/js/global.js:114
-#: htdocs/modules/Ucptour/assets/js/global.js:144
+#: htdocs/modules/Ucptour/assets/js/global.js:139
+#: htdocs/modules/Ucptour/assets/js/global.js:188
 msgid "Adding Widgets"
 msgstr ""
 
 #: htdocs/modules/Ucptour/assets/js/global.js:32
 msgid "Adding a dashboard"
-msgstr ""
-
-#: htdocs/modules/Ucptour/assets/js/global.js:193
-msgid "Adding sidebar Widgets"
 msgstr ""
 
 #: ucp.i18n.php:6
@@ -172,7 +168,7 @@ msgid ""
 "All fields update when unfocused (selecting another field) except password"
 msgstr ""
 
-#: htdocs/modules/Ucptour/assets/js/global.js:189
+#: htdocs/modules/Ucptour/assets/js/global.js:239
 #, perl-format
 msgid ""
 "All widgets in a dashboard can also be locked globally by clicking the '%s' "
@@ -199,7 +195,7 @@ msgstr "允许用户名称修改"
 msgid "Allow browser desktop notifications from UCP modules."
 msgstr "支持通过UCP模块查询桌面提示"
 
-#: views/users_hook.php:163
+#: views/users_hook.php:192
 msgid ""
 "Allow this user to originate calls from within UCP. This is not the same as "
 "WebRTC"
@@ -213,7 +209,7 @@ msgstr ""
 msgid "Allow users to change thier password in UCP"
 msgstr "允许用户通过UCP修改密码"
 
-#: views/users_hook.php:118
+#: views/users_hook.php:147
 msgid "Allowed Extension Settings"
 msgstr "支持的分机设置"
 
@@ -221,8 +217,8 @@ msgstr "支持的分机设置"
 msgid "Are you sure you want to delete this dashboard?"
 msgstr ""
 
-#: htdocs/modules/Settings/assets/js/global.js:187
-msgid "Are you sure you wish to change your username? UCP will reload after"
+#: htdocs/modules/Ucptour/assets/js/global.js:244
+msgid "Blurb"
 msgstr ""
 
 #: htdocs/modules/Settings/views/settings.php:102
@@ -242,28 +238,27 @@ msgstr ""
 msgid "Cell Phone"
 msgstr "手机"
 
-#: htdocs/modules/Ucptour/assets/js/global.js:238
+#: htdocs/modules/Ucptour/assets/js/global.js:313
 msgid "Click the widget's icon to continue"
 msgstr ""
 
 #: htdocs/modules/Ucptour/assets/js/global.js:33
-#: htdocs/modules/Ucptour/assets/js/global.js:115
-#: htdocs/modules/Ucptour/assets/js/global.js:145
-#: htdocs/modules/Ucptour/assets/js/global.js:194
-#: htdocs/modules/Ucptour/assets/js/global.js:208
-#: htdocs/modules/Ucptour/assets/js/global.js:225
-#: htdocs/modules/Ucptour/assets/js/global.js:260
+#: htdocs/modules/Ucptour/assets/js/global.js:140
+#: htdocs/modules/Ucptour/assets/js/global.js:189
+#: htdocs/modules/Ucptour/assets/js/global.js:251
+#: htdocs/modules/Ucptour/assets/js/global.js:300
+#: htdocs/modules/Ucptour/assets/js/global.js:335
 msgid "Click this symbol to continue"
 msgstr ""
 
-#: htdocs/modules/Ucptour/assets/js/global.js:225
+#: htdocs/modules/Ucptour/assets/js/global.js:300
 #, perl-format
 msgid ""
 "Clicking the '%s' symbol will add this small widget to the display. It will "
 "be visible on all dashboards"
 msgstr ""
 
-#: htdocs/modules/Ucptour/assets/js/global.js:145
+#: htdocs/modules/Ucptour/assets/js/global.js:189
 #, perl-format
 msgid ""
 "Clicking the '%s' symbol will add this widget to the currently active "
@@ -298,7 +293,7 @@ msgstr ""
 msgid "DEF"
 msgstr ""
 
-#: htdocs/modules/Ucptour/assets/js/global.js:188
+#: htdocs/modules/Ucptour/assets/js/global.js:238
 msgid "Dashboard Locking"
 msgstr ""
 
@@ -306,23 +301,35 @@ msgstr ""
 msgid "Dashboard Name"
 msgstr ""
 
-#: htdocs/modules/Ucptour/assets/js/global.js:157
+#: htdocs/modules/Ucptour/assets/js/global.js:202
 msgid "Dashboard Widget"
 msgstr ""
 
 #: htdocs/views/dashboard-footer.php:59
+#: htdocs/modules/Ucptour/assets/js/global.js:101
 msgid "Dashboard Widgets"
 msgstr ""
 
-#: htdocs/modules/Ucptour/assets/js/global.js:82
+#: htdocs/modules/Ucptour/assets/js/global.js:102
+msgid "Dashboard widgets will be displayed here"
+msgstr ""
+
+#: htdocs/modules/Ucptour/assets/js/global.js:93
 msgid "Dashboards"
 msgstr ""
 
-#: htdocs/modules/Settings/views/settings.php:157
+#: htdocs/modules/Ucptour/assets/js/global.js:167
+msgid ""
+"Dashbord Widgets are sorted into categories on the left. These widgets will "
+"appear directly on your dashboard. You can click on any category to get a "
+"listing of the widgets available"
+msgstr ""
+
+#: htdocs/modules/Settings/views/settings.php:162
 msgid "Date Format"
 msgstr ""
 
-#: htdocs/modules/Settings/views/settings.php:149
+#: htdocs/modules/Settings/views/settings.php:154
 msgid "Date and Time Format"
 msgstr ""
 
@@ -335,15 +342,15 @@ msgstr ""
 msgid "Delete Image"
 msgstr ""
 
-#: htdocs/modules/Ucptour/assets/js/global.js:97
+#: htdocs/modules/Ucptour/assets/js/global.js:122
 msgid "Delete a Dashboard"
 msgstr ""
 
-#: Ucp.class.php:777
+#: Ucp.class.php:805
 msgid "Deleted Session"
 msgstr "已删除的会话"
 
-#: Ucp.class.php:126 Ucp.class.php:620
+#: Ucp.class.php:128 Ucp.class.php:648
 msgid "Deleted User Session"
 msgstr "已删除的用户会话"
 
@@ -355,7 +362,7 @@ msgstr ""
 msgid "Display Name"
 msgstr "显示名称"
 
-#: Ucp.class.php:871 Ucp.class.php:875 Ucp.class.php:879 Ucp.class.php:883
+#: Ucp.class.php:899 Ucp.class.php:903 Ucp.class.php:907 Ucp.class.php:911
 msgid "Done"
 msgstr "完成"
 
@@ -367,7 +374,7 @@ msgstr ""
 msgid "Edit Dashboard"
 msgstr ""
 
-#: htdocs/modules/Ucptour/assets/js/global.js:90
+#: htdocs/modules/Ucptour/assets/js/global.js:115
 msgid "Editing a Dashboard"
 msgstr ""
 
@@ -383,15 +390,25 @@ msgstr ""
 msgid "Enable"
 msgstr ""
 
-#: views/users_hook.php:144
+#: views/users_hook.php:173
 msgid "Enable Originating Calls"
 msgstr "开启发起呼叫功能"
+
+#: views/users_hook.php:76
+msgid "Enable Tour Mode"
+msgstr ""
+
+#: views/users_hook.php:95
+msgid ""
+"Enable tour mode in UCP upon first login. If disabled the tour will not "
+"automatically start upon first login"
+msgstr ""
 
 #: htdocs/modules/Settings/assets/js/global.js:134
 msgid "Enabling notifications was denied"
 msgstr ""
 
-#: htdocs/modules/Ucptour/assets/js/global.js:280
+#: htdocs/modules/Ucptour/assets/js/global.js:355
 msgid "End of tour"
 msgstr ""
 
@@ -399,7 +416,7 @@ msgstr ""
 msgid "English"
 msgstr "英文"
 
-#: htdocs/modules/Ucptour/assets/js/global.js:52
+#: htdocs/modules/Ucptour/assets/js/global.js:51
 msgid "Enter a name for your dashboard in this input box"
 msgstr ""
 
@@ -432,19 +449,19 @@ msgstr ""
 msgid "General"
 msgstr "标准"
 
-#: Ucp.class.php:881
+#: Ucp.class.php:909
 msgid "Generating Main CSS..."
 msgstr "生成 Main CSS。。。"
 
-#: Ucp.class.php:877
+#: Ucp.class.php:905
 msgid "Generating Main Scripts..."
 msgstr "生成Main Scripts。。。"
 
-#: Ucp.class.php:873
+#: Ucp.class.php:901
 msgid "Generating Module CSS..."
 msgstr "生成 Module CSS..."
 
-#: Ucp.class.php:869
+#: Ucp.class.php:897
 msgid "Generating Module Scripts..."
 msgstr ""
 
@@ -465,7 +482,7 @@ msgid ""
 "How you would like your name displayed throughout UCP and Contact Manager"
 msgstr ""
 
-#: views/users_hook.php:56 views/users_hook.php:154
+#: views/users_hook.php:56 views/users_hook.php:86 views/users_hook.php:183
 msgid "Inherit"
 msgstr "继承"
 
@@ -530,7 +547,7 @@ msgstr "装载中。。。"
 msgid "Login"
 msgstr "登录"
 
-#: htdocs/modules/Ucptour/assets/js/global.js:276
+#: htdocs/modules/Ucptour/assets/js/global.js:351
 msgid "Logout"
 msgstr "退出"
 
@@ -550,22 +567,22 @@ msgstr ""
 msgid "Module or Command were null. Check your code."
 msgstr ""
 
-#: htdocs/modules/Ucptour/assets/js/global.js:105
+#: htdocs/modules/Ucptour/assets/js/global.js:130
 msgid ""
 "Multiple dashboard can be re-ordered by hovering with your mouse until the "
 "move cursor is shown. Then clicking and dragging the dashboard in the order "
 "you want"
 msgstr ""
 
-#: htdocs/modules/Ucptour/assets/js/global.js:51
+#: htdocs/modules/Ucptour/assets/js/global.js:50
 msgid "Name your dashboard"
 msgstr ""
 
-#: views/users_hook.php:53 views/users_hook.php:151
+#: views/users_hook.php:53 views/users_hook.php:83 views/users_hook.php:180
 msgid "No"
 msgstr ""
 
-#: htdocs/modules/Ucptour/assets/js/global.js:171
+#: htdocs/modules/Ucptour/assets/js/global.js:216
 msgid "Note: some widgets have size restrictions!"
 msgstr ""
 
@@ -585,11 +602,11 @@ msgstr ""
 msgid "ON"
 msgstr ""
 
-#: htdocs/modules/Ucptour/assets/js/global.js:238
+#: htdocs/modules/Ucptour/assets/js/global.js:313
 msgid "Once a small widget has been added it will show up in the left sidebar"
 msgstr ""
 
-#: htdocs/modules/Ucptour/assets/js/global.js:104
+#: htdocs/modules/Ucptour/assets/js/global.js:129
 msgid "Ordering dashboards"
 msgstr ""
 
@@ -613,11 +630,7 @@ msgstr ""
 msgid "Password"
 msgstr "密码"
 
-#: htdocs/modules/Settings/assets/js/global.js:168
-msgid "Password Confirmation Didn't Match!"
-msgstr ""
-
-#: Ucp.class.php:203
+#: Ucp.class.php:207
 #, php-format
 msgid "Password Reset Link (Valid Until: %s): %s"
 msgstr ""
@@ -629,10 +642,6 @@ msgstr ""
 
 #: htdocs/assets/js/ucp.js:269
 msgid "Password has been changed!"
-msgstr ""
-
-#: htdocs/modules/Settings/assets/js/global.js:182
-msgid "Password has not changed!"
 msgstr ""
 
 #: htdocs/assets/js/ucp.js:284
@@ -664,23 +673,33 @@ msgstr ""
 msgid "Reset Password"
 msgstr ""
 
-#: htdocs/modules/Ucptour/assets/js/global.js:58
+#: htdocs/modules/Settings/views/settings.php:149
+msgid "Restart Tour"
+msgstr ""
+
+#: htdocs/modules/Ucptour/assets/js/global.js:69
 msgid "Save your dashboard"
 msgstr ""
 
-#: htdocs/modules/Settings/assets/js/global.js:172
-#: htdocs/modules/Settings/assets/js/global.js:202
-#: htdocs/modules/Settings/assets/js/global.js:219
+#: htdocs/modules/Settings/assets/js/global.js:238
 msgid "Saved!"
 msgstr ""
 
-#: htdocs/modules/Ucptour/assets/js/global.js:207
-#: htdocs/modules/Ucptour/assets/js/global.js:219
+#: htdocs/modules/Ucptour/assets/js/global.js:166
+msgid "Selecting Dashboard Widgets"
+msgstr ""
+
+#: htdocs/modules/Ucptour/assets/js/global.js:266
+msgid "Selecting Side Bar Widgets"
+msgstr ""
+
+#: htdocs/modules/Ucptour/assets/js/global.js:277
 msgid "Selecting Small Widgets"
 msgstr ""
 
-#: htdocs/modules/Ucptour/assets/js/global.js:130
-#: htdocs/modules/Ucptour/assets/js/global.js:136
+#: htdocs/modules/Ucptour/assets/js/global.js:155
+#: htdocs/modules/Ucptour/assets/js/global.js:174
+#: htdocs/modules/Ucptour/assets/js/global.js:284
 msgid "Selecting Widgets"
 msgstr ""
 
@@ -688,7 +707,7 @@ msgstr ""
 msgid "Send Me A Password Reset Link"
 msgstr ""
 
-#: htdocs/views/templates/chat.php:25
+#: htdocs/views/templates/chat.php:23
 #, php-format
 msgid "Sent at %s"
 msgstr ""
@@ -699,41 +718,41 @@ msgid "Settings"
 msgstr "设置"
 
 #: htdocs/views/dashboard-footer.php:60
+#: htdocs/modules/Ucptour/assets/js/global.js:243
 msgid "Side Bar Widgets"
 msgstr ""
 
-#: htdocs/modules/Ucptour/assets/js/global.js:194
+#: htdocs/modules/Ucptour/assets/js/global.js:267
+msgid ""
+"Side Bar widgets are grouped in a single category called 'Side Bar Widgets'"
+msgstr ""
+
+#: htdocs/modules/Ucptour/assets/js/global.js:251
 #, perl-format
 msgid ""
 "Side bar Widgets can also be added by clicking the '%s' symbol. These appear "
 "under the '%s' symbol in this side bar"
 msgstr ""
 
-#: htdocs/modules/Ucptour/assets/js/global.js:237
-#: htdocs/modules/Ucptour/assets/js/global.js:249
-#: htdocs/modules/Ucptour/assets/js/global.js:254
-#: htdocs/modules/Ucptour/assets/js/global.js:259
+#: htdocs/modules/Ucptour/assets/js/global.js:312
+#: htdocs/modules/Ucptour/assets/js/global.js:324
+#: htdocs/modules/Ucptour/assets/js/global.js:329
+#: htdocs/modules/Ucptour/assets/js/global.js:334
 msgid "Small Widget Display"
 msgstr ""
 
-#: htdocs/modules/Ucptour/assets/js/global.js:220
+#: htdocs/modules/Ucptour/assets/js/global.js:278
 msgid ""
 "Small Widgets are listed on the right. The titles and descriptions will be "
 "show for each widget"
 msgstr ""
 
-#: htdocs/modules/Ucptour/assets/js/global.js:208
-msgid ""
-"Small widgets are grouped in a single category called 'Side Bar Widgets' "
-"which appears at the bottom of the Widget cateogry list"
-msgstr ""
-
-#: htdocs/modules/Widgets/assets/js/global.js:1097
+#: htdocs/modules/Widgets/assets/js/global.js:1133
 msgid "Something went wrong getting the content of the widget"
 msgstr ""
 
-#: htdocs/modules/Widgets/assets/js/global.js:1137
-#: htdocs/modules/Widgets/assets/js/global.js:1174
+#: htdocs/modules/Widgets/assets/js/global.js:1173
+#: htdocs/modules/Widgets/assets/js/global.js:1210
 msgid "Something went wrong getting the settings from the widget"
 msgstr ""
 
@@ -748,7 +767,6 @@ msgstr ""
 
 #: htdocs/modules/Settings/assets/js/global.js:100
 #: htdocs/modules/Settings/assets/js/global.js:113
-#: htdocs/modules/Settings/assets/js/global.js:152
 msgid "Success!"
 msgstr ""
 
@@ -783,11 +801,11 @@ msgstr ""
 msgid "The class %s already existed. Ajax MUST load it, for security reasons"
 msgstr ""
 
-#: htdocs/modules/Ucptour/assets/js/global.js:91
+#: htdocs/modules/Ucptour/assets/js/global.js:116
 msgid "The dashboard's name can be changed by clicking the pencil"
 msgstr ""
 
-#: htdocs/modules/Settings/views/settings.php:154
+#: htdocs/modules/Settings/views/settings.php:159
 #, php-format
 msgid ""
 "The format dates and times should display in. The default of \"llll\" is "
@@ -795,7 +813,7 @@ msgid ""
 "formats please see: %s"
 msgstr ""
 
-#: htdocs/modules/Settings/views/settings.php:162
+#: htdocs/modules/Settings/views/settings.php:167
 #, php-format
 msgid ""
 "The format dates should display in. The default of \"l\" is locale aware. If "
@@ -803,7 +821,7 @@ msgid ""
 "see: %s"
 msgstr ""
 
-#: htdocs/modules/Settings/views/settings.php:170
+#: htdocs/modules/Settings/views/settings.php:175
 #, php-format
 msgid ""
 "The format times should display in. The default of \"LT\" is locale aware. "
@@ -840,20 +858,22 @@ msgstr ""
 msgid "The username used to login to User Control Panel and other services"
 msgstr ""
 
-#: htdocs/modules/Ucptour/assets/js/global.js:250
+#: htdocs/modules/Ucptour/assets/js/global.js:325
 msgid "The widget's content is displayed here"
 msgstr ""
 
-#: htdocs/modules/Widgets/assets/js/global.js:898
+#: htdocs/modules/Ucptour/assets/js/global.js:156
+msgid ""
+"There are two different types of widgets. Dashboard Widgets and Side Bar "
+"widgets. Let's start with dashboard widgets"
+msgstr ""
+
+#: htdocs/modules/Widgets/assets/js/global.js:934
 msgid "There is no active dashboard to add widgets to"
 msgstr ""
 
-#: htdocs/modules/Settings/assets/js/global.js:157
-msgid "There was an error"
-msgstr ""
-
-#: htdocs/modules/Widgets/assets/js/global.js:970
-#: htdocs/modules/Widgets/assets/js/global.js:1042
+#: htdocs/modules/Widgets/assets/js/global.js:1006
+#: htdocs/modules/Widgets/assets/js/global.js:1078
 msgid "There was an error getting the widget information, try again later"
 msgstr ""
 
@@ -865,7 +885,7 @@ msgstr ""
 msgid "There was an error. See the console log for more details"
 msgstr ""
 
-#: views/users_hook.php:134
+#: views/users_hook.php:163
 msgid ""
 "These are the assigned and active extensions which will be allowed to edit "
 "extension settings such as Call Waiting, Call Forwarding, Find Me/Follow Me "
@@ -878,7 +898,7 @@ msgid ""
 "in a few simple steps."
 msgstr ""
 
-#: htdocs/modules/Settings/views/settings.php:165
+#: htdocs/modules/Settings/views/settings.php:170
 msgid "Time Format"
 msgstr ""
 
@@ -894,7 +914,7 @@ msgstr ""
 msgid "To continue just click Next"
 msgstr ""
 
-#: htdocs/modules/Ucptour/assets/js/global.js:260
+#: htdocs/modules/Ucptour/assets/js/global.js:335
 #, perl-format
 msgid "To just close/hide the widget's content click the '%s' symbol"
 msgstr ""
@@ -907,7 +927,7 @@ msgid ""
 "information see: %s"
 msgstr ""
 
-#: htdocs/modules/Ucptour/assets/js/global.js:255
+#: htdocs/modules/Ucptour/assets/js/global.js:330
 msgid "To remove this widget from the side bar click 'Remove Widget'"
 msgstr ""
 
@@ -939,8 +959,6 @@ msgstr ""
 
 #: htdocs/modules/Settings/assets/js/global.js:101
 #: htdocs/modules/Settings/assets/js/global.js:116
-#: htdocs/modules/Settings/assets/js/global.js:153
-#: htdocs/modules/Settings/assets/js/global.js:173
 msgid "UCP needs to reload, ok?"
 msgstr ""
 
@@ -954,7 +972,7 @@ msgstr ""
 msgid "Unable to send Password Reset Email"
 msgstr ""
 
-#: htdocs/modules/Settings/assets/js/global.js:252
+#: htdocs/modules/Settings/assets/js/global.js:271
 msgid "Unsupported file type"
 msgstr ""
 
@@ -1002,7 +1020,7 @@ msgstr ""
 msgid "User Control Panel is released as %s or newer"
 msgstr ""
 
-#: Ucp.class.php:199
+#: Ucp.class.php:203
 #, php-format
 msgid "User Control Panel: %s"
 msgstr ""
@@ -1011,20 +1029,16 @@ msgstr ""
 msgid "User Details"
 msgstr ""
 
-#: Ucp.class.php:70 /usr/src/freepbx/ucp/Ucp.class.php:98
+#: Ucp.class.php:70 /usr/src/freepbx/ucp/Ucp.class.php:99
 msgid "User Primary Extension"
 msgstr ""
 
-#: htdocs/modules/Ucptour/assets/js/global.js:271
+#: htdocs/modules/Ucptour/assets/js/global.js:346
 msgid "User Settings"
 msgstr ""
 
 #: htdocs/modules/Settings/views/settings.php:18 htdocs/views/login.php:16
 msgid "Username"
-msgstr ""
-
-#: htdocs/modules/Settings/assets/js/global.js:190
-msgid "Username has been changed, reloading"
 msgstr ""
 
 #: ucp.i18n.php:12
@@ -1053,25 +1067,33 @@ msgstr ""
 msgid "What is UCP"
 msgstr ""
 
-#: htdocs/modules/Ucptour/assets/js/global.js:59
+#: htdocs/modules/Settings/views/settings.php:151
+msgid "When set to yes the tour will restart when this window closes"
+msgstr ""
+
+#: htdocs/modules/Ucptour/assets/js/global.js:70
 msgid ""
 "When you are finished simply hit 'Create Dashboard' to create your dashboard"
 msgstr ""
 
-#: htdocs/modules/Ucptour/assets/js/global.js:178
-#: htdocs/modules/Ucptour/assets/js/global.js:183
+#: htdocs/modules/Ucptour/assets/js/global.js:223
 msgid "Widget Locking"
 msgstr ""
 
-#: htdocs/modules/Ucptour/assets/js/global.js:162
+#: htdocs/modules/Ucptour/assets/js/global.js:207
 msgid "Widget Placement"
 msgstr ""
 
+#: htdocs/modules/Ucptour/assets/js/global.js:233
+msgid "Widget Removal"
+msgstr ""
+
 #: htdocs/views/dashboard-footer.php:162
+#: htdocs/modules/Ucptour/assets/js/global.js:228
 msgid "Widget Settings"
 msgstr ""
 
-#: htdocs/modules/Ucptour/assets/js/global.js:170
+#: htdocs/modules/Ucptour/assets/js/global.js:215
 msgid "Widget Size"
 msgstr ""
 
@@ -1079,60 +1101,59 @@ msgstr ""
 msgid "Widgets"
 msgstr ""
 
-#: htdocs/modules/Ucptour/assets/js/global.js:137
+#: htdocs/modules/Ucptour/assets/js/global.js:175
+#: htdocs/modules/Ucptour/assets/js/global.js:285
 msgid ""
 "Widgets are listed on the right. The titles and descriptions will be show "
 "for each widget"
 msgstr ""
 
-#: htdocs/modules/Ucptour/assets/js/global.js:158
+#: htdocs/modules/Ucptour/assets/js/global.js:203
 msgid ""
 "Widgets are placed automatically on the dashboard after they have been added"
 msgstr ""
 
-#: htdocs/modules/Ucptour/assets/js/global.js:131
-msgid ""
-"Widgets are sorted into categories on the left. You can click on any "
-"category to get a listing of the widgets available"
-msgstr ""
-
-#: htdocs/modules/Ucptour/assets/js/global.js:184
+#: htdocs/modules/Ucptour/assets/js/global.js:234
 #, perl-format
 msgid "Widgets can also be removed by clicking the '%s' symbol"
 msgstr ""
 
-#: htdocs/modules/Ucptour/assets/js/global.js:115
+#: htdocs/modules/Ucptour/assets/js/global.js:140
 #, perl-format
 msgid "Widgets can be added by clicking the '%s' symbol"
 msgstr ""
 
-#: htdocs/modules/Ucptour/assets/js/global.js:179
+#: htdocs/modules/Ucptour/assets/js/global.js:224
 msgid "Widgets can be locked into place to prevent their movement"
 msgstr ""
 
-#: htdocs/modules/Ucptour/assets/js/global.js:163
+#: htdocs/modules/Ucptour/assets/js/global.js:208
 msgid "Widgets can be moved around by clicking and dragging on the title bar"
 msgstr ""
 
-#: htdocs/modules/Ucptour/assets/js/global.js:171
+#: htdocs/modules/Ucptour/assets/js/global.js:216
 msgid ""
 "Widgets can be resized by placing your mouse near the corner of the widget. "
 "Click and drag to resize the widget."
+msgstr ""
+
+#: htdocs/modules/Ucptour/assets/js/global.js:229
+msgid "Widgets settings can be changed by clicking this icon"
 msgstr ""
 
 #: htdocs/modules/Settings/views/settings.php:77
 msgid "Work Phone"
 msgstr ""
 
-#: views/users_hook.php:51 views/users_hook.php:149
+#: views/users_hook.php:51 views/users_hook.php:81 views/users_hook.php:178
 msgid "Yes"
 msgstr "是"
 
-#: htdocs/modules/Widgets/assets/js/global.js:1050
+#: htdocs/modules/Widgets/assets/js/global.js:1086
 msgid "You already have this widget on the side bar"
 msgstr ""
 
-#: htdocs/modules/Widgets/assets/js/global.js:978
+#: htdocs/modules/Widgets/assets/js/global.js:1014
 msgid "You already have this widget on this dashboard"
 msgstr ""
 
@@ -1142,7 +1163,7 @@ msgid ""
 "anytime by clicking your User Settings and then 'Restart Tour'"
 msgstr ""
 
-#: htdocs/modules/Ucptour/assets/js/global.js:281
+#: htdocs/modules/Ucptour/assets/js/global.js:356
 #, perl-format
 msgid ""
 "You have finished the tour of User Control Panel for %s 14. You can restart "
@@ -1153,7 +1174,7 @@ msgstr ""
 msgid "You just successfully logged in for the first time!"
 msgstr ""
 
-#: htdocs/modules/Widgets/assets/js/global.js:1262
+#: htdocs/modules/Widgets/assets/js/global.js:1298
 msgid "You must set a dashboard name!"
 msgstr ""
 
@@ -1215,15 +1236,15 @@ msgid ""
 "system administrator"
 msgstr ""
 
-#: htdocs/modules/Ucptour/assets/js/global.js:277
+#: htdocs/modules/Ucptour/assets/js/global.js:352
 msgid "Your can logout of UCP by clicking this logout button"
 msgstr ""
 
-#: htdocs/modules/Ucptour/assets/js/global.js:83
+#: htdocs/modules/Ucptour/assets/js/global.js:94
 msgid "Your dashboard has been added here"
 msgstr ""
 
-#: htdocs/modules/Ucptour/assets/js/global.js:272
+#: htdocs/modules/Ucptour/assets/js/global.js:347
 msgid ""
 "Your specific settings are defined when clicking the 'gear' icon in the side "
 "bar"
