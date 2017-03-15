@@ -640,20 +640,20 @@ var UCPC = Class.extend({
 		}
 
 	},
-	addChat: function(module, id, icon, from, to, cnam, msgid, message, callback, html, direction) {
+	addChat: function(module, id, icon, from, to, title, msgid, message, callback, html, direction) {
 		html = (typeof html !== "undefined") ? html : false;
+		title = (typeof title !== "undefined") ? title : '<div class="from"><strong>F:</strong> '+from+'</div><br/><div class="to"><strong>T:</strong> '+to+'</div>';
 		if (!$( "#messages-container .message-box[data-id=\"" + id + "\"]" ).length && (typeof this.messageBuffer[id] === "undefined")) {
 			//add placeholder
 			if (typeof msgid !== "undefined") {
 				this.messageBuffer[id] = [];
 				this.messageBuffer[id].push({
-					sender: cnam,
 					msgid: msgid,
 					message: message
 				});
 			}
 			var newWindow = (typeof msgid === "undefined");
-			$.ajax({ url: "index.php", data: { quietmode: 1, command: "template", type: "chat", newWindow: newWindow, template: { module: module, icon: icon, id: id, to: to, from: from } }, success: function(data) {
+			$.ajax({ url: "index.php", data: { quietmode: 1, command: "template", type: "chat", newWindow: newWindow, template: { module: module, icon: icon, id: id, to: to, from: from, title: title } }, success: function(data) {
 				$( "#messages-container" ).append( data.contents );
 				$("#messages-container .message-box[data-id=\"" + id + "\"] .response textarea").emojioneArea({
 					pickerPosition: "top",
@@ -671,7 +671,7 @@ var UCPC = Class.extend({
 					if (typeof msgid !== "undefined") {
 						if (typeof UCP.messageBuffer[id] !== "undefined") {
 							$.each(UCP.messageBuffer[id], function(i, v) {
-								UCP.addChatMessage(id, v.sender, v.msgid, v.message, false, html, direction);
+								UCP.addChatMessage(id, v.msgid, v.message, false, html, direction);
 							});
 							delete UCP.messageBuffer[id];
 						}
@@ -714,7 +714,7 @@ var UCPC = Class.extend({
 			}, dataType: "json", type: "POST" });
 		} else {
 			if (typeof msgid !== "undefined") {
-				UCP.addChatMessage(id, cnam, msgid, message, false, html, direction);
+				UCP.addChatMessage(id, msgid, message, false, html, direction);
 			}
 			return null;
 		}
@@ -729,7 +729,7 @@ var UCPC = Class.extend({
 			$(document).trigger( "chatWindowRemoved", [ id ] );
 		});
 	},
-	addChatMessage: function(id, cnam, msgid, message, newmsg, htmlV, direction) {
+	addChatMessage: function(id, msgid, message, newmsg, htmlV, direction) {
 		var emailre = /([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})/ig,
 				urlre = /((([A-Za-z]{3,9}:(?:\/\/)?)(?:[\-;:&=\+\$,\w]+@)?[A-Za-z0-9\.\-]+|(?:www\.|[\-;:&=\+\$,\w]+@)[A-Za-z0-9\.\-]+)((?:\/[\+~%\/\.\w\-_]*)?\??(?:[\-\+=&;%@\.\w_]*)#?(?:[\.\!\/\\\w]*))?)/ig,
 				html = (typeof htmlV !== "undefined") ? htmlV : false;
@@ -767,7 +767,6 @@ var UCPC = Class.extend({
 			});
 		} else if (typeof this.messageBuffer[id] !== "undefined") {
 			this.messageBuffer[id].push({
-				sender: cnam,
 				msgid: msgid,
 				message: message
 			});
