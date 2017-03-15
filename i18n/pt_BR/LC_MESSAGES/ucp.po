@@ -9,179 +9,70 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-02-22 10:57-0800\n"
-"PO-Revision-Date: 2015-05-02 20:55+0200\n"
-"Last-Translator: Renato <fiuza@tecnologia.inf.br>\n"
-"Language-Team: Portuguese (Brazil) <http://weblate.freepbx.org/projects/"
-"freepbx/ucp/pt_BR/>\n"
+"POT-Creation-Date: 2017-01-25 12:48-0800\n"
+"PO-Revision-Date: 2017-03-08 21:13+0200\n"
+"Last-Translator: Kingvoice <suporte@kingvoice.com.br>\n"
+"Language-Team: Portuguese (Brazil) "
+"<http://weblate.freepbx.org/projects/freepbx/ucp/pt_BR/>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.2-dev\n"
+"X-Generator: Weblate 2.4\n"
 
-#: htdocs/assets/js/lodash-4.17.2.js:8787
-msgid "  abc  "
-msgstr ""
+#: htdocs/assets/js/bootstrap-table-1.9.0.js:635
+#: htdocs/assets/js/bootstrap-table-1.9.0.js:636
+#: htdocs/assets/js/bootstrap-table-1.9.0.js:637
+#: htdocs/assets/js/bootstrap-table-1.9.0.js:638
+#: htdocs/assets/js/bootstrap-table-1.9.0.js:639
+#: htdocs/assets/js/bootstrap-table-1.9.0.js:1454
+#: htdocs/assets/js/bootstrap-table-1.9.0.js:1455
+#: htdocs/assets/js/bootstrap-table-1.9.0.js:1457
+#: htdocs/assets/js/bootstrap-table-1.9.0.js:1458
+#: htdocs/assets/js/bootstrap-table-1.9.0.js:1460
+#: htdocs/assets/js/bootstrap-table-1.9.0.js:1461
+#: htdocs/assets/js/bootstrap-table-1.9.0.js:1463
+#: htdocs/assets/js/bootstrap-table-1.9.0.js:1464
+#: htdocs/assets/js/bootstrap-table-1.9.0.js:1479
+#: htdocs/assets/js/bootstrap-table-1.9.0.js:1480
+msgid " + field + "
+msgstr " + campo + "
 
-#: htdocs/assets/js/moment-with-locales-2.15.1.min.js:590
-msgid ")),Qg="
-msgstr ""
-
-#: htdocs/assets/js/moment-with-locales-2.15.1.min.js:590
-msgid "),Rg=(kg.defineLocale("
-msgstr ""
-
-#: htdocs/assets/js/moment-with-locales-2.15.1.min.js:588
-#: htdocs/assets/js/moment-with-locales-2.15.1.min.js:592
-msgid "),monthsParseExact:!0,weekdays:"
-msgstr ""
-
-#: htdocs/assets/js/moment-with-locales-2.15.1.min.js:557
-#: htdocs/assets/js/moment-with-locales-2.15.1.min.js:588
-#: htdocs/assets/js/moment-with-locales-2.15.1.min.js:592
-msgid "),monthsShort:"
-msgstr ""
-
-#: htdocs/assets/js/moment-with-locales-2.15.1.min.js:590
-msgid ""
-"),monthsShort:function(a,b){return/-MMM-/.test(b)?Qg[a.month()]:Pg[a."
-"month()]},monthsParseExact:!0,weekdays:"
-msgstr ""
-
-#: htdocs/assets/js/moment-with-locales-2.15.1.min.js:557
-#: htdocs/assets/js/moment-with-locales-2.15.1.min.js:588
-#: htdocs/assets/js/moment-with-locales-2.15.1.min.js:590
-#: htdocs/assets/js/moment-with-locales-2.15.1.min.js:592
-msgid "),weekdaysMin:"
-msgstr ""
-
-#: htdocs/assets/js/moment-with-locales-2.15.1.min.js:557
-#: htdocs/assets/js/moment-with-locales-2.15.1.min.js:588
-#: htdocs/assets/js/moment-with-locales-2.15.1.min.js:590
-#: htdocs/assets/js/moment-with-locales-2.15.1.min.js:592
-msgid "),weekdaysParseExact:!0,longDateFormat:{LT:"
-msgstr ""
-
-#: htdocs/assets/js/moment-with-locales-2.15.1.min.js:557
-#: htdocs/assets/js/moment-with-locales-2.15.1.min.js:588
-#: htdocs/assets/js/moment-with-locales-2.15.1.min.js:590
-#: htdocs/assets/js/moment-with-locales-2.15.1.min.js:592
-msgid "),weekdaysShort:"
-msgstr ""
-
-#: htdocs/assets/js/lodash-4.17.2.js:15199
-msgid ""
-");\n"
-"     *\n"
-"     * if (_.isError(elements)) {\n"
-"     *   elements = [];\n"
-"     * }\n"
-"     */\n"
-"    var attempt = baseRest(function(func, args) {\n"
-"      try {\n"
-"        return apply(func, undefined, args);\n"
-"      } catch (e) {\n"
-"        return isError(e) ? e : new Error(e);\n"
-"      }\n"
-"    });\n"
-"\n"
-"    /**\n"
-"     * Binds methods of an object to the object itself, overwriting the "
-"existing\n"
-"     * method.\n"
-"     *\n"
-"     * **Note:** This method doesn"
-msgstr ""
-
-#: htdocs/assets/js/lodash-4.17.2.js:14398
-msgid ""
-");\n"
-"     * // => "
-msgstr ""
-
-#: htdocs/assets/js/jquery-ui-1.12.1.min.js:6
-msgid "+t,e.props.alpha={idx:3,type:"
-msgstr ""
-
-#: htdocs/index.php:78
+#: htdocs/index.php:88
 msgid ".htaccess files are disabled on this webserver. Please enable them"
 msgstr ""
 "arquivos .htaccess estão desabilitados neste servidor web. Por favor "
 "habilite-os"
 
-#: htdocs/index.php:91
+#: htdocs/index.php:101
 msgid ".htaccess files are not supported on this webserver."
 msgstr "arquivos .htaccess não são suportados neste servidor web."
-
-#: htdocs/modules/Ucptour/assets/js/global.js:98
-#, perl-format
-msgid "A dashboard can be deleted by clicking the '%s'"
-msgstr ""
 
 #: htdocs/views/templates/phone.php:41
 msgid "ABC"
 msgstr "ABC"
 
-#: htdocs/views/dashboard-footer.php:202
-msgid "Accept"
-msgstr ""
-
-#: htdocs/modules/Settings/views/settings.php:5
+#: htdocs/views/settings.php:8
 msgid "Account Settings"
-msgstr ""
+msgstr "Configurações de Conta"
 
 #: views/users_hook.php:78
 msgid "Active Sessions"
 msgstr "Sessões Ativas"
 
-#: htdocs/views/dashboard-footer.php:13
-msgid "Add Dashboard"
-msgstr ""
-
-#: htdocs/views/dashboard-footer.php:55
-msgid "Add Widget"
-msgstr ""
-
-#: htdocs/modules/Ucptour/assets/js/global.js:224
-msgid "Adding Small Widgets"
-msgstr ""
-
-#: htdocs/modules/Ucptour/assets/js/global.js:114
-#: htdocs/modules/Ucptour/assets/js/global.js:144
-msgid "Adding Widgets"
-msgstr ""
-
-#: htdocs/modules/Ucptour/assets/js/global.js:32
-msgid "Adding a dashboard"
-msgstr ""
-
-#: htdocs/modules/Ucptour/assets/js/global.js:193
-msgid "Adding sidebar Widgets"
-msgstr ""
-
 #: ucp.i18n.php:6
 msgid "Admin"
 msgstr "Admin"
 
-#: htdocs/views/dashboard-footer.php:214
-msgid "Alert"
-msgstr ""
-
-#: htdocs/modules/Settings/views/settings.php:3
+#: htdocs/views/settings.php:11
 msgid ""
 "All fields update when unfocused (selecting another field) except password"
 msgstr ""
+"Todos os campos são atualizados quando desfocados (selecionando outro "
+"campo), exceto a senha"
 
-#: htdocs/modules/Ucptour/assets/js/global.js:189
-#, perl-format
-msgid ""
-"All widgets in a dashboard can also be locked globally by clicking the '%s' "
-"symbol on the dashboard tab"
-msgstr ""
-
-#: htdocs/modules/Settings/views/settings.php:144
+#: htdocs/views/settings.php:111
 msgid "Allow Desktop Notifications"
 msgstr "Permitir Notificações Desktop"
 
@@ -189,15 +80,15 @@ msgstr "Permitir Notificações Desktop"
 msgid "Allow Login"
 msgstr "Permitir Logar-se"
 
-#: ucp.i18n.php:22
+#: ucp.i18n.php:14
 msgid "Allow Password Changes"
 msgstr "Permitir Mudar Senha"
 
-#: ucp.i18n.php:28
+#: ucp.i18n.php:20
 msgid "Allow Username Changes"
 msgstr "Permitir Mudar Usuário"
 
-#: htdocs/modules/Settings/views/settings.php:146
+#: htdocs/views/settings.php:119
 msgid "Allow browser desktop notifications from UCP modules."
 msgstr "Permitir navegar notificações de desktop dos módulos PCU."
 
@@ -206,140 +97,56 @@ msgid ""
 "Allow this user to originate calls from within UCP. This is not the same as "
 "WebRTC"
 msgstr ""
+"Permitir que este usuário origine chamadas pelo PCU. Isso não é o mesmo que "
+"WebRTC"
 
-#: ucp.i18n.php:30
+#: ucp.i18n.php:24
 msgid "Allow users to change their username in UCP"
-msgstr ""
+msgstr "Permitir que os usuários alterem seu nome de usuário no PCU"
 
-#: ucp.i18n.php:26
+#: ucp.i18n.php:18
 msgid "Allow users to change thier password in UCP"
 msgstr "Permitir usuários mudarem suas senhas no PCU"
 
 #: views/users_hook.php:118
 msgid "Allowed Extension Settings"
-msgstr ""
+msgstr "Configurações de Ramais Permitidos"
 
-#: htdocs/modules/Widgets/assets/js/global.js:851
-msgid "Are you sure you want to delete this dashboard?"
-msgstr ""
+#: htdocs/assets/js/ucp.js:1033
+msgid "Are you sure you wish to change your username?"
+msgstr "Você tem certeza que deseja mudar seu usuário?"
 
-#: htdocs/modules/Settings/assets/js/global.js:187
-msgid "Are you sure you wish to change your username? UCP will reload after"
-msgstr ""
-
-#: htdocs/modules/Settings/views/settings.php:102
+#: htdocs/views/settings.php:140
 msgid "Browse"
-msgstr ""
+msgstr "Localizar"
 
 #: htdocs/views/templates/phone.php:7 htdocs/views/templates/phone.php:95
 msgid "Call"
-msgstr "Chamada"
+msgstr "Chamar"
 
-#: htdocs/views/dashboard-footer.php:22 htdocs/views/dashboard-footer.php:43
-#: htdocs/views/dashboard-footer.php:151 htdocs/views/dashboard-footer.php:201
-msgid "Cancel"
-msgstr ""
-
-#: htdocs/modules/Settings/views/settings.php:72
+#: htdocs/views/settings.php:74
 msgid "Cell Phone"
 msgstr "Celular"
 
-#: htdocs/modules/Ucptour/assets/js/global.js:238
-msgid "Click the widget's icon to continue"
-msgstr ""
-
-#: htdocs/modules/Ucptour/assets/js/global.js:33
-#: htdocs/modules/Ucptour/assets/js/global.js:115
-#: htdocs/modules/Ucptour/assets/js/global.js:145
-#: htdocs/modules/Ucptour/assets/js/global.js:194
-#: htdocs/modules/Ucptour/assets/js/global.js:208
-#: htdocs/modules/Ucptour/assets/js/global.js:225
-#: htdocs/modules/Ucptour/assets/js/global.js:260
-msgid "Click this symbol to continue"
-msgstr ""
-
-#: htdocs/modules/Ucptour/assets/js/global.js:225
-#, perl-format
-msgid ""
-"Clicking the '%s' symbol will add this small widget to the display. It will "
-"be visible on all dashboards"
-msgstr ""
-
-#: htdocs/modules/Ucptour/assets/js/global.js:145
-#, perl-format
-msgid ""
-"Clicking the '%s' symbol will add this widget to the currently active "
-"dashboard."
-msgstr ""
-
-#: htdocs/views/dashboard-footer.php:226
-msgid "Close"
-msgstr ""
-
-#: htdocs/modules/Settings/views/settings.php:67
+#: htdocs/views/settings.php:69
 msgid "Company"
 msgstr "Empresa"
 
-#: htdocs/views/dashboard-footer.php:193
-msgid "Confirm Action"
-msgstr ""
-
-#: htdocs/modules/Settings/views/settings.php:32
+#: htdocs/views/settings.php:27
 msgid "Confirm Password"
 msgstr "Confirmar Senha"
 
-#: htdocs/modules/Ucptour/assets/js/global.js:25
-msgid "Congratulations!"
-msgstr ""
-
-#: htdocs/views/dashboard-footer.php:23
-msgid "Create Dashboard"
-msgstr ""
+#: htdocs/views/settings.php:127
+msgid "Contact Image"
+msgstr "Imagem de Contato"
 
 #: htdocs/views/templates/phone.php:45
 msgid "DEF"
 msgstr "DEF"
 
-#: htdocs/modules/Ucptour/assets/js/global.js:188
-msgid "Dashboard Locking"
-msgstr ""
-
-#: htdocs/views/dashboard-footer.php:17 htdocs/views/dashboard-footer.php:38
-msgid "Dashboard Name"
-msgstr ""
-
-#: htdocs/modules/Ucptour/assets/js/global.js:157
-msgid "Dashboard Widget"
-msgstr ""
-
-#: htdocs/views/dashboard-footer.php:59
-msgid "Dashboard Widgets"
-msgstr ""
-
-#: htdocs/modules/Ucptour/assets/js/global.js:82
-msgid "Dashboards"
-msgstr ""
-
-#: htdocs/modules/Settings/views/settings.php:157
-msgid "Date Format"
-msgstr ""
-
-#: htdocs/modules/Settings/views/settings.php:149
-msgid "Date and Time Format"
-msgstr ""
-
-#: htdocs/modules/Settings/views/settings.php:120
-#: htdocs/modules/Settings/views/settings.php:133
-msgid "Default"
-msgstr ""
-
-#: htdocs/modules/Settings/views/settings.php:97
+#: htdocs/views/settings.php:135
 msgid "Delete Image"
-msgstr ""
-
-#: htdocs/modules/Ucptour/assets/js/global.js:97
-msgid "Delete a Dashboard"
-msgstr ""
+msgstr "Apagar Imagem"
 
 #: Ucp.class.php:777
 msgid "Deleted Session"
@@ -349,68 +156,49 @@ msgstr "Sessão Apagada"
 msgid "Deleted User Session"
 msgstr "Sessão do Usuário Apagada"
 
-#: htdocs/assets/js/ucp.js:76
-msgid "Disable"
-msgstr ""
-
-#: htdocs/modules/Settings/views/settings.php:42
+#: htdocs/views/settings.php:44
 msgid "Display Name"
 msgstr "Nome de Exibição"
 
 #: Ucp.class.php:871 Ucp.class.php:875 Ucp.class.php:879 Ucp.class.php:883
 msgid "Done"
-msgstr "Feito"
+msgstr "Concluído"
 
-#: htdocs/modules/Settings/views/settings.php:94
+#: htdocs/views/settings.php:132
 msgid "Drop a new image here"
-msgstr ""
+msgstr "Solte uma nova imagem aqui"
 
-#: htdocs/views/dashboard-footer.php:34 htdocs/views/dashboard-footer.php:44
-msgid "Edit Dashboard"
-msgstr ""
-
-#: htdocs/modules/Ucptour/assets/js/global.js:90
-msgid "Editing a Dashboard"
-msgstr ""
-
-#: htdocs/modules/Settings/views/settings.php:47 htdocs/views/login.php:30
+#: htdocs/views/login.php:29 htdocs/views/settings.php:49
 msgid "Email"
 msgstr "Email"
 
 #: htdocs/includes/User.class.php:78
 msgid "Email address unknown!"
-msgstr ""
-
-#: htdocs/assets/js/ucp.js:73
-msgid "Enable"
-msgstr ""
+msgstr "Endereço de e-mail desconhecido!"
 
 #: views/users_hook.php:144
 msgid "Enable Originating Calls"
-msgstr ""
+msgstr "Habilitar Originar Chamadas"
 
-#: htdocs/modules/Settings/assets/js/global.js:134
-msgid "Enabling notifications was denied"
-msgstr ""
+#: htdocs/modules/Settings/Settings.class.php:83
+msgid "Endpoint Settings"
+msgstr "Configurações de Ponto de Extremidade"
 
-#: htdocs/modules/Ucptour/assets/js/global.js:280
-msgid "End of tour"
-msgstr ""
-
-#: htdocs/modules/Settings/Settings.class.php:143
+#: htdocs/index.php:154
 msgid "English"
 msgstr "Inglês"
 
-#: htdocs/modules/Ucptour/assets/js/global.js:52
-msgid "Enter a name for your dashboard in this input box"
-msgstr ""
+#: htdocs/views/dashboard.php:92
+msgid "Excuse us while we try to retrieve your content"
+msgstr "Desculpe-nos enquanto tentamos recuperar seu conteúdo"
 
 #: install.inc.php:20
 #, php-format
 msgid "Failed to install %s due to the following conflicting module(s): %s"
 msgstr ""
+"Falha ao instalar %s devido ao(s) seguinte(s) módulo(s) em conflito: %s"
 
-#: htdocs/modules/Settings/views/settings.php:87
+#: htdocs/views/settings.php:89
 msgid "Fax"
 msgstr "Fax"
 
@@ -418,11 +206,15 @@ msgstr "Fax"
 msgid "First"
 msgstr "Primeiro"
 
-#: htdocs/modules/Settings/views/settings.php:52
+#: htdocs/views/settings.php:54
 msgid "First Name"
 msgstr "Primeiro Nome"
 
-#: htdocs/views/login.php:37
+#: htdocs/modules/Settings/Settings.class.php:38
+msgid "Forbidden"
+msgstr "Proibido"
+
+#: htdocs/views/login.php:36
 msgid "Forgot Password"
 msgstr "Senha Esquecida"
 
@@ -432,7 +224,7 @@ msgstr "GHI"
 
 #: views/users_hook.php:19
 msgid "General"
-msgstr ""
+msgstr "Geral"
 
 #: Ucp.class.php:881
 msgid "Generating Main CSS..."
@@ -454,15 +246,16 @@ msgstr "Gerando Scripts de Módulos…"
 msgid "Hold"
 msgstr "Segurar"
 
-#: htdocs/modules/Home/Home.class.php:188
+#: htdocs/modules/Home/Home.class.php:252 htdocs/views/dashboard.php:32
+#: htdocs/assets/js/ucp.js:813
 msgid "Home"
 msgstr "Início"
 
-#: htdocs/modules/Settings/views/settings.php:82
+#: htdocs/views/settings.php:84
 msgid "Home Phone"
 msgstr "Fone Casa"
 
-#: htdocs/modules/Settings/views/settings.php:44
+#: htdocs/views/settings.php:46
 msgid ""
 "How you would like your name displayed throughout UCP and Contact Manager"
 msgstr ""
@@ -471,49 +264,43 @@ msgstr ""
 
 #: views/users_hook.php:56 views/users_hook.php:154
 msgid "Inherit"
-msgstr ""
+msgstr "Herdar"
 
-#: htdocs/modules/Settings/views/settings.php:7
+#: htdocs/views/settings.php:99
 msgid "Interface Settings"
-msgstr ""
+msgstr "Configurações da Interface"
 
-#: htdocs/index.php:234
+#: htdocs/index.php:251
 #, php-format
 msgid ""
 "Internet Explorer %s is not supported. Functionality will be deteriorated "
 "until you upgrade to %s or higher"
 msgstr ""
+"O Internet Explorer %s não é suportado. A funcionalidade estará prejudicada "
+"até que você atualize para  %s ou superior"
 
 #: htdocs/includes/User.class.php:93
 msgid "Invalid"
 msgstr "Inválido"
 
-#: htdocs/modules/Widgets/assets/js/global.js:867
-msgid "Invalid Dashboard ID"
-msgstr ""
-
-#: htdocs/modules/Home/Home.class.php:137
-#: htdocs/modules/Home/Home.class.php:141
+#: htdocs/modules/Home/Home.class.php:201
+#: htdocs/modules/Home/Home.class.php:205
 msgid "Invalid Device"
-msgstr ""
+msgstr "Dispositivo Inválido"
 
 #: htdocs/includes/User.class.php:101
 msgid "Invalid Login Credentials"
 msgstr "Credenciais de login Inválidas"
 
-#: htdocs/index.php:223
+#: htdocs/index.php:240
 msgid "Invalid Token"
 msgstr "Token Inválido"
-
-#: htdocs/modules/Widgets/Widgets.class.php:45
-msgid "Invalid dashboard id"
-msgstr ""
 
 #: htdocs/views/templates/phone.php:55
 msgid "JKL"
 msgstr "JKL"
 
-#: htdocs/modules/Settings/views/settings.php:118
+#: htdocs/views/settings.php:102
 msgid "Language"
 msgstr "Idioma"
 
@@ -521,20 +308,25 @@ msgstr "Idioma"
 msgid "Last"
 msgstr "Último"
 
-#: htdocs/modules/Settings/views/settings.php:57
+#: htdocs/views/settings.php:59
 msgid "Last Name"
-msgstr "Último Nome"
+msgstr "Sobrenome"
 
-#: htdocs/views/forgot.php:61 htdocs/views/login.php:54
+#: htdocs/views/header.php:67
+msgid "Loading"
+msgstr "Carregando"
+
+#: htdocs/views/forgot.php:61 htdocs/views/login.php:53
+#: htdocs/assets/js/ucp.js:1156
 msgid "Loading..."
-msgstr "Carregando…"
+msgstr "Carregando..."
 
-#: htdocs/views/forgot.php:45 htdocs/views/login.php:38
-#: htdocs/assets/js/ucp.js:291 htdocs/assets/js/ucp.js:301
+#: htdocs/views/forgot.php:45 htdocs/views/login.php:37
+#: htdocs/assets/js/ucp.js:129 htdocs/assets/js/ucp.js:142
 msgid "Login"
 msgstr "Login"
 
-#: htdocs/modules/Ucptour/assets/js/global.js:276
+#: htdocs/index.php:227
 msgid "Logout"
 msgstr "Sair"
 
@@ -544,67 +336,52 @@ msgstr "MNO"
 
 #: views/users_hook.php:65
 msgid "May this user log in to UCP"
-msgstr ""
+msgstr "Este usuário pode fazer login no PCU"
 
 #: views/users_hook.php:24
 msgid "Miscellaneous"
-msgstr ""
+msgstr "Variações"
 
-#: htdocs/includes/Ajax.class.php:69
+#: htdocs/includes/Ajax.class.php:139
 msgid "Module or Command were null. Check your code."
 msgstr "Módulo ou Commando foi nulo. Verifique seu código."
 
-#: htdocs/modules/Ucptour/assets/js/global.js:105
-msgid ""
-"Multiple dashboard can be re-ordered by hovering with your mouse until the "
-"move cursor is shown. Then clicking and dragging the dashboard in the order "
-"you want"
-msgstr ""
-
-#: htdocs/modules/Ucptour/assets/js/global.js:51
-msgid "Name your dashboard"
-msgstr ""
+#: htdocs/assets/js/ucp.js:95
+msgid "New password and old password do not match"
+msgstr "Nova senha e senha antiga não coincidem"
 
 #: views/users_hook.php:53 views/users_hook.php:151
 msgid "No"
-msgstr ""
+msgstr "Não"
 
-#: htdocs/modules/Ucptour/assets/js/global.js:171
-msgid "Note: some widgets have size restrictions!"
-msgstr ""
+#: htdocs/assets/js/ucp.js:1151
+msgid "No email defined"
+msgstr "Nenhum e-mail definido"
 
 #: htdocs/modules/Home/assets/js/global.js:75
 msgid "Nothing Entered"
-msgstr ""
+msgstr "Nada Introduzido"
 
 #: htdocs/includes/User.class.php:74
 msgid "Nothing was Provided!"
 msgstr "Nada Foi Fornecido!"
 
-#: htdocs/views/header.php:54
+#: htdocs/views/header.php:60
 msgid "OFF"
 msgstr "DESLIGADO"
 
-#: htdocs/views/header.php:51
+#: htdocs/views/header.php:57
 msgid "ON"
-msgstr "LIGADO"
-
-#: htdocs/modules/Ucptour/assets/js/global.js:238
-msgid "Once a small widget has been added it will show up in the left sidebar"
-msgstr ""
-
-#: htdocs/modules/Ucptour/assets/js/global.js:104
-msgid "Ordering dashboards"
-msgstr ""
+msgstr "EM"
 
 #: htdocs/modules/Home/assets/js/global.js:46
-#: htdocs/modules/Home/assets/js/global.js:125
-msgid "Originate"
-msgstr ""
-
-#: htdocs/modules/Home/assets/js/global.js:22
-#: htdocs/modules/Home/assets/js/global.js:45
 #: htdocs/modules/Home/assets/js/global.js:124
+msgid "Originate"
+msgstr "Originar"
+
+#: htdocs/index.php:221 htdocs/modules/Home/assets/js/global.js:22
+#: htdocs/modules/Home/assets/js/global.js:45
+#: htdocs/modules/Home/assets/js/global.js:123
 msgid "Originate Call"
 msgstr "Originar Chamada"
 
@@ -612,12 +389,11 @@ msgstr "Originar Chamada"
 msgid "PQRS"
 msgstr "PQRS"
 
-#: htdocs/modules/Settings/views/settings.php:25
-#: htdocs/modules/Settings/views/settings.php:27 htdocs/views/login.php:21
+#: htdocs/views/login.php:20 htdocs/views/settings.php:22
 msgid "Password"
 msgstr "Senha"
 
-#: htdocs/modules/Settings/assets/js/global.js:168
+#: htdocs/assets/js/ucp.js:1000
 msgid "Password Confirmation Didn't Match!"
 msgstr "Confirmação De Senha Não Conferiu!"
 
@@ -631,23 +407,31 @@ msgstr "Link de Redefinição de Senha (Válido Até: %s): %s"
 msgid "Password Reset for: %s"
 msgstr "Redefinição de Senha para: %s"
 
-#: htdocs/assets/js/ucp.js:269
+#: htdocs/assets/js/ucp.js:98
+msgid "Password fields can't be blank!"
+msgstr "Os campos de senha não podem ficar em branco!"
+
+#: htdocs/assets/js/ucp.js:107
 msgid "Password has been changed!"
-msgstr ""
+msgstr "A senha foi alterada!"
 
-#: htdocs/modules/Settings/assets/js/global.js:182
+#: htdocs/assets/js/ucp.js:1018
 msgid "Password has not changed!"
-msgstr ""
+msgstr "A senha não mudou!"
 
-#: htdocs/assets/js/ucp.js:284
+#: htdocs/assets/js/ucp.js:73
+msgid "Please enter either a username or email address"
+msgstr "Por favor entre com seu usuário ou endereço de email"
+
+#: htdocs/assets/js/ucp.js:71 htdocs/assets/js/ucp.js:122
 msgid "Processing..."
 msgstr "Processando…"
 
-#: htdocs/modules/Home/Home.class.php:54 ucp.i18n.php:32
+#: ucp.i18n.php:26
 msgid "RSS Feeds"
 msgstr "Feeds RSS"
 
-#: ucp.i18n.php:34
+#: ucp.i18n.php:30
 msgid "RSS Feeds that are displayed in UCP. This overrides "
 msgstr "Feeds RSS que são mostrados no PCU. Isto substitui "
 
@@ -655,40 +439,19 @@ msgstr "Feeds RSS que são mostrados no PCU. Isto substitui "
 msgid "Refreshing all UCP Assets, this could take a while..."
 msgstr "Atualizando todos os recursos do PCU, isso pode levar algum tempo…"
 
-#: htdocs/views/forgot.php:48 htdocs/views/login.php:41
+#: htdocs/views/forgot.php:48 htdocs/views/login.php:40
 msgid "Remember Me"
 msgstr "Lembrar Me"
-
-#: htdocs/views/dashboard-header.php:61
-#: htdocs/modules/Widgets/assets/js/global.js:410
-msgid "Remove Widget"
-msgstr ""
 
 #: htdocs/views/forgot.php:62
 msgid "Reset Password"
 msgstr "Redefinir Senha"
 
-#: htdocs/modules/Ucptour/assets/js/global.js:58
-msgid "Save your dashboard"
-msgstr ""
-
-#: htdocs/modules/Settings/assets/js/global.js:172
-#: htdocs/modules/Settings/assets/js/global.js:202
-#: htdocs/modules/Settings/assets/js/global.js:219
+#: htdocs/assets/js/ucp.js:1006 htdocs/assets/js/ucp.js:1051
 msgid "Saved!"
 msgstr "Salvo!"
 
-#: htdocs/modules/Ucptour/assets/js/global.js:207
-#: htdocs/modules/Ucptour/assets/js/global.js:219
-msgid "Selecting Small Widgets"
-msgstr ""
-
-#: htdocs/modules/Ucptour/assets/js/global.js:130
-#: htdocs/modules/Ucptour/assets/js/global.js:136
-msgid "Selecting Widgets"
-msgstr ""
-
-#: htdocs/views/login.php:55
+#: htdocs/views/login.php:54
 msgid "Send Me A Password Reset Link"
 msgstr "Envie-me Um Link de Redefinição de Senha"
 
@@ -697,179 +460,47 @@ msgstr "Envie-me Um Link de Redefinição de Senha"
 msgid "Sent at %s"
 msgstr "Enviado para %s"
 
-#: htdocs/modules/Widgets/assets/js/global.js:83
-#: htdocs/modules/Widgets/assets/js/global.js:350
+#: htdocs/views/dashboard.php:39 htdocs/assets/js/ucp.js:855
 msgid "Settings"
 msgstr "Configurações"
-
-#: htdocs/views/dashboard-footer.php:60
-msgid "Side Bar Widgets"
-msgstr ""
-
-#: htdocs/modules/Ucptour/assets/js/global.js:194
-#, perl-format
-msgid ""
-"Side bar Widgets can also be added by clicking the '%s' symbol. These appear "
-"under the '%s' symbol in this side bar"
-msgstr ""
-
-#: htdocs/modules/Ucptour/assets/js/global.js:237
-#: htdocs/modules/Ucptour/assets/js/global.js:249
-#: htdocs/modules/Ucptour/assets/js/global.js:254
-#: htdocs/modules/Ucptour/assets/js/global.js:259
-msgid "Small Widget Display"
-msgstr ""
-
-#: htdocs/modules/Ucptour/assets/js/global.js:220
-msgid ""
-"Small Widgets are listed on the right. The titles and descriptions will be "
-"show for each widget"
-msgstr ""
-
-#: htdocs/modules/Ucptour/assets/js/global.js:208
-msgid ""
-"Small widgets are grouped in a single category called 'Side Bar Widgets' "
-"which appears at the bottom of the Widget cateogry list"
-msgstr ""
-
-#: htdocs/modules/Widgets/assets/js/global.js:1097
-msgid "Something went wrong getting the content of the widget"
-msgstr ""
-
-#: htdocs/modules/Widgets/assets/js/global.js:1137
-#: htdocs/modules/Widgets/assets/js/global.js:1174
-msgid "Something went wrong getting the settings from the widget"
-msgstr ""
-
-#: htdocs/modules/Widgets/assets/js/global.js:825
-#: htdocs/modules/Widgets/assets/js/global.js:871
-msgid "Something went wrong removing the dashboard"
-msgstr ""
-
-#: ucp.i18n.php:14
-msgid "Styling and Logos"
-msgstr "Estilo e Logos"
-
-#: htdocs/modules/Settings/assets/js/global.js:100
-#: htdocs/modules/Settings/assets/js/global.js:113
-#: htdocs/modules/Settings/assets/js/global.js:152
-msgid "Success!"
-msgstr ""
 
 #: htdocs/views/templates/phone.php:69
 msgid "TUV"
 msgstr "TUV"
 
-#: htdocs/modules/Settings/assets/js/global.js:55
-msgid "The Browser Language could not be determined"
-msgstr ""
-
-#: htdocs/modules/Settings/assets/js/global.js:77
-msgid "The Browser Timezone could not be determined"
-msgstr ""
-
-#: htdocs/modules/Settings/assets/js/global.js:66
-msgid "The PBX Language is not set"
-msgstr ""
-
-#: htdocs/modules/Settings/assets/js/global.js:88
-msgid "The PBX Timezone is not set"
-msgstr ""
-
-#: htdocs/modules/Ucptour/assets/js/global.js:33
-msgid ""
-"The User Control Panel is now separated by 'Dashboards'. You can add a new "
-"dashboard by clicking this symbol"
-msgstr ""
-
-#: htdocs/includes/Ajax.class.php:74
-#, php-format
-msgid "The class %s already existed. Ajax MUST load it, for security reasons"
-msgstr ""
-
-#: htdocs/modules/Ucptour/assets/js/global.js:91
-msgid "The dashboard's name can be changed by clicking the pencil"
-msgstr ""
-
-#: htdocs/modules/Settings/views/settings.php:154
-#, php-format
-msgid ""
-"The format dates and times should display in. The default of \"llll\" is "
-"locale aware. If left blank this will use the group/system format. For more "
-"formats please see: %s"
-msgstr ""
-
-#: htdocs/modules/Settings/views/settings.php:162
-#, php-format
-msgid ""
-"The format dates should display in. The default of \"l\" is locale aware. If "
-"left blank this will use the group/system format. For more formats please "
-"see: %s"
-msgstr ""
-
-#: htdocs/modules/Settings/views/settings.php:170
-#, php-format
-msgid ""
-"The format times should display in. The default of \"LT\" is locale aware. "
-"If left blank this will use the group/system format. For more formats please "
-"see: %s"
-msgstr ""
-
-#: ucp.i18n.php:38
+#: ucp.i18n.php:36
 msgid ""
 "The number of days a session token will be valid for. Clear this setting if "
 "you want tokens to last forever (Not Recommended)"
 msgstr ""
+"O número de dias em que um token de sessão será válido. Limpe esta definição "
+"se pretender que os tokens durem para sempre (Não recomendado)"
 
-#: htdocs/modules/Settings/views/settings.php:29
-#: htdocs/modules/Settings/views/settings.php:34
+#: htdocs/views/settings.php:24 htdocs/views/settings.php:29
 msgid "The password used to login to User Control Panel and other services"
 msgstr ""
 "A senha usada para logar no Painel de Controle do Usuário e outros serviços"
 
-#: htdocs/views/dashfootercontent.php:4
+#: htdocs/views/dashfootercontent.php:10
 msgid "The removal of this copyright notice is stricly prohibited"
 msgstr "A remoção deste aviso de direitos autorais é estritamente proibida"
-
-#: htdocs/assets/js/ucp.js:499
-msgid "The session has expired and you are being forcibly logged out"
-msgstr ""
 
 #: ucp.i18n.php:8
 msgid ""
 "The user control panel is a way for users to control call handling and "
 "personal settings from a web browser."
 msgstr ""
+"O painel de controle do usuário é uma maneira de os usuários controlarem o "
+"gerenciamento de chamadas e as configurações pessoais de um navegador da Web."
 
-#: htdocs/modules/Settings/views/settings.php:20
+#: htdocs/views/settings.php:15
 msgid "The username used to login to User Control Panel and other services"
 msgstr ""
 "O usuário usado para logar no Painel de Controle do Usuário e outros serviços"
 
-#: htdocs/modules/Ucptour/assets/js/global.js:250
-msgid "The widget's content is displayed here"
-msgstr ""
-
-#: htdocs/modules/Widgets/assets/js/global.js:898
-msgid "There is no active dashboard to add widgets to"
-msgstr ""
-
-#: htdocs/modules/Settings/assets/js/global.js:157
-msgid "There was an error"
-msgstr ""
-
-#: htdocs/modules/Widgets/assets/js/global.js:970
-#: htdocs/modules/Widgets/assets/js/global.js:1042
-msgid "There was an error getting the widget information, try again later"
-msgstr ""
-
-#: htdocs/index.php:108
+#: htdocs/index.php:116
 msgid "There was an error trying to load UCP"
 msgstr "Houve um erro ao tentar carregar o PCU"
-
-#: htdocs/assets/js/ucp.js:44
-msgid "There was an error. See the console log for more details"
-msgstr ""
 
 #: views/users_hook.php:134
 msgid ""
@@ -877,35 +508,15 @@ msgid ""
 "extension settings such as Call Waiting, Call Forwarding, Find Me/Follow Me "
 "and others"
 msgstr ""
+"Estes são ramais atribuídos e ativos os quais são permitidos editar "
+"configurações de ramal como Chamada em Espera, Encaminhamento de Chamada, "
+"Localizar-me/Siga-me e outros"
 
-#: htdocs/modules/Ucptour/assets/js/global.js:25
-msgid ""
-"This tour will take you on a brief walkthrough of the new User Control Panel "
-"in a few simple steps."
-msgstr ""
-
-#: htdocs/modules/Settings/views/settings.php:165
-msgid "Time Format"
-msgstr ""
-
-#: htdocs/modules/Settings/views/settings.php:131
-msgid "Timezone"
-msgstr ""
-
-#: htdocs/modules/Settings/views/settings.php:62
+#: htdocs/views/settings.php:64
 msgid "Title"
 msgstr "Título"
 
-#: htdocs/modules/Ucptour/assets/js/global.js:25
-msgid "To continue just click Next"
-msgstr ""
-
-#: htdocs/modules/Ucptour/assets/js/global.js:260
-#, perl-format
-msgid "To just close/hide the widget's content click the '%s' symbol"
-msgstr ""
-
-#: htdocs/index.php:79
+#: htdocs/index.php:89
 #, php-format
 msgid ""
 "To protect the integrity of your server, you must allow overrides in your "
@@ -916,11 +527,7 @@ msgstr ""
 "substituições no arquivo de configuração de seu servidor web para Painel de "
 "Controle do Usuário. Para mais informações veja: %s"
 
-#: htdocs/modules/Ucptour/assets/js/global.js:255
-msgid "To remove this widget from the side bar click 'Remove Widget'"
-msgstr ""
-
-#: htdocs/index.php:108 ucp.i18n.php:10
+#: ucp.i18n.php:10
 msgid "UCP"
 msgstr "PCU"
 
@@ -928,32 +535,21 @@ msgstr "PCU"
 msgid "UCP Admin"
 msgstr "Admin. PCU"
 
-#: ucp.i18n.php:36
+#: htdocs/views/settings.php:108
+msgid "UCP Language"
+msgstr "Idioma PCU"
+
+#: ucp.i18n.php:32
 msgid "UCP Session Timeout"
-msgstr ""
+msgstr "Tempo limite da sessão do PCU"
 
-#: ucp.i18n.php:20
-msgid ""
-"UCP icons folder. This should never be changed except for very advanced "
-"layout changes"
-msgstr ""
-"Pasta de ícones do PCU. Isto não deve ser nunca alterado exceto para "
-"alterações de layout muito avançadas"
-
-#: htdocs/index.php:23
+#: htdocs/index.php:25
 msgid "UCP is currently disabled. Please talk to your system Administrator"
 msgstr ""
 "PCU está desabilitado atualmente. Por favor fale com seu Administrador de "
 "sistema"
 
-#: htdocs/assets/js/ucp.js:319
-msgid "UCP is not supported in your browser"
-msgstr ""
-
-#: htdocs/modules/Settings/assets/js/global.js:101
-#: htdocs/modules/Settings/assets/js/global.js:116
-#: htdocs/modules/Settings/assets/js/global.js:153
-#: htdocs/modules/Settings/assets/js/global.js:173
+#: htdocs/assets/js/ucp.js:970
 msgid "UCP needs to reload, ok?"
 msgstr "O PCU precisa ser recarregado, ok?"
 
@@ -962,55 +558,48 @@ msgid ""
 "UCP, otherwise known as the User Control Panel, is a user interface for "
 "FreePBX."
 msgstr ""
+"PCU, também conhecido como Painel de Controle do Usuário, é uma interface de "
+"usuário para o FreePBX."
+
+#: htdocs/assets/js/ucp.js:395
+#, perl-format
+msgid "Unable to get a token to use UCP Node Server because: '%s'"
+msgstr ""
+"Não é possível obter um token para usar o Servidor de Nó PCU porque: '%s'"
 
 #: htdocs/includes/User.class.php:84
 msgid "Unable to send Password Reset Email"
-msgstr ""
+msgstr "Não é possível enviar o Email de Redefinição de Senha"
 
-#: htdocs/modules/Settings/assets/js/global.js:252
+#: htdocs/index.php:192
+#, php-format
+msgid "Unknown Module %s"
+msgstr "Módulo Desconhecido %s"
+
+#: htdocs/assets/js/ucp.js:1090
 msgid "Unsupported file type"
-msgstr ""
+msgstr "Tipo de arquivo não suportado"
 
-#: htdocs/modules/Settings/views/settings.php:36
+#: htdocs/views/settings.php:31
 msgid "Update Password"
-msgstr ""
+msgstr "Atualizar Senha"
 
-#: htdocs/modules/Settings/views/settings.php:122
-msgid "Use Browser Language"
-msgstr ""
-
-#: htdocs/modules/Settings/views/settings.php:135
-msgid "Use Browser Timezone"
-msgstr ""
-
-#: htdocs/modules/Settings/views/settings.php:111
+#: htdocs/views/settings.php:149
 msgid "Use Gravatar"
-msgstr ""
-
-#: htdocs/modules/Settings/views/settings.php:125
-msgid "Use PBX Language"
-msgstr ""
-
-#: htdocs/modules/Settings/views/settings.php:138
-msgid "Use PBX Timezone"
-msgstr ""
-
-#: htdocs/modules/Settings/Settings.class.php:179
-msgid "User"
-msgstr ""
+msgstr "Usar Gravatar"
 
 #: htdocs/views/forgot.php:5 htdocs/views/header.php:4
-#: htdocs/views/login.php:5 ucp.i18n.php:4
-#: /usr/src/freepbx/ucp/ucp.i18n.php:24
-#: htdocs/modules/Widgets/assets/js/global.js:40
+#: htdocs/views/login.php:4 ucp.i18n.php:4
+#: /usr/src/freepbx/ucp/ucp.i18n.php:16 ucp.i18n.php:22
+#: /usr/src/freepbx/ucp/ucp.i18n.php:28 ucp.i18n.php:34
 msgid "User Control Panel"
 msgstr "Painel de Controle do Usuário"
 
-#: htdocs/modules/Settings/views/settings.php:2
+#: htdocs/views/settings.php:2
 msgid "User Control Panel Settings"
 msgstr "Configurações Painel de Controle do Usuário"
 
-#: htdocs/views/dashfootercontent.php:2
+#: htdocs/views/dashfootercontent.php:7
 #, php-format
 msgid "User Control Panel is released as %s or newer"
 msgstr "Painel de Controle do Usuário está liberado como %s ou mais novo"
@@ -1020,209 +609,96 @@ msgstr "Painel de Controle do Usuário está liberado como %s ou mais novo"
 msgid "User Control Panel: %s"
 msgstr "Painel de Controle do Usuário: %s"
 
-#: htdocs/modules/Settings/views/settings.php:6
+#: htdocs/views/settings.php:41
 msgid "User Details"
-msgstr ""
+msgstr "Detalhes do Usuário"
+
+#: ucp.i18n.php:12
+msgid "User Panel"
+msgstr "Painel do Usuário"
 
 #: Ucp.class.php:70 /usr/src/freepbx/ucp/Ucp.class.php:98
 msgid "User Primary Extension"
-msgstr ""
+msgstr "Ramal Principal do Usuário"
 
-#: htdocs/modules/Ucptour/assets/js/global.js:271
+#: htdocs/index.php:227
 msgid "User Settings"
-msgstr ""
+msgstr "Configurações do Usuário"
 
-#: htdocs/modules/Settings/views/settings.php:18 htdocs/views/login.php:16
+#: htdocs/views/login.php:15 htdocs/views/settings.php:13
 msgid "Username"
 msgstr "Usuário"
 
-#: htdocs/modules/Settings/assets/js/global.js:190
+#: htdocs/assets/js/ucp.js:1036
 msgid "Username has been changed, reloading"
 msgstr "Usuário foi mudado, recarregando"
-
-#: ucp.i18n.php:12
-msgid "View: UCP dashfootercontent.php"
-msgstr "Ver: dashfootercontent.php PCU"
-
-#: ucp.i18n.php:18
-msgid "View: UCP icons"
-msgstr "Ver: Ícones PCU"
 
 #: htdocs/views/templates/phone.php:73
 msgid "WXYZ"
 msgstr "WXYZ"
 
-#: htdocs/views/header.php:70
+#: htdocs/views/dashboard.php:3
 #, php-format
 msgid "Welcome %s"
 msgstr "Bem vindo %s"
 
-#: htdocs/modules/Ucptour/assets/js/global.js:24
-#, perl-format
-msgid "Welcome to %s!"
-msgstr ""
-
 #: views/users_hook.php:4
 msgid "What is UCP"
-msgstr ""
+msgstr "O que é PCU"
 
-#: htdocs/modules/Ucptour/assets/js/global.js:59
-msgid ""
-"When you are finished simply hit 'Create Dashboard' to create your dashboard"
-msgstr ""
-
-#: htdocs/modules/Ucptour/assets/js/global.js:178
-#: htdocs/modules/Ucptour/assets/js/global.js:183
-msgid "Widget Locking"
-msgstr ""
-
-#: htdocs/modules/Ucptour/assets/js/global.js:162
-msgid "Widget Placement"
-msgstr ""
-
-#: htdocs/views/dashboard-footer.php:162
-msgid "Widget Settings"
-msgstr ""
-
-#: htdocs/modules/Ucptour/assets/js/global.js:170
-msgid "Widget Size"
-msgstr ""
-
-#: htdocs/modules/Widgets/Widgets.class.php:191
-msgid "Widgets"
-msgstr ""
-
-#: htdocs/modules/Ucptour/assets/js/global.js:137
-msgid ""
-"Widgets are listed on the right. The titles and descriptions will be show "
-"for each widget"
-msgstr ""
-
-#: htdocs/modules/Ucptour/assets/js/global.js:158
-msgid ""
-"Widgets are placed automatically on the dashboard after they have been added"
-msgstr ""
-
-#: htdocs/modules/Ucptour/assets/js/global.js:131
-msgid ""
-"Widgets are sorted into categories on the left. You can click on any "
-"category to get a listing of the widgets available"
-msgstr ""
-
-#: htdocs/modules/Ucptour/assets/js/global.js:184
-#, perl-format
-msgid "Widgets can also be removed by clicking the '%s' symbol"
-msgstr ""
-
-#: htdocs/modules/Ucptour/assets/js/global.js:115
-#, perl-format
-msgid "Widgets can be added by clicking the '%s' symbol"
-msgstr ""
-
-#: htdocs/modules/Ucptour/assets/js/global.js:179
-msgid "Widgets can be locked into place to prevent their movement"
-msgstr ""
-
-#: htdocs/modules/Ucptour/assets/js/global.js:163
-msgid "Widgets can be moved around by clicking and dragging on the title bar"
-msgstr ""
-
-#: htdocs/modules/Ucptour/assets/js/global.js:171
-msgid ""
-"Widgets can be resized by placing your mouse near the corner of the widget. "
-"Click and drag to resize the widget."
-msgstr ""
-
-#: htdocs/modules/Settings/views/settings.php:77
+#: htdocs/views/settings.php:79
 msgid "Work Phone"
 msgstr "Fone Trabalho"
 
 #: views/users_hook.php:51 views/users_hook.php:149
 msgid "Yes"
-msgstr ""
+msgstr "Sim"
 
-#: htdocs/modules/Widgets/assets/js/global.js:1050
-msgid "You already have this widget on the side bar"
-msgstr ""
+#: htdocs/assets/js/ucp.js:461
+msgid "You are currently working in offline mode."
+msgstr "Você está trabalhando em modo offline atualmente."
 
-#: htdocs/modules/Widgets/assets/js/global.js:978
-msgid "You already have this widget on this dashboard"
-msgstr ""
-
-#: htdocs/modules/Ucptour/assets/js/global.js:25
-msgid ""
-"You can always exit the tour if you'd like, and you can restart the tour at "
-"anytime by clicking your User Settings and then 'Restart Tour'"
-msgstr ""
-
-#: htdocs/modules/Ucptour/assets/js/global.js:281
-#, perl-format
-msgid ""
-"You have finished the tour of User Control Panel for %s 14. You can restart "
-"this tour at any time in your User Settings"
-msgstr ""
-
-#: htdocs/modules/Ucptour/assets/js/global.js:25
-msgid "You just successfully logged in for the first time!"
-msgstr ""
-
-#: htdocs/modules/Widgets/assets/js/global.js:1262
-msgid "You must set a dashboard name!"
-msgstr ""
-
-#: htdocs/modules/Widgets/Widgets.class.php:40
-msgid "You need to add at least one dashboard to continue"
-msgstr ""
-
-#: htdocs/assets/js/ucp.js:306
+#: htdocs/assets/js/ucp.js:147
 msgid "Your Browser is unsupported at this time."
 msgstr "Seu Navegador não é suportado neste momento."
 
-#: htdocs/modules/Settings/views/settings.php:74
+#: htdocs/views/settings.php:76
 msgid "Your Cell Phone Number"
 msgstr "Seu Número de Celular"
 
-#: htdocs/modules/Settings/views/settings.php:69
+#: htdocs/views/settings.php:71
 msgid "Your Company"
 msgstr "Sua Empresa"
 
-#: htdocs/modules/Settings/views/settings.php:49
+#: htdocs/views/settings.php:51
 msgid "Your Email Address"
 msgstr "Seu Endereço de Email"
 
-#: htdocs/modules/Settings/views/settings.php:89
+#: htdocs/views/settings.php:91
 msgid "Your Fax Number"
 msgstr "Seu Número de Fax"
 
-#: htdocs/modules/Settings/views/settings.php:54
+#: htdocs/views/settings.php:56
 msgid "Your First Name"
 msgstr "Seu Primeiro Nome"
 
-#: htdocs/modules/Settings/views/settings.php:84
+#: htdocs/views/settings.php:86
 msgid "Your Home Number"
 msgstr "Seu Número de Casa"
 
-#: htdocs/modules/Settings/views/settings.php:128
-msgid "Your Language"
-msgstr ""
-
-#: htdocs/modules/Settings/views/settings.php:59
+#: htdocs/views/settings.php:61
 msgid "Your Last Name"
 msgstr "Seu Último Nome"
 
-#: htdocs/modules/Settings/views/settings.php:141
-msgid "Your Timezone"
-msgstr ""
-
-#: htdocs/modules/Settings/views/settings.php:64
+#: htdocs/views/settings.php:66
 msgid "Your Title"
 msgstr "Seu Título"
 
-#: htdocs/modules/Settings/views/settings.php:79
+#: htdocs/views/settings.php:81
 msgid "Your Work Number"
 msgstr "Seu Número de Trabalho"
 
-#: htdocs/assets/js/ucp.js:308
+#: htdocs/assets/js/ucp.js:149
 msgid ""
 "Your browser is unsupported at this time. Please upgrade or talk to your "
 "system administrator"
@@ -1230,34 +706,11 @@ msgstr ""
 "Seu navegador não é suportado neste momento. Por favor atualize ou fale com "
 "seu administrador de sistema"
 
-#: htdocs/modules/Ucptour/assets/js/global.js:277
-msgid "Your can logout of UCP by clicking this logout button"
-msgstr ""
+#: htdocs/assets/js/ucp.js:83
+msgid "Your reset link is in the mail!"
+msgstr "Seu link de redefinição está no email!"
 
-#: htdocs/modules/Ucptour/assets/js/global.js:83
-msgid "Your dashboard has been added here"
-msgstr ""
-
-#: htdocs/modules/Ucptour/assets/js/global.js:272
-msgid ""
-"Your specific settings are defined when clicking the 'gear' icon in the side "
-"bar"
-msgstr ""
-
-#: ucp.i18n.php:16
-msgid ""
-"dashfootercontent.php view. This should never be changed except for very "
-"advanced layout changes"
-msgstr ""
-"visualização dashfootercontent.php. Isto não deve nunca ser mudado exceto "
-"para mudanças de layout muito avançadas"
-
-#: htdocs/assets/js/lodash-4.17.2.js:15638
-#: htdocs/assets/js/lodash-4.17.2.js:15642
-msgid "fred"
-msgstr ""
-
-#: htdocs/index.php:92
+#: htdocs/index.php:102
 #, php-format
 msgid ""
 "htaccess files help protect the integrity of your server. Please make sure "
@@ -1268,54 +721,24 @@ msgstr ""
 "assegure-se os caminhos dos arquivos e diretórios estão bloqueados "
 "apropriadamente. Para mais informações veja: %s"
 
-#: htdocs/views/login.php:25
+#: htdocs/views/login.php:24
 msgid "or"
 msgstr "ou"
 
-#~ msgid "Are you sure you wish to change your username?"
-#~ msgstr "Você tem certeza que deseja mudar seu usuário?"
+#~ msgid "Allowed Settings"
+#~ msgstr "Configurações Permitidas"
 
-#~ msgid "Excuse us while we try to retrieve your content"
-#~ msgstr "Desculpe-nos enquanto tentamos recuperar seu conteúdo"
-
-#~ msgid "Forbidden"
-#~ msgstr "Proibido"
-
-#~ msgid "Loading"
-#~ msgstr "Carregando"
-
-#~ msgid "Please enter either a username or email address"
-#~ msgstr "Por favor entre com seu usuário ou endereço de email"
-
-#~ msgid "UCP Language"
-#~ msgstr "Idioma PCU"
-
-#~ msgid "Unknown Module %s"
-#~ msgstr "Módulo Desconhecido %s"
-
-#~ msgid "User Panel"
-#~ msgstr "Painel do Usuário"
-
-#~ msgid "You are currently working in offline mode."
-#~ msgstr "Você está trabalhando em modo offline atualmente."
-
-#~ msgid "Your reset link is in the mail!"
-#~ msgstr "Seu link de redefinição está no email!"
+#~ msgid "Formerly ARI, now called User Control Panel"
+#~ msgstr "Anteriormente ARI, agora chamado Painel de Controle do Usuário"
 
 #~ msgid "Allow users to change thier username in UCP"
 #~ msgstr "Permitir usuários mudarem seus usuários no PCU"
-
-#~ msgid "Allowed Settings"
-#~ msgstr "Configurações Permitidas"
 
 #~ msgid "Connecting...."
 #~ msgstr "Conectando…"
 
 #~ msgid "Failed to install "
 #~ msgstr "Falha ao instalar "
-
-#~ msgid "Formerly ARI, now called User Control Panel"
-#~ msgstr "Anteriormente ARI, agora chamado Painel de Controle do Usuário"
 
 #~ msgid "Module Settings"
 #~ msgstr "Configurações de Módulo"
@@ -1347,6 +770,9 @@ msgstr "ou"
 #~ "reprodução para reproduções de arquivos no navegador. Sem ele os arquivos "
 #~ "não serão reproduzidos no PCU"
 
+#~ msgid "Styling and Logos"
+#~ msgstr "Estilo e Logos"
+
 #~ msgid "Submit"
 #~ msgstr "Enviar"
 
@@ -1356,3 +782,23 @@ msgstr "ou"
 #~ msgstr ""
 #~ "Estes são os ramais associadas e ativos que aparecerão para este usuário "
 #~ "controlar e editar no PCU"
+
+#~ msgid ""
+#~ "UCP icons folder. This should never be changed except for very advanced "
+#~ "layout changes"
+#~ msgstr ""
+#~ "Pasta de ícones do PCU. Isto não deve ser nunca alterado exceto para "
+#~ "alterações de layout muito avançadas"
+
+#~ msgid "View: UCP dashfootercontent.php"
+#~ msgstr "Ver: dashfootercontent.php PCU"
+
+#~ msgid "View: UCP icons"
+#~ msgstr "Ver: Ícones PCU"
+
+#~ msgid ""
+#~ "dashfootercontent.php view. This should never be changed except for very "
+#~ "advanced layout changes"
+#~ msgstr ""
+#~ "visualização dashfootercontent.php. Isto não deve nunca ser mudado exceto "
+#~ "para mudanças de layout muito avançadas"
