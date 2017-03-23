@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-03-14 17:33-0700\n"
+"POT-Creation-Date: 2017-03-23 10:13-0700\n"
 "PO-Revision-Date: 2016-09-02 16:04+0200\n"
 "Last-Translator: Kenichi <k.kitani@qloog.com>\n"
 "Language-Team: Japanese <http://weblate.freepbx.org/projects/freepbx/ucp/"
@@ -215,7 +215,7 @@ msgstr "UCPでパスワードの変更を可能にする権限をユーザに与
 msgid "Allowed Extension Settings"
 msgstr "許可された内線の設定"
 
-#: htdocs/modules/Widgets/assets/js/global.js:851
+#: htdocs/modules/Widgets/assets/js/global.js:850
 msgid "Are you sure you want to delete this dashboard?"
 msgstr ""
 
@@ -505,7 +505,7 @@ msgstr ""
 msgid "Invalid"
 msgstr "不正"
 
-#: htdocs/modules/Widgets/assets/js/global.js:867
+#: htdocs/modules/Widgets/assets/js/global.js:866
 msgid "Invalid Dashboard ID"
 msgstr ""
 
@@ -669,7 +669,7 @@ msgid "Remember Me"
 msgstr "保存する"
 
 #: htdocs/views/dashboard-header.php:61
-#: htdocs/modules/Widgets/assets/js/global.js:410
+#: htdocs/modules/Widgets/assets/js/global.js:409
 msgid "Remove Widget"
 msgstr ""
 
@@ -717,7 +717,7 @@ msgid "Sent at %s"
 msgstr "%s に送信された"
 
 #: htdocs/modules/Widgets/assets/js/global.js:83
-#: htdocs/modules/Widgets/assets/js/global.js:350
+#: htdocs/modules/Widgets/assets/js/global.js:349
 msgid "Settings"
 msgstr "設定"
 
@@ -751,17 +751,17 @@ msgid ""
 "show for each widget"
 msgstr ""
 
-#: htdocs/modules/Widgets/assets/js/global.js:1133
+#: htdocs/modules/Widgets/assets/js/global.js:1132
 msgid "Something went wrong getting the content of the widget"
 msgstr ""
 
-#: htdocs/modules/Widgets/assets/js/global.js:1173
-#: htdocs/modules/Widgets/assets/js/global.js:1210
+#: htdocs/modules/Widgets/assets/js/global.js:1172
+#: htdocs/modules/Widgets/assets/js/global.js:1209
 msgid "Something went wrong getting the settings from the widget"
 msgstr ""
 
-#: htdocs/modules/Widgets/assets/js/global.js:825
-#: htdocs/modules/Widgets/assets/js/global.js:871
+#: htdocs/modules/Widgets/assets/js/global.js:824
+#: htdocs/modules/Widgets/assets/js/global.js:870
 msgid "Something went wrong removing the dashboard"
 msgstr ""
 
@@ -876,12 +876,12 @@ msgid ""
 "widgets. Let's start with dashboard widgets"
 msgstr ""
 
-#: htdocs/modules/Widgets/assets/js/global.js:934
+#: htdocs/modules/Widgets/assets/js/global.js:933
 msgid "There is no active dashboard to add widgets to"
 msgstr ""
 
-#: htdocs/modules/Widgets/assets/js/global.js:1006
-#: htdocs/modules/Widgets/assets/js/global.js:1078
+#: htdocs/modules/Widgets/assets/js/global.js:1005
+#: htdocs/modules/Widgets/assets/js/global.js:1077
 msgid "There was an error getting the widget information, try again later"
 msgstr ""
 
@@ -1166,11 +1166,11 @@ msgstr "オフィス電話"
 msgid "Yes"
 msgstr "はい"
 
-#: htdocs/modules/Widgets/assets/js/global.js:1086
+#: htdocs/modules/Widgets/assets/js/global.js:1085
 msgid "You already have this widget on the side bar"
 msgstr ""
 
-#: htdocs/modules/Widgets/assets/js/global.js:1014
+#: htdocs/modules/Widgets/assets/js/global.js:1013
 msgid "You already have this widget on this dashboard"
 msgstr ""
 
@@ -1191,7 +1191,7 @@ msgstr ""
 msgid "You just successfully logged in for the first time!"
 msgstr ""
 
-#: htdocs/modules/Widgets/assets/js/global.js:1298
+#: htdocs/modules/Widgets/assets/js/global.js:1319
 msgid "You must set a dashboard name!"
 msgstr ""
 
