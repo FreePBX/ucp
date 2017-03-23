@@ -161,7 +161,6 @@ var WidgetsC = Class.extend({
 			el = $(el);
 			var node = el.data('_gridstack_node'),
 					locked = el.find(".lock-widget i").hasClass("fa-lock");
-			grid.movable(el, !locked); //some gitchy crap going on here, we have to relock the widget
 			return {
 				id: el.data('id'),
 				widget_module_name: el.data('widget_module_name'),
@@ -1283,6 +1282,28 @@ var WidgetsC = Class.extend({
 				//save layout
 				$this.saveLayoutContent();
 			}
+		});
+		//some gitchy crap going on here, we have to relock the widget
+		$('.grid-stack').on('dragstop', function(event, ui) {
+			var grid = $(".grid-stack").data('gridstack');
+			$('.grid-stack .grid-stack-item:visible').not(".grid-stack-placeholder").each(function(){
+				var el = $(this);
+						locked = el.find(".lock-widget i").hasClass("fa-lock");
+				grid.movable(el, !locked);
+				grid.locked(el, locked);
+				grid.resizable(el, !locked);
+			});
+		});
+		//some gitchy crap going on here, we have to relock the widget
+		$('.grid-stack').on('resizestop', function(event, ui) {
+			var grid = $(".grid-stack").data('gridstack');
+			$('.grid-stack .grid-stack-item:visible').not(".grid-stack-placeholder").each(function(){
+				var el = $(this);
+						locked = el.find(".lock-widget i").hasClass("fa-lock");
+				grid.movable(el, !locked);
+				grid.locked(el, locked);
+				grid.resizable(el, !locked);
+			});
 		});
 	},
 	/**
