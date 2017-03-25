@@ -539,7 +539,7 @@ class Ucp implements \BMO {
 	 * in User Manager
 	 * @param {array} $user The user array
 	 */
-	function constructModuleConfigPages($mode, $user, $action) {
+	public function constructModuleConfigPages($mode, $user, $action) {
 		$mods = $this->FreePBX->Hooks->processHooks($mode, $user, $action);
 		$html = '';
 		if(!empty($mods) && is_array($mods)) {
