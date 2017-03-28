@@ -29,8 +29,16 @@
 		<li class="add-widget first-widget locked" data-toggle="modal" data-target="#add_widget"><a href="#"><i class="fa fa-plus-circle" aria-hidden="true"></i></a></li>
 		<?php if(!empty($user_small_widgets)) { ?>
 			<?php foreach($user_small_widgets as $small_widget) { ?>
-				<li class="custom-widget" data-widget_id="<?php echo $small_widget['id']; ?>" data-widget_rawname="<?php echo $small_widget['rawname']; ?>">
-					<a href="#" data-module_name="<?php echo $small_widget['module_name']; ?>" data-id="<?php echo $small_widget['id']; ?>" data-name="<?php echo $small_widget['name']; ?>" data-rawname="<?php echo $small_widget['rawname']; ?>" data-type_id="<?php echo $small_widget['type_id']; ?>" data-icon="<?php echo $small_widget['icon']; ?>">
+				<?php
+					$regenuuid = '';
+					if(!preg_match('/^[0-9A-F]{8}-[0-9A-F]{4}-4[0-9A-F]{3}-[89AB][0-9A-F]{3}-[0-9A-F]{12}$/i',$small_widget['id'])) {
+						$small_widget['widget_type_id'] = $small_widget['id'];
+						$small_widget['id'] = (string)\Ramsey\Uuid\Uuid::uuid4();
+						$regenuuid = 'data-regenuuid="true"';
+					}
+				?>
+				<li class="custom-widget" data-widget_id="<?php echo $small_widget['id']; ?>" data-widget_rawname="<?php echo $small_widget['rawname']; ?>" data-widget_type_id="<?php echo $small_widget['widget_type_id']?>">
+					<a href="#" data-module_name="<?php echo $small_widget['module_name']; ?>" <?php echo $regenuuid?> data-id="<?php echo $small_widget['id']; ?>" data-widget_type_id="<?php echo $small_widget['widget_type_id']?>" data-name="<?php echo $small_widget['name']; ?>" data-rawname="<?php echo $small_widget['rawname']; ?>" data-icon="<?php echo $small_widget['icon']; ?>">
 						<i class="<?php echo $small_widget['icon']; ?>" aria-hidden="true"></i>
 					</a>
 				</li>
@@ -48,14 +56,11 @@
 <div class="side-menu-widgets-container">
 	<?php if(!empty($user_small_widgets)) { ?>
 		<?php foreach($user_small_widgets as $small_widget) { ?>
-			<div class="widget-extra-menu" id="menu_<?php echo $small_widget['rawname'];?>_<?php echo $small_widget['id'];?>" data-id="menu_<?php echo $small_widget['rawname'];?>_<?php echo $small_widget['id'];?>" data-widget_type_id="<?php echo $small_widget['id'];?>" data-module="<?php echo $small_widget['rawname']; ?>" data-name="<?php echo $small_widget['name']?>" data-widget_name="<?php echo $small_widget['widget_name']; ?>" data-icon="<?php echo $small_widget['icon']; ?>">
+			<div class="widget-extra-menu" id="menu_<?php echo $small_widget['id'];?>" data-id="<?php echo $small_widget['id'];?>" data-widget_type_id="<?php echo $small_widget['widget_type_id'];?>" data-module="<?php echo $small_widget['rawname']; ?>" data-name="<?php echo $small_widget['name']?>" data-widget_name="<?php echo $small_widget['widget_name']; ?>" data-icon="<?php echo $small_widget['icon']; ?>">
 				<div class="menu-actions">
-					<i class="fa fa-times-circle-o close-simple-widget-menu" aria-hidden="true"></i>
-					<?php if($small_widget['hasSettings']) { ?>
-						<i class="fa fa-cog show-simple-widget-settings" aria-hidden="true"></i>
-					<?php } ?>
+					<i class="fa fa-times-circle-o close-simple-widget-menu" aria-hidden="true"></i><?php if($small_widget['hasSettings']) { ?><i class="fa fa-cog show-simple-widget-settings" aria-hidden="true"></i><?php } ?>
 				</div>
-				<h5 class="small-widget-title"><i class="fa"></i> <span></span> <small></small></h5>
+				<h5 class="small-widget-title"><i class="fa <?php echo $small_widget['icon']?>"></i> <span><?php echo $small_widget['widget_name']?></span> <small>(<?php echo $small_widget['name']?>)</small></h5>
 				<div class="small-widget-content">
 				</div>
 				<button type="button" class="btn btn-xs btn-danger remove-small-widget" data-widget_id="<?php echo $small_widget['id']; ?>" data-widget_rawname="<?php echo $small_widget['rawname']; ?>"><?php echo _("Remove Widget")?></button>

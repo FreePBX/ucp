@@ -17,13 +17,20 @@ var WidgetsC = Class.extend({
 		var $this = this;
 		var total = $(".custom-widget").length;
 		var count = 0;
+		var resave = false;
 		$(".custom-widget").each(function() {
 			var widget_rawname = $(this).data("widget_rawname");
-			var widget_id = $(this).data("widget_id");
+			var widget_id = $(this).data("id");
 			UCP.callModuleByMethod(widget_rawname,"addSimpleWidget",widget_id);
+			$(document).trigger("post-body.addsimplewidget",[ widget_id, $this.activeDashboard ]);
+			if(typeof $(this).find("a").data("regenuuid") !== "undefined" && $(this).find("a").data("regenuuid")) {
+				resave = true;
+			}
 			count++;
 			if(total == count) {
-				//$(document).trigger("post-body.addsimplewidget",[ widget_id, $this.activeDashboard ]);
+				if(resave) {
+					$this.saveSidebarContent();
+				}
 			}
 		});
 		window.onpopstate = function(event) {
@@ -68,17 +75,23 @@ var WidgetsC = Class.extend({
 		});
 
 		$(document).on("click", ".edit-widget", function(){
-			var rawname = $(this).data("rawname");
-			var widget_type_id = $(this).data("widget_type_id");
-			var widget_id = $(this).parents(".grid-stack-item").data("id");
-
+			var settings_container = $('#widget_settings .modal-body'),
+					parent = $(this).parents(".grid-stack-item"),
+					rawname = parent.data("rawname"),
+					widget_type_id = parent.data("widget_type_id"),
+					widget_id = parent.data("id"),
+					title = parent.data("widget_module_name"),
+					name = parent.data("name");
 
 			$('#widget_settings').attr("data-rawname",rawname);
 			$('#widget_settings').data('rawname',rawname);
-			var settings_container = $('#widget_settings .modal-body');
-			var parent = $(this).parents(".grid-stack-item");
-			var title = parent.data("widget_module_name");
-			var name = parent.data("name");
+
+			$('#widget_settings').attr("data-id",widget_id);
+			$('#widget_settings').data('id',widget_id);
+
+			$('#widget_settings').attr("data-widget_type_id",widget_type_id);
+			$('#widget_settings').data('widget_type_id',widget_type_id);
+
 			$this.activateSettingsLoading();
 			$("#widget_settings .modal-title").html('<i class="fa fa-cog" aria-hidden="true"></i> '+title+" "+_("Settings")+" ("+name+")");
 			$('#widget_settings').modal('show');
@@ -91,7 +104,7 @@ var WidgetsC = Class.extend({
 						$(".help-block").addClass('help-hidden');
 						$('.help-block[data-for="'+f+'"]').removeClass('help-hidden');
 					});
-					$(document).trigger("post-body.widgetsettings",[ widget_id, widget_type_id, $this.activeDashboard ]);
+					$(document).trigger("post-body.widgetsettings",[ widget_id, $this.activeDashboard ]);
 				});
 			});
 		});
@@ -125,16 +138,23 @@ var WidgetsC = Class.extend({
 			var gridstack = $(".grid-stack").data('gridstack');
 			var total = gridstack.grid.nodes.length;
 			var count = 0;
+			var resave = false;
 			$.each(gridstack.grid.nodes, function(i,v){
 				var el = v.el;
 				if(!el.hasClass("add-widget-widget")){
 					var widget_id = $(el).data('id');
 					var widget_type_id = $(el).data('widget_type_id');
 					var widget_rawname = $(el).data('rawname');
+					if(typeof $(el).data("regenuuid") !== "undefined" && $(el).data("regenuuid")) {
+						resave = true;
+					}
 					$this.getWidgetContent(widget_id, widget_type_id, widget_rawname, function() {
 						count++;
 						if(count == total) {
 							$(document).trigger("post-body.widgets",[ null, $this.activeDashboard ]);
+							if(resave) {
+								$this.saveLayoutContent();
+							}
 						}
 					});
 				}
@@ -161,6 +181,7 @@ var WidgetsC = Class.extend({
 			el = $(el);
 			var node = el.data('_gridstack_node'),
 					locked = el.find(".lock-widget i").hasClass("fa-lock");
+
 			return {
 				id: el.data('id'),
 				widget_module_name: el.data('widget_module_name'),
@@ -172,7 +193,8 @@ var WidgetsC = Class.extend({
 				size_y: node.y,
 				col: node.width,
 				row: node.height,
-				locked: locked
+				locked: locked,
+				uuid: el.data('uuid')
 			};
 		});
 
@@ -207,15 +229,19 @@ var WidgetsC = Class.extend({
 		sidebar_objects.each(function(){
 
 			var widget_id = $(this).data('id'),
+					widget_type_id = $(this).data('widget_type_id'),
 					widget_module_name = $(this).data('module_name'),
 					widget_rawname = $(this).data('rawname'),
 					widget_name = $(this).data('name'),
 					widget_icon = $(this).data('icon'),
-					small_widget = {id:widget_id,
-								module_name: widget_module_name,
-								rawname: widget_rawname,
-								name: widget_name,
-								icon: widget_icon};
+					small_widget = {
+						id:widget_id,
+						widget_type_id: widget_type_id,
+						module_name: widget_module_name,
+						rawname: widget_rawname,
+						name: widget_name,
+						icon: widget_icon
+					};
 
 			all_content.push(small_widget);
 
@@ -330,8 +356,8 @@ var WidgetsC = Class.extend({
 						'<div class="grid-stack-item-content flipper">' +
 							'<div class="front">' +
 								'<div class="widget-title">' +
-									'<div class="widget-module-name truncate-text"><i class="fa-fw '+icon+'"></i>' + widget_module_name + '</div>' +
-									'<div class="widget-module-subname truncate-text">('+widget_name+')</div>' +
+									'<div class="widget-module-name truncate-text"><i class="fa-fw '+icon+'"></i>' + widget_name + '</div>' +
+									'<div class="widget-module-subname truncate-text">('+widget_module_name+')</div>' +
 									'<div class="widget-options">' +
 										'<div class="widget-option remove-widget" data-widget_id="'+widget_id+'" data-widget_type_id="'+widget_type_id+'" data-widget_rawname="'+widget_rawname+'">' +
 											'<i class="fa fa-times" aria-hidden="true"></i>' +
@@ -366,17 +392,16 @@ var WidgetsC = Class.extend({
 	 * Generate Side Bar Icon Layout
 	 * @method smallWidgetLayout
 	 * @param  {string}          widget_id          The widget ID
-	 * @param  {string}          widget_module_name The widget module name
+	 * @param  {string}          widget_rawname     The widget rawname
 	 * @param  {string}          widget_name        The widget name
 	 * @param  {string}          widget_type_id     The widget sub id
-	 * @param  {string}          widget_rawname     The widget rawname
 	 * @param  {string}          widget_icon        The widget icon class
 	 * @return {string}                             The finalized HTML
 	 */
-	smallWidgetLayout: function(widget_id, widget_module_name, widget_name, widget_type_id, widget_rawname, widget_icon){
+	smallWidgetLayout: function(widget_id, widget_rawname, widget_name, widget_type_id, widget_icon){
 		var html = '' +
-			'<li class="custom-widget" data-widget_id="'+widget_id+'" data-widget_rawname="'+widget_rawname+'">' +
-				'<a href="#" data-module_name="'+widget_module_name+'" data-id="'+widget_id+'" data-name="'+widget_name+'" data-rawname="'+widget_rawname+'" data-type_id="'+widget_type_id+'" data-icon="' + widget_icon + '"><i class="' + widget_icon + '" aria-hidden="true"></i></a>' +
+			'<li class="custom-widget" data-widget_id="'+widget_id+'" data-widget_rawname="'+widget_rawname+'" data-widget_type_id="'+widget_type_id+'">' +
+				'<a href="#" data-id="'+widget_id+'" data-name="'+widget_name+'" data-rawname="'+widget_rawname+'" data-widget_type_id="'+widget_type_id+'" data-icon="' + widget_icon + '"><i class="' + widget_icon + '" aria-hidden="true"></i></a>' +
 			'</li>';
 
 		return html;
@@ -386,24 +411,26 @@ var WidgetsC = Class.extend({
 	 * @method smallWidgetMenuLayout
 	 * @param  {string}              widget_id      The Widget ID
 	 * @param  {string}              widget_rawname The widget rawname
-	 * @param  {string}              name           The widget name
 	 * @param  {string}              widget_name    The widget name
+	 * @param  {string}              widget_type_id The widget name
 	 * @param  {string}              widget_icon    The widget icon class
+	 * @param  {string}              widget_sub     The widget sub name
 	 * @param  {Boolean}             hasSettings    If the settings COG should be generated
 	 * @return {string}                             The finalized HTML
 	 */
-	smallWidgetMenuLayout: function(widget_id, widget_rawname, name, widget_name, widget_icon, hasSettings){
+	smallWidgetMenuLayout: function(widget_id, widget_rawname, widget_name, widget_type_id, widget_icon, widget_sub, hasSettings){
 		var settings_html = '';
 		if(hasSettings) {
 			settings_html = '<i class="fa fa-cog show-simple-widget-settings" aria-hidden="true"></i>';
 		}
+
 		var html = '' +
-			'<div class="widget-extra-menu" id="menu_'+widget_rawname+'_'+widget_id+'" data-id="menu_'+widget_rawname+'_'+widget_id+'" data-widget_type_id="'+widget_id+'" data-module="'+widget_rawname+'" data-name="'+name+'" data-widget_name="'+widget_name+'" data-icon="'+widget_icon+'">' +
+			'<div class="widget-extra-menu" id="menu_'+widget_id+'" data-id="'+widget_id+'" data-widget_type_id="'+widget_type_id+'" data-module="'+widget_rawname+'" data-name="'+widget_name+'" data-widget_name="'+widget_type_id+'" data-icon="'+widget_icon+'">' +
 				'<div class="menu-actions">' +
 					'<i class="fa fa-times-circle-o close-simple-widget-menu" aria-hidden="true"></i>' +
 					settings_html +
 				'</div>' +
-				'<h5 class="small-widget-title"><i class="fa"></i> <span></span> <small></small></h5>' +
+				'<h5 class="small-widget-title"><i class="fa '+widget_icon+'"></i> <span>'+widget_sub+'</span> <small>('+widget_name+')</small></h5>' +
 				'<div class="small-widget-content">' +
 				'</div>' +
 				'<button type="button" class="btn btn-xs btn-danger remove-small-widget" data-widget_id="'+widget_id+'" data-widget_rawname="'+widget_rawname+'">'+_('Remove Widget')+'</button>' +
@@ -558,11 +585,17 @@ var WidgetsC = Class.extend({
 			$('#widget_settings').attr("data-rawname",rawname);
 			$('#widget_settings').data('rawname',rawname);
 
+			$('#widget_settings').attr("data-id",widget_id);
+			$('#widget_settings').data('id',widget_id);
+
+			$('#widget_settings').attr("data-widget_type_id",widget_type_id);
+			$('#widget_settings').data('widget_type_id',widget_type_id);
+
 			$this.activateSettingsLoading();
 			$("#widget_settings .modal-title").html('<i class="fa fa-cog" aria-hidden="true"></i> '+title+" "+_("Settings")+" ("+name+")");
 			$('#widget_settings').modal('show');
 			$('#widget_settings').one('shown.bs.modal', function() {
-				$this.getSimpleSettingsContent(settings_container, widget_type_id, rawname, function() {
+				$this.getSimpleSettingsContent(settings_container, widget_id, widget_type_id, rawname, function() {
 					$("#widget_settings .modal-body .fa-question-circle").click(function(e) {
 						e.preventDefault();
 						e.stopPropagation();
@@ -570,7 +603,7 @@ var WidgetsC = Class.extend({
 						$(".help-block").addClass('help-hidden');
 						$('.help-block[data-for="'+f+'"]').removeClass('help-hidden');
 					});
-					$(document).trigger("post-body.simplewidgetsettings",[ widget_id, widget_type_id ]);
+					$(document).trigger("post-body.simplewidgetsettings",[ widget_id ]);
 				});
 			});
 		});
@@ -582,7 +615,7 @@ var WidgetsC = Class.extend({
 			event.preventDefault();
 			event.stopPropagation();
 
-			var widget_type_id = null,
+			var widget_type_id = 'user',
 					widget_id = 'user',
 					rawname = 'settings',
 					settings_container = $('#widget_settings .modal-body');
@@ -590,7 +623,7 @@ var WidgetsC = Class.extend({
 			$("#widget_settings .modal-title").html('<i class="fa fa-cog" aria-hidden="true"></i> '+_("User Settings"));
 			$('#widget_settings').modal('show');
 			$('#widget_settings').one('shown.bs.modal', function() {
-				$this.getSimpleSettingsContent(settings_container, widget_type_id, rawname, function() {
+				$this.getSimpleSettingsContent(settings_container, widget_id, widget_type_id, rawname, function() {
 					$("#widget_settings .modal-body .fa-question-circle").click(function(e) {
 						e.preventDefault();
 						e.stopPropagation();
@@ -598,7 +631,7 @@ var WidgetsC = Class.extend({
 						$(".help-block").addClass('help-hidden');
 						$('.help-block[data-for="'+f+'"]').removeClass('help-hidden');
 					});
-					$(document).trigger("post-body.simplewidgetsettings",[ widget_id, widget_type_id ]);
+					$(document).trigger("post-body.simplewidgetsettings",[ widget_id ]);
 				});
 			});
 		});
@@ -615,13 +648,12 @@ var WidgetsC = Class.extend({
 			//We are already looking at it so close it and move on
 			if(widget.hasClass("active")) {
 				$this.closeExtraWidgetMenu();
-
 				return;
 			}
 
 			var clicked_module = widget.find("a").data("rawname"),
-					clicked_id = widget.find("a").data("id"),
-					widget_id = clicked_module + "_" + clicked_id,
+					clicked_id = widget.find("a").data("widget_type_id"),
+					widget_id = widget.find("a").data("id"),
 					content_object = $("#menu_"+widget_id).find(".small-widget-content");
 
 			$("#side_bar_content li.active").removeClass("active");
@@ -629,13 +661,6 @@ var WidgetsC = Class.extend({
 
 			$(".widget-extra-menu:visible").addClass("hidden");
 
-			$("#menu_"+widget_id).find(".small-widget-title i").removeClass().addClass($("#menu_"+widget_id).data("icon"));
-			$("#menu_"+widget_id).find(".small-widget-title span").text($("#menu_"+widget_id).data("name"));
-			if($("#menu_"+widget_id).data("name") != $("#menu_"+widget_id).data("widget_name")) {
-				$("#menu_"+widget_id).find(".small-widget-title small").text("("+$("#menu_"+widget_id).data("widget_name")+")");
-			} else {
-				$("#menu_"+widget_id).find(".small-widget-title small").text("");
-			}
 			$this.activateWidgetLoading(content_object);
 			$("#menu_"+widget_id).removeClass("hidden");
 			$this.openExtraWidgetMenu();
@@ -645,14 +670,15 @@ var WidgetsC = Class.extend({
 					module: "Dashboards",
 					command: "getsimplewidgetcontent",
 					id: clicked_id,
-					rawname: clicked_module
+					rawname: clicked_module,
+					uuid: uuid
 				},
 				function( data ) {
 					if(typeof data.html !== "undefined"){
 						content_object.html(data.html);
 
-						UCP.callModuleByMethod(clicked_module,"displaySimpleWidget",clicked_id);
-						$(document).trigger("post-body.simplewidget",[ clicked_id, $this.activeDashboard ]);
+						UCP.callModuleByMethod(clicked_module,"displaySimpleWidget",widget_id);
+						$(document).trigger("post-body.simplewidget",[ widget_id ]);
 					}else {
 						UCP.showAlert(_("There was an error getting the widget information, try again later"), "danger");
 					}
@@ -938,7 +964,7 @@ var WidgetsC = Class.extend({
 					widget_module_name = $(this).data('widget_module_name'),
 					widget_rawname = $(this).data('rawname'),
 					widget_name = $(this).data('widget_name'),
-					new_widget_id = current_dashboard_id + "-" + widget_rawname + "-" + widget_id,
+					new_widget_id = uuid.v4(),
 					icon = allWidgets[widget_rawname.modularize()].icon,
 					widget_info = allWidgets[widget_rawname.modularize()].list[widget_id],
 					widget_has_settings = false,
@@ -948,7 +974,8 @@ var WidgetsC = Class.extend({
 					min_size_y = null,
 					max_size_x = null,
 					max_size_y = null,
-					resizable = true;
+					resizable = true,
+					dynamic = false;
 
 			if(typeof widget_info.defaultsize !== "undefined") {
 				default_size_x = widget_info.defaultsize.width;
@@ -973,10 +1000,14 @@ var WidgetsC = Class.extend({
 				resizable = widget_info.resizable;
 			}
 
-			//Checking if the widget is already on the dashboard
-			var object_on_dashboard = $("div[data-id='"+new_widget_id+"']");
+			if(typeof widget_info.dynamic !== "undefined") {
+				dynamic = widget_info.dynamic;
+			}
 
-			if(object_on_dashboard.length <= 0) {
+			//Checking if the widget is already on the dashboard
+			var object_on_dashboard = ($(".grid-stack-item[data-rawname='"+widget_rawname+"'][data-widget_type_id='"+widget_id+"']").length > 0);
+
+			if(dynamic || !object_on_dashboard) {
 
 				$this.activateFullLoading();
 
@@ -985,7 +1016,8 @@ var WidgetsC = Class.extend({
 						module: "Dashboards",
 						command: "getwidgetcontent",
 						id: widget_id,
-						rawname: widget_rawname
+						rawname: widget_rawname,
+						uuid: new_widget_id
 					},
 					function( data ) {
 
@@ -1009,7 +1041,7 @@ var WidgetsC = Class.extend({
 					}).fail(function(jqXHR, textStatus, errorThrown) {
 						UCP.showAlert(textStatus,'warning');
 					});
-			}else {
+			} else {
 				UCP.showAlert(_("You already have this widget on this dashboard"), "info");
 			}
 		});
@@ -1020,20 +1052,29 @@ var WidgetsC = Class.extend({
 		$(".add-small-widget-button").click(function(){
 
 			var widget_id = $(this).data('id'),
-					widget_module_name = $(this).data('module_name'),
 					widget_rawname = $(this).data('rawname'),
 					widget_name = $(this).data('name'),
-					widget_type_id = $(this).data('widget_type_id'),
+					widget_sub = $(this).data('widget_type_id'),
+					new_widget_id = uuid.v4(),
 					widget_info = allSimpleWidgets[widget_rawname.modularize()].list[widget_id],
 					widget_icon = allSimpleWidgets[widget_rawname.modularize()].icon,
-					hasSettings = false;
+					hasSettings = false,
+					dynamic = false;
 
 			if(typeof widget_info.hasSettings !== "undefined") {
 				hasSettings = widget_info.hasSettings;
 			}
 
+			if(typeof widget_info.dynamic !== "undefined") {
+				dynamic = widget_info.dynamic;
+			}
+
+			//Checking if the widget is already on the dashboard
+
+			var object_on_dashboard = ($("#side_bar_content li.custom-widget[data-widget_rawname='"+widget_rawname+"'][data-widget_type_id='"+widget_id+"']").length > 0);
+
 			//Checking if the widget is already on the bar
-			if($("#side_bar_content li.custom-widget[data-rawname='"+widget_rawname+"'][data-widget_id='"+widget_id+"']").length <= 0){
+			if(dynamic || !object_on_dashboard){
 
 				$this.activateFullLoading();
 
@@ -1042,16 +1083,17 @@ var WidgetsC = Class.extend({
 						module: "Dashboards",
 						command: "getsimplewidgetcontent",
 						id: widget_id,
-						rawname: widget_rawname
+						rawname: widget_rawname,
+						uuid: new_widget_id
 					},
 					function( data ) {
 						$("#add_widget").modal("hide");
 
 						if(typeof data.html !== "undefined"){
 							//get small widget layout
-							var full_widget_html = $this.smallWidgetLayout(widget_id, widget_module_name, widget_name, widget_id, widget_rawname, widget_icon);
+							var full_widget_html = $this.smallWidgetLayout(new_widget_id, widget_rawname, widget_name, widget_id, widget_icon);
 							//get small widget menu layout
-							var menu_widget_html = $this.smallWidgetMenuLayout(widget_id, widget_rawname, widget_name, widget_type_id, widget_icon, hasSettings);
+							var menu_widget_html = $this.smallWidgetMenuLayout(new_widget_id, widget_rawname, widget_name, widget_id, widget_icon, widget_sub, hasSettings);
 
 							//add icon to sidebar
 							if($("#side_bar_content .custom-widget").length) {
@@ -1066,10 +1108,10 @@ var WidgetsC = Class.extend({
 							$(".side-menu-widgets-container").append(menu_widget_html);
 
 							//execute module method
-							UCP.callModuleByMethod(widget_rawname,"addSimpleWidget",widget_id);
+							UCP.callModuleByMethod(widget_rawname,"addSimpleWidget",new_widget_id);
 
 							//execute trigger
-							$(document).trigger("post-body.addsimplewidget",[ widget_id, $this.activeDashboard ]);
+							$(document).trigger("post-body.addsimplewidget",[ new_widget_id, $this.activeDashboard ]);
 
 							//save side bar
 							$this.saveSidebarContent();
@@ -1122,7 +1164,8 @@ var WidgetsC = Class.extend({
 				module: "Dashboards",
 				command: "getwidgetcontent",
 				id: widget_type_id,
-				rawname: widget_rawname
+				rawname: widget_rawname,
+				uuid: widget_id
 			},
 			function( data ) {
 
@@ -1151,18 +1194,20 @@ var WidgetsC = Class.extend({
 	 * @method getSimpleSettingsContent
 	 * @param  {object}           widget_content_object jQuery object of the settings container
 	 * @param  {string}           widget_id             The widget ID
+	 * @param  {string}           widget_type_id        The widget type ID
 	 * @param  {string}           widget_rawname        The widget rawname
 	 * @param  {Function}         callback              Callback Function when done (success + complete)
 	 */
-	getSimpleSettingsContent: function(widget_content_object, widget_id, widget_rawname, callback){
+	getSimpleSettingsContent: function(widget_content_object, widget_id, widget_type_id, widget_rawname, callback){
 		var $this = this;
 
 		$.post( UCP.ajaxUrl,
 			{
 				module: "Dashboards",
 				command: "getsimplewidgetsettingscontent",
-				id: widget_id,
-				rawname: widget_rawname
+				id: widget_type_id,
+				rawname: widget_rawname,
+				uuid: widget_id
 			},
 			function( data ) {
 
@@ -1199,7 +1244,8 @@ var WidgetsC = Class.extend({
 				module: "Dashboards",
 				command: "getwidgetsettingscontent",
 				id: widget_type_id,
-				rawname: widget_rawname
+				rawname: widget_rawname,
+				uuid: widget_id
 			},
 			function( data ) {
 
@@ -1398,6 +1444,7 @@ var WidgetsC = Class.extend({
 
 			//load widgets
 			$this.activateFullLoading();
+			var resave = false;
 			async.each(dashboards[id], function(widget, callback) {
 				//uppercase the module rawname
 				var cased = widget.rawname.modularize();
@@ -1409,6 +1456,10 @@ var WidgetsC = Class.extend({
 				var widget_html = $this.activateWidgetLoading();
 				//TODO: fix this
 				widget.resizable = true;
+				if(!widget.id.match(/^[0-9A-F]{8}-[0-9A-F]{4}-4[0-9A-F]{3}-[89AB][0-9A-F]{3}-[0-9A-F]{12}$/i)) {
+					widget.id = uuid.v4();
+					resave = true;
+				}
 				//get widget content
 				var full_widget_html = $this.widget_layout(widget.id, widget.widget_module_name, widget.name, widget.widget_type_id, widget.rawname, widget.has_settings, widget_html, widget.resizable, widget.locked);
 				//get max/min size of this widget
@@ -1437,7 +1488,8 @@ var WidgetsC = Class.extend({
 						module: "Dashboards",
 						command: "getwidgetcontent",
 						id: widget.widget_type_id,
-						rawname: widget.rawname
+						rawname: widget.rawname,
+						uuid: widget.id
 					},
 					function( data ) {
 						//set the content from what we got
@@ -1470,6 +1522,9 @@ var WidgetsC = Class.extend({
 					UCP.callModulesByMethod("showDashboard",$this.activeDashboard);
 					//trigger all widgets loaded event
 					$(document).trigger("post-body.widgets",[ null, $this.activeDashboard ]);
+					if(resave) {
+						$this.saveLayoutContent();
+					}
 				}
 			});
 		});

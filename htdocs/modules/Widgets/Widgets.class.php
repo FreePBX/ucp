@@ -24,7 +24,8 @@
 */
 namespace UCP\Modules;
 use \UCP\Modules as Modules;
-use PicoFeed\Reader\Reader;
+use \Ramsey\Uuid\Uuid;
+use \Ramsey\Uuid\Exception\UnsatisfiedDependencyException;
 
 class Widgets extends Modules{
 	protected $module = 'Widgets';
@@ -99,13 +100,20 @@ class Widgets extends Modules{
 											</div>';
 				}
 
-				$html .= '<div class="grid-stack-item flip-container" '.$maxsize.' '.$minsize.' '.$noresize.' '.$locked.' data-gs-x="'.$data->size_x.'" data-gs-y="'.$data->size_y.'" data-gs-width="'.$data->col.'" data-gs-height="'.$data->row.'" data-widget_module_name="'.$data->widget_module_name.'" data-gs-id="'.$data->id.'" data-id="'.$data->id.'" data-name="'.$data->name.'" data-rawname="'.$data->rawname.'" data-widget_type_id="'.$data->widget_type_id.'" data-has_settings="' . $data->has_settings . '">';
+				$regenuuid = '';
+				if(!preg_match('/^[0-9A-F]{8}-[0-9A-F]{4}-4[0-9A-F]{3}-[89AB][0-9A-F]{3}-[0-9A-F]{12}$/i',$data->id)) {
+					//TODO: need to mark that this happened
+					$data->id = (string)Uuid::uuid4();
+					$regenuuid = 'data-regenuuid="true"';
+				}
+
+				$html .= '<div class="grid-stack-item flip-container" '.$maxsize.' '.$minsize.' '.$noresize.' '.$locked.' '.$regenuuid.' data-gs-x="'.$data->size_x.'" data-gs-y="'.$data->size_y.'" data-gs-width="'.$data->col.'" data-gs-height="'.$data->row.'" data-widget_module_name="'.$data->widget_module_name.'" data-gs-id="'.$data->id.'" data-id="'.$data->id.'" data-name="'.$data->name.'" data-rawname="'.$data->rawname.'" data-widget_type_id="'.$data->widget_type_id.'" data-has_settings="' . $data->has_settings . '">';
 
 				$html .= '<div class="grid-stack-item-content flipper">
 						<div class="front">
 							<div class="widget-title">
-								<div class="widget-module-name truncate-text"><i class="fa-fw '.$iconClass.'"></i>'.$data->widget_module_name.'</div>
-								<div class="widget-module-subname truncate-text">('.$data->name.')</div>
+								<div class="widget-module-name truncate-text"><i class="fa-fw '.$iconClass.'"></i>'.$data->name.'</div>
+								<div class="widget-module-subname truncate-text">('.$data->widget_module_name.')</div>
 								<div class="widget-options">
 									<div class="widget-option remove-widget" data-widget_id="'.$data->id.'" data-widget_type_id="'.$data->widget_type_id.'" data-widget_rawname="'.$data->rawname.'">
 										<i class="fa fa-times" aria-hidden="true"></i>

@@ -121,8 +121,8 @@ $usw = (array)json_decode($ucp->Dashboards->getSimpleLayout(),true);
 $user_small_widgets = array();
 foreach($usw as $id => $widget) {
 	$name = ucfirst(strtolower($widget['rawname']));
-	$id = $widget['rawname'] . '-' . $widget['id'];
-	$info = $all_simple_widgets['widget'][$name]['list'][$widget['id']];
+	$id = $widget['id'];
+	$info = $all_simple_widgets['widget'][$name]['list'][$widget['widget_type_id']];
 	$display = $all_simple_widgets['widget'][$name]['display'];
 	if(empty($info)) {
 		continue;

@@ -214,6 +214,7 @@ class UCP extends UCP_Helpers {
 			"Sortable-1.4.2.min.js",
 			"bootstrap-toggle-2.2.2.min.js",
 			"browser-locale-1.0.0.min.js",
+			"uuid-3.0.1.js",
 			"ucp.js",
 			"module.js"
 		);

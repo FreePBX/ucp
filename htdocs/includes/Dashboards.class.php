@@ -139,16 +139,20 @@ class Dashboards {
 				return $this->getAllWidgets();
 			break;
 			case 'getwidgetcontent':
-				return $this->getWidgetContent($_POST['rawname'],$_POST['id']);
+				$uuid = !empty($_POST['uuid']) ? $_POST['uuid'] : null;
+				return $this->getWidgetContent($_POST['rawname'],$_POST['id'],$uuid);
 			break;
 			case 'getsimplewidgetcontent':
-				return $this->getSimpleWidgetContent($_POST['rawname'],$_POST['id']);
+				$uuid = !empty($_POST['uuid']) ? $_POST['uuid'] : null;
+				return $this->getSimpleWidgetContent($_POST['rawname'],$_POST['id'],$uuid);
 			break;
 			case 'getwidgetsettingscontent':
-				return $this->getWidgetSettingsContent($_POST['rawname'],$_POST['id']);
+				$uuid = !empty($_POST['uuid']) ? $_POST['uuid'] : null;
+				return $this->getWidgetSettingsContent($_POST['rawname'],$_POST['id'],$uuid);
 			break;
 			case 'getsimplewidgetsettingscontent':
-				return $this->getSimpleWidgetSettingsContent($_POST['rawname'],$_POST['id']);
+				$uuid = !empty($_POST['uuid']) ? $_POST['uuid'] : null;
+				return $this->getSimpleWidgetSettingsContent($_POST['rawname'],$_POST['id'],$uuid);
 			break;
 		}
 		return false;
@@ -218,34 +222,34 @@ class Dashboards {
 		return array("status" => true, "widget" => $list);
 	}
 
-	public function getWidgetContent($rawname, $id) {
+	public function getWidgetContent($rawname, $id, $uuid) {
 		if($this->UCP->Modules->moduleHasMethod($rawname, 'getWidgetDisplay')) {
 			$module = ucfirst(strtolower($rawname));
-			return $this->UCP->Modules->$module->getWidgetDisplay($id);
+			return $this->UCP->Modules->$module->getWidgetDisplay($id, $uuid);
 		}
 	}
 
-	public function getSimpleWidgetContent($rawname, $id) {
+	public function getSimpleWidgetContent($rawname, $id, $uuid) {
 		if($this->UCP->Modules->moduleHasMethod($rawname, 'getSimpleWidgetDisplay')) {
 			$module = ucfirst(strtolower($rawname));
-			return $this->UCP->Modules->$module->getSimpleWidgetDisplay($id);
+			return $this->UCP->Modules->$module->getSimpleWidgetDisplay($id, $uuid);
 		}
 		if($this->UCP->Modules->moduleHasMethod($rawname, 'getWidgetDisplay')) {
 			$module = ucfirst(strtolower($rawname));
-			return $this->UCP->Modules->$module->getWidgetDisplay($id);
+			return $this->UCP->Modules->$module->getWidgetDisplay($id, $uuid);
 		}
 	}
 
-	public function getWidgetSettingsContent($rawname, $id) {
+	public function getWidgetSettingsContent($rawname, $id, $uuid) {
 		if($this->UCP->Modules->moduleHasMethod($rawname, 'getWidgetSettingsDisplay')) {
 			$module = ucfirst(strtolower($rawname));
-			return $this->UCP->Modules->$module->getWidgetSettingsDisplay($id);
+			return $this->UCP->Modules->$module->getWidgetSettingsDisplay($id, $uuid);
 		}
 	}
-	public function getSimpleWidgetSettingsContent($rawname, $id) {
+	public function getSimpleWidgetSettingsContent($rawname, $id, $uuid) {
 		if($this->UCP->Modules->moduleHasMethod($rawname, 'getSimpleWidgetSettingsDisplay')) {
 			$module = ucfirst(strtolower($rawname));
-			return $this->UCP->Modules->$module->getSimpleWidgetSettingsDisplay($id);
+			return $this->UCP->Modules->$module->getSimpleWidgetSettingsDisplay($id, $uuid);
 		}
 	}
 }

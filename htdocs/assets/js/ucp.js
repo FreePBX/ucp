@@ -857,6 +857,10 @@ function htmlDecode( html ) {
 	return a.textContent;
 }
 
+function dbug(data) {
+	console.log(data);
+}
+
 $('#globalModal').on('hide.bs.modal',function(){
 	$('#globalModalLabel').html("");
 	$('#globalModalBody').html("");
