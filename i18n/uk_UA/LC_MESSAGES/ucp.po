@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-03-23 10:13-0700\n"
+"POT-Creation-Date: 2017-03-28 14:25-0700\n"
 "PO-Revision-Date: 2016-12-13 14:49+0200\n"
 "Last-Translator: Maxim <maxim@ua.fm>\n"
 "Language-Team: Ukrainian <http://weblate.freepbx.org/projects/freepbx/ucp/"
@@ -219,7 +219,7 @@ msgstr "Дозволити користувачам змінювати свій 
 msgid "Allowed Extension Settings"
 msgstr "Дозволені налаштування додаткового номеру"
 
-#: htdocs/modules/Widgets/assets/js/global.js:850
+#: htdocs/modules/Widgets/assets/js/global.js:876
 msgid "Are you sure you want to delete this dashboard?"
 msgstr ""
 
@@ -509,7 +509,7 @@ msgstr ""
 msgid "Invalid"
 msgstr "Недійсний"
 
-#: htdocs/modules/Widgets/assets/js/global.js:866
+#: htdocs/modules/Widgets/assets/js/global.js:892
 msgid "Invalid Dashboard ID"
 msgstr ""
 
@@ -526,7 +526,7 @@ msgstr "Невірні логін або пароль"
 msgid "Invalid Token"
 msgstr "Неприпустимий маркер"
 
-#: htdocs/modules/Widgets/Widgets.class.php:45
+#: htdocs/modules/Widgets/Widgets.class.php:46
 msgid "Invalid dashboard id"
 msgstr ""
 
@@ -672,8 +672,8 @@ msgstr "Оновлення усіх активів UCP, це може зайня
 msgid "Remember Me"
 msgstr "Запам'ятати мене"
 
-#: htdocs/views/dashboard-header.php:61
-#: htdocs/modules/Widgets/assets/js/global.js:409
+#: htdocs/views/dashboard-header.php:66
+#: htdocs/modules/Widgets/assets/js/global.js:436
 msgid "Remove Widget"
 msgstr ""
 
@@ -720,8 +720,8 @@ msgstr "Надіслати мені посилання на відновленн
 msgid "Sent at %s"
 msgstr "Надіслано в %s"
 
-#: htdocs/modules/Widgets/assets/js/global.js:83
-#: htdocs/modules/Widgets/assets/js/global.js:349
+#: htdocs/modules/Widgets/assets/js/global.js:96
+#: htdocs/modules/Widgets/assets/js/global.js:375
 msgid "Settings"
 msgstr "Налаштування"
 
@@ -755,17 +755,17 @@ msgid ""
 "show for each widget"
 msgstr ""
 
-#: htdocs/modules/Widgets/assets/js/global.js:1132
+#: htdocs/modules/Widgets/assets/js/global.js:1175
 msgid "Something went wrong getting the content of the widget"
 msgstr ""
 
-#: htdocs/modules/Widgets/assets/js/global.js:1172
-#: htdocs/modules/Widgets/assets/js/global.js:1209
+#: htdocs/modules/Widgets/assets/js/global.js:1217
+#: htdocs/modules/Widgets/assets/js/global.js:1255
 msgid "Something went wrong getting the settings from the widget"
 msgstr ""
 
-#: htdocs/modules/Widgets/assets/js/global.js:824
-#: htdocs/modules/Widgets/assets/js/global.js:870
+#: htdocs/modules/Widgets/assets/js/global.js:850
+#: htdocs/modules/Widgets/assets/js/global.js:896
 msgid "Something went wrong removing the dashboard"
 msgstr ""
 
@@ -884,12 +884,12 @@ msgid ""
 "widgets. Let's start with dashboard widgets"
 msgstr ""
 
-#: htdocs/modules/Widgets/assets/js/global.js:933
+#: htdocs/modules/Widgets/assets/js/global.js:959
 msgid "There is no active dashboard to add widgets to"
 msgstr ""
 
-#: htdocs/modules/Widgets/assets/js/global.js:1005
-#: htdocs/modules/Widgets/assets/js/global.js:1077
+#: htdocs/modules/Widgets/assets/js/global.js:1037
+#: htdocs/modules/Widgets/assets/js/global.js:1119
 msgid "There was an error getting the widget information, try again later"
 msgstr ""
 
@@ -1032,7 +1032,7 @@ msgstr ""
 #: htdocs/views/forgot.php:5 htdocs/views/header.php:4
 #: htdocs/views/login.php:5 ucp.i18n.php:4
 #: /usr/src/freepbx/ucp/ucp.i18n.php:24
-#: htdocs/modules/Widgets/assets/js/global.js:40
+#: htdocs/modules/Widgets/assets/js/global.js:47
 msgid "User Control Panel"
 msgstr "Панель керування користувача"
 
@@ -1122,7 +1122,7 @@ msgstr ""
 msgid "Widget Size"
 msgstr ""
 
-#: htdocs/modules/Widgets/Widgets.class.php:191
+#: htdocs/modules/Widgets/Widgets.class.php:199
 msgid "Widgets"
 msgstr ""
 
@@ -1174,11 +1174,11 @@ msgstr "Робочий телефон"
 msgid "Yes"
 msgstr "Так"
 
-#: htdocs/modules/Widgets/assets/js/global.js:1085
+#: htdocs/modules/Widgets/assets/js/global.js:1127
 msgid "You already have this widget on the side bar"
 msgstr ""
 
-#: htdocs/modules/Widgets/assets/js/global.js:1013
+#: htdocs/modules/Widgets/assets/js/global.js:1045
 msgid "You already have this widget on this dashboard"
 msgstr ""
 
@@ -1199,11 +1199,11 @@ msgstr ""
 msgid "You just successfully logged in for the first time!"
 msgstr ""
 
-#: htdocs/modules/Widgets/assets/js/global.js:1319
+#: htdocs/modules/Widgets/assets/js/global.js:1365
 msgid "You must set a dashboard name!"
 msgstr ""
 
-#: htdocs/modules/Widgets/Widgets.class.php:40
+#: htdocs/modules/Widgets/Widgets.class.php:41
 msgid "You need to add at least one dashboard to continue"
 msgstr ""
 
