@@ -241,7 +241,7 @@ $(document).bind("logIn", function( event ) {
 				element: ".navbar.navbar-inverse.navbar-fixed-left",
 				placement: "right",
 				title: _("Side Bar Widgets"),
-				content: _("Blurb")
+				content: _("This is where side bar widgets live. Side bar widgets do not change when you change dashboards. They are global throughout UCP")
 			}, {
 				backdrop: true,
 				backdropContainer: "#side_bar_content",
