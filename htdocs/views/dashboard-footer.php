@@ -86,7 +86,7 @@
 															<div class="ibox-content-widget">
 																<div class="row">
 																	<div class="widget-title col-md-11">
-																		<h4><i class="<?php echo $widget_category_info['icon'] ?>"></i> <?php echo $widget_list["display"]; ?>
+																		<h4><i class="<?php echo isset($widget_list["icon"]) ? $widget_list["icon"] : $widget_category_info['icon'] ?>"></i> <?php echo $widget_list["display"]; ?>
 																			<br>
 																			<small class="m-r"><?php echo isset($widget_list["description"])?$widget_list["description"]:''?></small>
 																		</h4>
