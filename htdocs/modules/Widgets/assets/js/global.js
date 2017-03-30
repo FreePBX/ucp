@@ -50,6 +50,10 @@ var WidgetsC = Class.extend({
 	loadDashboard: function() {
 		var $this = this;
 
+		$("#dashboard-content .dashboard-error.no-dash").click(function() {
+			$("#add_new_dashboard").click();
+		});
+
 		$('#add_dashboard').on('shown.bs.modal', function () {
 			$('#dashboard_name').focus();
 			$("#add_dashboard").off("keydown");
@@ -888,8 +892,16 @@ var WidgetsC = Class.extend({
 						if (data.status) {
 							$(".dashboard-menu[data-id='" + dashboard_id + "']").remove();
 
-							if(dashboard_id == $this.activeDashboard){
-								$this.showDashboardError(_("Invalid Dashboard ID"));
+							if(dashboard_id == $this.activeDashboard) {
+								if($(".dashboard-menu").length > 0) {
+									$(".dashboard-menu").first().find("a").click();
+								} else {
+									$this.showDashboardError(_("You have no dashboards. Click here to add one"));
+									$("#dashboard-content .dashboard-error").css("cursor","pointer");
+									$("#dashboard-content .dashboard-error").click(function() {
+										$("#add_new_dashboard").click();
+									});
+								}
 							}
 
 						} else {
