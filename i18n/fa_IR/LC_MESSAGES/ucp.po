@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-03-28 14:25-0700\n"
+"POT-Creation-Date: 2017-03-30 12:02-0700\n"
 "PO-Revision-Date: 2016-07-06 05:21+0200\n"
 "Last-Translator: Media <mousavi.media@gmail.com>\n"
 "Language-Team: Persian (Iran) <http://weblate.freepbx.org/projects/freepbx/"
@@ -216,12 +216,8 @@ msgstr "به کاربران اجازه تغییر کلمه عبور در پنل 
 msgid "Allowed Extension Settings"
 msgstr "مجاز برای تتنظیمات داخلی"
 
-#: htdocs/modules/Widgets/assets/js/global.js:876
+#: htdocs/modules/Widgets/assets/js/global.js:880
 msgid "Are you sure you want to delete this dashboard?"
-msgstr ""
-
-#: htdocs/modules/Ucptour/assets/js/global.js:244
-msgid "Blurb"
 msgstr ""
 
 #: htdocs/modules/Settings/views/settings.php:102
@@ -506,10 +502,6 @@ msgstr ""
 msgid "Invalid"
 msgstr "نا معتبر"
 
-#: htdocs/modules/Widgets/assets/js/global.js:892
-msgid "Invalid Dashboard ID"
-msgstr ""
-
 #: htdocs/modules/Home/Home.class.php:137
 #: htdocs/modules/Home/Home.class.php:141
 msgid "Invalid Device"
@@ -671,7 +663,7 @@ msgid "Remember Me"
 msgstr "مرا بخاطر بسپار"
 
 #: htdocs/views/dashboard-header.php:66
-#: htdocs/modules/Widgets/assets/js/global.js:436
+#: htdocs/modules/Widgets/assets/js/global.js:440
 msgid "Remove Widget"
 msgstr ""
 
@@ -718,8 +710,8 @@ msgstr "لینک بازنشانی کلمه عبور را برایم ارسال �
 msgid "Sent at %s"
 msgstr "ارسال شده در %s"
 
-#: htdocs/modules/Widgets/assets/js/global.js:96
-#: htdocs/modules/Widgets/assets/js/global.js:375
+#: htdocs/modules/Widgets/assets/js/global.js:100
+#: htdocs/modules/Widgets/assets/js/global.js:379
 msgid "Settings"
 msgstr "تنظیمات"
 
@@ -753,17 +745,17 @@ msgid ""
 "show for each widget"
 msgstr ""
 
-#: htdocs/modules/Widgets/assets/js/global.js:1175
+#: htdocs/modules/Widgets/assets/js/global.js:1187
 msgid "Something went wrong getting the content of the widget"
 msgstr ""
 
-#: htdocs/modules/Widgets/assets/js/global.js:1217
-#: htdocs/modules/Widgets/assets/js/global.js:1255
+#: htdocs/modules/Widgets/assets/js/global.js:1229
+#: htdocs/modules/Widgets/assets/js/global.js:1267
 msgid "Something went wrong getting the settings from the widget"
 msgstr ""
 
-#: htdocs/modules/Widgets/assets/js/global.js:850
-#: htdocs/modules/Widgets/assets/js/global.js:896
+#: htdocs/modules/Widgets/assets/js/global.js:854
+#: htdocs/modules/Widgets/assets/js/global.js:908
 msgid "Something went wrong removing the dashboard"
 msgstr ""
 
@@ -881,12 +873,12 @@ msgid ""
 "widgets. Let's start with dashboard widgets"
 msgstr ""
 
-#: htdocs/modules/Widgets/assets/js/global.js:959
+#: htdocs/modules/Widgets/assets/js/global.js:971
 msgid "There is no active dashboard to add widgets to"
 msgstr ""
 
-#: htdocs/modules/Widgets/assets/js/global.js:1037
-#: htdocs/modules/Widgets/assets/js/global.js:1119
+#: htdocs/modules/Widgets/assets/js/global.js:1049
+#: htdocs/modules/Widgets/assets/js/global.js:1131
 msgid "There was an error getting the widget information, try again later"
 msgstr ""
 
@@ -906,6 +898,12 @@ msgid ""
 msgstr ""
 "این داخلی ها فعال بوده و برای تغییر تنظیمات داخلی مانند انتظار مکالمه، "
 "انتقال مکالمه، مرا پیدا/دنبال کن و غیره، مجوز آن داده شده است"
+
+#: htdocs/modules/Ucptour/assets/js/global.js:244
+msgid ""
+"This is where side bar widgets live. Side bar widgets do not change when you "
+"change dashboards. They are global throughout UCP"
+msgstr ""
 
 #: htdocs/modules/Ucptour/assets/js/global.js:25
 msgid ""
@@ -1168,11 +1166,11 @@ msgstr "تلفن محل کار"
 msgid "Yes"
 msgstr "بله"
 
-#: htdocs/modules/Widgets/assets/js/global.js:1127
+#: htdocs/modules/Widgets/assets/js/global.js:1139
 msgid "You already have this widget on the side bar"
 msgstr ""
 
-#: htdocs/modules/Widgets/assets/js/global.js:1045
+#: htdocs/modules/Widgets/assets/js/global.js:1057
 msgid "You already have this widget on this dashboard"
 msgstr ""
 
@@ -1189,16 +1187,17 @@ msgid ""
 "this tour at any time in your User Settings"
 msgstr ""
 
+#: htdocs/modules/Widgets/Widgets.class.php:41
+#: htdocs/modules/Widgets/assets/js/global.js:899
+msgid "You have no dashboards. Click here to add one"
+msgstr ""
+
 #: htdocs/modules/Ucptour/assets/js/global.js:25
 msgid "You just successfully logged in for the first time!"
 msgstr ""
 
-#: htdocs/modules/Widgets/assets/js/global.js:1365
+#: htdocs/modules/Widgets/assets/js/global.js:1377
 msgid "You must set a dashboard name!"
-msgstr ""
-
-#: htdocs/modules/Widgets/Widgets.class.php:41
-msgid "You need to add at least one dashboard to continue"
 msgstr ""
 
 #: htdocs/assets/js/ucp.js:306
