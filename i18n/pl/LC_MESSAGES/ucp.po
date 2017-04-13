@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-01-25 12:48-0800\n"
-"PO-Revision-Date: 2017-04-10 21:03+0200\n"
+"PO-Revision-Date: 2017-04-12 21:45+0200\n"
 "Last-Translator: Michal <mboltz@tlen.pl>\n"
 "Language-Team: Polish <http://weblate.freepbx.org/projects/freepbx/ucp/pl/>\n"
 "Language: pl\n"
@@ -487,6 +487,8 @@ msgid ""
 "The user control panel is a way for users to control call handling and "
 "personal settings from a web browser."
 msgstr ""
+"Panel sterowania użytkownika to sposób, w jaki użytkownicy mogą kontrolować "
+"zarządzanie połączeniami i ustawienia osobiste przeglądarki internetowej."
 
 #: htdocs/views/settings.php:15
 msgid "The username used to login to User Control Panel and other services"
@@ -504,6 +506,9 @@ msgid ""
 "extension settings such as Call Waiting, Call Forwarding, Find Me/Follow Me "
 "and others"
 msgstr ""
+"Są to przypisane i aktywne rozszerzenia, które mogą edytować ustawienia "
+"rozszerzenia, takie jak oczekiwanie na połączenie, przekazywanie połączeń, "
+"Znajdź mnie / naśladuj mnie i inne"
 
 #: htdocs/views/settings.php:64
 msgid "Title"
@@ -534,7 +539,7 @@ msgstr "Język UCP"
 
 #: ucp.i18n.php:32
 msgid "UCP Session Timeout"
-msgstr ""
+msgstr "Limit czasu sesji UCP"
 
 #: htdocs/index.php:25
 msgid "UCP is currently disabled. Please talk to your system Administrator"
@@ -551,6 +556,8 @@ msgid ""
 "UCP, otherwise known as the User Control Panel, is a user interface for "
 "FreePBX."
 msgstr ""
+"UCP, znany również jako Panel sterowania użytkownika, jest interfejsem "
+"użytkownika dla FreePBX."
 
 #: htdocs/assets/js/ucp.js:395
 #, perl-format
@@ -559,7 +566,7 @@ msgstr ""
 
 #: htdocs/includes/User.class.php:84
 msgid "Unable to send Password Reset Email"
-msgstr ""
+msgstr "Nie można wysłać e-maila z resetem hasła"
 
 #: htdocs/index.php:192
 #, php-format
@@ -568,15 +575,15 @@ msgstr "Nieznany moduł %s"
 
 #: htdocs/assets/js/ucp.js:1090
 msgid "Unsupported file type"
-msgstr ""
+msgstr "Nieobsługiwany typ pliku"
 
 #: htdocs/views/settings.php:31
 msgid "Update Password"
-msgstr ""
+msgstr "Zaktualizuj hasło"
 
 #: htdocs/views/settings.php:149
 msgid "Use Gravatar"
-msgstr ""
+msgstr "Użyj Gravatar"
 
 #: htdocs/views/forgot.php:5 htdocs/views/header.php:4
 #: htdocs/views/login.php:4 ucp.i18n.php:4
@@ -601,19 +608,19 @@ msgstr "Panel Użytkownika: %s"
 
 #: htdocs/views/settings.php:41
 msgid "User Details"
-msgstr ""
+msgstr "Szczegóły użytkownika"
 
 #: ucp.i18n.php:12
 msgid "User Panel"
-msgstr ""
+msgstr "Panel użytkownika"
 
 #: Ucp.class.php:70 /usr/src/freepbx/ucp/Ucp.class.php:98
 msgid "User Primary Extension"
-msgstr ""
+msgstr "Podstawowe rozszerzenie użytkownika"
 
 #: htdocs/index.php:227
 msgid "User Settings"
-msgstr ""
+msgstr "Ustawienia użytkowmnika"
 
 #: htdocs/views/login.php:15 htdocs/views/settings.php:13
 msgid "Username"
@@ -634,7 +641,7 @@ msgstr "Witaj %s"
 
 #: views/users_hook.php:4
 msgid "What is UCP"
-msgstr ""
+msgstr "Co to jest UCP"
 
 #: htdocs/views/settings.php:79
 msgid "Work Phone"
