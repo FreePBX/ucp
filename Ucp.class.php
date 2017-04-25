@@ -230,7 +230,15 @@ class Ucp implements \BMO {
 	private function getUcpLink($hostname = null) {
 		if(empty($hostname)){
 			$hostname = $_SERVER["SERVER_NAME"]; 
+		}else{
+			$tmp_data = parse_url($hostname);
+			if(isset($tmp_data['host'])){
+				$hostname = $tmp_data['host'];
+			}else{
+				$hostname = $tmp_data['path'];
+			}
 		}
+
 		// Start by checking if Sysadmin exists. If it does, try using that.
 		if($this->FreePBX->Modules->moduleHasMethod("sysadmin","getPorts")) {
 			$ports = \FreePBX::Sysadmin()->getPorts();
