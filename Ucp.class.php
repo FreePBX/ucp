@@ -191,7 +191,11 @@ class Ucp implements \BMO {
 	 * @param {array} $data    Array of data to be able to use
 	 */
 	public function usermanSendEmail($id, $display, $data) {
-		$link = $this->getUcpLink();
+		$hostname = '';
+		if(isset($data['host'])){
+			$hostname = $data['host'];
+		}
+		$link = $this->getUcpLink($hostname);
 
 		$usettings = $this->FreePBX->Userman->getAuthAllPermissions();
 
@@ -223,7 +227,10 @@ class Ucp implements \BMO {
 	 *
 	 * return string $url
 	 */
-	private function getUcpLink() {
+	private function getUcpLink($hostname = null) {
+		if(empty($hostname)){
+			$hostname = $_SERVER["SERVER_NAME"]; 
+		}
 		// Start by checking if Sysadmin exists. If it does, try using that.
 		if($this->FreePBX->Modules->moduleHasMethod("sysadmin","getPorts")) {
 			$ports = \FreePBX::Sysadmin()->getPorts();
@@ -250,30 +257,30 @@ class Ucp implements \BMO {
 		// 1. Prefer SSL Ucp port over anything.
 		if (isset($ports['sslucp']) && is_numeric($ports['sslucp'])) {
 			if ($ports['sslucp'] == 443) {
-				$url = 'https://'.$_SERVER["SERVER_NAME"];
+				$url = 'https://'. $hostname;
 			} else {
-				$url = 'https://'.$_SERVER["SERVER_NAME"].":".$ports['sslucp'];
+				$url = 'https://'.$hostname.":".$ports['sslucp'];
 			}
 		// 2. Try http UCP Port next
 		} else if(isset($ports['ucp']) && is_numeric($ports['ucp'])) {
 			if ($ports['ucp'] == 80) {
-				$url = 'http://'.$_SERVER["SERVER_NAME"];
+				$url = 'http://'.$hostname;
 			} else {
-				$url = 'http://'.$_SERVER["SERVER_NAME"].":".$ports['ucp'];
+				$url = 'http://'.$hostname.":".$ports['ucp'];
 			}
 		// 3. Try sslacp as our third option
 		} else if(isset($ports['sslacp']) && is_numeric($ports['sslacp'])) {
 			if ($ports['sslacp'] == 443) {
-				$url = 'https://'.$_SERVER["SERVER_NAME"].'/ucp';
+				$url = 'https://'.$hostname.'/ucp';
 			} else {
-				$url = 'https://'.$_SERVER["SERVER_NAME"].":".$ports['sslacp'].'/ucp';
+				$url = 'https://'.$hostname.":".$ports['sslacp'].'/ucp';
 			}
 		// 4. Try normal acp as our third option
 		} else if(isset($ports['acp']) && is_numeric($ports['acp'])) {
 			if ($ports['acp'] == 80) {
-				$url = 'http://'.$_SERVER["SERVER_NAME"].'/ucp';
+				$url = 'http://'.$hostname.'/ucp';
 			} else {
-				$url = 'http://'.$_SERVER["SERVER_NAME"].":".$ports['acp'].'/ucp';
+				$url = 'http://'.$hostname.":".$ports['acp'].'/ucp';
 			}
 		} else {
 			// Somehow I didn't get a SERVER_NAME, so I don't know what url
