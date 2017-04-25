@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-10-26 20:41+1000\n"
-"PO-Revision-Date: 2016-05-03 03:14+0200\n"
+"POT-Creation-Date: 2017-01-25 12:48-0800\n"
+"PO-Revision-Date: 2016-12-30 17:51+0200\n"
 "Last-Translator: Michal <mboltz@tlen.pl>\n"
 "Language-Team: Polish <http://weblate.freepbx.org/projects/freepbx/ucp/pl/>\n"
 "MIME-Version: 1.0\n"
@@ -39,11 +39,11 @@ msgstr ""
 msgid " + field + "
 msgstr ""
 
-#: htdocs/index.php:90
+#: htdocs/index.php:88
 msgid ".htaccess files are disabled on this webserver. Please enable them"
 msgstr "Pliki .htaccess są wyłączone na tym serwerze web. Proszę je włączyć"
 
-#: htdocs/index.php:103
+#: htdocs/index.php:101
 msgid ".htaccess files are not supported on this webserver."
 msgstr "Pliki .htaccess nie są obsługiwane na tym serwerze web."
 
@@ -178,7 +178,7 @@ msgstr ""
 msgid "Endpoint Settings"
 msgstr ""
 
-#: htdocs/index.php:156
+#: htdocs/index.php:154
 msgid "English"
 msgstr "Angielski"
 
@@ -255,13 +255,13 @@ msgstr "Jaką nazwą chcesz się prezentować na UCP i w Menadżerze Kontaktów"
 
 #: views/users_hook.php:56 views/users_hook.php:154
 msgid "Inherit"
-msgstr ""
+msgstr "Dziedzicz"
 
 #: htdocs/views/settings.php:99
 msgid "Interface Settings"
 msgstr ""
 
-#: htdocs/index.php:253
+#: htdocs/index.php:251
 #, php-format
 msgid ""
 "Internet Explorer %s is not supported. Functionality will be deteriorated "
@@ -281,7 +281,7 @@ msgstr ""
 msgid "Invalid Login Credentials"
 msgstr "Błędne dane logowania"
 
-#: htdocs/index.php:242
+#: htdocs/index.php:240
 msgid "Invalid Token"
 msgstr "Błędny token"
 
@@ -315,7 +315,7 @@ msgstr "Wczytywanie..."
 msgid "Login"
 msgstr "Zaloguj"
 
-#: htdocs/index.php:229
+#: htdocs/index.php:227
 msgid "Logout"
 msgstr "Wyloguj"
 
@@ -368,7 +368,7 @@ msgstr "ON"
 msgid "Originate"
 msgstr ""
 
-#: htdocs/index.php:223 htdocs/modules/Home/assets/js/global.js:22
+#: htdocs/index.php:221 htdocs/modules/Home/assets/js/global.js:22
 #: htdocs/modules/Home/assets/js/global.js:45
 #: htdocs/modules/Home/assets/js/global.js:123
 msgid "Originate Call"
@@ -451,7 +451,7 @@ msgstr "Wyślij jako %s"
 
 #: htdocs/views/dashboard.php:39 htdocs/assets/js/ucp.js:855
 msgid "Settings"
-msgstr "Opcje"
+msgstr "Ustawienia"
 
 #: htdocs/views/templates/phone.php:69
 msgid "TUV"
@@ -483,7 +483,7 @@ msgstr ""
 "Nazwa użytkownika używana do logowania do Panelu Użytkownika (UCP) i innych "
 "usług"
 
-#: htdocs/index.php:118
+#: htdocs/index.php:116
 msgid "There was an error trying to load UCP"
 msgstr "Wystąpił błąd przy wczytywaniu UCP"
 
@@ -498,7 +498,7 @@ msgstr ""
 msgid "Title"
 msgstr "Tytuł"
 
-#: htdocs/index.php:91
+#: htdocs/index.php:89
 #, php-format
 msgid ""
 "To protect the integrity of your server, you must allow overrides in your "
@@ -525,7 +525,7 @@ msgstr "Język UCP"
 msgid "UCP Session Timeout"
 msgstr ""
 
-#: htdocs/index.php:27
+#: htdocs/index.php:25
 msgid "UCP is currently disabled. Please talk to your system Administrator"
 msgstr ""
 "UCO jest obecnie wyłączone. Proszę skontaktuj się z administratorem Twojego "
@@ -550,7 +550,7 @@ msgstr ""
 msgid "Unable to send Password Reset Email"
 msgstr ""
 
-#: htdocs/index.php:194
+#: htdocs/index.php:192
 #, php-format
 msgid "Unknown Module %s"
 msgstr "Nieznany moduł %s"
@@ -600,7 +600,7 @@ msgstr ""
 msgid "User Primary Extension"
 msgstr ""
 
-#: htdocs/index.php:229
+#: htdocs/index.php:227
 msgid "User Settings"
 msgstr ""
 
@@ -689,7 +689,7 @@ msgstr ""
 msgid "Your reset link is in the mail!"
 msgstr "Twój odnosik do resetu jest w mailu!"
 
-#: htdocs/index.php:104
+#: htdocs/index.php:102
 #, php-format
 msgid ""
 "htaccess files help protect the integrity of your server. Please make sure "

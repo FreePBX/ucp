@@ -9,9 +9,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-10-26 20:41+1000\n"
-"PO-Revision-Date: 2016-05-11 00:30+0200\n"
-"Last-Translator: Jens <jens@schaewel.com>\n"
+"POT-Creation-Date: 2017-01-25 12:48-0800\n"
+"PO-Revision-Date: 2017-01-09 14:39+0200\n"
+"Last-Translator: Sven <spiderrs4@web.de>\n"
 "Language-Team: German <http://weblate.freepbx.org/projects/freepbx/ucp/de_DE/"
 ">\n"
 "MIME-Version: 1.0\n"
@@ -39,11 +39,11 @@ msgstr ""
 msgid " + field + "
 msgstr " + feld + "
 
-#: htdocs/index.php:90
+#: htdocs/index.php:88
 msgid ".htaccess files are disabled on this webserver. Please enable them"
 msgstr ".htaccess sind auf diesem Server deaktiviert. Bitte aktiviere diese"
 
-#: htdocs/index.php:103
+#: htdocs/index.php:101
 msgid ".htaccess files are not supported on this webserver."
 msgstr ".htaccess Dateien werden von diesem Webserver nicht unterstütz."
 
@@ -53,7 +53,7 @@ msgstr "ABC"
 
 #: htdocs/views/settings.php:8
 msgid "Account Settings"
-msgstr ""
+msgstr "Account Einstellungen"
 
 #: views/users_hook.php:78
 msgid "Active Sessions"
@@ -117,7 +117,7 @@ msgstr "Sind Sie sicher, dass Sie Ihren Benutzernamen ändern möchten?"
 
 #: htdocs/views/settings.php:140
 msgid "Browse"
-msgstr ""
+msgstr "Durchsuchen"
 
 #: htdocs/views/templates/phone.php:7 htdocs/views/templates/phone.php:95
 msgid "Call"
@@ -137,7 +137,7 @@ msgstr "Passwort bestätigen"
 
 #: htdocs/views/settings.php:127
 msgid "Contact Image"
-msgstr ""
+msgstr "Kontaktblid"
 
 #: htdocs/views/templates/phone.php:45
 msgid "DEF"
@@ -145,7 +145,7 @@ msgstr "DEF"
 
 #: htdocs/views/settings.php:135
 msgid "Delete Image"
-msgstr ""
+msgstr "Bild löschen"
 
 #: Ucp.class.php:777
 msgid "Deleted Session"
@@ -165,11 +165,11 @@ msgstr "Erledigt"
 
 #: htdocs/views/settings.php:132
 msgid "Drop a new image here"
-msgstr ""
+msgstr "Neues Bild hier rein ziehen"
 
 #: htdocs/views/login.php:29 htdocs/views/settings.php:49
 msgid "Email"
-msgstr "Email"
+msgstr "E-Mail"
 
 #: htdocs/includes/User.class.php:78
 msgid "Email address unknown!"
@@ -183,7 +183,7 @@ msgstr "Aktiviere ursprüngliche Gespräche"
 msgid "Endpoint Settings"
 msgstr "Endgeräteinstellungen"
 
-#: htdocs/index.php:156
+#: htdocs/index.php:154
 msgid "English"
 msgstr "Englisch"
 
@@ -250,7 +250,7 @@ msgstr "Halten"
 #: htdocs/modules/Home/Home.class.php:252 htdocs/views/dashboard.php:32
 #: htdocs/assets/js/ucp.js:813
 msgid "Home"
-msgstr "Home"
+msgstr "Privat"
 
 #: htdocs/views/settings.php:84
 msgid "Home Phone"
@@ -263,15 +263,14 @@ msgstr ""
 "Wie möchten Sie Ihren Namen im UCP und Kontakt Manager angezeigt bekommen"
 
 #: views/users_hook.php:56 views/users_hook.php:154
-#, fuzzy
 msgid "Inherit"
-msgstr "geerbt"
+msgstr "Erben"
 
 #: htdocs/views/settings.php:99
 msgid "Interface Settings"
 msgstr ""
 
-#: htdocs/index.php:253
+#: htdocs/index.php:251
 #, php-format
 msgid ""
 "Internet Explorer %s is not supported. Functionality will be deteriorated "
@@ -293,7 +292,7 @@ msgstr "Ungültiges Gerät"
 msgid "Invalid Login Credentials"
 msgstr "Ungültige Login Zugangsdaten"
 
-#: htdocs/index.php:242
+#: htdocs/index.php:240
 msgid "Invalid Token"
 msgstr "Ungültiger Token"
 
@@ -327,7 +326,7 @@ msgstr "Laden..."
 msgid "Login"
 msgstr "Anmeldung"
 
-#: htdocs/index.php:229
+#: htdocs/index.php:227
 msgid "Logout"
 msgstr "Abmelden"
 
@@ -357,7 +356,7 @@ msgstr "Nein"
 
 #: htdocs/assets/js/ucp.js:1151
 msgid "No email defined"
-msgstr ""
+msgstr "Keine E-Mail definiert"
 
 #: htdocs/modules/Home/assets/js/global.js:75
 msgid "Nothing Entered"
@@ -380,7 +379,7 @@ msgstr "EIN"
 msgid "Originate"
 msgstr "Mache"
 
-#: htdocs/index.php:223 htdocs/modules/Home/assets/js/global.js:22
+#: htdocs/index.php:221 htdocs/modules/Home/assets/js/global.js:22
 #: htdocs/modules/Home/assets/js/global.js:45
 #: htdocs/modules/Home/assets/js/global.js:123
 msgid "Originate Call"
@@ -500,7 +499,7 @@ msgid "The username used to login to User Control Panel and other services"
 msgstr ""
 "Der Benutzername für den Login zum User Control Panel und andere Dienste"
 
-#: htdocs/index.php:118
+#: htdocs/index.php:116
 msgid "There was an error trying to load UCP"
 msgstr "Beim Versuch das UCP zu laden ist ein Fehler aufgetreten"
 
@@ -518,7 +517,7 @@ msgstr ""
 msgid "Title"
 msgstr "Titel"
 
-#: htdocs/index.php:91
+#: htdocs/index.php:89
 #, php-format
 msgid ""
 "To protect the integrity of your server, you must allow overrides in your "
@@ -531,11 +530,11 @@ msgstr ""
 
 #: ucp.i18n.php:10
 msgid "UCP"
-msgstr "UCP"
+msgstr ""
 
 #: views/header.php:1
 msgid "UCP Admin"
-msgstr "UCP Admin"
+msgstr "UCP Administrator"
 
 #: htdocs/views/settings.php:108
 msgid "UCP Language"
@@ -545,7 +544,7 @@ msgstr "UCP Sprache"
 msgid "UCP Session Timeout"
 msgstr "UCP Sitzungszeitüberschreitung"
 
-#: htdocs/index.php:27
+#: htdocs/index.php:25
 msgid "UCP is currently disabled. Please talk to your system Administrator"
 msgstr ""
 "UCP ist derzeit deaktiviert. Bitte sprechen Sie mit Ihrem Systemadministrator"
@@ -571,14 +570,14 @@ msgstr "Es kann kein Token vom UCP Knoten Server erhalten werden, weil: '% s'"
 msgid "Unable to send Password Reset Email"
 msgstr ""
 
-#: htdocs/index.php:194
+#: htdocs/index.php:192
 #, php-format
 msgid "Unknown Module %s"
 msgstr "Unbekanntes Modul %s"
 
 #: htdocs/assets/js/ucp.js:1090
 msgid "Unsupported file type"
-msgstr ""
+msgstr "Nicht unterstützter Dateityp"
 
 #: htdocs/views/settings.php:31
 msgid "Update Password"
@@ -586,7 +585,7 @@ msgstr "Passwort geändert"
 
 #: htdocs/views/settings.php:149
 msgid "Use Gravatar"
-msgstr ""
+msgstr "Gravatar benutzen"
 
 #: htdocs/views/forgot.php:5 htdocs/views/header.php:4
 #: htdocs/views/login.php:4 ucp.i18n.php:4
@@ -621,9 +620,9 @@ msgstr "Benutzerbedienfeld"
 
 #: Ucp.class.php:70 /usr/src/freepbx/ucp/Ucp.class.php:98
 msgid "User Primary Extension"
-msgstr "Benutzer Primäre Nebenstelle"
+msgstr "Primäre Benutzernebenstelle"
 
-#: htdocs/index.php:229
+#: htdocs/index.php:227
 msgid "User Settings"
 msgstr "Benutzereinstellungen"
 
@@ -712,7 +711,7 @@ msgstr ""
 msgid "Your reset link is in the mail!"
 msgstr "Ihr Link zum zurücksetzen befindet sich in der Email!"
 
-#: htdocs/index.php:104
+#: htdocs/index.php:102
 #, php-format
 msgid ""
 "htaccess files help protect the integrity of your server. Please make sure "

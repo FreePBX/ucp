@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-10-26 20:41+1000\n"
+"POT-Creation-Date: 2017-01-25 12:48-0800\n"
 "PO-Revision-Date: 2015-08-30 14:46+0200\n"
 "Last-Translator: Vidar Skjelanger <vidar@unimicro.no>\n"
 "Language-Team: Norwegian Bokmål <http://weblate.freepbx.org/projects/freepbx/"
@@ -39,12 +39,12 @@ msgstr ""
 msgid " + field + "
 msgstr ""
 
-#: htdocs/index.php:90
+#: htdocs/index.php:88
 msgid ".htaccess files are disabled on this webserver. Please enable them"
 msgstr ""
 ".htaccess-filer er deaktivert på denne webserveren. Vennligst aktiver dem"
 
-#: htdocs/index.php:103
+#: htdocs/index.php:101
 msgid ".htaccess files are not supported on this webserver."
 msgstr ".htaccess-filer er ikke støttet på denne webserveren."
 
@@ -179,7 +179,7 @@ msgstr ""
 msgid "Endpoint Settings"
 msgstr ""
 
-#: htdocs/index.php:156
+#: htdocs/index.php:154
 msgid "English"
 msgstr "Engelsk"
 
@@ -264,7 +264,7 @@ msgstr ""
 msgid "Interface Settings"
 msgstr ""
 
-#: htdocs/index.php:253
+#: htdocs/index.php:251
 #, php-format
 msgid ""
 "Internet Explorer %s is not supported. Functionality will be deteriorated "
@@ -284,7 +284,7 @@ msgstr ""
 msgid "Invalid Login Credentials"
 msgstr "Ugyldig påloggingsinfo"
 
-#: htdocs/index.php:242
+#: htdocs/index.php:240
 msgid "Invalid Token"
 msgstr "Ugyldig token"
 
@@ -318,7 +318,7 @@ msgstr "Laster..."
 msgid "Login"
 msgstr "Brukernavn"
 
-#: htdocs/index.php:229
+#: htdocs/index.php:227
 msgid "Logout"
 msgstr "Logg ut"
 
@@ -371,7 +371,7 @@ msgstr "PÅ"
 msgid "Originate"
 msgstr ""
 
-#: htdocs/index.php:223 htdocs/modules/Home/assets/js/global.js:22
+#: htdocs/index.php:221 htdocs/modules/Home/assets/js/global.js:22
 #: htdocs/modules/Home/assets/js/global.js:45
 #: htdocs/modules/Home/assets/js/global.js:123
 msgid "Originate Call"
@@ -484,7 +484,7 @@ msgstr ""
 msgid "The username used to login to User Control Panel and other services"
 msgstr "Brukernavnet som brukes for å logge inn i UCP og andre tjenester"
 
-#: htdocs/index.php:118
+#: htdocs/index.php:116
 msgid "There was an error trying to load UCP"
 msgstr "En feil oppstod ved innlasting av UCP"
 
@@ -499,7 +499,7 @@ msgstr ""
 msgid "Title"
 msgstr "Tittel"
 
-#: htdocs/index.php:91
+#: htdocs/index.php:89
 #, php-format
 msgid ""
 "To protect the integrity of your server, you must allow overrides in your "
@@ -525,7 +525,7 @@ msgstr "UCP språk"
 msgid "UCP Session Timeout"
 msgstr ""
 
-#: htdocs/index.php:27
+#: htdocs/index.php:25
 msgid "UCP is currently disabled. Please talk to your system Administrator"
 msgstr ""
 "UCP er for øyeblikket deaktivert. Vennligst kontakt din systemadministrator"
@@ -549,7 +549,7 @@ msgstr ""
 msgid "Unable to send Password Reset Email"
 msgstr ""
 
-#: htdocs/index.php:194
+#: htdocs/index.php:192
 #, php-format
 msgid "Unknown Module %s"
 msgstr "Ukjent modul %s"
@@ -599,7 +599,7 @@ msgstr ""
 msgid "User Primary Extension"
 msgstr ""
 
-#: htdocs/index.php:229
+#: htdocs/index.php:227
 msgid "User Settings"
 msgstr ""
 
@@ -688,7 +688,7 @@ msgstr ""
 msgid "Your reset link is in the mail!"
 msgstr "Din lenke for å nullstille passord er sendt på epost!"
 
-#: htdocs/index.php:104
+#: htdocs/index.php:102
 #, php-format
 msgid ""
 "htaccess files help protect the integrity of your server. Please make sure "

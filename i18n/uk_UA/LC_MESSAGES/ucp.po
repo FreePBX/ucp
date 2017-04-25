@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-10-26 20:41+1000\n"
-"PO-Revision-Date: 2016-10-04 20:32+0200\n"
+"POT-Creation-Date: 2017-01-25 12:48-0800\n"
+"PO-Revision-Date: 2016-12-13 14:49+0200\n"
 "Last-Translator: Maxim <maxim@ua.fm>\n"
 "Language-Team: Ukrainian <http://weblate.freepbx.org/projects/freepbx/ucp/"
 "uk_UA/>\n"
@@ -40,12 +40,12 @@ msgstr ""
 msgid " + field + "
 msgstr " + поле + "
 
-#: htdocs/index.php:90
+#: htdocs/index.php:88
 msgid ".htaccess files are disabled on this webserver. Please enable them"
 msgstr ""
 ".htaccess файли відключені на цьому веб-сервері. Будь ласка, активуйте їх"
 
-#: htdocs/index.php:103
+#: htdocs/index.php:101
 msgid ".htaccess files are not supported on this webserver."
 msgstr ".htaccess файли не підтримуються на цьому веб-сервері."
 
@@ -162,7 +162,7 @@ msgstr "Відображене ім'я"
 
 #: Ucp.class.php:871 Ucp.class.php:875 Ucp.class.php:879 Ucp.class.php:883
 msgid "Done"
-msgstr "Виконано"
+msgstr "Зроблено"
 
 #: htdocs/views/settings.php:132
 msgid "Drop a new image here"
@@ -174,7 +174,7 @@ msgstr "Електронна пошта"
 
 #: htdocs/includes/User.class.php:78
 msgid "Email address unknown!"
-msgstr ""
+msgstr "Невідома адреса електронної пошти!"
 
 #: views/users_hook.php:144
 msgid "Enable Originating Calls"
@@ -184,7 +184,7 @@ msgstr "Активувати вихідні виклики"
 msgid "Endpoint Settings"
 msgstr "Налаштування кінцевих точок"
 
-#: htdocs/index.php:156
+#: htdocs/index.php:154
 msgid "English"
 msgstr "Англійська"
 
@@ -211,7 +211,7 @@ msgstr "Ім'я"
 
 #: htdocs/modules/Settings/Settings.class.php:38
 msgid "Forbidden"
-msgstr "Заборонено"
+msgstr "Заборонений"
 
 #: htdocs/views/login.php:36
 msgid "Forgot Password"
@@ -261,13 +261,13 @@ msgstr "Як ви бажаєте відображати ваше ім'я в UCP 
 
 #: views/users_hook.php:56 views/users_hook.php:154
 msgid "Inherit"
-msgstr "Успадкувати"
+msgstr "Успадковувати"
 
 #: htdocs/views/settings.php:99
 msgid "Interface Settings"
 msgstr "Налаштування інтерфейсу"
 
-#: htdocs/index.php:253
+#: htdocs/index.php:251
 #, php-format
 msgid ""
 "Internet Explorer %s is not supported. Functionality will be deteriorated "
@@ -289,7 +289,7 @@ msgstr "Недійсний пристрій"
 msgid "Invalid Login Credentials"
 msgstr "Невірні логін або пароль"
 
-#: htdocs/index.php:242
+#: htdocs/index.php:240
 msgid "Invalid Token"
 msgstr "Неприпустимий маркер"
 
@@ -316,14 +316,14 @@ msgstr "Завантажується"
 #: htdocs/views/forgot.php:61 htdocs/views/login.php:53
 #: htdocs/assets/js/ucp.js:1156
 msgid "Loading..."
-msgstr "Завантажується..."
+msgstr "Завантаження..."
 
 #: htdocs/views/forgot.php:45 htdocs/views/login.php:37
 #: htdocs/assets/js/ucp.js:129 htdocs/assets/js/ucp.js:142
 msgid "Login"
 msgstr "Ввійти"
 
-#: htdocs/index.php:229
+#: htdocs/index.php:227
 msgid "Logout"
 msgstr "Вийти"
 
@@ -376,7 +376,7 @@ msgstr "ON"
 msgid "Originate"
 msgstr "Ініціювати"
 
-#: htdocs/index.php:223 htdocs/modules/Home/assets/js/global.js:22
+#: htdocs/index.php:221 htdocs/modules/Home/assets/js/global.js:22
 #: htdocs/modules/Home/assets/js/global.js:45
 #: htdocs/modules/Home/assets/js/global.js:123
 msgid "Originate Call"
@@ -497,7 +497,7 @@ msgstr ""
 "Ім'я користувача використовується для входу в Панель управління та інші "
 "послуги"
 
-#: htdocs/index.php:118
+#: htdocs/index.php:116
 msgid "There was an error trying to load UCP"
 msgstr "Сталася помилка при спробі завантажити UCP"
 
@@ -515,7 +515,7 @@ msgstr ""
 msgid "Title"
 msgstr "Назва"
 
-#: htdocs/index.php:91
+#: htdocs/index.php:89
 #, php-format
 msgid ""
 "To protect the integrity of your server, you must allow overrides in your "
@@ -542,7 +542,7 @@ msgstr "Мова UCP"
 msgid "UCP Session Timeout"
 msgstr "Тайм-аут сеансу UCP"
 
-#: htdocs/index.php:27
+#: htdocs/index.php:25
 msgid "UCP is currently disabled. Please talk to your system Administrator"
 msgstr ""
 "UCP в даний час відключена. Будь ласка, зверніться до адміністратора системи"
@@ -567,9 +567,9 @@ msgstr ""
 
 #: htdocs/includes/User.class.php:84
 msgid "Unable to send Password Reset Email"
-msgstr ""
+msgstr "Неможливо відправити скидання пароля на електронну пошту"
 
-#: htdocs/index.php:194
+#: htdocs/index.php:192
 #, php-format
 msgid "Unknown Module %s"
 msgstr "Невідомий модуль %s"
@@ -619,7 +619,7 @@ msgstr "Панель користувача"
 msgid "User Primary Extension"
 msgstr "Основний додатковий номер користувача"
 
-#: htdocs/index.php:229
+#: htdocs/index.php:227
 msgid "User Settings"
 msgstr "Налаштування користувача"
 
@@ -708,7 +708,7 @@ msgstr ""
 msgid "Your reset link is in the mail!"
 msgstr "Ваше посилання на скидання в пошті!"
 
-#: htdocs/index.php:104
+#: htdocs/index.php:102
 #, php-format
 msgid ""
 "htaccess files help protect the integrity of your server. Please make sure "

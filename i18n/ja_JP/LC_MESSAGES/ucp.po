@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-10-26 20:41+1000\n"
+"POT-Creation-Date: 2017-01-25 12:48-0800\n"
 "PO-Revision-Date: 2016-09-02 16:04+0200\n"
 "Last-Translator: Kenichi <k.kitani@qloog.com>\n"
 "Language-Team: Japanese <http://weblate.freepbx.org/projects/freepbx/ucp/"
@@ -39,12 +39,12 @@ msgstr ""
 msgid " + field + "
 msgstr " + field + "
 
-#: htdocs/index.php:90
+#: htdocs/index.php:88
 msgid ".htaccess files are disabled on this webserver. Please enable them"
 msgstr ""
 "このサーバーでは .htaccess ファイルが無効化されています。有効にしてください。"
 
-#: htdocs/index.php:103
+#: htdocs/index.php:101
 msgid ".htaccess files are not supported on this webserver."
 msgstr "このサーバーは .htaccess ファイルをサポートしていません。"
 
@@ -180,7 +180,7 @@ msgstr "発信元を有効にする"
 msgid "Endpoint Settings"
 msgstr "エンドポイント設定"
 
-#: htdocs/index.php:156
+#: htdocs/index.php:154
 msgid "English"
 msgstr "英語"
 
@@ -263,7 +263,7 @@ msgstr "引き継ぐ"
 msgid "Interface Settings"
 msgstr "インターフェイス設定"
 
-#: htdocs/index.php:253
+#: htdocs/index.php:251
 #, php-format
 msgid ""
 "Internet Explorer %s is not supported. Functionality will be deteriorated "
@@ -285,7 +285,7 @@ msgstr "無効なデバイス"
 msgid "Invalid Login Credentials"
 msgstr "ログイン情報が間違っています"
 
-#: htdocs/index.php:242
+#: htdocs/index.php:240
 msgid "Invalid Token"
 msgstr "不正トークン"
 
@@ -319,7 +319,7 @@ msgstr "読み込み中..."
 msgid "Login"
 msgstr "ログイン"
 
-#: htdocs/index.php:229
+#: htdocs/index.php:227
 msgid "Logout"
 msgstr "ログアウト"
 
@@ -372,7 +372,7 @@ msgstr "オン"
 msgid "Originate"
 msgstr "生成"
 
-#: htdocs/index.php:223 htdocs/modules/Home/assets/js/global.js:22
+#: htdocs/index.php:221 htdocs/modules/Home/assets/js/global.js:22
 #: htdocs/modules/Home/assets/js/global.js:45
 #: htdocs/modules/Home/assets/js/global.js:123
 msgid "Originate Call"
@@ -489,7 +489,7 @@ msgstr ""
 msgid "The username used to login to User Control Panel and other services"
 msgstr "ユーザーコントロールパネルとたのサービスにログインするためのユーザー名"
 
-#: htdocs/index.php:118
+#: htdocs/index.php:116
 msgid "There was an error trying to load UCP"
 msgstr "UCPをロード中にエラーが発生しました"
 
@@ -507,7 +507,7 @@ msgstr ""
 msgid "Title"
 msgstr "肩書"
 
-#: htdocs/index.php:91
+#: htdocs/index.php:89
 #, php-format
 msgid ""
 "To protect the integrity of your server, you must allow overrides in your "
@@ -534,7 +534,7 @@ msgstr "UCPの言語"
 msgid "UCP Session Timeout"
 msgstr "UCP セッション タイムアウト"
 
-#: htdocs/index.php:27
+#: htdocs/index.php:25
 msgid "UCP is currently disabled. Please talk to your system Administrator"
 msgstr "UCPは無効です。システムの管理者にご相談ください。"
 
@@ -558,7 +558,7 @@ msgstr "UCPノードサーバーを使用するためのトークンを取得で
 msgid "Unable to send Password Reset Email"
 msgstr ""
 
-#: htdocs/index.php:194
+#: htdocs/index.php:192
 #, php-format
 msgid "Unknown Module %s"
 msgstr "不明モジュール %s"
@@ -610,7 +610,7 @@ msgstr "ユーザーパネル"
 msgid "User Primary Extension"
 msgstr "ユーザープライマリ内線"
 
-#: htdocs/index.php:229
+#: htdocs/index.php:227
 msgid "User Settings"
 msgstr "ユーザー設定"
 
@@ -699,7 +699,7 @@ msgstr ""
 msgid "Your reset link is in the mail!"
 msgstr "リセットリンクはメールで送信しました！"
 
-#: htdocs/index.php:104
+#: htdocs/index.php:102
 #, php-format
 msgid ""
 "htaccess files help protect the integrity of your server. Please make sure "
