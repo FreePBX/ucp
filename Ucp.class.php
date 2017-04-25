@@ -227,7 +227,7 @@ class Ucp implements \BMO {
 	 *
 	 * return string $url
 	 */
-	private function getUcpLink($hostname = null) {
+	public function getUcpLink($hostname = null) {
 		if(empty($hostname)){
 			$hostname = $_SERVER["SERVER_NAME"]; 
 		}else{
