@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-01-25 12:48-0800\n"
+"POT-Creation-Date: 2017-04-27 11:31-0400\n"
 "PO-Revision-Date: 2016-12-13 14:49+0200\n"
 "Last-Translator: Maxim <maxim@ua.fm>\n"
 "Language-Team: Ukrainian <http://weblate.freepbx.org/projects/freepbx/ucp/"
@@ -80,11 +80,11 @@ msgstr "Дозволити сповіщення на робочому столі
 msgid "Allow Login"
 msgstr "Дозволити вхід"
 
-#: ucp.i18n.php:14
+#: ucp.i18n.php:22
 msgid "Allow Password Changes"
 msgstr "Дозволити зміну паролю"
 
-#: ucp.i18n.php:20
+#: ucp.i18n.php:28
 msgid "Allow Username Changes"
 msgstr "Дозволити зміну ім'я користувача"
 
@@ -100,11 +100,11 @@ msgstr ""
 "Дозволити цьому користувачу здійснювати дзвінки всередині UCP. Це не те ж "
 "саме, що WebRTC"
 
-#: ucp.i18n.php:24
+#: ucp.i18n.php:30
 msgid "Allow users to change their username in UCP"
 msgstr "Дозволити користувачам змінювати своє ім'я користувача в UCP"
 
-#: ucp.i18n.php:18
+#: ucp.i18n.php:26
 msgid "Allow users to change thier password in UCP"
 msgstr "Дозволити користувачам змінювати свій пароль в UCP"
 
@@ -148,11 +148,11 @@ msgstr "DEF"
 msgid "Delete Image"
 msgstr "Видалити зображення"
 
-#: Ucp.class.php:777
+#: Ucp.class.php:792
 msgid "Deleted Session"
 msgstr "Видалена сесія"
 
-#: Ucp.class.php:126 Ucp.class.php:620
+#: Ucp.class.php:126 Ucp.class.php:635
 msgid "Deleted User Session"
 msgstr "Видалена користувацька сесія"
 
@@ -160,7 +160,7 @@ msgstr "Видалена користувацька сесія"
 msgid "Display Name"
 msgstr "Відображене ім'я"
 
-#: Ucp.class.php:871 Ucp.class.php:875 Ucp.class.php:879 Ucp.class.php:883
+#: Ucp.class.php:886 Ucp.class.php:890 Ucp.class.php:894 Ucp.class.php:898
 msgid "Done"
 msgstr "Зроблено"
 
@@ -225,19 +225,19 @@ msgstr "GHI"
 msgid "General"
 msgstr "Загальні"
 
-#: Ucp.class.php:881
+#: Ucp.class.php:896
 msgid "Generating Main CSS..."
 msgstr "Створення головного CSS..."
 
-#: Ucp.class.php:877
+#: Ucp.class.php:892
 msgid "Generating Main Scripts..."
 msgstr "Створення головного сценарію..."
 
-#: Ucp.class.php:873
+#: Ucp.class.php:888
 msgid "Generating Module CSS..."
 msgstr "Створення модуля CSS..."
 
-#: Ucp.class.php:869
+#: Ucp.class.php:884
 msgid "Generating Module Scripts..."
 msgstr "Створення модуля сценарію..."
 
@@ -394,7 +394,7 @@ msgstr "Пароль"
 msgid "Password Confirmation Didn't Match!"
 msgstr "Підтвердження пароля не відповідає!"
 
-#: Ucp.class.php:203
+#: Ucp.class.php:207
 #, php-format
 msgid "Password Reset Link (Valid Until: %s): %s"
 msgstr "Посилання на скидання пароля  (дійсне до: %s): %s"
@@ -424,11 +424,11 @@ msgstr "Будь ласка, введіть ім'я користувача аб�
 msgid "Processing..."
 msgstr "Обробка..."
 
-#: ucp.i18n.php:26
+#: ucp.i18n.php:32
 msgid "RSS Feeds"
 msgstr "RSS-канали"
 
-#: ucp.i18n.php:30
+#: ucp.i18n.php:34
 msgid "RSS Feeds that are displayed in UCP. This overrides "
 msgstr "RSS-канали, які відображаються в UCP. Це перекриває "
 
@@ -461,11 +461,15 @@ msgstr "Надіслано в %s"
 msgid "Settings"
 msgstr "Налаштування"
 
+#: ucp.i18n.php:14
+msgid "Styling and Logos"
+msgstr ""
+
 #: htdocs/views/templates/phone.php:69
 msgid "TUV"
 msgstr "TUV"
 
-#: ucp.i18n.php:36
+#: ucp.i18n.php:38
 msgid ""
 "The number of days a session token will be valid for. Clear this setting if "
 "you want tokens to last forever (Not Recommended)"
@@ -538,9 +542,15 @@ msgstr "Адміністратор UCP"
 msgid "UCP Language"
 msgstr "Мова UCP"
 
-#: ucp.i18n.php:32
+#: ucp.i18n.php:36
 msgid "UCP Session Timeout"
 msgstr "Тайм-аут сеансу UCP"
+
+#: ucp.i18n.php:20
+msgid ""
+"UCP icons folder. This should never be changed except for very advanced "
+"layout changes"
+msgstr ""
 
 #: htdocs/index.php:25
 msgid "UCP is currently disabled. Please talk to your system Administrator"
@@ -588,8 +598,7 @@ msgstr "Використовувати Gravatar"
 
 #: htdocs/views/forgot.php:5 htdocs/views/header.php:4
 #: htdocs/views/login.php:4 ucp.i18n.php:4
-#: /usr/src/freepbx/ucp/ucp.i18n.php:16 ucp.i18n.php:22
-#: /usr/src/freepbx/ucp/ucp.i18n.php:28 ucp.i18n.php:34
+#: /usr/src/freepbx/ucp/ucp.i18n.php:24
 msgid "User Control Panel"
 msgstr "Панель керування користувача"
 
@@ -602,7 +611,7 @@ msgstr "Налаштування панелі керування користу�
 msgid "User Control Panel is released as %s or newer"
 msgstr "Користувацька панель керування випущена як %s чи новіше"
 
-#: Ucp.class.php:199
+#: Ucp.class.php:203
 #, php-format
 msgid "User Control Panel: %s"
 msgstr "Панель керування користувача: %s"
@@ -610,10 +619,6 @@ msgstr "Панель керування користувача: %s"
 #: htdocs/views/settings.php:41
 msgid "User Details"
 msgstr "Відомості про користувача"
-
-#: ucp.i18n.php:12
-msgid "User Panel"
-msgstr "Панель користувача"
 
 #: Ucp.class.php:70 /usr/src/freepbx/ucp/Ucp.class.php:98
 msgid "User Primary Extension"
@@ -630,6 +635,14 @@ msgstr "Ім'я користувача"
 #: htdocs/assets/js/ucp.js:1036
 msgid "Username has been changed, reloading"
 msgstr "Ім'я користувача було змінено, перезавантаження"
+
+#: ucp.i18n.php:12
+msgid "View: UCP dashfootercontent.php"
+msgstr ""
+
+#: ucp.i18n.php:18
+msgid "View: UCP icons"
+msgstr ""
 
 #: htdocs/views/templates/phone.php:73
 msgid "WXYZ"
@@ -708,6 +721,12 @@ msgstr ""
 msgid "Your reset link is in the mail!"
 msgstr "Ваше посилання на скидання в пошті!"
 
+#: ucp.i18n.php:16
+msgid ""
+"dashfootercontent.php view. This should never be changed except for very "
+"advanced layout changes"
+msgstr ""
+
 #: htdocs/index.php:102
 #, php-format
 msgid ""
@@ -722,6 +741,9 @@ msgstr ""
 #: htdocs/views/login.php:24
 msgid "or"
 msgstr "або"
+
+#~ msgid "User Panel"
+#~ msgstr "Панель користувача"
 
 #~ msgid "A token has already been generated for %s, not sending email again"
 #~ msgstr ""

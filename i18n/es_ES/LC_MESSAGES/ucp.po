@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-01-25 12:48-0800\n"
+"POT-Creation-Date: 2017-04-27 11:31-0400\n"
 "PO-Revision-Date: 2016-12-12 11:51+0200\n"
 "Last-Translator: Ernesto <ecasas@sangoma.com>\n"
 "Language-Team: Spanish <http://weblate.freepbx.org/projects/freepbx/ucp/"
@@ -80,11 +80,11 @@ msgstr "Permitir Notificaciones de Escritorio"
 msgid "Allow Login"
 msgstr "Permitir Login"
 
-#: ucp.i18n.php:14
+#: ucp.i18n.php:22
 msgid "Allow Password Changes"
 msgstr "Permitir Cambios de Contraseña"
 
-#: ucp.i18n.php:20
+#: ucp.i18n.php:28
 msgid "Allow Username Changes"
 msgstr "Permitir Cambios de Nombre de Usuario"
 
@@ -100,11 +100,11 @@ msgstr ""
 "Permitir que este usuario origine llamadas desde dentro de UCP. Esto no es "
 "lo mismo que WebRTC"
 
-#: ucp.i18n.php:24
+#: ucp.i18n.php:30
 msgid "Allow users to change their username in UCP"
 msgstr "Permitir que los usuarios cambien su nombre de usuario en UCP"
 
-#: ucp.i18n.php:18
+#: ucp.i18n.php:26
 msgid "Allow users to change thier password in UCP"
 msgstr "Permitir a usuarios cambiar su contraseña en UCP"
 
@@ -148,11 +148,11 @@ msgstr "DEF"
 msgid "Delete Image"
 msgstr "Borrar Imagen"
 
-#: Ucp.class.php:777
+#: Ucp.class.php:792
 msgid "Deleted Session"
 msgstr "Sesión borrada"
 
-#: Ucp.class.php:126 Ucp.class.php:620
+#: Ucp.class.php:126 Ucp.class.php:635
 msgid "Deleted User Session"
 msgstr "Sesión de usuario borrada"
 
@@ -160,7 +160,7 @@ msgstr "Sesión de usuario borrada"
 msgid "Display Name"
 msgstr "Nombre a Mostrar"
 
-#: Ucp.class.php:871 Ucp.class.php:875 Ucp.class.php:879 Ucp.class.php:883
+#: Ucp.class.php:886 Ucp.class.php:890 Ucp.class.php:894 Ucp.class.php:898
 msgid "Done"
 msgstr "Hecho"
 
@@ -225,19 +225,19 @@ msgstr "GHI"
 msgid "General"
 msgstr "General"
 
-#: Ucp.class.php:881
+#: Ucp.class.php:896
 msgid "Generating Main CSS..."
 msgstr "Generando el CSS principal...."
 
-#: Ucp.class.php:877
+#: Ucp.class.php:892
 msgid "Generating Main Scripts..."
 msgstr "Generando los Scripts Principales...."
 
-#: Ucp.class.php:873
+#: Ucp.class.php:888
 msgid "Generating Module CSS..."
 msgstr "Generando Modulo CSS..."
 
-#: Ucp.class.php:869
+#: Ucp.class.php:884
 msgid "Generating Module Scripts..."
 msgstr "Generando Modulo de Scripts..."
 
@@ -395,7 +395,7 @@ msgstr "Contraseña"
 msgid "Password Confirmation Didn't Match!"
 msgstr "La confirmación del Password no coincide!!"
 
-#: Ucp.class.php:203
+#: Ucp.class.php:207
 #, php-format
 msgid "Password Reset Link (Valid Until: %s): %s"
 msgstr "Enlace para restablecer Password (Valido hasta: %s): %s"
@@ -426,11 +426,11 @@ msgstr ""
 msgid "Processing..."
 msgstr "Procesando..."
 
-#: ucp.i18n.php:26
+#: ucp.i18n.php:32
 msgid "RSS Feeds"
 msgstr "Feeds RSS"
 
-#: ucp.i18n.php:30
+#: ucp.i18n.php:34
 msgid "RSS Feeds that are displayed in UCP. This overrides "
 msgstr "RSS Feeds que son desplegados en UCP. Esto prevalece. "
 
@@ -463,11 +463,15 @@ msgstr "Enviado a %s"
 msgid "Settings"
 msgstr "Configuraciones"
 
+#: ucp.i18n.php:14
+msgid "Styling and Logos"
+msgstr "Logos y Estilos"
+
 #: htdocs/views/templates/phone.php:69
 msgid "TUV"
 msgstr "TUV"
 
-#: ucp.i18n.php:36
+#: ucp.i18n.php:38
 msgid ""
 "The number of days a session token will be valid for. Clear this setting if "
 "you want tokens to last forever (Not Recommended)"
@@ -538,9 +542,17 @@ msgstr "Admin UCP"
 msgid "UCP Language"
 msgstr "Idioma UCP"
 
-#: ucp.i18n.php:32
+#: ucp.i18n.php:36
 msgid "UCP Session Timeout"
 msgstr "Tiempo de espera de la sesión UCP"
+
+#: ucp.i18n.php:20
+msgid ""
+"UCP icons folder. This should never be changed except for very advanced "
+"layout changes"
+msgstr ""
+"Icono de carpetas UCP. Esto no debe ser cambiado nunca excepto en cambios "
+"muy avanzados del diseño"
 
 #: htdocs/index.php:25
 msgid "UCP is currently disabled. Please talk to your system Administrator"
@@ -589,8 +601,7 @@ msgstr "Usar Gravatar"
 
 #: htdocs/views/forgot.php:5 htdocs/views/header.php:4
 #: htdocs/views/login.php:4 ucp.i18n.php:4
-#: /usr/src/freepbx/ucp/ucp.i18n.php:16 ucp.i18n.php:22
-#: /usr/src/freepbx/ucp/ucp.i18n.php:28 ucp.i18n.php:34
+#: /usr/src/freepbx/ucp/ucp.i18n.php:24
 msgid "User Control Panel"
 msgstr "Panel de Control de Usuario (UCP)"
 
@@ -603,7 +614,7 @@ msgstr "Configuración UCP"
 msgid "User Control Panel is released as %s or newer"
 msgstr "UCP ha sido liberado como %s o mas nuevo"
 
-#: Ucp.class.php:199
+#: Ucp.class.php:203
 #, php-format
 msgid "User Control Panel: %s"
 msgstr "Panel de Control del Usuariol: %s"
@@ -611,10 +622,6 @@ msgstr "Panel de Control del Usuariol: %s"
 #: htdocs/views/settings.php:41
 msgid "User Details"
 msgstr "Detalles de Usuario"
-
-#: ucp.i18n.php:12
-msgid "User Panel"
-msgstr "Panel de usuario"
 
 #: Ucp.class.php:70 /usr/src/freepbx/ucp/Ucp.class.php:98
 msgid "User Primary Extension"
@@ -631,6 +638,14 @@ msgstr "Nombre Usuario"
 #: htdocs/assets/js/ucp.js:1036
 msgid "Username has been changed, reloading"
 msgstr "El Nombre de Usuario a sido cambiado, recargando"
+
+#: ucp.i18n.php:12
+msgid "View: UCP dashfootercontent.php"
+msgstr "Vista: UCP dashfootercontent.php"
+
+#: ucp.i18n.php:18
+msgid "View: UCP icons"
+msgstr "Ver: Iconos de UCP"
 
 #: htdocs/views/templates/phone.php:73
 msgid "WXYZ"
@@ -709,6 +724,14 @@ msgstr ""
 msgid "Your reset link is in the mail!"
 msgstr "Su enlace de restauración esta en su correo!"
 
+#: ucp.i18n.php:16
+msgid ""
+"dashfootercontent.php view. This should never be changed except for very "
+"advanced layout changes"
+msgstr ""
+"vista dashfootercontent.php. Esto de debe modificarse nunca a excepción de "
+"cambios muy avanzados en el diseño"
+
 #: htdocs/index.php:102
 #, php-format
 msgid ""
@@ -723,6 +746,9 @@ msgstr ""
 #: htdocs/views/login.php:24
 msgid "or"
 msgstr "o"
+
+#~ msgid "User Panel"
+#~ msgstr "Panel de usuario"
 
 #~ msgid "Allow users to change thier username in UCP"
 #~ msgstr "Permitir a usuarios cambiar su nombre en UCP"
@@ -779,29 +805,6 @@ msgstr "o"
 #~ msgstr ""
 #~ "Estas son las extensiones asignadas y activas que se mostrarán para que "
 #~ "este usuario pueda controlar y editar en UCP"
-
-#~ msgid "Styling and Logos"
-#~ msgstr "Logos y Estilos"
-
-#~ msgid ""
-#~ "UCP icons folder. This should never be changed except for very advanced "
-#~ "layout changes"
-#~ msgstr ""
-#~ "Icono de carpetas UCP. Esto no debe ser cambiado nunca excepto en cambios "
-#~ "muy avanzados del diseño"
-
-#~ msgid "View: UCP dashfootercontent.php"
-#~ msgstr "Vista: UCP dashfootercontent.php"
-
-#~ msgid "View: UCP icons"
-#~ msgstr "Ver: Iconos de UCP"
-
-#~ msgid ""
-#~ "dashfootercontent.php view. This should never be changed except for very "
-#~ "advanced layout changes"
-#~ msgstr ""
-#~ "vista dashfootercontent.php. Esto de debe modificarse nunca a excepción "
-#~ "de cambios muy avanzados en el diseño"
 
 #~ msgid "UCP Password"
 #~ msgstr "Password UCP"

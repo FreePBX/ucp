@@ -9,14 +9,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-01-25 12:48-0800\n"
+"POT-Creation-Date: 2017-04-27 11:31-0400\n"
 "PO-Revision-Date: 2017-04-12 21:45+0200\n"
 "Last-Translator: Michal <mboltz@tlen.pl>\n"
 "Language-Team: Polish <http://weblate.freepbx.org/projects/freepbx/ucp/pl/>\n"
-"Language: pl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: pl\n"
 "Plural-Forms: nplurals=3; plural=n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2;\n"
 "X-Generator: Weblate 2.4\n"
@@ -78,11 +78,11 @@ msgstr "Zezwalaj na powiadomienia na pulpicie"
 msgid "Allow Login"
 msgstr "Zazwalaj na logowanie"
 
-#: ucp.i18n.php:14
+#: ucp.i18n.php:22
 msgid "Allow Password Changes"
 msgstr "Zezwól na zmianę hasła"
 
-#: ucp.i18n.php:20
+#: ucp.i18n.php:28
 msgid "Allow Username Changes"
 msgstr "Zezwól na zmianę nazwy użytkownika"
 
@@ -98,12 +98,12 @@ msgstr ""
 "Zezwól użytkownikowi na inicjowanie połączenia z Panelu Użytkownika (UCP). "
 "To nie jest równoznaczne z klientem WebRTC"
 
-#: ucp.i18n.php:24
+#: ucp.i18n.php:30
 msgid "Allow users to change their username in UCP"
 msgstr ""
 "Zezwól użytkownikowi na zmianę nazwy użytkownika w Panelu Użytkownika (UCP)"
 
-#: ucp.i18n.php:18
+#: ucp.i18n.php:26
 msgid "Allow users to change thier password in UCP"
 msgstr "Zezwól użytkownikowi na zmianę hasła w Panelu Użytkownika (UCP)"
 
@@ -147,11 +147,11 @@ msgstr "DEF"
 msgid "Delete Image"
 msgstr "Usuń obraz"
 
-#: Ucp.class.php:777
+#: Ucp.class.php:792
 msgid "Deleted Session"
 msgstr "Skasowane sesje"
 
-#: Ucp.class.php:126 Ucp.class.php:620
+#: Ucp.class.php:126 Ucp.class.php:635
 msgid "Deleted User Session"
 msgstr "Skasowane sesje użytkownika"
 
@@ -159,7 +159,7 @@ msgstr "Skasowane sesje użytkownika"
 msgid "Display Name"
 msgstr "Nazwa wyświetlana"
 
-#: Ucp.class.php:871 Ucp.class.php:875 Ucp.class.php:879 Ucp.class.php:883
+#: Ucp.class.php:886 Ucp.class.php:890 Ucp.class.php:894 Ucp.class.php:898
 msgid "Done"
 msgstr "Zrobione"
 
@@ -195,8 +195,8 @@ msgstr "Prosimy o cierpliwość gdy staramy się wczytać treści"
 #, php-format
 msgid "Failed to install %s due to the following conflicting module(s): %s"
 msgstr ""
-"Nie udało się zainstalować %s z powodu następujących konfliktowych modułów: "
-"%s"
+"Nie udało się zainstalować %s z powodu następujących konfliktowych modułów: %"
+"s"
 
 #: htdocs/views/settings.php:89
 msgid "Fax"
@@ -226,19 +226,19 @@ msgstr "GHI"
 msgid "General"
 msgstr "Generalnie"
 
-#: Ucp.class.php:881
+#: Ucp.class.php:896
 msgid "Generating Main CSS..."
 msgstr "Generowanie głównego CSS..."
 
-#: Ucp.class.php:877
+#: Ucp.class.php:892
 msgid "Generating Main Scripts..."
 msgstr "Generowanie głównych skryptów..."
 
-#: Ucp.class.php:873
+#: Ucp.class.php:888
 msgid "Generating Module CSS..."
 msgstr "Generowanie CSS modułu..."
 
-#: Ucp.class.php:869
+#: Ucp.class.php:884
 msgid "Generating Module Scripts..."
 msgstr "Generowanie skryptów modułu..."
 
@@ -395,7 +395,7 @@ msgstr "Hasło"
 msgid "Password Confirmation Didn't Match!"
 msgstr "Powtórzone hasło nie zgadza się!"
 
-#: Ucp.class.php:203
+#: Ucp.class.php:207
 #, php-format
 msgid "Password Reset Link (Valid Until: %s): %s"
 msgstr "Odnośnik do resetu hasło (ważny do: %s): %s"
@@ -425,11 +425,11 @@ msgstr "Proszę podać nazwę użytkownika lub adres email"
 msgid "Processing..."
 msgstr "Przetwarzanie..."
 
-#: ucp.i18n.php:26
+#: ucp.i18n.php:32
 msgid "RSS Feeds"
 msgstr "Kanały RSS"
 
-#: ucp.i18n.php:30
+#: ucp.i18n.php:34
 msgid "RSS Feeds that are displayed in UCP. This overrides "
 msgstr "Kanały RSS, które są wyświetlane w UCP. To zastępuje "
 
@@ -462,11 +462,15 @@ msgstr "Wyślij jako %s"
 msgid "Settings"
 msgstr "Ustawienia"
 
+#: ucp.i18n.php:14
+msgid "Styling and Logos"
+msgstr ""
+
 #: htdocs/views/templates/phone.php:69
 msgid "TUV"
 msgstr "TUV"
 
-#: ucp.i18n.php:36
+#: ucp.i18n.php:38
 msgid ""
 "The number of days a session token will be valid for. Clear this setting if "
 "you want tokens to last forever (Not Recommended)"
@@ -537,9 +541,15 @@ msgstr "Administrator UCP"
 msgid "UCP Language"
 msgstr "Język UCP"
 
-#: ucp.i18n.php:32
+#: ucp.i18n.php:36
 msgid "UCP Session Timeout"
 msgstr "Limit czasu sesji UCP"
+
+#: ucp.i18n.php:20
+msgid ""
+"UCP icons folder. This should never be changed except for very advanced "
+"layout changes"
+msgstr ""
 
 #: htdocs/index.php:25
 msgid "UCP is currently disabled. Please talk to your system Administrator"
@@ -587,8 +597,7 @@ msgstr "Użyj Gravatar"
 
 #: htdocs/views/forgot.php:5 htdocs/views/header.php:4
 #: htdocs/views/login.php:4 ucp.i18n.php:4
-#: /usr/src/freepbx/ucp/ucp.i18n.php:16 ucp.i18n.php:22
-#: /usr/src/freepbx/ucp/ucp.i18n.php:28 ucp.i18n.php:34
+#: /usr/src/freepbx/ucp/ucp.i18n.php:24
 msgid "User Control Panel"
 msgstr "Panel Użytkownika (UCP)"
 
@@ -601,7 +610,7 @@ msgstr "Ustawienia Panelu Użytkownika"
 msgid "User Control Panel is released as %s or newer"
 msgstr "Panel Użytkownika jest opublikowany jako %s lub nowszy"
 
-#: Ucp.class.php:199
+#: Ucp.class.php:203
 #, php-format
 msgid "User Control Panel: %s"
 msgstr "Panel Użytkownika: %s"
@@ -609,10 +618,6 @@ msgstr "Panel Użytkownika: %s"
 #: htdocs/views/settings.php:41
 msgid "User Details"
 msgstr "Szczegóły użytkownika"
-
-#: ucp.i18n.php:12
-msgid "User Panel"
-msgstr "Panel użytkownika"
 
 #: Ucp.class.php:70 /usr/src/freepbx/ucp/Ucp.class.php:98
 msgid "User Primary Extension"
@@ -629,6 +634,14 @@ msgstr "Nazwa użytkownika"
 #: htdocs/assets/js/ucp.js:1036
 msgid "Username has been changed, reloading"
 msgstr "Zmieniono nazwę użytkownika, wczytywanie"
+
+#: ucp.i18n.php:12
+msgid "View: UCP dashfootercontent.php"
+msgstr ""
+
+#: ucp.i18n.php:18
+msgid "View: UCP icons"
+msgstr ""
 
 #: htdocs/views/templates/phone.php:73
 msgid "WXYZ"
@@ -707,6 +720,12 @@ msgstr ""
 msgid "Your reset link is in the mail!"
 msgstr "Twój odnosik do resetu jest w mailu!"
 
+#: ucp.i18n.php:16
+msgid ""
+"dashfootercontent.php view. This should never be changed except for very "
+"advanced layout changes"
+msgstr ""
+
 #: htdocs/index.php:102
 #, php-format
 msgid ""
@@ -720,6 +739,9 @@ msgstr ""
 #: htdocs/views/login.php:24
 msgid "or"
 msgstr "lub"
+
+#~ msgid "User Panel"
+#~ msgstr "Panel użytkownika"
 
 #~ msgid "Passwords can't be blank!"
 #~ msgstr "Hasła nie mogą być puste!"

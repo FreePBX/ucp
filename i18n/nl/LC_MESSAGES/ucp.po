@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-01-25 12:48-0800\n"
+"POT-Creation-Date: 2017-04-27 11:31-0400\n"
 "PO-Revision-Date: 2016-06-01 07:08+0200\n"
 "Last-Translator: Hans <info@hansvaneijsden.nl>\n"
 "Language-Team: Dutch <http://weblate.freepbx.org/projects/freepbx/ucp/nl/>\n"
@@ -81,11 +81,11 @@ msgstr "Inschakelen Bureaubladmeldingen"
 msgid "Allow Login"
 msgstr "Inloggen Toestaan"
 
-#: ucp.i18n.php:14
+#: ucp.i18n.php:22
 msgid "Allow Password Changes"
 msgstr "Sta Veranderen Wachtwoord Toe"
 
-#: ucp.i18n.php:20
+#: ucp.i18n.php:28
 msgid "Allow Username Changes"
 msgstr "Sta Veranderen Gebruikersnaam Toe"
 
@@ -101,11 +101,11 @@ msgstr ""
 "Deze gebruiker mag telefoongesprekken opzetten vanuit UCP. Dit is niet "
 "hetzelfde als WebRTC"
 
-#: ucp.i18n.php:24
+#: ucp.i18n.php:30
 msgid "Allow users to change their username in UCP"
 msgstr ""
 
-#: ucp.i18n.php:18
+#: ucp.i18n.php:26
 msgid "Allow users to change thier password in UCP"
 msgstr "Sta gebruikers toe om hun wachtwoord te wijzigen in UCP"
 
@@ -149,11 +149,11 @@ msgstr "DEF"
 msgid "Delete Image"
 msgstr ""
 
-#: Ucp.class.php:777
+#: Ucp.class.php:792
 msgid "Deleted Session"
 msgstr "Verwijderde Sessie"
 
-#: Ucp.class.php:126 Ucp.class.php:620
+#: Ucp.class.php:126 Ucp.class.php:635
 msgid "Deleted User Session"
 msgstr "Verwijderde Gebruikerssessie"
 
@@ -161,7 +161,7 @@ msgstr "Verwijderde Gebruikerssessie"
 msgid "Display Name"
 msgstr "Weergavenaam"
 
-#: Ucp.class.php:871 Ucp.class.php:875 Ucp.class.php:879 Ucp.class.php:883
+#: Ucp.class.php:886 Ucp.class.php:890 Ucp.class.php:894 Ucp.class.php:898
 msgid "Done"
 msgstr "Voltooid"
 
@@ -228,19 +228,19 @@ msgstr "GHI"
 msgid "General"
 msgstr "Algemeen"
 
-#: Ucp.class.php:881
+#: Ucp.class.php:896
 msgid "Generating Main CSS..."
 msgstr "Genereren Hoofd-CSS..."
 
-#: Ucp.class.php:877
+#: Ucp.class.php:892
 msgid "Generating Main Scripts..."
 msgstr "Genereren Hoofd-Scripts..."
 
-#: Ucp.class.php:873
+#: Ucp.class.php:888
 msgid "Generating Module CSS..."
 msgstr "Genereren Module-CSS..."
 
-#: Ucp.class.php:869
+#: Ucp.class.php:884
 msgid "Generating Module Scripts..."
 msgstr "Genereren Module-Scripts..."
 
@@ -397,7 +397,7 @@ msgstr "Wachtwoord"
 msgid "Password Confirmation Didn't Match!"
 msgstr "De wachtwoordbevestiging klopte niet!"
 
-#: Ucp.class.php:203
+#: Ucp.class.php:207
 #, php-format
 msgid "Password Reset Link (Valid Until: %s): %s"
 msgstr "Wachtwoord-resetlink (geldig tot: %s): %s"
@@ -427,11 +427,11 @@ msgstr "Gelieve een gebruikersnaam of e-mailadres in te geven"
 msgid "Processing..."
 msgstr "Verwerken..."
 
-#: ucp.i18n.php:26
+#: ucp.i18n.php:32
 msgid "RSS Feeds"
 msgstr "RSS-Feeds"
 
-#: ucp.i18n.php:30
+#: ucp.i18n.php:34
 msgid "RSS Feeds that are displayed in UCP. This overrides "
 msgstr "RSS-Feeds die worden weergegeven in het UCP. Dit heeft voorrang op "
 
@@ -464,11 +464,15 @@ msgstr "Verstuurd naar %s"
 msgid "Settings"
 msgstr "Instellingen"
 
+#: ucp.i18n.php:14
+msgid "Styling and Logos"
+msgstr ""
+
 #: htdocs/views/templates/phone.php:69
 msgid "TUV"
 msgstr "TUV"
 
-#: ucp.i18n.php:36
+#: ucp.i18n.php:38
 msgid ""
 "The number of days a session token will be valid for. Clear this setting if "
 "you want tokens to last forever (Not Recommended)"
@@ -542,9 +546,15 @@ msgstr "UCP Beheer"
 msgid "UCP Language"
 msgstr "UCP Taal"
 
-#: ucp.i18n.php:32
+#: ucp.i18n.php:36
 msgid "UCP Session Timeout"
 msgstr "UCP Sessie-Timeout"
+
+#: ucp.i18n.php:20
+msgid ""
+"UCP icons folder. This should never be changed except for very advanced "
+"layout changes"
+msgstr ""
 
 #: htdocs/index.php:25
 msgid "UCP is currently disabled. Please talk to your system Administrator"
@@ -592,8 +602,7 @@ msgstr ""
 
 #: htdocs/views/forgot.php:5 htdocs/views/header.php:4
 #: htdocs/views/login.php:4 ucp.i18n.php:4
-#: /usr/src/freepbx/ucp/ucp.i18n.php:16 ucp.i18n.php:22
-#: /usr/src/freepbx/ucp/ucp.i18n.php:28 ucp.i18n.php:34
+#: /usr/src/freepbx/ucp/ucp.i18n.php:24
 msgid "User Control Panel"
 msgstr "Gebruikers Beheerpanel"
 
@@ -606,7 +615,7 @@ msgstr "Instellingen User Control Panel"
 msgid "User Control Panel is released as %s or newer"
 msgstr "User Control Panel is gereleased als %s of nieuwer"
 
-#: Ucp.class.php:199
+#: Ucp.class.php:203
 #, php-format
 msgid "User Control Panel: %s"
 msgstr "Gebruikers Beheerpanel: %s"
@@ -614,10 +623,6 @@ msgstr "Gebruikers Beheerpanel: %s"
 #: htdocs/views/settings.php:41
 msgid "User Details"
 msgstr ""
-
-#: ucp.i18n.php:12
-msgid "User Panel"
-msgstr "Gebruikerspanel"
 
 #: Ucp.class.php:70 /usr/src/freepbx/ucp/Ucp.class.php:98
 msgid "User Primary Extension"
@@ -634,6 +639,14 @@ msgstr "Gebruikersnaam"
 #: htdocs/assets/js/ucp.js:1036
 msgid "Username has been changed, reloading"
 msgstr "De gebruikersnaam is veranderd, opnieuw laden"
+
+#: ucp.i18n.php:12
+msgid "View: UCP dashfootercontent.php"
+msgstr ""
+
+#: ucp.i18n.php:18
+msgid "View: UCP icons"
+msgstr ""
 
 #: htdocs/views/templates/phone.php:73
 msgid "WXYZ"
@@ -712,6 +725,12 @@ msgstr ""
 msgid "Your reset link is in the mail!"
 msgstr "Je resetlink is in de e-mail!"
 
+#: ucp.i18n.php:16
+msgid ""
+"dashfootercontent.php view. This should never be changed except for very "
+"advanced layout changes"
+msgstr ""
+
 #: htdocs/index.php:102
 #, php-format
 msgid ""
@@ -726,6 +745,9 @@ msgstr ""
 #: htdocs/views/login.php:24
 msgid "or"
 msgstr "of"
+
+#~ msgid "User Panel"
+#~ msgstr "Gebruikerspanel"
 
 #~ msgid "A token has already been generated for %s, not sending email again"
 #~ msgstr ""

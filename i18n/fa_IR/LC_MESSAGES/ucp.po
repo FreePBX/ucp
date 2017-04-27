@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-01-25 12:48-0800\n"
+"POT-Creation-Date: 2017-04-27 11:31-0400\n"
 "PO-Revision-Date: 2016-10-08 12:14+0200\n"
 "Last-Translator: psdk <hyavari26@gmail.com>\n"
 "Language-Team: Persian (Iran) <http://weblate.freepbx.org/projects/freepbx/"
@@ -77,11 +77,11 @@ msgstr "اجازه دادن به اعلان های هشدار در دسکتاپ"
 msgid "Allow Login"
 msgstr "اجازه ی ورود دادن"
 
-#: ucp.i18n.php:14
+#: ucp.i18n.php:22
 msgid "Allow Password Changes"
 msgstr "اجازه تغییردادن کلمه عبور"
 
-#: ucp.i18n.php:20
+#: ucp.i18n.php:28
 msgid "Allow Username Changes"
 msgstr "اجازه تغییر دادن نام کاربری"
 
@@ -97,11 +97,11 @@ msgstr ""
 "اجازه دادن به این کاربر برای برقراری تماس از طریق پنل کنترل کاربری. این مورد "
 "شبیه WebRTC نیست"
 
-#: ucp.i18n.php:24
+#: ucp.i18n.php:30
 msgid "Allow users to change their username in UCP"
 msgstr "به کاربر اجازه تغییر نام کاربری در پنل کنترل کاربری داده شود"
 
-#: ucp.i18n.php:18
+#: ucp.i18n.php:26
 msgid "Allow users to change thier password in UCP"
 msgstr "به کاربران اجازه تغییر کلمه عبور در پنل کنترل کاربری داده شود"
 
@@ -145,11 +145,11 @@ msgstr "DEF"
 msgid "Delete Image"
 msgstr "حذف تصویر"
 
-#: Ucp.class.php:777
+#: Ucp.class.php:792
 msgid "Deleted Session"
 msgstr "اتصال حذف شده"
 
-#: Ucp.class.php:126 Ucp.class.php:620
+#: Ucp.class.php:126 Ucp.class.php:635
 msgid "Deleted User Session"
 msgstr "اتصال حذف شده کاربر"
 
@@ -157,7 +157,7 @@ msgstr "اتصال حذف شده کاربر"
 msgid "Display Name"
 msgstr "نام قابل نمایش"
 
-#: Ucp.class.php:871 Ucp.class.php:875 Ucp.class.php:879 Ucp.class.php:883
+#: Ucp.class.php:886 Ucp.class.php:890 Ucp.class.php:894 Ucp.class.php:898
 msgid "Done"
 msgstr "انجام شد"
 
@@ -222,19 +222,19 @@ msgstr "GHI"
 msgid "General"
 msgstr "عمومی"
 
-#: Ucp.class.php:881
+#: Ucp.class.php:896
 msgid "Generating Main CSS..."
 msgstr "ایجاد CSS اصلی..."
 
-#: Ucp.class.php:877
+#: Ucp.class.php:892
 msgid "Generating Main Scripts..."
 msgstr "ایجاد اسکریپت های اصلی..."
 
-#: Ucp.class.php:873
+#: Ucp.class.php:888
 msgid "Generating Module CSS..."
 msgstr "ایجاد ماژول CSS..."
 
-#: Ucp.class.php:869
+#: Ucp.class.php:884
 msgid "Generating Module Scripts..."
 msgstr "ایجاد اسکریپت های ماژول..."
 
@@ -391,7 +391,7 @@ msgstr "رمز عبور"
 msgid "Password Confirmation Didn't Match!"
 msgstr "کلمه های عبور یکسان نیستند!"
 
-#: Ucp.class.php:203
+#: Ucp.class.php:207
 #, php-format
 msgid "Password Reset Link (Valid Until: %s): %s"
 msgstr "لینک بازنشانی کلمه عبور (معتبر تا : %s): %s"
@@ -421,11 +421,11 @@ msgstr "لطفا یک نام کاربری یا آدرس ایمیل وارد کن
 msgid "Processing..."
 msgstr "در حال پردازش..."
 
-#: ucp.i18n.php:26
+#: ucp.i18n.php:32
 msgid "RSS Feeds"
 msgstr "خوراک RSS"
 
-#: ucp.i18n.php:30
+#: ucp.i18n.php:34
 msgid "RSS Feeds that are displayed in UCP. This overrides "
 msgstr ""
 "خوراک های RSS که در پنل کنترل کاربری نمایش داده می شوند. بازنویسی می شوند "
@@ -459,11 +459,15 @@ msgstr "ارسال شده در %s"
 msgid "Settings"
 msgstr "تنظیمات"
 
+#: ucp.i18n.php:14
+msgid "Styling and Logos"
+msgstr ""
+
 #: htdocs/views/templates/phone.php:69
 msgid "TUV"
 msgstr "TUV"
 
-#: ucp.i18n.php:36
+#: ucp.i18n.php:38
 msgid ""
 "The number of days a session token will be valid for. Clear this setting if "
 "you want tokens to last forever (Not Recommended)"
@@ -533,9 +537,15 @@ msgstr "مدیر پنل کنترل کاربری"
 msgid "UCP Language"
 msgstr "زبان پنل کنترل کاربری"
 
-#: ucp.i18n.php:32
+#: ucp.i18n.php:36
 msgid "UCP Session Timeout"
 msgstr "زمان اعتبار اتصال پنل کنترل کاربری"
+
+#: ucp.i18n.php:20
+msgid ""
+"UCP icons folder. This should never be changed except for very advanced "
+"layout changes"
+msgstr ""
 
 #: htdocs/index.php:25
 msgid "UCP is currently disabled. Please talk to your system Administrator"
@@ -581,8 +591,7 @@ msgstr "استفاده از آواتار"
 
 #: htdocs/views/forgot.php:5 htdocs/views/header.php:4
 #: htdocs/views/login.php:4 ucp.i18n.php:4
-#: /usr/src/freepbx/ucp/ucp.i18n.php:16 ucp.i18n.php:22
-#: /usr/src/freepbx/ucp/ucp.i18n.php:28 ucp.i18n.php:34
+#: /usr/src/freepbx/ucp/ucp.i18n.php:24
 msgid "User Control Panel"
 msgstr "پنل کنترل کاربری"
 
@@ -595,7 +604,7 @@ msgstr "تنظیمات پنل کنترل کاربری"
 msgid "User Control Panel is released as %s or newer"
 msgstr "پنل کنترل کاربری منتشر شده %s یا جدیدتر"
 
-#: Ucp.class.php:199
+#: Ucp.class.php:203
 #, php-format
 msgid "User Control Panel: %s"
 msgstr "پنل کنترل کاربری: %s"
@@ -603,10 +612,6 @@ msgstr "پنل کنترل کاربری: %s"
 #: htdocs/views/settings.php:41
 msgid "User Details"
 msgstr "جزئیات کاربر"
-
-#: ucp.i18n.php:12
-msgid "User Panel"
-msgstr "پنل کاربر"
 
 #: Ucp.class.php:70 /usr/src/freepbx/ucp/Ucp.class.php:98
 msgid "User Primary Extension"
@@ -623,6 +628,14 @@ msgstr "نام کاربری"
 #: htdocs/assets/js/ucp.js:1036
 msgid "Username has been changed, reloading"
 msgstr "نام کاربری تغییر کرده است، در حال بارگذاری"
+
+#: ucp.i18n.php:12
+msgid "View: UCP dashfootercontent.php"
+msgstr ""
+
+#: ucp.i18n.php:18
+msgid "View: UCP icons"
+msgstr ""
 
 #: htdocs/views/templates/phone.php:73
 msgid "WXYZ"
@@ -701,6 +714,12 @@ msgstr ""
 msgid "Your reset link is in the mail!"
 msgstr "لینک بازنشانی کلمه عبور در ایمیل شماست!"
 
+#: ucp.i18n.php:16
+msgid ""
+"dashfootercontent.php view. This should never be changed except for very "
+"advanced layout changes"
+msgstr ""
+
 #: htdocs/index.php:102
 #, php-format
 msgid ""
@@ -714,6 +733,9 @@ msgstr ""
 #: htdocs/views/login.php:24
 msgid "or"
 msgstr "یا"
+
+#~ msgid "User Panel"
+#~ msgstr "پنل کاربر"
 
 #~ msgid "A token has already been generated for %s, not sending email again"
 #~ msgstr "در حال حاضر یک توکن برای %s ایجاد شده, مجددا ایمیل ارسال نفرمایید"

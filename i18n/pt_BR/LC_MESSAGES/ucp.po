@@ -9,15 +9,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-01-25 12:48-0800\n"
+"POT-Creation-Date: 2017-04-27 11:31-0400\n"
 "PO-Revision-Date: 2017-04-17 15:16+0200\n"
 "Last-Translator: KNGVC <suporte@kingvoice.com.br>\n"
-"Language-Team: Portuguese (Brazil) "
-"<http://weblate.freepbx.org/projects/freepbx/ucp/pt_BR/>\n"
-"Language: pt_BR\n"
+"Language-Team: Portuguese (Brazil) <http://weblate.freepbx.org/projects/"
+"freepbx/ucp/pt_BR/>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: pt_BR\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 2.4\n"
 
@@ -80,11 +80,11 @@ msgstr "Permitir Notificações Desktop"
 msgid "Allow Login"
 msgstr "Permitir Logar-se"
 
-#: ucp.i18n.php:14
+#: ucp.i18n.php:22
 msgid "Allow Password Changes"
 msgstr "Permitir Mudar Senha"
 
-#: ucp.i18n.php:20
+#: ucp.i18n.php:28
 msgid "Allow Username Changes"
 msgstr "Permitir Mudar Usuário"
 
@@ -100,11 +100,11 @@ msgstr ""
 "Permitir que este usuário origine chamadas pelo PCU. Isso não é o mesmo que "
 "WebRTC"
 
-#: ucp.i18n.php:24
+#: ucp.i18n.php:30
 msgid "Allow users to change their username in UCP"
 msgstr "Permitir que os usuários alterem seu nome de usuário no PCU"
 
-#: ucp.i18n.php:18
+#: ucp.i18n.php:26
 msgid "Allow users to change thier password in UCP"
 msgstr "Permitir usuários mudarem suas senhas no PCU"
 
@@ -148,11 +148,11 @@ msgstr "DEF"
 msgid "Delete Image"
 msgstr "Apagar Imagem"
 
-#: Ucp.class.php:777
+#: Ucp.class.php:792
 msgid "Deleted Session"
 msgstr "Sessão Apagada"
 
-#: Ucp.class.php:126 Ucp.class.php:620
+#: Ucp.class.php:126 Ucp.class.php:635
 msgid "Deleted User Session"
 msgstr "Sessão do Usuário Apagada"
 
@@ -160,7 +160,7 @@ msgstr "Sessão do Usuário Apagada"
 msgid "Display Name"
 msgstr "Nome de Exibição"
 
-#: Ucp.class.php:871 Ucp.class.php:875 Ucp.class.php:879 Ucp.class.php:883
+#: Ucp.class.php:886 Ucp.class.php:890 Ucp.class.php:894 Ucp.class.php:898
 msgid "Done"
 msgstr "Concluído"
 
@@ -226,19 +226,19 @@ msgstr "GHI"
 msgid "General"
 msgstr "Geral"
 
-#: Ucp.class.php:881
+#: Ucp.class.php:896
 msgid "Generating Main CSS..."
 msgstr "Gerando CSS Principal..."
 
-#: Ucp.class.php:877
+#: Ucp.class.php:892
 msgid "Generating Main Scripts..."
 msgstr "Gerando Scripts Principais…"
 
-#: Ucp.class.php:873
+#: Ucp.class.php:888
 msgid "Generating Module CSS..."
 msgstr "Gerando CSS de Módulo…"
 
-#: Ucp.class.php:869
+#: Ucp.class.php:884
 msgid "Generating Module Scripts..."
 msgstr "Gerando Scripts de Módulos…"
 
@@ -397,7 +397,7 @@ msgstr "Senha"
 msgid "Password Confirmation Didn't Match!"
 msgstr "Confirmação De Senha Não Conferiu!"
 
-#: Ucp.class.php:203
+#: Ucp.class.php:207
 #, php-format
 msgid "Password Reset Link (Valid Until: %s): %s"
 msgstr "Link de Redefinição de Senha (Válido Até: %s): %s"
@@ -427,11 +427,11 @@ msgstr "Por favor entre com seu usuário ou endereço de email"
 msgid "Processing..."
 msgstr "Processando…"
 
-#: ucp.i18n.php:26
+#: ucp.i18n.php:32
 msgid "RSS Feeds"
 msgstr "Feeds RSS"
 
-#: ucp.i18n.php:30
+#: ucp.i18n.php:34
 msgid "RSS Feeds that are displayed in UCP. This overrides "
 msgstr "Feeds RSS que são mostrados no PCU. Isto substitui "
 
@@ -464,11 +464,15 @@ msgstr "Enviado para %s"
 msgid "Settings"
 msgstr "Configurações"
 
+#: ucp.i18n.php:14
+msgid "Styling and Logos"
+msgstr "Estilo e Logos"
+
 #: htdocs/views/templates/phone.php:69
 msgid "TUV"
 msgstr "TUV"
 
-#: ucp.i18n.php:36
+#: ucp.i18n.php:38
 msgid ""
 "The number of days a session token will be valid for. Clear this setting if "
 "you want tokens to last forever (Not Recommended)"
@@ -539,9 +543,17 @@ msgstr "Admin. PCU"
 msgid "UCP Language"
 msgstr "Idioma PCU"
 
-#: ucp.i18n.php:32
+#: ucp.i18n.php:36
 msgid "UCP Session Timeout"
 msgstr "Tempo limite da sessão do PCU"
+
+#: ucp.i18n.php:20
+msgid ""
+"UCP icons folder. This should never be changed except for very advanced "
+"layout changes"
+msgstr ""
+"Pasta de ícones do PCU. Isto não deve ser nunca alterado exceto para "
+"alterações de layout muito avançadas"
 
 #: htdocs/index.php:25
 msgid "UCP is currently disabled. Please talk to your system Administrator"
@@ -590,8 +602,7 @@ msgstr "Usar Gravatar"
 
 #: htdocs/views/forgot.php:5 htdocs/views/header.php:4
 #: htdocs/views/login.php:4 ucp.i18n.php:4
-#: /usr/src/freepbx/ucp/ucp.i18n.php:16 ucp.i18n.php:22
-#: /usr/src/freepbx/ucp/ucp.i18n.php:28 ucp.i18n.php:34
+#: /usr/src/freepbx/ucp/ucp.i18n.php:24
 msgid "User Control Panel"
 msgstr "Painel de Controle do Usuário"
 
@@ -604,7 +615,7 @@ msgstr "Configurações Painel de Controle do Usuário"
 msgid "User Control Panel is released as %s or newer"
 msgstr "Painel de Controle do Usuário está liberado como %s ou mais novo"
 
-#: Ucp.class.php:199
+#: Ucp.class.php:203
 #, php-format
 msgid "User Control Panel: %s"
 msgstr "Painel de Controle do Usuário: %s"
@@ -612,10 +623,6 @@ msgstr "Painel de Controle do Usuário: %s"
 #: htdocs/views/settings.php:41
 msgid "User Details"
 msgstr "Detalhes do Usuário"
-
-#: ucp.i18n.php:12
-msgid "User Panel"
-msgstr "Painel do Usuário"
 
 #: Ucp.class.php:70 /usr/src/freepbx/ucp/Ucp.class.php:98
 msgid "User Primary Extension"
@@ -632,6 +639,14 @@ msgstr "Nome de usuário"
 #: htdocs/assets/js/ucp.js:1036
 msgid "Username has been changed, reloading"
 msgstr "Usuário foi mudado, recarregando"
+
+#: ucp.i18n.php:12
+msgid "View: UCP dashfootercontent.php"
+msgstr "Ver: dashfootercontent.php PCU"
+
+#: ucp.i18n.php:18
+msgid "View: UCP icons"
+msgstr "Ver: Ícones PCU"
 
 #: htdocs/views/templates/phone.php:73
 msgid "WXYZ"
@@ -710,6 +725,14 @@ msgstr ""
 msgid "Your reset link is in the mail!"
 msgstr "Seu link de redefinição está no email!"
 
+#: ucp.i18n.php:16
+msgid ""
+"dashfootercontent.php view. This should never be changed except for very "
+"advanced layout changes"
+msgstr ""
+"visualização dashfootercontent.php. Isto não deve nunca ser mudado exceto "
+"para mudanças de layout muito avançadas"
+
 #: htdocs/index.php:102
 #, php-format
 msgid ""
@@ -724,6 +747,9 @@ msgstr ""
 #: htdocs/views/login.php:24
 msgid "or"
 msgstr "ou"
+
+#~ msgid "User Panel"
+#~ msgstr "Painel do Usuário"
 
 #~ msgid "Allowed Settings"
 #~ msgstr "Configurações Permitidas"
@@ -770,9 +796,6 @@ msgstr "ou"
 #~ "reprodução para reproduções de arquivos no navegador. Sem ele os arquivos "
 #~ "não serão reproduzidos no PCU"
 
-#~ msgid "Styling and Logos"
-#~ msgstr "Estilo e Logos"
-
 #~ msgid "Submit"
 #~ msgstr "Enviar"
 
@@ -782,23 +805,3 @@ msgstr "ou"
 #~ msgstr ""
 #~ "Estes são os ramais associadas e ativos que aparecerão para este usuário "
 #~ "controlar e editar no PCU"
-
-#~ msgid ""
-#~ "UCP icons folder. This should never be changed except for very advanced "
-#~ "layout changes"
-#~ msgstr ""
-#~ "Pasta de ícones do PCU. Isto não deve ser nunca alterado exceto para "
-#~ "alterações de layout muito avançadas"
-
-#~ msgid "View: UCP dashfootercontent.php"
-#~ msgstr "Ver: dashfootercontent.php PCU"
-
-#~ msgid "View: UCP icons"
-#~ msgstr "Ver: Ícones PCU"
-
-#~ msgid ""
-#~ "dashfootercontent.php view. This should never be changed except for very "
-#~ "advanced layout changes"
-#~ msgstr ""
-#~ "visualização dashfootercontent.php. Isto não deve nunca ser mudado exceto "
-#~ "para mudanças de layout muito avançadas"
