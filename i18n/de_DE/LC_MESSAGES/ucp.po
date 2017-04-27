@@ -10,14 +10,14 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-01-25 12:48-0800\n"
-"PO-Revision-Date: 2017-01-09 14:39+0200\n"
-"Last-Translator: Sven <spiderrs4@web.de>\n"
-"Language-Team: German <http://weblate.freepbx.org/projects/freepbx/ucp/de_DE/"
-">\n"
+"PO-Revision-Date: 2017-03-06 01:46+0200\n"
+"Last-Translator: hammer125 <auswertung@aon.at>\n"
+"Language-Team: German "
+"<http://weblate.freepbx.org/projects/freepbx/ucp/de_DE/>\n"
+"Language: de_DE\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: de_DE\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 2.4\n"
 
@@ -64,12 +64,11 @@ msgid "Admin"
 msgstr "Administrator"
 
 #: htdocs/views/settings.php:11
-#, fuzzy
 msgid ""
 "All fields update when unfocused (selecting another field) except password"
 msgstr ""
-"Alle Felder aktualisieren, wenn kein Feld gewählt ist (ein anderes Feld "
-"auswählen) ausgenommen das Passwort"
+"Alle Felder aktualisieren sich, wenn man aus dem Feld springt (wenn ein "
+"anderes Feld ausgewählt wird) ausgenommen das Passwort-Feld"
 
 #: htdocs/views/settings.php:111
 msgid "Allow Desktop Notifications"
@@ -101,7 +100,7 @@ msgstr ""
 
 #: ucp.i18n.php:24
 msgid "Allow users to change their username in UCP"
-msgstr ""
+msgstr "erlaube Benutzern, ihren Benutzernamen in UCP zu ändern"
 
 #: ucp.i18n.php:18
 msgid "Allow users to change thier password in UCP"
@@ -173,7 +172,7 @@ msgstr "E-Mail"
 
 #: htdocs/includes/User.class.php:78
 msgid "Email address unknown!"
-msgstr ""
+msgstr "Email-Adresse unbekannt!"
 
 #: views/users_hook.php:144
 msgid "Enable Originating Calls"
@@ -268,7 +267,7 @@ msgstr "Erben"
 
 #: htdocs/views/settings.php:99
 msgid "Interface Settings"
-msgstr ""
+msgstr "Schnittstellen-Einstellungen"
 
 #: htdocs/index.php:251
 #, php-format
@@ -348,7 +347,7 @@ msgstr "Modul bzw. Befehl war null. Überprüfen Sie Ihren Code."
 
 #: htdocs/assets/js/ucp.js:95
 msgid "New password and old password do not match"
-msgstr ""
+msgstr "neues und altes Passwort stimmen nicht überein"
 
 #: views/users_hook.php:53 views/users_hook.php:151
 msgid "No"
@@ -409,11 +408,11 @@ msgstr "Passwort zurücksetzen für: %s"
 
 #: htdocs/assets/js/ucp.js:98
 msgid "Password fields can't be blank!"
-msgstr ""
+msgstr "Passwortfelder können nicht leer sein!"
 
 #: htdocs/assets/js/ucp.js:107
 msgid "Password has been changed!"
-msgstr ""
+msgstr "Passwort wurde geändert!"
 
 #: htdocs/assets/js/ucp.js:1018
 msgid "Password has not changed!"
@@ -433,9 +432,8 @@ msgid "RSS Feeds"
 msgstr "RSS-Feeds"
 
 #: ucp.i18n.php:30
-#, fuzzy
 msgid "RSS Feeds that are displayed in UCP. This overrides "
-msgstr "RSS-Feeds die im UCP angezeigt werden. Diese überschrieben "
+msgstr "RSS-Feeds, die im UCP angezeigt werden. Dies überschriebt sie "
 
 #: Ucp.class.php:29
 msgid "Refreshing all UCP Assets, this could take a while..."
@@ -493,6 +491,8 @@ msgid ""
 "The user control panel is a way for users to control call handling and "
 "personal settings from a web browser."
 msgstr ""
+"Das Benutzerkontrollzentrum (UCP) gibt Benutzern die Möglichkeit, ihre "
+"Anrufe und persönliche Einstellungen über einen Webbrowser zu verwalten."
 
 #: htdocs/views/settings.php:15
 msgid "The username used to login to User Control Panel and other services"
@@ -530,7 +530,7 @@ msgstr ""
 
 #: ucp.i18n.php:10
 msgid "UCP"
-msgstr ""
+msgstr "UCP (Benutzerkontrollzentrum)"
 
 #: views/header.php:1
 msgid "UCP Admin"
@@ -568,7 +568,7 @@ msgstr "Es kann kein Token vom UCP Knoten Server erhalten werden, weil: '% s'"
 
 #: htdocs/includes/User.class.php:84
 msgid "Unable to send Password Reset Email"
-msgstr ""
+msgstr "Email zum Zurücksetzen des Passworts konnte nicht gesendet werden"
 
 #: htdocs/index.php:192
 #, php-format
@@ -591,9 +591,8 @@ msgstr "Gravatar benutzen"
 #: htdocs/views/login.php:4 ucp.i18n.php:4
 #: /usr/src/freepbx/ucp/ucp.i18n.php:16 ucp.i18n.php:22
 #: /usr/src/freepbx/ucp/ucp.i18n.php:28 ucp.i18n.php:34
-#, fuzzy
 msgid "User Control Panel"
-msgstr "Benutzer-Kontrollzentrum (UCP)"
+msgstr "Benutzer Kontrollzentrum (UCP)"
 
 #: htdocs/views/settings.php:2
 msgid "User Control Panel Settings"
@@ -605,18 +604,17 @@ msgid "User Control Panel is released as %s or newer"
 msgstr "User Control Panel ist als %s oder neuer"
 
 #: Ucp.class.php:199
-#, fuzzy, php-format
+#, php-format
 msgid "User Control Panel: %s"
-msgstr "Benutzer-Kontrollzentrum (UCP): %s"
+msgstr "Benutzer Kontrollzentrum (UCP): %s"
 
 #: htdocs/views/settings.php:41
 msgid "User Details"
-msgstr ""
+msgstr "Benutzer-Details"
 
 #: ucp.i18n.php:12
-#, fuzzy
 msgid "User Panel"
-msgstr "Benutzerbedienfeld"
+msgstr "Benutzer-Oberfläche"
 
 #: Ucp.class.php:70 /usr/src/freepbx/ucp/Ucp.class.php:98
 msgid "User Primary Extension"

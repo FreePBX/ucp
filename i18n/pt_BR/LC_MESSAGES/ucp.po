@@ -10,14 +10,14 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-01-25 12:48-0800\n"
-"PO-Revision-Date: 2016-12-20 23:26+0200\n"
-"Last-Translator: Alexander <alexander.schley@paranagua.pr.gov.br>\n"
-"Language-Team: Portuguese (Brazil) <http://weblate.freepbx.org/projects/"
-"freepbx/ucp/pt_BR/>\n"
+"PO-Revision-Date: 2017-04-17 15:16+0200\n"
+"Last-Translator: KNGVC <suporte@kingvoice.com.br>\n"
+"Language-Team: Portuguese (Brazil) "
+"<http://weblate.freepbx.org/projects/freepbx/ucp/pt_BR/>\n"
+"Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: pt_BR\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 2.4\n"
 
@@ -63,7 +63,7 @@ msgstr "Sessões Ativas"
 
 #: ucp.i18n.php:6
 msgid "Admin"
-msgstr "Administrador"
+msgstr "Admin"
 
 #: htdocs/views/settings.php:11
 msgid ""
@@ -118,7 +118,7 @@ msgstr "Você tem certeza que deseja mudar seu usuário?"
 
 #: htdocs/views/settings.php:140
 msgid "Browse"
-msgstr "Visualizar"
+msgstr "Localizar"
 
 #: htdocs/views/templates/phone.php:7 htdocs/views/templates/phone.php:95
 msgid "Call"
@@ -523,9 +523,9 @@ msgid ""
 "webserver's configuration file for the User Control Panel. For more "
 "information see: %s"
 msgstr ""
-"Para proteger a integridade de seu servidor, você deve permitir "
-"substituições no arquivo de configuração de seu servidor web para Painel de "
-"Controle do Usuário. Para mais informações veja: %s"
+"Para proteger a integridade do seu servidor, você deve permitir "
+"substituições no arquivo de configuração do seu servidor web para o Painel "
+"de Controle do Usuário. Para obter mais informações, consulte: %s"
 
 #: ucp.i18n.php:10
 msgid "UCP"
@@ -627,7 +627,7 @@ msgstr "Configurações do Usuário"
 
 #: htdocs/views/login.php:15 htdocs/views/settings.php:13
 msgid "Username"
-msgstr "Nome de Usuário"
+msgstr "Nome de usuário"
 
 #: htdocs/assets/js/ucp.js:1036
 msgid "Username has been changed, reloading"
@@ -717,9 +717,9 @@ msgid ""
 "file paths and directories are locked down properly. For more information "
 "see: %s"
 msgstr ""
-"arquivos htaccess ajudam a proteger a integridade de seu servidor. Por favor "
-"assegure-se os caminhos dos arquivos e diretórios estão bloqueados "
-"apropriadamente. Para mais informações veja: %s"
+"Os arquivos htaccess ajudam a proteger a integridade do seu servidor. "
+"Verifique se os caminhos e diretórios de arquivos estão bloqueados "
+"corretamente. Para obter mais informações, consulte: %s"
 
 #: htdocs/views/login.php:24
 msgid "or"
