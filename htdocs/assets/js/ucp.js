@@ -744,6 +744,11 @@ var UCPC = Class.extend({
 			message = message.replace(emailre,"<a href='mailto:$1@$2.$3' target='_blank'>$1@$2.$3</a>");
 		}
 
+		//message already exists
+		if($( "#messages-container .message-box[data-id=\"" + id + "\"] .message[data-id='"+msgid+"']").length) {
+			return;
+		}
+
 		if ($( "#messages-container .message-box[data-id=\"" + id + "\"]" ).length) {
 			if (!$( "#messages-container .message-box[data-id=\"" + id + "\"]" ).hasClass("expand")) {
 				$( "#messages-container .message-box[data-id=\"" + id + "\"]" ).addClass("expand");
