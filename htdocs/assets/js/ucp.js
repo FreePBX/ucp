@@ -29,6 +29,11 @@ var UCPC = Class.extend({
 		this.urlParams = {};
 
 		textdomain("ucp");
+		window.onerror = function (message, url, line) {
+			if(!$("#alert_modal").is(":visible")) {
+				UCP.showAlert(_("There was an error. See the console log for more details"),'danger');
+			}
+		};
 	},
 	ready: function(loggedIn) {
 		this.parseUrl();
@@ -42,19 +47,19 @@ var UCPC = Class.extend({
 				setTimeout(function() {
 					if(!$("#alert_modal").is(":visible")) {
 						UCP.showAlert(_("There was an error. See the console log for more details"),'danger');
-						try {
-							var obj = JSON.parse(jqxhr.responseText);
-							if(typeof obj.error.file !== "undefined") {
-								console.error(thrownError + ": " + obj.error.message);
-								console.error(obj.error.file + ": " + obj.error.line);
-							} else if(typeof obj.error !== "undefined") {
-								console.error(thrownError + ": " + obj.error);
-							} else if(typeof obj.message !== "undefined") {
-								console.error(thrownError + ": " + obj.message);
-							}
-						} catch(e) {
-							console.error(thrownError + ": " + e);
+					}
+					try {
+						var obj = JSON.parse(jqxhr.responseText);
+						if(typeof obj.error.file !== "undefined") {
+							console.error(thrownError + ": " + obj.error.message);
+							console.error(obj.error.file + ": " + obj.error.line);
+						} else if(typeof obj.error !== "undefined") {
+							console.error(thrownError + ": " + obj.error);
+						} else if(typeof obj.message !== "undefined") {
+							console.error(thrownError + ": " + obj.message);
 						}
+					} catch(e) {
+						console.error(thrownError + ": " + e);
 					}
 				},200);
 			}
