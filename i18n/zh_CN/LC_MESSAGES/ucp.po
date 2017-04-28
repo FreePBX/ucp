@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-03-30 12:02-0700\n"
+"POT-Creation-Date: 2017-04-28 15:45-0700\n"
 "PO-Revision-Date: 2015-11-23 13:55+0200\n"
 "Last-Translator: james <zhulizhong@gmail.com>\n"
 "Language-Team: Simplified Chinese <http://weblate.freepbx.org/projects/"
@@ -342,15 +342,15 @@ msgstr ""
 msgid "Delete a Dashboard"
 msgstr ""
 
-#: Ucp.class.php:805
+#: Ucp.class.php:820
 msgid "Deleted Session"
 msgstr "已删除的会话"
 
-#: Ucp.class.php:128 Ucp.class.php:648
+#: Ucp.class.php:128 Ucp.class.php:663
 msgid "Deleted User Session"
 msgstr "已删除的用户会话"
 
-#: htdocs/assets/js/ucp.js:76
+#: htdocs/assets/js/ucp.js:81
 msgid "Disable"
 msgstr ""
 
@@ -358,7 +358,7 @@ msgstr ""
 msgid "Display Name"
 msgstr "显示名称"
 
-#: Ucp.class.php:899 Ucp.class.php:903 Ucp.class.php:907 Ucp.class.php:911
+#: Ucp.class.php:914 Ucp.class.php:918 Ucp.class.php:922 Ucp.class.php:926
 msgid "Done"
 msgstr "完成"
 
@@ -382,7 +382,7 @@ msgstr "邮件"
 msgid "Email address unknown!"
 msgstr ""
 
-#: htdocs/assets/js/ucp.js:73
+#: htdocs/assets/js/ucp.js:78
 msgid "Enable"
 msgstr ""
 
@@ -445,19 +445,19 @@ msgstr ""
 msgid "General"
 msgstr "标准"
 
-#: Ucp.class.php:909
+#: Ucp.class.php:924
 msgid "Generating Main CSS..."
 msgstr "生成 Main CSS。。。"
 
-#: Ucp.class.php:905
+#: Ucp.class.php:920
 msgid "Generating Main Scripts..."
 msgstr "生成Main Scripts。。。"
 
-#: Ucp.class.php:901
+#: Ucp.class.php:916
 msgid "Generating Module CSS..."
 msgstr "生成 Module CSS..."
 
-#: Ucp.class.php:897
+#: Ucp.class.php:912
 msgid "Generating Module Scripts..."
 msgstr ""
 
@@ -535,7 +535,7 @@ msgid "Loading..."
 msgstr "装载中。。。"
 
 #: htdocs/views/forgot.php:45 htdocs/views/login.php:38
-#: htdocs/assets/js/ucp.js:291 htdocs/assets/js/ucp.js:301
+#: htdocs/assets/js/ucp.js:296 htdocs/assets/js/ucp.js:306
 msgid "Login"
 msgstr "登录"
 
@@ -622,7 +622,7 @@ msgstr ""
 msgid "Password"
 msgstr "密码"
 
-#: Ucp.class.php:207
+#: Ucp.class.php:211
 #, php-format
 msgid "Password Reset Link (Valid Until: %s): %s"
 msgstr ""
@@ -632,11 +632,11 @@ msgstr ""
 msgid "Password Reset for: %s"
 msgstr ""
 
-#: htdocs/assets/js/ucp.js:269
+#: htdocs/assets/js/ucp.js:274
 msgid "Password has been changed!"
 msgstr ""
 
-#: htdocs/assets/js/ucp.js:284
+#: htdocs/assets/js/ucp.js:289
 msgid "Processing..."
 msgstr ""
 
@@ -836,7 +836,7 @@ msgstr ""
 msgid "The removal of this copyright notice is stricly prohibited"
 msgstr ""
 
-#: htdocs/assets/js/ucp.js:499
+#: htdocs/assets/js/ucp.js:504
 msgid "The session has expired and you are being forcibly logged out"
 msgstr ""
 
@@ -873,7 +873,7 @@ msgstr ""
 msgid "There was an error trying to load UCP"
 msgstr ""
 
-#: htdocs/assets/js/ucp.js:44
+#: htdocs/assets/js/ucp.js:34 htdocs/assets/js/ucp.js:49
 msgid "There was an error. See the console log for more details"
 msgstr ""
 
@@ -951,7 +951,7 @@ msgstr ""
 msgid "UCP is currently disabled. Please talk to your system Administrator"
 msgstr ""
 
-#: htdocs/assets/js/ucp.js:319
+#: htdocs/assets/js/ucp.js:324
 msgid "UCP is not supported in your browser"
 msgstr ""
 
@@ -1018,7 +1018,7 @@ msgstr ""
 msgid "User Control Panel is released as %s or newer"
 msgstr ""
 
-#: Ucp.class.php:203
+#: Ucp.class.php:207
 #, php-format
 msgid "User Control Panel: %s"
 msgstr ""
@@ -1181,7 +1181,7 @@ msgstr ""
 msgid "You must set a dashboard name!"
 msgstr ""
 
-#: htdocs/assets/js/ucp.js:306
+#: htdocs/assets/js/ucp.js:311
 msgid "Your Browser is unsupported at this time."
 msgstr ""
 
@@ -1229,7 +1229,7 @@ msgstr ""
 msgid "Your Work Number"
 msgstr ""
 
-#: htdocs/assets/js/ucp.js:308
+#: htdocs/assets/js/ucp.js:313
 msgid ""
 "Your browser is unsupported at this time. Please upgrade or talk to your "
 "system administrator"

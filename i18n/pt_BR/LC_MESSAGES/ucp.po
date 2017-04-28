@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-03-30 12:02-0700\n"
+"POT-Creation-Date: 2017-04-28 15:45-0700\n"
 "PO-Revision-Date: 2017-03-08 21:13+0200\n"
 "Last-Translator: Kingvoice <suporte@kingvoice.com.br>\n"
 "Language-Team: Portuguese (Brazil) <http://weblate.freepbx.org/projects/"
@@ -348,15 +348,15 @@ msgstr "Apagar Imagem"
 msgid "Delete a Dashboard"
 msgstr ""
 
-#: Ucp.class.php:805
+#: Ucp.class.php:820
 msgid "Deleted Session"
 msgstr "Sessão Apagada"
 
-#: Ucp.class.php:128 Ucp.class.php:648
+#: Ucp.class.php:128 Ucp.class.php:663
 msgid "Deleted User Session"
 msgstr "Sessão do Usuário Apagada"
 
-#: htdocs/assets/js/ucp.js:76
+#: htdocs/assets/js/ucp.js:81
 msgid "Disable"
 msgstr ""
 
@@ -364,7 +364,7 @@ msgstr ""
 msgid "Display Name"
 msgstr "Nome de Exibição"
 
-#: Ucp.class.php:899 Ucp.class.php:903 Ucp.class.php:907 Ucp.class.php:911
+#: Ucp.class.php:914 Ucp.class.php:918 Ucp.class.php:922 Ucp.class.php:926
 msgid "Done"
 msgstr "Concluído"
 
@@ -388,7 +388,7 @@ msgstr "Email"
 msgid "Email address unknown!"
 msgstr "Endereço de e-mail desconhecido!"
 
-#: htdocs/assets/js/ucp.js:73
+#: htdocs/assets/js/ucp.js:78
 msgid "Enable"
 msgstr ""
 
@@ -452,19 +452,19 @@ msgstr "GHI"
 msgid "General"
 msgstr "Geral"
 
-#: Ucp.class.php:909
+#: Ucp.class.php:924
 msgid "Generating Main CSS..."
 msgstr "Gerando CSS Principal..."
 
-#: Ucp.class.php:905
+#: Ucp.class.php:920
 msgid "Generating Main Scripts..."
 msgstr "Gerando Scripts Principais…"
 
-#: Ucp.class.php:901
+#: Ucp.class.php:916
 msgid "Generating Module CSS..."
 msgstr "Gerando CSS de Módulo…"
 
-#: Ucp.class.php:897
+#: Ucp.class.php:912
 msgid "Generating Module Scripts..."
 msgstr "Gerando Scripts de Módulos…"
 
@@ -546,7 +546,7 @@ msgid "Loading..."
 msgstr "Carregando..."
 
 #: htdocs/views/forgot.php:45 htdocs/views/login.php:38
-#: htdocs/assets/js/ucp.js:291 htdocs/assets/js/ucp.js:301
+#: htdocs/assets/js/ucp.js:296 htdocs/assets/js/ucp.js:306
 msgid "Login"
 msgstr "Login"
 
@@ -633,7 +633,7 @@ msgstr "PQRS"
 msgid "Password"
 msgstr "Senha"
 
-#: Ucp.class.php:207
+#: Ucp.class.php:211
 #, php-format
 msgid "Password Reset Link (Valid Until: %s): %s"
 msgstr "Link de Redefinição de Senha (Válido Até: %s): %s"
@@ -643,11 +643,11 @@ msgstr "Link de Redefinição de Senha (Válido Até: %s): %s"
 msgid "Password Reset for: %s"
 msgstr "Redefinição de Senha para: %s"
 
-#: htdocs/assets/js/ucp.js:269
+#: htdocs/assets/js/ucp.js:274
 msgid "Password has been changed!"
 msgstr "A senha foi alterada!"
 
-#: htdocs/assets/js/ucp.js:284
+#: htdocs/assets/js/ucp.js:289
 msgid "Processing..."
 msgstr "Processando…"
 
@@ -850,7 +850,7 @@ msgstr ""
 msgid "The removal of this copyright notice is stricly prohibited"
 msgstr "A remoção deste aviso de direitos autorais é estritamente proibida"
 
-#: htdocs/assets/js/ucp.js:499
+#: htdocs/assets/js/ucp.js:504
 msgid "The session has expired and you are being forcibly logged out"
 msgstr ""
 
@@ -890,7 +890,7 @@ msgstr ""
 msgid "There was an error trying to load UCP"
 msgstr "Houve um erro ao tentar carregar o PCU"
 
-#: htdocs/assets/js/ucp.js:44
+#: htdocs/assets/js/ucp.js:34 htdocs/assets/js/ucp.js:49
 msgid "There was an error. See the console log for more details"
 msgstr ""
 
@@ -978,7 +978,7 @@ msgstr ""
 "PCU está desabilitado atualmente. Por favor fale com seu Administrador de "
 "sistema"
 
-#: htdocs/assets/js/ucp.js:319
+#: htdocs/assets/js/ucp.js:324
 msgid "UCP is not supported in your browser"
 msgstr ""
 
@@ -1047,7 +1047,7 @@ msgstr "Configurações Painel de Controle do Usuário"
 msgid "User Control Panel is released as %s or newer"
 msgstr "Painel de Controle do Usuário está liberado como %s ou mais novo"
 
-#: Ucp.class.php:203
+#: Ucp.class.php:207
 #, php-format
 msgid "User Control Panel: %s"
 msgstr "Painel de Controle do Usuário: %s"
@@ -1210,7 +1210,7 @@ msgstr ""
 msgid "You must set a dashboard name!"
 msgstr ""
 
-#: htdocs/assets/js/ucp.js:306
+#: htdocs/assets/js/ucp.js:311
 msgid "Your Browser is unsupported at this time."
 msgstr "Seu Navegador não é suportado neste momento."
 
@@ -1258,7 +1258,7 @@ msgstr "Seu Título"
 msgid "Your Work Number"
 msgstr "Seu Número de Trabalho"
 
-#: htdocs/assets/js/ucp.js:308
+#: htdocs/assets/js/ucp.js:313
 msgid ""
 "Your browser is unsupported at this time. Please upgrade or talk to your "
 "system administrator"

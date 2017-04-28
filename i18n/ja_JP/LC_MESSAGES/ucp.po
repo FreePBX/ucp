@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-03-30 12:02-0700\n"
+"POT-Creation-Date: 2017-04-28 15:45-0700\n"
 "PO-Revision-Date: 2016-09-02 16:04+0200\n"
 "Last-Translator: Kenichi <k.kitani@qloog.com>\n"
 "Language-Team: Japanese <http://weblate.freepbx.org/projects/freepbx/ucp/"
@@ -344,15 +344,15 @@ msgstr "画像を削除"
 msgid "Delete a Dashboard"
 msgstr ""
 
-#: Ucp.class.php:805
+#: Ucp.class.php:820
 msgid "Deleted Session"
 msgstr "セッションを削除しました"
 
-#: Ucp.class.php:128 Ucp.class.php:648
+#: Ucp.class.php:128 Ucp.class.php:663
 msgid "Deleted User Session"
 msgstr "ユーザーのセッションを削除しました"
 
-#: htdocs/assets/js/ucp.js:76
+#: htdocs/assets/js/ucp.js:81
 msgid "Disable"
 msgstr ""
 
@@ -360,7 +360,7 @@ msgstr ""
 msgid "Display Name"
 msgstr "表示名"
 
-#: Ucp.class.php:899 Ucp.class.php:903 Ucp.class.php:907 Ucp.class.php:911
+#: Ucp.class.php:914 Ucp.class.php:918 Ucp.class.php:922 Ucp.class.php:926
 msgid "Done"
 msgstr "完了"
 
@@ -384,7 +384,7 @@ msgstr "メール"
 msgid "Email address unknown!"
 msgstr ""
 
-#: htdocs/assets/js/ucp.js:73
+#: htdocs/assets/js/ucp.js:78
 msgid "Enable"
 msgstr ""
 
@@ -447,19 +447,19 @@ msgstr "GHI"
 msgid "General"
 msgstr "一般"
 
-#: Ucp.class.php:909
+#: Ucp.class.php:924
 msgid "Generating Main CSS..."
 msgstr "メインCSSを生成中..."
 
-#: Ucp.class.php:905
+#: Ucp.class.php:920
 msgid "Generating Main Scripts..."
 msgstr "メインスクリプトを生成中..."
 
-#: Ucp.class.php:901
+#: Ucp.class.php:916
 msgid "Generating Module CSS..."
 msgstr "モジュールCSSを生成中..."
 
-#: Ucp.class.php:897
+#: Ucp.class.php:912
 msgid "Generating Module Scripts..."
 msgstr "モジュールスクリプトを生成中..."
 
@@ -539,7 +539,7 @@ msgid "Loading..."
 msgstr "読み込み中..."
 
 #: htdocs/views/forgot.php:45 htdocs/views/login.php:38
-#: htdocs/assets/js/ucp.js:291 htdocs/assets/js/ucp.js:301
+#: htdocs/assets/js/ucp.js:296 htdocs/assets/js/ucp.js:306
 msgid "Login"
 msgstr "ログイン"
 
@@ -626,7 +626,7 @@ msgstr "PQRS"
 msgid "Password"
 msgstr "パスワード"
 
-#: Ucp.class.php:207
+#: Ucp.class.php:211
 #, php-format
 msgid "Password Reset Link (Valid Until: %s): %s"
 msgstr "パスワードリセットリンク（%sまで有効）: %s"
@@ -636,11 +636,11 @@ msgstr "パスワードリセットリンク（%sまで有効）: %s"
 msgid "Password Reset for: %s"
 msgstr "%s のパスワードをリセットしました"
 
-#: htdocs/assets/js/ucp.js:269
+#: htdocs/assets/js/ucp.js:274
 msgid "Password has been changed!"
 msgstr "パスワードは変更されました！"
 
-#: htdocs/assets/js/ucp.js:284
+#: htdocs/assets/js/ucp.js:289
 msgid "Processing..."
 msgstr "処理中..."
 
@@ -842,7 +842,7 @@ msgstr "UCPやその他のサービスのログインに使うパスワード"
 msgid "The removal of this copyright notice is stricly prohibited"
 msgstr "著作権情報の削除は禁止されています"
 
-#: htdocs/assets/js/ucp.js:499
+#: htdocs/assets/js/ucp.js:504
 msgid "The session has expired and you are being forcibly logged out"
 msgstr ""
 
@@ -881,7 +881,7 @@ msgstr ""
 msgid "There was an error trying to load UCP"
 msgstr "UCPをロード中にエラーが発生しました"
 
-#: htdocs/assets/js/ucp.js:44
+#: htdocs/assets/js/ucp.js:34 htdocs/assets/js/ucp.js:49
 msgid "There was an error. See the console log for more details"
 msgstr ""
 
@@ -965,7 +965,7 @@ msgstr ""
 msgid "UCP is currently disabled. Please talk to your system Administrator"
 msgstr "UCPは無効です。システムの管理者にご相談ください。"
 
-#: htdocs/assets/js/ucp.js:319
+#: htdocs/assets/js/ucp.js:324
 msgid "UCP is not supported in your browser"
 msgstr ""
 
@@ -1035,7 +1035,7 @@ msgstr ""
 "ユーザーコントロールパネルのライセンスは %s もしくは最新のライセンスで提供さ"
 "れています"
 
-#: Ucp.class.php:203
+#: Ucp.class.php:207
 #, php-format
 msgid "User Control Panel: %s"
 msgstr "ユーザーコントロールパネル： %s"
@@ -1198,7 +1198,7 @@ msgstr ""
 msgid "You must set a dashboard name!"
 msgstr ""
 
-#: htdocs/assets/js/ucp.js:306
+#: htdocs/assets/js/ucp.js:311
 msgid "Your Browser is unsupported at this time."
 msgstr "このブラウザはサポートされていません。"
 
@@ -1246,7 +1246,7 @@ msgstr "あなたの役職"
 msgid "Your Work Number"
 msgstr "あなたの勤務先電話番号"
 
-#: htdocs/assets/js/ucp.js:308
+#: htdocs/assets/js/ucp.js:313
 msgid ""
 "Your browser is unsupported at this time. Please upgrade or talk to your "
 "system administrator"
