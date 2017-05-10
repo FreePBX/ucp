@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-04-27 11:31-0400\n"
-"PO-Revision-Date: 2017-04-29 22:51+0300\n"
+"PO-Revision-Date: 2017-05-10 15:43+0200\n"
 "Last-Translator: Evgeniy <yen81@mail.ru>\n"
 "Language-Team: Russian "
 "<http://weblate.freepbx.org/projects/freepbx/ucp/ru_RU/>\n"
@@ -18,8 +18,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
-"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<="
+"4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Generator: Weblate 2.4\n"
 
 #: htdocs/assets/js/bootstrap-table-1.9.0.js:635
@@ -46,7 +46,7 @@ msgstr "файлы .htaccess неактивны на этом сервере. П
 
 #: htdocs/index.php:101
 msgid ".htaccess files are not supported on this webserver."
-msgstr "файлы .htaccess не поддерживаются на этом сервере. "
+msgstr "Файлы .htaccess не поддерживаются на этом веб-сервере."
 
 #: htdocs/views/templates/phone.php:41
 msgid "ABC"
@@ -524,6 +524,9 @@ msgid ""
 "webserver's configuration file for the User Control Panel. For more "
 "information see: %s"
 msgstr ""
+"Для защиты целостности вашего сервера, необходимо разрешить перезапись "
+"конфигурационных файлов вашего Веб-сеервера с Панели Управления "
+"Пользователя. Для дополнительной информации см:%s"
 
 #: ucp.i18n.php:10
 msgid "UCP"
@@ -728,6 +731,9 @@ msgid ""
 "file paths and directories are locked down properly. For more information "
 "see: %s"
 msgstr ""
+"Файлы htaccess помогают защитить целостность Вашего сервера.Убедитесь, что "
+"пути к файлам и каталогам корректно  защищены. Для дополнительной информации "
+"смотрите:%s"
 
 #: htdocs/views/login.php:24
 msgid "or"
