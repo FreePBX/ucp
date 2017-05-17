@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-04-27 11:31-0400\n"
-"PO-Revision-Date: 2017-05-10 15:43+0200\n"
+"PO-Revision-Date: 2017-05-17 01:59+0200\n"
 "Last-Translator: Evgeniy <yen81@mail.ru>\n"
 "Language-Team: Russian "
 "<http://weblate.freepbx.org/projects/freepbx/ucp/ru_RU/>\n"
@@ -117,7 +117,7 @@ msgstr "Вы уверены, что хотите поменять имя?"
 
 #: htdocs/views/settings.php:140
 msgid "Browse"
-msgstr "Загрузить"
+msgstr "Просмотр"
 
 #: htdocs/views/templates/phone.php:7 htdocs/views/templates/phone.php:95
 msgid "Call"
