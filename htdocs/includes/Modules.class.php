@@ -191,6 +191,12 @@ class Modules extends Module_Helpers {
 				}
 			}
 		}
+
+		// If we're not using our minified files, don't make them.
+		if (!$packaged) {
+			return $files;
+		}
+
 		$md5 = md5($contents);
 		$filename = 'jsphp_'.$md5.'.js';
 		if(!file_exists($cache.'/'.$filename) || $force) {
@@ -202,7 +208,7 @@ class Modules extends Module_Helpers {
 			file_put_contents($cache.'/'.$filename,$output);
 		}
 
-		return (!$packaged) ? $files : array("assets/js/compiled/modules/".$filename);
+		return array("assets/js/compiled/modules/".$filename);
 	}
 
 	/**

@@ -234,6 +234,11 @@ class UCP extends UCP_Helpers {
 			}
 		}
 
+		// If we're not using our minified files, don't make them.
+		if (!$packaged) {
+			return $files;
+		}
+
 		$md5 = md5($md5string);
 		$filename = 'jsphpg_'.$md5.'.js';
 		if(!file_exists($cache.'/'.$filename) || $force) {
@@ -252,7 +257,7 @@ class UCP extends UCP_Helpers {
 			file_put_contents($cache.'/'.$filename,$contents);
 		}
 
-		return (!$packaged) ? $files : array("compiled/main/".$filename);
+		return array("compiled/main/".$filename);
 	}
 
 	/**
