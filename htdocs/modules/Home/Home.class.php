@@ -197,6 +197,7 @@ class Home extends Modules{
 	}
 
 	private function getFeeds() {
+		//return array();
 		$fpbxfeeds = $this->UCP->FreePBX->Config->get('UCPRSSFEEDS');
 		$fpbxfeeds = !empty($fpbxfeeds) ? $fpbxfeeds : $this->UCP->FreePBX->Config->get('RSSFEEDS');
 		if(empty($fpbxfeeds)) {
@@ -226,9 +227,8 @@ class Home extends Modules{
 			$last_modified = $storage->getConfig($feed, "last_modified");
 			$content = '';
 			try {
-				$resource = $reader->download($feed, $last_modified, $etag);
+				$resource = $reader->download(trim($feed), $last_modified, $etag);
 				if ($resource->isModified()) {
-
 					$parser = $reader->getParser(
 						$resource->getUrl(),
 						$resource->getContent(),
@@ -241,6 +241,7 @@ class Home extends Modules{
 
 					$storage->setConfig($feed, $content, "content");
 					$storage->setConfig($feed, $etag, "etag");
+					$etag = $storage->getConfig($feed, "etag");
 					$storage->setConfig($feed, $last_modified, "last_modified");
 				} else {
 					$content = $storage->getConfig($feed, "content");
