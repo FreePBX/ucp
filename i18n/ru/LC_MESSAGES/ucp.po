@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-04-28 15:45-0700\n"
+"POT-Creation-Date: 2017-06-06 15:42-0700\n"
 "PO-Revision-Date: 2017-05-04 03:17+0200\n"
 "Last-Translator: Evgeniy <yen81@mail.ru>\n"
 "Language-Team: Russian <http://weblate.freepbx.org/projects/freepbx/ucp/ru/"
@@ -156,6 +156,10 @@ msgstr ""
 msgid "Adding a dashboard"
 msgstr ""
 
+#: ucp.i18n.php:34
+msgid "Address to bind to. Default is "
+msgstr ""
+
 #: ucp.i18n.php:6
 msgid "Admin"
 msgstr "Администратор"
@@ -184,11 +188,11 @@ msgstr ""
 msgid "Allow Login"
 msgstr ""
 
-#: ucp.i18n.php:22
+#: ucp.i18n.php:54
 msgid "Allow Password Changes"
 msgstr ""
 
-#: ucp.i18n.php:28
+#: ucp.i18n.php:60
 msgid "Allow Username Changes"
 msgstr ""
 
@@ -202,11 +206,11 @@ msgid ""
 "WebRTC"
 msgstr ""
 
-#: ucp.i18n.php:30
+#: ucp.i18n.php:62
 msgid "Allow users to change their username in UCP"
 msgstr ""
 
-#: ucp.i18n.php:26
+#: ucp.i18n.php:58
 msgid "Allow users to change thier password in UCP"
 msgstr ""
 
@@ -216,6 +220,13 @@ msgstr ""
 
 #: htdocs/modules/Widgets/assets/js/global.js:880
 msgid "Are you sure you want to delete this dashboard?"
+msgstr ""
+
+#: Ucp.class.php:1226
+#, php-format
+msgid ""
+"Asterisk home dir (%s) doesn't exist, and, ASTSPOOLDIR doesn't exist. "
+"Aborting"
 msgstr ""
 
 #: htdocs/modules/Settings/views/settings.php:102
@@ -343,11 +354,11 @@ msgstr ""
 msgid "Delete a Dashboard"
 msgstr ""
 
-#: Ucp.class.php:820
+#: Ucp.class.php:1085
 msgid "Deleted Session"
 msgstr ""
 
-#: Ucp.class.php:128 Ucp.class.php:663
+#: Ucp.class.php:393 Ucp.class.php:928
 msgid "Deleted User Session"
 msgstr ""
 
@@ -359,7 +370,13 @@ msgstr ""
 msgid "Display Name"
 msgstr ""
 
-#: Ucp.class.php:914 Ucp.class.php:918 Ucp.class.php:922 Ucp.class.php:926
+#: Ucp.class.php:1370
+#, php-format
+msgid "Don't know what %s is"
+msgstr ""
+
+#: Ucp.class.php:276 Ucp.class.php:300 Ucp.class.php:1179 Ucp.class.php:1183
+#: Ucp.class.php:1187 Ucp.class.php:1191
 msgid "Done"
 msgstr ""
 
@@ -391,8 +408,16 @@ msgstr ""
 msgid "Enable Originating Calls"
 msgstr ""
 
+#: ucp.i18n.php:28
+msgid "Enable TLS for the NodeJS Server"
+msgstr ""
+
 #: views/users_hook.php:76
 msgid "Enable Tour Mode"
+msgstr ""
+
+#: ucp.i18n.php:22
+msgid "Enable the NodeJS Server"
 msgstr ""
 
 #: views/users_hook.php:95
@@ -422,8 +447,21 @@ msgstr ""
 msgid "Failed to install %s due to the following conflicting module(s): %s"
 msgstr ""
 
+#: Ucp.class.php:1303
+#, php-format
+msgid "Failed to run: '%s'"
+msgstr ""
+
+#: Ucp.class.php:283
+msgid "Failed!"
+msgstr ""
+
 #: htdocs/modules/Settings/views/settings.php:87
 msgid "Fax"
+msgstr ""
+
+#: Ucp.class.php:158
+msgid "Finished updating libraries!"
 msgstr ""
 
 #: htdocs/views/templates/pagnation.php:4
@@ -446,19 +484,19 @@ msgstr ""
 msgid "General"
 msgstr ""
 
-#: Ucp.class.php:924
+#: Ucp.class.php:1189
 msgid "Generating Main CSS..."
 msgstr ""
 
-#: Ucp.class.php:920
+#: Ucp.class.php:1185
 msgid "Generating Main Scripts..."
 msgstr ""
 
-#: Ucp.class.php:916
+#: Ucp.class.php:1181
 msgid "Generating Module CSS..."
 msgstr ""
 
-#: Ucp.class.php:912
+#: Ucp.class.php:1177
 msgid "Generating Module Scripts..."
 msgstr ""
 
@@ -474,14 +512,28 @@ msgstr ""
 msgid "Home Phone"
 msgstr ""
 
+#: Ucp.class.php:108 Ucp.class.php:115
+#, php-format
+msgid "Home directory [%s] is not writable"
+msgstr ""
+
 #: htdocs/modules/Settings/views/settings.php:44
 msgid ""
 "How you would like your name displayed throughout UCP and Contact Manager"
 msgstr ""
 
+#: Ucp.class.php:100
+#, php-format
+msgid "ICU version is: %s requirement is %s"
+msgstr ""
+
 #: views/users_hook.php:56 views/users_hook.php:86 views/users_hook.php:183
 msgid "Inherit"
 msgstr "Наследовать"
+
+#: Ucp.class.php:120
+msgid "Installing/Updating Required Libraries. This may take a while..."
+msgstr ""
 
 #: htdocs/modules/Settings/views/settings.php:7
 msgid "Interface Settings"
@@ -567,6 +619,13 @@ msgid ""
 "you want"
 msgstr ""
 
+#: Ucp.class.php:89
+#, php-format
+msgid ""
+"NPM version is: %s requirement is %s. Run 'yum upgrade nodejs' from the CLI "
+"as root"
+msgstr ""
+
 #: htdocs/modules/Ucptour/assets/js/global.js:50
 msgid "Name your dashboard"
 msgstr ""
@@ -574,6 +633,45 @@ msgstr ""
 #: views/users_hook.php:53 views/users_hook.php:83 views/users_hook.php:180
 msgid "No"
 msgstr "Нет"
+
+#: Ucp.class.php:85
+msgid "Node Package Manager is not installed"
+msgstr ""
+
+#: Ucp.class.php:73
+msgid "Node is not installed"
+msgstr ""
+
+#: Ucp.class.php:77
+#, php-format
+msgid ""
+"Node version is: %s requirement is %s. Run 'yum upgrade nodejs' from the CLI "
+"as root"
+msgstr ""
+
+#: ucp.i18n.php:32
+msgid "NodeJS Bind Address"
+msgstr ""
+
+#: ucp.i18n.php:36
+msgid "NodeJS Bind Port"
+msgstr ""
+
+#: ucp.i18n.php:40
+msgid "NodeJS HTTPS Bind Address"
+msgstr ""
+
+#: ucp.i18n.php:42
+msgid "NodeJS HTTPS Bind Port"
+msgstr ""
+
+#: ucp.i18n.php:46
+msgid "NodeJS HTTPS TLS Certificate Location"
+msgstr ""
+
+#: ucp.i18n.php:50
+msgid "NodeJS HTTPS TLS Private Key Location"
+msgstr ""
 
 #: htdocs/modules/Ucptour/assets/js/global.js:216
 msgid "Note: some widgets have size restrictions!"
@@ -623,7 +721,7 @@ msgstr ""
 msgid "Password"
 msgstr ""
 
-#: Ucp.class.php:211
+#: Ucp.class.php:476
 #, php-format
 msgid "Password Reset Link (Valid Until: %s): %s"
 msgstr ""
@@ -637,19 +735,27 @@ msgstr ""
 msgid "Password has been changed!"
 msgstr ""
 
+#: ucp.i18n.php:38
+msgid "Port to bind to. Default is 8001"
+msgstr ""
+
+#: ucp.i18n.php:44
+msgid "Port to bind to. Default is 8003"
+msgstr ""
+
 #: htdocs/assets/js/ucp.js:289
 msgid "Processing..."
 msgstr ""
 
-#: htdocs/modules/Home/Home.class.php:54 ucp.i18n.php:32
+#: htdocs/modules/Home/Home.class.php:54 ucp.i18n.php:64
 msgid "RSS Feeds"
 msgstr ""
 
-#: ucp.i18n.php:34
+#: ucp.i18n.php:66
 msgid "RSS Feeds that are displayed in UCP. This overrides "
 msgstr ""
 
-#: Ucp.class.php:29
+#: Ucp.class.php:288
 msgid "Refreshing all UCP Assets, this could take a while..."
 msgstr ""
 
@@ -668,6 +774,11 @@ msgstr ""
 
 #: htdocs/modules/Settings/views/settings.php:149
 msgid "Restart Tour"
+msgstr ""
+
+#: Ucp.class.php:1243
+#, php-format
+msgid "Running (Uptime: %s)"
 msgstr ""
 
 #: htdocs/modules/Ucptour/assets/js/global.js:69
@@ -703,6 +814,14 @@ msgstr ""
 #: htdocs/views/templates/chat.php:23
 #, php-format
 msgid "Sent at %s"
+msgstr ""
+
+#: ucp.i18n.php:52
+msgid "Sets the path to the HTTPS private key. This is required if "
+msgstr ""
+
+#: ucp.i18n.php:48
+msgid "Sets the path to the HTTPS server certificate. This is required if "
 msgstr ""
 
 #: htdocs/modules/Widgets/assets/js/global.js:100
@@ -752,6 +871,36 @@ msgstr ""
 #: htdocs/modules/Widgets/assets/js/global.js:854
 #: htdocs/modules/Widgets/assets/js/global.js:908
 msgid "Something went wrong removing the dashboard"
+msgstr ""
+
+#: Ucp.class.php:1298
+#, php-format
+msgid "Started UCP Node Server. PID is %s"
+msgstr ""
+
+#: Ucp.class.php:285
+#, php-format
+msgid "Started with PID %s!"
+msgstr ""
+
+#: Ucp.class.php:1269
+msgid "Starting UCP Node Server..."
+msgstr ""
+
+#: Ucp.class.php:280
+msgid "Starting new UCP Node Process..."
+msgstr ""
+
+#: Ucp.class.php:1347
+msgid "Stopped UCP Node Server"
+msgstr ""
+
+#: Ucp.class.php:1339
+msgid "Stopping UCP Node Server"
+msgstr ""
+
+#: Ucp.class.php:274 Ucp.class.php:298
+msgid "Stopping old running processes..."
 msgstr ""
 
 #: ucp.i18n.php:14
@@ -822,7 +971,7 @@ msgid ""
 "see: %s"
 msgstr ""
 
-#: ucp.i18n.php:38
+#: ucp.i18n.php:70
 msgid ""
 "The number of days a session token will be valid for. Clear this setting if "
 "you want tokens to last forever (Not Recommended)"
@@ -938,7 +1087,33 @@ msgstr ""
 msgid "UCP Admin"
 msgstr ""
 
-#: ucp.i18n.php:36
+#: Ucp.class.php:1234
+msgid "UCP Daemon"
+msgstr ""
+
+#: Ucp.class.php:1351
+#, php-format
+msgid "UCP Node Server Failed: %s"
+msgstr ""
+
+#: Ucp.class.php:1263
+#, php-format
+msgid "UCP Node Server has already been running on PID %s for %s"
+msgstr ""
+
+#: Ucp.class.php:1332
+msgid "UCP Node Server is not running"
+msgstr ""
+
+#: Ucp.class.php:1245
+msgid "UCP Node is not running"
+msgstr ""
+
+#: ucp.i18n.php:24
+msgid "UCP NodeJS Server"
+msgstr ""
+
+#: ucp.i18n.php:68
 msgid "UCP Session Timeout"
 msgstr ""
 
@@ -969,6 +1144,10 @@ msgstr ""
 
 #: htdocs/includes/User.class.php:84
 msgid "Unable to send Password Reset Email"
+msgstr ""
+
+#: Ucp.class.php:1236
+msgid "Unknown"
 msgstr ""
 
 #: htdocs/modules/Settings/assets/js/global.js:271
@@ -1005,7 +1184,7 @@ msgstr ""
 
 #: htdocs/views/forgot.php:5 htdocs/views/header.php:4
 #: htdocs/views/login.php:5 ucp.i18n.php:4
-#: /usr/src/freepbx/ucp/ucp.i18n.php:24
+#: /usr/src/freepbx/ucp/ucp.i18n.php:56
 #: htdocs/modules/Widgets/assets/js/global.js:47
 msgid "User Control Panel"
 msgstr ""
@@ -1019,7 +1198,7 @@ msgstr ""
 msgid "User Control Panel is released as %s or newer"
 msgstr ""
 
-#: Ucp.class.php:207
+#: Ucp.class.php:472
 #, php-format
 msgid "User Control Panel: %s"
 msgstr ""
@@ -1028,7 +1207,7 @@ msgstr ""
 msgid "User Details"
 msgstr ""
 
-#: Ucp.class.php:70 /usr/src/freepbx/ucp/Ucp.class.php:99
+#: Ucp.class.php:335 Ucp.class.php:364
 msgid "User Primary Extension"
 msgstr ""
 
@@ -1073,6 +1252,18 @@ msgstr ""
 #: htdocs/modules/Ucptour/assets/js/global.js:70
 msgid ""
 "When you are finished simply hit 'Create Dashboard' to create your dashboard"
+msgstr ""
+
+#: ucp.i18n.php:30
+msgid ""
+"Whether to enable TLS for the backend server for UCP which allows "
+"instantaneous updates to the interface"
+msgstr ""
+
+#: ucp.i18n.php:26
+msgid ""
+"Whether to enable the backend server for UCP which allows instantaneous "
+"updates to the interface"
 msgstr ""
 
 #: htdocs/modules/Ucptour/assets/js/global.js:223
@@ -1261,12 +1452,20 @@ msgstr ""
 msgid "fred"
 msgstr ""
 
+#: Ucp.class.php:66
+msgid "gcc-c++ is not installed"
+msgstr ""
+
 #: htdocs/index.php:92
 #, php-format
 msgid ""
 "htaccess files help protect the integrity of your server. Please make sure "
 "file paths and directories are locked down properly. For more information "
 "see: %s"
+msgstr ""
+
+#: Ucp.class.php:96
+msgid "icu is not installed. You need to run: yum install icu libicu-devel"
 msgstr ""
 
 #: htdocs/views/login.php:25
