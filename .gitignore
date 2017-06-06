@@ -1,4 +1,3 @@
-websocketd
 htdocs/modules/*
 !htdocs/modules/Widgets
 !htdocs/modules/Home
@@ -11,3 +10,6 @@ htdocs/assets/js/compiled/*
 htdocs/assets/css/compiled/*
 htdocs/assets/js/jsphpg_*.js
 module.sig
+node/logs
+node/node_modules
+npm-debug.log
