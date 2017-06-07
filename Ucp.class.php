@@ -122,38 +122,9 @@ class Ucp implements \BMO {
 			out("The following messages are ONLY FOR DEBUGGING. Ignore anything that says 'WARN' or is just a warning");
 		}
 
-		$command = $this->generateRunAsAsteriskCommand('npm-cache -v');
-		$process = new Process($command);
-		try {
-			$process->mustRun();
-		} catch (ProcessFailedException $e) {
-			$command = $this->generateRunAsAsteriskCommand('npm install -g npm-cache 2>&1');
-			exec($command);
-		}
-
-		$command = $this->generateRunAsAsteriskCommand('npm-cache -v');
-		$process = new Process($command);
-		try {
-			$process->mustRun();
-		} catch (ProcessFailedException $e) {
-			out($e->getMessage());
-			return false;
-		}
-
-		file_put_contents($this->nodeloc."/logs/install.log","");
-
-		$command = $this->generateRunAsAsteriskCommand('npm-cache install 2>&1');
-		$handle = popen($command, "r");
-		$log = fopen($this->nodeloc."/logs/install.log", "a");
-		while (($buffer = fgets($handle, 4096)) !== false) {
-			fwrite($log,$buffer);
-			if (php_sapi_name() == "cli") {
-				outn($buffer);
-			} else {
-				outn(".");
-			}
-		}
-		fclose($log);
+		$this->FreePBX->Pm2->installNodeDependencies($this->nodeloc,function($data) {
+			outn($data);
+		});
 		out("");
 		out(_("Finished updating libraries!"));
 

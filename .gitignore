@@ -13,3 +13,4 @@ module.sig
 node/logs
 node/node_modules
 npm-debug.log
+node/package-lock.json
