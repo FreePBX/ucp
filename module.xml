@@ -2,7 +2,7 @@
 	<rawname>ucp</rawname>
 	<name>User Control Panel</name>
 	<repo>standard</repo>
-	<version>14.0.1beta6</version>
+	<version>14.0.1beta7</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>AGPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/agpl-3.0.txt</licenselink>
@@ -10,6 +10,7 @@
 		The user control panel is a way for users to control call handling and personal settings from a web browser.
 	</description>
 	<changelog>
+		*14.0.1beta7* Fix depends
 		*14.0.1beta6* Moving UCPNode into UCP
 		*14.0.1beta5* If we're not USING the minified files, don't make them.
 		*14.0.1beta4* Prevent duplicate chat messages
@@ -59,5 +60,7 @@
 		<module>userman ge 13.0.35</module>
 		<module>core ge 12.0.1alpha25</module>
 		<version>14.0.1rc1.2</version>
+		<module>pm2 ge 13.0.3</module>
+		<module>certman ge 13.0.36.6</module>
 	</depends>
 </module>
