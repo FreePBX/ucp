@@ -1240,7 +1240,6 @@ class Ucp implements \BMO {
 					$output->writeln(_("Starting UCP Node Server..."));
 				}
 				$this->FreePBX->Pm2->start("ucp",__DIR__."/node/index.js");
-				$this->FreePBX->Pm2->reset("ucp");
 				if(is_object($output)) {
 					$progress = new ProgressBar($output, 0);
 					$progress->setFormat('[%bar%] %elapsed%');
@@ -1265,6 +1264,7 @@ class Ucp implements \BMO {
 					$output->writeln("");
 				}
 				if(!empty($data)) {
+					$this->FreePBX->Pm2->reset("ucp");
 					if(is_object($output)) {
 						$output->writeln(sprintf(_("Started UCP Node Server. PID is %s"),$data['pid']));
 					}

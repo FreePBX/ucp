@@ -2,7 +2,7 @@
 	<rawname>ucp</rawname>
 	<name>User Control Panel</name>
 	<repo>standard</repo>
-	<version>14.0.1beta8</version>
+	<version>14.0.1beta9</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>AGPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/agpl-3.0.txt</licenselink>
@@ -10,6 +10,7 @@
 		The user control panel is a way for users to control call handling and personal settings from a web browser.
 	</description>
 	<changelog>
+		*14.0.1beta9* Move the reset function lower for slow systems
 		*14.0.1beta8* Utilize pm2
 		*14.0.1beta7* Fix depends
 		*14.0.1beta6* Moving UCPNode into UCP
