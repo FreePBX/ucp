@@ -10,6 +10,7 @@
 //TODO: In 15 this needs to be namespaced!
 use Symfony\Component\Process\Exception\ProcessFailedException;
 use Symfony\Component\Process\Process;
+use Symfony\Component\Console\Helper\ProgressBar;
 class Ucp implements \BMO {
 	private $message;
 	private $registeredHooks = array();
