@@ -2,7 +2,7 @@
 	<rawname>ucp</rawname>
 	<name>User Control Panel</name>
 	<repo>standard</repo>
-	<version>14.0.1beta9</version>
+	<version>14.0.1beta10</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>AGPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/agpl-3.0.txt</licenselink>
@@ -10,6 +10,7 @@
 		The user control panel is a way for users to control call handling and personal settings from a web browser.
 	</description>
 	<changelog>
+		*14.0.1beta10* Start/Stop/Restart/Dashboard hooks
 		*14.0.1beta9* Move the reset function lower for slow systems
 		*14.0.1beta8* Utilize pm2
 		*14.0.1beta7* Fix depends
@@ -44,6 +45,18 @@
 		</userman>
 		<framework class="Chown" namespace="FreePBX\Console\Command">
 			<method callingMethod="fwcChownFiles" class="Ucp">chownFreepbx</method>
+		</framework>
+		<userman class="Certman" namespace="FreePBX\modules">
+			<method callingMethod="makeCertDefault" class="Ucp">setDefaultCert</method>
+		</userman>
+		<dashboard class="Overview" namespace="FreePBX\modules\Dashboard\Sections">
+			<method callingMethod="getSummary" class="Ucp">dashboardService</method>
+		</dashboard>
+		<framework class="Start" namespace="FreePBX\Console\Command">
+			<method callingMethod="postAsteriskHooks" class="Ucp">startFreepbx</method>
+		</framework>
+		<framework class="Stop" namespace="FreePBX\Console\Command">
+			<method callingMethod="preAsteriskHooks" class="Ucp">stopFreepbx</method>
 		</framework>
 	</hooks>
 	<database>
