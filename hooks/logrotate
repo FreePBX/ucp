@@ -1,22 +1,22 @@
 #!/bin/bash
 
-if true ; then
-	cat <<- EOF > /etc/logrotate.d/freepbx-ucp
-	/var/log/asterisk/ucp_err.log
-	/var/log/asterisk/ucp_out.log{
-		size 50M
-		missingok
-		rotate 5
-		notifempty
-		sharedscripts
-		create 0640 asterisk asterisk
-		postrotate
+# Create our freepbx-ucp logrotate file
+cat <<- EOF > /etc/logrotate.d/freepbx-ucp
+/var/log/asterisk/ucp_*.log {
+	size 50M
+	missingok
+	rotate 5
+	notifempty
+	sharedscripts
+	create 0640 asterisk asterisk
+	su asterisk asterisk
+	postrotate
 		/usr/sbin/fwconsole pm2 --reload-logs -q
-		endscript
-	}
-	EOF
-fi
+	endscript
+}
+EOF
 
+# Delete ucpnode logrotate if it exists
 file="/etc/logrotate.d/freepbx-ucpnode"
 
 if [ -f $file ] ; then
