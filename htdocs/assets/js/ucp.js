@@ -338,23 +338,23 @@ var UCPC = Class.extend({
 
 		// Standards:
 		if (UCP.hidden in document) {
-			$(document).on("visibilitychange", UCP.onchange);
+			$(document).on("visibilitychange", UCP.visibilityChange);
 		} else if ((UCP.hidden = "mozHidden") in document) {
-			$(document).on("mozvisibilitychange", UCP.onchange);
+			$(document).on("mozvisibilitychange", UCP.visibilityChange);
 		} else if ((UCP.hidden = "webkitHidden") in document) {
-			$(document).on("webkitvisibilitychange", UCP.onchange);
+			$(document).on("webkitvisibilitychange", UCP.visibilityChange);
 		} else if ((UCP.hidden = "msHidden") in document) {
-			$(document).on("msvisibilitychange", UCP.onchange);
+			$(document).on("msvisibilitychange", UCP.visibilityChange);
 		// IE 9 and lower:
 		} else if ("onfocusin" in document) {
-			$(document).on("onfocusin onfocusout", UCP.onchange);
+			$(document).on("onfocusin onfocusout", UCP.visibilityChange);
 		// All others:
 		} else {
-			$(window).on("onpageshow onpagehide onfocus onblur", UCP.onchange);
+			$(window).on("onpageshow onpagehide onfocus onblur", UCP.visibilityChange);
 		}
 
 	},
-	onchange: function(evt) {
+	visibilityChange: function(evt) {
 		var v = "visible", h = "hidden",
 			evtMap = {
 				focus: v, focusin: v, pageshow: v, blur: h, focusout: h, pagehide: h
@@ -362,12 +362,14 @@ var UCPC = Class.extend({
 			state = "";
 
 		evt = evt || window.event;
+
 		if (evt.type in evtMap) {
 			state = evtMap[evt.type];
 		} else {
 			state = UCP.hidden ? "hidden" : "visible";
 		}
-		UCP.callModulesByMethod("windowState",state);
+		UCP.hidden = state;
+		UCP.callModulesByMethod("windowState",document.visibilityState);
 	},
 	wsconnect: function(namespace, callback) {
 		//console.log(namespace);
