@@ -143,9 +143,6 @@ class UCP extends UCP_Helpers {
 	 * Get the Node JS Server Settings
 	 */
 	function getServerSettings() {
-		if(!$this->FreePBX->Modules->checkStatus('ucpnode')) {
-			return array("enabled" => false, "port" => "0", "host" => "", "enabledS" => false, "portS" => "0", "hostS" => "");
-		}
 		$enabled = $this->FreePBX->Config->get('NODEJSENABLED');
 		$enabled = is_bool($enabled) || is_int($enabled) ? $enabled : true;
 		$port = $this->FreePBX->Config->get('NODEJSBINDPORT');

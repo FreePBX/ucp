@@ -372,7 +372,6 @@ var UCPC = Class.extend({
 		UCP.callModulesByMethod("windowState",document.visibilityState);
 	},
 	wsconnect: function(namespace, callback) {
-		//console.log(namespace);
 		if (!this.loggedIn) {
 			return false;
 		}
@@ -429,15 +428,17 @@ var UCPC = Class.extend({
 		}
 	},
 	connect: function(username, password) {
-		var $this = this;
-		//Interval is in a callback to shortpoll to make sure we are "online"
-		UCP.shortpoll(function() {
-			UCP.pollID = setInterval(function() {
-				UCP.shortpoll();
-			},5000);
-			$this.callModulesByMethod("connect",username,password);
-			UCP.websocketConnect();
-		});
+		if(this.pollID === null) {
+			var $this = this;
+			//Interval is in a callback to shortpoll to make sure we are "online"
+			UCP.shortpoll(function() {
+				UCP.pollID = setInterval(function() {
+					UCP.shortpoll();
+				},5000);
+				$this.callModulesByMethod("connect",username,password);
+				UCP.websocketConnect();
+			});
+		}
 	},
 	disconnect: function() {
 		clearInterval(this.pollID);
@@ -802,8 +803,14 @@ var UCPC = Class.extend({
 		}
 	},
 	online: function(event) {
-		if (this.loggedIn && this.pollID === null) {
-			this.connect();
+		var $this = this;
+		if (this.loggedIn) {
+			$(document).on("post-body.widgets", function(event, widget_id, dashboard_id) {
+				if(widget_id === null) {
+					$this.connect();
+				}
+			});
+
 		}
 	},
 	offline: function(event) {
@@ -817,7 +824,12 @@ var UCPC = Class.extend({
 		//TODO: need to figure out text domains!
 		textdomain(this.activeModule.toLowerCase());
 		this.loggedIn = true;
-		this.connect(username, password);
+		var $this = this;
+		$(document).on("post-body.widgets", function(event, widget_id, dashboard_id) {
+			if(widget_id === null) {
+				$this.connect(username, password);
+			}
+		});
 		if (!Notify.needsPermission() && this.notify === null) {
 			this.notify = true;
 		}

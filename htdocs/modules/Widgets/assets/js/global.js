@@ -1477,8 +1477,8 @@ var WidgetsC = Class.extend({
 				//get max/min size of this widget
 				var min_size_x = (typeof allWidgets[cased].list[widget.widget_type_id].minsize !== "undefined" && typeof allWidgets[cased].list[widget.widget_type_id].minsize.width !== "undefined") ? allWidgets[cased].list[widget.widget_type_id].minsize.width : null;
 				var min_size_y = (typeof allWidgets[cased].list[widget.widget_type_id].minsize !== "undefined" && typeof allWidgets[cased].list[widget.widget_type_id].minsize.height !== "undefined") ? allWidgets[cased].list[widget.widget_type_id].minsize.height : null;
-				var max_size_x = (typeof allWidgets[cased].list[widget.widget_type_id].maxsize !== "undefined" && typeof allWidgets[cased].list[widget.widget_type_id].maxsize.width !== "undefined") ? allWidgets[cased].list[widget.widget_type_id].minsize.width : null;
-				var max_size_y = (typeof allWidgets[cased].list[widget.widget_type_id].maxsize !== "undefined" && typeof allWidgets[cased].list[widget.widget_type_id].maxsize.height !== "undefined") ? allWidgets[cased].list[widget.widget_type_id].minsize.height : null;
+				var max_size_x = (typeof allWidgets[cased].list[widget.widget_type_id].maxsize !== "undefined" && typeof allWidgets[cased].list[widget.widget_type_id].maxsize.width !== "undefined") ? allWidgets[cased].list[widget.widget_type_id].maxsize.width : null;
+				var max_size_y = (typeof allWidgets[cased].list[widget.widget_type_id].maxsize !== "undefined" && typeof allWidgets[cased].list[widget.widget_type_id].maxsize.height !== "undefined") ? allWidgets[cased].list[widget.widget_type_id].maxsize.height : null;
 				//is this widget resizable?
 				var resizable = (typeof allWidgets[cased].list[widget.widget_type_id].resizable !== "undefined") ? allWidgets[cased].list[widget.widget_type_id].resizable : true;
 
