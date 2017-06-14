@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-04-27 11:31-0400\n"
-"PO-Revision-Date: 2017-06-13 15:58+0200\n"
+"PO-Revision-Date: 2017-06-14 09:49+0200\n"
 "Last-Translator: Peter Trinh <ftek@ymail.com>\n"
 "Language-Team: Vietnamese "
 "<http://weblate.freepbx.org/projects/freepbx/ucp/vi/>\n"
@@ -341,7 +341,7 @@ msgstr ""
 
 #: views/users_hook.php:53 views/users_hook.php:151
 msgid "No"
-msgstr ""
+msgstr "Không"
 
 #: htdocs/assets/js/ucp.js:1151
 msgid "No email defined"
@@ -637,7 +637,7 @@ msgstr ""
 
 #: views/users_hook.php:51 views/users_hook.php:149
 msgid "Yes"
-msgstr ""
+msgstr "Có"
 
 #: htdocs/assets/js/ucp.js:461
 msgid "You are currently working in offline mode."
