@@ -10,8 +10,8 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-04-27 11:31-0400\n"
-"PO-Revision-Date: 2017-06-15 20:34+0200\n"
-"Last-Translator: Peter Trinh <ftek@ymail.com>\n"
+"PO-Revision-Date: 2017-06-19 12:01+0200\n"
+"Last-Translator: PETER <ftek@ymail.com>\n"
 "Language-Team: Vietnamese "
 "<http://weblate.freepbx.org/projects/freepbx/ucp/vi/>\n"
 "Language: vi\n"
@@ -291,7 +291,7 @@ msgstr ""
 
 #: htdocs/views/settings.php:102
 msgid "Language"
-msgstr ""
+msgstr "Ngôn ngữ"
 
 #: htdocs/views/templates/pagnation.php:20
 msgid "Last"
