@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-04-27 11:31-0400\n"
-"PO-Revision-Date: 2017-06-20 11:50+0200\n"
+"PO-Revision-Date: 2017-06-20 15:59+0200\n"
 "Last-Translator: PETER <ftek@ymail.com>\n"
 "Language-Team: Vietnamese "
 "<http://weblate.freepbx.org/projects/freepbx/ucp/vi/>\n"
@@ -242,7 +242,7 @@ msgstr ""
 #: htdocs/modules/Home/Home.class.php:252 htdocs/views/dashboard.php:32
 #: htdocs/assets/js/ucp.js:813
 msgid "Home"
-msgstr ""
+msgstr "Trang chủ"
 
 #: htdocs/views/settings.php:84
 msgid "Home Phone"
@@ -270,7 +270,7 @@ msgstr ""
 
 #: htdocs/includes/User.class.php:93
 msgid "Invalid"
-msgstr ""
+msgstr "Không hợp lệ"
 
 #: htdocs/modules/Home/Home.class.php:201
 #: htdocs/modules/Home/Home.class.php:205
@@ -299,7 +299,7 @@ msgstr ""
 
 #: htdocs/views/settings.php:59
 msgid "Last Name"
-msgstr ""
+msgstr "Họ"
 
 #: htdocs/views/header.php:67
 msgid "Loading"
@@ -308,7 +308,7 @@ msgstr "Đang tải"
 #: htdocs/views/forgot.php:61 htdocs/views/login.php:53
 #: htdocs/assets/js/ucp.js:1156
 msgid "Loading..."
-msgstr ""
+msgstr "Đang tải..."
 
 #: htdocs/views/forgot.php:45 htdocs/views/login.php:37
 #: htdocs/assets/js/ucp.js:129 htdocs/assets/js/ucp.js:142
@@ -345,7 +345,7 @@ msgstr "Không"
 
 #: htdocs/assets/js/ucp.js:1151
 msgid "No email defined"
-msgstr ""
+msgstr "Không có email được xác định"
 
 #: htdocs/modules/Home/assets/js/global.js:75
 msgid "Nothing Entered"
