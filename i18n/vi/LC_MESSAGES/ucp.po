@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-04-27 11:31-0400\n"
-"PO-Revision-Date: 2017-06-20 09:48+0200\n"
+"PO-Revision-Date: 2017-06-20 11:50+0200\n"
 "Last-Translator: PETER <ftek@ymail.com>\n"
 "Language-Team: Vietnamese "
 "<http://weblate.freepbx.org/projects/freepbx/ucp/vi/>\n"
@@ -124,7 +124,7 @@ msgstr ""
 
 #: htdocs/views/settings.php:69
 msgid "Company"
-msgstr ""
+msgstr "Công ty"
 
 #: htdocs/views/settings.php:27
 msgid "Confirm Password"
@@ -132,7 +132,7 @@ msgstr ""
 
 #: htdocs/views/settings.php:127
 msgid "Contact Image"
-msgstr ""
+msgstr "Hình ảnh liên lạc"
 
 #: htdocs/views/templates/phone.php:45
 msgid "DEF"
@@ -140,7 +140,7 @@ msgstr ""
 
 #: htdocs/views/settings.php:135
 msgid "Delete Image"
-msgstr ""
+msgstr "Xóa hình ảnh"
 
 #: Ucp.class.php:792
 msgid "Deleted Session"
@@ -152,7 +152,7 @@ msgstr ""
 
 #: htdocs/views/settings.php:44
 msgid "Display Name"
-msgstr ""
+msgstr "Tên hiển thị"
 
 #: Ucp.class.php:886 Ucp.class.php:890 Ucp.class.php:894 Ucp.class.php:898
 msgid "Done"
@@ -160,11 +160,11 @@ msgstr ""
 
 #: htdocs/views/settings.php:132
 msgid "Drop a new image here"
-msgstr ""
+msgstr "Thả một hình ảnh mới ở đây"
 
 #: htdocs/views/login.php:29 htdocs/views/settings.php:49
 msgid "Email"
-msgstr ""
+msgstr "Thư điện tử"
 
 #: htdocs/includes/User.class.php:78
 msgid "Email address unknown!"
@@ -193,7 +193,7 @@ msgstr ""
 
 #: htdocs/views/settings.php:89
 msgid "Fax"
-msgstr ""
+msgstr "Máy fax"
 
 #: htdocs/views/templates/pagnation.php:4
 msgid "First"
@@ -201,7 +201,7 @@ msgstr ""
 
 #: htdocs/views/settings.php:54
 msgid "First Name"
-msgstr ""
+msgstr "Họ"
 
 #: htdocs/modules/Settings/Settings.class.php:38
 msgid "Forbidden"
