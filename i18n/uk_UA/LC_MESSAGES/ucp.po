@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-06-08 10:42-0700\n"
+"POT-Creation-Date: 2017-06-23 15:07-0700\n"
 "PO-Revision-Date: 2016-12-13 14:49+0200\n"
 "Last-Translator: Maxim <maxim@ua.fm>\n"
 "Language-Team: Ukrainian <http://weblate.freepbx.org/projects/freepbx/ucp/"
@@ -997,7 +997,7 @@ msgstr ""
 msgid "The removal of this copyright notice is stricly prohibited"
 msgstr "Видалення цього повідомлення про авторське право суворо заборонено"
 
-#: htdocs/assets/js/ucp.js:504
+#: htdocs/assets/js/ucp.js:507
 msgid "The session has expired and you are being forcibly logged out"
 msgstr ""
 

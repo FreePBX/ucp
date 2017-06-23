@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-06-08 10:42-0700\n"
+"POT-Creation-Date: 2017-06-23 15:07-0700\n"
 "PO-Revision-Date: 2015-08-30 14:46+0200\n"
 "Last-Translator: Vidar Skjelanger <vidar@unimicro.no>\n"
 "Language-Team: Norwegian Bokmål <http://weblate.freepbx.org/projects/freepbx/"
@@ -988,7 +988,7 @@ msgstr "Passordet som brukes for å logge inn i UCP og andre tjenester"
 msgid "The removal of this copyright notice is stricly prohibited"
 msgstr "Å fjerne dette varselet om opphavsrett er ikke tillatt"
 
-#: htdocs/assets/js/ucp.js:504
+#: htdocs/assets/js/ucp.js:507
 msgid "The session has expired and you are being forcibly logged out"
 msgstr ""
 
