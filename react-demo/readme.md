@@ -2,7 +2,13 @@
 
 This app works in a directory previuosly created with [create-react-app](https://github.com/facebookincubator/create-react-app)
 
-==========================================================================================
+## Dependencies
+
+In order to work with Bootstrap component it's important to install React Bootstrap and Bootstrap from npm
+
+```
+npm install --save react-bootstrap bootstrap@3
+```
 
 ## Event handling and actions using Socket.io & Ami
 
@@ -13,7 +19,7 @@ socket.on("Event-<EventName1>", function(msg)); 	<-- io.emit("Event-<EventName1>
 
 ==========================================================================================
 
-### Actions (Client <-> Server)
+### Actions (Client <-> Server)The
 
 Client								Server
 
