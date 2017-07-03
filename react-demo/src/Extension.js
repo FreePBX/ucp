@@ -16,12 +16,11 @@ class Extension extends Component {
       		*/
     	};
     	
-		// this.enviar_nombre = this.enviar_nombre.bind(this);
-		this.analizar = this.analizar.bind(this);
-		props.socket.on("pbx-message", this.analizar); // Broadcast
+		this.analize = this.analize.bind(this);
+		props.socket.on("pbx-message", this.analize);
   	}
 
-	analizar(msg){	
+	analize(msg){	
 		// llega string, parseo a Object 	
 		var res = JSON.parse(msg);
 		if(res.peer === res.channeltype+"/"+this.props.ext){
@@ -36,22 +35,13 @@ class Extension extends Component {
 		}
 	}
 
-	/*
-  	enviar_nombre(){
-  		var nombre = this.props.name+' '+this.props.lastname;
-		var instruccion = {ext: this.props.ext, nombre: nombre};
-  		this.props.socket.emit("pbx-message", JSON.stringify(instruccion));
-  	}
-  	*/
-
 	render() {
-		// console.log("Render"); console.log(this.props); console.log(this.state);
-		var label = this.props.name + " " + this.props.lastname + " " + this.props.ext;
+		var label = this.props.name + " ("+this.props.ext+")";
 		return(
 			<Col xs={3} sm={3} md={3}>
 				<DropdownButton bsStyle={this.state.style} title={label} id={this.props.ext}>
-					<MenuItem eventKey="1">Call</MenuItem>
-      				<MenuItem eventKey="2">Barge</MenuItem>
+					<MenuItem eventKey="1">Action 1</MenuItem>
+      				<MenuItem eventKey="2">Action 2</MenuItem>
                 </DropdownButton>
 			</Col>
 		);

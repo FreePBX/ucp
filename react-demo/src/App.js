@@ -6,23 +6,40 @@ import Extension from './Extension';
 class App extends Component {        
     constructor(props){
         super(props);
-
-        // this.props.socket.emit("pbx-message", "request-pbx-state");
         this.state = {
-           extensions: this.props.extensions
+            extensions: [] // Empty array
         };
+
+        var d = new Date();
+        var msg = {actionid: d.getTime()};
+        props.socket.emit("Action-ExtensionStateList", msg);
+    
+        this.fill_extensions = this.fill_extensions.bind(this);
+        props.socket.on("Event-ExtensionStateListComplete", this.fill_extensions);
     }    
+
+    fill_extensions(extensions)
+    {
+        var from_pbx = [];
+
+        for (let ext of extensions) {
+                console.log(ext);
+                // It's important in react the Component to have and id
+                ext.id = ext.ext;
+                from_pbx.push(ext);
+        }
+        this.setState({extensions: from_pbx});
+    }
 
     render(){
         return(            
 			<Panel header="Extensions">
-            	{this.state.extensions.map(function(ext, index) {            		
+            	{this.state.extensions.map(function(extension, index) {            		
                 	return (					
                 	<Extension
-                    	name={ext.name}
-                    	lastname={ext.lastname}
-                    	ext={ext.ext}
-                    	key={ext.id}
+                    	name={extension.name}
+                    	ext={extension.ext}
+                    	key={extension.id}
                     	socket={this.props.socket} />
                 	);
                 	}.bind(this))}
@@ -32,11 +49,3 @@ class App extends Component {
 }
 
 export default App;
-
-/*
- <div>
-    <Extension name="J. P."   lastname="Romero" ext="100" socket={this.props.socket}/>
-    <Extension name="Luis"    lastname="Abarca" ext="200" socket={this.props.socket} />
-    <Extension name="Alberto" lastname="Santos" ext="300" socket={this.props.socket} />
-</div>
-*/
