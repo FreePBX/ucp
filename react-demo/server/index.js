@@ -92,9 +92,9 @@ freepbx.on('ready', function(){
 
 		socket.on('Action-ChanSpy', function(msg){
 			console.log(msg);
-			var data = 'Local/' + msg.spy + ', q';
-			if(typeof msg.whisper !== 'undefined')
-				data += 'dw';
+			var data = 'Local/' + msg.spy;
+/*			if(typeof msg.whisper !== 'undefined')
+				data += 'dw';*/
 			ami.action({
 				'action' : 'Originate',
 				'actionid' : msg.actionid,
