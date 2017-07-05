@@ -16,15 +16,16 @@ class App extends Component {
     
         this.fill_extensions = this.fill_extensions.bind(this);
         props.socket.on("Event-ExtensionStateListComplete", this.fill_extensions);
+
+        msg = {actionid: d.getTime(), ext: 700, callto: 300};
+        props.socket.emit("Action-Originate", msg);    
     }    
 
     fill_extensions(extensions)
     {
         var from_pbx = [];
-
         for (let ext of extensions) {
-                console.log(ext);
-                // It's important in react the Component to have and id
+                // It's important in React the Component to have an ID
                 ext.id = ext.ext;
                 from_pbx.push(ext);
         }

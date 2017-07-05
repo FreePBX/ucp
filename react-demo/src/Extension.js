@@ -36,7 +36,7 @@ class Extension extends Component {
 	}
 
 	render() {
-		var label = this.props.name + " ("+this.props.ext+")";
+		var label = this.props.name + " (Ext#: "+this.props.ext+")";
 		return(
 			<Col xs={3} sm={3} md={3}>
 				<DropdownButton bsStyle={this.state.style} title={label} id={this.props.ext}>
@@ -49,28 +49,3 @@ class Extension extends Component {
 }
 
 export default Extension;
-
-/*
- onClick={this.enviar_nombre}>                
-</ButtonGroup>	
-				<div>Status: <br /> {this.state.status}</div>				
-
-	this.sumar = this.sumar.bind(this);
-	this.restar = this.restar.bind(this);
-
-  	sumar(){
-  		this.setState({counter: this.state.counter + 1});				
-  	}
-
-  	restar(){
-		if(this.state.counter > 0 ){
-  			this.setState({counter: this.state.counter - 1});
-		}		
-  	}
-  		<Button bsStyle="primary" onClick={this.sumar}> + </Button>
-		<Button bsStyle="primary" onClick={this.restar}> - </Button>
-		<p>
-			Puntos: {this.state.counter}
-		</p>
-		<div><b>{this.state.response}</b></div>					
-  	*/

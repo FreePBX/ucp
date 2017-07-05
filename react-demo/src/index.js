@@ -23,5 +23,4 @@ socket.on('connect_failed', function() {
     console.log('Connection Failed');
 });
 
-
 registerServiceWorker();

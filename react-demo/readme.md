@@ -10,7 +10,14 @@ In order to work with Bootstrap component it's important to install React Bootst
 npm install --save react-bootstrap bootstrap@3
 ```
 
-## Event handling and actions using Socket.io & Ami
+## Running the app
+
+```
+cd app-working-directory
+npm start
+```
+
+## Protocol for events and action/response handling using Socket.io & Ami
 
 ### Events (Server -> Client)
 
@@ -19,7 +26,7 @@ socket.on("Event-<EventName1>", function(msg)); 	<-- io.emit("Event-<EventName1>
 
 ==========================================================================================
 
-### Actions (Client <-> Server)The
+### Actions (Client <-> Server)
 
 Client								Server
 
