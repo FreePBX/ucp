@@ -10,6 +10,13 @@ In order to work with Bootstrap component it's important to install React Bootst
 npm install --save react-bootstrap bootstrap@3
 ```
 
+Also important: install socket.io on server and client
+
+```
+npm i socket.io-client socket.io
+```
+
+
 ## Running the app
 
 ```
