@@ -68,6 +68,7 @@
 			<field name="uid" type="integer" notnull="false"/>
 			<field name="address" type="string" length="255" notnull="false"/>
 			<field name="time" type="integer" notnull="false"/>
+			<field name="socketid" type="string" length="255" notnull="false"/>
 			<key name="session_UNIQUE" type="unique">
 				<column name="session"/>
 			</key>
