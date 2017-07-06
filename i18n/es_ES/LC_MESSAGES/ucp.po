@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-06-07 15:07-0700\n"
+"POT-Creation-Date: 2017-06-23 15:07-0700\n"
 "PO-Revision-Date: 2016-06-07 10:27+0200\n"
 "Last-Translator: Ernesto <ecasas@sangoma.com>\n"
 "Language-Team: Spanish <http://weblate.freepbx.org/projects/freepbx/ucp/"
@@ -223,7 +223,7 @@ msgstr ""
 msgid "Are you sure you want to delete this dashboard?"
 msgstr ""
 
-#: Ucp.class.php:1197
+#: Ucp.class.php:1199
 #, php-format
 msgid ""
 "Asterisk home dir (%s) doesn't exist, and, ASTSPOOLDIR doesn't exist. "
@@ -355,11 +355,11 @@ msgstr ""
 msgid "Delete a Dashboard"
 msgstr ""
 
-#: Ucp.class.php:1056
+#: Ucp.class.php:1058
 msgid "Deleted Session"
 msgstr "Sesión borrada"
 
-#: Ucp.class.php:364 Ucp.class.php:899
+#: Ucp.class.php:366 Ucp.class.php:901
 msgid "Deleted User Session"
 msgstr "Sesión de usuario borrada"
 
@@ -371,13 +371,13 @@ msgstr ""
 msgid "Display Name"
 msgstr "Nombre a Mostrar"
 
-#: Ucp.class.php:1341
+#: Ucp.class.php:1366
 #, php-format
 msgid "Don't know what %s is"
 msgstr ""
 
-#: Ucp.class.php:247 Ucp.class.php:271 Ucp.class.php:1150 Ucp.class.php:1154
-#: Ucp.class.php:1158 Ucp.class.php:1162
+#: Ucp.class.php:249 Ucp.class.php:273 Ucp.class.php:1152 Ucp.class.php:1156
+#: Ucp.class.php:1160 Ucp.class.php:1164
 msgid "Done"
 msgstr "Hecho"
 
@@ -448,12 +448,12 @@ msgstr ""
 msgid "Failed to install %s due to the following conflicting module(s): %s"
 msgstr ""
 
-#: Ucp.class.php:1274
+#: Ucp.class.php:1276
 #, php-format
 msgid "Failed to run: '%s'"
 msgstr ""
 
-#: Ucp.class.php:254
+#: Ucp.class.php:256
 msgid "Failed!"
 msgstr ""
 
@@ -461,7 +461,7 @@ msgstr ""
 msgid "Fax"
 msgstr "Fax"
 
-#: Ucp.class.php:129
+#: Ucp.class.php:131
 msgid "Finished updating libraries!"
 msgstr ""
 
@@ -485,19 +485,19 @@ msgstr "GHI"
 msgid "General"
 msgstr ""
 
-#: Ucp.class.php:1160
+#: Ucp.class.php:1162
 msgid "Generating Main CSS..."
 msgstr "Generando el CSS principal...."
 
-#: Ucp.class.php:1156
+#: Ucp.class.php:1158
 msgid "Generating Main Scripts..."
 msgstr "Generando los Scripts Principales...."
 
-#: Ucp.class.php:1152
+#: Ucp.class.php:1154
 msgid "Generating Module CSS..."
 msgstr "Generando Modulo CSS..."
 
-#: Ucp.class.php:1148
+#: Ucp.class.php:1150
 msgid "Generating Module Scripts..."
 msgstr "Generando Modulo de Scripts..."
 
@@ -513,7 +513,7 @@ msgstr "Inicio"
 msgid "Home Phone"
 msgstr "Teléfono de Casa"
 
-#: Ucp.class.php:108 Ucp.class.php:115
+#: Ucp.class.php:110 Ucp.class.php:117
 #, php-format
 msgid "Home directory [%s] is not writable"
 msgstr ""
@@ -524,7 +524,7 @@ msgid ""
 msgstr ""
 "Como desea que su nombre sea desplegado  en el UCP y en Sistema de Contactos"
 
-#: Ucp.class.php:100
+#: Ucp.class.php:102
 #, php-format
 msgid "ICU version is: %s requirement is %s"
 msgstr ""
@@ -533,7 +533,7 @@ msgstr ""
 msgid "Inherit"
 msgstr "heredado"
 
-#: Ucp.class.php:120
+#: Ucp.class.php:122
 msgid "Installing/Updating Required Libraries. This may take a while..."
 msgstr ""
 
@@ -621,7 +621,7 @@ msgid ""
 "you want"
 msgstr ""
 
-#: Ucp.class.php:89
+#: Ucp.class.php:91
 #, php-format
 msgid ""
 "NPM version is: %s requirement is %s. Run 'yum upgrade nodejs' from the CLI "
@@ -636,15 +636,15 @@ msgstr ""
 msgid "No"
 msgstr "No"
 
-#: Ucp.class.php:85
+#: Ucp.class.php:87
 msgid "Node Package Manager is not installed"
 msgstr ""
 
-#: Ucp.class.php:73
+#: Ucp.class.php:75
 msgid "Node is not installed"
 msgstr ""
 
-#: Ucp.class.php:77
+#: Ucp.class.php:79
 #, php-format
 msgid ""
 "Node version is: %s requirement is %s. Run 'yum upgrade nodejs' from the CLI "
@@ -723,7 +723,7 @@ msgstr "PQRS"
 msgid "Password"
 msgstr "Contraseña"
 
-#: Ucp.class.php:447
+#: Ucp.class.php:449
 #, php-format
 msgid "Password Reset Link (Valid Until: %s): %s"
 msgstr "Enlace para restablecer Password (Valido hasta: %s): %s"
@@ -757,7 +757,7 @@ msgstr "RSS Feeds"
 msgid "RSS Feeds that are displayed in UCP. This overrides "
 msgstr "RSS Feeds que son desplegados en UCP. Esto prevalece. "
 
-#: Ucp.class.php:259
+#: Ucp.class.php:261
 msgid "Refreshing all UCP Assets, this could take a while..."
 msgstr "Refrescando todos los activos de UCP, podría tomar un tiempo..."
 
@@ -778,7 +778,7 @@ msgstr "Reiniciar Password"
 msgid "Restart Tour"
 msgstr ""
 
-#: Ucp.class.php:1214
+#: Ucp.class.php:1216
 #, php-format
 msgid "Running (Uptime: %s)"
 msgstr ""
@@ -875,33 +875,33 @@ msgstr ""
 msgid "Something went wrong removing the dashboard"
 msgstr ""
 
-#: Ucp.class.php:1269
+#: Ucp.class.php:1271
 #, php-format
 msgid "Started UCP Node Server. PID is %s"
 msgstr ""
 
-#: Ucp.class.php:256
+#: Ucp.class.php:258
 #, php-format
 msgid "Started with PID %s!"
 msgstr ""
 
-#: Ucp.class.php:1240
+#: Ucp.class.php:1242
 msgid "Starting UCP Node Server..."
 msgstr ""
 
-#: Ucp.class.php:251
+#: Ucp.class.php:253
 msgid "Starting new UCP Node Process..."
 msgstr ""
 
-#: Ucp.class.php:1318
+#: Ucp.class.php:1343
 msgid "Stopped UCP Node Server"
 msgstr ""
 
-#: Ucp.class.php:1310
+#: Ucp.class.php:1312
 msgid "Stopping UCP Node Server"
 msgstr ""
 
-#: Ucp.class.php:245 Ucp.class.php:269
+#: Ucp.class.php:247 Ucp.class.php:271
 msgid "Stopping old running processes..."
 msgstr ""
 
@@ -988,7 +988,7 @@ msgstr "El Password usado para acceder al User Control Panel y otros servicios"
 msgid "The removal of this copyright notice is stricly prohibited"
 msgstr "Remover estos  derechos de autor esta estrictamente prohibido"
 
-#: htdocs/assets/js/ucp.js:504
+#: htdocs/assets/js/ucp.js:507
 msgid "The session has expired and you are being forcibly logged out"
 msgstr ""
 
@@ -1094,25 +1094,25 @@ msgstr "UCP"
 msgid "UCP Admin"
 msgstr "Admin UCP"
 
-#: Ucp.class.php:1205
+#: Ucp.class.php:1207
 msgid "UCP Daemon"
 msgstr ""
 
-#: Ucp.class.php:1322
+#: Ucp.class.php:1347
 #, php-format
 msgid "UCP Node Server Failed: %s"
 msgstr ""
 
-#: Ucp.class.php:1234
+#: Ucp.class.php:1236
 #, php-format
 msgid "UCP Node Server has already been running on PID %s for %s"
 msgstr ""
 
-#: Ucp.class.php:1303
+#: Ucp.class.php:1305
 msgid "UCP Node Server is not running"
 msgstr ""
 
-#: Ucp.class.php:1216
+#: Ucp.class.php:1218
 msgid "UCP Node is not running"
 msgstr ""
 
@@ -1156,7 +1156,7 @@ msgstr ""
 msgid "Unable to send Password Reset Email"
 msgstr ""
 
-#: Ucp.class.php:1207
+#: Ucp.class.php:1209
 msgid "Unknown"
 msgstr ""
 
@@ -1208,7 +1208,7 @@ msgstr "Configuración UCP"
 msgid "User Control Panel is released as %s or newer"
 msgstr "UCP ha sido liberado como %s o mas nuevo"
 
-#: Ucp.class.php:443
+#: Ucp.class.php:445
 #, php-format
 msgid "User Control Panel: %s"
 msgstr "Panel de Control del Usuariol: %s"
@@ -1217,7 +1217,7 @@ msgstr "Panel de Control del Usuariol: %s"
 msgid "User Details"
 msgstr ""
 
-#: Ucp.class.php:306 Ucp.class.php:335
+#: Ucp.class.php:308 Ucp.class.php:337
 msgid "User Primary Extension"
 msgstr "Extension Primaria del Usuario"
 
@@ -1466,7 +1466,7 @@ msgstr ""
 msgid "fred"
 msgstr ""
 
-#: Ucp.class.php:66
+#: Ucp.class.php:68
 msgid "gcc-c++ is not installed"
 msgstr ""
 
@@ -1481,7 +1481,7 @@ msgstr ""
 "favor asegúrese que los directorios de ficheros están adecuadamente "
 "bloqueados. Para mas información ver: %s"
 
-#: Ucp.class.php:96
+#: Ucp.class.php:98
 msgid "icu is not installed. You need to run: yum install icu libicu-devel"
 msgstr ""
 

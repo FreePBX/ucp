@@ -175,6 +175,8 @@ checkAuth = function(socket, next) {
 	var query = freepbx.db.query(prep({ session: suppliedToken, address: address }));
 	query.on('result', function(res) {
 		res.on('data', function(row) {
+			var prep = freepbx.db.prepare('UPDATE ucp_sessions SET socketid = :socketid WHERE session = :session AND address = :address');
+			var query = freepbx.db.query(prep({ session: suppliedToken, address: address, socketid: socket.id }));
 			auth = true;
 		}).on('end', function() {
 

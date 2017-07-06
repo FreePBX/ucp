@@ -338,23 +338,23 @@ var UCPC = Class.extend({
 
 		// Standards:
 		if (UCP.hidden in document) {
-			$(document).on("visibilitychange", UCP.onchange);
+			$(document).on("visibilitychange", UCP.visibilityChange);
 		} else if ((UCP.hidden = "mozHidden") in document) {
-			$(document).on("mozvisibilitychange", UCP.onchange);
+			$(document).on("mozvisibilitychange", UCP.visibilityChange);
 		} else if ((UCP.hidden = "webkitHidden") in document) {
-			$(document).on("webkitvisibilitychange", UCP.onchange);
+			$(document).on("webkitvisibilitychange", UCP.visibilityChange);
 		} else if ((UCP.hidden = "msHidden") in document) {
-			$(document).on("msvisibilitychange", UCP.onchange);
+			$(document).on("msvisibilitychange", UCP.visibilityChange);
 		// IE 9 and lower:
 		} else if ("onfocusin" in document) {
-			$(document).on("onfocusin onfocusout", UCP.onchange);
+			$(document).on("onfocusin onfocusout", UCP.visibilityChange);
 		// All others:
 		} else {
-			$(window).on("onpageshow onpagehide onfocus onblur", UCP.onchange);
+			$(window).on("onpageshow onpagehide onfocus onblur", UCP.visibilityChange);
 		}
 
 	},
-	onchange: function(evt) {
+	visibilityChange: function(evt) {
 		var v = "visible", h = "hidden",
 			evtMap = {
 				focus: v, focusin: v, pageshow: v, blur: h, focusout: h, pagehide: h
@@ -362,15 +362,16 @@ var UCPC = Class.extend({
 			state = "";
 
 		evt = evt || window.event;
+
 		if (evt.type in evtMap) {
 			state = evtMap[evt.type];
 		} else {
 			state = UCP.hidden ? "hidden" : "visible";
 		}
-		UCP.callModulesByMethod("windowState",state);
+		UCP.hidden = state;
+		UCP.callModulesByMethod("windowState",document.visibilityState);
 	},
 	wsconnect: function(namespace, callback) {
-		//console.log(namespace);
 		if (!this.loggedIn) {
 			return false;
 		}
@@ -427,15 +428,17 @@ var UCPC = Class.extend({
 		}
 	},
 	connect: function(username, password) {
-		var $this = this;
-		//Interval is in a callback to shortpoll to make sure we are "online"
-		UCP.shortpoll(function() {
-			UCP.pollID = setInterval(function() {
-				UCP.shortpoll();
-			},5000);
-			$this.callModulesByMethod("connect",username,password);
-			UCP.websocketConnect();
-		});
+		if(this.pollID === null) {
+			var $this = this;
+			//Interval is in a callback to shortpoll to make sure we are "online"
+			UCP.shortpoll(function() {
+				UCP.pollID = setInterval(function() {
+					UCP.shortpoll();
+				},5000);
+				$this.callModulesByMethod("connect",username,password);
+				UCP.websocketConnect();
+			});
+		}
 	},
 	disconnect: function() {
 		clearInterval(this.pollID);
@@ -800,8 +803,14 @@ var UCPC = Class.extend({
 		}
 	},
 	online: function(event) {
-		if (this.loggedIn && this.pollID === null) {
-			this.connect();
+		var $this = this;
+		if (this.loggedIn) {
+			$(document).on("post-body.widgets", function(event, widget_id, dashboard_id) {
+				if(widget_id === null) {
+					$this.connect();
+				}
+			});
+
 		}
 	},
 	offline: function(event) {
@@ -815,7 +824,12 @@ var UCPC = Class.extend({
 		//TODO: need to figure out text domains!
 		textdomain(this.activeModule.toLowerCase());
 		this.loggedIn = true;
-		this.connect(username, password);
+		var $this = this;
+		$(document).on("post-body.widgets", function(event, widget_id, dashboard_id) {
+			if(widget_id === null) {
+				$this.connect(username, password);
+			}
+		});
 		if (!Notify.needsPermission() && this.notify === null) {
 			this.notify = true;
 		}
