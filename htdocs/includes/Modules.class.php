@@ -163,6 +163,56 @@ class Modules extends Module_Helpers {
 		return $this->getModulesByMethod('getMenuItems');
 	}
 
+	public function compileReactScripts($force = false,$packaged=true) {
+		$cache = dirname(__DIR__).'/assets/react/compiled/modules';
+		if(!file_exists($cache) && !mkdir($cache,0777,true)) {
+			die('Can Not Create Cache Folder at '.$cache);
+		}
+		$amods = array_merge($this->defaultModules, array_keys($this->freepbxActiveModules));
+		$nodePath = dirname(dirname(__DIR__)).'/node/node_modules';
+		$contents = '';
+		$files = array();
+		foreach (glob(dirname(__DIR__)."/modules/*", GLOB_ONLYDIR) as $module) {
+			$mod = basename($module);
+			if(file_exists($module.'/'.$mod.'.class.php')) {
+				$module = ucfirst(strtolower($mod));
+				if(!in_array(strtolower($mod), $amods)) {
+					continue;
+				}
+				$src = dirname(__DIR__)."/modules/".$module."/react/src";
+				if(is_dir($src)) {
+					//$code = dirname(dirname(__DIR__)).'/node/node_modules/.bin/babel --presets '.dirname(dirname(__DIR__)).'/node/node_modules/babel-preset-es2015,'.dirname(dirname(__DIR__)).'/node/node_modules/babel-preset-react '.$src.' --out-dir '.$cache;
+					//exec($code);
+					foreach (glob($src."/*.js") as $file) {
+						$code = $nodePath.'/.bin/browserify '.$file.' -o '.$cache.'/'.basename($file).' -t [ '.$nodePath.'/babelify --presets [ '.$nodePath.'/babel-preset-es2015 '.$nodePath.'/babel-preset-react ] ]';
+						exec($code);
+						$files[] = "assets/react/compiled/modules/".basename($file);
+					}
+				}
+			}
+		}
+
+		return $files;
+
+		// If we're not using our minified files, don't make them.
+		if (!$packaged) {
+			return $files;
+		}
+
+		$md5 = md5($contents);
+		$filename = 'jsphp_'.$md5.'.js';
+		if(!file_exists($cache.'/'.$filename) || $force) {
+			foreach(glob($cache.'/jsphp_*.js') as $f) {
+				unlink($f);
+			}
+			$output = \JShrink\Minifier::minify($contents);
+			$output = $contents;
+			file_put_contents($cache.'/'.$filename,$output);
+		}
+
+		return array("assets/react/compiled/modules/".$filename);
+	}
+
 	/**
 	 * Get all module Javascripts
 	 * @param bool $force Whether to forcefully regenerate all cache even if we dont need to do so

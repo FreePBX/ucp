@@ -243,6 +243,7 @@ $displayvars['ucpserver'] = json_encode($ucp->getServerSettings());
 $displayvars['modules'] = json_encode($active_modules);
 $displayvars['gScripts'] = $ucp->getScripts(false,$compressed);
 $displayvars['scripts'] = $ucp->Modules->getGlobalScripts(false,$compressed);
+$displayvars['reacts'] = $ucp->Modules->compileReactScripts(false,$compressed);
 $displayvars['timezone'] = $ucp->View->getTimezone();
 $displayvars['timeformat'] = $ucp->View->getTimeFormat();
 $displayvars['datetimeformat'] = $ucp->View->getDateTimeFormat();

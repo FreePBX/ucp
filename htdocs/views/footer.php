@@ -29,6 +29,9 @@
 			}
 			echo $html;
 		}?>
+		<?php foreach($reacts as $file) { ?>
+			<script type="text/javascript" src="<?php echo $file.$version_tag?>"></script>
+		<?php } ?>
 		<?php foreach($scripts as $file) { ?>
 			<script type="text/javascript" src="<?php echo $file.$version_tag?>"></script>
 		<?php } ?>

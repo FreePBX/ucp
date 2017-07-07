@@ -212,6 +212,8 @@ class UCP extends UCP_Helpers {
 			"bootstrap-toggle-2.2.2.min.js",
 			"browser-locale-1.0.0.min.js",
 			"uuid-3.0.1.js",
+			"react-15.6.1.min.js",
+			"react-dom-15.6.1.min.js",
 			"ucp.js",
 			"module.js"
 		);
