@@ -153,9 +153,10 @@ var WidgetsC = Class.extend({
 						resave = true;
 					}
 					$this.getWidgetContent(widget_id, widget_type_id, widget_rawname, function() {
+						$(document).trigger("post-body.widget-added",[ widget_id, $this.activeDashboard ]);
 						count++;
 						if(count == total) {
-							$(document).trigger("post-body.widgets",[ null, $this.activeDashboard ]);
+							$(document).trigger("post-body.widgets",[ $this.activeDashboard ]);
 							if(resave) {
 								$this.saveLayoutContent();
 							}
@@ -987,7 +988,8 @@ var WidgetsC = Class.extend({
 					max_size_x = null,
 					max_size_y = null,
 					resizable = true,
-					dynamic = false;
+					dynamic = false,
+					reactjs = false;
 
 			if(typeof widget_info.defaultsize !== "undefined") {
 				default_size_x = widget_info.defaultsize.width;
@@ -1016,43 +1018,59 @@ var WidgetsC = Class.extend({
 				dynamic = widget_info.dynamic;
 			}
 
+			if(typeof widget_info.reactjs !== "undefined") {
+				reactjs = widget_info.reactjs;
+			}
+
 			//Checking if the widget is already on the dashboard
 			var object_on_dashboard = ($(".grid-stack-item[data-rawname='"+widget_rawname+"'][data-widget_type_id='"+widget_id+"']").length > 0);
 
 			if(dynamic || !object_on_dashboard) {
 
-				$this.activateFullLoading();
+				if(reactjs) {
+					$("#add_widget").modal("hide");
+					var widget_html = '';
+					var full_widget_html = $this.widget_layout(new_widget_id, widget_module_name, widget_name, widget_id, widget_rawname, widget_has_settings, widget_html, resizable, false);
+					var grid = $('.grid-stack').data('gridstack');
+					//We are adding the widget always on the position 1,1
+					grid.addWidget($(full_widget_html), 1, 1, default_size_x, default_size_y, true, min_size_x, max_size_x, min_size_y, max_size_y);
+					grid.resizable($("div[data-id='"+new_widget_id+"']"), resizable);
+					UCP.callModuleByMethod(widget_rawname,"displayWidget",new_widget_id,$this.activeDashboard);
+					$(document).trigger("post-body.widget-added",[ new_widget_id, $this.activeDashboard ]);
+				} else {
+					$this.activateFullLoading();
 
-				$.post( UCP.ajaxUrl ,
-					{
-						module: "Dashboards",
-						command: "getwidgetcontent",
-						id: widget_id,
-						rawname: widget_rawname,
-						uuid: new_widget_id
-					},
-					function( data ) {
+					$.post( UCP.ajaxUrl ,
+						{
+							module: "Dashboards",
+							command: "getwidgetcontent",
+							id: widget_id,
+							rawname: widget_rawname,
+							uuid: new_widget_id
+						},
+						function( data ) {
 
-						$("#add_widget").modal("hide");
+							$("#add_widget").modal("hide");
 
-						if(typeof data.html !== "undefined"){
-							//So first we go the HTML content to add it to the widget
-							var widget_html = data.html;
-							var full_widget_html = $this.widget_layout(new_widget_id, widget_module_name, widget_name, widget_id, widget_rawname, widget_has_settings, widget_html, resizable, false);
-							var grid = $('.grid-stack').data('gridstack');
-							//We are adding the widget always on the position 1,1
-							grid.addWidget($(full_widget_html), 1, 1, default_size_x, default_size_y, true, min_size_x, max_size_x, min_size_y, max_size_y);
-							grid.resizable($("div[data-id='"+new_widget_id+"']"), resizable);
-							UCP.callModuleByMethod(widget_rawname,"displayWidget",new_widget_id,$this.activeDashboard);
-							$(document).trigger("post-body.widgets",[ new_widget_id, $this.activeDashboard ]);
-						}else {
-							UCP.showAlert(_("There was an error getting the widget information, try again later"), "danger");
-						}
-					}).always(function() {
-						$this.deactivateFullLoading();
-					}).fail(function(jqXHR, textStatus, errorThrown) {
-						UCP.showAlert(textStatus,'warning');
-					});
+							if(typeof data.html !== "undefined"){
+								//So first we go the HTML content to add it to the widget
+								var widget_html = data.html;
+								var full_widget_html = $this.widget_layout(new_widget_id, widget_module_name, widget_name, widget_id, widget_rawname, widget_has_settings, widget_html, resizable, false);
+								var grid = $('.grid-stack').data('gridstack');
+								//We are adding the widget always on the position 1,1
+								grid.addWidget($(full_widget_html), 1, 1, default_size_x, default_size_y, true, min_size_x, max_size_x, min_size_y, max_size_y);
+								grid.resizable($("div[data-id='"+new_widget_id+"']"), resizable);
+								UCP.callModuleByMethod(widget_rawname,"displayWidget",new_widget_id,$this.activeDashboard);
+								$(document).trigger("post-body.widget-added",[ new_widget_id, $this.activeDashboard ]);
+							}else {
+								UCP.showAlert(_("There was an error getting the widget information, try again later"), "danger");
+							}
+						}).always(function() {
+							$this.deactivateFullLoading();
+						}).fail(function(jqXHR, textStatus, errorThrown) {
+							UCP.showAlert(textStatus,'warning');
+						});
+				}
 			} else {
 				UCP.showAlert(_("You already have this widget on this dashboard"), "info");
 			}
@@ -1314,6 +1332,9 @@ var WidgetsC = Class.extend({
 		});
 
 		$('.grid-stack').on('removed', function(event, items) {
+			$.each(items, function(k,v) {
+				$(document).trigger("post-body.widget-removed",[ v.el, $this.activeDashboard ]);
+			});
 			//Never on Desktop, Always on mobile
 			if(window.innerWidth <= 768) {
 				//save layout
@@ -1445,6 +1466,7 @@ var WidgetsC = Class.extend({
 
 			if(typeof gridstack !== "undefined") {
 				//destroy the grid (which also deletes the elements!)
+				gridstack.removeAll();
 				gridstack.destroy(true);
 			}
 
@@ -1477,10 +1499,12 @@ var WidgetsC = Class.extend({
 				//get max/min size of this widget
 				var min_size_x = (typeof allWidgets[cased].list[widget.widget_type_id].minsize !== "undefined" && typeof allWidgets[cased].list[widget.widget_type_id].minsize.width !== "undefined") ? allWidgets[cased].list[widget.widget_type_id].minsize.width : null;
 				var min_size_y = (typeof allWidgets[cased].list[widget.widget_type_id].minsize !== "undefined" && typeof allWidgets[cased].list[widget.widget_type_id].minsize.height !== "undefined") ? allWidgets[cased].list[widget.widget_type_id].minsize.height : null;
-				var max_size_x = (typeof allWidgets[cased].list[widget.widget_type_id].maxsize !== "undefined" && typeof allWidgets[cased].list[widget.widget_type_id].maxsize.width !== "undefined") ? allWidgets[cased].list[widget.widget_type_id].minsize.width : null;
-				var max_size_y = (typeof allWidgets[cased].list[widget.widget_type_id].maxsize !== "undefined" && typeof allWidgets[cased].list[widget.widget_type_id].maxsize.height !== "undefined") ? allWidgets[cased].list[widget.widget_type_id].minsize.height : null;
+				var max_size_x = (typeof allWidgets[cased].list[widget.widget_type_id].maxsize !== "undefined" && typeof allWidgets[cased].list[widget.widget_type_id].maxsize.width !== "undefined") ? allWidgets[cased].list[widget.widget_type_id].maxsize.width : null;
+				var max_size_y = (typeof allWidgets[cased].list[widget.widget_type_id].maxsize !== "undefined" && typeof allWidgets[cased].list[widget.widget_type_id].maxsize.height !== "undefined") ? allWidgets[cased].list[widget.widget_type_id].maxsize.height : null;
 				//is this widget resizable?
 				var resizable = (typeof allWidgets[cased].list[widget.widget_type_id].resizable !== "undefined") ? allWidgets[cased].list[widget.widget_type_id].resizable : true;
+
+				var reactjs = (typeof allWidgets[cased].list[widget.widget_type_id].reactjs !== "undefined") ? allWidgets[cased].list[widget.widget_type_id].reactjs : false;
 
 				//now add the widget
 				gridstack.addWidget($(full_widget_html), widget.size_x, widget.size_y, widget.col, widget.row, false, min_size_x, max_size_x, min_size_y, max_size_y);
@@ -1494,33 +1518,47 @@ var WidgetsC = Class.extend({
 				gridstack.movable($(".grid-stack-item[data-id="+widget.id+"]"), !widget.locked);
 				gridstack.locked($(".grid-stack-item[data-id="+widget.id+"]"), widget.locked);
 
-				//get widget content
-				$.post( UCP.ajaxUrl,
-					{
-						module: "Dashboards",
-						command: "getwidgetcontent",
-						id: widget.widget_type_id,
-						rawname: widget.rawname,
-						uuid: widget.id
-					},
-					function( data ) {
-						//set the content from what we got
-						$(".grid-stack .grid-stack-item[data-id="+widget.id+"] .widget-content").html(data.html);
-						//execute module method
-						UCP.callModuleByMethod(widget.rawname,"displayWidget",widget.id,$this.activeDashboard);
-						//execute resize module method
-						setTimeout(function() {
-							UCP.callModuleByMethod(widget.rawname,"resize",widget.id,$this.activeDashboard);
-						},100);
+				if(reactjs) {
+					//execute module method
+					UCP.callModuleByMethod(widget.rawname,"displayWidget",widget.id,$this.activeDashboard);
+					//execute resize module method
+					setTimeout(function() {
+						UCP.callModuleByMethod(widget.rawname,"resize",widget.id,$this.activeDashboard);
+					},100);
 
-						//trigger event
-						$(document).trigger("post-body.widgets",[ widget.id, $this.activeDashboard ]);
-					}
-				).done(function() {
+					//trigger event
+					$(document).trigger("post-body.widget-added",[ widget.id, $this.activeDashboard ]);
 					callback(); //trigger callback to async
-				}).fail(function(jqXHR, textStatus, errorThrown) {
-					callback(textStatus); //trigger error to async
-				});
+				} else {
+					//get widget content
+					$.post( UCP.ajaxUrl,
+						{
+							module: "Dashboards",
+							command: "getwidgetcontent",
+							id: widget.widget_type_id,
+							rawname: widget.rawname,
+							uuid: widget.id
+						},
+						function( data ) {
+							//set the content from what we got
+							$(".grid-stack .grid-stack-item[data-id="+widget.id+"] .widget-content").html(data.html);
+							//execute module method
+							UCP.callModuleByMethod(widget.rawname,"displayWidget",widget.id,$this.activeDashboard);
+							//execute resize module method
+							setTimeout(function() {
+								UCP.callModuleByMethod(widget.rawname,"resize",widget.id,$this.activeDashboard);
+							},100);
+
+							//trigger event
+							$(document).trigger("post-body.widget-added",[ widget.id, $this.activeDashboard ]);
+						}
+					).done(function() {
+						callback(); //trigger callback to async
+					}).fail(function(jqXHR, textStatus, errorThrown) {
+						callback(textStatus); //trigger error to async
+					});
+				}
+
 			}, function(err) {
 				if(err) {
 					//show error because there was an error
@@ -1533,7 +1571,7 @@ var WidgetsC = Class.extend({
 					//execute module methods
 					UCP.callModulesByMethod("showDashboard",$this.activeDashboard);
 					//trigger all widgets loaded event
-					$(document).trigger("post-body.widgets",[ null, $this.activeDashboard ]);
+					$(document).trigger("post-body.widgets",[ $this.activeDashboard ]);
 					if(resave) {
 						$this.saveLayoutContent();
 					}

@@ -143,9 +143,6 @@ class UCP extends UCP_Helpers {
 	 * Get the Node JS Server Settings
 	 */
 	function getServerSettings() {
-		if(!$this->FreePBX->Modules->checkStatus('ucpnode')) {
-			return array("enabled" => false, "port" => "0", "host" => "", "enabledS" => false, "portS" => "0", "hostS" => "");
-		}
 		$enabled = $this->FreePBX->Config->get('NODEJSENABLED');
 		$enabled = is_bool($enabled) || is_int($enabled) ? $enabled : true;
 		$port = $this->FreePBX->Config->get('NODEJSBINDPORT');
@@ -215,6 +212,8 @@ class UCP extends UCP_Helpers {
 			"bootstrap-toggle-2.2.2.min.js",
 			"browser-locale-1.0.0.min.js",
 			"uuid-3.0.1.js",
+			"react-15.6.1.min.js",
+			"react-dom-15.6.1.min.js",
 			"ucp.js",
 			"module.js"
 		);

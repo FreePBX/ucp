@@ -3,18 +3,18 @@
 # For licensing information, please see the file named LICENSE located in the module directory
 #
 # FreePBX language template for ucp
-# Copyright (C) 2008-2015 Sangoma, Inc.
+# Copyright (C) 2008-2017 Sangoma Technologies, Inc.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-06-23 15:07-0700\n"
-"PO-Revision-Date: 2016-09-02 16:04+0200\n"
-"Last-Translator: Kenichi <k.kitani@qloog.com>\n"
-"Language-Team: Japanese <http://weblate.freepbx.org/projects/freepbx/ucp/"
-"ja_JP/>\n"
-"Language: ja_JP\n"
+"PO-Revision-Date: 2017-06-22 08:44+0200\n"
+"Last-Translator: PETER <ftek@ymail.com>\n"
+"Language-Team: Vietnamese <http://weblate.freepbx.org/projects/freepbx/ucp/"
+"vi/>\n"
+"Language: vi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -104,11 +104,10 @@ msgstr ""
 #: htdocs/index.php:78
 msgid ".htaccess files are disabled on this webserver. Please enable them"
 msgstr ""
-"このサーバーでは .htaccess ファイルが無効化されています。有効にしてください。"
 
 #: htdocs/index.php:91
 msgid ".htaccess files are not supported on this webserver."
-msgstr "このサーバーは .htaccess ファイルをサポートしていません。"
+msgstr ""
 
 #: htdocs/modules/Ucptour/assets/js/global.js:123
 #, perl-format
@@ -117,7 +116,7 @@ msgstr ""
 
 #: htdocs/views/templates/phone.php:41
 msgid "ABC"
-msgstr "ABC"
+msgstr ""
 
 #: htdocs/views/dashboard-footer.php:202
 msgid "Accept"
@@ -125,11 +124,11 @@ msgstr ""
 
 #: htdocs/modules/Settings/views/settings.php:5
 msgid "Account Settings"
-msgstr "アカウント設定"
+msgstr ""
 
 #: views/users_hook.php:107
 msgid "Active Sessions"
-msgstr "有効セッション"
+msgstr ""
 
 #: htdocs/views/dashboard-footer.php:13
 msgid "Add Dashboard"
@@ -162,7 +161,7 @@ msgstr ""
 
 #: ucp.i18n.php:6
 msgid "Admin"
-msgstr "アドミン"
+msgstr "Quản trị viên"
 
 #: htdocs/views/dashboard-footer.php:214
 msgid "Alert"
@@ -171,7 +170,7 @@ msgstr ""
 #: htdocs/modules/Settings/views/settings.php:3
 msgid ""
 "All fields update when unfocused (selecting another field) except password"
-msgstr "他の枠を選択すると、パスワード以外の情報は更新されます。"
+msgstr ""
 
 #: htdocs/modules/Ucptour/assets/js/global.js:239
 #, perl-format
@@ -182,42 +181,41 @@ msgstr ""
 
 #: htdocs/modules/Settings/views/settings.php:144
 msgid "Allow Desktop Notifications"
-msgstr "デスクトップ通知を許可する"
+msgstr ""
 
 #: views/users_hook.php:46
 msgid "Allow Login"
-msgstr "ログインを許可する"
+msgstr ""
 
 #: ucp.i18n.php:54
 msgid "Allow Password Changes"
-msgstr "パスワードの変更を許可"
+msgstr ""
 
 #: ucp.i18n.php:60
 msgid "Allow Username Changes"
-msgstr "ユーザ名の変更を許可"
+msgstr ""
 
 #: htdocs/modules/Settings/views/settings.php:146
 msgid "Allow browser desktop notifications from UCP modules."
-msgstr "UCPモジュールからのデスクトップ通知（ブラウザ経由）を許可します。"
+msgstr ""
 
 #: views/users_hook.php:192
 msgid ""
 "Allow this user to originate calls from within UCP. This is not the same as "
 "WebRTC"
 msgstr ""
-"このユーザにUCPからの発信権限を付与する。注意: WebRTCとは別の設定です。"
 
 #: ucp.i18n.php:62
 msgid "Allow users to change their username in UCP"
-msgstr "UCPでユーザ名の変更を可能にする権限をユーザに与えます。"
+msgstr ""
 
 #: ucp.i18n.php:58
 msgid "Allow users to change thier password in UCP"
-msgstr "UCPでパスワードの変更を可能にする権限をユーザに与えます。"
+msgstr ""
 
 #: views/users_hook.php:147
 msgid "Allowed Extension Settings"
-msgstr "許可された内線の設定"
+msgstr ""
 
 #: htdocs/modules/Widgets/assets/js/global.js:880
 msgid "Are you sure you want to delete this dashboard?"
@@ -232,11 +230,11 @@ msgstr ""
 
 #: htdocs/modules/Settings/views/settings.php:102
 msgid "Browse"
-msgstr "ブラウズ"
+msgstr "Trình duyệt"
 
 #: htdocs/views/templates/phone.php:7 htdocs/views/templates/phone.php:95
 msgid "Call"
-msgstr "発信"
+msgstr ""
 
 #: htdocs/views/dashboard-footer.php:22 htdocs/views/dashboard-footer.php:43
 #: htdocs/views/dashboard-footer.php:151 htdocs/views/dashboard-footer.php:201
@@ -245,7 +243,7 @@ msgstr ""
 
 #: htdocs/modules/Settings/views/settings.php:72
 msgid "Cell Phone"
-msgstr "携帯"
+msgstr ""
 
 #: htdocs/modules/Ucptour/assets/js/global.js:313
 msgid "Click the widget's icon to continue"
@@ -280,7 +278,7 @@ msgstr ""
 
 #: htdocs/modules/Settings/views/settings.php:67
 msgid "Company"
-msgstr "会社"
+msgstr "Công ty"
 
 #: htdocs/views/dashboard-footer.php:193
 msgid "Confirm Action"
@@ -288,7 +286,7 @@ msgstr ""
 
 #: htdocs/modules/Settings/views/settings.php:32
 msgid "Confirm Password"
-msgstr "パスワードを確認"
+msgstr ""
 
 #: htdocs/modules/Ucptour/assets/js/global.js:25
 msgid "Congratulations!"
@@ -300,7 +298,7 @@ msgstr ""
 
 #: htdocs/views/templates/phone.php:45
 msgid "DEF"
-msgstr "DEF"
+msgstr ""
 
 #: htdocs/modules/Ucptour/assets/js/global.js:238
 msgid "Dashboard Locking"
@@ -349,7 +347,7 @@ msgstr ""
 
 #: htdocs/modules/Settings/views/settings.php:97
 msgid "Delete Image"
-msgstr "画像を削除"
+msgstr "Xóa hình ảnh"
 
 #: htdocs/modules/Ucptour/assets/js/global.js:122
 msgid "Delete a Dashboard"
@@ -357,11 +355,11 @@ msgstr ""
 
 #: Ucp.class.php:1058
 msgid "Deleted Session"
-msgstr "セッションを削除しました"
+msgstr ""
 
 #: Ucp.class.php:366 Ucp.class.php:901
 msgid "Deleted User Session"
-msgstr "ユーザーのセッションを削除しました"
+msgstr ""
 
 #: htdocs/assets/js/ucp.js:81
 msgid "Disable"
@@ -369,7 +367,7 @@ msgstr ""
 
 #: htdocs/modules/Settings/views/settings.php:42
 msgid "Display Name"
-msgstr "表示名"
+msgstr "Tên hiển thị"
 
 #: Ucp.class.php:1366
 #, php-format
@@ -379,11 +377,11 @@ msgstr ""
 #: Ucp.class.php:249 Ucp.class.php:273 Ucp.class.php:1152 Ucp.class.php:1156
 #: Ucp.class.php:1160 Ucp.class.php:1164
 msgid "Done"
-msgstr "完了"
+msgstr "Đã xong"
 
 #: htdocs/modules/Settings/views/settings.php:94
 msgid "Drop a new image here"
-msgstr "新しい画像をここにドロップしてください"
+msgstr "Thả một hình ảnh mới ở đây"
 
 #: htdocs/views/dashboard-footer.php:34 htdocs/views/dashboard-footer.php:44
 msgid "Edit Dashboard"
@@ -395,7 +393,7 @@ msgstr ""
 
 #: htdocs/modules/Settings/views/settings.php:47 htdocs/views/login.php:30
 msgid "Email"
-msgstr "メール"
+msgstr "Thư điện tử"
 
 #: htdocs/includes/User.class.php:78
 msgid "Email address unknown!"
@@ -407,7 +405,7 @@ msgstr ""
 
 #: views/users_hook.php:173
 msgid "Enable Originating Calls"
-msgstr "発信元を有効にする"
+msgstr ""
 
 #: ucp.i18n.php:28
 msgid "Enable TLS for the NodeJS Server"
@@ -437,7 +435,7 @@ msgstr ""
 
 #: htdocs/modules/Settings/Settings.class.php:143
 msgid "English"
-msgstr "英語"
+msgstr "Tiếng Anh"
 
 #: htdocs/modules/Ucptour/assets/js/global.js:51
 msgid "Enter a name for your dashboard in this input box"
@@ -446,7 +444,7 @@ msgstr ""
 #: install.inc.php:20
 #, php-format
 msgid "Failed to install %s due to the following conflicting module(s): %s"
-msgstr "%s のインストールに失敗しました。モジュール: %s と衝突しています。"
+msgstr ""
 
 #: Ucp.class.php:1276
 #, php-format
@@ -459,7 +457,7 @@ msgstr ""
 
 #: htdocs/modules/Settings/views/settings.php:87
 msgid "Fax"
-msgstr "FAX"
+msgstr "Máy fax"
 
 #: Ucp.class.php:131
 msgid "Finished updating libraries!"
@@ -467,51 +465,51 @@ msgstr ""
 
 #: htdocs/views/templates/pagnation.php:4
 msgid "First"
-msgstr "名"
+msgstr ""
 
 #: htdocs/modules/Settings/views/settings.php:52
 msgid "First Name"
-msgstr "名"
+msgstr "Họ"
 
 #: htdocs/views/login.php:37
 msgid "Forgot Password"
-msgstr "パスワードお忘れの場合"
+msgstr ""
 
 #: htdocs/views/templates/phone.php:51
 msgid "GHI"
-msgstr "GHI"
+msgstr ""
 
 #: views/users_hook.php:19
 msgid "General"
-msgstr "一般"
+msgstr ""
 
 #: Ucp.class.php:1162
 msgid "Generating Main CSS..."
-msgstr "メインCSSを生成中..."
+msgstr ""
 
 #: Ucp.class.php:1158
 msgid "Generating Main Scripts..."
-msgstr "メインスクリプトを生成中..."
+msgstr ""
 
 #: Ucp.class.php:1154
 msgid "Generating Module CSS..."
-msgstr "モジュールCSSを生成中..."
+msgstr ""
 
 #: Ucp.class.php:1150
 msgid "Generating Module Scripts..."
-msgstr "モジュールスクリプトを生成中..."
+msgstr ""
 
 #: htdocs/views/templates/phone.php:98
 msgid "Hold"
-msgstr "保留"
+msgstr ""
 
 #: htdocs/modules/Home/Home.class.php:188
 msgid "Home"
-msgstr "ホーム"
+msgstr "Trang chủ"
 
 #: htdocs/modules/Settings/views/settings.php:82
 msgid "Home Phone"
-msgstr "自宅電話"
+msgstr ""
 
 #: Ucp.class.php:110 Ucp.class.php:117
 #, php-format
@@ -521,7 +519,7 @@ msgstr ""
 #: htdocs/modules/Settings/views/settings.php:44
 msgid ""
 "How you would like your name displayed throughout UCP and Contact Manager"
-msgstr "UCPとコンタクトマネージャーで使う表示名"
+msgstr ""
 
 #: Ucp.class.php:102
 #, php-format
@@ -530,7 +528,7 @@ msgstr ""
 
 #: views/users_hook.php:56 views/users_hook.php:86 views/users_hook.php:183
 msgid "Inherit"
-msgstr "引き継ぐ"
+msgstr "Kế thừa"
 
 #: Ucp.class.php:122
 msgid "Installing/Updating Required Libraries. This may take a while..."
@@ -538,7 +536,7 @@ msgstr ""
 
 #: htdocs/modules/Settings/views/settings.php:7
 msgid "Interface Settings"
-msgstr "インターフェイス設定"
+msgstr ""
 
 #: htdocs/index.php:234
 #, php-format
@@ -546,25 +544,23 @@ msgid ""
 "Internet Explorer %s is not supported. Functionality will be deteriorated "
 "until you upgrade to %s or higher"
 msgstr ""
-"インターネットエクスプローラー %s はサポートされていません。 %s かそれ以上に"
-"アップグレードするまで機能は制限されます。"
 
 #: htdocs/includes/User.class.php:93
 msgid "Invalid"
-msgstr "不正"
+msgstr "Không hợp lệ"
 
 #: htdocs/modules/Home/Home.class.php:137
 #: htdocs/modules/Home/Home.class.php:141
 msgid "Invalid Device"
-msgstr "無効なデバイス"
+msgstr ""
 
 #: htdocs/includes/User.class.php:101
 msgid "Invalid Login Credentials"
-msgstr "ログイン情報が間違っています"
+msgstr ""
 
 #: htdocs/index.php:223
 msgid "Invalid Token"
-msgstr "不正トークン"
+msgstr ""
 
 #: htdocs/modules/Widgets/Widgets.class.php:46
 msgid "Invalid dashboard id"
@@ -572,48 +568,48 @@ msgstr ""
 
 #: htdocs/views/templates/phone.php:55
 msgid "JKL"
-msgstr "JKL"
+msgstr ""
 
 #: htdocs/modules/Settings/views/settings.php:118
 msgid "Language"
-msgstr "言語"
+msgstr "Ngôn ngữ"
 
 #: htdocs/views/templates/pagnation.php:20
 msgid "Last"
-msgstr "姓"
+msgstr ""
 
 #: htdocs/modules/Settings/views/settings.php:57
 msgid "Last Name"
-msgstr "姓"
+msgstr "Họ"
 
 #: htdocs/views/forgot.php:61 htdocs/views/login.php:54
 msgid "Loading..."
-msgstr "読み込み中..."
+msgstr "Đang tải..."
 
 #: htdocs/views/forgot.php:45 htdocs/views/login.php:38
 #: htdocs/assets/js/ucp.js:296 htdocs/assets/js/ucp.js:306
 msgid "Login"
-msgstr "ログイン"
+msgstr ""
 
 #: htdocs/modules/Ucptour/assets/js/global.js:351
 msgid "Logout"
-msgstr "ログアウト"
+msgstr ""
 
 #: htdocs/views/templates/phone.php:59
 msgid "MNO"
-msgstr "MNO"
+msgstr ""
 
 #: views/users_hook.php:65
 msgid "May this user log in to UCP"
-msgstr "このユーザーが UCP にログインします"
+msgstr ""
 
 #: views/users_hook.php:24
 msgid "Miscellaneous"
-msgstr "諸々"
+msgstr ""
 
 #: htdocs/includes/Ajax.class.php:69
 msgid "Module or Command were null. Check your code."
-msgstr "モジュールかコマンドはnull。コードを確認してください。"
+msgstr ""
 
 #: htdocs/modules/Ucptour/assets/js/global.js:130
 msgid ""
@@ -635,7 +631,7 @@ msgstr ""
 
 #: views/users_hook.php:53 views/users_hook.php:83 views/users_hook.php:180
 msgid "No"
-msgstr "いいえ"
+msgstr "Không"
 
 #: Ucp.class.php:87
 msgid "Node Package Manager is not installed"
@@ -682,19 +678,19 @@ msgstr ""
 
 #: htdocs/modules/Home/assets/js/global.js:75
 msgid "Nothing Entered"
-msgstr "何も入力されていません"
+msgstr ""
 
 #: htdocs/includes/User.class.php:74
 msgid "Nothing was Provided!"
-msgstr "情報は入力されていません！"
+msgstr ""
 
 #: htdocs/views/header.php:54
 msgid "OFF"
-msgstr "オフ"
+msgstr ""
 
 #: htdocs/views/header.php:51
 msgid "ON"
-msgstr "オン"
+msgstr ""
 
 #: htdocs/modules/Ucptour/assets/js/global.js:313
 msgid "Once a small widget has been added it will show up in the left sidebar"
@@ -707,36 +703,36 @@ msgstr ""
 #: htdocs/modules/Home/assets/js/global.js:46
 #: htdocs/modules/Home/assets/js/global.js:125
 msgid "Originate"
-msgstr "生成"
+msgstr ""
 
 #: htdocs/modules/Home/assets/js/global.js:22
 #: htdocs/modules/Home/assets/js/global.js:45
 #: htdocs/modules/Home/assets/js/global.js:124
 msgid "Originate Call"
-msgstr "発信する"
+msgstr ""
 
 #: htdocs/views/templates/phone.php:65
 msgid "PQRS"
-msgstr "PQRS"
+msgstr ""
 
 #: htdocs/modules/Settings/views/settings.php:25
 #: htdocs/modules/Settings/views/settings.php:27 htdocs/views/login.php:21
 msgid "Password"
-msgstr "パスワード"
+msgstr "Mật khẩu"
 
 #: Ucp.class.php:449
 #, php-format
 msgid "Password Reset Link (Valid Until: %s): %s"
-msgstr "パスワードリセットリンク（%sまで有効）: %s"
+msgstr ""
 
 #: htdocs/views/forgot.php:27
 #, php-format
 msgid "Password Reset for: %s"
-msgstr "%s のパスワードをリセットしました"
+msgstr ""
 
 #: htdocs/assets/js/ucp.js:274
 msgid "Password has been changed!"
-msgstr "パスワードは変更されました！"
+msgstr ""
 
 #: ucp.i18n.php:38
 msgid "Port to bind to. Default is 8001"
@@ -748,23 +744,23 @@ msgstr ""
 
 #: htdocs/assets/js/ucp.js:289
 msgid "Processing..."
-msgstr "処理中..."
+msgstr ""
 
 #: htdocs/modules/Home/Home.class.php:54 ucp.i18n.php:64
 msgid "RSS Feeds"
-msgstr "RSSフィード"
+msgstr ""
 
 #: ucp.i18n.php:66
 msgid "RSS Feeds that are displayed in UCP. This overrides "
-msgstr "RSSフィードがUCPで表示され、上書きします "
+msgstr ""
 
 #: Ucp.class.php:261
 msgid "Refreshing all UCP Assets, this could take a while..."
-msgstr "UCPアセットを再読み込みしています。お待ちください..."
+msgstr ""
 
 #: htdocs/views/forgot.php:48 htdocs/views/login.php:41
 msgid "Remember Me"
-msgstr "保存する"
+msgstr ""
 
 #: htdocs/views/dashboard-header.php:66
 #: htdocs/modules/Widgets/assets/js/global.js:440
@@ -773,7 +769,7 @@ msgstr ""
 
 #: htdocs/views/forgot.php:62
 msgid "Reset Password"
-msgstr "パスワードをリセット"
+msgstr ""
 
 #: htdocs/modules/Settings/views/settings.php:149
 msgid "Restart Tour"
@@ -790,7 +786,7 @@ msgstr ""
 
 #: htdocs/modules/Settings/assets/js/global.js:238
 msgid "Saved!"
-msgstr "保存しました！"
+msgstr ""
 
 #: htdocs/modules/Ucptour/assets/js/global.js:166
 msgid "Selecting Dashboard Widgets"
@@ -812,12 +808,12 @@ msgstr ""
 
 #: htdocs/views/login.php:55
 msgid "Send Me A Password Reset Link"
-msgstr "パスワードリセットリンクを送信する"
+msgstr ""
 
 #: htdocs/views/templates/chat.php:23
 #, php-format
 msgid "Sent at %s"
-msgstr "%s に送信された"
+msgstr ""
 
 #: ucp.i18n.php:52
 msgid "Sets the path to the HTTPS private key. This is required if "
@@ -830,7 +826,7 @@ msgstr ""
 #: htdocs/modules/Widgets/assets/js/global.js:100
 #: htdocs/modules/Widgets/assets/js/global.js:379
 msgid "Settings"
-msgstr "設定"
+msgstr "Các cài đặt"
 
 #: htdocs/views/dashboard-footer.php:60
 #: htdocs/modules/Ucptour/assets/js/global.js:243
@@ -908,7 +904,7 @@ msgstr ""
 
 #: ucp.i18n.php:14
 msgid "Styling and Logos"
-msgstr "デザインとロゴ"
+msgstr ""
 
 #: htdocs/modules/Settings/assets/js/global.js:100
 #: htdocs/modules/Settings/assets/js/global.js:113
@@ -917,7 +913,7 @@ msgstr ""
 
 #: htdocs/views/templates/phone.php:69
 msgid "TUV"
-msgstr "TUV"
+msgstr ""
 
 #: htdocs/modules/Settings/assets/js/global.js:55
 msgid "The Browser Language could not be determined"
@@ -979,17 +975,15 @@ msgid ""
 "The number of days a session token will be valid for. Clear this setting if "
 "you want tokens to last forever (Not Recommended)"
 msgstr ""
-"セッショントークンが有効な日数。トークンが永久に有効になることを希望する場合"
-"この設定をクリアしてください（非推奨）"
 
 #: htdocs/modules/Settings/views/settings.php:29
 #: htdocs/modules/Settings/views/settings.php:34
 msgid "The password used to login to User Control Panel and other services"
-msgstr "UCPやその他のサービスのログインに使うパスワード"
+msgstr ""
 
 #: htdocs/views/dashfootercontent.php:4
 msgid "The removal of this copyright notice is stricly prohibited"
-msgstr "著作権情報の削除は禁止されています"
+msgstr ""
 
 #: htdocs/assets/js/ucp.js:507
 msgid "The session has expired and you are being forcibly logged out"
@@ -1000,12 +994,10 @@ msgid ""
 "The user control panel is a way for users to control call handling and "
 "personal settings from a web browser."
 msgstr ""
-"ユーザーコントロールパネルを使用すると呼の処理と個人設定をウェブブラウザから"
-"コントロールできます。"
 
 #: htdocs/modules/Settings/views/settings.php:20
 msgid "The username used to login to User Control Panel and other services"
-msgstr "ユーザーコントロールパネルとたのサービスにログインするためのユーザー名"
+msgstr ""
 
 #: htdocs/modules/Ucptour/assets/js/global.js:325
 msgid "The widget's content is displayed here"
@@ -1028,21 +1020,18 @@ msgstr ""
 
 #: htdocs/index.php:108
 msgid "There was an error trying to load UCP"
-msgstr "UCPをロード中にエラーが発生しました"
+msgstr ""
 
 #: htdocs/assets/js/ucp.js:34 htdocs/assets/js/ucp.js:49
 msgid "There was an error. See the console log for more details"
 msgstr ""
 
 #: views/users_hook.php:163
-#, fuzzy
 msgid ""
 "These are the assigned and active extensions which will be allowed to edit "
 "extension settings such as Call Waiting, Call Forwarding, Find Me/Follow Me "
 "and others"
 msgstr ""
-"これらはアサインされアクティブな内線です。コールウェイティング、通話転送、"
-"ファインドミー / フォロミー、などで内線設定を変更することを許可されています。"
 
 #: htdocs/modules/Ucptour/assets/js/global.js:244
 msgid ""
@@ -1066,7 +1055,7 @@ msgstr ""
 
 #: htdocs/modules/Settings/views/settings.php:62
 msgid "Title"
-msgstr "肩書"
+msgstr "Tiêu đề"
 
 #: htdocs/modules/Ucptour/assets/js/global.js:25
 msgid "To continue just click Next"
@@ -1084,9 +1073,6 @@ msgid ""
 "webserver's configuration file for the User Control Panel. For more "
 "information see: %s"
 msgstr ""
-"ユーザー・コントロール・パネルを使用するには、サーバーの整合性を保つために"
-"ウェブサーバーの設定ファイルにオーバーライドを許可する必要があります。詳しく"
-"はこちら： %s"
 
 #: htdocs/modules/Ucptour/assets/js/global.js:330
 msgid "To remove this widget from the side bar click 'Remove Widget'"
@@ -1094,11 +1080,11 @@ msgstr ""
 
 #: htdocs/index.php:108 ucp.i18n.php:10
 msgid "UCP"
-msgstr "UCP"
+msgstr ""
 
 #: views/header.php:1
 msgid "UCP Admin"
-msgstr "UCP管理者"
+msgstr ""
 
 #: Ucp.class.php:1207
 msgid "UCP Daemon"
@@ -1128,7 +1114,7 @@ msgstr ""
 
 #: ucp.i18n.php:68
 msgid "UCP Session Timeout"
-msgstr "UCP セッション タイムアウト"
+msgstr ""
 
 #: ucp.i18n.php:20
 msgid ""
@@ -1138,7 +1124,7 @@ msgstr ""
 
 #: htdocs/index.php:23
 msgid "UCP is currently disabled. Please talk to your system Administrator"
-msgstr "UCPは無効です。システムの管理者にご相談ください。"
+msgstr ""
 
 #: htdocs/assets/js/ucp.js:324
 msgid "UCP is not supported in your browser"
@@ -1147,14 +1133,13 @@ msgstr ""
 #: htdocs/modules/Settings/assets/js/global.js:101
 #: htdocs/modules/Settings/assets/js/global.js:116
 msgid "UCP needs to reload, ok?"
-msgstr "UCPを再読み込みします。よろしいですか？"
+msgstr ""
 
 #: views/users_hook.php:9
 msgid ""
 "UCP, otherwise known as the User Control Panel, is a user interface for "
 "FreePBX."
 msgstr ""
-"UCP（ユーザーコントロールパネル）はFreePBXのユーザーインターフェイスです。"
 
 #: htdocs/includes/User.class.php:84
 msgid "Unable to send Password Reset Email"
@@ -1166,11 +1151,11 @@ msgstr ""
 
 #: htdocs/modules/Settings/assets/js/global.js:271
 msgid "Unsupported file type"
-msgstr "サポートされていないファイル形式"
+msgstr "Kiểu tệp không được hỗ trợ"
 
 #: htdocs/modules/Settings/views/settings.php:36
 msgid "Update Password"
-msgstr "パスワード更新"
+msgstr ""
 
 #: htdocs/modules/Settings/views/settings.php:122
 msgid "Use Browser Language"
@@ -1182,7 +1167,7 @@ msgstr ""
 
 #: htdocs/modules/Settings/views/settings.php:111
 msgid "Use Gravatar"
-msgstr "グラバターを使用"
+msgstr "Sử dụng Gravata ( Hình ảnh đại diện được nhận dạng trên toàn cầu)"
 
 #: htdocs/modules/Settings/views/settings.php:125
 msgid "Use PBX Language"
@@ -1201,39 +1186,37 @@ msgstr ""
 #: /usr/src/freepbx/ucp/ucp.i18n.php:56
 #: htdocs/modules/Widgets/assets/js/global.js:47
 msgid "User Control Panel"
-msgstr "UCP"
+msgstr ""
 
 #: htdocs/modules/Settings/views/settings.php:2
 msgid "User Control Panel Settings"
-msgstr "ユーザーコントロールパネル設定"
+msgstr ""
 
 #: htdocs/views/dashfootercontent.php:2
 #, php-format
 msgid "User Control Panel is released as %s or newer"
 msgstr ""
-"ユーザーコントロールパネルのライセンスは %s もしくは最新のライセンスで提供さ"
-"れています"
 
 #: Ucp.class.php:445
 #, php-format
 msgid "User Control Panel: %s"
-msgstr "ユーザーコントロールパネル： %s"
+msgstr ""
 
 #: htdocs/modules/Settings/views/settings.php:6
 msgid "User Details"
-msgstr "ユーザー詳細"
+msgstr ""
 
 #: Ucp.class.php:308 Ucp.class.php:337
 msgid "User Primary Extension"
-msgstr "ユーザープライマリ内線"
+msgstr "Máy nhánh chính của người dùng"
 
 #: htdocs/modules/Ucptour/assets/js/global.js:346
 msgid "User Settings"
-msgstr "ユーザー設定"
+msgstr ""
 
 #: htdocs/modules/Settings/views/settings.php:18 htdocs/views/login.php:16
 msgid "Username"
-msgstr "ユーザー名"
+msgstr "Tên người dùng"
 
 #: ucp.i18n.php:12
 msgid "View: UCP dashfootercontent.php"
@@ -1245,12 +1228,12 @@ msgstr ""
 
 #: htdocs/views/templates/phone.php:73
 msgid "WXYZ"
-msgstr "WXYZ"
+msgstr ""
 
 #: htdocs/views/header.php:70
 #, php-format
 msgid "Welcome %s"
-msgstr "こんにちは %s"
+msgstr ""
 
 #: htdocs/modules/Ucptour/assets/js/global.js:24
 #, perl-format
@@ -1259,7 +1242,7 @@ msgstr ""
 
 #: views/users_hook.php:4
 msgid "What is UCP"
-msgstr "UCPとは何か"
+msgstr ""
 
 #: htdocs/modules/Settings/views/settings.php:151
 msgid "When set to yes the tour will restart when this window closes"
@@ -1349,11 +1332,11 @@ msgstr ""
 
 #: htdocs/modules/Settings/views/settings.php:77
 msgid "Work Phone"
-msgstr "オフィス電話"
+msgstr ""
 
 #: views/users_hook.php:51 views/users_hook.php:81 views/users_hook.php:178
 msgid "Yes"
-msgstr "はい"
+msgstr "Có"
 
 #: htdocs/modules/Widgets/assets/js/global.js:1139
 msgid "You already have this widget on the side bar"
@@ -1391,31 +1374,31 @@ msgstr ""
 
 #: htdocs/assets/js/ucp.js:311
 msgid "Your Browser is unsupported at this time."
-msgstr "このブラウザはサポートされていません。"
+msgstr ""
 
 #: htdocs/modules/Settings/views/settings.php:74
 msgid "Your Cell Phone Number"
-msgstr "あなたの携帯電話番号"
+msgstr ""
 
 #: htdocs/modules/Settings/views/settings.php:69
 msgid "Your Company"
-msgstr "あなたの会社名"
+msgstr ""
 
 #: htdocs/modules/Settings/views/settings.php:49
 msgid "Your Email Address"
-msgstr "あなたのメールアドレス"
+msgstr ""
 
 #: htdocs/modules/Settings/views/settings.php:89
 msgid "Your Fax Number"
-msgstr "あなたのFAX番号"
+msgstr ""
 
 #: htdocs/modules/Settings/views/settings.php:54
 msgid "Your First Name"
-msgstr "あなたの名前"
+msgstr ""
 
 #: htdocs/modules/Settings/views/settings.php:84
 msgid "Your Home Number"
-msgstr "あなたの自宅電話番号"
+msgstr ""
 
 #: htdocs/modules/Settings/views/settings.php:128
 msgid "Your Language"
@@ -1423,7 +1406,7 @@ msgstr ""
 
 #: htdocs/modules/Settings/views/settings.php:59
 msgid "Your Last Name"
-msgstr "あなたの苗字"
+msgstr ""
 
 #: htdocs/modules/Settings/views/settings.php:141
 msgid "Your Timezone"
@@ -1431,19 +1414,17 @@ msgstr ""
 
 #: htdocs/modules/Settings/views/settings.php:64
 msgid "Your Title"
-msgstr "あなたの役職"
+msgstr ""
 
 #: htdocs/modules/Settings/views/settings.php:79
 msgid "Your Work Number"
-msgstr "あなたの勤務先電話番号"
+msgstr ""
 
 #: htdocs/assets/js/ucp.js:313
 msgid ""
 "Your browser is unsupported at this time. Please upgrade or talk to your "
 "system administrator"
 msgstr ""
-"ご利用のブラウザはサポートされていません。アップグレードするか、システムの管"
-"理者にご相談ください。"
 
 #: htdocs/modules/Ucptour/assets/js/global.js:352
 msgid "Your can logout of UCP by clicking this logout button"
@@ -1481,8 +1462,6 @@ msgid ""
 "file paths and directories are locked down properly. For more information "
 "see: %s"
 msgstr ""
-"htaccessファイルはサーバーの整合性を保つために重要なファイルです。関連するパ"
-"スとディレクトリのセキュリティ設定をご確認ください。詳しくはこちら： %s"
 
 #: Ucp.class.php:98
 msgid "icu is not installed. You need to run: yum install icu libicu-devel"
@@ -1490,110 +1469,16 @@ msgstr ""
 
 #: htdocs/views/login.php:25
 msgid "or"
-msgstr "もしくは"
-
-#~ msgid "Password Confirmation Didn't Match!"
-#~ msgstr "パスワードは一致しません！"
-
-#~ msgid "Password has not changed!"
-#~ msgstr "パスワードは変更されていません！"
-
-#~ msgid "Username has been changed, reloading"
-#~ msgstr "ユーザー名は変更されました、リロード中。"
-
-#~ msgid " + field + "
-#~ msgstr " + field + "
-
-#~ msgid "Are you sure you wish to change your username?"
-#~ msgstr "ユーザー名を変更してよろしいですか？"
+msgstr ""
 
 #~ msgid "Contact Image"
-#~ msgstr "連絡先の画像"
-
-#~ msgid "Endpoint Settings"
-#~ msgstr "エンドポイント設定"
-
-#~ msgid "Excuse us while we try to retrieve your content"
-#~ msgstr "コンテンツを読み込み中"
+#~ msgstr "Hình ảnh liên lạc"
 
 #~ msgid "Forbidden"
-#~ msgstr "アクセス拒否"
+#~ msgstr "Bị cấm"
 
 #~ msgid "Loading"
-#~ msgstr "読み込み中"
-
-#~ msgid "New password and old password do not match"
-#~ msgstr "新しいパスワードと古いパスワードが一致しません"
+#~ msgstr "Đang tải"
 
 #~ msgid "No email defined"
-#~ msgstr "Emailが設定されていません"
-
-#~ msgid "Password fields can't be blank!"
-#~ msgstr "パスワード入力欄は空白にできません！"
-
-#~ msgid "Please enter either a username or email address"
-#~ msgstr "ユーザー名もしくはメールアドレスを入力してください"
-
-#~ msgid "UCP Language"
-#~ msgstr "UCPの言語"
-
-#~ msgid "Unable to get a token to use UCP Node Server because: '%s'"
-#~ msgstr ""
-#~ "UCPノードサーバーを使用するためのトークンを取得できません。理由 : '%s'"
-
-#~ msgid "Unknown Module %s"
-#~ msgstr "不明モジュール %s"
-
-#~ msgid "User Panel"
-#~ msgstr "ユーザーパネル"
-
-#~ msgid "You are currently working in offline mode."
-#~ msgstr "オフラインモードを利用中です。"
-
-#~ msgid "Your reset link is in the mail!"
-#~ msgstr "リセットリンクはメールで送信しました！"
-
-#~ msgid "A token has already been generated for %s, not sending email again"
-#~ msgstr "%sのトーケンが既に発行済みのため、メールは再送しません。"
-
-#~ msgid "Allowed Settings"
-#~ msgstr "可能な設定"
-
-#~ msgid "Formerly ARI, now called User Control Panel"
-#~ msgstr ""
-#~ "かつてARIと呼ばれたモジュールに代わる「ユーザーコントロールパネル」です。"
-
-#~ msgid "Connecting...."
-#~ msgstr "接続中...."
-
-#~ msgid "Copyright 2013-%s Schmooze Com Inc"
-#~ msgstr "Copyright 2013-%s Schmooze Com Inc"
-
-#~ msgid "Failed to install "
-#~ msgstr "インストールが失敗しました "
-
-#~ msgid "Module Settings"
-#~ msgstr "モジュール設定"
-
-#~ msgid "Passwords can't be blank!"
-#~ msgstr "パスワードは空にできません！"
-
-#~ msgid "Passwords changed!"
-#~ msgstr "パスワードを変更しました！"
-
-#~ msgid "Passwords do not match"
-#~ msgstr "パスワードが一致しません"
-
-#~ msgid "Submit"
-#~ msgstr "送信"
-
-#~ msgid ""
-#~ "These are the assigned and active extensions which will show up for this "
-#~ "user to control and edit in UCP"
-#~ msgstr "UCPでこのユーザーが使える内線を設定します"
-
-#~ msgid "UCP Password"
-#~ msgstr "UCPパスワード"
-
-#~ msgid "You Title"
-#~ msgstr "あなたの肩書"
+#~ msgstr "Không có email được xác định"

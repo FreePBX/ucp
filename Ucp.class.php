@@ -10,6 +10,8 @@
 //TODO: In 15 this needs to be namespaced!
 use Symfony\Component\Process\Exception\ProcessFailedException;
 use Symfony\Component\Process\Process;
+//progress bar
+use Symfony\Component\Console\Helper\ProgressBar;
 class Ucp implements \BMO {
 	private $message;
 	private $registeredHooks = array();
@@ -1311,6 +1313,29 @@ class Ucp implements \BMO {
 		}
 
 		$this->FreePBX->Pm2->stop("ucp");
+		if(is_object($output)) {
+			$progress = new ProgressBar($output, 0);
+			$progress->setFormat('[%bar%] %elapsed%');
+			$progress->start();
+		}
+		$i = 0;
+		while($i < 100) {
+			$data = $this->FreePBX->Pm2->getStatus("ucp");
+			if(!empty($data) && $data['pm2_env']['status'] != 'online') {
+				if(is_object($output)) {
+					$progress->finish();
+				}
+				break;
+			}
+			if(is_object($output)) {
+				$progress->setProgress($i);
+			}
+			$i++;
+			usleep(100000);
+		}
+		if(is_object($output)) {
+			$output->writeln("");
+		}
 
 		$data = $this->FreePBX->Pm2->getStatus("ucp");
 		if (empty($data) || $data['pm2_env']['status'] != 'online') {

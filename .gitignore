@@ -5,6 +5,7 @@ htdocs/modules/*
 !htdocs/modules/Ucptour
 htdocs/modules/Home/assets/less/cache/*
 htdocs/modules/Settings/assets/less/cache/*
+htdocs/assets/react/compiled/*
 htdocs/assets/less/compiled/*
 htdocs/assets/js/compiled/*
 htdocs/assets/css/compiled/*
