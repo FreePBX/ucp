@@ -213,7 +213,9 @@ class UCP extends UCP_Helpers {
 			"browser-locale-1.0.0.min.js",
 			"uuid-3.0.1.js",
 			"react-15.6.1.min.js",
+			"react-shim.js", //https://stackoverflow.com/questions/23125338/how-do-i-use-browserify-with-external-dependencies
 			"react-dom-15.6.1.min.js",
+			"react-dom-shim.js", //https://stackoverflow.com/questions/23125338/how-do-i-use-browserify-with-external-dependencies
 			"ucp.js",
 			"module.js"
 		);

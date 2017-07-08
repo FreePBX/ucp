@@ -141,27 +141,39 @@ var WidgetsC = Class.extend({
 
 			var gridstack = $(".grid-stack").data('gridstack');
 			var total = gridstack.grid.nodes.length;
-			var count = 0;
 			var resave = false;
-			$.each(gridstack.grid.nodes, function(i,v){
+			//TODO: This should be async not each
+			async.each(gridstack.grid.nodes, function(v,callback) {
 				var el = v.el;
-				if(!el.hasClass("add-widget-widget")){
+				if(!el.hasClass("add-widget-widget")) {
 					var widget_id = $(el).data('id');
 					var widget_type_id = $(el).data('widget_type_id');
 					var widget_rawname = $(el).data('rawname');
+					var cased = widget_rawname.modularize();
+					var noload = (typeof allWidgets[cased].list[widget_type_id].noload !== "undefined") ? allWidgets[cased].list[widget_type_id].noload : false;
 					if(typeof $(el).data("regenuuid") !== "undefined" && $(el).data("regenuuid")) {
 						resave = true;
 					}
-					$this.getWidgetContent(widget_id, widget_type_id, widget_rawname, function() {
+
+					if(noload) {
 						$(document).trigger("post-body.widget-added",[ widget_id, $this.activeDashboard ]);
-						count++;
-						if(count == total) {
-							$(document).trigger("post-body.widgets",[ $this.activeDashboard ]);
-							if(resave) {
-								$this.saveLayoutContent();
-							}
-						}
-					});
+						callback();
+					} else {
+						$this.getWidgetContent(widget_id, widget_type_id, widget_rawname, function() {
+							$(document).trigger("post-body.widget-added",[ widget_id, $this.activeDashboard ]);
+							callback();
+						});
+					}
+				}
+			}, function(err) {
+				if(err) {
+					//show error because there was an error
+					UCP.showAlert(err,'danger');
+				} else {
+					$(document).trigger("post-body.widgets",[ $this.activeDashboard ]);
+					if(resave) {
+						$this.saveLayoutContent();
+					}
 				}
 			});
 
@@ -989,7 +1001,7 @@ var WidgetsC = Class.extend({
 					max_size_y = null,
 					resizable = true,
 					dynamic = false,
-					reactjs = false;
+					noload = false;
 
 			if(typeof widget_info.defaultsize !== "undefined") {
 				default_size_x = widget_info.defaultsize.width;
@@ -1018,8 +1030,8 @@ var WidgetsC = Class.extend({
 				dynamic = widget_info.dynamic;
 			}
 
-			if(typeof widget_info.reactjs !== "undefined") {
-				reactjs = widget_info.reactjs;
+			if(typeof widget_info.noload !== "undefined") {
+				noload = widget_info.noload;
 			}
 
 			//Checking if the widget is already on the dashboard
@@ -1027,7 +1039,7 @@ var WidgetsC = Class.extend({
 
 			if(dynamic || !object_on_dashboard) {
 
-				if(reactjs) {
+				if(noload) {
 					$("#add_widget").modal("hide");
 					var widget_html = '';
 					var full_widget_html = $this.widget_layout(new_widget_id, widget_module_name, widget_name, widget_id, widget_rawname, widget_has_settings, widget_html, resizable, false);
@@ -1504,7 +1516,7 @@ var WidgetsC = Class.extend({
 				//is this widget resizable?
 				var resizable = (typeof allWidgets[cased].list[widget.widget_type_id].resizable !== "undefined") ? allWidgets[cased].list[widget.widget_type_id].resizable : true;
 
-				var reactjs = (typeof allWidgets[cased].list[widget.widget_type_id].reactjs !== "undefined") ? allWidgets[cased].list[widget.widget_type_id].reactjs : false;
+				var noload = (typeof allWidgets[cased].list[widget.widget_type_id].noload !== "undefined") ? allWidgets[cased].list[widget.widget_type_id].noload : false;
 
 				//now add the widget
 				gridstack.addWidget($(full_widget_html), widget.size_x, widget.size_y, widget.col, widget.row, false, min_size_x, max_size_x, min_size_y, max_size_y);
@@ -1518,7 +1530,7 @@ var WidgetsC = Class.extend({
 				gridstack.movable($(".grid-stack-item[data-id="+widget.id+"]"), !widget.locked);
 				gridstack.locked($(".grid-stack-item[data-id="+widget.id+"]"), widget.locked);
 
-				if(reactjs) {
+				if(noload) {
 					//execute module method
 					UCP.callModuleByMethod(widget.rawname,"displayWidget",widget.id,$this.activeDashboard);
 					//execute resize module method

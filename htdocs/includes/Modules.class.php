@@ -180,19 +180,21 @@ class Modules extends Module_Helpers {
 					continue;
 				}
 				$src = dirname(__DIR__)."/modules/".$module."/react/src";
+				$nodePath = dirname(dirname(__DIR__)).'/node/node_modules';
 				if(is_dir($src)) {
-					//$code = dirname(dirname(__DIR__)).'/node/node_modules/.bin/babel --presets '.dirname(dirname(__DIR__)).'/node/node_modules/babel-preset-es2015,'.dirname(dirname(__DIR__)).'/node/node_modules/babel-preset-react '.$src.' --out-dir '.$cache;
-					//exec($code);
 					foreach (glob($src."/*.js") as $file) {
-						$code = $nodePath.'/.bin/browserify '.$file.' -o '.$cache.'/'.basename($file).' -t [ '.$nodePath.'/babelify --presets [ '.$nodePath.'/babel-preset-es2015 '.$nodePath.'/babel-preset-react ] ]';
-						exec($code);
-						$files[] = "assets/react/compiled/modules/".basename($file);
+						$base = basename($file);
+						$last = filemtime($file);
+						$code = $nodePath.'/.bin/browserify --external react '.$file.' -o '.$cache.'/'.$last.'_'.$base.' -t [ '.$nodePath.'/babelify --presets [ '.$nodePath.'/babel-preset-es2015 '.$nodePath.'/babel-preset-react ] ]';
+						if(!file_exists($cache.'/'.$last.'_'.$base)) {
+							exec($code);
+						}
+						$files[] = "assets/react/compiled/modules/".$last.'_'.$base;
+						$contents .= file_get_contents($cache.'/'.$last.'_'.$base)."\n";
 					}
 				}
 			}
 		}
-
-		return $files;
 
 		// If we're not using our minified files, don't make them.
 		if (!$packaged) {

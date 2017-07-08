@@ -127,17 +127,17 @@ var UCPC = Class.extend({
 				setupBootstrapTable(this);
 			});
 		});
-		$(document).on("post-body.widgets",function(){
-			$('.grid-stack select[data-toggle="select"]:visible').each(function() {
+		$(document).on("post-body.widget-added",function(event, widget_id){
+			$('.grid-stack-item[data-id='+widget_id+'] select[data-toggle="select"]:visible').each(function() {
 				setupBootstrapSelect(this);
 			});
-			$('.grid-stack select[data-toggle="multiselect"]:visible').each(function() {
+			$('.grid-stack-item[data-id='+widget_id+'] select[data-toggle="multiselect"]:visible').each(function() {
 				setupBootstrapMultiselect(this);
 			});
-			$('.grid-stack input[type=checkbox][data-toggle="toggle"]:visible').each(function() {
+			$('.grid-stack-item[data-id='+widget_id+'] input[type=checkbox][data-toggle="toggle"]:visible').each(function() {
 				setupBootstrapToggle(this);
 			});
-			$('.grid-stack table[data-toggle="table"]:visible').each(function() {
+			$('.grid-stack-item[data-id='+widget_id+'] table[data-toggle="table"]:visible').each(function() {
 				setupBootstrapTable(this);
 			});
 		});
