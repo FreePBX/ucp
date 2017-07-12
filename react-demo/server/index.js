@@ -1,3 +1,5 @@
+// Technology = Channel Type
+
 var io = require('socket.io')();
 
 var freepbx = new require('/usr/src/freepbx/ucp/node/lib/freepbx.js')();
@@ -9,31 +11,32 @@ freepbx.on('ready', function(){
 	var devices = [];
 	var queues  = [];
 	var jsonqueues = [];
+	var jsonparkinglots = [];
 
-/*	ami.on('managerevent',function(msg){
-		console.log(msg);
-	});*/
+	ami.on('managerevent',function(msg){
+		if(msg.event == 'ParkedCall' || msg.event == 'UnParkedCall')
+  		console.log(msg);
+	});
 	/*	Event: ExtensionStatus
 		Description: Event raised when an extension status changed (i.e. Registered/Unregistered) or 
 		if the action ExtensionStateList was sent
-		Return:	If it is an isolated event it will return an object with the extension and the new status,
+		Return:	If it is an isolated event it returns an object with the extension and the new status,
 		if not it will only store it in an array (jsondev)
 			{
-				ext    : extension number
-				status : new status of the extension
+				ext     : extension number
+				status  : new status of the extension
 			}
 	*/
 	ami.on('extensionstatus', function(evt){
 		//If no actionid is sent then this is an isolated event
 		if(typeof evt.actionid === 'undefined' || evt.actionid === null){
 			var element = {
-				ext    : evt.exten,
-				status : evt.statustext	
-			}
+				ext     : evt.exten,
+				status  : evt.statustext	
+			};
 			io.emit('Event-ExtensionStatus',element);
 		}
 		else{
-			//For now only local extensions are required (parking lots are not included)
 			if(evt.context == 'ext-local'){
 				var displayName = 'Unknown';
 				devices[evt.actionid].map(function(val){
@@ -56,7 +59,7 @@ freepbx.on('ready', function(){
 	/*	Event: ExtensionStateListComplete
  		Description: Event raised when all the events ExtensionStatus have already displayed.
 		This event is only raised when previously an action ExtensionStateList is sent
-		Return: It will return an object with all the extensions and status as below
+		Return: It returns an object with all the extensions and status as below
 			{
 				ext    : extension number
 				name   : callerid or display name
@@ -76,7 +79,6 @@ freepbx.on('ready', function(){
 		io.emit('Event-ExtensionStateListComplete', jsondev[evt.actionid]);
 		jsondev[evt.actionid] = [];
 		devices[evt.actionid] = [];
-
 	});
 
 	/*	Event: QueueParams
@@ -129,8 +131,8 @@ freepbx.on('ready', function(){
 				membership : type of agent (static or dynamic)
 				penalty    : penalty number of the agent
 				callstaken : number of calls taken by this agent
-				lastcall   : last call of this agent
-				incall     : time of current call
+				lastcall   : time of last call of this agent
+				incall     : 1 agent is in call, 0 not
 				status     : status of this agent
 				paused     : indicates if this agent is currently in pause
 			}
@@ -155,12 +157,338 @@ freepbx.on('ready', function(){
 	/*	Event: QueueStausComplete
  		Description: Event raised when all the events QueueParams and QueueMember have already displayed.
 		This event is only raised when previously an action QueueStatus is sent
-		Return: It return an object with the union of the objects created by the Events QueueParams and QueueMember
+		Return: It returns an object with the union of the objects created by the Events QueueParams and QueueMember
 	*/ 
 	ami.on('queuestatuscomplete', function(evt){
+		jsonqueues[evt.actionid].sort(function(a,b){
+                        if(a.queue < b.queue)
+                                return -1;
+                        if(a.queue > b.queue)
+                                return 1;
+                        return 0;
+                });
 		io.emit('Event-QueueStatusComplete', jsonqueues[evt.actionid]);
 		jsonqueues[evt.actionid] = [];
 		queues[evt.actionid] = [];
+	});
+
+	/*	Event: PeerStatus
+ 		Description: Event raised when a peer changed its status
+		Return: It returns an object with the following data
+			{
+				ext        : number of the peer that changed status
+				tech       : technology of the peer
+				peerstatus : new status of the peer
+			}
+	*/
+	ami.on('peerstatus', function(evt){
+		var peer = evt.peer.split('/');
+		var element = {
+			ext        : peer[1],
+			tech       : peer[0],
+			peerstatus : evt.peerstatus		
+		};
+		io.emit('Event-PeerStatus', element);
+	});
+
+	/*	Event: QueueMemberStatus
+ 		Description: Event raised when a queue members status has changed
+		Return: It returns an object with the following data
+			{
+				queue : number of the queue where the agent belongs
+				callstaken : number of calls taken by this agent
+				paused : 0 agent not paused, 1 agent is paused
+				membername : name of the agent or extension
+				interface : the queue member's channel technology or location
+				penalty : penalty number of the agent
+				incall : 1 agent is in call, 0 not
+				membership : type of agent (static or dynamic)
+				lastcall : time of last call
+				status : status of the agent
+					0 - AST_DEVICE_UNKNOWN
+					1 - AST_DEVICE_NOT_INUSE
+					2 - AST_DEVICE_INUSE
+					3 - AST_DEVICE_BUSY
+					4 - AST_DEVICE_INVALID
+					5 - AST_DEVICE_UNAVAILABLE
+					6 - AST_DEVICE_RINGING
+					7 - AST_DEVICE_RINGINUSE
+					8 - AST_DEVICE_ONHOLD
+			}
+	*/
+	ami.on('queuememberstatus', function(evt){
+		var element = {
+			queue      : evt.queue,
+			callstaken : evt.callstaken,
+			paused     : evt.paused,
+			membername : evt.membername,
+			interface  : evt.interface,
+			penalty    : evt.penalty,
+			incall     : evt.incall,
+			membership : evt.membership,
+			lastcall   : evt.lastcall,
+			status     : evt.status	
+		};
+		io.emit('Event-QueueMemberStatus', element);
+	});
+
+	/*	Event: QueueMemberAdded
+ 		Description: Event raised when a member is added to the queue	 
+		Return: It returns an object with the following data
+                        {
+                                queue : number of the queue where the agent belongs
+                                callstaken : number of calls taken by this agent
+                                paused : 0 agent not paused, 1 agent is paused
+                                membername : name of the agent or extension
+                                interface : the queue member's channel technology or location
+                                penalty : penalty number of the agent
+                                incall : 1 agent is in call, 0 not
+                                membership : type of agent (static or dynamic)
+                                lastcall : time of last call
+                                status : status of the agent
+                                        0 - AST_DEVICE_UNKNOWN
+                                        1 - AST_DEVICE_NOT_INUSE
+                                        2 - AST_DEVICE_INUSE
+                                        3 - AST_DEVICE_BUSY
+                                        4 - AST_DEVICE_INVALID
+                                        5 - AST_DEVICE_UNAVAILABLE
+                                        6 - AST_DEVICE_RINGING
+                                        7 - AST_DEVICE_RINGINUSE
+                                        8 - AST_DEVICE_ONHOLD
+                        }
+	*/	
+	ami.on('queuememberadded', function(evt){
+		var element = {
+                        queue      : evt.queue,
+                        callstaken : evt.callstaken,
+                        paused     : evt.paused,
+                        membername : evt.membername,
+                        interface  : evt.interface,
+                        penalty    : evt.penalty,
+                        incall     : evt.incall,
+                        membership : evt.membership,
+                        lastcall   : evt.lastcall,
+                        status     : evt.status
+                };
+                io.emit('Event-QueueMemberAdded', element);
+	});
+
+	/*	Event: QueueMemberRemoved
+ 		Description: Event raised when a member is removed from the queue
+		Return: It returns an object with the following data
+                        {
+                                queue : number of the queue where the agent belongs
+                                callstaken : number of calls taken by this agent
+                                paused : 0 agent not paused, 1 agent is paused
+                                membername : name of the agent or extension
+                                interface : the queue member's channel technology or location
+                                penalty : penalty number of the agent
+                                incall : 1 agent is in call, 0 not
+                                membership : type of agent (static or dynamic)
+                                lastcall : time of last call
+                                status : status of the agent
+                                        0 - AST_DEVICE_UNKNOWN
+                                        1 - AST_DEVICE_NOT_INUSE
+                                        2 - AST_DEVICE_INUSE
+                                        3 - AST_DEVICE_BUSY
+                                        4 - AST_DEVICE_INVALID
+                                        5 - AST_DEVICE_UNAVAILABLE
+                                        6 - AST_DEVICE_RINGING
+                                        7 - AST_DEVICE_RINGINUSE
+                                        8 - AST_DEVICE_ONHOLD
+                        }	
+	*/
+	ami.on('queuememberremoved', function(evt){
+		var element = {
+                        queue      : evt.queue,
+                        callstaken : evt.callstaken,
+                        paused     : evt.paused,
+                        membername : evt.membername,
+                        interface  : evt.interface,
+                        penalty    : evt.penalty,
+                        incall     : evt.incall,
+                        membership : evt.membership,
+                        lastcall   : evt.lastcall,
+                        status     : evt.status
+                };
+                io.emit('Event-QueueMemberRemoved', element);
+	});	
+
+	/*	Event: Parkinglot
+ 		Description: Event raised when the action Parkinglots is called
+		Return: It returns an object with the following data
+			{
+				name       : name of the parking lot
+				startspace : initial space of the parking lot
+				stopspace  : final space of the parking lot
+			}
+	*/
+	ami.on('parkinglot', function(evt){
+		var element = {
+			name       : evt.name,
+			startspace : evt.startspace,
+			stopspace  : evt.stopspace		
+		};
+		jsonparkinglots[evt.actionid].push(element);
+	});
+
+	/*	Event: ParkinglotsComplete
+ 		Description: Event raised when all the Events Parkinglot have displayed
+		Return: It returns the objects stored by the Event Parkinglot
+	*/
+	ami.on('parkinglotscomplete', function(evt){
+		io.emit('Event-ParkinglotsComplete', jsonparkinglots[evt.actionid]);
+		jsonparkinglots[evt.actionid] = [];
+	});
+
+	/*	Event: Newexten
+ 		Description: Event raised when a channel enters a new extension, context or priority
+		Return: It returns an object with the following data
+			{
+				channel          : channel of the call
+				calleridnum      : extension that belongs to the channel
+				channelstatedesc : description of the status of the channel
+				connectedlinenum : calling number
+			}
+	*/
+	ami.on('newexten', function(evt){
+		var element = {
+			channel          : evt.channel,
+			calleridnum      : evt.calleridnum,
+			channelstatedesc : evt.channelstatedesc,
+			connectedlinenum : evt.connectedlinenum
+		};
+		io.emit('Event-Newexten', element);
+	});
+
+	/*	Event: Hangup
+ 		Description: Event raised when a channel is hang up
+		Return: It returns an object with the following data
+                        {
+                                channel          : channel of the call
+                                calleridnum      : extension that belongs to the channel
+                                channelstatedesc : description of the status of the channel
+                                connectedlinenum : calling number
+                        }
+	*/
+	ami.on('hangup', function(evt){
+		var element = {
+			channel : evt.channel,
+			calleridnum      : evt.calleridnum,
+			channelstatedesc : evt.channelstatedesc,
+			connectedlinenum : evt.connectedlinenum
+		}
+		io.emit('Event-Hangup', element);
+	});
+
+	/*	Event: ParkedCall
+ 		Description: Event raised when a call is parked
+		Return: It returns an object with the following information
+			{
+				parkeechannel          : channel that is parked
+				parkeechannelstatedesc : state of the parkee
+				parkeecalleridnum      : number of the line parkee
+				parkeeconnectedlinenum : last number connected to the call parkee
+				parkingspace           : parking lot number used
+			}
+	*/
+	ami.on('parkedcall', function(evt){
+		var element = {
+			parkeechannel          : evt.parkeechannel,
+			parkeechannelstatedesc : evt.parkeechannelstatedesc,
+			parkeecalleridnum      : evt.parkeecalleridnum,
+			parkeeconnectedlinenum : evt.parkeeconnectedlinenum,
+			parkingspace           : evt.parkingspace	
+		};
+		io.emit('Event-ParkedCall', element);
+	});
+
+	/*	Event: UnparkedCall
+ 		Description : Event raised when a parked call is retrieved to some extension
+		Return: It returns an object with the following information
+                        {
+                                parkeechannel          : channel that is parked
+                                parkeechannelstatedesc : state of the parkee
+                                parkeecalleridnum      : number of the line parkee
+                                parkeeconnectedlinenum : last number connected to the call parkee
+                                parkingspace           : parking lot number used
+                        }
+	*/
+	ami.on('unparkedcall', function(evt){
+		var element = {
+                        parkeechannel          : evt.parkeechannel,
+                        parkeechannelstatedesc : evt.parkeechannelstatedesc,
+                        parkeecalleridnum      : evt.parkeecalleridnum,
+                        parkeeconnectedlinenum : evt.parkeeconnectedlinenum,
+                        parkingspace           : evt.parkingspace
+                };
+                io.emit('Event-UnparkedCall', element);
+	});
+
+	/*	Event: ParkedCallSwap
+ 		Description: Event raised when a channel takes the place of a previously parked channel
+		Return: It returns an object with the following information
+                        {
+                                parkeechannel          : channel that is parked
+                                parkeechannelstatedesc : state of the parkee
+                                parkeecalleridnum      : number of the line parkee
+                                parkeeconnectedlinenum : last number connected to the call parkee
+                                parkingspace           : parking lot number used
+                        }
+	*/
+	ami.on('parkedcallswap', function(evt){
+		var element = {
+                        parkeechannel          : evt.parkeechannel,
+                        parkeechannelstatedesc : evt.parkeechannelstatedesc,
+                        parkeecalleridnum      : evt.parkeecalleridnum,
+                        parkeeconnectedlinenum : evt.parkeeconnectedlinenum,
+                        parkingspace           : evt.parkingspace
+                };
+                io.emit('Event-ParkedCallSwap', element);
+	});
+
+	/*	Event: ParkedCallGiveUp
+ 		Description: Event raised when a channel leaves a parking lot because it hung up without being answered
+		Return: It returns an object with the following information
+                        {
+                                parkeechannel          : channel that is parked
+                                parkeechannelstatedesc : state of the parkee
+                                parkeecalleridnum      : number of the line parkee
+                                parkeeconnectedlinenum : last number connected to the call parkee
+                                parkingspace           : parking lot number used
+                        }
+	*/
+	ami.on('parkedcallgiveup', function(evt){
+		var element = {
+                        parkeechannel          : evt.parkeechannel,
+                        parkeechannelstatedesc : evt.parkeechannelstatedesc,
+                        parkeecalleridnum      : evt.parkeecalleridnum,
+                        parkeeconnectedlinenum : evt.parkeeconnectedlinenum,
+                        parkingspace           : evt.parkingspace
+                };
+                io.emit('Event-ParkedCallGiveUp', element);
+	});
+
+	/*	Event: ParkedCallTimeOut
+ 		Description: Event raised when a channel leaves a parking lot due to reaching the time limit of being parked
+		Return: It returns an object with the following information
+                        {
+                                parkeechannel          : channel that is parked
+                                parkeechannelstatedesc : state of the parkee
+                                parkeecalleridnum      : number of the line parkee
+                                parkeeconnectedlinenum : last number connected to the call parkee
+                                parkingspace           : parking lot number used
+                        }
+	*/
+	ami.on('parkedcalltimeout', function(evt){
+		var element = {
+                        parkeechannel          : evt.parkeechannel,
+                        parkeechannelstatedesc : evt.parkeechannelstatedesc,
+                        parkeecalleridnum      : evt.parkeecalleridnum,
+                        parkeeconnectedlinenum : evt.parkeeconnectedlinenum,
+                        parkingspace           : evt.parkingspace
+                };
+                io.emit('Event-ParkedCallTimeOut', element);
 	});
 
 	//All the AMI actions will be manage through the socket connection
@@ -182,7 +510,7 @@ freepbx.on('ready', function(){
                         query.on('result', function(qres) {
                         	qres.on('data', function(row) {
                                 	devrow = {
-                                        	id : row.id,
+                                        	id          : row.id,
                                         	description : row.description
                                         }; 
                                         devices[actionid].push(devrow);
@@ -191,7 +519,7 @@ freepbx.on('ready', function(){
                         });
 			query.on('end', function(){
 				ami.action({
-                           		'action' : 'ExtensionStateList',
+                           		'action'   : 'ExtensionStateList',
                            		'actionid' : actionid
                         	}, function(err, res){
                                 	io.emit('Action-ExtensionStateList', res); 
@@ -204,18 +532,17 @@ freepbx.on('ready', function(){
 			Parameters: This action should receive an object with the following data
 				{
 					actionid : reference number of the action
-					tech     : technology of the caller extension
-					ext      : caller extension
+					channel  : channel of the caller extension (i.e SIP/100)
 					callto   : number to call
 				}
 		*/
 		socket.on('Action-Originate', function(msg){
 			ami.action({
-				'action' : 'Originate',
+				'action'   : 'Originate',
 				'actionid' : 'O-' + msg.actionid,
-				'channel' : msg.tech + '/' + msg.ext,
-				'exten' : msg.callto,
-				'context' : 'from-internal',
+				'channel'  : msg.channel,
+				'exten'    : msg.callto,
+				'context'  : 'from-internal',
 				'priority' : 1
 			}, function(err, res){
 				io.emit('Action-Originate', res);
@@ -227,22 +554,22 @@ freepbx.on('ready', function(){
 			Parameters: This action should receive an object with the following data
                                 {
                                         actionid : reference number of the action
-                                        tech     : technology of the caller extension
-                                        ext      : caller extension
-                                        techspy  : technology of the extension to spy
-					spy      : extension to spy
+					channel  : channel of the caller extension (i.e SIP/100)
+					chanspy  : channel to spy
+					whisper  : optional parameter, if it is defined
+						   whisper mode is enabled
                                 }
 		*/
 		socket.on('Action-ChanSpy', function(msg){
-			var data = msg.techspy + '/' + msg.spy + ',bq';
+			var data = msg.chanspy + ',bq';
 			if(typeof msg.whisper !== 'undefined')
 				data += 'dw';
 			ami.action({
-				'action' : 'Originate',
-				'actionid' : 'CS-' + msg.actionid,
-				'channel' : msg.tech + '/' + msg.ext,
+				'action'      : 'Originate',
+				'actionid'    : 'CS-' + msg.actionid,
+				'channel'     : msg.channel,
 				'application' : 'ChanSpy',
-				'data' : data
+				'data'        : data
 			}, function(err, res){
 				io.emit('Action-ChanSpy', res);
 			}); 
@@ -254,17 +581,16 @@ freepbx.on('ready', function(){
 			Parameters: This action should receive an object with the following data
 				{
 					actionid : reference number of the action
-					tech	 : technology of the extension to record
-					ext	 : extension number to record
+					channel  : channel to record
 				}
 		*/
 		socket.on('Action-Monitor', function(msg){
 			ami.action({
-				'action' : 'Monitor',
+				'action'   : 'Monitor',
 				'actionid' : 'M-' + msg.actionid,
-				'channel' : msg.tech + '/' + msg.ext,
-				'file' : msg.ext + '-' + msg.actionid,
-				'mix' : true
+				'channel'  : msg.channel,
+				'file'     : msg.channel + '_' + msg.actionid,
+				'mix'      : true
 			}, function(err, res){
 				io.emit('Action-Monitor', res);
 			});
@@ -275,15 +601,14 @@ freepbx.on('ready', function(){
 			Parameters: This action should receive an object with the following data
 				{
 					actionid : reference number of the action
-					tech     : technology of the extension to stop recording
-					ext	 : extension number
+					channel  : channel to stop recording 
 				}
 		*/
 		socket.on('Action-StopMonitor', function(msg){
 			ami.action({
-				'action' : 'StopMonitor',
+				'action'   : 'StopMonitor',
 				'actionid' : 'SM-' + msg.actionid,
-				'channel' : msg.tech + '/' + msg.ext
+				'channel'  : msg.channel
 			}, function(err, res){
 				io.emit('Action-StopMonitor', res);
 			});
@@ -294,15 +619,14 @@ freepbx.on('ready', function(){
 			Parameters: This action should receive an object with the following data
 				{
 					actionid : reference number of the action
-					tech     : technology of the extension to pause the recording
-					ext	 : extension number
+					channel  : channel to pause the recording
 				}
 		*/
 		socket.on('Action-PauseMonitor', function(msg){
 			ami.action({
-				'action' : 'PauseMonitor',
+				'action'   : 'PauseMonitor',
 				'actionid' : 'PM-' + msg.actionid,
-				'channel' : msg.tech + '/' + msg.ext
+				'channel'  : msg.channel
 			}, function(err, res){
 				io.emit('Action-PauseMonitor', res);
 			});
@@ -313,15 +637,14 @@ freepbx.on('ready', function(){
 			Parameters: This action should receive an object with the following data
 				{
 					actionid : reference number of the action
-					tech     : technology of the extension to unpause the recording
-					ext      : extension number
+					channel  : channel to unpause the recording
 				}
 		*/
 		socket.on('Action-UnpauseMonitor', function(msg){
 			ami.action({
-				'action' : 'UnpauseMonitor',
+				'action'   : 'UnpauseMonitor',
 				'actionid' : 'UPM-' + msg.actionid,
-				'channel' : msg.tech + '/' + msg.ext
+				'channel'  : msg.channel
 			}, function(err, res){
 				io.emit('Action-UnpauseMonitor', res);
 			});
@@ -342,7 +665,7 @@ freepbx.on('ready', function(){
 			query.on('result', function(qres) {
                                 qres.on('data', function(row) {
                                         queuerow = {
-                                                queue : row.extension,
+                                                queue       : row.extension,
                                                 description : row.descr
                                         };
                                         queues[actionid].push(queuerow);
@@ -351,13 +674,96 @@ freepbx.on('ready', function(){
                         });
 			query.on('end', function(){
 				ami.action({
-					'action' : 'QueueStatus',
+					'action'   : 'QueueStatus',
 					'actionid' : actionid
 				}, function(err, res){
-					io.emit('Action-QueueStatus');
+					io.emit('Action-QueueStatus', res);
 				});
-			});	
-		})
+			});
+		});
+
+		/*	Action: Atxfer
+ 			Description: Makes an attended transfer
+			Parameters: This action should receive an object with the following data
+				{
+					actionid   : reference number of the action
+					channel    : channel to transfer
+					transferto : extension to transfer to
+				}
+		*/
+		socket.on('Action-Atxfer', function(msg){
+			var actionid = 'AT-' + msg.actionid;
+			ami.action({
+				'action'   : 'Atxfer',
+				'actionid' : actionid,
+				'channel'  : msg.channel,
+				'exten'    : msg.transferto,
+				'context'  : 'from-internal'
+			}, function(err, res){
+				io.emit('Action-Atxfer', res);
+			});
+		});
+
+		/*	Action: BlindTransfer
+ 			Description: Makes a blind transfer
+			Parameters: This action should receive an object with the following data
+				{
+					actionid   : reference number of the action
+					channel    : channel to transfer
+					transferto : extension to transfer to
+				}
+		*/
+		socket.on('Action-BlindTransfer', function(msg){
+			var actionid = 'BT-' + msg.actionid;
+			ami.action({
+				'action'   : 'BlindTransfer',
+				'actionid' : actionid,
+				'channel'  : msg.channel,
+				'exten'    : msg.transferto,
+				'context'  : 'from-internal'
+			}, function(err, res){
+				io.emit('Action-BlindTransfer', res);
+			});
+		});
+
+		/*	Action: Parkinglots
+ 			Description: Get all the parking lots available
+			Parameters: This action should receive an object with the following data
+				{
+					actionid : reference number of the action
+				}
+		*/
+		socket.on('Action-Parkinglots', function(msg){
+			var actionid = 'PL-' + msg.actionid;
+			jsonparkinglots[actionid] = [];
+			ami.action({
+				'action'   : 'Parkinglots',
+				'actionid' : actionid
+			}, function(err, res){
+				io.emit('Action-Parkinglots', res);
+			});
+		});
+
+		/*	Action: Park
+ 			Description: Park a channel
+			Parameters: This action should receive an object with the following data
+				{
+					actionid : reference number of the action,
+					channel  : channel to park
+				}
+		*/
+		socket.on('Action-Park', function(msg){
+			var actionid = 'P-' + msg.actionid;
+			ami.action({
+				'action'   : 'Park',
+				'actionid' : actionid,
+				'channel'  : msg.channel
+			}, function(err, res){
+				console.log(err);
+				console.log(res);
+				io.emit('Action-Park', res);
+			});
+		});
 	}); 
 });
 

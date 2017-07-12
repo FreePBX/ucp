@@ -15,7 +15,6 @@ include '/etc/freepbx.conf';
 include(dirname(__FILE__).'/includes/bootstrap.php');
 $ucp = \UCP\UCP::create();
 $ucp->Modgettext->textdomain("ucp");
-
 ob_end_clean();
 //TIME: 0.069080114364624
 
