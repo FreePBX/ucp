@@ -207,7 +207,7 @@ class Modules extends Module_Helpers {
 			foreach(glob($cache.'/jsphp_*.js') as $f) {
 				unlink($f);
 			}
-			$output = \JShrink\Minifier::minify($contents);
+			//$output = \JShrink\Minifier::minify($contents);
 			$output = $contents;
 			file_put_contents($cache.'/'.$filename,$output);
 		}
@@ -255,7 +255,7 @@ class Modules extends Module_Helpers {
 			foreach(glob($cache.'/jsphp_*.js') as $f) {
 				unlink($f);
 			}
-			$output = \JShrink\Minifier::minify($contents);
+			//$output = \JShrink\Minifier::minify($contents);
 			$output = $contents;
 			file_put_contents($cache.'/'.$filename,$output);
 		}
