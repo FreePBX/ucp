@@ -13,17 +13,8 @@ $restrict_mods = true; //Set to true so that we just load framework and the page
 include '/etc/freepbx.conf';
 
 include(dirname(__FILE__).'/includes/bootstrap.php');
-try {
-	$ucp = \UCP\UCP::create();
-	$ucp->Modgettext->textdomain("ucp");
-} catch(\Exception $e) {
-	if(isset($_REQUEST['quietmode'])) {
-		echo json_encode(array("status" => false, "message" => "UCP is disabled"));
-	} else {
-		echo "<html><head><title>UCP</title></head><body style='background-color: rgb(211, 234, 255);'><div style='border-radius: 5px;border: 1px solid black;text-align: center;padding: 5px;width: 90%;margin: auto;left: 0px;right: 0px;background-color: rgba(53, 77, 255, 0.18);'>"._('UCP is currently disabled. Please talk to your system Administrator')."</div></body></html>";
-	}
-	die();
-}
+$ucp = \UCP\UCP::create();
+$ucp->Modgettext->textdomain("ucp");
 ob_end_clean();
 //TIME: 0.069080114364624
 
