@@ -384,48 +384,35 @@ var UCPC = Class.extend({
 			return false;
 		}
 
-		//If we don't have a valid token then try to get one
-		if (UCP.token === null) {
-			$.post( "index.php", { "quietmode": 1, "command": "token", "module": "User" }, function( data ) {
-				if (data.status && data.token !== null) {
-					UCP.token = data.token;
-					UCP.wsconnect(namespace, callback);
-				} else {
-					UCP.displayGlobalMessage(sprintf(_("Unable to get a token to use UCP Node Server because: '%s'"),data.message), "red", true);
-					callback(false);
-				}
+		var host = ucpserver.host,
+				port = ucpserver.port,
+				portS = ucpserver.portS,
+				socket = null;
+		try {
+			var connectString = (window.location.protocol == "https:") ? "wss://" + host + ":" + portS + "/" + namespace : "ws://" + host + ":" + port + "/" + namespace;
+			socket = io(connectString, {
+				reconnection: true,
+				query: "token=" + UCP.token
 			});
-		} else {
-			var host = ucpserver.host,
-					port = ucpserver.port,
-					portS = ucpserver.portS,
-					socket = null;
-			try {
-				var connectString = (window.location.protocol == "https:") ? "wss://" + host + ":" + portS + "/" + namespace : "ws://" + host + ":" + port + "/" + namespace;
-				socket = io(connectString, {
-					reconnection: true,
-					query: "token=" + UCP.token
-				});
-			}catch (err) {
-				UCP.displayGlobalMessage(err, "red", true);
-				callback(false);
-			}
-			var timeout = setTimeout(function(){
-				window.s = socket;
-				UCP.displayGlobalMessage(_("Unable to authenticate with the UCP Node Server"), "red", true);
-				callback(false);
-			}, 3000);
-			socket.on("connect", function() {
-				clearTimeout(timeout);
-				UCP.lastIO = socket.io;
-				UCP.removeGlobalMessage();
-				callback(socket);
-			});
-			socket.on("connect_error", function(reason) {
-				UCP.displayGlobalMessage(sprintf(_("Unable to connect to the UCP Node Server because: '%s'"),reason), "red", true);
-				callback(false);
-			});
+		}catch (err) {
+			UCP.displayGlobalMessage(err, "red", true);
+			callback(false);
 		}
+		var timeout = setTimeout(function(){
+			window.s = socket;
+			UCP.displayGlobalMessage(_("Unable to authenticate with the UCP Node Server"), "red", true);
+			callback(false);
+		}, 3000);
+		socket.on("connect", function() {
+			clearTimeout(timeout);
+			UCP.lastIO = socket.io;
+			UCP.removeGlobalMessage();
+			callback(socket);
+		});
+		socket.on("connect_error", function(reason) {
+			UCP.displayGlobalMessage(sprintf(_("Unable to connect to the UCP Node Server because: '%s'"),reason), "red", true);
+			callback(false);
+		});
 	},
 	connect: function(username, password) {
 		if(this.pollID === null) {
