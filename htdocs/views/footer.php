@@ -29,6 +29,11 @@
 			}
 			echo $html;
 		}?>
+		<?php if(!empty($user)) {?>
+			<script>
+				UCP.token = <?php echo isset($token) ? "'".$token."'" : null; ?>;
+			</script>
+		<?php } ?>
 		<?php foreach($reacts as $file) { ?>
 			<script type="text/javascript" src="<?php echo $file.$version_tag?>"></script>
 		<?php } ?>
@@ -52,7 +57,6 @@
 				var dashboards = <?php echo !empty($dashboards_info) ? json_encode($dashboards_info) : '{}'?>;
 				var allWidgets = <?php echo json_encode($all_widgets['widget'])?>;
 				var allSimpleWidgets = <?php echo json_encode($all_simple_widgets['widget'])?>;
-				UCP.token = <?php echo isset($token) ? "'".$token."'" : null; ?>;
 				emojione.imagePathSVG = 'assets/images/emoji/svg/';
 				emojione.imageType = 'svg';
 			</script>
