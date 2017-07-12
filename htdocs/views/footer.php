@@ -32,6 +32,7 @@
 		<?php if(!empty($user)) {?>
 			<script>
 				UCP.token = <?php echo isset($token) ? "'".$token."'" : null; ?>;
+				var ucpserver = <?php echo $ucpserver ?>;
 			</script>
 		<?php } ?>
 		<?php foreach($reacts as $file) { ?>
@@ -44,7 +45,6 @@
 			<script>
 				var modules = <?php echo $modules?>;
 				var desktop = <?php echo $desktop ? "true" : "false"?>;
-				var ucpserver = <?php echo $ucpserver ?>;
 				var timezone = '<?php echo $timezone ?>';
 				var language = '<?php echo FreePBX::View()->getLocale()?>';
 				moment.locale(language);
