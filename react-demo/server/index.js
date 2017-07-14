@@ -5,16 +5,25 @@ var io = require('socket.io')();
 var freepbx = new require('/usr/src/freepbx/ucp/node/lib/freepbx.js')();
 
 freepbx.on('ready', function(){
-	var ami = freepbx.astman;
-	var db  = freepbx.db;
-	var jsondev = [];
-	var devices = [];
-	var queues  = [];
-	var jsonqueues = [];
-	var jsonparkinglots = [];
+	var ami = freepbx.astman,
+	    db  = freepbx.db,
+	    jsondev = [],
+	    devices = [],
+	    queues  = [],
+	    jsonqueues = [],
+	    jsonparkinglots = [],
+	    // Function to get statistics of an specific queue
+	    queueStatus = function(actionid, queue){
+		jsonqueues[actionid] = [];
+		ami.action({
+			'action'   : 'QueueStatus',
+			'actionid' : actionid,
+			'queue'    : queue
+		});
+	};
 
 	ami.on('managerevent',function(msg){
-		if(msg.event == 'ParkedCall' || msg.event == 'UnParkedCall')
+	//	if(msg.event == 'QueueCallerLeave' || msg.event == 'QueueCallerJoin' || msg.event == 'QueueCallerAbandon' || msg.event == 'QueueMemberStatus' || msg.event == 'QueueParams' || msg.event == 'QueueMember')
   		console.log(msg);
 	});
 	/*	Event: ExtensionStatus
@@ -39,10 +48,12 @@ freepbx.on('ready', function(){
 		else{
 			if(evt.context == 'ext-local'){
 				var displayName = 'Unknown';
-				devices[evt.actionid].map(function(val){
-					if(evt.exten == val.id)
-						displayName = val.description;
-				})
+				if(typeof devices[evt.actionid] !== 'undefined' && devices[evt.actionid] !== null){
+					devices[evt.actionid].map(function(val){
+						if(evt.exten == val.id)
+							displayName = val.description;
+					});
+				}
 				var tech = evt.hint.split("/");
 				var element = {
 					ext     : evt.exten,
@@ -90,7 +101,7 @@ freepbx.on('ready', function(){
 				queue     : number of the queue
 				queueName : name of the queue
 				strategy  : strategy of the queue
-				calls     : number of calls received
+				calls     : number of active calls
 				holdtime  : total hold time
 				talktime  : total talk time
 				completed : number of calls completed
@@ -98,12 +109,16 @@ freepbx.on('ready', function(){
 			}
 	*/
 	ami.on('queueparams', function(evt){
+		if(typeof jsonqueues[evt.actionid] === 'undefined' || jsonqueues[evt.actionid] === null)
+                        jsonqueues[evt.actionid] = [];
 		if(evt.queue != 'default'){
 			var queueName = 'Unknown';
-			queues[evt.actionid].map(function(val){
-				if(evt.queue == val.queue)
-					queueName = val.description;
-			});
+			if(typeof queues[evt.actionid] !== 'undefined' && queues[evt.actionid] !== null){
+				queues[evt.actionid].map(function(val){
+					if(evt.queue == val.queue)
+						queueName = val.description;
+				});
+			}
 			var element = {
 				type      : 'queue',
 				queue     : evt.queue,
@@ -131,13 +146,15 @@ freepbx.on('ready', function(){
 				membership : type of agent (static or dynamic)
 				penalty    : penalty number of the agent
 				callstaken : number of calls taken by this agent
-				lastcall   : time of last call of this agent
+				lastcall   : date of last call (in seconds)
 				incall     : 1 agent is in call, 0 not
 				status     : status of this agent
 				paused     : indicates if this agent is currently in pause
 			}
 	*/
 	ami.on('queuemember', function(evt){
+		if(typeof jsonqueues[evt.actionid] === 'undefined' || jsonqueues[evt.actionid] === null)
+                        jsonqueues[evt.actionid] = [];
 		var element = {
 			type       : 'member',
 			queue      : evt.queue,
@@ -203,7 +220,7 @@ freepbx.on('ready', function(){
 				penalty : penalty number of the agent
 				incall : 1 agent is in call, 0 not
 				membership : type of agent (static or dynamic)
-				lastcall : time of last call
+				lastcall : date of last call (in seconds)
 				status : status of the agent
 					0 - AST_DEVICE_UNKNOWN
 					1 - AST_DEVICE_NOT_INUSE
@@ -244,7 +261,7 @@ freepbx.on('ready', function(){
                                 penalty : penalty number of the agent
                                 incall : 1 agent is in call, 0 not
                                 membership : type of agent (static or dynamic)
-                                lastcall : time of last call
+                                lastcall : date of last call (in seconds)
                                 status : status of the agent
                                         0 - AST_DEVICE_UNKNOWN
                                         1 - AST_DEVICE_NOT_INUSE
@@ -285,7 +302,7 @@ freepbx.on('ready', function(){
                                 penalty : penalty number of the agent
                                 incall : 1 agent is in call, 0 not
                                 membership : type of agent (static or dynamic)
-                                lastcall : time of last call
+                                lastcall : date of last call (in seconds)
                                 status : status of the agent
                                         0 - AST_DEVICE_UNKNOWN
                                         1 - AST_DEVICE_NOT_INUSE
@@ -491,6 +508,30 @@ freepbx.on('ready', function(){
                 io.emit('Event-ParkedCallTimeOut', element);
 	});
 
+	/*	Event: QueueCallerJoin
+ 		Description: Event raised when a call join a queue
+                Return: It sends an action to get the status of the queue
+	*/
+	ami.on('queuecallerjoin', function(evt){
+                queueStatus('QCJ-112233', evt.queue);
+        });
+
+	/*	Event: QueueCallerAbandon
+ 		Description: Event raised when a caller abandons the queue
+                Return: It sends an action to get the status of the queue
+        */
+	ami.on('queuecallerabandon', function(evt){
+                queueStatus('QCA-112233', evt.queue);
+        });
+
+	/*	Event: QueueCallerLeave
+ 		Description: Event raised when a caller leaves a queue
+                Return: It sends an action to get the status of the queue
+        */
+	ami.on('queuecallerleave', function(evt){
+                queueStatus('QCL-112233', evt.queue);
+        });
+	
 	//All the AMI actions will be manage through the socket connection
 	io.on('connection', function(socket){
 
@@ -759,8 +800,6 @@ freepbx.on('ready', function(){
 				'actionid' : actionid,
 				'channel'  : msg.channel
 			}, function(err, res){
-				console.log(err);
-				console.log(res);
 				io.emit('Action-Park', res);
 			});
 		});
