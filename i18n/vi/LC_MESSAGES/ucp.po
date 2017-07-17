@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-04-27 11:31-0400\n"
-"PO-Revision-Date: 2017-07-17 15:58+0200\n"
+"PO-Revision-Date: 2017-07-17 16:54+0200\n"
 "Last-Translator: PETER <ftek@ymail.com>\n"
 "Language-Team: Vietnamese "
 "<http://weblate.freepbx.org/projects/freepbx/ucp/vi/>\n"
@@ -37,7 +37,7 @@ msgstr ""
 #: htdocs/assets/js/bootstrap-table-1.9.0.js:1479
 #: htdocs/assets/js/bootstrap-table-1.9.0.js:1480
 msgid " + field + "
-msgstr " + field + "
+msgstr " + trường+ "
 
 #: htdocs/index.php:88
 msgid ".htaccess files are disabled on this webserver. Please enable them"
@@ -68,6 +68,8 @@ msgstr "Quản trị viên"
 msgid ""
 "All fields update when unfocused (selecting another field) except password"
 msgstr ""
+"Tất cả các trường cập nhật khi ở trạng thái unfocused (chọn trường khác) "
+"ngoại trừ mật khẩu"
 
 #: htdocs/views/settings.php:111
 msgid "Allow Desktop Notifications"
@@ -240,7 +242,7 @@ msgstr "Đang tạo Mô đun kịch bản..."
 
 #: htdocs/views/templates/phone.php:98
 msgid "Hold"
-msgstr ""
+msgstr "giữ"
 
 #: htdocs/modules/Home/Home.class.php:252 htdocs/views/dashboard.php:32
 #: htdocs/assets/js/ucp.js:813
@@ -549,34 +551,40 @@ msgid ""
 "UCP icons folder. This should never be changed except for very advanced "
 "layout changes"
 msgstr ""
+"Tệp chứa các biểu tượng của UCP. Không bao giờ được thay đổi tệp này ngoại "
+"trừ các thay đổi bố cục rất nâng cao"
 
 #: htdocs/index.php:25
 msgid "UCP is currently disabled. Please talk to your system Administrator"
 msgstr ""
+"UCP hiện đang bị vô hiệu. Vui lòng thông báo với quản trị viên hệ thống của "
+"bạn"
 
 #: htdocs/assets/js/ucp.js:970
 msgid "UCP needs to reload, ok?"
-msgstr ""
+msgstr "Cần tải lại UCP, ok?"
 
 #: views/users_hook.php:9
 msgid ""
 "UCP, otherwise known as the User Control Panel, is a user interface for "
 "FreePBX."
 msgstr ""
+"UCP, hay còn được biết đến là User Control Panel, là một giao diện người "
+"dùng cho FreePBX."
 
 #: htdocs/assets/js/ucp.js:395
 #, perl-format
 msgid "Unable to get a token to use UCP Node Server because: '%s'"
-msgstr ""
+msgstr "Không thể lấy token để sử dụng UCP Node Server vì: '%s'"
 
 #: htdocs/includes/User.class.php:84
 msgid "Unable to send Password Reset Email"
-msgstr ""
+msgstr "Không thể gửi Email cài đặt lại mật khẩu"
 
 #: htdocs/index.php:192
 #, php-format
 msgid "Unknown Module %s"
-msgstr ""
+msgstr "Không xác định được mô đun %s"
 
 #: htdocs/assets/js/ucp.js:1090
 msgid "Unsupported file type"
@@ -584,7 +592,7 @@ msgstr "Kiểu tệp không được hỗ trợ"
 
 #: htdocs/views/settings.php:31
 msgid "Update Password"
-msgstr ""
+msgstr "Cập nhật mật khẩu"
 
 #: htdocs/views/settings.php:149
 msgid "Use Gravatar"
@@ -594,25 +602,25 @@ msgstr "Sử dụng Gravata ( Hình ảnh đại diện được nhận dạng t
 #: htdocs/views/login.php:4 ucp.i18n.php:4
 #: /usr/src/freepbx/ucp/ucp.i18n.php:24
 msgid "User Control Panel"
-msgstr ""
+msgstr "Bảng điều khiển người dùng"
 
 #: htdocs/views/settings.php:2
 msgid "User Control Panel Settings"
-msgstr ""
+msgstr "Các cài đặt trong Bảng điều khiển người dùng"
 
 #: htdocs/views/dashfootercontent.php:7
 #, php-format
 msgid "User Control Panel is released as %s or newer"
-msgstr ""
+msgstr "Bảng điều khiển người dùng được phát hành dưới dạng %s hoặc mới hơn"
 
 #: Ucp.class.php:203
 #, php-format
 msgid "User Control Panel: %s"
-msgstr ""
+msgstr "Bảng điều khiển người dùng: %s"
 
 #: htdocs/views/settings.php:41
 msgid "User Details"
-msgstr ""
+msgstr "Thông tin chi tiết của người dùng"
 
 #: Ucp.class.php:70 /usr/src/freepbx/ucp/Ucp.class.php:98
 msgid "User Primary Extension"
@@ -620,7 +628,7 @@ msgstr "Người dùng máy nhánh chính"
 
 #: htdocs/index.php:227
 msgid "User Settings"
-msgstr ""
+msgstr "Cài đặt người dùng"
 
 #: htdocs/views/login.php:15 htdocs/views/settings.php:13
 msgid "Username"
@@ -628,32 +636,32 @@ msgstr "Tên người dùng"
 
 #: htdocs/assets/js/ucp.js:1036
 msgid "Username has been changed, reloading"
-msgstr ""
+msgstr "Tên người dùng vừa được thay đổi, đang tải lại"
 
 #: ucp.i18n.php:12
 msgid "View: UCP dashfootercontent.php"
-msgstr ""
+msgstr "Xem: UCP dashfootercontent.php"
 
 #: ucp.i18n.php:18
 msgid "View: UCP icons"
-msgstr ""
+msgstr "Xem: Các biểu tượng UCP"
 
 #: htdocs/views/templates/phone.php:73
 msgid "WXYZ"
-msgstr ""
+msgstr "WXYZ"
 
 #: htdocs/views/dashboard.php:3
 #, php-format
 msgid "Welcome %s"
-msgstr ""
+msgstr "Chào mừng đến với %s"
 
 #: views/users_hook.php:4
 msgid "What is UCP"
-msgstr ""
+msgstr "UCP là gì"
 
 #: htdocs/views/settings.php:79
 msgid "Work Phone"
-msgstr ""
+msgstr "Điện thoại cơ quan"
 
 #: views/users_hook.php:51 views/users_hook.php:149
 msgid "Yes"
@@ -661,63 +669,67 @@ msgstr "Có"
 
 #: htdocs/assets/js/ucp.js:461
 msgid "You are currently working in offline mode."
-msgstr ""
+msgstr "Bạn đang làm việc ở chế độ ngoại tuyến."
 
 #: htdocs/assets/js/ucp.js:147
 msgid "Your Browser is unsupported at this time."
-msgstr ""
+msgstr "Trình duyệt của bạn không được hỗ trợ tại thời điểm này."
 
 #: htdocs/views/settings.php:76
 msgid "Your Cell Phone Number"
-msgstr ""
+msgstr "Số điện thoại di động của bạn"
 
 #: htdocs/views/settings.php:71
 msgid "Your Company"
-msgstr ""
+msgstr "Công ty của bạn"
 
 #: htdocs/views/settings.php:51
 msgid "Your Email Address"
-msgstr ""
+msgstr "Địa chỉ Email của bạn"
 
 #: htdocs/views/settings.php:91
 msgid "Your Fax Number"
-msgstr ""
+msgstr "Số Fax của bạn"
 
 #: htdocs/views/settings.php:56
 msgid "Your First Name"
-msgstr ""
+msgstr "Tên của bạn"
 
 #: htdocs/views/settings.php:86
 msgid "Your Home Number"
-msgstr ""
+msgstr "Số điện thoại nhà của bạn"
 
 #: htdocs/views/settings.php:61
 msgid "Your Last Name"
-msgstr ""
+msgstr "Họ của bạn"
 
 #: htdocs/views/settings.php:66
 msgid "Your Title"
-msgstr ""
+msgstr "Chức danh của bạn"
 
 #: htdocs/views/settings.php:81
 msgid "Your Work Number"
-msgstr ""
+msgstr "Số điện thoại cơ quan của bạn"
 
 #: htdocs/assets/js/ucp.js:149
 msgid ""
 "Your browser is unsupported at this time. Please upgrade or talk to your "
 "system administrator"
 msgstr ""
+"Trình duyệt của bạn không được hỗ trợ tại thời điểm này. Vui lòng nâng cấp "
+"hoặc thông báo với quản trị viên hệ thống của bạn"
 
 #: htdocs/assets/js/ucp.js:83
 msgid "Your reset link is in the mail!"
-msgstr ""
+msgstr "Liên kết để cài đặt lại ở trong mail!"
 
 #: ucp.i18n.php:16
 msgid ""
 "dashfootercontent.php view. This should never be changed except for very "
 "advanced layout changes"
 msgstr ""
+"dashfootercontent.php view. Điều này không được thay đổi ngoại trừ các thay "
+"đổi bố cụ rất nâng cao"
 
 #: htdocs/index.php:102
 #, php-format
@@ -726,7 +738,10 @@ msgid ""
 "file paths and directories are locked down properly. For more information "
 "see: %s"
 msgstr ""
+"Các tệp htaccess giúp bảo vệ tính toàn vẹn cho máy chủ của bạn. Vui lòng đảm "
+"bảo các đường dẫn của tệp và các danh mục đã được khóa đúng cách. Để biết "
+"thêm thông tin, xem: %s"
 
 #: htdocs/views/login.php:24
 msgid "or"
-msgstr ""
+msgstr "hoặc"
