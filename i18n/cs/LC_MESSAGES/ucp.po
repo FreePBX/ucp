@@ -10,13 +10,15 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-04-27 11:31-0400\n"
-"PO-Revision-Date: 2017-04-27 11:31-0400\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2017-07-17 15:42+0200\n"
+"Last-Translator: Petr <petrv@atlantis.cz>\n"
+"Language-Team: Czech <http://weblate.freepbx.org/projects/freepbx/ucp/cs/>\n"
+"Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+"X-Generator: Weblate 2.4\n"
 
 #: htdocs/assets/js/bootstrap-table-1.9.0.js:635
 #: htdocs/assets/js/bootstrap-table-1.9.0.js:636
@@ -34,31 +36,32 @@ msgstr ""
 #: htdocs/assets/js/bootstrap-table-1.9.0.js:1479
 #: htdocs/assets/js/bootstrap-table-1.9.0.js:1480
 msgid " + field + "
-msgstr ""
+msgstr " + pole + "
 
 #: htdocs/index.php:88
 msgid ".htaccess files are disabled on this webserver. Please enable them"
 msgstr ""
+"Soubory .htaccess jsou na tomto webovém serveru zakázány. Povolte je prosím"
 
 #: htdocs/index.php:101
 msgid ".htaccess files are not supported on this webserver."
-msgstr ""
+msgstr "Soubory .htaccess nejsou na tomto webovém serveru podporovány."
 
 #: htdocs/views/templates/phone.php:41
 msgid "ABC"
-msgstr ""
+msgstr "ABC"
 
 #: htdocs/views/settings.php:8
 msgid "Account Settings"
-msgstr ""
+msgstr "Nastavení účtu"
 
 #: views/users_hook.php:78
 msgid "Active Sessions"
-msgstr ""
+msgstr "Aktivní relace"
 
 #: ucp.i18n.php:6
 msgid "Admin"
-msgstr ""
+msgstr "Administrator"
 
 #: htdocs/views/settings.php:11
 msgid ""
@@ -67,196 +70,206 @@ msgstr ""
 
 #: htdocs/views/settings.php:111
 msgid "Allow Desktop Notifications"
-msgstr ""
+msgstr "Povolit notifikace na ploše"
 
 #: views/users_hook.php:46
 msgid "Allow Login"
-msgstr ""
+msgstr "Povolit přihlášení"
 
 #: ucp.i18n.php:22
 msgid "Allow Password Changes"
-msgstr ""
+msgstr "Povolit změny hesla"
 
 #: ucp.i18n.php:28
 msgid "Allow Username Changes"
-msgstr ""
+msgstr "Povolit změny jména uživatele"
 
 #: htdocs/views/settings.php:119
 msgid "Allow browser desktop notifications from UCP modules."
-msgstr ""
+msgstr "Povolení upozornění na ploše prohlížeče z modulů UCP."
 
 #: views/users_hook.php:163
 msgid ""
 "Allow this user to originate calls from within UCP. This is not the same as "
 "WebRTC"
 msgstr ""
+"Povolit tomuto uživateli, aby vytáčel hovory ze služby UCP. To není stejné "
+"jako WebRTC"
 
 #: ucp.i18n.php:30
 msgid "Allow users to change their username in UCP"
-msgstr ""
+msgstr "Umožnit uživatelům změnit jejich uživatelské jméno v UCP"
 
 #: ucp.i18n.php:26
 msgid "Allow users to change thier password in UCP"
-msgstr ""
+msgstr "Umožnit uživatelům změnit jejich heslo v UCP"
 
 #: views/users_hook.php:118
 msgid "Allowed Extension Settings"
-msgstr ""
+msgstr "Povolit nastavení pobočky"
 
 #: htdocs/assets/js/ucp.js:1033
 msgid "Are you sure you wish to change your username?"
-msgstr ""
+msgstr "Opravdu chcete změnit své uživatelské jméno?"
 
 #: htdocs/views/settings.php:140
 msgid "Browse"
-msgstr ""
+msgstr "Procházet"
 
 #: htdocs/views/templates/phone.php:7 htdocs/views/templates/phone.php:95
 msgid "Call"
-msgstr ""
+msgstr "Volat"
 
 #: htdocs/views/settings.php:74
 msgid "Cell Phone"
-msgstr ""
+msgstr "Mobilní telefon"
 
 #: htdocs/views/settings.php:69
 msgid "Company"
-msgstr ""
+msgstr "Firma"
 
 #: htdocs/views/settings.php:27
 msgid "Confirm Password"
-msgstr ""
+msgstr "Potvrdit heslo"
 
 #: htdocs/views/settings.php:127
 msgid "Contact Image"
-msgstr ""
+msgstr "Obrázek kontaktu"
 
 #: htdocs/views/templates/phone.php:45
 msgid "DEF"
-msgstr ""
+msgstr "DEF"
 
 #: htdocs/views/settings.php:135
 msgid "Delete Image"
-msgstr ""
+msgstr "Smazat obrázek"
 
 #: Ucp.class.php:792
 msgid "Deleted Session"
-msgstr ""
+msgstr "Odstraněná relace"
 
 #: Ucp.class.php:126 Ucp.class.php:635
 msgid "Deleted User Session"
-msgstr ""
+msgstr "Odstraněná relace uživatele"
 
 #: htdocs/views/settings.php:44
+#, fuzzy
 msgid "Display Name"
-msgstr ""
+msgstr "Zobrazovaný název"
 
 #: Ucp.class.php:886 Ucp.class.php:890 Ucp.class.php:894 Ucp.class.php:898
 msgid "Done"
-msgstr ""
+msgstr "Hotovo"
 
 #: htdocs/views/settings.php:132
+#, fuzzy
 msgid "Drop a new image here"
-msgstr ""
+msgstr "Umístit zde nový obrázek"
 
 #: htdocs/views/login.php:29 htdocs/views/settings.php:49
 msgid "Email"
-msgstr ""
+msgstr "Email"
 
 #: htdocs/includes/User.class.php:78
 msgid "Email address unknown!"
-msgstr ""
+msgstr "Neznámá e-mailová adresa!"
 
 #: views/users_hook.php:144
+#, fuzzy
 msgid "Enable Originating Calls"
-msgstr ""
+msgstr "Povolit odchozí hovory"
 
 #: htdocs/modules/Settings/Settings.class.php:83
+#, fuzzy
 msgid "Endpoint Settings"
-msgstr ""
+msgstr "Nastavení endpoint"
 
 #: htdocs/index.php:154
 msgid "English"
-msgstr ""
+msgstr "Angličtina"
 
 #: htdocs/views/dashboard.php:92
 msgid "Excuse us while we try to retrieve your content"
-msgstr ""
+msgstr "Omluvte nás, když se snažíme načíst svůj obsah"
 
 #: install.inc.php:20
 #, php-format
 msgid "Failed to install %s due to the following conflicting module(s): %s"
 msgstr ""
+"Instalace %s se nezdařila z důvodu následujících konfliktních modulů: %s"
 
 #: htdocs/views/settings.php:89
 msgid "Fax"
-msgstr ""
+msgstr "Fax"
 
 #: htdocs/views/templates/pagnation.php:4
 msgid "First"
-msgstr ""
+msgstr "První"
 
 #: htdocs/views/settings.php:54
 msgid "First Name"
-msgstr ""
+msgstr "Jméno"
 
 #: htdocs/modules/Settings/Settings.class.php:38
 msgid "Forbidden"
-msgstr ""
+msgstr "Zakázáno"
 
 #: htdocs/views/login.php:36
 msgid "Forgot Password"
-msgstr ""
+msgstr "Zapomenuté heslo"
 
 #: htdocs/views/templates/phone.php:51
 msgid "GHI"
-msgstr ""
+msgstr "GHI"
 
 #: views/users_hook.php:19
 msgid "General"
-msgstr ""
+msgstr "Obecné"
 
 #: Ucp.class.php:896
 msgid "Generating Main CSS..."
-msgstr ""
+msgstr "Generování hlavního CSS..."
 
 #: Ucp.class.php:892
 msgid "Generating Main Scripts..."
-msgstr ""
+msgstr "Generování hlavních skriptů..."
 
 #: Ucp.class.php:888
 msgid "Generating Module CSS..."
-msgstr ""
+msgstr "Generování CSS modulu..."
 
 #: Ucp.class.php:884
 msgid "Generating Module Scripts..."
-msgstr ""
+msgstr "Generování skriptů modulů..."
 
 #: htdocs/views/templates/phone.php:98
 msgid "Hold"
-msgstr ""
+msgstr "Přidržet"
 
 #: htdocs/modules/Home/Home.class.php:252 htdocs/views/dashboard.php:32
 #: htdocs/assets/js/ucp.js:813
 msgid "Home"
-msgstr ""
+msgstr "Domů"
 
 #: htdocs/views/settings.php:84
+#, fuzzy
 msgid "Home Phone"
-msgstr ""
+msgstr "Telefon domů"
 
 #: htdocs/views/settings.php:46
 msgid ""
 "How you would like your name displayed throughout UCP and Contact Manager"
 msgstr ""
+"Jak byste chtěli, aby se vaše jméno zobrazovalo v UCP a manažeru kontaktů"
 
 #: views/users_hook.php:56 views/users_hook.php:154
+#, fuzzy
 msgid "Inherit"
-msgstr ""
+msgstr "Zdědit"
 
 #: htdocs/views/settings.php:99
 msgid "Interface Settings"
-msgstr ""
+msgstr "Nastavení rozhraní"
 
 #: htdocs/index.php:251
 #, php-format
@@ -264,227 +277,243 @@ msgid ""
 "Internet Explorer %s is not supported. Functionality will be deteriorated "
 "until you upgrade to %s or higher"
 msgstr ""
+"Internet Explorer %s není podporován. Funkcionalita bude zhoršena, dokud "
+"neprovedete aktualizaci na %s nebo vyšší"
 
 #: htdocs/includes/User.class.php:93
 msgid "Invalid"
-msgstr ""
+msgstr "Neplatné"
 
 #: htdocs/modules/Home/Home.class.php:201
 #: htdocs/modules/Home/Home.class.php:205
 msgid "Invalid Device"
-msgstr ""
+msgstr "Neplatné zařízení"
 
 #: htdocs/includes/User.class.php:101
 msgid "Invalid Login Credentials"
-msgstr ""
+msgstr "Neplatné přihlašovací údaje"
 
 #: htdocs/index.php:240
 msgid "Invalid Token"
-msgstr ""
+msgstr "Neplatný token"
 
 #: htdocs/views/templates/phone.php:55
 msgid "JKL"
-msgstr ""
+msgstr "JKL"
 
 #: htdocs/views/settings.php:102
 msgid "Language"
-msgstr ""
+msgstr "Jazyk"
 
 #: htdocs/views/templates/pagnation.php:20
 msgid "Last"
-msgstr ""
+msgstr "Poslední"
 
 #: htdocs/views/settings.php:59
 msgid "Last Name"
-msgstr ""
+msgstr "Příjmení"
 
 #: htdocs/views/header.php:67
 msgid "Loading"
-msgstr ""
+msgstr "Načítání"
 
 #: htdocs/views/forgot.php:61 htdocs/views/login.php:53
 #: htdocs/assets/js/ucp.js:1156
 msgid "Loading..."
-msgstr ""
+msgstr "Načítání..."
 
 #: htdocs/views/forgot.php:45 htdocs/views/login.php:37
 #: htdocs/assets/js/ucp.js:129 htdocs/assets/js/ucp.js:142
 msgid "Login"
-msgstr ""
+msgstr "Přihlásit se"
 
 #: htdocs/index.php:227
 msgid "Logout"
-msgstr ""
+msgstr "Odhlásit se"
 
 #: htdocs/views/templates/phone.php:59
 msgid "MNO"
-msgstr ""
+msgstr "MNO"
 
 #: views/users_hook.php:65
 msgid "May this user log in to UCP"
-msgstr ""
+msgstr "Nechť se tento uživatel přihlásí do UCP"
 
 #: views/users_hook.php:24
+#, fuzzy
 msgid "Miscellaneous"
-msgstr ""
+msgstr "Různé"
 
 #: htdocs/includes/Ajax.class.php:139
 msgid "Module or Command were null. Check your code."
-msgstr ""
+msgstr "Modul nebo příkaz byly nulové. Zkontrolujte kód."
 
 #: htdocs/assets/js/ucp.js:95
 msgid "New password and old password do not match"
-msgstr ""
+msgstr "Nové a staré heslo se neshodují"
 
 #: views/users_hook.php:53 views/users_hook.php:151
 msgid "No"
-msgstr ""
+msgstr "Ne"
 
 #: htdocs/assets/js/ucp.js:1151
 msgid "No email defined"
-msgstr ""
+msgstr "Žádný e-mail nebyl definován"
 
 #: htdocs/modules/Home/assets/js/global.js:75
 msgid "Nothing Entered"
-msgstr ""
+msgstr "Není nic zadané"
 
 #: htdocs/includes/User.class.php:74
 msgid "Nothing was Provided!"
-msgstr ""
+msgstr "Nic nebylo poskytnuto!"
 
 #: htdocs/views/header.php:60
 msgid "OFF"
-msgstr ""
+msgstr "OFF"
 
 #: htdocs/views/header.php:57
 msgid "ON"
-msgstr ""
+msgstr "ON"
 
 #: htdocs/modules/Home/assets/js/global.js:46
 #: htdocs/modules/Home/assets/js/global.js:124
+#, fuzzy
 msgid "Originate"
-msgstr ""
+msgstr "Vytočit"
 
 #: htdocs/index.php:221 htdocs/modules/Home/assets/js/global.js:22
 #: htdocs/modules/Home/assets/js/global.js:45
 #: htdocs/modules/Home/assets/js/global.js:123
+#, fuzzy
 msgid "Originate Call"
-msgstr ""
+msgstr "Vytočit hovor"
 
 #: htdocs/views/templates/phone.php:65
 msgid "PQRS"
-msgstr ""
+msgstr "PQRS"
 
 #: htdocs/views/login.php:20 htdocs/views/settings.php:22
 msgid "Password"
-msgstr ""
+msgstr "Heslo"
 
 #: htdocs/assets/js/ucp.js:1000
+#, fuzzy
 msgid "Password Confirmation Didn't Match!"
-msgstr ""
+msgstr "Potvrzení hesla se neshodovalo"
 
 #: Ucp.class.php:207
 #, php-format
 msgid "Password Reset Link (Valid Until: %s): %s"
-msgstr ""
+msgstr "Odkaz na obnovení hesla (platný do: %s): %s"
 
 #: htdocs/views/forgot.php:27
 #, php-format
 msgid "Password Reset for: %s"
-msgstr ""
+msgstr "Reset hesla pro: %s"
 
 #: htdocs/assets/js/ucp.js:98
 msgid "Password fields can't be blank!"
-msgstr ""
+msgstr "Pole hesla nesmí být prázdné!"
 
 #: htdocs/assets/js/ucp.js:107
 msgid "Password has been changed!"
-msgstr ""
+msgstr "Heslo bylo změněno!"
 
 #: htdocs/assets/js/ucp.js:1018
 msgid "Password has not changed!"
-msgstr ""
+msgstr "Heslo se nezměnilo!"
 
 #: htdocs/assets/js/ucp.js:73
 msgid "Please enter either a username or email address"
-msgstr ""
+msgstr "Zadejte buď uživatelské jméno nebo e-mailovou adresu"
 
 #: htdocs/assets/js/ucp.js:71 htdocs/assets/js/ucp.js:122
 msgid "Processing..."
-msgstr ""
+msgstr "Zpracovává se..."
 
 #: ucp.i18n.php:32
 msgid "RSS Feeds"
-msgstr ""
+msgstr "Kanály RSS"
 
 #: ucp.i18n.php:34
 msgid "RSS Feeds that are displayed in UCP. This overrides "
-msgstr ""
+msgstr "Kanály RSS, které jsou zobrazeny v UCP. To nahrazuje "
 
 #: Ucp.class.php:29
 msgid "Refreshing all UCP Assets, this could take a while..."
-msgstr ""
+msgstr "Obnovení všech zdrojů UCP. toto může chvíli trvat..."
 
 #: htdocs/views/forgot.php:48 htdocs/views/login.php:40
 msgid "Remember Me"
-msgstr ""
+msgstr "Zapamatovat si mě"
 
 #: htdocs/views/forgot.php:62
 msgid "Reset Password"
-msgstr ""
+msgstr "Resetování hesla"
 
 #: htdocs/assets/js/ucp.js:1006 htdocs/assets/js/ucp.js:1051
 msgid "Saved!"
-msgstr ""
+msgstr "Uloženo!"
 
 #: htdocs/views/login.php:54
 msgid "Send Me A Password Reset Link"
-msgstr ""
+msgstr "Pošli mi odkaz na resetování hesla"
 
 #: htdocs/views/templates/chat.php:25
 #, php-format
 msgid "Sent at %s"
-msgstr ""
+msgstr "Poslat jako %s"
 
 #: htdocs/views/dashboard.php:39 htdocs/assets/js/ucp.js:855
 msgid "Settings"
-msgstr ""
+msgstr "Nastavení"
 
 #: ucp.i18n.php:14
+#, fuzzy
 msgid "Styling and Logos"
-msgstr ""
+msgstr "Styl a loga"
 
 #: htdocs/views/templates/phone.php:69
 msgid "TUV"
-msgstr ""
+msgstr "TUV"
 
 #: ucp.i18n.php:38
+#, fuzzy
 msgid ""
 "The number of days a session token will be valid for. Clear this setting if "
 "you want tokens to last forever (Not Recommended)"
 msgstr ""
+"Počet dnů, na kdy bude token relace platný. Zrušte toto nastavení, pokud "
+"chcete aby tokeny trvaly navždy (není doporučeno)"
 
 #: htdocs/views/settings.php:24 htdocs/views/settings.php:29
 msgid "The password used to login to User Control Panel and other services"
 msgstr ""
+"Heslo, které se používá pro přihlášení k uživatelskému portálu (UCP) a "
+"dalším službám"
 
 #: htdocs/views/dashfootercontent.php:10
 msgid "The removal of this copyright notice is stricly prohibited"
-msgstr ""
+msgstr "Odstranění tohoto oznámení o autorských právech je přísně zakázáno"
 
 #: ucp.i18n.php:8
 msgid ""
 "The user control panel is a way for users to control call handling and "
 "personal settings from a web browser."
 msgstr ""
+"Uživatelský portál (UCP) je způsob, jak mohou uživatelé ovládat volání a "
+"osobní nastavení z webového prohlížeče."
 
 #: htdocs/views/settings.php:15
 msgid "The username used to login to User Control Panel and other services"
 msgstr ""
+"Uživatelské jméno používané k přihlášení do uživatelského portálu (UCP) a "
+"dalších služeb"
 
 #: htdocs/index.php:116
 msgid "There was an error trying to load UCP"
-msgstr ""
+msgstr "Při pokusu o načtení UCP došlo k chybě"
 
 #: views/users_hook.php:134
 msgid ""
