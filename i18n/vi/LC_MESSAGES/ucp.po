@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-04-27 11:31-0400\n"
-"PO-Revision-Date: 2017-07-17 16:54+0200\n"
+"PO-Revision-Date: 2017-07-17 16:56+0200\n"
 "Last-Translator: PETER <ftek@ymail.com>\n"
 "Language-Team: Vietnamese "
 "<http://weblate.freepbx.org/projects/freepbx/ucp/vi/>\n"
@@ -481,8 +481,8 @@ msgstr ""
 #: htdocs/views/settings.php:24 htdocs/views/settings.php:29
 msgid "The password used to login to User Control Panel and other services"
 msgstr ""
-"Mật khẩu được sử dụng để đăng nhập vào Control Panel người dùng và các dịch "
-"vụ khác"
+"Mật khẩu được sử dụng để đăng nhập vào Bảng điều khiển người dùng và các "
+"dịch vụ khác"
 
 #: htdocs/views/dashfootercontent.php:10
 msgid "The removal of this copyright notice is stricly prohibited"
@@ -493,13 +493,14 @@ msgid ""
 "The user control panel is a way for users to control call handling and "
 "personal settings from a web browser."
 msgstr ""
-"Control Panel người dùng là một cách để người dùng có thể kiểm soát việc xử "
-"lý các cuộc gọi và các cài đặt cá nhân từ trình duyệt web."
+"Bảng điều khiển người dùng là một cách để người dùng có thể điều khiển việc "
+"xử lý các cuộc gọi và các cài đặt cá nhân từ trình duyệt web."
 
 #: htdocs/views/settings.php:15
 msgid "The username used to login to User Control Panel and other services"
 msgstr ""
-"Tên người dùng để đăng nhập vào Control Panel người dùng và các dịch vụ khác"
+"Tên người dùng để đăng nhập vào Bảng điều khiển người dùng và các dịch vụ "
+"khác"
 
 #: htdocs/index.php:116
 msgid "There was an error trying to load UCP"
@@ -569,8 +570,8 @@ msgid ""
 "UCP, otherwise known as the User Control Panel, is a user interface for "
 "FreePBX."
 msgstr ""
-"UCP, hay còn được biết đến là User Control Panel, là một giao diện người "
-"dùng cho FreePBX."
+"UCP, hay còn được biết đến là Bảng điều khiển người dùng, là một giao diện "
+"người dùng cho FreePBX."
 
 #: htdocs/assets/js/ucp.js:395
 #, perl-format
