@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-04-27 11:31-0400\n"
-"PO-Revision-Date: 2017-07-14 09:27+0200\n"
+"PO-Revision-Date: 2017-07-17 15:58+0200\n"
 "Last-Translator: PETER <ftek@ymail.com>\n"
 "Language-Team: Vietnamese "
 "<http://weblate.freepbx.org/projects/freepbx/ucp/vi/>\n"
@@ -37,27 +37,28 @@ msgstr ""
 #: htdocs/assets/js/bootstrap-table-1.9.0.js:1479
 #: htdocs/assets/js/bootstrap-table-1.9.0.js:1480
 msgid " + field + "
-msgstr ""
+msgstr " + field + "
 
 #: htdocs/index.php:88
 msgid ".htaccess files are disabled on this webserver. Please enable them"
 msgstr ""
+"Các tệp .htaccess đã bị vô hiệu trên webserver này. Vui lòng kích hoạt chúng"
 
 #: htdocs/index.php:101
 msgid ".htaccess files are not supported on this webserver."
-msgstr ""
+msgstr "Các tệp .htaccess không được hỗ trợ trên webserver này."
 
 #: htdocs/views/templates/phone.php:41
 msgid "ABC"
-msgstr ""
+msgstr "ABC"
 
 #: htdocs/views/settings.php:8
 msgid "Account Settings"
-msgstr ""
+msgstr "Cài đặt tài khoản"
 
 #: views/users_hook.php:78
 msgid "Active Sessions"
-msgstr ""
+msgstr "Các phiên hoạt động"
 
 #: ucp.i18n.php:6
 msgid "Admin"
@@ -70,45 +71,46 @@ msgstr ""
 
 #: htdocs/views/settings.php:111
 msgid "Allow Desktop Notifications"
-msgstr ""
+msgstr "Cho phép các thông báo trên Desktop"
 
 #: views/users_hook.php:46
 msgid "Allow Login"
-msgstr ""
+msgstr "Cho phép đăng nhập"
 
 #: ucp.i18n.php:22
 msgid "Allow Password Changes"
-msgstr ""
+msgstr "Cho phép thay đổi mật khẩu"
 
 #: ucp.i18n.php:28
 msgid "Allow Username Changes"
-msgstr ""
+msgstr "Cho phép thay đổi tên người dùng"
 
 #: htdocs/views/settings.php:119
 msgid "Allow browser desktop notifications from UCP modules."
-msgstr ""
+msgstr "Cho phép các thông báo trên desktop của trình duyệt từ các mô đun UCP."
 
 #: views/users_hook.php:163
 msgid ""
 "Allow this user to originate calls from within UCP. This is not the same as "
 "WebRTC"
 msgstr ""
+"Cho phép người dùng tạo cuộc gọi từ UCP. Điều này không giống với WebRTC"
 
 #: ucp.i18n.php:30
 msgid "Allow users to change their username in UCP"
-msgstr ""
+msgstr "Cho phép người dùng thay đổi tên người dùng của mình trên UCP"
 
 #: ucp.i18n.php:26
 msgid "Allow users to change thier password in UCP"
-msgstr ""
+msgstr "Cho phép người dùng thay đổi mật khẩu của mình trên UCP"
 
 #: views/users_hook.php:118
 msgid "Allowed Extension Settings"
-msgstr ""
+msgstr "Các cài đặt máy nhánh được cho phép"
 
 #: htdocs/assets/js/ucp.js:1033
 msgid "Are you sure you wish to change your username?"
-msgstr ""
+msgstr "Bạn có chắc muốn thay đổi tên người dùng?"
 
 #: htdocs/views/settings.php:140
 msgid "Browse"
@@ -120,7 +122,7 @@ msgstr "Cuộc gọi"
 
 #: htdocs/views/settings.php:74
 msgid "Cell Phone"
-msgstr ""
+msgstr "Điện thoại di động"
 
 #: htdocs/views/settings.php:69
 msgid "Company"
@@ -128,7 +130,7 @@ msgstr "Công ty"
 
 #: htdocs/views/settings.php:27
 msgid "Confirm Password"
-msgstr ""
+msgstr "Xác nhận mật khẩu"
 
 #: htdocs/views/settings.php:127
 msgid "Contact Image"
@@ -136,7 +138,7 @@ msgstr "Hình ảnh liên lạc"
 
 #: htdocs/views/templates/phone.php:45
 msgid "DEF"
-msgstr ""
+msgstr "DEF"
 
 #: htdocs/views/settings.php:135
 msgid "Delete Image"
@@ -144,11 +146,11 @@ msgstr "Xóa hình ảnh"
 
 #: Ucp.class.php:792
 msgid "Deleted Session"
-msgstr ""
+msgstr "Phiên đã xóa"
 
 #: Ucp.class.php:126 Ucp.class.php:635
 msgid "Deleted User Session"
-msgstr ""
+msgstr "Phiên người dùng đã xóa"
 
 #: htdocs/views/settings.php:44
 msgid "Display Name"
@@ -168,15 +170,15 @@ msgstr "Thư điện tử"
 
 #: htdocs/includes/User.class.php:78
 msgid "Email address unknown!"
-msgstr ""
+msgstr "Địa chỉ Email không xác đinh!"
 
 #: views/users_hook.php:144
 msgid "Enable Originating Calls"
-msgstr ""
+msgstr "Kích hoạt tính năng tạo cuộc gọi"
 
 #: htdocs/modules/Settings/Settings.class.php:83
 msgid "Endpoint Settings"
-msgstr ""
+msgstr "Cài đặt điểm cuối"
 
 #: htdocs/index.php:154
 msgid "English"
@@ -185,11 +187,12 @@ msgstr "Tiếng anh"
 #: htdocs/views/dashboard.php:92
 msgid "Excuse us while we try to retrieve your content"
 msgstr ""
+"Chúng tôi xin lỗi trong khi chúng tôi cố gắng truy xuất nội dung của bạn"
 
 #: install.inc.php:20
 #, php-format
 msgid "Failed to install %s due to the following conflicting module(s): %s"
-msgstr ""
+msgstr "Cài đặt %s thất bani do các mô đun sau xung đột: %s"
 
 #: htdocs/views/settings.php:89
 msgid "Fax"
@@ -197,11 +200,11 @@ msgstr "Fax"
 
 #: htdocs/views/templates/pagnation.php:4
 msgid "First"
-msgstr ""
+msgstr "Đầu tiên"
 
 #: htdocs/views/settings.php:54
 msgid "First Name"
-msgstr "Tên"
+msgstr "Tên của bạn"
 
 #: htdocs/modules/Settings/Settings.class.php:38
 msgid "Forbidden"
@@ -209,11 +212,11 @@ msgstr "Bị cấm"
 
 #: htdocs/views/login.php:36
 msgid "Forgot Password"
-msgstr ""
+msgstr "Đã quên mật khẩu"
 
 #: htdocs/views/templates/phone.php:51
 msgid "GHI"
-msgstr ""
+msgstr "GHI"
 
 #: views/users_hook.php:19
 msgid "General"
@@ -221,19 +224,19 @@ msgstr "Chung"
 
 #: Ucp.class.php:896
 msgid "Generating Main CSS..."
-msgstr ""
+msgstr "Đang tạo CSS chính..."
 
 #: Ucp.class.php:892
 msgid "Generating Main Scripts..."
-msgstr ""
+msgstr "Đang tạo các kịch bản chính..."
 
 #: Ucp.class.php:888
 msgid "Generating Module CSS..."
-msgstr ""
+msgstr "Đang tạo Mô đun CSS..."
 
 #: Ucp.class.php:884
 msgid "Generating Module Scripts..."
-msgstr ""
+msgstr "Đang tạo Mô đun kịch bản..."
 
 #: htdocs/views/templates/phone.php:98
 msgid "Hold"
@@ -246,12 +249,13 @@ msgstr "Trang chủ"
 
 #: htdocs/views/settings.php:84
 msgid "Home Phone"
-msgstr ""
+msgstr "Điện thoại cố định"
 
 #: htdocs/views/settings.php:46
 msgid ""
 "How you would like your name displayed throughout UCP and Contact Manager"
 msgstr ""
+"Bạn muốn tên của mình hiển thị như thế nào qua UCP và Trình quản lý liên lạc"
 
 #: views/users_hook.php:56 views/users_hook.php:154
 msgid "Inherit"
@@ -259,7 +263,7 @@ msgstr "Kế thừa"
 
 #: htdocs/views/settings.php:99
 msgid "Interface Settings"
-msgstr ""
+msgstr "Cài đặt giao diện"
 
 #: htdocs/index.php:251
 #, php-format
@@ -267,6 +271,8 @@ msgid ""
 "Internet Explorer %s is not supported. Functionality will be deteriorated "
 "until you upgrade to %s or higher"
 msgstr ""
+"Internet Explorer %s không được hỗ trợ. Chức năng sẽ bị giảm xuống cho đén "
+"khi bạn nâng cấp lên %s hoặc cao hơn"
 
 #: htdocs/includes/User.class.php:93
 msgid "Invalid"
@@ -275,19 +281,19 @@ msgstr "Không hợp lệ"
 #: htdocs/modules/Home/Home.class.php:201
 #: htdocs/modules/Home/Home.class.php:205
 msgid "Invalid Device"
-msgstr ""
+msgstr "Thiết bị không hợp lệ"
 
 #: htdocs/includes/User.class.php:101
 msgid "Invalid Login Credentials"
-msgstr ""
+msgstr "Thông tin đăng nhập không hợp lệ"
 
 #: htdocs/index.php:240
 msgid "Invalid Token"
-msgstr ""
+msgstr "Token không hợp lệ"
 
 #: htdocs/views/templates/phone.php:55
 msgid "JKL"
-msgstr ""
+msgstr "JKL"
 
 #: htdocs/views/settings.php:102
 msgid "Language"
@@ -295,7 +301,7 @@ msgstr "Ngôn ngữ"
 
 #: htdocs/views/templates/pagnation.php:20
 msgid "Last"
-msgstr ""
+msgstr "Cuối"
 
 #: htdocs/views/settings.php:59
 msgid "Last Name"
@@ -313,31 +319,31 @@ msgstr "Đang tải..."
 #: htdocs/views/forgot.php:45 htdocs/views/login.php:37
 #: htdocs/assets/js/ucp.js:129 htdocs/assets/js/ucp.js:142
 msgid "Login"
-msgstr ""
+msgstr "Đăng nhập"
 
 #: htdocs/index.php:227
 msgid "Logout"
-msgstr ""
+msgstr "Đăng xuất"
 
 #: htdocs/views/templates/phone.php:59
 msgid "MNO"
-msgstr ""
+msgstr "MNO"
 
 #: views/users_hook.php:65
 msgid "May this user log in to UCP"
-msgstr ""
+msgstr "Người dùng này có thể đăng nhập vào UCP không"
 
 #: views/users_hook.php:24
 msgid "Miscellaneous"
-msgstr ""
+msgstr "phụ"
 
 #: htdocs/includes/Ajax.class.php:139
 msgid "Module or Command were null. Check your code."
-msgstr ""
+msgstr "Mô đun hoặc Lệnh không có hiệu lực. Kiểm tra lại mã của bạn."
 
 #: htdocs/assets/js/ucp.js:95
 msgid "New password and old password do not match"
-msgstr ""
+msgstr "Mật khẩu mới và mật khẩu cũ không khớp"
 
 #: views/users_hook.php:53 views/users_hook.php:151
 msgid "No"
@@ -349,34 +355,34 @@ msgstr "Không có email được xác định"
 
 #: htdocs/modules/Home/assets/js/global.js:75
 msgid "Nothing Entered"
-msgstr ""
+msgstr "Không có gì được nhập"
 
 #: htdocs/includes/User.class.php:74
 msgid "Nothing was Provided!"
-msgstr ""
+msgstr "Không có gì được cung cấp!"
 
 #: htdocs/views/header.php:60
 msgid "OFF"
-msgstr ""
+msgstr "TẮT"
 
 #: htdocs/views/header.php:57
 msgid "ON"
-msgstr ""
+msgstr "BẬT"
 
 #: htdocs/modules/Home/assets/js/global.js:46
 #: htdocs/modules/Home/assets/js/global.js:124
 msgid "Originate"
-msgstr ""
+msgstr "Khởi tạo"
 
 #: htdocs/index.php:221 htdocs/modules/Home/assets/js/global.js:22
 #: htdocs/modules/Home/assets/js/global.js:45
 #: htdocs/modules/Home/assets/js/global.js:123
 msgid "Originate Call"
-msgstr ""
+msgstr "Khởi tạo cuộc gọi"
 
 #: htdocs/views/templates/phone.php:65
 msgid "PQRS"
-msgstr ""
+msgstr "PQRS"
 
 #: htdocs/views/login.php:20 htdocs/views/settings.php:22
 msgid "Password"
@@ -384,70 +390,71 @@ msgstr "Mật khẩu"
 
 #: htdocs/assets/js/ucp.js:1000
 msgid "Password Confirmation Didn't Match!"
-msgstr ""
+msgstr "Việc xác nhận mật khẩu không khớp!"
 
 #: Ucp.class.php:207
 #, php-format
 msgid "Password Reset Link (Valid Until: %s): %s"
-msgstr ""
+msgstr "Liên kết để cài đặt lại mật khẩu ( Có hiệu lực đến: %s): %s"
 
 #: htdocs/views/forgot.php:27
 #, php-format
 msgid "Password Reset for: %s"
-msgstr ""
+msgstr "Cài lại mật khẩu cho: %s"
 
 #: htdocs/assets/js/ucp.js:98
 msgid "Password fields can't be blank!"
-msgstr ""
+msgstr "Các trường Mật khẩu không được để trống!"
 
 #: htdocs/assets/js/ucp.js:107
 msgid "Password has been changed!"
-msgstr ""
+msgstr "Mật khẩu vừa được thay đổi!"
 
 #: htdocs/assets/js/ucp.js:1018
 msgid "Password has not changed!"
-msgstr ""
+msgstr "Mật khẩu đã không được thay đổi!"
 
 #: htdocs/assets/js/ucp.js:73
 msgid "Please enter either a username or email address"
-msgstr ""
+msgstr "Vui lòng nhập tên người dùng hay địa chỉ email"
 
 #: htdocs/assets/js/ucp.js:71 htdocs/assets/js/ucp.js:122
 msgid "Processing..."
-msgstr ""
+msgstr "Đang xử lý..."
 
 #: ucp.i18n.php:32
 msgid "RSS Feeds"
-msgstr ""
+msgstr "Các nguồn cấp tin RSS"
 
 #: ucp.i18n.php:34
 msgid "RSS Feeds that are displayed in UCP. This overrides "
-msgstr ""
+msgstr "Các nguồn cấp dữ liệu RSS được hiển thi trong UCP. Các ghi đè này "
 
 #: Ucp.class.php:29
 msgid "Refreshing all UCP Assets, this could take a while..."
 msgstr ""
+"Làm mới tất cả các tài sản của UCP, điều này có thể tốn chút thời gian..."
 
 #: htdocs/views/forgot.php:48 htdocs/views/login.php:40
 msgid "Remember Me"
-msgstr ""
+msgstr "Ghi nhớ tôi"
 
 #: htdocs/views/forgot.php:62
 msgid "Reset Password"
-msgstr ""
+msgstr "Cài lại mật khẩu"
 
 #: htdocs/assets/js/ucp.js:1006 htdocs/assets/js/ucp.js:1051
 msgid "Saved!"
-msgstr ""
+msgstr "Đã lưu!"
 
 #: htdocs/views/login.php:54
 msgid "Send Me A Password Reset Link"
-msgstr ""
+msgstr "Gửi cho tôi Liên kết để cài lại mật khẩu"
 
 #: htdocs/views/templates/chat.php:25
 #, php-format
 msgid "Sent at %s"
-msgstr ""
+msgstr "Đã gửi tại %s"
 
 #: htdocs/views/dashboard.php:39 htdocs/assets/js/ucp.js:855
 msgid "Settings"
@@ -455,39 +462,46 @@ msgstr "Các cài đặt"
 
 #: ucp.i18n.php:14
 msgid "Styling and Logos"
-msgstr ""
+msgstr "Phong cách và Lô gô"
 
 #: htdocs/views/templates/phone.php:69
 msgid "TUV"
-msgstr ""
+msgstr "TUV"
 
 #: ucp.i18n.php:38
 msgid ""
 "The number of days a session token will be valid for. Clear this setting if "
 "you want tokens to last forever (Not Recommended)"
 msgstr ""
+"Số ngày mà token của phiên sẽ hợp lệ. Xóa cài đặt này nếu bạn muốn các các "
+"token kéo dài mãi mãi ( Điều này không được khuyến khích)"
 
 #: htdocs/views/settings.php:24 htdocs/views/settings.php:29
 msgid "The password used to login to User Control Panel and other services"
 msgstr ""
+"Mật khẩu được sử dụng để đăng nhập vào Control Panel người dùng và các dịch "
+"vụ khác"
 
 #: htdocs/views/dashfootercontent.php:10
 msgid "The removal of this copyright notice is stricly prohibited"
-msgstr ""
+msgstr "Tuyệt đối nghiêm cấm việc xóa bỏ thông báo bản quyền này"
 
 #: ucp.i18n.php:8
 msgid ""
 "The user control panel is a way for users to control call handling and "
 "personal settings from a web browser."
 msgstr ""
+"Control Panel người dùng là một cách để người dùng có thể kiểm soát việc xử "
+"lý các cuộc gọi và các cài đặt cá nhân từ trình duyệt web."
 
 #: htdocs/views/settings.php:15
 msgid "The username used to login to User Control Panel and other services"
 msgstr ""
+"Tên người dùng để đăng nhập vào Control Panel người dùng và các dịch vụ khác"
 
 #: htdocs/index.php:116
 msgid "There was an error trying to load UCP"
-msgstr ""
+msgstr "Đã xảy ra một lỗi khi đang tải UCP"
 
 #: views/users_hook.php:134
 msgid ""
@@ -495,6 +509,9 @@ msgid ""
 "extension settings such as Call Waiting, Call Forwarding, Find Me/Follow Me "
 "and others"
 msgstr ""
+"Các máy nhánh được chỉ định và đnag hoạt động được cho phép chỉnh sửa các "
+"cài đặt máy nhánh ví dụ Cuộc gọi chờ, Cuộc gọi chuyển tiếp, Find Me/Follow "
+"Me và các cài đặt khác"
 
 #: htdocs/views/settings.php:64
 msgid "Title"
@@ -507,22 +524,25 @@ msgid ""
 "webserver's configuration file for the User Control Panel. For more "
 "information see: %s"
 msgstr ""
+"Để bảo vệ tính toàn vẹn của máy chủ, bạn phải cho phép ghi đè lên tệp cấu "
+"hình webserver của bạn đối với Bảng điều khiển người dùng. Để biết thêm "
+"thông tin, xem:%s"
 
 #: ucp.i18n.php:10
 msgid "UCP"
-msgstr ""
+msgstr "User Control Panel- Bảng điều khiển người dùng"
 
 #: views/header.php:1
 msgid "UCP Admin"
-msgstr ""
+msgstr "Quản trị viên của UCP"
 
 #: htdocs/views/settings.php:108
 msgid "UCP Language"
-msgstr ""
+msgstr "Ngôn ngữ của UCP"
 
 #: ucp.i18n.php:36
 msgid "UCP Session Timeout"
-msgstr ""
+msgstr "Thời gian chờ phiên của UCP"
 
 #: ucp.i18n.php:20
 msgid ""
