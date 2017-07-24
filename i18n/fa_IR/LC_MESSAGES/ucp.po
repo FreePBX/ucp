@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-06-23 15:07-0700\n"
+"POT-Creation-Date: 2017-07-24 11:07-0700\n"
 "PO-Revision-Date: 2016-07-06 05:21+0200\n"
 "Last-Translator: Media <mousavi.media@gmail.com>\n"
 "Language-Team: Persian (Iran) <http://weblate.freepbx.org/projects/freepbx/"
@@ -224,7 +224,7 @@ msgstr "مجاز برای تتنظیمات داخلی"
 msgid "Are you sure you want to delete this dashboard?"
 msgstr ""
 
-#: Ucp.class.php:1199
+#: Ucp.class.php:1206
 #, php-format
 msgid ""
 "Asterisk home dir (%s) doesn't exist, and, ASTSPOOLDIR doesn't exist. "
@@ -356,11 +356,11 @@ msgstr "حذف تصویر"
 msgid "Delete a Dashboard"
 msgstr ""
 
-#: Ucp.class.php:1058
+#: Ucp.class.php:1065
 msgid "Deleted Session"
 msgstr "اتصال حذف شده"
 
-#: Ucp.class.php:366 Ucp.class.php:901
+#: Ucp.class.php:373 Ucp.class.php:908
 msgid "Deleted User Session"
 msgstr "اتصال حذف شده کاربر"
 
@@ -372,13 +372,13 @@ msgstr ""
 msgid "Display Name"
 msgstr "نام قابل نمایش"
 
-#: Ucp.class.php:1366
+#: Ucp.class.php:1373
 #, php-format
 msgid "Don't know what %s is"
 msgstr ""
 
-#: Ucp.class.php:249 Ucp.class.php:273 Ucp.class.php:1152 Ucp.class.php:1156
-#: Ucp.class.php:1160 Ucp.class.php:1164
+#: Ucp.class.php:254 Ucp.class.php:280 Ucp.class.php:1159 Ucp.class.php:1163
+#: Ucp.class.php:1167 Ucp.class.php:1171
 msgid "Done"
 msgstr "انجام شد"
 
@@ -449,12 +449,16 @@ msgstr ""
 msgid "Failed to install %s due to the following conflicting module(s): %s"
 msgstr "خطا در نصب %s که ناشی است از تداخل با ماژول(ها): %s"
 
-#: Ucp.class.php:1276
+#: Ucp.class.php:1283
 #, php-format
 msgid "Failed to run: '%s'"
 msgstr ""
 
-#: Ucp.class.php:256
+#: Ucp.class.php:132
+msgid "Failed updating libraries!"
+msgstr ""
+
+#: Ucp.class.php:262
 msgid "Failed!"
 msgstr ""
 
@@ -462,7 +466,7 @@ msgstr ""
 msgid "Fax"
 msgstr "فکس"
 
-#: Ucp.class.php:131
+#: Ucp.class.php:135
 msgid "Finished updating libraries!"
 msgstr ""
 
@@ -486,19 +490,19 @@ msgstr "GHI"
 msgid "General"
 msgstr "عمومی"
 
-#: Ucp.class.php:1162
+#: Ucp.class.php:1169
 msgid "Generating Main CSS..."
 msgstr "ایجاد CSS اصلی..."
 
-#: Ucp.class.php:1158
+#: Ucp.class.php:1165
 msgid "Generating Main Scripts..."
 msgstr "ایجاد اسکریپت های اصلی..."
 
-#: Ucp.class.php:1154
+#: Ucp.class.php:1161
 msgid "Generating Module CSS..."
 msgstr "ایجاد ماژول CSS..."
 
-#: Ucp.class.php:1150
+#: Ucp.class.php:1157
 msgid "Generating Module Scripts..."
 msgstr "ایجاد اسکریپت های ماژول..."
 
@@ -725,7 +729,7 @@ msgstr "PQRS"
 msgid "Password"
 msgstr "بله"
 
-#: Ucp.class.php:449
+#: Ucp.class.php:456
 #, php-format
 msgid "Password Reset Link (Valid Until: %s): %s"
 msgstr "لینک بازنشانی کلمه عبور (معتبر تا : %s): %s"
@@ -760,7 +764,7 @@ msgid "RSS Feeds that are displayed in UCP. This overrides "
 msgstr ""
 "خوراک های RSS که در پنل کنترل کاربری نمایش داده می شوند. بازنویسی می شوند "
 
-#: Ucp.class.php:261
+#: Ucp.class.php:268
 msgid "Refreshing all UCP Assets, this could take a while..."
 msgstr "بازنشانی تمام مقادیر پنل کنترل کاربری. منتظر باشید..."
 
@@ -781,7 +785,7 @@ msgstr "بازنشانی کلمه عبور"
 msgid "Restart Tour"
 msgstr ""
 
-#: Ucp.class.php:1216
+#: Ucp.class.php:1223
 #, php-format
 msgid "Running (Uptime: %s)"
 msgstr ""
@@ -878,33 +882,33 @@ msgstr ""
 msgid "Something went wrong removing the dashboard"
 msgstr ""
 
-#: Ucp.class.php:1271
+#: Ucp.class.php:1278
 #, php-format
 msgid "Started UCP Node Server. PID is %s"
 msgstr ""
 
-#: Ucp.class.php:258
+#: Ucp.class.php:264
 #, php-format
 msgid "Started with PID %s!"
 msgstr ""
 
-#: Ucp.class.php:1242
+#: Ucp.class.php:1249
 msgid "Starting UCP Node Server..."
 msgstr ""
 
-#: Ucp.class.php:253
+#: Ucp.class.php:259
 msgid "Starting new UCP Node Process..."
 msgstr ""
 
-#: Ucp.class.php:1343
+#: Ucp.class.php:1350
 msgid "Stopped UCP Node Server"
 msgstr ""
 
-#: Ucp.class.php:1312
+#: Ucp.class.php:1319
 msgid "Stopping UCP Node Server"
 msgstr ""
 
-#: Ucp.class.php:247 Ucp.class.php:271
+#: Ucp.class.php:252 Ucp.class.php:278
 msgid "Stopping old running processes..."
 msgstr ""
 
@@ -1103,25 +1107,25 @@ msgstr "پنل کنترل کاربری"
 msgid "UCP Admin"
 msgstr "مدیر پنل کنترل کاربری"
 
-#: Ucp.class.php:1207
+#: Ucp.class.php:1214
 msgid "UCP Daemon"
 msgstr ""
 
-#: Ucp.class.php:1347
+#: Ucp.class.php:1354
 #, php-format
 msgid "UCP Node Server Failed: %s"
 msgstr ""
 
-#: Ucp.class.php:1236
+#: Ucp.class.php:1243
 #, php-format
 msgid "UCP Node Server has already been running on PID %s for %s"
 msgstr ""
 
-#: Ucp.class.php:1305
+#: Ucp.class.php:1312
 msgid "UCP Node Server is not running"
 msgstr ""
 
-#: Ucp.class.php:1218
+#: Ucp.class.php:1225
 msgid "UCP Node is not running"
 msgstr ""
 
@@ -1164,7 +1168,7 @@ msgstr ""
 msgid "Unable to send Password Reset Email"
 msgstr ""
 
-#: Ucp.class.php:1209
+#: Ucp.class.php:1216
 msgid "Unknown"
 msgstr ""
 
@@ -1216,7 +1220,7 @@ msgstr "تنظیمات پنل کنترل کاربری"
 msgid "User Control Panel is released as %s or newer"
 msgstr "پنل کنترل کاربری منتشر شده %s یا جدیدتر"
 
-#: Ucp.class.php:445
+#: Ucp.class.php:452
 #, php-format
 msgid "User Control Panel: %s"
 msgstr "پنل کنترل کاربری: %s"
@@ -1225,7 +1229,7 @@ msgstr "پنل کنترل کاربری: %s"
 msgid "User Details"
 msgstr "جزئیات کاربر"
 
-#: Ucp.class.php:308 Ucp.class.php:337
+#: Ucp.class.php:315 Ucp.class.php:344
 msgid "User Primary Extension"
 msgstr "داخلی اصلی کاربر"
 
