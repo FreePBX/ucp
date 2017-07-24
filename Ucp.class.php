@@ -124,11 +124,16 @@ class Ucp implements \BMO {
 			out("The following messages are ONLY FOR DEBUGGING. Ignore anything that says 'WARN' or is just a warning");
 		}
 
-		$this->FreePBX->Pm2->installNodeDependencies($this->nodeloc,function($data) {
+		$npmstatus = $this->pm2->installNodeDependencies($this->nodeloc,function($data) {
 			outn($data);
 		});
-		out("");
-		out(_("Finished updating libraries!"));
+		if(!$npmstatus) {
+			out("");
+			out(_("Failed updating libraries!"));
+		} else {
+			out("");
+			out(_("Finished updating libraries!"));
+		}
 
 		$set = array();
 		$set['module'] = 'ucp';
@@ -250,12 +255,14 @@ class Ucp implements \BMO {
 
 		$this->expireAllUserSessions();
 
-		outn(_("Starting new UCP Node Process..."));
-		$started = $this->startFreepbx();
-		if(!$started) {
-			out(_("Failed!"));
-		} else {
-			out(sprintf(_("Started with PID %s!"),$started));
+		if($npmstatus) {
+			outn(_("Starting new UCP Node Process..."));
+			$started = $this->startFreepbx();
+			if(!$started) {
+				out(_("Failed!"));
+			} else {
+				out(sprintf(_("Started with PID %s!"),$started));
+			}
 		}
 
 		out(_("Refreshing all UCP Assets, this could take a while..."));
