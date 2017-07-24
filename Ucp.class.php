@@ -124,7 +124,7 @@ class Ucp implements \BMO {
 			out("The following messages are ONLY FOR DEBUGGING. Ignore anything that says 'WARN' or is just a warning");
 		}
 
-		$npmstatus = $this->pm2->installNodeDependencies($this->nodeloc,function($data) {
+		$npmstatus = $this->FreePBX->Pm2->installNodeDependencies($this->nodeloc,function($data) {
 			outn($data);
 		});
 		if(!$npmstatus) {
