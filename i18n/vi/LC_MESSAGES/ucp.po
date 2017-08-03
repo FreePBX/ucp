@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-04-27 11:31-0400\n"
-"PO-Revision-Date: 2017-07-29 15:57+0200\n"
+"PO-Revision-Date: 2017-08-02 21:28+0200\n"
 "Last-Translator: PETER <ftek@ymail.com>\n"
 "Language-Team: Vietnamese "
 "<http://weblate.freepbx.org/projects/freepbx/ucp/vi/>\n"
@@ -625,7 +625,7 @@ msgstr "Thông tin chi tiết của người dùng"
 
 #: Ucp.class.php:70 /usr/src/freepbx/ucp/Ucp.class.php:98
 msgid "User Primary Extension"
-msgstr "Người dùng máy nhánh chính"
+msgstr "Sử dụng máy nhanh chính"
 
 #: htdocs/index.php:227
 msgid "User Settings"
