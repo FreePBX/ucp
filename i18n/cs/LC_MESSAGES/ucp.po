@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-04-27 11:31-0400\n"
-"PO-Revision-Date: 2017-07-17 17:32+0200\n"
+"PO-Revision-Date: 2017-08-07 15:17+0200\n"
 "Last-Translator: Petr <petrv@atlantis.cz>\n"
 "Language-Team: Czech <http://weblate.freepbx.org/projects/freepbx/ucp/cs/>\n"
 "Language: cs\n"
@@ -153,7 +153,6 @@ msgid "Deleted User Session"
 msgstr "Odstraněná relace uživatele"
 
 #: htdocs/views/settings.php:44
-#, fuzzy
 msgid "Display Name"
 msgstr "Zobrazovaný název"
 
@@ -162,7 +161,6 @@ msgid "Done"
 msgstr "Hotovo"
 
 #: htdocs/views/settings.php:132
-#, fuzzy
 msgid "Drop a new image here"
 msgstr "Umístit zde nový obrázek"
 
@@ -175,14 +173,12 @@ msgid "Email address unknown!"
 msgstr "Neznámá e-mailová adresa!"
 
 #: views/users_hook.php:144
-#, fuzzy
 msgid "Enable Originating Calls"
 msgstr "Povolit odchozí hovory"
 
 #: htdocs/modules/Settings/Settings.class.php:83
-#, fuzzy
 msgid "Endpoint Settings"
-msgstr "Nastavení endpoint"
+msgstr "Nastavení koncového bodu"
 
 #: htdocs/index.php:154
 msgid "English"
@@ -252,7 +248,6 @@ msgid "Home"
 msgstr "Domů"
 
 #: htdocs/views/settings.php:84
-#, fuzzy
 msgid "Home Phone"
 msgstr "Telefon domů"
 
@@ -263,7 +258,6 @@ msgstr ""
 "Jak byste chtěli, aby se vaše jméno zobrazovalo v UCP a manažeru kontaktů"
 
 #: views/users_hook.php:56 views/users_hook.php:154
-#, fuzzy
 msgid "Inherit"
 msgstr "Zdědit"
 
@@ -340,7 +334,6 @@ msgid "May this user log in to UCP"
 msgstr "Nechť se tento uživatel přihlásí do UCP"
 
 #: views/users_hook.php:24
-#, fuzzy
 msgid "Miscellaneous"
 msgstr "Různé"
 
@@ -378,14 +371,12 @@ msgstr "ON"
 
 #: htdocs/modules/Home/assets/js/global.js:46
 #: htdocs/modules/Home/assets/js/global.js:124
-#, fuzzy
 msgid "Originate"
 msgstr "Vytočit"
 
 #: htdocs/index.php:221 htdocs/modules/Home/assets/js/global.js:22
 #: htdocs/modules/Home/assets/js/global.js:45
 #: htdocs/modules/Home/assets/js/global.js:123
-#, fuzzy
 msgid "Originate Call"
 msgstr "Vytočit hovor"
 
@@ -398,9 +389,8 @@ msgid "Password"
 msgstr "Heslo"
 
 #: htdocs/assets/js/ucp.js:1000
-#, fuzzy
 msgid "Password Confirmation Didn't Match!"
-msgstr "Potvrzení hesla se neshodovalo"
+msgstr "Potvrzení hesla se neshodovalo!"
 
 #: Ucp.class.php:207
 #, php-format
@@ -470,7 +460,6 @@ msgid "Settings"
 msgstr "Nastavení"
 
 #: ucp.i18n.php:14
-#, fuzzy
 msgid "Styling and Logos"
 msgstr "Styl a loga"
 
@@ -479,7 +468,6 @@ msgid "TUV"
 msgstr "TUV"
 
 #: ucp.i18n.php:38
-#, fuzzy
 msgid ""
 "The number of days a session token will be valid for. Clear this setting if "
 "you want tokens to last forever (Not Recommended)"
@@ -516,7 +504,6 @@ msgid "There was an error trying to load UCP"
 msgstr "Při pokusu o načtení UCP došlo k chybě"
 
 #: views/users_hook.php:134
-#, fuzzy
 msgid ""
 "These are the assigned and active extensions which will be allowed to edit "
 "extension settings such as Call Waiting, Call Forwarding, Find Me/Follow Me "
@@ -649,12 +636,10 @@ msgid "Username has been changed, reloading"
 msgstr "Uživatelské jméno bylo změněno, načítání"
 
 #: ucp.i18n.php:12
-#, fuzzy
 msgid "View: UCP dashfootercontent.php"
 msgstr "Zobraz: UCP dashfootercontent.php"
 
 #: ucp.i18n.php:18
-#, fuzzy
 msgid "View: UCP icons"
 msgstr "Zobraz: UCP ikony"
 
@@ -744,7 +729,7 @@ msgstr ""
 "velmi pokročilých změn uspořádání"
 
 #: htdocs/index.php:102
-#, fuzzy, php-format
+#, php-format
 msgid ""
 "htaccess files help protect the integrity of your server. Please make sure "
 "file paths and directories are locked down properly. For more information "
