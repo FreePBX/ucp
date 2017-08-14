@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-07-24 11:07-0700\n"
+"POT-Creation-Date: 2017-08-14 10:51-0700\n"
 "PO-Revision-Date: 2016-05-11 00:30+0200\n"
 "Last-Translator: Jens <jens@schaewel.com>\n"
 "Language-Team: German <http://weblate.freepbx.org/projects/freepbx/ucp/de_DE/"
@@ -438,7 +438,7 @@ msgstr ""
 msgid "End of tour"
 msgstr ""
 
-#: htdocs/modules/Settings/Settings.class.php:143
+#: htdocs/modules/Settings/Settings.class.php:142
 msgid "English"
 msgstr "Englisch"
 
@@ -1207,7 +1207,7 @@ msgstr ""
 msgid "Use PBX Timezone"
 msgstr ""
 
-#: htdocs/modules/Settings/Settings.class.php:179
+#: htdocs/modules/Settings/Settings.class.php:185
 msgid "User"
 msgstr ""
 
