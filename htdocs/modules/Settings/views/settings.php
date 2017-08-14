@@ -153,7 +153,7 @@
 			<div class="form-group">
 				<label for="datetimeformat" class="help"><?php echo _('Date and Time Format')?> <i class="fa fa-question-circle"></i></label><br/>
 				<div class="input-group">
-					<input type="text" class="form-control" placeholder="llll" id="datetimeformat" name="datetimeformat" value="<?php echo $user['datetimeformat']?>">
+					<input type="text" class="form-control" placeholder="<?php echo $placeholders['datetimeformat']?>" id="datetimeformat" name="datetimeformat" value="<?php echo $user['datetimeformat']?>">
 					<span class="input-group-addon" id="datetimeformat-now"></span>
 				</div>
 				<span class="help-block help-hidden" data-for="datetimeformat"><?php echo sprintf(_('The format dates and times should display in. The default of "llll" is locale aware. If left blank this will use the group/system format. For more formats please see: %s'),'http://momentjs.com/docs/#/displaying/format/')?></span>
@@ -161,7 +161,7 @@
 			<div class="form-group">
 				<label for="dateformat" class="help"><?php echo _('Date Format')?> <i class="fa fa-question-circle"></i></label><br/>
 				<div class="input-group">
-					<input type="text" class="form-control" placeholder="l" id="dateformat" name="dateformat" value="<?php echo $user['dateformat']?>">
+					<input type="text" class="form-control" placeholder="<?php echo $placeholders['dateformat']?>" id="dateformat" name="dateformat" value="<?php echo $user['dateformat']?>">
 					<span class="input-group-addon" id="dateformat-now"></span>
 				</div>
 				<span class="help-block help-hidden" data-for="dateformat"><?php echo sprintf(_('The format dates should display in. The default of "l" is locale aware. If left blank this will use the group/system format. For more formats please see: %s'),'http://momentjs.com/docs/#/displaying/format/')?></span>
@@ -169,7 +169,7 @@
 			<div class="form-group">
 				<label for="timeformat" class="help"><?php echo _('Time Format')?> <i class="fa fa-question-circle"></i></label><br/>
 				<div class="input-group">
-					<input type="text" class="form-control" placeholder="LT" id="timeformat" name="timeformat" value="<?php echo $user['timeformat']?>">
+					<input type="text" class="form-control" placeholder="<?php echo $placeholders['timeformat']?>" id="timeformat" name="timeformat" value="<?php echo $user['timeformat']?>">
 					<span class="input-group-addon" id="timeformat-now"></span>
 				</div>
 				<span class="help-block help-hidden" data-for="timeformat"><?php echo sprintf(_('The format times should display in. The default of "LT" is locale aware. If left blank this will use the group/system format. For more formats please see: %s'),'http://momentjs.com/docs/#/displaying/format/')?></span>

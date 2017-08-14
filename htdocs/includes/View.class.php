@@ -95,8 +95,9 @@ class View extends UCP {
 		// set the language so local module languages take
 		$lang = '';
 		if(php_sapi_name() !== 'cli') {
-			if(!empty($user['language'])) {
-				$lang = $user['language'];
+			$language = $this->UCP->FreePBX->Userman->getLocaleSpecificSettingByUID($user['id'], 'language');
+			if(!empty($language)) {
+				$lang = $language;
 			} elseif (!empty($_COOKIE['lang'])) {
 				$lang = $_COOKIE['lang'];
 			}
@@ -108,24 +109,28 @@ class View extends UCP {
 		}
 		$language = $lang;
 		//set this before we run date functions
-		if(php_sapi_name() !== 'cli' && !empty($user['timezone'])) {
+		$timezone = $this->UCP->FreePBX->Userman->getLocaleSpecificSettingByUID($user['id'], 'timezone');
+		if(php_sapi_name() !== 'cli' && !empty($timezone)) {
 			//userman mode
-			$phptimezone = $user['timezone'];
+			$phptimezone = $timezone;
 		} else {
 			$phptimezone = '';
 		}
 		$this->timezone = $view->setTimezone($phptimezone);
 
-		if(php_sapi_name() !== 'cli' && !empty($user['datetimeformat'])) {
-			$view->setDateTimeFormat($user['datetimeformat']);
+		$datetimeformat = $this->UCP->FreePBX->Userman->getLocaleSpecificSettingByUID($user['id'], 'datetimeformat');
+		if(php_sapi_name() !== 'cli' && !empty($datetimeformat)) {
+			$view->setDateTimeFormat($datetimeformat);
 		}
 
-		if(php_sapi_name() !== 'cli' && !empty($user['timeformat'])) {
-			$view->setTimeFormat($user['timeformat']);
+		$timeformat = $this->UCP->FreePBX->Userman->getLocaleSpecificSettingByUID($user['id'], 'timeformat');
+		if(php_sapi_name() !== 'cli' && !empty($timeformat)) {
+			$view->setTimeFormat($timeformat);
 		}
 
-		if(php_sapi_name() !== 'cli' && !empty($user['dateformat'])) {
-			$view->setDateFormat($user['dateformat']);
+		$dateformat = $this->UCP->FreePBX->Userman->getLocaleSpecificSettingByUID($user['id'], 'dateformat');
+		if(php_sapi_name() !== 'cli' && !empty($dateformat)) {
+			$view->setDateFormat($dateformat);
 		}
 
 		return array("timezone" => $timezone, "language" => $language, "datetimeformat" => "", "timeformat" => "", "dateformat" => "");

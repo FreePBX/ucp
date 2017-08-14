@@ -215,7 +215,7 @@ var SettingsC = UCPMC.extend({
 				});
 			}
 		});
-		$("#userinfo input[type!=checkbox][type!=radio]").blur(function() {
+		$("#userinfo input[type!=checkbox][type!=radio][name!=dateformat][name!=timeformat][name!=datetimeformat]").blur(function() {
 			$.post( "ajax.php?module=Settings&command=settings", { key: $(this).prop("name"), value: $(this).val() }, function( data ) {
 				if (data.status) {
 					$this.showMessage(_("Saved!"),"success");
@@ -225,7 +225,7 @@ var SettingsC = UCPMC.extend({
 				$(this).off("blur");
 			});
 		});
-		$("#datetimeformat, #timeformat, #datetimeformat").blur(function() {
+		$("#dateformat, #timeformat, #datetimeformat").blur(function() {
 			var name = $(this).prop("name"),
 					value = $(this).val();
 			$.post( "ajax.php?module=Settings&command=settings", { key: name, value: value }, function( data ) {

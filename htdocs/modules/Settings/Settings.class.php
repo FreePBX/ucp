@@ -130,7 +130,6 @@ class Settings extends Modules{
 
 	public function getSimpleWidgetSettingsDisplay($id) {
 		$user = $this->UCP->User->getUser();
-		dbug($user);
 		if(empty($user)) {
 			return array();
 		}
@@ -165,7 +164,6 @@ class Settings extends Modules{
 		$displayvars['extra'] = [];
 		foreach($modules as $module) {
 			$out = $this->UCP->Modules->$module->getUserSettingsDisplay();
-			dbug($out);
 			if(!empty($out)) {
 				foreach($out as $o) {
 					if(!empty($o)) {
@@ -175,11 +173,44 @@ class Settings extends Modules{
 			}
 		}
 
+		$displayvars['placeholders'] = array(
+			'language' => $this->getPlaceholder($user['id'], 'language'),
+			'timezone' => $this->getPlaceholder($user['id'], 'timezone'),
+			'dateformat' => $this->getPlaceholder($user['id'], 'dateformat'),
+			'timeformat' => $this->getPlaceholder($user['id'], 'timeformat'),
+			'datetimeformat' => $this->getPlaceholder($user['id'], 'datetimeformat')
+		);
+
 		$display = array(
 			'title' => _("User"),
 			'html' => $this->UCP->View->load_view(__DIR__.'/views/settings.php',$displayvars)
 		);
 
 		return $display;
+	}
+
+	private function getPlaceholder($uid, $type) {
+		$res = $this->UCP->FreePBX->Userman->getLocaleSpecificGroupSettingByUID($uid, $type);
+		if(empty($res)) {
+			switch($type) {
+				case 'language':
+					return $this->UCP->FreePBX->Config->get("UIDEFAULTLANG");
+				break;
+				case 'timezone':
+					return $this->UCP->FreePBX->Config->get('PHPTIMEZONE');
+				break;
+				case 'dateformat':
+					return $this->UCP->FreePBX->Config->get("MDATEFORMAT");
+				break;
+				case 'timeformat':
+					return $this->UCP->FreePBX->Config->get("MTIMEFORMAT");
+				break;
+				case 'datetimeformat':
+					return $this->UCP->FreePBX->Config->get("MDATETIMEFORMAT");
+				break;
+			}
+		} else {
+			return $res;
+		}
 	}
 }

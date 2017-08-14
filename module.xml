@@ -2,7 +2,7 @@
 	<rawname>ucp</rawname>
 	<name>User Control Panel</name>
 	<repo>standard</repo>
-	<version>14.0.1.2</version>
+	<version>14.0.1.3</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>AGPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/agpl-3.0.txt</licenselink>
@@ -10,6 +10,7 @@
 		The user control panel is a way for users to control call handling and personal settings from a web browser.
 	</description>
 	<changelog>
+		*14.0.1.3* FREEPBX-15576
 		*14.0.1.2* FREEPBX-15430 call to wrong object
 		*14.0.1.1* Check npm status on installation
 		*14.0.1* Stable release
@@ -77,8 +78,7 @@
 		</table>
 	</database>
 	<depends>
-		<phpversion>5.3.3</phpversion>
-		<module>userman ge 13.0.35</module>
+		<module>userman ge 14.0.3.26</module>
 		<module>core ge 12.0.1alpha25</module>
 		<version>14.0.1rc1.2</version>
 		<module>pm2 ge 13.0.3.18</module>
