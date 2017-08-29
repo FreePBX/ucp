@@ -229,7 +229,7 @@ class Ucp implements \BMO {
 	 */
 	public function getUcpLink($hostname = null) {
 		if(empty($hostname)){
-			$hostname = $_SERVER["SERVER_NAME"]; 
+			$hostname = $_SERVER["SERVER_NAME"];
 		}else{
 			$tmp_data = parse_url($hostname);
 			if(isset($tmp_data['host'])){
@@ -589,6 +589,7 @@ class Ucp implements \BMO {
 				if(file_exists($path.'/admin/modules/'.$rawname.'/ucp') && file_exists($path.'/admin/modules/'.$rawname.'/ucp/'.ucfirst($rawname).".class.php")) {
 					if($module['status'] == MODULE_STATUS_ENABLED) {
 						if(!file_exists($location."/modules/".ucfirst($rawname))) {
+							print_r(array($path.'/admin/modules/'.$rawname.'/ucp',$location.'/modules/'.ucfirst($rawname)));
 							symlink($path.'/admin/modules/'.$rawname.'/ucp',$location.'/modules/'.ucfirst($rawname));
 						}
 					} elseif($module['status'] != MODULE_STATUS_DISABLED && $module['status'] != MODULE_STATUS_ENABLED) {
@@ -903,7 +904,7 @@ class Ucp implements \BMO {
 		$ampwebroot = $this->FreePBX->Config->get("AMPWEBROOT");
 		$files[] = array('type' => 'rdir',
 												'path' => $ampwebroot.'/ucp',
-												'perms' => 0755);
+												'perms' => 0775);
 		return $files;
 	}
 }
