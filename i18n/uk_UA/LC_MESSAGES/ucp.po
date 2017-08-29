@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-08-14 10:51-0700\n"
+"POT-Creation-Date: 2017-08-29 10:12-0700\n"
 "PO-Revision-Date: 2016-12-13 14:49+0200\n"
 "Last-Translator: Maxim <maxim@ua.fm>\n"
 "Language-Team: Ukrainian <http://weblate.freepbx.org/projects/freepbx/ucp/"
@@ -227,7 +227,7 @@ msgstr "Дозволені налаштування додаткового но�
 msgid "Are you sure you want to delete this dashboard?"
 msgstr ""
 
-#: Ucp.class.php:1206
+#: Ucp.class.php:1207
 #, php-format
 msgid ""
 "Asterisk home dir (%s) doesn't exist, and, ASTSPOOLDIR doesn't exist. "
@@ -359,11 +359,11 @@ msgstr "Видалити зображення"
 msgid "Delete a Dashboard"
 msgstr ""
 
-#: Ucp.class.php:1065
+#: Ucp.class.php:1066
 msgid "Deleted Session"
 msgstr "Видалена сесія"
 
-#: Ucp.class.php:373 Ucp.class.php:908
+#: Ucp.class.php:373 Ucp.class.php:909
 msgid "Deleted User Session"
 msgstr "Видалена користувацька сесія"
 
@@ -375,13 +375,13 @@ msgstr ""
 msgid "Display Name"
 msgstr "Відображене ім'я"
 
-#: Ucp.class.php:1373
+#: Ucp.class.php:1374
 #, php-format
 msgid "Don't know what %s is"
 msgstr ""
 
-#: Ucp.class.php:254 Ucp.class.php:280 Ucp.class.php:1159 Ucp.class.php:1163
-#: Ucp.class.php:1167 Ucp.class.php:1171
+#: Ucp.class.php:254 Ucp.class.php:280 Ucp.class.php:1160 Ucp.class.php:1164
+#: Ucp.class.php:1168 Ucp.class.php:1172
 msgid "Done"
 msgstr "Зроблено"
 
@@ -452,7 +452,7 @@ msgstr ""
 msgid "Failed to install %s due to the following conflicting module(s): %s"
 msgstr "Не вдалося встановити %s через наступний конфлікт модуля(ів): %s"
 
-#: Ucp.class.php:1283
+#: Ucp.class.php:1284
 #, php-format
 msgid "Failed to run: '%s'"
 msgstr ""
@@ -493,19 +493,19 @@ msgstr "GHI"
 msgid "General"
 msgstr "Загальні"
 
-#: Ucp.class.php:1169
+#: Ucp.class.php:1170
 msgid "Generating Main CSS..."
 msgstr "Створення головного CSS..."
 
-#: Ucp.class.php:1165
+#: Ucp.class.php:1166
 msgid "Generating Main Scripts..."
 msgstr "Створення головного сценарію..."
 
-#: Ucp.class.php:1161
+#: Ucp.class.php:1162
 msgid "Generating Module CSS..."
 msgstr "Створення модуля CSS..."
 
-#: Ucp.class.php:1157
+#: Ucp.class.php:1158
 msgid "Generating Module Scripts..."
 msgstr "Створення модуля сценарію..."
 
@@ -787,7 +787,7 @@ msgstr "Скинути пароль"
 msgid "Restart Tour"
 msgstr ""
 
-#: Ucp.class.php:1223
+#: Ucp.class.php:1224
 #, php-format
 msgid "Running (Uptime: %s)"
 msgstr ""
@@ -884,7 +884,7 @@ msgstr ""
 msgid "Something went wrong removing the dashboard"
 msgstr ""
 
-#: Ucp.class.php:1278
+#: Ucp.class.php:1279
 #, php-format
 msgid "Started UCP Node Server. PID is %s"
 msgstr ""
@@ -894,7 +894,7 @@ msgstr ""
 msgid "Started with PID %s!"
 msgstr ""
 
-#: Ucp.class.php:1249
+#: Ucp.class.php:1250
 msgid "Starting UCP Node Server..."
 msgstr ""
 
@@ -902,11 +902,11 @@ msgstr ""
 msgid "Starting new UCP Node Process..."
 msgstr ""
 
-#: Ucp.class.php:1350
+#: Ucp.class.php:1351
 msgid "Stopped UCP Node Server"
 msgstr ""
 
-#: Ucp.class.php:1319
+#: Ucp.class.php:1320
 msgid "Stopping UCP Node Server"
 msgstr ""
 
@@ -1112,25 +1112,25 @@ msgstr "UCP"
 msgid "UCP Admin"
 msgstr "Адміністратор UCP"
 
-#: Ucp.class.php:1214
+#: Ucp.class.php:1215
 msgid "UCP Daemon"
 msgstr ""
 
-#: Ucp.class.php:1354
+#: Ucp.class.php:1355
 #, php-format
 msgid "UCP Node Server Failed: %s"
 msgstr ""
 
-#: Ucp.class.php:1243
+#: Ucp.class.php:1244
 #, php-format
 msgid "UCP Node Server has already been running on PID %s for %s"
 msgstr ""
 
-#: Ucp.class.php:1312
+#: Ucp.class.php:1313
 msgid "UCP Node Server is not running"
 msgstr ""
 
-#: Ucp.class.php:1225
+#: Ucp.class.php:1226
 msgid "UCP Node is not running"
 msgstr ""
 
@@ -1174,7 +1174,7 @@ msgstr ""
 msgid "Unable to send Password Reset Email"
 msgstr "Неможливо відправити скидання пароля на електронну пошту"
 
-#: Ucp.class.php:1216
+#: Ucp.class.php:1217
 msgid "Unknown"
 msgstr ""
 
