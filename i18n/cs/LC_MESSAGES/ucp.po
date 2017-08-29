@@ -9,14 +9,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-04-27 11:31-0400\n"
+"POT-Creation-Date: 2017-08-29 13:09-0400\n"
 "PO-Revision-Date: 2017-08-25 18:09+0200\n"
 "Last-Translator: Petr <petrv@atlantis.cz>\n"
 "Language-Team: Czech <http://weblate.freepbx.org/projects/freepbx/ucp/cs/>\n"
-"Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: cs\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 "X-Generator: Weblate 2.4\n"
 
@@ -144,11 +144,11 @@ msgstr "DEF"
 msgid "Delete Image"
 msgstr "Smazat obrázek"
 
-#: Ucp.class.php:792
+#: Ucp.class.php:793
 msgid "Deleted Session"
 msgstr "Odstraněná relace"
 
-#: Ucp.class.php:126 Ucp.class.php:635
+#: Ucp.class.php:126 Ucp.class.php:636
 msgid "Deleted User Session"
 msgstr "Odstraněná relace uživatele"
 
@@ -156,7 +156,7 @@ msgstr "Odstraněná relace uživatele"
 msgid "Display Name"
 msgstr "Zobrazovaný název"
 
-#: Ucp.class.php:886 Ucp.class.php:890 Ucp.class.php:894 Ucp.class.php:898
+#: Ucp.class.php:887 Ucp.class.php:891 Ucp.class.php:895 Ucp.class.php:899
 msgid "Done"
 msgstr "Hotovo"
 
@@ -222,19 +222,19 @@ msgstr "GHI"
 msgid "General"
 msgstr "Obecné"
 
-#: Ucp.class.php:896
+#: Ucp.class.php:897
 msgid "Generating Main CSS..."
 msgstr "Generování hlavního CSS..."
 
-#: Ucp.class.php:892
+#: Ucp.class.php:893
 msgid "Generating Main Scripts..."
 msgstr "Generování hlavních skriptů..."
 
-#: Ucp.class.php:888
+#: Ucp.class.php:889
 msgid "Generating Module CSS..."
 msgstr "Generování CSS modulu..."
 
-#: Ucp.class.php:884
+#: Ucp.class.php:885
 msgid "Generating Module Scripts..."
 msgstr "Generování skriptů modulů..."
 

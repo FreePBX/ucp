@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-04-27 11:31-0400\n"
+"POT-Creation-Date: 2017-08-29 13:09-0400\n"
 "PO-Revision-Date: 2017-03-06 01:46+0200\n"
 "Last-Translator: hammer125 <auswertung@aon.at>\n"
 "Language-Team: German <http://weblate.freepbx.org/projects/freepbx/ucp/de_DE/"
@@ -146,11 +146,11 @@ msgstr "DEF"
 msgid "Delete Image"
 msgstr "Bild löschen"
 
-#: Ucp.class.php:792
+#: Ucp.class.php:793
 msgid "Deleted Session"
 msgstr "Gelöschte Sitzung"
 
-#: Ucp.class.php:126 Ucp.class.php:635
+#: Ucp.class.php:126 Ucp.class.php:636
 msgid "Deleted User Session"
 msgstr "Gelöschte Benutzer Sitzung"
 
@@ -158,7 +158,7 @@ msgstr "Gelöschte Benutzer Sitzung"
 msgid "Display Name"
 msgstr "Anzeigename"
 
-#: Ucp.class.php:886 Ucp.class.php:890 Ucp.class.php:894 Ucp.class.php:898
+#: Ucp.class.php:887 Ucp.class.php:891 Ucp.class.php:895 Ucp.class.php:899
 msgid "Done"
 msgstr "Erledigt"
 
@@ -226,19 +226,19 @@ msgstr "GHI"
 msgid "General"
 msgstr "Allgemein"
 
-#: Ucp.class.php:896
+#: Ucp.class.php:897
 msgid "Generating Main CSS..."
 msgstr "Generiere Main CSS..."
 
-#: Ucp.class.php:892
+#: Ucp.class.php:893
 msgid "Generating Main Scripts..."
 msgstr "Generiere Main Scripts..."
 
-#: Ucp.class.php:888
+#: Ucp.class.php:889
 msgid "Generating Module CSS..."
 msgstr "Generiere Module CSS..."
 
-#: Ucp.class.php:884
+#: Ucp.class.php:885
 msgid "Generating Module Scripts..."
 msgstr "Generiere Module Scripts..."
 

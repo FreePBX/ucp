@@ -9,15 +9,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-04-27 11:31-0400\n"
+"POT-Creation-Date: 2017-08-29 13:09-0400\n"
 "PO-Revision-Date: 2017-08-02 21:28+0200\n"
 "Last-Translator: PETER <ftek@ymail.com>\n"
-"Language-Team: Vietnamese "
-"<http://weblate.freepbx.org/projects/freepbx/ucp/vi/>\n"
-"Language: vi\n"
+"Language-Team: Vietnamese <http://weblate.freepbx.org/projects/freepbx/ucp/"
+"vi/>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: vi\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Weblate 2.4\n"
 
@@ -146,11 +146,11 @@ msgstr "DEF"
 msgid "Delete Image"
 msgstr "Xóa hình ảnh"
 
-#: Ucp.class.php:792
+#: Ucp.class.php:793
 msgid "Deleted Session"
 msgstr "Phiên đã xóa"
 
-#: Ucp.class.php:126 Ucp.class.php:635
+#: Ucp.class.php:126 Ucp.class.php:636
 msgid "Deleted User Session"
 msgstr "Phiên người dùng đã xóa"
 
@@ -158,7 +158,7 @@ msgstr "Phiên người dùng đã xóa"
 msgid "Display Name"
 msgstr "Hiển thị Tên"
 
-#: Ucp.class.php:886 Ucp.class.php:890 Ucp.class.php:894 Ucp.class.php:898
+#: Ucp.class.php:887 Ucp.class.php:891 Ucp.class.php:895 Ucp.class.php:899
 msgid "Done"
 msgstr "Đã xong"
 
@@ -224,19 +224,19 @@ msgstr "GHI"
 msgid "General"
 msgstr "Chung"
 
-#: Ucp.class.php:896
+#: Ucp.class.php:897
 msgid "Generating Main CSS..."
 msgstr "Đang tạo CSS chính..."
 
-#: Ucp.class.php:892
+#: Ucp.class.php:893
 msgid "Generating Main Scripts..."
 msgstr "Đang tạo các kịch bản chính..."
 
-#: Ucp.class.php:888
+#: Ucp.class.php:889
 msgid "Generating Module CSS..."
 msgstr "Đang tạo Mô đun CSS..."
 
-#: Ucp.class.php:884
+#: Ucp.class.php:885
 msgid "Generating Module Scripts..."
 msgstr "Đang tạo Mô đun kịch bản..."
 
