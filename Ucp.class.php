@@ -333,6 +333,7 @@ class Ucp implements \BMO {
 								"mHtml" => $this->constructModuleConfigPages('group',$group,$_REQUEST['action']),
 								"user" => array(),
 								"allowLogin" => $this->Userman->getModuleSettingByGID($_REQUEST['group'],'ucp|Global','allowLogin'),
+								"fmr" => $this->Userman->getModuleSettingByGID($_REQUEST['group'],'ucp|Global','fmr'),
 								"originate" => $this->Userman->getModuleSettingByGID($_REQUEST['group'],'ucp|Global','originate'),
 								"tourMode" => $this->Userman->getModuleSettingByGID($_REQUEST['group'],'ucp|Global','tour'))
 							)
@@ -360,6 +361,7 @@ class Ucp implements \BMO {
 								"mHtml" => $this->constructModuleConfigPages('group', array(),$_REQUEST['action']),
 								"user" => array(),
 								"allowLogin" => true,
+								"fmr" => false,
 								"originate" => false,
 								"tourMode" => true)
 							)
@@ -393,6 +395,7 @@ class Ucp implements \BMO {
 								"user" => $user,
 								"allowLogin" => FreePBX::create()->Userman->getModuleSettingByID($_REQUEST['user'],'ucp|Global','allowLogin',true),
 								"originate" => FreePBX::create()->Userman->getModuleSettingByID($_REQUEST['user'],'ucp|Global','originate',true),
+								"fmr" => FreePBX::create()->Userman->getModuleSettingByID($_REQUEST['user'],'ucp|Global','fmr',true),
 								"tourMode" => FreePBX::create()->Userman->getModuleSettingByID($_REQUEST['user'],'ucp|Global','tour',true),
 								"sessions" => $this->getUserSessions($user['id'])
 								)
@@ -419,6 +422,7 @@ class Ucp implements \BMO {
 								"mHtml" => $this->constructModuleConfigPages('user',array(),$_REQUEST['action']),
 								"user" => array(),
 								"allowLogin" => null,
+								"fmr" => 'disable',
 								"originate" => null,
 								"tourMode" => null,
 								"sessions" => array()
@@ -604,6 +608,11 @@ class Ucp implements \BMO {
 			} else {
 				$this->Userman->setModuleSettingByGID($id,'ucp|Global','allowLogin', false);
 			}
+			if($_POST['fmr'] == 'enable') {
+				$this->Userman->setModuleSettingByGID($id,'ucp|Global','fmr', 'enable');
+			} else {
+				$this->Userman->setModuleSettingByGID($id,'ucp|Global','fmr', 'disable');
+			}
 			if($_POST['ucp_originate'] == 'yes') {
 				$this->Userman->setModuleSettingByGID($id,'ucp|Global','originate', true);
 			} else {
@@ -632,6 +641,11 @@ class Ucp implements \BMO {
 				$this->Userman->setModuleSettingByGID($id,'ucp|Global','allowLogin', true);
 			} else {
 				$this->Userman->setModuleSettingByGID($id,'ucp|Global','allowLogin', false);
+			}
+			if($_POST['fmr'] == 'enable') {
+				$this->Userman->setModuleSettingByGID($id,'ucp|Global','fmr', 'enable');
+			} else {
+				$this->Userman->setModuleSettingByGID($id,'ucp|Global','fmr', 'disable');
 			}
 			if($_POST['ucp_originate'] == 'yes') {
 				$this->Userman->setModuleSettingByGID($id,'ucp|Global','originate', true);
@@ -685,6 +699,13 @@ class Ucp implements \BMO {
 				} else {
 					$this->FreePBX->Userman->setModuleSettingByID($id,'ucp|Global','allowLogin',null);
 				}
+				if($_POST['fmr'] == 'enable') {
+					$this->FreePBX->Userman->setModuleSettingByID($id,'ucp|Global','fmr','enable');
+				} elseif($_POST['fmr'] == 'disable') {
+					$this->FreePBX->Userman->setModuleSettingByID($id,'ucp|Global','fmr','disable');
+				} else {
+					$this->FreePBX->Userman->setModuleSettingByID($id,'ucp|Global','fmr',null);
+				}
 				if(isset($_POST['ucp_settings'])) {
 					$this->setSettingByID($id,'Settings','assigned',$_POST['ucp_settings']);
 				} else {
@@ -726,6 +747,13 @@ class Ucp implements \BMO {
 					$this->FreePBX->Userman->setModuleSettingByID($id,'ucp|Global','allowLogin',false);
 				} else {
 					$this->FreePBX->Userman->setModuleSettingByID($id,'ucp|Global','allowLogin',null);
+				}
+				if($_POST['fmr'] == 'enable') {
+                    $this->FreePBX->Userman->setModuleSettingByID($id,'ucp|Global','fmr','enable');
+                } elseif($_POST['fmr'] == 'disable') {
+                    $this->FreePBX->Userman->setModuleSettingByID($id,'ucp|Global','fmr','disable');
+				} else {
+				    $this->FreePBX->Userman->setModuleSettingByID($id,'ucp|Global','fmr','disable');
 				}
 				if(isset($_POST['ucp_settings'])) {
 					$this->setSettingByID($id,'Settings','assigned',$_POST['ucp_settings']);

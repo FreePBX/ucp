@@ -164,6 +164,36 @@
 				</div>
 			</div>
 		</div>
+
+	<!--UCP FOLLOWME stategy  -->
+	<div class="element-container">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="row">
+					<div class="form-group">
+						<div class="col-md-3">
+							<label class="control-label" for="fmr_settings"><?php echo _("Followme Ring Strategy Settings")?></label>
+							<i class="fa fa-question-circle fpbx-help-icon" data-for="fmr_settings"></i>
+						</div>
+						<div class="col-md-9 radioset">
+                                                        <input type="radio" id="fmryes" name="fmr" value="enable" <?php echo ($fmr === 'enable') ? 'checked' : ''?> >
+                                                                <label for="fmryes"><?php echo _("Enable")?></label>
+                                                                <input type="radio" id="fmrno" name="fmr" value="disable" <?php echo ($fmr === 'disable') ? 'checked' : ''?>>
+								<label for="fmrno"><?php echo _("Disable")?></label>
+</div>
+                                                </div>
+                                        </div>
+                                </div>
+                        </div>
+			<div class="row">
+				<div class="col-md-12">
+					<span id="fmr_settings-help" class="help-block fpbx-help-block"><?php echo _("User will have the Option to select followme ring Strategy in UCP")?></span>
+                                </div>
+                        </div>
+                </div>
+
+
+<!--FM strategy end-->
 		<div class="element-container">
 			<div class="row">
 				<div class="col-md-12">
