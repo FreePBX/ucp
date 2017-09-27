@@ -27,7 +27,7 @@ ob_end_clean();
 $user = $ucp->User->getUser();
 $ucp->View->setGUILocales($user);
 
-if(!isset($_REQUEST['command']) || !isset($_REQUEST['module'])) {
+if(!isset($_REQUEST['command'])) {
 	header("HTTP/1.0 403 Forbidden");
 	$json = json_encode(array("status" => "false", "message" => "forbidden"));
 	die($json);
@@ -37,5 +37,6 @@ if(($_REQUEST['command'] != "login" && $_REQUEST['module'] != "User") && ($user 
 	$json = json_encode(array("status" => "false", "message" => "forbidden"));
 	die($json);
 }
-$ucp->Ajax->doRequest($_REQUEST['module'],$_REQUEST['command']);
-die();
+
+$module = !empty($_REQUEST['module']) ? $_REQUEST['module'] : null;
+$ucp->Ajax->doRequest($module,$_REQUEST['command']);

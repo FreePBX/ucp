@@ -480,7 +480,7 @@ var UCPC = Class.extend({
 			mdata = this.callModulesByMethod("prepoll",$.url().param());
 			$.ajax(
 				{
-					url: "index.php",
+					url: "ajax.php",
 					dataType: "json",
 					type: "POST",
 					data:
