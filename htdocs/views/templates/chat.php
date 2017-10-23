@@ -15,12 +15,12 @@
 			<div class="history">
 				<?php if(!empty($history['messages'])) { ?>
 					<?php foreach($history['messages'] as $h) { ?>
-						<div class="message <?php echo $h['direction']?>" data-id="<?php echo $h['id']?>">
+						<div class="message <?php echo $h['direction']?>" data-id="<?php echo $h['id']?>" title="<?php echo $this->UCP->View->getDateTime($h['date']) ?>">
 							<?php echo $h['message']?>
 						</div>
 					<?php } ?>
 					<?php if(!empty($history)) {?>
-						<div class="status" data-type="date"><?php sprintf(_('Sent at %s'),date('g:i A \\o\\n l', $h['date']));?></div>
+						<div class="status" data-type="date"><?php sprintf(_('Sent at %s'),$this->UCP->View->getDateTime($h['date']));?></div>
 					<?php } ?>
 				<?php } ?>
 			</div>

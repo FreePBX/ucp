@@ -661,7 +661,7 @@ var UCPC = Class.extend({
 				});
 			}
 			var newWindow = (typeof msgid === "undefined");
-			$.ajax({ url: "index.php", data: { quietmode: 1, command: "template", type: "chat", newWindow: newWindow, template: { module: module, icon: icon, id: id, to: to, from: from, title: title } }, success: function(data) {
+			$.ajax({ url: "ajax.php", data: { module: "ucp", command: "template", type: "chat", newWindow: newWindow, template: { module: module, icon: icon, id: id, to: to, from: from, title: title } }, success: function(data) {
 				$( "#messages-container" ).append( data.contents );
 				$("#messages-container .message-box[data-id=\"" + id + "\"] .response textarea").emojioneArea({
 					pickerPosition: "top",
