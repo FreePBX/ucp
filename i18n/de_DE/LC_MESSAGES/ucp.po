@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-08-29 13:09-0400\n"
-"PO-Revision-Date: 2017-12-08 21:58+0200\n"
+"PO-Revision-Date: 2017-12-09 05:18+0200\n"
 "Last-Translator: tranlsated <noemi@translated.net>\n"
 "Language-Team: German "
 "<http://weblate.freepbx.org/projects/freepbx/ucp/de_DE/>\n"
@@ -263,7 +263,7 @@ msgstr ""
 
 #: views/users_hook.php:56 views/users_hook.php:154
 msgid "Inherit"
-msgstr "Erben"
+msgstr "Übernehmen"
 
 #: htdocs/views/settings.php:99
 msgid "Interface Settings"
