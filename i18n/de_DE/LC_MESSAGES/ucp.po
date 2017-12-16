@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-08-29 13:09-0400\n"
-"PO-Revision-Date: 2017-12-14 16:47+0200\n"
+"PO-Revision-Date: 2017-12-15 19:55+0200\n"
 "Last-Translator: tranlsated <noemi@translated.net>\n"
 "Language-Team: German "
 "<http://weblate.freepbx.org/projects/freepbx/ucp/de_DE/>\n"
@@ -623,7 +623,7 @@ msgstr "Benutzer-Details"
 
 #: Ucp.class.php:70 /usr/src/freepbx/ucp/Ucp.class.php:98
 msgid "User Primary Extension"
-msgstr "Primäre Benutzernebenstelle"
+msgstr "Primärerweiterung des Nutzers"
 
 #: htdocs/index.php:227
 msgid "User Settings"
