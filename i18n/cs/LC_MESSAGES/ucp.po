@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-08-29 13:09-0400\n"
+"POT-Creation-Date: 2017-12-18 17:26-0500\n"
 "PO-Revision-Date: 2017-10-14 02:18+0200\n"
 "Last-Translator: Petr <petrv@atlantis.cz>\n"
 "Language-Team: Czech <http://weblate.freepbx.org/projects/freepbx/ucp/cs/>\n"
@@ -19,6 +19,22 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 "X-Generator: Weblate 2.4\n"
+
+#: node/node_modules/tough-cookie/lib/cookie.js:657
+msgid ""
+"\n"
+"    );\n"
+"  });\n"
+"\n"
+"Cookie.prototype.inspect = function inspect() {\n"
+"  var now = Date.now();\n"
+"  return "
+msgstr ""
+
+#: node/node_modules/lodash/core.js:1767
+#: node/node_modules/lodash/lodash.js:8802
+msgid "  abc  "
+msgstr ""
 
 #: htdocs/assets/js/bootstrap-table-1.9.0.js:635
 #: htdocs/assets/js/bootstrap-table-1.9.0.js:636
@@ -37,6 +53,88 @@ msgstr ""
 #: htdocs/assets/js/bootstrap-table-1.9.0.js:1480
 msgid " + field + "
 msgstr " + pole + "
+
+#: node/node_modules/ajv/dist/ajv.min.js:2
+msgid ""
+"()*+,;=:@\\/?]|%[0-9a-f]{2})*)?$/i,P=/^(?:urn\\:uuid\\:)?[0-9a-f]{8}-(?:"
+"[0-9a-f]{4}-){3}[0-9a-f]{12}$/i,E=/^(?:\\/(?:[^~\\/]|~0|~1)*)*$|^\\#(?:\\/(?:"
+"[a-z0-9_\\-\\.!$&"
+msgstr ""
+
+#: node/node_modules/ajv/dist/ajv.min.js:2
+msgid "()*+,;=:@]|%[0-9a-f]{2})*)*)(?:\\?(?:[a-z0-9\\-._~!$&"
+msgstr ""
+
+#: node/node_modules/ajv/dist/ajv.min.js:2
+msgid "()*+,;=:@]|%[0-9a-f]{2})*)*)?|(?:[a-z0-9\\-._~!$&"
+msgstr ""
+
+#: node/node_modules/ajv/dist/ajv.min.js:2
+msgid "()*+,;=:@]|%[0-9a-f]{2})*)*|\\/(?:(?:[a-z0-9\\-._~!$&"
+msgstr ""
+
+#: node/node_modules/ajv/dist/ajv.min.js:2
+msgid ""
+"()*+,;=:]+)\\]|(?:(?:25[0-5]|2[0-4]\\d|[01]?\\d\\d?)\\.){3}(?:25[0-5]|"
+"2[0-4]\\d|[01]?\\d\\d?)|(?:[a-z0-9\\-._~!$&"
+msgstr ""
+
+#: node/node_modules/tough-cookie/lib/cookie.js:606
+msgid ""
+")\n"
+"    {\n"
+"      this[prop] = options[prop];\n"
+"    }\n"
+"  }, this);\n"
+"\n"
+"  this.creation = this.creation || new Date();\n"
+"\n"
+"  // used to break creation ties in cookieCompare():\n"
+"  Object.defineProperty(this, "
+msgstr ""
+
+#: htdocs/assets/js/localforage.js:2383
+msgid ""
+");\n"
+"                }\n"
+"\n"
+"                this._config[i] = options[i];\n"
+"            }\n"
+"\n"
+"            // after all config options are set and\n"
+"            // the driver option is used, try setting it\n"
+"            if ("
+msgstr ""
+
+#: node/node_modules/lodash/lodash.js:15219
+msgid ""
+");\n"
+"     *\n"
+"     * if (_.isError(elements)) {\n"
+"     *   elements = [];\n"
+"     * }\n"
+"     */\n"
+"    var attempt = baseRest(function(func, args) {\n"
+"      try {\n"
+"        return apply(func, undefined, args);\n"
+"      } catch (e) {\n"
+"        return isError(e) ? e : new Error(e);\n"
+"      }\n"
+"    });\n"
+"\n"
+"    /**\n"
+"     * Binds methods of an object to the object itself, overwriting the "
+"existing\n"
+"     * method.\n"
+"     *\n"
+"     * **Note:** This method doesn"
+msgstr ""
+
+#: node/node_modules/lodash/lodash.js:14415
+msgid ""
+");\n"
+"     * // => "
+msgstr ""
 
 #: htdocs/index.php:88
 msgid ".htaccess files are disabled on this webserver. Please enable them"
@@ -59,6 +157,10 @@ msgstr "Nastavení účtu"
 msgid "Active Sessions"
 msgstr "Aktivní relace"
 
+#: ucp.i18n.php:34
+msgid "Address to bind to. Default is "
+msgstr ""
+
 #: ucp.i18n.php:6
 msgid "Admin"
 msgstr "Administrator"
@@ -76,11 +178,11 @@ msgstr "Povolit notifikace na ploše"
 msgid "Allow Login"
 msgstr "Povolit přihlášení"
 
-#: ucp.i18n.php:22
+#: ucp.i18n.php:54
 msgid "Allow Password Changes"
 msgstr "Povolit změny hesla"
 
-#: ucp.i18n.php:28
+#: ucp.i18n.php:60
 msgid "Allow Username Changes"
 msgstr "Povolit změny jména uživatele"
 
@@ -96,11 +198,11 @@ msgstr ""
 "Povolit tomuto uživateli, aby vytáčel hovory ze služby UCP. To není stejné "
 "jako WebRTC"
 
-#: ucp.i18n.php:30
+#: ucp.i18n.php:62
 msgid "Allow users to change their username in UCP"
 msgstr "Umožnit uživatelům změnit jejich uživatelské jméno v UCP"
 
-#: ucp.i18n.php:26
+#: ucp.i18n.php:58
 msgid "Allow users to change thier password in UCP"
 msgstr "Umožnit uživatelům změnit jejich heslo v UCP"
 
@@ -175,6 +277,14 @@ msgstr "Neznámá e-mailová adresa!"
 #: views/users_hook.php:144
 msgid "Enable Originating Calls"
 msgstr "Povolit odchozí hovory"
+
+#: ucp.i18n.php:28
+msgid "Enable TLS for the NodeJS Server"
+msgstr ""
+
+#: ucp.i18n.php:22
+msgid "Enable the NodeJS Server"
+msgstr ""
 
 #: htdocs/modules/Settings/Settings.class.php:83
 msgid "Endpoint Settings"
@@ -312,7 +422,6 @@ msgid "Loading"
 msgstr "Načítání"
 
 #: htdocs/views/forgot.php:61 htdocs/views/login.php:53
-#: htdocs/assets/js/ucp.js:1156
 msgid "Loading..."
 msgstr "Načítání..."
 
@@ -349,9 +458,29 @@ msgstr "Nové a staré heslo se neshodují"
 msgid "No"
 msgstr "Ne"
 
-#: htdocs/assets/js/ucp.js:1151
-msgid "No email defined"
-msgstr "Žádný e-mail nebyl definován"
+#: ucp.i18n.php:32
+msgid "NodeJS Bind Address"
+msgstr ""
+
+#: ucp.i18n.php:36
+msgid "NodeJS Bind Port"
+msgstr ""
+
+#: ucp.i18n.php:40
+msgid "NodeJS HTTPS Bind Address"
+msgstr ""
+
+#: ucp.i18n.php:42
+msgid "NodeJS HTTPS Bind Port"
+msgstr ""
+
+#: ucp.i18n.php:46
+msgid "NodeJS HTTPS TLS Certificate Location"
+msgstr ""
+
+#: ucp.i18n.php:50
+msgid "NodeJS HTTPS TLS Private Key Location"
+msgstr ""
 
 #: htdocs/modules/Home/assets/js/global.js:75
 msgid "Nothing Entered"
@@ -418,15 +547,23 @@ msgstr "Heslo se nezměnilo!"
 msgid "Please enter either a username or email address"
 msgstr "Zadejte buď uživatelské jméno nebo e-mailovou adresu"
 
+#: ucp.i18n.php:38
+msgid "Port to bind to. Default is 8001"
+msgstr ""
+
+#: ucp.i18n.php:44
+msgid "Port to bind to. Default is 8003"
+msgstr ""
+
 #: htdocs/assets/js/ucp.js:71 htdocs/assets/js/ucp.js:122
 msgid "Processing..."
 msgstr "Zpracovává se..."
 
-#: ucp.i18n.php:32
+#: ucp.i18n.php:64
 msgid "RSS Feeds"
 msgstr "Kanály RSS"
 
-#: ucp.i18n.php:34
+#: ucp.i18n.php:66
 msgid "RSS Feeds that are displayed in UCP. This overrides "
 msgstr "Kanály RSS, které jsou zobrazeny v UCP. To nahrazuje "
 
@@ -455,6 +592,14 @@ msgstr "Pošli mi odkaz na resetování hesla"
 msgid "Sent at %s"
 msgstr "Poslat jako %s"
 
+#: ucp.i18n.php:52
+msgid "Sets the path to the HTTPS private key. This is required if "
+msgstr ""
+
+#: ucp.i18n.php:48
+msgid "Sets the path to the HTTPS server certificate. This is required if "
+msgstr ""
+
 #: htdocs/views/dashboard.php:39 htdocs/assets/js/ucp.js:855
 msgid "Settings"
 msgstr "Nastavení"
@@ -467,7 +612,7 @@ msgstr "Styl a loga"
 msgid "TUV"
 msgstr "TUV"
 
-#: ucp.i18n.php:38
+#: ucp.i18n.php:70
 msgid ""
 "The number of days a session token will be valid for. Clear this setting if "
 "you want tokens to last forever (Not Recommended)"
@@ -540,7 +685,11 @@ msgstr "Administrator UCP"
 msgid "UCP Language"
 msgstr "Jazyk UCP"
 
-#: ucp.i18n.php:36
+#: ucp.i18n.php:24
+msgid "UCP NodeJS Server"
+msgstr ""
+
+#: ucp.i18n.php:68
 msgid "UCP Session Timeout"
 msgstr "Časový limit relace UCP"
 
@@ -595,9 +744,8 @@ msgstr "Aktualizovat heslo"
 msgid "Use Gravatar"
 msgstr "Použij Gravatar"
 
-#: htdocs/views/forgot.php:5 htdocs/views/header.php:4
-#: htdocs/views/login.php:4 ucp.i18n.php:4
-#: /usr/src/freepbx/ucp/ucp.i18n.php:24
+#: htdocs/views/forgot.php:5 htdocs/views/header.php:4 htdocs/views/login.php:4
+#: ucp.i18n.php:4 /usr/src/freepbx/ucp/ucp.i18n.php:56
 msgid "User Control Panel"
 msgstr "Uživatelský portál (UCP)"
 
@@ -655,6 +803,18 @@ msgstr "Vítejte %s"
 #: views/users_hook.php:4
 msgid "What is UCP"
 msgstr "Co je UCP"
+
+#: ucp.i18n.php:30
+msgid ""
+"Whether to enable TLS for the backend server for UCP which allows "
+"instantaneous updates to the interface"
+msgstr ""
+
+#: ucp.i18n.php:26
+msgid ""
+"Whether to enable the backend server for UCP which allows instantaneous "
+"updates to the interface"
+msgstr ""
 
 #: htdocs/views/settings.php:79
 msgid "Work Phone"
@@ -720,6 +880,19 @@ msgstr ""
 msgid "Your reset link is in the mail!"
 msgstr "Tvůj odkaz s obnovením hesla je v e-mailu!"
 
+#: node/node_modules/ajv/dist/ajv.min.js:5
+msgid "["
+msgstr ""
+
+#: node/node_modules/lodash.assign/index.js:328
+#: node/node_modules/lodash.assign/index.js:331
+#: node/node_modules/lodash/core.js:2417 node/node_modules/lodash/core.js:2420
+#: node/node_modules/lodash/eq.js:24 node/node_modules/lodash/eq.js:27
+#: node/node_modules/node-xmpp-client/browserify.js:10026
+#: node/node_modules/node-xmpp-client/browserify.js:10029
+msgid "a"
+msgstr ""
+
 #: ucp.i18n.php:16
 msgid ""
 "dashfootercontent.php view. This should never be changed except for very "
@@ -727,6 +900,17 @@ msgid ""
 msgstr ""
 "Zobrazení dashfootercontent.php. Toto by se nikdy nemělo měnit, s výjimkou "
 "velmi pokročilých změn uspořádání"
+
+#: node/node_modules/lodash/core.js:3537 node/node_modules/lodash/core.js:3541
+#: node/node_modules/lodash/lodash.js:15658
+#: node/node_modules/lodash/lodash.js:15662
+#: node/node_modules/lodash/mixin.js:38 node/node_modules/lodash/mixin.js:42
+msgid "fred"
+msgstr ""
+
+#: node/node_modules/lodash/fp/_convertBrowser.js:15
+msgid "function"
+msgstr ""
 
 #: htdocs/index.php:102
 #, php-format
@@ -742,3 +926,6 @@ msgstr ""
 #: htdocs/views/login.php:24
 msgid "or"
 msgstr "nebo"
+
+#~ msgid "No email defined"
+#~ msgstr "Žádný e-mail nebyl definován"
