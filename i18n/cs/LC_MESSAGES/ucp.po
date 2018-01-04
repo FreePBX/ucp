@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-12-18 17:26-0500\n"
-"PO-Revision-Date: 2018-01-03 15:37+0200\n"
+"PO-Revision-Date: 2018-01-03 21:59+0200\n"
 "Last-Translator: Petr <petrv@atlantis.cz>\n"
 "Language-Team: Czech <http://weblate.freepbx.org/projects/freepbx/ucp/cs/>\n"
 "Language: cs\n"
@@ -67,6 +67,9 @@ msgid ""
 "[0-9a-f]{4}-){3}[0-9a-f]{12}$/i,E=/^(?:\\/(?:[^~\\/]|~0|~1)*)*$|^\\#(?:\\/(?:"
 "[a-z0-9_\\-\\.!$&"
 msgstr ""
+"()*+,;=:@\\/?]|%[0-9a-f]{2})*)?$/i,P=/^(?:urn\\:uuid\\"
+":)?[0-9a-f]{8}-(?:[0-9a-f]{4}-){3}[0-9a-f]{12}$/i,E=/^(?:\\/(?:[^~\\"
+"/]|~0|~1)*)*$|^\\#(?:\\/(?:[a-z0-9_\\-\\.!$&"
 
 #: node/node_modules/ajv/dist/ajv.min.js:2
 msgid "()*+,;=:@]|%[0-9a-f]{2})*)*)(?:\\?(?:[a-z0-9\\-._~!$&"
@@ -176,6 +179,8 @@ msgstr "Administrator"
 msgid ""
 "All fields update when unfocused (selecting another field) except password"
 msgstr ""
+"Všechna pole se aktualizují, když jsou nezařazená (výběr jiného pole) kromě "
+"hesla"
 
 #: htdocs/views/settings.php:111
 msgid "Allow Desktop Notifications"
@@ -287,11 +292,11 @@ msgstr "Povolit odchozí hovory"
 
 #: ucp.i18n.php:28
 msgid "Enable TLS for the NodeJS Server"
-msgstr ""
+msgstr "Povolit TLS pro NodeJS Server"
 
 #: ucp.i18n.php:22
 msgid "Enable the NodeJS Server"
-msgstr ""
+msgstr "Povolit NodeJS Server"
 
 #: htdocs/modules/Settings/Settings.class.php:83
 msgid "Endpoint Settings"
