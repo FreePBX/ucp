@@ -14,6 +14,8 @@
 		<?php } ?>
 		<link href="assets/css/compiled/modules/<?php echo $ucpmoduleless.$version_tag?>" rel="stylesheet" type="text/css">
 
+		<link rel="icon" type="image/png" href="<?php echo $iconsdir?>/16x16.png">
+
 		<meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
 		<!-- Apple Specific -->
 		<meta name="apple-mobile-web-app-capable" content="yes" />
