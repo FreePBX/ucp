@@ -9,32 +9,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-12-18 17:26-0500\n"
+"POT-Creation-Date: 2018-01-30 22:04-0500\n"
 "PO-Revision-Date: 2016-06-01 07:08+0200\n"
 "Last-Translator: Hans <info@hansvaneijsden.nl>\n"
 "Language-Team: Dutch <http://weblate.freepbx.org/projects/freepbx/ucp/nl/>\n"
-"Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: nl\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 2.4\n"
-
-#: node/node_modules/tough-cookie/lib/cookie.js:657
-msgid ""
-"\n"
-"    );\n"
-"  });\n"
-"\n"
-"Cookie.prototype.inspect = function inspect() {\n"
-"  var now = Date.now();\n"
-"  return "
-msgstr ""
-
-#: node/node_modules/lodash/core.js:1767
-#: node/node_modules/lodash/lodash.js:8802
-msgid "  abc  "
-msgstr ""
 
 #: htdocs/assets/js/bootstrap-table-1.9.0.js:635
 #: htdocs/assets/js/bootstrap-table-1.9.0.js:636
@@ -53,88 +37,6 @@ msgstr ""
 #: htdocs/assets/js/bootstrap-table-1.9.0.js:1480
 msgid " + field + "
 msgstr " + veld + "
-
-#: node/node_modules/ajv/dist/ajv.min.js:2
-msgid ""
-"()*+,;=:@\\/?]|%[0-9a-f]{2})*)?$/i,P=/^(?:urn\\:uuid\\:)?[0-9a-f]{8}-(?:"
-"[0-9a-f]{4}-){3}[0-9a-f]{12}$/i,E=/^(?:\\/(?:[^~\\/]|~0|~1)*)*$|^\\#(?:\\/(?:"
-"[a-z0-9_\\-\\.!$&"
-msgstr ""
-
-#: node/node_modules/ajv/dist/ajv.min.js:2
-msgid "()*+,;=:@]|%[0-9a-f]{2})*)*)(?:\\?(?:[a-z0-9\\-._~!$&"
-msgstr ""
-
-#: node/node_modules/ajv/dist/ajv.min.js:2
-msgid "()*+,;=:@]|%[0-9a-f]{2})*)*)?|(?:[a-z0-9\\-._~!$&"
-msgstr ""
-
-#: node/node_modules/ajv/dist/ajv.min.js:2
-msgid "()*+,;=:@]|%[0-9a-f]{2})*)*|\\/(?:(?:[a-z0-9\\-._~!$&"
-msgstr ""
-
-#: node/node_modules/ajv/dist/ajv.min.js:2
-msgid ""
-"()*+,;=:]+)\\]|(?:(?:25[0-5]|2[0-4]\\d|[01]?\\d\\d?)\\.){3}(?:25[0-5]|"
-"2[0-4]\\d|[01]?\\d\\d?)|(?:[a-z0-9\\-._~!$&"
-msgstr ""
-
-#: node/node_modules/tough-cookie/lib/cookie.js:606
-msgid ""
-")\n"
-"    {\n"
-"      this[prop] = options[prop];\n"
-"    }\n"
-"  }, this);\n"
-"\n"
-"  this.creation = this.creation || new Date();\n"
-"\n"
-"  // used to break creation ties in cookieCompare():\n"
-"  Object.defineProperty(this, "
-msgstr ""
-
-#: htdocs/assets/js/localforage.js:2383
-msgid ""
-");\n"
-"                }\n"
-"\n"
-"                this._config[i] = options[i];\n"
-"            }\n"
-"\n"
-"            // after all config options are set and\n"
-"            // the driver option is used, try setting it\n"
-"            if ("
-msgstr ""
-
-#: node/node_modules/lodash/lodash.js:15219
-msgid ""
-");\n"
-"     *\n"
-"     * if (_.isError(elements)) {\n"
-"     *   elements = [];\n"
-"     * }\n"
-"     */\n"
-"    var attempt = baseRest(function(func, args) {\n"
-"      try {\n"
-"        return apply(func, undefined, args);\n"
-"      } catch (e) {\n"
-"        return isError(e) ? e : new Error(e);\n"
-"      }\n"
-"    });\n"
-"\n"
-"    /**\n"
-"     * Binds methods of an object to the object itself, overwriting the "
-"existing\n"
-"     * method.\n"
-"     *\n"
-"     * **Note:** This method doesn"
-msgstr ""
-
-#: node/node_modules/lodash/lodash.js:14415
-msgid ""
-");\n"
-"     * // => "
-msgstr ""
 
 #: htdocs/index.php:88
 msgid ".htaccess files are disabled on this webserver. Please enable them"
@@ -160,14 +62,6 @@ msgstr ""
 msgid "Active Sessions"
 msgstr "Actieve Sessies"
 
-#: ucp.i18n.php:34
-msgid "Address to bind to. Default is "
-msgstr ""
-
-#: ucp.i18n.php:6
-msgid "Admin"
-msgstr "Admin"
-
 #: htdocs/views/settings.php:11
 msgid ""
 "All fields update when unfocused (selecting another field) except password"
@@ -183,14 +77,6 @@ msgstr "Inschakelen Bureaubladmeldingen"
 msgid "Allow Login"
 msgstr "Inloggen Toestaan"
 
-#: ucp.i18n.php:54
-msgid "Allow Password Changes"
-msgstr "Sta Veranderen Wachtwoord Toe"
-
-#: ucp.i18n.php:60
-msgid "Allow Username Changes"
-msgstr "Sta Veranderen Gebruikersnaam Toe"
-
 #: htdocs/views/settings.php:119
 msgid "Allow browser desktop notifications from UCP modules."
 msgstr "Sta bureaubladmeldingen van UCP-modules toe."
@@ -202,14 +88,6 @@ msgid ""
 msgstr ""
 "Deze gebruiker mag telefoongesprekken opzetten vanuit UCP. Dit is niet "
 "hetzelfde als WebRTC"
-
-#: ucp.i18n.php:62
-msgid "Allow users to change their username in UCP"
-msgstr ""
-
-#: ucp.i18n.php:58
-msgid "Allow users to change thier password in UCP"
-msgstr "Sta gebruikers toe om hun wachtwoord te wijzigen in UCP"
 
 #: views/users_hook.php:118
 msgid "Allowed Extension Settings"
@@ -282,14 +160,6 @@ msgstr ""
 #: views/users_hook.php:144
 msgid "Enable Originating Calls"
 msgstr "Activeer Oorspronkelijke Gesprekken"
-
-#: ucp.i18n.php:28
-msgid "Enable TLS for the NodeJS Server"
-msgstr ""
-
-#: ucp.i18n.php:22
-msgid "Enable the NodeJS Server"
-msgstr ""
 
 #: htdocs/modules/Settings/Settings.class.php:83
 msgid "Endpoint Settings"
@@ -427,6 +297,7 @@ msgid "Loading"
 msgstr "Laden"
 
 #: htdocs/views/forgot.php:61 htdocs/views/login.php:53
+#: htdocs/assets/js/ucp.js:1156
 msgid "Loading..."
 msgstr "Laden..."
 
@@ -463,28 +334,8 @@ msgstr ""
 msgid "No"
 msgstr "Nee"
 
-#: ucp.i18n.php:32
-msgid "NodeJS Bind Address"
-msgstr ""
-
-#: ucp.i18n.php:36
-msgid "NodeJS Bind Port"
-msgstr ""
-
-#: ucp.i18n.php:40
-msgid "NodeJS HTTPS Bind Address"
-msgstr ""
-
-#: ucp.i18n.php:42
-msgid "NodeJS HTTPS Bind Port"
-msgstr ""
-
-#: ucp.i18n.php:46
-msgid "NodeJS HTTPS TLS Certificate Location"
-msgstr ""
-
-#: ucp.i18n.php:50
-msgid "NodeJS HTTPS TLS Private Key Location"
+#: htdocs/assets/js/ucp.js:1151
+msgid "No email defined"
 msgstr ""
 
 #: htdocs/modules/Home/assets/js/global.js:75
@@ -552,25 +403,9 @@ msgstr "Wachtwoord is niet veranderd!"
 msgid "Please enter either a username or email address"
 msgstr "Gelieve een gebruikersnaam of e-mailadres in te geven"
 
-#: ucp.i18n.php:38
-msgid "Port to bind to. Default is 8001"
-msgstr ""
-
-#: ucp.i18n.php:44
-msgid "Port to bind to. Default is 8003"
-msgstr ""
-
 #: htdocs/assets/js/ucp.js:71 htdocs/assets/js/ucp.js:122
 msgid "Processing..."
 msgstr "Verwerken..."
-
-#: ucp.i18n.php:64
-msgid "RSS Feeds"
-msgstr "RSS-Feeds"
-
-#: ucp.i18n.php:66
-msgid "RSS Feeds that are displayed in UCP. This overrides "
-msgstr "RSS-Feeds die worden weergegeven in het UCP. Dit heeft voorrang op "
 
 #: Ucp.class.php:29
 msgid "Refreshing all UCP Assets, this could take a while..."
@@ -597,33 +432,13 @@ msgstr "Stuur Wachtwoord-resetlink"
 msgid "Sent at %s"
 msgstr "Verstuurd naar %s"
 
-#: ucp.i18n.php:52
-msgid "Sets the path to the HTTPS private key. This is required if "
-msgstr ""
-
-#: ucp.i18n.php:48
-msgid "Sets the path to the HTTPS server certificate. This is required if "
-msgstr ""
-
 #: htdocs/views/dashboard.php:39 htdocs/assets/js/ucp.js:855
 msgid "Settings"
 msgstr "Instellingen"
 
-#: ucp.i18n.php:14
-msgid "Styling and Logos"
-msgstr ""
-
 #: htdocs/views/templates/phone.php:69
 msgid "TUV"
 msgstr "TUV"
-
-#: ucp.i18n.php:70
-msgid ""
-"The number of days a session token will be valid for. Clear this setting if "
-"you want tokens to last forever (Not Recommended)"
-msgstr ""
-"Het aantal dagen waar dit sessietoken geldig voor is. Maak deze instelling "
-"leeg als je sessietokens voor altijd geldig wilt laten zijn (Niet Aanbevolen)"
 
 #: htdocs/views/settings.php:24 htdocs/views/settings.php:29
 msgid "The password used to login to User Control Panel and other services"
@@ -634,15 +449,6 @@ msgstr ""
 #: htdocs/views/dashfootercontent.php:10
 msgid "The removal of this copyright notice is stricly prohibited"
 msgstr "Het verwijderen van dit copyrightbericht is niet toegestaan"
-
-#: ucp.i18n.php:8
-msgid ""
-"The user control panel is a way for users to control call handling and "
-"personal settings from a web browser."
-msgstr ""
-"Het User Control Panel is een manier voor gebruikers om het afhandelen van "
-"telefoongesprekken en andere persoonlijke instellingen via de browser te "
-"beheren."
 
 #: htdocs/views/settings.php:15
 msgid "The username used to login to User Control Panel and other services"
@@ -679,10 +485,6 @@ msgstr ""
 "gebruikt Allow Overrides in het configuratiebestand van je webserver "
 "inschakelen voor het User Control Panel. Voor meer informatie zie: %s"
 
-#: ucp.i18n.php:10
-msgid "UCP"
-msgstr "UCP"
-
 #: views/header.php:1
 msgid "UCP Admin"
 msgstr "UCP Beheer"
@@ -690,20 +492,6 @@ msgstr "UCP Beheer"
 #: htdocs/views/settings.php:108
 msgid "UCP Language"
 msgstr "UCP Taal"
-
-#: ucp.i18n.php:24
-msgid "UCP NodeJS Server"
-msgstr ""
-
-#: ucp.i18n.php:68
-msgid "UCP Session Timeout"
-msgstr "UCP Sessie-Timeout"
-
-#: ucp.i18n.php:20
-msgid ""
-"UCP icons folder. This should never be changed except for very advanced "
-"layout changes"
-msgstr ""
 
 #: htdocs/index.php:25
 msgid "UCP is currently disabled. Please talk to your system Administrator"
@@ -749,8 +537,8 @@ msgstr "Wachtwoord Bijwerken"
 msgid "Use Gravatar"
 msgstr ""
 
-#: htdocs/views/forgot.php:5 htdocs/views/header.php:4 htdocs/views/login.php:4
-#: ucp.i18n.php:4 /usr/src/freepbx/ucp/ucp.i18n.php:56
+#: htdocs/views/forgot.php:5 htdocs/views/header.php:4
+#: htdocs/views/login.php:4
 msgid "User Control Panel"
 msgstr "Gebruikers Beheerpanel"
 
@@ -788,14 +576,6 @@ msgstr "Gebruikersnaam"
 msgid "Username has been changed, reloading"
 msgstr "De gebruikersnaam is veranderd, opnieuw laden"
 
-#: ucp.i18n.php:12
-msgid "View: UCP dashfootercontent.php"
-msgstr ""
-
-#: ucp.i18n.php:18
-msgid "View: UCP icons"
-msgstr ""
-
 #: htdocs/views/templates/phone.php:73
 msgid "WXYZ"
 msgstr "WXYZ"
@@ -808,18 +588,6 @@ msgstr "Welkom %s"
 #: views/users_hook.php:4
 msgid "What is UCP"
 msgstr "Wat is UCP"
-
-#: ucp.i18n.php:30
-msgid ""
-"Whether to enable TLS for the backend server for UCP which allows "
-"instantaneous updates to the interface"
-msgstr ""
-
-#: ucp.i18n.php:26
-msgid ""
-"Whether to enable the backend server for UCP which allows instantaneous "
-"updates to the interface"
-msgstr ""
 
 #: htdocs/views/settings.php:79
 msgid "Work Phone"
@@ -885,36 +653,6 @@ msgstr ""
 msgid "Your reset link is in the mail!"
 msgstr "Je resetlink is in de e-mail!"
 
-#: node/node_modules/ajv/dist/ajv.min.js:5
-msgid "["
-msgstr ""
-
-#: node/node_modules/lodash.assign/index.js:328
-#: node/node_modules/lodash.assign/index.js:331
-#: node/node_modules/lodash/core.js:2417 node/node_modules/lodash/core.js:2420
-#: node/node_modules/lodash/eq.js:24 node/node_modules/lodash/eq.js:27
-#: node/node_modules/node-xmpp-client/browserify.js:10026
-#: node/node_modules/node-xmpp-client/browserify.js:10029
-msgid "a"
-msgstr ""
-
-#: ucp.i18n.php:16
-msgid ""
-"dashfootercontent.php view. This should never be changed except for very "
-"advanced layout changes"
-msgstr ""
-
-#: node/node_modules/lodash/core.js:3537 node/node_modules/lodash/core.js:3541
-#: node/node_modules/lodash/lodash.js:15658
-#: node/node_modules/lodash/lodash.js:15662
-#: node/node_modules/lodash/mixin.js:38 node/node_modules/lodash/mixin.js:42
-msgid "fred"
-msgstr ""
-
-#: node/node_modules/lodash/fp/_convertBrowser.js:15
-msgid "function"
-msgstr ""
-
 #: htdocs/index.php:102
 #, php-format
 msgid ""
@@ -923,12 +661,52 @@ msgid ""
 "see: %s"
 msgstr ""
 ",htaccess-bestanden helpen de integriteit van je server te behouden. Zorg "
-"dat de paden en mappen juist geconfigureerd zijn. Voor meer informatie zie: "
-"%s"
+"dat de paden en mappen juist geconfigureerd zijn. Voor meer informatie zie: %"
+"s"
 
 #: htdocs/views/login.php:24
 msgid "or"
 msgstr "of"
+
+#~ msgid "Admin"
+#~ msgstr "Admin"
+
+#~ msgid "Allow Password Changes"
+#~ msgstr "Sta Veranderen Wachtwoord Toe"
+
+#~ msgid "Allow Username Changes"
+#~ msgstr "Sta Veranderen Gebruikersnaam Toe"
+
+#~ msgid "Allow users to change thier password in UCP"
+#~ msgstr "Sta gebruikers toe om hun wachtwoord te wijzigen in UCP"
+
+#~ msgid "RSS Feeds"
+#~ msgstr "RSS-Feeds"
+
+#~ msgid "RSS Feeds that are displayed in UCP. This overrides "
+#~ msgstr "RSS-Feeds die worden weergegeven in het UCP. Dit heeft voorrang op "
+
+#~ msgid ""
+#~ "The number of days a session token will be valid for. Clear this setting "
+#~ "if you want tokens to last forever (Not Recommended)"
+#~ msgstr ""
+#~ "Het aantal dagen waar dit sessietoken geldig voor is. Maak deze "
+#~ "instelling leeg als je sessietokens voor altijd geldig wilt laten zijn "
+#~ "(Niet Aanbevolen)"
+
+#~ msgid ""
+#~ "The user control panel is a way for users to control call handling and "
+#~ "personal settings from a web browser."
+#~ msgstr ""
+#~ "Het User Control Panel is een manier voor gebruikers om het afhandelen "
+#~ "van telefoongesprekken en andere persoonlijke instellingen via de browser "
+#~ "te beheren."
+
+#~ msgid "UCP"
+#~ msgstr "UCP"
+
+#~ msgid "UCP Session Timeout"
+#~ msgstr "UCP Sessie-Timeout"
 
 #~ msgid "User Panel"
 #~ msgstr "Gebruikerspanel"
