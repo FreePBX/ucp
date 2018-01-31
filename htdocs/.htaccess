@@ -23,10 +23,13 @@ SetEnv HTACCESS on
 		#apache 2.4 added mod_authz_core which changes the layout
 		Require all granted
 	</IfModule>
-	
+
 	<IfModule !authz_core_module>
-		#apache 2.2 
+		#apache 2.2
 		Order allow,deny
 		Allow from all
 	</IfModule>
 </FilesMatch>
+
+#RewriteCond %{HTTP:Upgrade} =websocket [NC]
+#RewriteRule /(.*)           ws://localhost:8001/$1 [P,L]
