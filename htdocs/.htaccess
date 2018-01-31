@@ -30,3 +30,6 @@ SetEnv HTACCESS on
 		Allow from all
 	</IfModule>
 </FilesMatch>
+
+#RewriteCond %{HTTP:Upgrade} =websocket [NC]
+#RewriteRule /(.*)           ws://localhost:8001/$1 [P,L]
