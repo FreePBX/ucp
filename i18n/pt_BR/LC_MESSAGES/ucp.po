@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-08-29 10:12-0700\n"
+"POT-Creation-Date: 2018-02-13 14:24-0500\n"
 "PO-Revision-Date: 2017-03-08 21:13+0200\n"
 "Last-Translator: Kingvoice <suporte@kingvoice.com.br>\n"
 "Language-Team: Portuguese (Brazil) <http://weblate.freepbx.org/projects/"
@@ -23,52 +23,6 @@ msgstr ""
 
 #: htdocs/assets/js/lodash-4.17.2.js:8787
 msgid "  abc  "
-msgstr ""
-
-#: htdocs/assets/js/moment-with-locales-2.15.1.min.js:590
-msgid ")),Qg="
-msgstr ""
-
-#: htdocs/assets/js/moment-with-locales-2.15.1.min.js:590
-msgid "),Rg=(kg.defineLocale("
-msgstr ""
-
-#: htdocs/assets/js/moment-with-locales-2.15.1.min.js:588
-#: htdocs/assets/js/moment-with-locales-2.15.1.min.js:592
-msgid "),monthsParseExact:!0,weekdays:"
-msgstr ""
-
-#: htdocs/assets/js/moment-with-locales-2.15.1.min.js:557
-#: htdocs/assets/js/moment-with-locales-2.15.1.min.js:588
-#: htdocs/assets/js/moment-with-locales-2.15.1.min.js:592
-msgid "),monthsShort:"
-msgstr ""
-
-#: htdocs/assets/js/moment-with-locales-2.15.1.min.js:590
-msgid ""
-"),monthsShort:function(a,b){return/-MMM-/.test(b)?Qg[a.month()]:Pg[a."
-"month()]},monthsParseExact:!0,weekdays:"
-msgstr ""
-
-#: htdocs/assets/js/moment-with-locales-2.15.1.min.js:557
-#: htdocs/assets/js/moment-with-locales-2.15.1.min.js:588
-#: htdocs/assets/js/moment-with-locales-2.15.1.min.js:590
-#: htdocs/assets/js/moment-with-locales-2.15.1.min.js:592
-msgid "),weekdaysMin:"
-msgstr ""
-
-#: htdocs/assets/js/moment-with-locales-2.15.1.min.js:557
-#: htdocs/assets/js/moment-with-locales-2.15.1.min.js:588
-#: htdocs/assets/js/moment-with-locales-2.15.1.min.js:590
-#: htdocs/assets/js/moment-with-locales-2.15.1.min.js:592
-msgid "),weekdaysParseExact:!0,longDateFormat:{LT:"
-msgstr ""
-
-#: htdocs/assets/js/moment-with-locales-2.15.1.min.js:557
-#: htdocs/assets/js/moment-with-locales-2.15.1.min.js:588
-#: htdocs/assets/js/moment-with-locales-2.15.1.min.js:590
-#: htdocs/assets/js/moment-with-locales-2.15.1.min.js:592
-msgid "),weekdaysShort:"
 msgstr ""
 
 #: htdocs/assets/js/lodash-4.17.2.js:15199
@@ -110,6 +64,10 @@ msgstr ""
 #: htdocs/index.php:91
 msgid ".htaccess files are not supported on this webserver."
 msgstr "arquivos .htaccess não são suportados neste servidor web."
+
+#: htdocs/assets/js/moment-with-locales-2.20.1.min.js:1
+msgid ": "
+msgstr ""
 
 #: htdocs/modules/Ucptour/assets/js/global.js:123
 #, perl-format
@@ -699,11 +657,11 @@ msgstr "Nada Introduzido"
 msgid "Nothing was Provided!"
 msgstr "Nada Foi Fornecido!"
 
-#: htdocs/views/header.php:54
+#: htdocs/views/header.php:56
 msgid "OFF"
 msgstr "DESLIGADO"
 
-#: htdocs/views/header.php:51
+#: htdocs/views/header.php:53
 msgid "ON"
 msgstr "EM"
 
@@ -1214,9 +1172,8 @@ msgstr ""
 msgid "User"
 msgstr ""
 
-#: htdocs/views/forgot.php:5 htdocs/views/header.php:4
-#: htdocs/views/login.php:5 ucp.i18n.php:4
-#: /usr/src/freepbx/ucp/ucp.i18n.php:56
+#: htdocs/views/forgot.php:5 htdocs/views/header.php:4 htdocs/views/login.php:5
+#: ucp.i18n.php:4 /usr/src/freepbx/ucp/ucp.i18n.php:56
 #: htdocs/modules/Widgets/assets/js/global.js:47
 msgid "User Control Panel"
 msgstr "Painel de Controle do Usuário"
@@ -1263,7 +1220,7 @@ msgstr "Ver: Ícones PCU"
 msgid "WXYZ"
 msgstr "WXYZ"
 
-#: htdocs/views/header.php:70
+#: htdocs/views/header.php:72
 #, php-format
 msgid "Welcome %s"
 msgstr "Bem vindo %s"

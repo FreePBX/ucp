@@ -3,13 +3,13 @@
 # For licensing information, please see the file named LICENSE located in the module directory
 #
 # FreePBX language template for ucp
-# Copyright (C) 2008-2017 Sangoma Technologies, Inc.
+# Copyright (C) 2008-2018 Sangoma Technologies, Inc.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-08-29 10:12-0700\n"
+"POT-Creation-Date: 2018-02-13 14:24-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -20,52 +20,6 @@ msgstr ""
 
 #: htdocs/assets/js/lodash-4.17.2.js:8787
 msgid "  abc  "
-msgstr ""
-
-#: htdocs/assets/js/moment-with-locales-2.15.1.min.js:590
-msgid ")),Qg="
-msgstr ""
-
-#: htdocs/assets/js/moment-with-locales-2.15.1.min.js:590
-msgid "),Rg=(kg.defineLocale("
-msgstr ""
-
-#: htdocs/assets/js/moment-with-locales-2.15.1.min.js:588
-#: htdocs/assets/js/moment-with-locales-2.15.1.min.js:592
-msgid "),monthsParseExact:!0,weekdays:"
-msgstr ""
-
-#: htdocs/assets/js/moment-with-locales-2.15.1.min.js:557
-#: htdocs/assets/js/moment-with-locales-2.15.1.min.js:588
-#: htdocs/assets/js/moment-with-locales-2.15.1.min.js:592
-msgid "),monthsShort:"
-msgstr ""
-
-#: htdocs/assets/js/moment-with-locales-2.15.1.min.js:590
-msgid ""
-"),monthsShort:function(a,b){return/-MMM-/.test(b)?Qg[a.month()]:Pg[a."
-"month()]},monthsParseExact:!0,weekdays:"
-msgstr ""
-
-#: htdocs/assets/js/moment-with-locales-2.15.1.min.js:557
-#: htdocs/assets/js/moment-with-locales-2.15.1.min.js:588
-#: htdocs/assets/js/moment-with-locales-2.15.1.min.js:590
-#: htdocs/assets/js/moment-with-locales-2.15.1.min.js:592
-msgid "),weekdaysMin:"
-msgstr ""
-
-#: htdocs/assets/js/moment-with-locales-2.15.1.min.js:557
-#: htdocs/assets/js/moment-with-locales-2.15.1.min.js:588
-#: htdocs/assets/js/moment-with-locales-2.15.1.min.js:590
-#: htdocs/assets/js/moment-with-locales-2.15.1.min.js:592
-msgid "),weekdaysParseExact:!0,longDateFormat:{LT:"
-msgstr ""
-
-#: htdocs/assets/js/moment-with-locales-2.15.1.min.js:557
-#: htdocs/assets/js/moment-with-locales-2.15.1.min.js:588
-#: htdocs/assets/js/moment-with-locales-2.15.1.min.js:590
-#: htdocs/assets/js/moment-with-locales-2.15.1.min.js:592
-msgid "),weekdaysShort:"
 msgstr ""
 
 #: htdocs/assets/js/lodash-4.17.2.js:15199
@@ -104,6 +58,10 @@ msgstr ""
 
 #: htdocs/index.php:91
 msgid ".htaccess files are not supported on this webserver."
+msgstr ""
+
+#: htdocs/assets/js/moment-with-locales-2.20.1.min.js:1
+msgid ": "
 msgstr ""
 
 #: htdocs/modules/Ucptour/assets/js/global.js:123
@@ -704,11 +662,11 @@ msgstr ""
 msgid "Nothing was Provided!"
 msgstr ""
 
-#: htdocs/views/header.php:54
+#: htdocs/views/header.php:56
 msgid "OFF"
 msgstr ""
 
-#: htdocs/views/header.php:51
+#: htdocs/views/header.php:53
 msgid "ON"
 msgstr ""
 
@@ -1259,7 +1217,7 @@ msgstr ""
 msgid "WXYZ"
 msgstr ""
 
-#: htdocs/views/header.php:70
+#: htdocs/views/header.php:72
 #, php-format
 msgid "Welcome %s"
 msgstr ""
