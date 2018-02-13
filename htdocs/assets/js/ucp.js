@@ -853,6 +853,10 @@ var UCPC = Class.extend({
 	humanDiff: function(unixtimestamp) {
 		unixtimestamp = parseInt(unixtimestamp);
 		return moment.duration(moment.unix(unixtimestamp).diff(moment(new Date()))).humanize(true);
+	},
+	durationFormatter: function(value, amount) {
+		amount = (typeof amount !== "undefined" && amount !== null) ? amount : "seconds"
+		return moment.duration(value, amount).format('D[ day] H[ hour(s)] m[ minute] s[ second]');
 	}
 }), UCP = new UCPC();
 $(function() {
