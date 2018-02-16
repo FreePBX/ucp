@@ -10,8 +10,8 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-01-30 22:04-0500\n"
-"PO-Revision-Date: 2018-02-07 03:55+0200\n"
-"Last-Translator: tranlsated <noemi@translated.net>\n"
+"PO-Revision-Date: 2018-02-16 16:47+0200\n"
+"Last-Translator: Nils <Nils@heckenkamp.info>\n"
 "Language-Team: German "
 "<http://weblate.freepbx.org/projects/freepbx/ucp/de_DE/>\n"
 "Language: de_DE\n"
@@ -140,7 +140,7 @@ msgstr "Anzeigename"
 
 #: Ucp.class.php:887 Ucp.class.php:891 Ucp.class.php:895 Ucp.class.php:899
 msgid "Done"
-msgstr "Fertig"
+msgstr "Erledigt"
 
 #: htdocs/views/settings.php:132
 msgid "Drop a new image here"
@@ -434,7 +434,7 @@ msgstr "Gesendet um %s"
 
 #: htdocs/views/dashboard.php:39 htdocs/assets/js/ucp.js:855
 msgid "Settings"
-msgstr "Einstellungen"
+msgstr "Einstellung"
 
 #: htdocs/views/templates/phone.php:69
 msgid "TUV"
