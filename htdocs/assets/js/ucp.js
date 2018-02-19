@@ -856,7 +856,7 @@ var UCPC = Class.extend({
 	},
 	durationFormatter: function(value, amount) {
 		amount = (typeof amount !== "undefined" && amount !== null) ? amount : "seconds"
-		return moment.duration(value, amount).format('D[ day] H[ hour(s)] m[ minute] s[ second]');
+		return moment.duration(parseInt(value), amount).format('D[ day] H[ hour(s)] m[ minute] s[ second]');
 	}
 }), UCP = new UCPC();
 $(function() {
