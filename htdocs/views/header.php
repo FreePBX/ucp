@@ -25,8 +25,6 @@
 		<link rel="apple-touch-icon" sizes="120x120" href="<?php echo $iconsdir?>/120x120.png">
 		<link rel="apple-touch-icon" sizes="152x152" href="<?php echo $iconsdir?>/152x152.png">
 
-		<link rel="apple-touch-startup-image" href="<?php echo $iconsdir?>/320x480.png">
-
 		<meta name="apple-mobile-web-app-status-bar-style" content="black">
 		<!-- End Apple Specific -->
 
