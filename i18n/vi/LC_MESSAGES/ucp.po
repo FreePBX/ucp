@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-04-13 14:18-0400\n"
+"POT-Creation-Date: 2018-04-16 14:34-0400\n"
 "PO-Revision-Date: 2017-08-02 21:28+0200\n"
 "Last-Translator: PETER <ftek@ymail.com>\n"
 "Language-Team: Vietnamese <http://weblate.freepbx.org/projects/freepbx/ucp/"
@@ -645,7 +645,7 @@ msgstr ""
 msgid "Note: some widgets have size restrictions!"
 msgstr ""
 
-#: htdocs/modules/Home/assets/js/global.js:75
+#: htdocs/modules/Home/assets/js/global.js:73
 msgid "Nothing Entered"
 msgstr "Không có gì được nhập"
 
@@ -669,14 +669,14 @@ msgstr ""
 msgid "Ordering dashboards"
 msgstr ""
 
-#: htdocs/modules/Home/assets/js/global.js:46
-#: htdocs/modules/Home/assets/js/global.js:125
+#: htdocs/modules/Home/assets/js/global.js:47
+#: htdocs/modules/Home/assets/js/global.js:126
 msgid "Originate"
 msgstr "Khởi tạo"
 
 #: htdocs/modules/Home/assets/js/global.js:22
 #: htdocs/modules/Home/assets/js/global.js:45
-#: htdocs/modules/Home/assets/js/global.js:124
+#: htdocs/modules/Home/assets/js/global.js:125
 msgid "Originate Call"
 msgstr "Khởi tạo cuộc gọi"
 

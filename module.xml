@@ -2,7 +2,7 @@
 	<rawname>ucp</rawname>
 	<name>User Control Panel</name>
 	<repo>standard</repo>
-	<version>14.0.2.4</version>
+	<version>14.0.2.5</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>AGPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/agpl-3.0.txt</licenselink>
@@ -10,6 +10,7 @@
 		The user control panel is a way for users to control call handling and personal settings from a web browser.
 	</description>
 	<changelog>
+		*14.0.2.5* FREEPBX-16566 Originate command not working on UCP 
 		*14.0.2.4* Remove reference to large asset
 		*14.0.2.3* FREEPBX-16916
 		*14.0.2.2* Upgrade moment library
