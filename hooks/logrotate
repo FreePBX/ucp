@@ -7,6 +7,7 @@ cat <<- EOF > /etc/logrotate.d/freepbx-ucp
 	missingok
 	rotate 5
 	notifempty
+	dateext
 	sharedscripts
 	create 0640 asterisk asterisk
 	su asterisk asterisk
