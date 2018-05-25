@@ -10,15 +10,15 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-01-30 22:04-0500\n"
-"PO-Revision-Date: 2018-01-03 21:59+0200\n"
-"Last-Translator: Petr <petrv@atlantis.cz>\n"
-"Language-Team: Czech <http://weblate.freepbx.org/projects/freepbx/ucp/cs/>\n"
+"PO-Revision-Date: 2018-07-18 19:12+0000\n"
+"Last-Translator: Petr Varvarovsky <petrv@atlantis.cz>\n"
+"Language-Team: Czech <http://*/projects/freepbx/ucp/cs/>\n"
+"Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: cs\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Weblate 2.4\n"
+"X-Generator: Weblate 2.19.1\n"
 
 #: htdocs/assets/js/bootstrap-table-1.9.0.js:635
 #: htdocs/assets/js/bootstrap-table-1.9.0.js:636
@@ -160,7 +160,7 @@ msgstr "Povolit odchozí hovory"
 
 #: htdocs/modules/Settings/Settings.class.php:83
 msgid "Endpoint Settings"
-msgstr "Nastavení koncového bodu"
+msgstr "Nastavení telefonu"
 
 #: htdocs/index.php:154
 msgid "English"
