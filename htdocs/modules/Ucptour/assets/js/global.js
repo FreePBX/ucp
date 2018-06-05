@@ -164,7 +164,7 @@ $(document).bind("logIn", function( event ) {
 				element: "#add_widget .tab-pane.active .list-group-item.active",
 				placement: "right",
 				title: _("Selecting Dashboard Widgets"),
-				content: _("Dashbord Widgets are sorted into categories on the left. These widgets will appear directly on your dashboard. You can click on any category to get a listing of the widgets available"),
+				content: _("Dashboard Widgets are sorted into categories on the left. These widgets will appear directly on your dashboard. You can click on any category to get a listing of the widgets available"),
 				previous: -1
 			}, {
 				backdrop: true,
@@ -172,7 +172,7 @@ $(document).bind("logIn", function( event ) {
 				element: "#add_widget .tab-pane.active .bhoechie-tab-content.active .ibox-content-widget:first",
 				placement: "bottom",
 				title: _("Selecting Widgets"),
-				content: _("Widgets are listed on the right. The titles and descriptions will be show for each widget"),
+				content: _("Widgets are listed on the right. The titles and descriptions will be shown for each widget"),
 				onShown: function(tour) {
 					$("#add_widget .modal-body").scrollTop(0);
 					var myStep = tour.getCurrentStep();
@@ -275,14 +275,14 @@ $(document).bind("logIn", function( event ) {
 				element: "#add_widget .tab-pane.active .list-group-item.active",
 				placement: "bottom",
 				title: _("Selecting Small Widgets"),
-				content: _("Small Widgets are listed on the right. The titles and descriptions will be show for each widget"),
+				content: _("Small Widgets are listed on the right. The titles and descriptions will be shown for each widget"),
 			}, {
 				backdrop: true,
 				backdropContainer: "#add_widget .tab-pane.active .bhoechie-tab-container",
 				element: "#add_widget .tab-pane.active .bhoechie-tab-content.active .ibox-content-widget:first",
 				placement: "bottom",
 				title: _("Selecting Widgets"),
-				content: _("Widgets are listed on the right. The titles and descriptions will be show for each widget"),
+				content: _("Widgets are listed on the right. The titles and descriptions will be shown for each widget"),
 				onShown: function(tour) {
 					$("#add_widget .modal-body").scrollTop(0);
 					var myStep = tour.getCurrentStep();
