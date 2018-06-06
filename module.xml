@@ -11,7 +11,7 @@
 	</description>
 	<changelog>
 		*14.0.2.6* Fix logrotate
-		*14.0.2.5* FREEPBX-16566 Originate command not working on UCP 
+		*14.0.2.5* FREEPBX-16566 Originate command not working on UCP
 		*14.0.2.4* Remove reference to large asset
 		*14.0.2.3* FREEPBX-16916
 		*14.0.2.2* Upgrade moment library
@@ -61,9 +61,9 @@
 		<framework class="Chown" namespace="FreePBX\Console\Command">
 			<method callingMethod="fwcChownFiles" class="Ucp">chownFreepbx</method>
 		</framework>
-		<userman class="Certman" namespace="FreePBX\modules">
+		<certman class="Certman" namespace="FreePBX\modules">
 			<method callingMethod="makeCertDefault" class="Ucp">setDefaultCert</method>
-		</userman>
+		</certman>
 		<dashboard class="Overview" namespace="FreePBX\modules\Dashboard\Sections">
 			<method callingMethod="getSummary" class="Ucp">dashboardService</method>
 		</dashboard>
