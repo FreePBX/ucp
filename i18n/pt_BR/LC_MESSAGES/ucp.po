@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-04-16 14:34-0400\n"
+"POT-Creation-Date: 2018-06-13 17:16-0400\n"
 "PO-Revision-Date: 2017-03-08 21:13+0200\n"
 "Last-Translator: Kingvoice <suporte@kingvoice.com.br>\n"
 "Language-Team: Portuguese (Brazil) <http://weblate.freepbx.org/projects/"
@@ -281,19 +281,19 @@ msgstr ""
 msgid "Dashboard Widgets"
 msgstr ""
 
+#: htdocs/modules/Ucptour/assets/js/global.js:167
+msgid ""
+"Dashboard Widgets are sorted into categories on the left. These widgets will "
+"appear directly on your dashboard. You can click on any category to get a "
+"listing of the widgets available"
+msgstr ""
+
 #: htdocs/modules/Ucptour/assets/js/global.js:102
 msgid "Dashboard widgets will be displayed here"
 msgstr ""
 
 #: htdocs/modules/Ucptour/assets/js/global.js:93
 msgid "Dashboards"
-msgstr ""
-
-#: htdocs/modules/Ucptour/assets/js/global.js:167
-msgid ""
-"Dashbord Widgets are sorted into categories on the left. These widgets will "
-"appear directly on your dashboard. You can click on any category to get a "
-"listing of the widgets available"
 msgstr ""
 
 #: htdocs/modules/Settings/views/settings.php:162
@@ -828,7 +828,7 @@ msgstr ""
 #: htdocs/modules/Ucptour/assets/js/global.js:278
 msgid ""
 "Small Widgets are listed on the right. The titles and descriptions will be "
-"show for each widget"
+"shown for each widget"
 msgstr ""
 
 #: htdocs/modules/Widgets/assets/js/global.js:1187
@@ -1173,7 +1173,7 @@ msgid "User"
 msgstr ""
 
 #: htdocs/views/forgot.php:5 htdocs/views/header.php:4 htdocs/views/login.php:5
-#: ucp.i18n.php:4 /usr/src/freepbx/ucp/ucp.i18n.php:56
+#: ucp.i18n.php:4 /dev/shm/freepbx/ucp/ucp.i18n.php:56
 #: htdocs/modules/Widgets/assets/js/global.js:47
 msgid "User Control Panel"
 msgstr "Painel de Controle do Usuário"
@@ -1283,7 +1283,7 @@ msgstr ""
 #: htdocs/modules/Ucptour/assets/js/global.js:175
 #: htdocs/modules/Ucptour/assets/js/global.js:285
 msgid ""
-"Widgets are listed on the right. The titles and descriptions will be show "
+"Widgets are listed on the right. The titles and descriptions will be shown "
 "for each widget"
 msgstr ""
 
