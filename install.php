@@ -6,6 +6,11 @@
  * Copyright 2006-2014 Schmooze Com Inc.
  */
 
+if(!is_link(__DIR__.'/htdocs/admin/assets/endpoint/js/views/ucp_admin.js')){
+	mkdir(__DIR__.'/htdocs/admin/assets/endpoint/js/views',0777,true);
+	symlink(FreePBX::Config()->get('AMPWEBROOT').'/admin/assets/endpoint/js/views/ucp_admin.js',__DIR__.'/htdocs/admin/assets/endpoint/js/views/ucp_admin.js');
+} 
+
 // VIEW_UCP_FOOTER_CONTENT
 $set['value'] = 'views/dashfootercontent.php';
 $set['defaultval'] =& $set['value'];
