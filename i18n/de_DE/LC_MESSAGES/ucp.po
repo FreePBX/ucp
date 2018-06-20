@@ -10,16 +10,15 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-01-30 22:04-0500\n"
-"PO-Revision-Date: 2018-02-16 16:47+0200\n"
-"Last-Translator: Nils <Nils@heckenkamp.info>\n"
-"Language-Team: German "
-"<http://weblate.freepbx.org/projects/freepbx/ucp/de_DE/>\n"
+"PO-Revision-Date: 2018-07-18 19:12+0000\n"
+"Last-Translator: Bastian Mertgen <b.mertgen@bastian-mertgen.de>\n"
+"Language-Team: German <http://*/projects/freepbx/ucp/de/>\n"
 "Language: de_DE\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.4\n"
+"X-Generator: Weblate 2.19.1\n"
 
 #: htdocs/assets/js/bootstrap-table-1.9.0.js:635
 #: htdocs/assets/js/bootstrap-table-1.9.0.js:636
@@ -511,7 +510,7 @@ msgstr ""
 #: htdocs/assets/js/ucp.js:395
 #, perl-format
 msgid "Unable to get a token to use UCP Node Server because: '%s'"
-msgstr "Es kann kein Token vom UCP Knoten Server erhalten werden, weil: '% s'"
+msgstr "Es kann kein Token vom UCP Knoten Server erhalten werden, weil: '%s'"
 
 #: htdocs/includes/User.class.php:84
 msgid "Unable to send Password Reset Email"
