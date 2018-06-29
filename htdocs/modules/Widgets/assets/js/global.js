@@ -20,7 +20,7 @@ var WidgetsC = Class.extend({
 		var resave = false;
 		$(".custom-widget").each(function() {
 			var widget_rawname = $(this).data("widget_rawname");
-			var widget_id = $(this).data("id");
+			var widget_id = $(this).data("widget_id");
 			UCP.callModuleByMethod(widget_rawname,"addSimpleWidget",widget_id);
 			$(document).trigger("post-body.addsimplewidget",[ widget_id, $this.activeDashboard ]);
 			if(typeof $(this).find("a").data("regenuuid") !== "undefined" && $(this).find("a").data("regenuuid")) {
