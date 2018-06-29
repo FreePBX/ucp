@@ -143,26 +143,31 @@ var WidgetsC = Class.extend({
 			var total = gridstack.grid.nodes.length;
 			var count = 0;
 			var resave = false;
-			$.each(gridstack.grid.nodes, function(i,v){
-				var el = v.el;
-				if(!el.hasClass("add-widget-widget")){
-					var widget_id = $(el).data('id');
-					var widget_type_id = $(el).data('widget_type_id');
-					var widget_rawname = $(el).data('rawname');
-					if(typeof $(el).data("regenuuid") !== "undefined" && $(el).data("regenuuid")) {
-						resave = true;
-					}
-					$this.getWidgetContent(widget_id, widget_type_id, widget_rawname, function() {
-						count++;
-						if(count == total) {
-							$(document).trigger("post-body.widgets",[ null, $this.activeDashboard ]);
-							if(resave) {
-								$this.saveLayoutContent();
-							}
+			if(total > 0) {
+				$.each(gridstack.grid.nodes, function(i,v){
+					var el = v.el;
+					if(!el.hasClass("add-widget-widget")){
+						var widget_id = $(el).data('id');
+						var widget_type_id = $(el).data('widget_type_id');
+						var widget_rawname = $(el).data('rawname');
+						if(typeof $(el).data("regenuuid") !== "undefined" && $(el).data("regenuuid")) {
+							resave = true;
 						}
-					});
-				}
-			});
+						$this.getWidgetContent(widget_id, widget_type_id, widget_rawname, function() {
+							count++;
+							if(count == total) {
+								$(document).trigger("post-body.widgets",[ null, $this.activeDashboard ]);
+								if(resave) {
+									$this.saveLayoutContent();
+								}
+							}
+						});
+					}
+				});
+			} else {
+				$(document).trigger("post-body.widgets",[ null, $this.activeDashboard ]);
+			}
+
 
 			$(".dashboard-menu").removeClass("active");
 
