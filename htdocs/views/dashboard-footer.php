@@ -122,17 +122,17 @@
 											<?php $first = true; foreach($all_simple_widgets["widget"] as $widget_category_info){?>
 												<div class="bhoechie-tab-content <?php echo ($first) ? "active" : ""; ?>" data-id="small-<?php echo $widget_category_info['rawname']?>">
 												<?php if(!empty($widget_category_info["list"])) { ?>
-													<?php foreach($widget_category_info["list"] as $widget_id => $widget_list){ ?>
+													<?php foreach($widget_category_info["list"] as $widget_id => $widget_list){?>
 														<div class="ibox-content-widget">
 															<div class="row">
 																<div class="widget-title col-md-11">
-																	<h4><i class="<?php echo $widget_category_info['icon'] ?>"></i> <?php echo $widget_list["display"]; ?>
+																	<h4><i class="<?php echo !empty($widget_list['icon']) ? $widget_list['icon'] : $widget_category_info["icon"]; ?>"></i> <?php echo $widget_list["display"]; ?>
 																		<br>
 																		<small class="m-r"><?php echo isset($widget_list["description"])?$widget_list["description"]:''?></small>
 																	</h4>
 																</div>
 																<div class="widget-add-container top-offset text-center">
-																	<button type="button" class="btn btn-sm btn-primary btn-outline add-small-widget-button" <?php echo !empty($widget_list['hasSettings']) ? 'data-widget_settings="true"' : ''?> data-module_name="<?php echo $widget_category_info["display"]; ?>" data-name="<?php echo $widget_category_info["display"]; ?>" data-widget_type_id="<?php echo $widget_list['display']?>" data-id="<?php echo $widget_id; ?>" data-rawname="<?php echo $widget_category_info["rawname"]; ?>" data-icon="<?php echo $widget_category_info["icon"]; ?>"><i class="fa fa-plus-circle" aria-hidden="true"></i></button>
+																	<button type="button" class="btn btn-sm btn-primary btn-outline add-small-widget-button" <?php echo !empty($widget_list['hasSettings']) ? 'data-widget_settings="true"' : ''?> data-module_name="<?php echo $widget_category_info["display"]; ?>" data-name="<?php echo $widget_category_info["display"]; ?>" data-widget_type_id="<?php echo $widget_list['display']?>" data-id="<?php echo $widget_id; ?>" data-rawname="<?php echo $widget_category_info["rawname"]; ?>" data-icon="<?php echo !empty($widget_list['icon']) ? $widget_list['icon'] : $widget_category_info["icon"]; ?>"><i class="fa fa-plus-circle" aria-hidden="true"></i></button>
 																</div>
 															</div>
 														</div>
