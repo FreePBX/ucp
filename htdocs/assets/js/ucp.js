@@ -193,12 +193,11 @@ var UCPC = Class.extend({
 		}
 	},
 	callModuleByMethod: function() {
-		var args = [],
-				mdata = [];
+		var args = Array.prototype.slice.call(arguments),
+				mdata = [],
+				module = args.shift().modularize(),
+				method = args.shift();
 
-		Array.prototype.push.apply( args, arguments );
-		module = args.shift().modularize();
-		method = args.shift();
 		if(UCP.validMethod(module, method)) {
 			return UCP.Modules[module][method].apply( UCP.Modules[module] , args );
 		} else {
@@ -206,15 +205,14 @@ var UCPC = Class.extend({
 		}
 	},
 	callModulesByMethod: function() {
-		var args = [],
-				mdata = {};
+		var args = Array.prototype.slice.call(arguments),
+				mdata = {},
+				method = args.shift();
 
 		if(typeof modules === "undefined") {
 			return mdata;
 		}
 
-		Array.prototype.push.apply( args, arguments );
-		method = args.shift();
 		$.each(modules, function( index, module ) {
 			if (UCP.validMethod(module, method)) {
 				mdata[module] = UCP.Modules[module][method].apply( UCP.Modules[module] , args );
