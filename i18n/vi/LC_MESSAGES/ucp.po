@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-06-13 17:16-0400\n"
+"POT-Creation-Date: 2018-06-29 13:12-0400\n"
 "PO-Revision-Date: 2017-08-02 21:28+0200\n"
 "Last-Translator: PETER <ftek@ymail.com>\n"
 "Language-Team: Vietnamese <http://weblate.freepbx.org/projects/freepbx/ucp/"
@@ -179,7 +179,7 @@ msgstr "Cho phép người dùng thay đổi mật khẩu của mình trên UCP"
 msgid "Allowed Extension Settings"
 msgstr "Các cài đặt máy nhánh được cho phép"
 
-#: htdocs/modules/Widgets/assets/js/global.js:880
+#: htdocs/modules/Widgets/assets/js/global.js:885
 msgid "Are you sure you want to delete this dashboard?"
 msgstr ""
 
@@ -556,7 +556,7 @@ msgid "Loading..."
 msgstr "Đang tải..."
 
 #: htdocs/views/forgot.php:45 htdocs/views/login.php:38
-#: htdocs/assets/js/ucp.js:296 htdocs/assets/js/ucp.js:306
+#: htdocs/assets/js/ucp.js:294 htdocs/assets/js/ucp.js:304
 msgid "Login"
 msgstr "Đăng nhập"
 
@@ -699,7 +699,7 @@ msgstr "Liên kết để cài đặt lại mật khẩu ( Có hiệu lực đ�
 msgid "Password Reset for: %s"
 msgstr "Cài lại mật khẩu cho: %s"
 
-#: htdocs/assets/js/ucp.js:274
+#: htdocs/assets/js/ucp.js:272
 msgid "Password has been changed!"
 msgstr "Mật khẩu vừa được thay đổi!"
 
@@ -711,7 +711,7 @@ msgstr ""
 msgid "Port to bind to. Default is 8003"
 msgstr ""
 
-#: htdocs/assets/js/ucp.js:289
+#: htdocs/assets/js/ucp.js:287
 msgid "Processing..."
 msgstr "Đang xử lý..."
 
@@ -733,7 +733,7 @@ msgid "Remember Me"
 msgstr "Ghi nhớ tôi"
 
 #: htdocs/views/dashboard-header.php:66
-#: htdocs/modules/Widgets/assets/js/global.js:440
+#: htdocs/modules/Widgets/assets/js/global.js:445
 msgid "Remove Widget"
 msgstr ""
 
@@ -794,7 +794,7 @@ msgid "Sets the path to the HTTPS server certificate. This is required if "
 msgstr ""
 
 #: htdocs/modules/Widgets/assets/js/global.js:100
-#: htdocs/modules/Widgets/assets/js/global.js:379
+#: htdocs/modules/Widgets/assets/js/global.js:384
 msgid "Settings"
 msgstr "Các cài đặt"
 
@@ -828,17 +828,17 @@ msgid ""
 "shown for each widget"
 msgstr ""
 
-#: htdocs/modules/Widgets/assets/js/global.js:1187
+#: htdocs/modules/Widgets/assets/js/global.js:1192
 msgid "Something went wrong getting the content of the widget"
 msgstr ""
 
-#: htdocs/modules/Widgets/assets/js/global.js:1229
-#: htdocs/modules/Widgets/assets/js/global.js:1267
+#: htdocs/modules/Widgets/assets/js/global.js:1234
+#: htdocs/modules/Widgets/assets/js/global.js:1272
 msgid "Something went wrong getting the settings from the widget"
 msgstr ""
 
-#: htdocs/modules/Widgets/assets/js/global.js:854
-#: htdocs/modules/Widgets/assets/js/global.js:908
+#: htdocs/modules/Widgets/assets/js/global.js:859
+#: htdocs/modules/Widgets/assets/js/global.js:913
 msgid "Something went wrong removing the dashboard"
 msgstr ""
 
@@ -959,7 +959,7 @@ msgstr ""
 msgid "The removal of this copyright notice is stricly prohibited"
 msgstr "Tuyệt đối nghiêm cấm việc xóa bỏ thông báo bản quyền này"
 
-#: htdocs/assets/js/ucp.js:507
+#: htdocs/assets/js/ucp.js:505
 msgid "The session has expired and you are being forcibly logged out"
 msgstr ""
 
@@ -987,12 +987,12 @@ msgid ""
 "widgets. Let's start with dashboard widgets"
 msgstr ""
 
-#: htdocs/modules/Widgets/assets/js/global.js:971
+#: htdocs/modules/Widgets/assets/js/global.js:976
 msgid "There is no active dashboard to add widgets to"
 msgstr ""
 
-#: htdocs/modules/Widgets/assets/js/global.js:1049
-#: htdocs/modules/Widgets/assets/js/global.js:1131
+#: htdocs/modules/Widgets/assets/js/global.js:1054
+#: htdocs/modules/Widgets/assets/js/global.js:1136
 msgid "There was an error getting the widget information, try again later"
 msgstr ""
 
@@ -1114,7 +1114,7 @@ msgstr ""
 "UCP hiện đang bị vô hiệu. Vui lòng thông báo với quản trị viên hệ thống của "
 "bạn"
 
-#: htdocs/assets/js/ucp.js:324
+#: htdocs/assets/js/ucp.js:322
 msgid "UCP is not supported in your browser"
 msgstr ""
 
@@ -1172,7 +1172,7 @@ msgid "User"
 msgstr ""
 
 #: htdocs/views/forgot.php:5 htdocs/views/header.php:4 htdocs/views/login.php:5
-#: ucp.i18n.php:4 /dev/shm/freepbx/ucp/ucp.i18n.php:56
+#: ucp.i18n.php:4 /usr/src/freepbx/ucp/ucp.i18n.php:56
 #: htdocs/modules/Widgets/assets/js/global.js:47
 msgid "User Control Panel"
 msgstr "Bảng điều khiển người dùng"
@@ -1327,11 +1327,11 @@ msgstr "Điện thoại cơ quan"
 msgid "Yes"
 msgstr "Có"
 
-#: htdocs/modules/Widgets/assets/js/global.js:1139
+#: htdocs/modules/Widgets/assets/js/global.js:1144
 msgid "You already have this widget on the side bar"
 msgstr ""
 
-#: htdocs/modules/Widgets/assets/js/global.js:1057
+#: htdocs/modules/Widgets/assets/js/global.js:1062
 msgid "You already have this widget on this dashboard"
 msgstr ""
 
@@ -1349,7 +1349,7 @@ msgid ""
 msgstr ""
 
 #: htdocs/modules/Widgets/Widgets.class.php:41
-#: htdocs/modules/Widgets/assets/js/global.js:899
+#: htdocs/modules/Widgets/assets/js/global.js:904
 msgid "You have no dashboards. Click here to add one"
 msgstr ""
 
@@ -1357,11 +1357,11 @@ msgstr ""
 msgid "You just successfully logged in for the first time!"
 msgstr ""
 
-#: htdocs/modules/Widgets/assets/js/global.js:1377
+#: htdocs/modules/Widgets/assets/js/global.js:1382
 msgid "You must set a dashboard name!"
 msgstr ""
 
-#: htdocs/assets/js/ucp.js:311
+#: htdocs/assets/js/ucp.js:309
 msgid "Your Browser is unsupported at this time."
 msgstr "Trình duyệt của bạn không được hỗ trợ tại thời điểm này."
 
@@ -1409,7 +1409,7 @@ msgstr "Chức danh của bạn"
 msgid "Your Work Number"
 msgstr "Số điện thoại cơ quan của bạn"
 
-#: htdocs/assets/js/ucp.js:313
+#: htdocs/assets/js/ucp.js:311
 msgid ""
 "Your browser is unsupported at this time. Please upgrade or talk to your "
 "system administrator"

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-06-13 17:16-0400\n"
+"POT-Creation-Date: 2018-06-29 13:12-0400\n"
 "PO-Revision-Date: 2017-11-12 16:21+0200\n"
 "Last-Translator: hammer125 <auswertung@aon.at>\n"
 "Language-Team: German <http://weblate.freepbx.org/projects/freepbx/ucp/de_DE/"
@@ -179,7 +179,7 @@ msgstr "Dem Benutzer erlauben im UCP sein eigenes Passwort zu ändern"
 msgid "Allowed Extension Settings"
 msgstr "Erlaubte Nebenstellen Einstellungen"
 
-#: htdocs/modules/Widgets/assets/js/global.js:880
+#: htdocs/modules/Widgets/assets/js/global.js:885
 msgid "Are you sure you want to delete this dashboard?"
 msgstr ""
 
@@ -558,7 +558,7 @@ msgid "Loading..."
 msgstr "Laden..."
 
 #: htdocs/views/forgot.php:45 htdocs/views/login.php:38
-#: htdocs/assets/js/ucp.js:296 htdocs/assets/js/ucp.js:306
+#: htdocs/assets/js/ucp.js:294 htdocs/assets/js/ucp.js:304
 msgid "Login"
 msgstr "Anmeldung"
 
@@ -701,7 +701,7 @@ msgstr "Passwort Reset Link (Gültig bis: %s): %s"
 msgid "Password Reset for: %s"
 msgstr "Passwort zurücksetzen für: %s"
 
-#: htdocs/assets/js/ucp.js:274
+#: htdocs/assets/js/ucp.js:272
 msgid "Password has been changed!"
 msgstr "Passwort wurde geändert!"
 
@@ -713,7 +713,7 @@ msgstr ""
 msgid "Port to bind to. Default is 8003"
 msgstr ""
 
-#: htdocs/assets/js/ucp.js:289
+#: htdocs/assets/js/ucp.js:287
 msgid "Processing..."
 msgstr "Verarbeiten..."
 
@@ -734,7 +734,7 @@ msgid "Remember Me"
 msgstr "Login merken"
 
 #: htdocs/views/dashboard-header.php:66
-#: htdocs/modules/Widgets/assets/js/global.js:440
+#: htdocs/modules/Widgets/assets/js/global.js:445
 msgid "Remove Widget"
 msgstr ""
 
@@ -795,7 +795,7 @@ msgid "Sets the path to the HTTPS server certificate. This is required if "
 msgstr ""
 
 #: htdocs/modules/Widgets/assets/js/global.js:100
-#: htdocs/modules/Widgets/assets/js/global.js:379
+#: htdocs/modules/Widgets/assets/js/global.js:384
 msgid "Settings"
 msgstr "Einstellungen"
 
@@ -829,17 +829,17 @@ msgid ""
 "shown for each widget"
 msgstr ""
 
-#: htdocs/modules/Widgets/assets/js/global.js:1187
+#: htdocs/modules/Widgets/assets/js/global.js:1192
 msgid "Something went wrong getting the content of the widget"
 msgstr ""
 
-#: htdocs/modules/Widgets/assets/js/global.js:1229
-#: htdocs/modules/Widgets/assets/js/global.js:1267
+#: htdocs/modules/Widgets/assets/js/global.js:1234
+#: htdocs/modules/Widgets/assets/js/global.js:1272
 msgid "Something went wrong getting the settings from the widget"
 msgstr ""
 
-#: htdocs/modules/Widgets/assets/js/global.js:854
-#: htdocs/modules/Widgets/assets/js/global.js:908
+#: htdocs/modules/Widgets/assets/js/global.js:859
+#: htdocs/modules/Widgets/assets/js/global.js:913
 msgid "Something went wrong removing the dashboard"
 msgstr ""
 
@@ -960,7 +960,7 @@ msgstr ""
 msgid "The removal of this copyright notice is stricly prohibited"
 msgstr "Die Entfernung des Copyright-Vermerks ist streng verboten"
 
-#: htdocs/assets/js/ucp.js:507
+#: htdocs/assets/js/ucp.js:505
 msgid "The session has expired and you are being forcibly logged out"
 msgstr ""
 
@@ -987,12 +987,12 @@ msgid ""
 "widgets. Let's start with dashboard widgets"
 msgstr ""
 
-#: htdocs/modules/Widgets/assets/js/global.js:971
+#: htdocs/modules/Widgets/assets/js/global.js:976
 msgid "There is no active dashboard to add widgets to"
 msgstr ""
 
-#: htdocs/modules/Widgets/assets/js/global.js:1049
-#: htdocs/modules/Widgets/assets/js/global.js:1131
+#: htdocs/modules/Widgets/assets/js/global.js:1054
+#: htdocs/modules/Widgets/assets/js/global.js:1136
 msgid "There was an error getting the widget information, try again later"
 msgstr ""
 
@@ -1111,7 +1111,7 @@ msgid "UCP is currently disabled. Please talk to your system Administrator"
 msgstr ""
 "UCP ist derzeit deaktiviert. Bitte sprechen Sie mit Ihrem Systemadministrator"
 
-#: htdocs/assets/js/ucp.js:324
+#: htdocs/assets/js/ucp.js:322
 msgid "UCP is not supported in your browser"
 msgstr ""
 
@@ -1169,7 +1169,7 @@ msgid "User"
 msgstr ""
 
 #: htdocs/views/forgot.php:5 htdocs/views/header.php:4 htdocs/views/login.php:5
-#: ucp.i18n.php:4 /dev/shm/freepbx/ucp/ucp.i18n.php:56
+#: ucp.i18n.php:4 /usr/src/freepbx/ucp/ucp.i18n.php:56
 #: htdocs/modules/Widgets/assets/js/global.js:47
 msgid "User Control Panel"
 msgstr "Benutzer Kontrollzentrum (UCP)"
@@ -1324,11 +1324,11 @@ msgstr "Telefon Arbeit"
 msgid "Yes"
 msgstr "Ja"
 
-#: htdocs/modules/Widgets/assets/js/global.js:1139
+#: htdocs/modules/Widgets/assets/js/global.js:1144
 msgid "You already have this widget on the side bar"
 msgstr ""
 
-#: htdocs/modules/Widgets/assets/js/global.js:1057
+#: htdocs/modules/Widgets/assets/js/global.js:1062
 msgid "You already have this widget on this dashboard"
 msgstr ""
 
@@ -1346,7 +1346,7 @@ msgid ""
 msgstr ""
 
 #: htdocs/modules/Widgets/Widgets.class.php:41
-#: htdocs/modules/Widgets/assets/js/global.js:899
+#: htdocs/modules/Widgets/assets/js/global.js:904
 msgid "You have no dashboards. Click here to add one"
 msgstr ""
 
@@ -1354,11 +1354,11 @@ msgstr ""
 msgid "You just successfully logged in for the first time!"
 msgstr ""
 
-#: htdocs/modules/Widgets/assets/js/global.js:1377
+#: htdocs/modules/Widgets/assets/js/global.js:1382
 msgid "You must set a dashboard name!"
 msgstr ""
 
-#: htdocs/assets/js/ucp.js:311
+#: htdocs/assets/js/ucp.js:309
 msgid "Your Browser is unsupported at this time."
 msgstr "Ihr Browser wird im moment nicht unterstützt."
 
@@ -1406,7 +1406,7 @@ msgstr "Ihr Titel"
 msgid "Your Work Number"
 msgstr "Ihr Telefonnummer in der Firma"
 
-#: htdocs/assets/js/ucp.js:313
+#: htdocs/assets/js/ucp.js:311
 msgid ""
 "Your browser is unsupported at this time. Please upgrade or talk to your "
 "system administrator"
