@@ -59,7 +59,7 @@
 					<tr>
 						<td colspan="3" class="button-row">
 							<button type="button" id="btn-login" class="btn btn-default lhide" disabled><?php echo _('Loading...')?></button>
-							<button type="submit" id="btn-forgot" class="btn btn-default lshow"><?php echo _('Reset Password')?></button>
+							<button type="button" id="btn-forgot" class="btn btn-default lshow"><?php echo _('Reset Password')?></button>
 						</td>
 					</tr>
 				</table>
