@@ -4,9 +4,7 @@
 			<i class="<?php echo $icon?>"></i>
 		</div>
 		<div class="name">
-			<div class="from"><strong>F:</strong> <?php echo $from?></div>
-			<br/>
-			<div class="to"><strong>T:</strong> <?php echo $to?></div>
+			<?php echo $title?>
 		</div>
 		<div class="actions">
 			<i class="fa fa-times cancelExpand"></i><i class="fa fa-arrow-up"></i>
@@ -17,12 +15,12 @@
 			<div class="history">
 				<?php if(!empty($history['messages'])) { ?>
 					<?php foreach($history['messages'] as $h) { ?>
-						<div class="message <?php echo $h['direction']?>" data-id="<?php echo $h['id']?>">
+						<div class="message <?php echo $h['direction']?>" data-id="<?php echo $h['id']?>" title="<?php echo $this->UCP->View->getDateTime($h['date']) ?>">
 							<?php echo $h['message']?>
 						</div>
 					<?php } ?>
 					<?php if(!empty($history)) {?>
-						<div class="status" data-type="date"><?php sprintf(_('Sent at %s'),date('g:i A \\o\\n l', $h['date']));?></div>
+						<div class="status" data-type="date"><?php sprintf(_('Sent at %s'),$this->UCP->View->getDateTime($h['date']));?></div>
 					<?php } ?>
 				<?php } ?>
 			</div>

@@ -1,0 +1,22 @@
+{
+  "name": "ucp-server",
+  "description": "UCP Backend Server",
+  "author": "Schmoozecom, Inc <info@schmoozecom.com>",
+  "dependencies": {
+    "asterisk-manager": "0.1.15",
+    "async": "2.1.4",
+    "express": "4.14.0",
+    "ini": "1.3.4",
+    "ltx": "2.6.2",
+    "mariasql": "0.2.6",
+    "node-uuid": "1.4.7",
+    "node-xmpp-client": "3.1.2",
+    "q": "1.4.1",
+    "socket.io": "^2.0.3"
+  },
+  "engines": {
+    "node": ">= 6.8.0",
+    "npm": ">= 3.10.8"
+  },
+  "private": true
+}

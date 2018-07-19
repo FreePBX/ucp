@@ -9,16 +9,12 @@
 		<![endif]-->
 		<?php } ?>
 
-		<link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css">
-		<link href="assets/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-		<link href="assets/css/compiled/main/<?php echo $sfcssless?>" rel="stylesheet" type="text/css">
+		<?php foreach($ucpcss as $file) { ?>
+			<link href="assets/css/<?php echo $file.$version_tag?>" rel="stylesheet" type="text/css">
+		<?php } ?>
+		<link href="assets/css/compiled/modules/<?php echo $ucpmoduleless.$version_tag?>" rel="stylesheet" type="text/css">
 
-		<link href="assets/css/bootstrap-select.min.css" rel="stylesheet" type="text/css">
-		<link href="assets/css/emojione.min.css" rel="stylesheet" type="text/css">
-		<link href="assets/css/jquery.tokenize.css" rel="stylesheet" type="text/css">
-		<link href="assets/css/compiled/main/<?php echo $ucpcssless?>" rel="stylesheet" type="text/css">
-
-		<link href="assets/css/compiled/modules/<?php echo $ucpmoduleless?>" rel="stylesheet" type="text/css">
+		<link rel="icon" type="image/png" href="<?php echo $iconsdir?>/16x16.png">
 
 		<meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
 		<!-- Apple Specific -->
@@ -28,8 +24,6 @@
 		<link rel="apple-touch-icon" sizes="76x76" href="<?php echo $iconsdir?>/76x76.png">
 		<link rel="apple-touch-icon" sizes="120x120" href="<?php echo $iconsdir?>/120x120.png">
 		<link rel="apple-touch-icon" sizes="152x152" href="<?php echo $iconsdir?>/152x152.png">
-
-		<link rel="apple-touch-startup-image" href="<?php echo $iconsdir?>/320x480.png">
 
 		<meta name="apple-mobile-web-app-status-bar-style" content="black">
 		<!-- End Apple Specific -->
@@ -50,7 +44,7 @@
 		  </style>
 		<![endif]-->
 		<?php } ?>
-		<script type="text/javascript" src="assets/js/jquery-1.11.3.min.js"></script>
+		<script type="text/javascript" src="assets/js/jquery-3.1.1.min.js<?php echo $version_tag?>"></script>
 		<!-- Display hack for localization on checkbox switches -->
 		<style>
 			.onoffswitch-inner:before {
@@ -62,9 +56,34 @@
 		</style>
 	</head>
 	<body>
-	<div id="loading-container">
-		<div class="message-container">
-			<div class="message"><?php echo _("Loading")?></div>
+		<div class="main-block">
+			<span class="fa-stack fa-5x">
+				<i class="fa fa-cloud fa-stack-2x text-internal-blue"></i>
+				<i class="fa fa-cog fa-spin fa-stack-1x secundary-color"></i>
+			</span>
 		</div>
-	</div>
-	<div id="content-container">
+		<div class="settings-shown-blocker">
+		</div>
+
+		<!-- small device nav menu -->
+		<nav class="pushmenu pushmenu-left">
+			<h3><?php echo sprintf(_('Welcome %s'),(!empty($user['fname']) ? $user['fname'] : $user['username']))?></h3>
+			<ul>
+				<?php foreach($menu as $module) {?>
+					<li data-mod="<?php echo $module['rawname']?>" class="<?php echo ($module['rawname'] == $active_module) ? 'active' : ''?>">
+						<?php if(empty($module['menu'])) {?>
+							<a data-pjax data-mod="<?php echo $module['rawname']?>" href="?display=dashboard&amp;mod=<?php echo $module['rawname']?>"><?php echo $module['name']?> <?php if(isset($module['badge'])) {?><span class="badge"><?php echo $module['badge']?></span><?php } ?></a>
+						<?php } else {?>
+							<a class="mobileSubMenu" data-mod="<?php echo $module['rawname']?>"><?php echo $module['name']?> <?php if(isset($module['badge'])) {?><span class="badge"><?php echo $module['badge']?></span><?php } ?></a>
+							<ul data-mod="<?php echo $module['rawname']?>" id="submenu-<?php echo $module['rawname']?>" class="dropdown-pushmenu">
+								<?php foreach($module['menu'] as $smenu) {?>
+									<li>
+										<a data-mod="<?php echo $module['rawname']?>" data-pjax href="?display=dashboard&amp;mod=<?php echo $module['rawname']?>&amp;sub=<?php echo $smenu['rawname']?>"><?php echo (strlen($smenu['name']) > 20) ? substr($smenu['name'],0,20).'...' : $smenu['name']?> <?php if(isset($smenu['badge'])) {?><span class="badge"><?php echo $smenu['badge']?></span><?php } ?></a>
+									</li>
+								<?php } ?>
+							</ul>
+						<?php } ?>
+					</li>
+				<?php } ?>
+			</ul>
+		</nav>

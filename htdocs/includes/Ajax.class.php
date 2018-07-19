@@ -28,64 +28,9 @@ class Ajax extends UCP {
 	}
 
 	public function doRequest($module = null, $command = null) {
+		session_write_close(); //speed up
 		$this->UCP->Modgettext->textdomain("ucp");
 		switch($command) {
-			case 'ucpsettings':
-				$this->addHeader('HTTP/1.0','200');
-				$user = $this->UCP->User->getUser();
-				if(($_POST['key'] == 'username' || $_POST['key'] == 'password') && !$this->UCP->User->canChange($_POST['key'])) {
-					return array(
-						"status" => false
-					);
-				}
-				$this->UCP->Modgettext->push_textdomain("ucp");
-				switch($_POST['key']) {
-					case 'fname':
-					case 'lname':
-					case 'email':
-					case 'title':
-					case 'company':
-					case 'fax':
-					case 'cell':
-					case 'displayname':
-					case 'work':
-					case 'home':
-						$val = htmlentities(strip_tags($_POST['value']));
-						$this->UCP->FreePBX->Userman->updateUserExtraData($user['id'],array($_POST['key'] => $val));
-						$ret = array(
-							"status" => true
-						);
-					break;
-					case 'notifications':
-					break;
-					case 'usernamecheck':
-						$val = htmlentities(strip_tags($_POST['value']));
-						$user = $this->UCP->FreePBX->Userman->getUserByUsername($val);
-						$ret = array(
-							"status" => empty($user)
-						);
-					break;
-					case 'username':
-						$val = htmlentities(strip_tags($_POST['value']));
-						$status = $this->UCP->FreePBX->Userman->updateUser($user['id'],$user['username'], $val, $user['default_extension'], $user['description']);
-						$ret = array(
-							"status" => $status['status']
-						);
-					break;
-					case 'password':
-						$status = $this->UCP->FreePBX->Userman->updateUser($user['id'],$user['username'], $user['username'], $user['default_extension'], $user['description'], array(), $_POST['value']);
-						$ret = array(
-							"status" => $status['status']
-						);
-					break;
-					default:
-						$ret = array(
-							"status" => false,
-							"message" => 'Invalid Parameter'
-						);
-				}
-				$this->UCP->Modgettext->pop_textdomain();
-			break;
 			case 'template':
 				$this->UCP->Modgettext->push_textdomain("ucp");
 				$file = dirname(__DIR__).'/views/templates/'.basename($_REQUEST['type']).'.php';
@@ -112,21 +57,6 @@ class Ajax extends UCP {
 				}
 				$this->UCP->Modgettext->pop_textdomain();
 			break;
-			case 'staticsettings':
-				$this->UCP->Modgettext->push_textdomain("ucp");
-				$mods = $this->UCP->Modules->getModulesByMethod('getStaticSettings');
-				$settings = array();
-				foreach($mods as $m) {
-					$this->UCP->Modgettext->push_textdomain(strtolower($m));
-					$settings[$m] = $this->UCP->Modules->$m->getStaticSettings();
-					$this->UCP->Modgettext->pop_textdomain();
-				}
-				$ret = array(
-					"status" => true,
-					"settings" => $settings
-				);
-				$this->UCP->Modgettext->pop_textdomain();
-			break;
 			case 'poll':
 				$ret = $this->poll();
 				if($ret === false) {
@@ -141,11 +71,12 @@ class Ajax extends UCP {
 
 				$ucMod = ucfirst(strtolower($module));
 				if ($module != 'UCP' && $module != 'User' && class_exists(__NAMESPACE__."\\".$ucMod)) {
-					$this->triggerFatal(_("The class $module already existed. Ajax MUST load it, for security reasons"));
+					$this->triggerFatal(sprintf(_("The class %s already existed. Ajax MUST load it, for security reasons"),$module));
 				}
 
 				//Part of the login functionality, thats the only place its used!
-				if($module == 'User' || $module == 'UCP') {
+				//TODO: security check
+				if($module == 'User' || $module == 'UCP' || $module == 'Dashboards') {
 					// Is someone trying to be tricky with filenames?
 					$file = dirname(__FILE__).'/'.$ucMod.'.class.php';
 					if((strpos($module, ".") !== false) || !file_exists($file)) {
@@ -214,15 +145,13 @@ class Ajax extends UCP {
 	public function poll() {
 		$modules = $this->UCP->Modules->getModulesByMethod('poll');
 		$modData = array();
-		//TODO: Use Request Handler object from BMO
-		$data = !empty($_POST['data']) ? $_POST['data'] : array();
 		foreach($modules as $module) {
-			$mdata = !empty($_POST['mdata'][$module]) ? $_POST['mdata'][$module] : array();
+			$mdata = !empty($_POST['data'][$module]) ? $_POST['data'][$module] : array();
 			$this->UCP->Modgettext->push_textdomain(strtolower($module));
 			if(!empty($mdata)) {
-				$modData[$module] = $this->UCP->Modules->$module->poll($data,$mdata);
+				$modData[$module] = $this->UCP->Modules->$module->poll($mdata);
 			} else {
-				$modData[$module] = $this->UCP->Modules->$module->poll($data);
+				$modData[$module] = $this->UCP->Modules->$module->poll(array());
 			}
 			$this->UCP->Modgettext->pop_textdomain();
 		}
@@ -452,8 +381,8 @@ class Ajax extends UCP {
 	 * @return string XML or JSON or WHATever
 	 * @access private
 	 */
-    private function generateResponse($body) {
-        $ret = false;
+	private function generateResponse($body) {
+		$ret = false;
 
 		if(!is_array($body)) {
 			$body = array("message" => $body);
@@ -463,12 +392,14 @@ class Ajax extends UCP {
 		foreach($accepts as $accept) {
 			//strip off content accept priority
 			$accept = preg_replace('/;(.*)/i','',$accept);
-	        switch($accept) {
+			switch($accept) {
+				case "*/*";
 				case "text/json":
 				case "application/json":
 					$this->addHeader('Content-Type', 'application/json');
 					return json_encode($body);
 					break;
+				/*
 				case "text/xml":
 				case "application/xml":
 					$this->addHeader('Content-Type', 'text/xml');
@@ -476,6 +407,7 @@ class Ajax extends UCP {
 					require_once(dirname(__FILE__).'/Array2XML2.class.php');
 					$xml = \Array2XML2::createXML('response', $body);
 					return $xml->saveXML();
+				*/
 	        }
 		}
 

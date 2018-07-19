@@ -7,11 +7,24 @@
  * Copyright 2006-2014 Schmooze Com Inc.
  */
 
+//TODO: In 15 this needs to be namespaced!
+use Symfony\Component\Process\Exception\ProcessFailedException;
+use Symfony\Component\Process\Process;
+//progress bar
+use Symfony\Component\Console\Helper\ProgressBar;
 class Ucp implements \BMO {
 	private $message;
 	private $registeredHooks = array();
 	private $brand = 'FreePBX';
 	private $tokenCache = false;
+
+	//node server
+	private $nodever = "6.5.0";
+	private $npmver = "3.10.3";
+	private $icuver = "50.1.2";
+	private $gcc = "4.8.5";
+	private $nodeloc = "/tmp";
+
 	public function __construct($freepbx = null) {
 		if ($freepbx == null) {
 			throw new Exception("Not given a FreePBX Object");
@@ -22,21 +35,253 @@ class Ucp implements \BMO {
 		$this->db = $freepbx->Database;
 
 		$this->brand = \FreePBX::Config()->get("DASHBOARD_FREEPBX_BRAND");
+		$this->nodeloc = __DIR__."/node";
 	}
 
 	public function install() {
+		$settings = array(
+			'NODEJSENABLED' => true,
+			'NODEJSTLSENABLED' => false,
+			'NODEJSBINDADDRESS' => '::',
+			'NODEJSBINDPORT' => '8001',
+			'NODEJSHTTPSBINDADDRESS' => '::',
+			'NODEJSHTTPSBINDPORT' => '8003',
+			'NODEJSTLSCERTFILE' => '',
+			'NODEJSTLSPRIVATEKEY' => ''
+		);
+
+		$info = $this->FreePBX->Modules->getInfo('ucpnode');
+		if(!empty($info['ucpnode'])) {
+			foreach($settings as $setting => $value) {
+				if($this->FreePBX->Config->conf_setting_exists($setting)) {
+					$settings[$setting] = $this->FreePBX->Config->get($setting);
+				}
+			}
+
+			$modclass = \module_functions::create();
+			//$modclass->uninstall('ucpnode');
+			$modclass->delete('ucpnode');
+		}
+
+		exec("g++ --version",$output,$ret); //g++ (GCC) 4.8.5 20150623 (Red Hat 4.8.5-4)
+		if(!empty($ret) || empty($output)) {
+			out(_("gcc-c++ is not installed"));
+			return false;
+		}
+
+		$output = exec("node --version"); //v0.10.29
+		$output = str_replace("v","",trim($output));
+		if(empty($output)) {
+			out(_("Node is not installed"));
+			return false;
+		}
+		if(version_compare($output,$this->nodever,"<")) {
+			out(sprintf(_("Node version is: %s requirement is %s. Run 'yum upgrade nodejs' from the CLI as root"),$output,$this->nodever));
+			return false;
+		}
+
+
+		$output = exec("npm --version"); //v0.10.29
+		$output = trim($output);
+		if(empty($output)) {
+			out(_("Node Package Manager is not installed"));
+			return false;
+		}
+		if(version_compare($output,$this->npmver,"<")) {
+			out(sprintf(_("NPM version is: %s requirement is %s. Run 'yum upgrade nodejs' from the CLI as root"),$output,$this->npmver));
+			return false;
+		}
+
+		$output = exec("icu-config --version"); //v4.2.1
+		$output = trim($output);
+		if(empty($output)) {
+			out(_("icu is not installed. You need to run: yum install icu libicu-devel"));
+			return false;
+		}
+		if(version_compare($output,$this->icuver,"<")) {
+			out(sprintf(_("ICU version is: %s requirement is %s"),$output,$this->icuver));
+			return false;
+		}
+
+		$webgroup = $this->FreePBX->Config->get('AMPASTERISKWEBGROUP');
+
+		$data = posix_getgrgid(filegroup($this->getHomeDir()));
+		if($data['name'] != $webgroup) {
+			out(sprintf(_("Home directory [%s] is not writable"),$this->getHomeDir()));
+			return false;
+		}
+
+		if(file_exists($this->getHomeDir()."/.npm")) {
+			$data = posix_getgrgid(filegroup($this->getHomeDir()."/.npm"));
+			if($data['name'] != $webgroup) {
+				out(sprintf(_("Home directory [%s] is not writable"),$this->getHomeDir()."/.npm"));
+				return false;
+			}
+		}
+
+		outn(_("Installing/Updating Required Libraries. This may take a while..."));
+		if (php_sapi_name() == "cli") {
+			out("The following messages are ONLY FOR DEBUGGING. Ignore anything that says 'WARN' or is just a warning");
+		}
+
+		$npmstatus = $this->FreePBX->Pm2->installNodeDependencies($this->nodeloc,function($data) {
+			outn($data);
+		});
+		if(!$npmstatus) {
+			out("");
+			out(_("Failed updating libraries!"));
+		} else {
+			out("");
+			out(_("Finished updating libraries!"));
+		}
+
+		$set = array();
+		$set['module'] = 'ucp';
+		$set['category'] = 'UCP NodeJS Server';
+
+		// NODEJSENABLED
+		$set['value'] = $settings['NODEJSENABLED'];
+		$set['defaultval'] =& $set['value'];
+		$set['options'] = '';
+		$set['name'] = 'Enable the NodeJS Server';
+		$set['description'] = 'Whether to enable the backend server for UCP which allows instantaneous updates to the interface';
+		$set['emptyok'] = 0;
+		$set['level'] = 1;
+		$set['readonly'] = 0;
+		$set['type'] = CONF_TYPE_BOOL;
+		$this->FreePBX->Config->define_conf_setting('NODEJSENABLED',$set);
+
+		// NODEJSTLSENABLED
+		$set['value'] = $settings['NODEJSTLSENABLED'];
+		$set['defaultval'] =& $set['value'];
+		$set['options'] = '';
+		$set['name'] = 'Enable TLS for the NodeJS Server';
+		$set['description'] = 'Whether to enable TLS for the backend server for UCP which allows instantaneous updates to the interface';
+		$set['emptyok'] = 0;
+		$set['level'] = 1;
+		$set['readonly'] = 0;
+		$set['type'] = CONF_TYPE_BOOL;
+		$this->FreePBX->Config->define_conf_setting('NODEJSTLSENABLED',$set);
+
+		// NODEJSBINDADDRESS
+		$set['value'] = $settings['NODEJSBINDADDRESS'];
+		$set['defaultval'] =& $set['value'];
+		$set['options'] = '';
+		$set['name'] = 'NodeJS Bind Address';
+		$set['description'] = 'Address to bind to. Default is "::" (Listen for all IPv4 and IPv6 Connections)';
+		$set['emptyok'] = 0;
+		$set['type'] = CONF_TYPE_TEXT;
+		$set['level'] = 2;
+		$set['readonly'] = 0;
+		$this->FreePBX->Config->define_conf_setting('NODEJSBINDADDRESS',$set);
+
+		// NODEJSBINDPORT
+		$set['value'] = $settings['NODEJSBINDPORT'];
+		$set['defaultval'] =& $set['value'];
+		$set['options'] = '';
+		$set['name'] = 'NodeJS Bind Port';
+		$set['description'] = 'Port to bind to. Default is 8001';
+		$set['emptyok'] = 0;
+		$set['options'] = array(10,65536);
+		$set['type'] = CONF_TYPE_INT;
+		$set['level'] = 2;
+		$set['readonly'] = 0;
+		$this->FreePBX->Config->define_conf_setting('NODEJSBINDPORT',$set);
+
+		// NODEJSHTTPSBINDADDRESS
+		$set['value'] = $settings['NODEJSHTTPSBINDADDRESS'];
+		$set['defaultval'] =& $set['value'];
+		$set['options'] = '';
+		$set['name'] = 'NodeJS HTTPS Bind Address';
+		$set['description'] = 'Address to bind to. Default is "::" (Listen for all IPv4 and IPv6 Connections)';
+		$set['emptyok'] = 0;
+		$set['type'] = CONF_TYPE_TEXT;
+		$set['level'] = 2;
+		$set['readonly'] = 0;
+		$this->FreePBX->Config->define_conf_setting('NODEJSHTTPSBINDADDRESS',$set);
+
+		// NODEJSHTTPSBINDPORT
+		$set['value'] = $settings['NODEJSHTTPSBINDPORT'];
+		$set['defaultval'] =& $set['value'];
+		$set['options'] = '';
+		$set['name'] = 'NodeJS HTTPS Bind Port';
+		$set['description'] = 'Port to bind to. Default is 8003';
+		$set['emptyok'] = 0;
+		$set['options'] = array(10,65536);
+		$set['type'] = CONF_TYPE_INT;
+		$set['level'] = 2;
+		$set['readonly'] = 0;
+		$this->FreePBX->Config->define_conf_setting('NODEJSHTTPSBINDPORT',$set);
+
+		// NODEJSTLSCERTFILE
+		$set['value'] = $settings['NODEJSTLSCERTFILE'];
+		$set['defaultval'] =& $set['value'];
+		$set['options'] = '';
+		$set['name'] = 'NodeJS HTTPS TLS Certificate Location';
+		$set['description'] = 'Sets the path to the HTTPS server certificate. This is required if "Enable TLS for the NodeJS Server" is set to yes.';
+		$set['emptyok'] = 1;
+		$set['type'] = CONF_TYPE_TEXT;
+		$set['level'] = 2;
+		$set['readonly'] = 0;
+		$this->FreePBX->Config->define_conf_setting('NODEJSTLSCERTFILE',$set);
+
+		// NODEJSTLSPRIVATEKEY
+		$set['value'] = $settings['NODEJSTLSPRIVATEKEY'];
+		$set['defaultval'] =& $set['value'];
+		$set['options'] = '';
+		$set['name'] = 'NodeJS HTTPS TLS Private Key Location';
+		$set['description'] = 'Sets the path to the HTTPS private key. This is required if "Enable TLS for the NodeJS Server" is set to yes.';
+		$set['emptyok'] = 1;
+		$set['type'] = CONF_TYPE_TEXT;
+		$set['level'] = 2;
+		$set['readonly'] = 0;
+		$this->FreePBX->Config->define_conf_setting('NODEJSTLSPRIVATEKEY',$set);
+
+		$this->FreePBX->Config->commit_conf_settings();
+
+		$cert = $this->FreePBX->Certman->getDefaultCertDetails();
+		if(!empty($cert)) {
+			$this->setDefaultCert($cert, false);
+		}
+
+		if($this->FreePBX->Modules->checkStatus("sysadmin")) {
+			touch("/var/spool/asterisk/incron/ucp.logrotate");
+		}
+
+		//If we are root then start it as asterisk, otherwise we arent root so start it as the web user (all we can do really)
+		outn(_("Stopping old running processes..."));
+		$this->stopFreepbx();
+		out(_("Done"));
+
 		$this->expireAllUserSessions();
+
+		if($npmstatus) {
+			outn(_("Starting new UCP Node Process..."));
+			$started = $this->startFreepbx();
+			if(!$started) {
+				out(_("Failed!"));
+			} else {
+				out(sprintf(_("Started with PID %s!"),$started));
+			}
+		}
+
 		out(_("Refreshing all UCP Assets, this could take a while..."));
 		$this->generateUCP(true);
 		out("Done!");
-		//TODO Write migration code
-		//$originate = $this->freepbx->Ucp->getSetting($user['username'],'Webrtc','originate');
-		//FreePBX::create()->Userman->getModuleSettingByID($_REQUEST['user'],'ucp|Global','originate')
 	}
+
 	public function uninstall() {
 		$path = $this->FreePBX->Config->get_conf_setting('AMPWEBROOT');
 		$location = $path.'/ucp';
 		unlink($location);
+
+		outn(_("Stopping old running processes..."));
+		$this->stopFreepbx();
+		out(_("Done"));
+		exec("rm -Rf ".$this->nodeloc."/node_modules");
+		try {
+			$this->FreePBX->Pm2->delete("ucp");
+		} catch(\Exception $e) {}
 	}
 	public function backup(){
 
@@ -88,7 +333,8 @@ class Ucp implements \BMO {
 								"mHtml" => $this->constructModuleConfigPages('group',$group,$_REQUEST['action']),
 								"user" => array(),
 								"allowLogin" => $this->Userman->getModuleSettingByGID($_REQUEST['group'],'ucp|Global','allowLogin'),
-								"originate" => $this->Userman->getModuleSettingByGID($_REQUEST['group'],'ucp|Global','originate'))
+								"originate" => $this->Userman->getModuleSettingByGID($_REQUEST['group'],'ucp|Global','originate'),
+								"tourMode" => $this->Userman->getModuleSettingByGID($_REQUEST['group'],'ucp|Global','tour'))
 							)
 						)
 					);
@@ -114,7 +360,8 @@ class Ucp implements \BMO {
 								"mHtml" => $this->constructModuleConfigPages('group', array(),$_REQUEST['action']),
 								"user" => array(),
 								"allowLogin" => true,
-								"originate" => false)
+								"originate" => false,
+								"tourMode" => true)
 							)
 						)
 					);
@@ -146,6 +393,7 @@ class Ucp implements \BMO {
 								"user" => $user,
 								"allowLogin" => FreePBX::create()->Userman->getModuleSettingByID($_REQUEST['user'],'ucp|Global','allowLogin',true),
 								"originate" => FreePBX::create()->Userman->getModuleSettingByID($_REQUEST['user'],'ucp|Global','originate',true),
+								"tourMode" => FreePBX::create()->Userman->getModuleSettingByID($_REQUEST['user'],'ucp|Global','tour',true),
 								"sessions" => $this->getUserSessions($user['id'])
 								)
 							)
@@ -172,6 +420,7 @@ class Ucp implements \BMO {
 								"user" => array(),
 								"allowLogin" => null,
 								"originate" => null,
+								"tourMode" => null,
 								"sessions" => array()
 								)
 							)
@@ -345,6 +594,11 @@ class Ucp implements \BMO {
 
 	public function addGroup($id, $display, $data) {
 		if($display == 'userman' && isset($_POST['type']) && $_POST['type'] == 'group') {
+			if($_POST['ucp_tour'] == 'true') {
+				$this->Userman->setModuleSettingByGID($id,'ucp|Global','tour', true);
+			} else {
+				$this->Userman->setModuleSettingByGID($id,'ucp|Global','tour', false);
+			}
 			if($_POST['ucp_login'] == 'true') {
 				$this->Userman->setModuleSettingByGID($id,'ucp|Global','allowLogin', true);
 			} else {
@@ -369,6 +623,11 @@ class Ucp implements \BMO {
 
 	public function updateGroup($id,$display,$data) {
 		if($display == 'userman' && isset($_POST['type']) && $_POST['type'] == 'group') {
+			if($_POST['ucp_tour'] == 'true') {
+				$this->Userman->setModuleSettingByGID($id,'ucp|Global','tour', true);
+			} else {
+				$this->Userman->setModuleSettingByGID($id,'ucp|Global','tour', false);
+			}
 			if($_POST['ucp_login'] == 'true') {
 				$this->Userman->setModuleSettingByGID($id,'ucp|Global','allowLogin', true);
 			} else {
@@ -412,6 +671,13 @@ class Ucp implements \BMO {
 	public function addUser($id, $display, $data) {
 		if($display == 'userman' && isset($_POST['type']) && $_POST['type'] == 'user') {
 			if(isset($_POST['ucp_login'])) {
+				if($_POST['ucp_tour'] == 'true') {
+					$this->FreePBX->Userman->setModuleSettingByID($id,'ucp|Global','tour',true);
+				} elseif($_POST['ucp_tour'] == 'false') {
+					$this->FreePBX->Userman->setModuleSettingByID($id,'ucp|Global','tour',false);
+				} else {
+					$this->FreePBX->Userman->setModuleSettingByID($id,'ucp|Global','tour',null);
+				}
 				if($_POST['ucp_login'] == 'true') {
 					$this->FreePBX->Userman->setModuleSettingByID($id,'ucp|Global','allowLogin',true);
 				} elseif($_POST['ucp_login'] == 'false') {
@@ -447,6 +713,13 @@ class Ucp implements \BMO {
 	public function updateUser($id, $display, $data) {
 		if($display == 'userman' && isset($_POST['type']) && $_POST['type'] == 'user') {
 			if(isset($_POST['ucp_login'])) {
+				if($_POST['ucp_tour'] == 'true') {
+					$this->FreePBX->Userman->setModuleSettingByID($id,'ucp|Global','tour',true);
+				} elseif($_POST['ucp_tour'] == 'false') {
+					$this->FreePBX->Userman->setModuleSettingByID($id,'ucp|Global','tour',false);
+				} else {
+					$this->FreePBX->Userman->setModuleSettingByID($id,'ucp|Global','tour',null);
+				}
 				if($_POST['ucp_login'] == 'true') {
 					$this->FreePBX->Userman->setModuleSettingByID($id,'ucp|Global','allowLogin',true);
 				} elseif($_POST['ucp_login'] == 'false') {
@@ -526,7 +799,7 @@ class Ucp implements \BMO {
 	 * in User Manager
 	 * @param {array} $user The user array
 	 */
-	function constructModuleConfigPages($mode, $user, $action) {
+	public function constructModuleConfigPages($mode, $user, $action) {
 		$mods = $this->FreePBX->Hooks->processHooks($mode, $user, $action);
 		$html = '';
 		if(!empty($mods) && is_array($mods)) {
@@ -891,7 +1164,7 @@ class Ucp implements \BMO {
 		out(_("Done"));
 
 		outn(_("Generating Main Scripts..."));
-		$ucp->getLess(true);
+		$ucp->getCss(true);
 		out(_("Done"));
 
 		outn(_("Generating Main CSS..."));
@@ -906,5 +1179,221 @@ class Ucp implements \BMO {
 												'path' => $ampwebroot.'/ucp',
 												'perms' => 0775);
 		return $files;
+	}
+
+	public function setDefaultCert($details, $restart=true) {
+		$certF = isset($details['integration']['files']['pem']) ? $details['integration']['files']['pem'] : $details['integration']['files']['crt'];
+		$keyF = $details['integration']['files']['key'];
+		$this->FreePBX->Config->update("NODEJSTLSENABLED",true);
+		$this->FreePBX->Config->update("NODEJSTLSCERTFILE",$certF);
+		$this->FreePBX->Config->update("NODEJSTLSPRIVATEKEY",$keyF);
+		if($restart) {
+			try {
+				$this->FreePBX->Pm2->restart("ucp");
+			} catch(\Exception $e) {}
+		}
+	}
+
+	public function getHomeDir() {
+		$webuser = \FreePBX::Freepbx_conf()->get('AMPASTERISKWEBUSER');
+		$web = posix_getpwnam($webuser);
+		$home = trim($web['dir']);
+		if (!is_dir($home)) {
+			// Well, that's handy. It doesn't exist. Let's use ASTSPOOLDIR instead, because
+			// that should exist and be writable.
+			$home = \FreePBX::Freepbx_conf()->get('ASTSPOOLDIR');
+			if (!is_dir($home)) {
+				// OK, I give up.
+				throw new \Exception(sprintf(_("Asterisk home dir (%s) doesn't exist, and, ASTSPOOLDIR doesn't exist. Aborting"),$home));
+			}
+		}
+		return $home;
+	}
+
+	public function dashboardService() {
+		$service = array(
+			'title' => _('UCP Daemon'),
+			'type' => 'unknown',
+			'tooltip' => _("Unknown"),
+			'order' => 999,
+			'glyph-class' => ''
+		);
+		$data = $this->FreePBX->Pm2->getStatus("ucp");
+		if(!empty($data) && $data['pm2_env']['status'] == 'online') {
+			$uptime = $data['pm2_env']['created_at_human_diff'];
+			$service = array_merge($service, $this->genAlertGlyphicon('ok', sprintf(_("Running (Uptime: %s)"),$uptime)));
+		} else {
+			$service = array_merge($service, $this->genAlertGlyphicon('critical', _("UCP Node is not running")));
+		}
+
+		return array($service);
+	}
+
+	/**
+	 * Start FreePBX for fwconsole hook
+	 * @param object $output The output object.
+	 */
+	public function startFreepbx($output=null) {
+		if(!$this->FreePBX->Config->get("NODEJSENABLED")) {
+			return;
+		}
+		$status = $this->FreePBX->Pm2->getStatus("ucp");
+		switch($status['pm2_env']['status']) {
+			case 'online':
+				if(is_object($output)) {
+					$output->writeln(sprintf(_("UCP Node Server has already been running on PID %s for %s"),$status['pid'],$status['pm2_env']['created_at_human_diff']));
+				}
+				return $status['pid'];
+			break;
+			default:
+				if(is_object($output)) {
+					$output->writeln(_("Starting UCP Node Server..."));
+				}
+				$this->FreePBX->Pm2->start("ucp",__DIR__."/node/index.js");
+				if(is_object($output)) {
+					$progress = new ProgressBar($output, 0);
+					$progress->setFormat('[%bar%] %elapsed%');
+					$progress->start();
+				}
+				$i = 0;
+				while($i < 100) {
+					$data = $this->FreePBX->Pm2->getStatus("ucp");
+					if(!empty($data) && $data['pm2_env']['status'] == 'online') {
+						if(is_object($output)) {
+							$progress->finish();
+						}
+						break;
+					}
+					if(is_object($output)) {
+						$progress->setProgress($i);
+					}
+					$i++;
+					usleep(100000);
+				}
+				if(is_object($output)) {
+					$output->writeln("");
+				}
+				if(!empty($data)) {
+					$this->FreePBX->Pm2->reset("ucp");
+					if(is_object($output)) {
+						$output->writeln(sprintf(_("Started UCP Node Server. PID is %s"),$data['pid']));
+					}
+					return $data['pid'];
+				}
+				if(is_object($output)) {
+					$output->write("<error>".sprintf(_("Failed to run: '%s'")."</error>",$command));
+				}
+			break;
+		}
+		return false;
+	}
+
+	/**
+	 * Stop FreePBX for fwconsole hook
+	 * @param object $output The output object.
+	 */
+	public function stopFreepbx($output=null) {
+		exec("pgrep -f ucpnode/node/node_modules/forever/bin/monitor",$o);
+		if($o) {
+			foreach($o as $z) {
+				$z = trim($z);
+				posix_kill($z, 9);
+			}
+
+			exec("pgrep -f ucpnode/node/index.js",$o);
+			foreach($o as $z) {
+				$z = trim($z);
+				posix_kill($z, 9);
+			}
+		}
+
+		$data = $this->FreePBX->Pm2->getStatus("ucp");
+		if(empty($data) || $data['pm2_env']['status'] != 'online') {
+			if(is_object($output)) {
+				$output->writeln("<error>"._("UCP Node Server is not running")."</error>");
+			}
+			return false;
+		}
+
+		// executes after the command finishes
+		if(is_object($output)) {
+			$output->writeln(_("Stopping UCP Node Server"));
+		}
+
+		$this->FreePBX->Pm2->stop("ucp");
+		if(is_object($output)) {
+			$progress = new ProgressBar($output, 0);
+			$progress->setFormat('[%bar%] %elapsed%');
+			$progress->start();
+		}
+		$i = 0;
+		while($i < 100) {
+			$data = $this->FreePBX->Pm2->getStatus("ucp");
+			if(!empty($data) && $data['pm2_env']['status'] != 'online') {
+				if(is_object($output)) {
+					$progress->finish();
+				}
+				break;
+			}
+			if(is_object($output)) {
+				$progress->setProgress($i);
+			}
+			$i++;
+			usleep(100000);
+		}
+		if(is_object($output)) {
+			$output->writeln("");
+		}
+
+		$data = $this->FreePBX->Pm2->getStatus("ucp");
+		if (empty($data) || $data['pm2_env']['status'] != 'online') {
+			if(is_object($output)) {
+				$output->writeln(_("Stopped UCP Node Server"));
+			}
+		} else {
+			if(is_object($output)) {
+				$output->writeln("<error>".sprintf(_("UCP Node Server Failed: %s")."</error>",$process->getErrorOutput()));
+			}
+			return false;
+		}
+
+		return true;
+	}
+
+	private function genAlertGlyphicon($res, $tt = null) {
+		$glyphs = array(
+			"ok" => "glyphicon-ok text-success",
+			"warning" => "glyphicon-warning-sign text-warning",
+			"error" => "glyphicon-remove text-danger",
+			"unknown" => "glyphicon-question-sign text-info",
+			"info" => "glyphicon-info-sign text-info",
+			"critical" => "glyphicon-fire text-danger"
+		);
+		// Are we being asked for an alert we actually know about?
+		if (!isset($glyphs[$res])) {
+			return array('type' => 'unknown', "tooltip" => sprintf(_("Don't know what %s is").$res), "glyph-class" => $glyphs['unknown']);
+		}
+
+		if ($tt === null) {
+			// No Tooltip
+			return array('type' => $res, "tooltip" => null, "glyph-class" => $glyphs[$res]);
+		} else {
+			// Generate a tooltip
+			$html = '';
+			if (is_array($tt)) {
+				foreach ($tt as $line) {
+					$html .= htmlentities($line, ENT_QUOTES, "UTF-8")."\n";
+				}
+			} else {
+				$html .= htmlentities($tt, ENT_QUOTES, "UTF-8");
+			}
+
+			return array('type' => $res, "tooltip" => $html, "glyph-class" => $glyphs[$res]);
+		}
+		return '';
+	}
+
+	private function generateRunAsAsteriskCommand($command) {
+		return $this->FreePBX->Pm2->generateRunAsAsteriskCommand($command,$this->nodeloc);
 	}
 }

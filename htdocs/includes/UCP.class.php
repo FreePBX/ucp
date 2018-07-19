@@ -35,7 +35,7 @@ class UCP extends UCP_Helpers {
 		}
 
 		$this->emoji = new Client(new Ruleset());
-		$this->emoji->imagePathPNG = 'assets/images/emoji/png/'; // defaults to jsdelivr's free CDN
+		$this->emoji->imageType = 'svg';
 		$this->emoji->imagePathSVG = 'assets/images/emoji/svg/'; // defaults to jsdelivr's free CDN
 
 		$this->detect = new \Mobile_Detect;
@@ -98,6 +98,37 @@ class UCP extends UCP_Helpers {
 	}
 
 	/**
+	 * Get Setting By ID
+	 * @param  {[type]}       $id      [description]
+	 * @param  {[type]}       $module  [description]
+	 * @param  {[type]}       $setting [description]
+	 * @return {[type]}                [description]
+	 */
+	function getSettingByID($id,$module,$setting) {
+		return $this->FreePBX->Ucp->getSettingByID($id,$module,$setting);
+	}
+
+	/**
+	 * [setSettingByID description]
+	 * @method setSettingByID
+	 * @param  {[type]}       $id      [description]
+	 * @param  {[type]}       $module  [description]
+	 * @param  {[type]}       $setting [description]
+	 * @param  {[type]}       $value   [description]
+	 */
+	function setSettingByID($id,$module,$setting,$value) {
+		return $this->FreePBX->Ucp->setSettingByID($id,$module,$setting,$value);
+	}
+
+	function setGlobalSettingByID($id,$setting,$value) {
+		return $this->FreePBX->Ucp->setSettingByID($id,'Global',$setting,$value);
+	}
+
+	function getGlobalSettingByID($id,$setting) {
+		return $this->FreePBX->Ucp->getSettingByID($id,'Global',$setting);
+	}
+
+	/**
 	 * Set a UCP Setting
 	 * @param string $username The username
 	 * @param string $module   The module name
@@ -112,9 +143,6 @@ class UCP extends UCP_Helpers {
 	 * Get the Node JS Server Settings
 	 */
 	function getServerSettings() {
-		if(!$this->FreePBX->Modules->checkStatus('ucpnode')) {
-			return array("enabled" => false, "port" => "0", "host" => "", "enabledS" => false, "portS" => "0", "hostS" => "");
-		}
 		$enabled = $this->FreePBX->Config->get('NODEJSENABLED');
 		$enabled = is_bool($enabled) || is_int($enabled) ? $enabled : true;
 		$port = $this->FreePBX->Config->get('NODEJSBINDPORT');
@@ -134,7 +162,7 @@ class UCP extends UCP_Helpers {
 	 * Minified all scripts.
 	 * @param bool $force Whether to forcefully regenerate the minified JS
 	 */
-	public function getScripts($force = false) {
+	public function getScripts($force = false,$packaged=false) {
 		$cache = dirname(__DIR__).'/assets/js/compiled/main';
 		if(!file_exists($cache) && !mkdir($cache,0777,true)) {
 			die('Can Not Create Cache Folder at '.$cache);
@@ -142,66 +170,92 @@ class UCP extends UCP_Helpers {
 
 		//Loading order is important here
 		$globalJavascripts = array(
-			"socket.io.js",
 			"async-2.1.4.min.js",
-			"bootstrap-3.3.5.custom.min.js",
-			"bootstrap-table-1.9.0.js",
-			"bootstrap-table-cookie.js",
-			"bootstrap-table-toolbar.js",
-			"bootstrap-table-mobile.js",
-			"bootstrap-table-export.js",
-			"tableExport.js",
-			"jquery-ui-1.10.4.custom.min.js",
-			/*"jquery.keyframes.min.js",*/
-			"fileinput.js",
+			"jquery-migrate-3.0.0.js",
+			"socket.io-1.7.2.js",
+			"bootstrap-3.3.7.custom.min.js",
+			"bootstrap-table-1.11.0.min.js",
+			"bootstrap-table-extensions-1.11.0/bootstrap-table-cookie.min.js",
+			"bootstrap-table-extensions-1.11.0/bootstrap-table-toolbar.min.js",
+			"bootstrap-table-extensions-1.11.0/bootstrap-table-mobile.min.js",
+			"bootstrap-table-extensions-1.11.0/bootstrap-table-export.min.js",
+			"bootstrap-multiselect-0.9.13.js",
+			"bootstrap-select-1.12.1.min.js",
+			"ajax-bootstrap-select-1.3.8.min.js",
+			"tableexport-3.2.10.min.js",
+			"jquery-ui-1.12.1.min.js",
+			"fileinput-3.1.3.js",
 			"recorder.js",
-			"jquery.iframe-transport.js",
-			"jquery.fileupload.js",
-			"jquery.form.min.js",
-			"jquery.jplayer.min.js",
-			/*"quo.js",*/
-			"localforage.js",
-			"purl.js",
-			"modernizr.js",
-			"jquery.pjax.js",
-			"notify.js",
-			"packery.pkgd.min.js",
+			"jquery.iframe-transport-9.12.5.js",
+			"jquery.fileupload-9.12.5.js",
+			"jquery.form-3.51.min.js",
+			"jquery.jplayer-2.9.2.min.js",
+			"purl-2.3.1.js",
+			"modernizr-3.3.1.js",
+			"notify-2.0.3.js",
 			"class.js",
-			/*"jquery.transit.min.js",*/
-			"jquery.textfill.min.js",
-			"jed.js",
+			"jquery.textfill-0.6.0.min.js",
+			"jed-1.1.1.js",
 			"modgettext.js",
-			"jquery.cookie.js",
-			"emojione.min.js",
-			"jquery.tokenize.js",
-			"moment.js",
-			"moment-timezone.js",
-			"nprogress.js",
-			"imagesloaded.pkgd.min.js",
+			"js.cookie-2.1.3.min.js",
+			"emojione-2.2.7.min.js",
+			"emojionearea-3.1.6.min.js",
+			"jquery.tokenize-2.6.js",
+			"moment-with-locales-2.20.1.min.js",
+			"moment-timezone-with-data-2012-2022-0.5.14-2017c.min.js",
+			"moment-duration-format-2.2.1.js",
+			"nprogress-0.2.0.js",
+			"imagesloaded.pkgd-4.1.1.min.js",
+			"lodash-4.17.2.js",
+			"jquery.ui.touch-punch-0.2.3.min.js",
+			"gridstack-0.2.6.js",
+			"Sortable-1.4.2.min.js",
+			"bootstrap-toggle-2.2.2.min.js",
+			"browser-locale-1.0.0.min.js",
+			"uuid-3.0.1.js",
 			"ucp.js",
 			"module.js"
 		);
+
+		$time_start = microtime(true);
+
 		$contents = '';
 		$files = array();
+		$md5string = '';
 		foreach ($globalJavascripts as $f) {
 			$file = dirname(__DIR__).'/assets/js/'.$f;
 			if(file_exists($file)) {
-				$files[] = $file;
-				$contents .= file_get_contents($file)."\n\n";
+				$files[] = str_replace(dirname(__DIR__).'/assets/js/','',$file);
+				$md5string .= md5_file($file);
+			} else {
+				throw new \Exception("Cant find $file");
 			}
 		}
 
-		$md5 = md5($contents);
+		// If we're not using our minified files, don't make them.
+		if (!$packaged) {
+			return $files;
+		}
+
+		$md5 = md5($md5string);
 		$filename = 'jsphpg_'.$md5.'.js';
 		if(!file_exists($cache.'/'.$filename) || $force) {
-			foreach(glob($cache.'/jsphp_*.js') as $f) {
+			foreach(glob($cache.'/jsphpg_*.js') as $f) {
 				unlink($f);
 			}
-			$output = \JShrink\Minifier::minify($contents);
-			file_put_contents($cache.'/'.$filename,$output);
+			foreach($globalJavascripts as $f) {
+				$file = dirname(__DIR__).'/assets/js/'.$f;
+				$raw = file_get_contents($file);
+				if(!preg_match("/min\.js$/",$file)) {
+					$contents .= \JShrink\Minifier::minify($raw)."\n\n";
+				} else {
+					$contents .= $raw."\n\n";
+				}
+			}
+			file_put_contents($cache.'/'.$filename,$contents);
 		}
 
-		return $filename;
+		return array("compiled/main/".$filename);
 	}
 
 	/**
@@ -209,7 +263,7 @@ class UCP extends UCP_Helpers {
 	 * These Scripts persist throughout the navigation of UCP
 	 * @param bool $force Whether to forcefully regenerate the minified CSS
 	 */
-	public function getLess($force = false) {
+	public function getCss($force = false, $packaged=false) {
 		$cache = dirname(__DIR__).'/assets/css/compiled/main';
 		//TODO: needs to be an array of directories that need to be created on install
 		if(!file_exists($cache) && !mkdir($cache,0777,true)) {
@@ -221,19 +275,66 @@ class UCP extends UCP_Helpers {
 			}
 		}
 
-		$options = array( 'cache_dir' => $cache );
+		$globalCssFiles = array(
+			"bootstrap-3.3.7.min.css",
+			"bootstrap-toggle-2.2.2.min.css",
+			"bootstrap-select-1.12.1.min.css",
+			"ajax-bootstrap-select-1.3.8.min.css",
+			"emojione-2.2.7.min.css",
+			"emojionearea-3.1.6.min.css",
+			"font-awesome.min-4.7.0.css",
+			"gridstack.min.css",
+			"jquery.tokenize-2.6.css"
+		);
+
+
+		$contents = '';
+		$files = array();
+		$md5string = '';
+		foreach($globalCssFiles as $f) {
+			$file = dirname(__DIR__).'/assets/css/'.$f;
+			if(file_exists($file)) {
+				$files[] = str_replace(dirname(__DIR__).'/assets/css/','',$file);
+				$md5string .= md5_file($file);
+			} else {
+				throw new \Exception("Cant find $file");
+			}
+		}
 
 		$final = array();
-		//Needs to be one unified LESS file along with the module LESS file
+
+		$md5 = md5($md5string);
+		$filename = 'cssphpg_'.$md5.'.css';
+		if(!file_exists($cache.'/'.$filename) || $force) {
+			foreach(glob($cache.'/cssphpg_*.css') as $f) {
+				unlink($f);
+			}
+			foreach($globalCssFiles as $f) {
+				$minifier = new \MatthiasMullie\Minify\CSS();
+				$file = dirname(__DIR__).'/assets/css/'.$f;
+				$raw = file_get_contents($file);
+				if(!preg_match("/min\.css$/",$file)) {
+					$minifier->add($raw);
+					$contents .= $minifier->minify()."\n";
+				} else {
+					$contents .= $raw."\n";
+				}
+			}
+			file_put_contents($cache.'/'.$filename,$contents);
+		}
+
+		$final[] = "compiled/main/".$filename;
+
+		$options = array( 'cache_dir' => $cache );
 
 		$ucpfiles = array();
 		$ucpfiles[dirname(__DIR__).'/assets/less/ucp/ucp.less'] = '../../../../';
-		$final['ucpcssless'] = \Less_Cache::Get( $ucpfiles, $options );
+		$final[] = "compiled/main/".\Less_Cache::Get( $ucpfiles, $options );
 
 		$ucpfiles = array();
 		$vars = array("fa-font-path" => '"fonts"');
 		$ucpfiles[dirname(__DIR__).'/assets/less/schmooze-font/schmooze-font.less'] = '../../';
-		$final['sfcssless'] = \Less_Cache::Get( $ucpfiles, $options, $vars );
+		$final[] = "compiled/main/".\Less_Cache::Get( $ucpfiles, $options, $vars );
 
 		return $final;
 	}

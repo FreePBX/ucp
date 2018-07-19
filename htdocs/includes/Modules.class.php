@@ -20,7 +20,7 @@ class Modules extends Module_Helpers {
 	private $freepbxActiveModules = array();
 	private $ucpActiveModules = array();
 	private $moduleMethods = array();
-	private $defaultModules = array("home", "settings");
+	private $defaultModules = array("home", "settings", "widgets", "ucptour");
 
 	function __construct($UCP) {
 		$this->UCP = $UCP;
@@ -115,7 +115,7 @@ class Modules extends Module_Helpers {
 	 */
 	function getAssignedDevices() {
 		$user = $this->UCP->User->getUser();
-		return $user['assigned'];
+		return !empty($user['assigned']) ? $user['assigned'] : array();
 	}
 
 	/**
@@ -167,7 +167,7 @@ class Modules extends Module_Helpers {
 	 * Get all module Javascripts
 	 * @param bool $force Whether to forcefully regenerate all cache even if we dont need to do so
 	 */
-	public function getGlobalScripts($force = false) {
+	public function getGlobalScripts($force = false,$packaged=true) {
 		$cache = dirname(__DIR__).'/assets/js/compiled/modules';
 		if(!file_exists($cache) && !mkdir($cache,0777,true)) {
 			die('Can Not Create Cache Folder at '.$cache);
@@ -185,12 +185,18 @@ class Modules extends Module_Helpers {
 				$dir = dirname(__DIR__)."/modules/".$module."/assets/js";
 				if(is_dir($dir)) {
 					foreach (glob($dir."/*.js") as $file) {
-						$files[] = $file;
+						$files[] = str_replace(dirname(__DIR__).'/modules/','modules/',$file);
 						$contents .= file_get_contents($file)."\n";
 					}
 				}
 			}
 		}
+
+		// If we're not using our minified files, don't make them.
+		if (!$packaged) {
+			return $files;
+		}
+
 		$md5 = md5($contents);
 		$filename = 'jsphp_'.$md5.'.js';
 		if(!file_exists($cache.'/'.$filename) || $force) {
@@ -198,9 +204,11 @@ class Modules extends Module_Helpers {
 				unlink($f);
 			}
 			$output = \JShrink\Minifier::minify($contents);
+			$output = $contents;
 			file_put_contents($cache.'/'.$filename,$output);
 		}
-		return $filename;
+
+		return array("assets/js/compiled/modules/".$filename);
 	}
 
 	/**

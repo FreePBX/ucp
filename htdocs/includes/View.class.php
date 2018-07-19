@@ -12,6 +12,10 @@
  */
 namespace UCP;
 class View extends UCP {
+	private $timezone = '';
+	private $dateformat = '';
+	private $datetimeformat = '';
+	private $timeformat = '';
 
 	public function __construct($UCP) {
 		$this->UCP = $UCP;
@@ -32,7 +36,7 @@ class View extends UCP {
 	 * @return	string
 	 *
 	 */
-	function load_view($view_filename_protected, $vars = array()) {
+	public function load_view($view_filename_protected, $vars = array()) {
 
 		//return false if we cant find the file or if we cant open it
 		if (!$view_filename_protected || !file_exists($view_filename_protected) || !is_readable($view_filename_protected) ) {
@@ -76,10 +80,112 @@ class View extends UCP {
 	 * @return	string
 	 *
 	 */
-	function show_view($view_filename_protected, $vars = array()) {
+	public function show_view($view_filename_protected, $vars = array()) {
 		$buffer = $this->load_view($view_filename_protected, $vars);
 		if ($buffer !== false) {
 			echo $buffer;
 		}
+	}
+
+	/**
+	 * Set Locales for the UCP Interface
+	 */
+	public function setGUILocales($user) {
+		$view = $this->UCP->FreePBX->View;
+		// set the language so local module languages take
+		$lang = '';
+		if(php_sapi_name() !== 'cli') {
+			$language = $this->UCP->FreePBX->Userman->getLocaleSpecificSettingByUID($user['id'], 'language');
+			if(!empty($language)) {
+				$lang = $language;
+			} elseif (!empty($_COOKIE['lang'])) {
+				$lang = $_COOKIE['lang'];
+			}
+		}
+		$lang = $view->setLanguage($lang);
+		if(php_sapi_name() !== 'cli') {
+			setcookie("lang", $lang);
+			$_COOKIE['lang'] = $lang;
+		}
+		$language = $lang;
+		//set this before we run date functions
+		$timezone = $this->UCP->FreePBX->Userman->getLocaleSpecificSettingByUID($user['id'], 'timezone');
+		if(php_sapi_name() !== 'cli' && !empty($timezone)) {
+			//userman mode
+			$phptimezone = $timezone;
+		} else {
+			$phptimezone = '';
+		}
+		$this->timezone = $view->setTimezone($phptimezone);
+
+		$datetimeformat = $this->UCP->FreePBX->Userman->getLocaleSpecificSettingByUID($user['id'], 'datetimeformat');
+		if(php_sapi_name() !== 'cli' && !empty($datetimeformat)) {
+			$view->setDateTimeFormat($datetimeformat);
+		}
+
+		$timeformat = $this->UCP->FreePBX->Userman->getLocaleSpecificSettingByUID($user['id'], 'timeformat');
+		if(php_sapi_name() !== 'cli' && !empty($timeformat)) {
+			$view->setTimeFormat($timeformat);
+		}
+
+		$dateformat = $this->UCP->FreePBX->Userman->getLocaleSpecificSettingByUID($user['id'], 'dateformat');
+		if(php_sapi_name() !== 'cli' && !empty($dateformat)) {
+			$view->setDateFormat($dateformat);
+		}
+
+		return array("timezone" => $timezone, "language" => $language, "datetimeformat" => "", "timeformat" => "", "dateformat" => "");
+	}
+
+	public function getLocale() {
+		return $this->UCP->FreePBX->View->getLocale();
+	}
+
+	/**
+	 * See function in BMO
+	 */
+	public function getDate($timestamp=null) {
+		return $this->UCP->FreePBX->View->getDate($timestamp);
+	}
+
+	/**
+	 * See function in BMO
+	 */
+	public function getDateTime($timestamp=null) {
+		return $this->UCP->FreePBX->View->getDateTime($timestamp);
+	}
+
+	/**
+	 * See function in BMO
+	 */
+	public function getTime($timestamp=null) {
+		return $this->UCP->FreePBX->View->getTime($timestamp);
+	}
+
+	/**
+	 * See function in BMO
+	 */
+	public function getDateTimeFormat() {
+		return $this->UCP->FreePBX->View->getDateTimeFormat();
+	}
+
+	/**
+	 * See function in BMO
+	 */
+	public function getTimeFormat() {
+		return $this->UCP->FreePBX->View->getTimeFormat();
+	}
+
+	/**
+	 * See function in BMO
+	 */
+	public function getDateFormat() {
+		return $this->UCP->FreePBX->View->getDateFormat();
+	}
+
+	/**
+	 * See function in BMO
+	 */
+	public function getTimezone() {
+		return $this->UCP->FreePBX->View->getTimezone();
 	}
 }

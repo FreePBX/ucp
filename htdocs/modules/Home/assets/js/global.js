@@ -43,11 +43,9 @@ var HomeC = UCPMC.extend({
 
 		selected = "<option value=\"" + did + "\" selected>" + name + "</option>";
 			UCP.showDialog(_("Originate Call"),
-			"<label for=\"originateFrom\">From:</label> <select id=\"originateFrom\" class=\"form-control\">" + sfrom + "</select><label for=\"originateTo\">To:</label><select class=\"form-control Tokenize Fill\" id=\"originateTo\" multiple>" + selected + "</select><button class=\"btn btn-default\" id=\"originateCall\" style=\"margin-left: 72px;\">" + _("Originate") + "</button>",
-			200,
-			250,
+			"<label for=\"originateFrom\">From:</label><select id=\"originateFrom\" class=\"form-control\">" + sfrom + "</select><label for=\"originateTo\">To:</label><select class=\"form-control\" id=\"originateTo\" data-toggle=\"select\" data-size=\"auto\">" + selected + "</select>",
+			"<button class=\"btn btn-primary text-center\" id=\"originateCall\" style=\"margin-left: 72px;\">" + _("Originate") + "</button>",
 			function() {
-				$("#originateTo").tokenize({ maxElements: 1, datas: "index.php?quietmode=1&module=webrtc&command=contacts" });
 				$("#originateCall").click(function() {
 					setTimeout(function() {
 						UCP.Modules.Home.originate();
@@ -77,15 +75,19 @@ var HomeC = UCPMC.extend({
 		}
 		$.post( "index.php?quietmode=1&module=home&command=originate",
 						{ from: $("#originateFrom").val(),
-						to: $("#originateTo").val()[0] },
+						to: $("#originateTo").val() },
 						function( data ) {
 							if (data.status) {
 								UCP.closeDialog();
 							}
 						}
-		);
+		)
+		.fail(function(xhr, status, error) {
+			alert(status +" "+ error);
+		});
 	},
 	resize: function() {
+		return;
 		var wasPackeryEnabled = this.packery;
 		this.packery = $(window).width() >= 768;
 		if (this.packery !== wasPackeryEnabled) {

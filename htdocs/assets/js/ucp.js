@@ -4,6 +4,7 @@
  * License can be found in the license file inside the module directory
  * Copyright 2006-2014 Schmooze Com Inc.
  */
+
 var UCPC = Class.extend({
 	init: function() {
 		this.loggedIn = false;
@@ -24,39 +25,203 @@ var UCPC = Class.extend({
 		this.Modules = {};
 		this.calibrating = false;
 		this.UCPSettings = {packery: true};
+		this.ajaxUrl = '';
+		this.urlParams = {};
 
 		textdomain("ucp");
+		window.onerror = function (message, url, line) {
+			if(!$("#alert_modal").is(":visible")) {
+				UCP.showAlert(_("There was an error. See the console log for more details"),'danger');
+			}
+		};
 	},
-	ready: function() {
-		$(window).resize(function() {UCP.windowResize();});
-		$(document).bind("logIn", function( event, username, password ) {UCP.logIn(event, username, password);});
+	ready: function(loggedIn) {
+		this.parseUrl();
+		$(document).bind("logIn", function( event) {UCP.logIn(event);});
 		$(document).bind("logOut", function( event ) {UCP.logOut(event);});
 		$(window).bind("online", function( event ) {UCP.online(event);});
 		$(window).bind("offline", function( event ) {UCP.offline(event);});
-		$(document).ajaxError(UCP.ajaxError);
-		$(document).ajaxStart(UCP.ajaxStart);
-		$(document).ajaxStop(UCP.ajaxStop);
+		$(document).ajaxError(function( event, jqxhr, settings, thrownError ) {
+			//you can set jqxhr.hideGlobal = true in your .fail(jqXHR, textStatus, errorThrown) { jqxhr.hideGlobal = true } function to not show this message
+			if ((jqxhr.status === 500 || jqxhr.status === 403) && (typeof jqxhr.hideGlobal === "undefined" || jqxhr.hideGlobal === false)) {
+				setTimeout(function() {
+					if(!$("#alert_modal").is(":visible")) {
+						UCP.showAlert(_("There was an error. See the console log for more details"),'danger');
+					}
+					try {
+						var obj = JSON.parse(jqxhr.responseText);
+						if(typeof obj.error.file !== "undefined") {
+							console.error(thrownError + ": " + obj.error.message);
+							console.error(obj.error.file + ": " + obj.error.line);
+						} else if(typeof obj.error !== "undefined") {
+							console.error(thrownError + ": " + obj.error);
+						} else if(typeof obj.message !== "undefined") {
+							console.error(thrownError + ": " + obj.message);
+						}
+					} catch(e) {
+						console.error(thrownError + ": " + e);
+					}
+				},200);
+			}
+		});
 		//if we are already logged in (the login window is missing)
 		//in then throw the loggedIn trigger
 		if (!$("#login-window").length) {
 			UCP.setupDashboard();
-			$(document).trigger("logIn", [null, null]);
+			$(document).trigger("logIn");
 		} else {
 			UCP.setupLogin();
 		}
+
+		var setupBootstrapToggle = function(el) {
+			if(typeof $(el).data("on") === "undefined") {
+				$(el).data("on",_('Enable'));
+			}
+			if(typeof $(el).data("off") === "undefined") {
+				$(el).data("off",_('Disable'));
+			}
+			$(el).bootstrapToggle();
+		};
+		var setupBootstrapTable = function(el) {
+			$(el).bootstrapTable();
+		};
+		var setupBootstrapMultiselect = function(el) {
+			$(el).multiselect({
+				enableFiltering: true,
+				enableCaseInsensitiveFiltering: true
+			});
+		};
+		var setupBootstrapSelect = function(el) {
+			if(typeof $(el).data("container") === "undefined") {
+				$(el).data("container","body");
+			}
+			$(el).selectpicker();
+		};
+
+		$("#globalModal").on("shown.bs.modal",function() {
+			$('#globalModal .modal-body select[data-toggle="select"]:visible').each(function() {
+				setupBootstrapSelect(this);
+			});
+			$('#globalModal .modal-body select[data-toggle="multiselect"]:visible').each(function() {
+				setupBootstrapMultiselect(this);
+			});
+			$('#globalModal .modal-body input[type=checkbox][data-toggle="toggle"]:visible').each(function() {
+				setupBootstrapToggle(this);
+			});
+			$('#globalModal .modal-body table[data-toggle="table"]:visible').each(function() {
+				setupBootstrapTable(this);
+			});
+		});
+
+		$(document).on("post-body.simplewidget", function() {
+			$('.small-widget-content select[data-toggle="select"]:visible').each(function() {
+				setupBootstrapSelect(this);
+			});
+			$('.small-widget-content select[data-toggle="multiselect"]:visible').each(function() {
+				setupBootstrapMultiselect(this);
+			});
+			$('.small-widget-content input[type=checkbox][data-toggle="toggle"]:visible').each(function() {
+				setupBootstrapToggle(this);
+			});
+			$('.small-widget-content table[data-toggle="table"]:visible').each(function() {
+				setupBootstrapTable(this);
+			});
+		});
+		$(document).on("post-body.widgets",function(){
+			$('.grid-stack select[data-toggle="select"]:visible').each(function() {
+				setupBootstrapSelect(this);
+			});
+			$('.grid-stack select[data-toggle="multiselect"]:visible').each(function() {
+				setupBootstrapMultiselect(this);
+			});
+			$('.grid-stack input[type=checkbox][data-toggle="toggle"]:visible').each(function() {
+				setupBootstrapToggle(this);
+			});
+			$('.grid-stack table[data-toggle="table"]:visible').each(function() {
+				setupBootstrapTable(this);
+			});
+		});
+		$(document).on("post-body.widgetsettings post-body.simplewidgetsettings",function(){
+			var load = function() {
+				$('.widget-settings-content select[data-toggle="select"]:visible').each(function() {
+					setupBootstrapSelect(this);
+				});
+				$('.widget-settings-content select[data-toggle="multiselect"]:visible').each(function() {
+					setupBootstrapMultiselect(this);
+				});
+				$('.widget-settings-content input[type=checkbox][data-toggle="toggle"]:visible').each(function() {
+					setupBootstrapToggle(this);
+				});
+				$('.widget-settings-content table[data-toggle="table"]:visible').each(function() {
+					setupBootstrapTable(this);
+				});
+			};
+			load();
+			var loaded = [];
+			//tab navigation
+			$('.widget-settings-content a[data-toggle="tab"]').on("shown.bs.tab", function(e) {
+				var href = $(e.target).attr("href");
+				if(loaded.indexOf(href) === -1) {
+					loaded.push(href);
+					load();
+				}
+			});
+		});
+
+		this.callModulesByMethod("ready",$.url().param());
 	},
-	ajaxStart: function() {
-		$("#nav-btn-settings i").addClass("fa-spin");
-	},
-	ajaxStop: function() {
-		$("#nav-btn-settings i").removeClass("fa-spin");
-	},
-	ajaxError: function(event, jqxhr, settings, exception) {
-		if (exception !== "abort" && !$("#global-message-container").is(":visible")) {
-			UCP.disconnect();
+	parseUrl: function() {
+		var self = this;
+		var path = window.location.pathname.toString().split('/');
+		path[path.length - 1] = 'ajax.php';
+		if (typeof window.location.origin == 'undefined') {
+			// Oh look, IE. Hur Dur, I'm a bwowsah.
+			window.location.origin = window.location.protocol+'//'+window.location.host;
+			if (window.location.port.length !== 0) {
+				window.location.origin = window.location.origin+':'+window.location.port;
+			}
+		}
+		this.ajaxUrl = window.location.origin + path.join('/');
+		if (window.location.search.length) {
+			var params = window.location.search.split(/\?|&/);
+			for (var i = 0, len = params.length; i < len; i++) {
+				var res = params[i].match(/(.+)=(.+)/);
+				if (res) {
+					self.urlParams[res[1]] = res[2];
+				}
+			}
 		}
 	},
+	callModuleByMethod: function() {
+		var args = Array.prototype.slice.call(arguments),
+				mdata = [],
+				module = args.shift().modularize(),
+				method = args.shift();
+
+		if(UCP.validMethod(module, method)) {
+			return UCP.Modules[module][method].apply( UCP.Modules[module] , args );
+		} else {
+			return null;
+		}
+	},
+	callModulesByMethod: function() {
+		var args = Array.prototype.slice.call(arguments),
+				mdata = {},
+				method = args.shift();
+
+		if(typeof modules === "undefined") {
+			return mdata;
+		}
+
+		$.each(modules, function( index, module ) {
+			if (UCP.validMethod(module, method)) {
+				mdata[module] = UCP.Modules[module][method].apply( UCP.Modules[module] , args );
+			}
+		});
+		return mdata;
+	},
 	setupLogin: function() {
+		var $this = this;
 		var btn = $("#btn-login"), fbtn = $("#btn-forgot");
 		$(".action-switch span").click(function() {
 			var hide = $(this).data("hide"), show = $(this).data("show");
@@ -112,7 +277,7 @@ var UCPC = Class.extend({
 				}
 			}
 		});
-		if ($.support.pjax) {
+		if ($("html").hasClass("history")) {
 			$(document).on("submit", "#frm-login", function(event) {
 				var queryString = $(this).formSerialize(),
 						username = $("input[name=username]").val(),
@@ -120,22 +285,19 @@ var UCPC = Class.extend({
 
 				btn.prop("disabled", true);
 				btn.text(_("Processing..."));
-				queryString = queryString + "&quietmode=1&module=User&command=login";
-				$.post( "index.php", queryString, function( data ) {
+				queryString = queryString + "&module=User&command=login";
+				$.post( UCP.ajaxUrl, queryString, function( data ) {
 					if (!data.status) {
 						$("#error-msg").html(data.message).fadeIn("fast");
 						$("#login-window").height("300");
 						btn.prop("disabled", false);
 						btn.text(_("Login"));
 					} else {
-						UCP.token = data.token;
-						$.pjax.submit(event, "#content-container");
-						$(document).one("pjax:end", function() {
-							UCP.setupDashboard();
-							$(document).trigger("logIn", [username, password]);
-						});
+						sessionStorage.setItem('username', username);
+						sessionStorage.setItem('password', password);
+						location.reload();
 					}
-				}, "json");
+				});
 				return false;
 			});
 			btn.prop("disabled", false);
@@ -149,104 +311,19 @@ var UCPC = Class.extend({
 			$(".jsalert").text(_("Your browser is unsupported at this time. Please upgrade or talk to your system administrator"));
 			$("#login-window").height("300");
 		}
-		$("#loading-container").fadeOut("fast");
+		$(".main-block").addClass("hidden");
 	},
 	setupDashboard: function() {
 		var totalNavs = 0, navWidth = 33, Ucp = this;
 		//inite class autoloader
 		UCP.autoload();
-		//Start PJAX Stuff
-		if ($.support.pjax) {
-			$.post( "index.php", { "quietmode": 1, "command": "staticsettings" }, function( data ) {
-				if (data.status) {
-					$.each(data.settings, function(i, v) {
-						if (typeof window[i] !== "undefined") {
-							window[i].staticsettings = v;
-						} else if (typeof Ucp.Modules[i] !== "undefined") {
-							Ucp.Modules[i].staticsettings = v;
-						}
-					});
-					$(document).trigger("staticSettingsFinished");
-				}
-			});
 
-			//Navigation Clicks
-			$(document).on("click", "[data-pjax] a, a[data-pjax]", function(event) {
-				var container = $("#dashboard-content"),
-						clicker = $(this).data("mod");
-				$.pjax.click(event, { container: container });
-
-				$( ".pushmenu li").each(function( index ) {
-					if ($(this).data("mod") == clicker) {
-						$(this).addClass("active");
-					} else {
-						$(this).removeClass("active");
-					}
-				});
-				$( ".nav li" ).each(function( index ) {
-					if ($(this).data("mod") == clicker) {
-						$(this).addClass("active");
-					} else {
-						$(this).removeClass("active");
-					}
-				});
-				if ($(".pushmenu-left").hasClass("pushmenu-open")) {
-					$(".pushmenu-push").removeClass("pushmenu-push-toright");
-					$(".pushmenu-left").removeClass("pushmenu-open");
-				}
-			});
-		} else {
-			//no pjax support
-			//TODO: Im not sure what happens if we hit this?
+		if (!$("html").hasClass("history")) {
+			UCP.showAlert(_("UCP is not supported in your browser"));
 		}
-		$("a.logout").click(function(event) {
-			event.preventDefault();
-			event.stopPropagation();
+		$("li.logout-widget").click(function(event) {
 			$(document).trigger("logOut");
-			location.href = "?logout=1";
 		});
-
-		$(document).on("pjax:end", function() {UCP.pjaxEnd();});
-		$(document).on("pjax:start", function() {UCP.pjaxStart();});
-		$(document).on("pjax:timeout", function(event) {UCP.pjaxTimeout(event);});
-		$(document).on("pjax:error", function(event) {UCP.pjaxError(event);});
-
-		//Show/Hide Side Bar
-		$("#bc-mobile-icon").click(function() {
-			UCP.toggleMenu();
-		});
-
-		//mobile submenu display
-		$(".mobileSubMenu").click(function() {
-			var menu = $(this).data("mod");
-			$("#submenu-" + menu).slideToggle();
-		});
-
-		$("#footer").bind("transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd", function() { UCP.transitioning = false; });
-		$("#footer").bind("transitionstart webkitTransitionStart oTransitionStart MSTransitionStart", function() { UCP.transitioning = true; });
-
-		$("#dashboard-content").bind("scroll", function() {
-			if (UCP.transitioning || $( window ).width() > 767) {
-				return true;
-			}
-			st = $("#dashboard-content").scrollTop();
-			if (st > 40) {
-				UCP.footerHidden = true;
-				$("#footer").addClass("shrink");
-				$(document).trigger("hideFooter");
-				UCP.windowResize();
-			} else {
-				UCP.footerHidden = false;
-				$("#footer").removeClass("shrink");
-				$(document).trigger("mobileScrollUp");
-				$(document).trigger("showFooter");
-				UCP.windowResize();
-			}
-
-			UCP.lastScrollTop = st;
-		});
-
-		UCP.windowResize();
 
 		//This allows browsers to request user notifications from said user.
 		$(document).click(function() {
@@ -255,105 +332,27 @@ var UCPC = Class.extend({
 			}
 		});
 
-		//TODO: Do something with this eventually, hidden/display tabs
 		UCP.hidden = "hidden";
 
 		// Standards:
 		if (UCP.hidden in document) {
-			$(document).on("visibilitychange", UCP.onchange);
+			$(document).on("visibilitychange", UCP.visibilityChange);
 		} else if ((UCP.hidden = "mozHidden") in document) {
-			$(document).on("mozvisibilitychange", UCP.onchange);
+			$(document).on("mozvisibilitychange", UCP.visibilityChange);
 		} else if ((UCP.hidden = "webkitHidden") in document) {
-			$(document).on("webkitvisibilitychange", UCP.onchange);
+			$(document).on("webkitvisibilitychange", UCP.visibilityChange);
 		} else if ((UCP.hidden = "msHidden") in document) {
-			$(document).on("msvisibilitychange", UCP.onchange);
+			$(document).on("msvisibilitychange", UCP.visibilityChange);
 		// IE 9 and lower:
 		} else if ("onfocusin" in document) {
-			$(document).on("onfocusin onfocusout", UCP.onchange);
+			$(document).on("onfocusin onfocusout", UCP.visibilityChange);
 		// All others:
 		} else {
-			$(window).on("onpageshow onpagehide onfocus onblur", UCP.onchange);
+			$(window).on("onpageshow onpagehide onfocus onblur", UCP.visibilityChange);
 		}
 
-		//Detect if the client allows touch access.
-		if (Modernizr.touch) {
-			/*
-			$$("#dashboard").swipeLeft(function() {
-				if ($(".pushmenu-left").hasClass("pushmenu-open")) {
-					toggleMenu();
-				}
-			});
-			$$("#dashboard").swipeRight(function() {
-				if (!$(".pushmenu-left").hasClass("pushmenu-open")) {
-					toggleMenu();
-				}
-			});
-			*/
-		}
-		this.calibrateMenus();
-		$("#loading-container").fadeOut("fast");
 	},
-	calibrateMenus: function() {
-		//If we are currently calibrating or a menu is being displayed
-		//then dont calibrate
-		if(this.calibrating || $(".nav-btn-menu.active").length > 0) {
-			return;
-		}
-		this.calibrating = true;
-		//Menu adjustments
-		//$("#presence-box2").css("right", $(".nav-btns").width() + "px");
-		//$("#presence-menu2").css("right", $(".nav-btns").width() + "px");
-
-		totalNavs = $(".module-container").filter(":visible").length;
-		navWidth = $(".module-container").filter(":visible").last().outerWidth();
-
-		count = totalNavs;
-		$(".module-container").filter(":visible").each(function() {
-			var module = $(this).data("module"),
-			menuObj = $("#" + module + "-menu"),
-			btnObj = $("#nav-btn-" + module),
-			hidden = menuObj.outerHeight() + 30;
-			count--;
-			if (menuObj.length > 0) {
-				menuObj.css("right", (navWidth * count) + "px");
-				//reposition placement of menu
-				//hidding the full length of it
-				menuObj.data("hidden", hidden);
-				menuObj.css("top", "-" + hidden + "px");
-				//now "show" it (really it's hidden so show it to the dom)
-				menuObj.show();
-
-				//Show/Hide Settings Drop Down
-				$("#nav-btn-" + module).off("click");
-				$("#nav-btn-" + module).click(function() {
-					menuObj.toggleClass("active");
-					$("#nav-btn-" + module).toggleClass("active");
-					if (menuObj.css("top") == "36px") {
-						menuObj.css("top", "-" + menuObj.data("hidden") + "px");
-					} else {
-						menuObj.css("top", "36px");
-					}
-					//hide menu when clicked outside
-					$("html").on("click." + module, function(event) {
-						if ($(event.target).parents().index($("#nav-btn-" + module)) == -1) {
-							if ((menuObj.hasClass("active") &&
-									(menuObj.data("keep-on-click") != "false")) ||
-									(menuObj.hasClass("active") &&
-									(menuObj.data("keep-on-click") == "false") &&
-									($(event.target).parents().index($("#" + module + "-menu")) == -1))) {
-								menuObj.removeClass("active");
-								$("#nav-btn-" + module).removeClass("active");
-								menuObj.css("top", "-" + menuObj.data("hidden") + "px");
-								$("html").off("click." + module);
-							}
-						}
-					});
-				});
-			}
-		});
-		this.calibrating = false;
-	},
-	onchange: function(evt) {
+	visibilityChange: function(evt) {
 		var v = "visible", h = "hidden",
 			evtMap = {
 				focus: v, focusin: v, pageshow: v, blur: h, focusout: h, pagehide: h
@@ -361,18 +360,16 @@ var UCPC = Class.extend({
 			state = "";
 
 		evt = evt || window.event;
+
 		if (evt.type in evtMap) {
 			state = evtMap[evt.type];
 		} else {
-			state = this[UCP.hidden] ? "hidden" : "visible";
+			state = UCP.hidden ? "hidden" : "visible";
 		}
-		if (typeof window[UCP.activeModule] == "object" &&
-			typeof window[UCP.activeModule].windowState == "function") {
-			window[UCP.activeModule].windowState(state);
-		}
+		UCP.hidden = state;
+		UCP.callModulesByMethod("windowState",document.visibilityState);
 	},
 	wsconnect: function(namespace, callback) {
-		//console.log(namespace);
 		if (!this.loggedIn) {
 			return false;
 		}
@@ -429,36 +426,23 @@ var UCPC = Class.extend({
 		}
 	},
 	connect: function(username, password) {
-		//Interval is in a callback to shortpoll to make sure we are "online"
-		UCP.displayGlobalMessage(_("Connecting...."), "rgba(128, 128, 128, 0.5)", true);
-		UCP.shortpoll(function() {
-			UCP.pollID = setInterval(function() {
-				UCP.shortpoll();
-			},5000);
-			$.each(modules, function( index, module ) {
-				if (typeof window[module] == "object" && typeof window[module].connect == "function") {
-					window[module].connect(username, password);
-				} else if (UCP.validMethod(module, "connect")) {
-					UCP.Modules[module].connect(username, password);
-				}
+		if(this.pollID === null) {
+			var $this = this;
+			//Interval is in a callback to shortpoll to make sure we are "online"
+			UCP.shortpoll(function() {
+				UCP.pollID = setInterval(function() {
+					UCP.shortpoll();
+				},5000);
+				$this.callModulesByMethod("connect",username,password);
+				UCP.websocketConnect();
 			});
-			UCP.removeGlobalMessage();
-			UCP.websocketConnect();
-		});
+		}
 	},
 	disconnect: function() {
 		clearInterval(this.pollID);
 		this.pollID = null;
 		this.polling = false;
-		$("#nav-btn-settings i").removeClass("fa-spin");
-		$.each(modules, function( index, module ) {
-			if (typeof window[module] == "object" && typeof window[module].disconnect == "function") {
-				window[module].disconnect();
-			} else if (UCP.validMethod(module, "disconnect")) {
-				UCP.Modules[module].disconnect();
-			}
-		});
-		UCP.displayGlobalMessage(_("You are currently working in offline mode."), "rgba(128, 128, 128, 0.5)", true);
+		this.callModulesByMethod("disconnect");
 		UCP.websocketDisconnect();
 	},
 	websocketConnect: function() {
@@ -480,6 +464,9 @@ var UCPC = Class.extend({
 					UCPclass = window[className];
 					console.log("Auto Loading " + className);
 					Ucp.Modules[module] = new UCPclass(Ucp);
+					if(typeof moduleSettings[module] !== "undefined") {
+						Ucp.Modules[module].staticsettings = moduleSettings[module];
+					}
 				}
 			}
 		});
@@ -488,91 +475,40 @@ var UCPC = Class.extend({
 		if (!UCP.polling) {
 			UCP.polling = true;
 			var mdata = {};
-			$.each(modules, function( index, module ) {
-				if (typeof window[module] == "object" && typeof window[module].prepoll == "function") {
-					mdata[module] = window[module].prepoll($.url().param());
-				} else if (UCP.validMethod(module, "prepoll")) {
-					mdata[module] = UCP.Modules[module].prepoll($.url().param());
+			mdata = this.callModulesByMethod("prepoll",$.url().param());
+			$.ajax(
+				{
+					url: "ajax.php",
+					dataType: "json",
+					type: "POST",
+					data:
+					{
+						quietmode: 1,
+						command: "poll",
+						data: mdata
+					}
 				}
-			});
-			$.ajax({ url: "index.php", data: { quietmode: 1, command: "poll", data: $.url().param(), mdata: mdata }, success: function(data) {
+			).done(function(data) {
 				if (data.status) {
 					if (typeof callback === "function") {
 						callback();
 					}
 					$.each(data.modData, function( module, data ) {
-						if (typeof window[module] == "object" && typeof window[module].poll == "function") {
-							window[module].poll(data, $.url().param());
-						} else if (UCP.validMethod(module, "poll")) {
+						if (UCP.validMethod(module, "poll")) {
 							UCP.Modules[module].poll(data, $.url().param());
 						}
 					});
 				}
 				UCP.polling = false;
-			}, error: function(jqXHR, textStatus, errorThrown) {
-				//We probably should logout on every event here... but
-				if (jqXHR.status === 403) {
-					$(document).trigger("logOut");
-					location.href = "?logout=1";
-				}
-			}, dataType: "json", type: "POST" });
-		}
-	},
-	windowResize: function() {
-		if($("#ucp-settings").length) {
-			var wasPackeryEnabled = this.UCPSettings.packery;
-			this.UCPSettings.packery = $(window).width() >= 768;
-			if (this.UCPSettings.packery !== wasPackeryEnabled) {
-				if (this.UCPSettings.packery) {
-					clearTimeout(this.doit);
-					this.doit = setTimeout(function() {
-						$(".section").css("width", "300px");
-						$(".section").css("margin-bottom", "");
-						$(".masonry-container").packery({
-							columnWidth: 40,
-							itemSelector: ".section"
-						});
-					}, 100);
-				} else {
-					this.UCPSettings.packery = false;
-					$(".masonry-container").packery("destroy");
-					$(".section").css("width", "100%");
-					$(".section").css("margin-bottom", "10px");
-				}
-			} else if (!this.UCPSettings.packery) {
-				$(".section").css("width", "100%");
-				$(".section").css("margin-bottom", "10px");
-			}
-		}
-		if ($( window ).width() > 767 && $(".pushmenu-left").hasClass("pushmenu-open")) {
-			UCP.toggleMenu();
-		}
-		if($(window).width() < 992) {
-			$('table[data-toggle=table]').each(function() {
-				if(!$(this).bootstrapTable('getOptions').cardView) {
-					//$(this).bootstrapTable('toggleView');
+			}).fail(function(jqXHR, textStatus, errorThrown) {
+				if (jqXHR.status === 401) {
+					UCP.showAlert(_("The session has expired and you are being forcibly logged out"),'danger');
+					$("#alert_modal .modal-footer").remove();
+					$("#alert_modal .modal-header button").remove();
+					UCP.disconnect();
+					window.location = "?logout";
 				}
 			});
-			resizeMode = 'mobile';
-		} else {
-			$('table[data-toggle=table]').each(function() {
-				if($(this).bootstrapTable('getOptions').cardView) {
-					//$(this).bootstrapTable('toggleView');
-				}
-			});
-			resizeMode = 'desktop';
-		}
-
-		//run the resize hack against dashboard content
-		if ($("#dashboard-content").length) {
-			if (!UCP.footerHidden) {
-				$("#dashboard-content").height($("#dashboard").height() - 135);
-				$("#fs-navside").height($("#dashboard").height() - 135);
-				//presence-box2
-			} else {
-				$("#dashboard-content").height($("#dashboard").height() - 59);
-				$("#fs-navside").height($("#dashboard").height() - 59);
-			}
 		}
 	},
 	notificationsAllowed: function() {
@@ -581,103 +517,167 @@ var UCPC = Class.extend({
 	notificationsDenied: function() {
 		this.notify = false;
 	},
+	hideDialog: function(callback) {
+		this.closeDialog(callback);
+	},
 	closeDialog: function(callback) {
-		$(".dialog").fadeOut("fast", function(event) {
-			$(this).remove();
+		$("#globalModal").one('hidden.bs.modal', function (e) {
 			if (typeof callback === "function") {
 				callback();
 			}
 		});
+		$("#globalModal").modal('hide');
 	},
-	showDialog: function(title, content, height, width, callback) {
-		var w = (typeof width !== "undefined") ? width : "250px",
-				h = (typeof height !== "undefined") ? height : "250px",
-				html = "<div class=\"dialog\" style=\"height:" + h + "px;width:" + w + "px;margin-top:-" + (h / 2) + "px;margin-left:-" + (w / 2) + "px;\"><div class=\"title\">" + title + "<i class=\"fa fa-times\" onclick=\"UCP.closeDialog()\"></i></div><div class=\"content\">" + content + "</div></div>";
-		if ($(".dialog").length) {
-			$(".dialog").fadeOut("fast", function(event) {
-				$(this).remove();
-				$(html).appendTo("#dashboard-content").hide().fadeIn("fast", function(event) {
-					if (typeof callback === "function") {
-						callback();
-					}
-				});
+	/**
+	 * Show Alert Modal Box
+	 * @method showAlert
+	 * @param  {string}  message       The HTML to show
+	 * @param  {string}  type          The alert info type
+	 * @param  {function}  callback_func Callback function when the alert is shown
+	 */
+	showAlert: function(message, type, callback_func){
+		var type_class = "";
+		switch(type) {
+			case 'success':
+				type_class = "alert-success";
+			break;
+			case 'warning':
+				type_class = "alert-warning";
+			break;
+			case 'danger':
+				type_class = "alert-danger";
+			break;
+			case 'info':
+			default:
+				type_class = "alert-info";
+			break;
+		}
+
+		$("#alert_message").removeClass("alert-success alert-info alert-warning alert-danger");
+
+		$("#alert_message").addClass(type_class);
+
+		$("#alert_message").html(message);
+
+		if(typeof callback_func == "function") {
+			$(document).on("click", "#close_alert_button", function () {
+				$("#alert_modal").modal("hide");
+				callback_func();
 			});
-		} else {
-			$(html).appendTo("#dashboard-content").hide().fadeIn("fast", function(event) {
+		}else {
+			$(document).on("click", "#close_alert_button", function () {
+				$("#alert_modal").modal("hide");
+			});
+		}
+
+		$("#alert_modal").modal("show");
+	},
+	/**
+	 * Show Confirmation Modal Box
+	 * @method showConfirm
+	 * @param  {string}    html          The HTML to show
+	 * @param  {string}    type          The alert info type
+	 * @param  {function}    callback_func Callback function when the user presses accept
+	 */
+	showConfirm: function(html, type, callback_func) {
+		var type_class = "";
+		switch(type) {
+			case 'success':
+				type_class = "alert-success";
+			break;
+			case 'warning':
+				type_class = "alert-warning";
+			break;
+			case 'danger':
+				type_class = "alert-danger";
+			break;
+			case 'info':
+			default:
+				type_class = "alert-info";
+			break;
+		}
+
+		$("#confirm_content").removeClass("alert-success alert-info alert-warning alert-danger");
+
+		$("#confirm_content").addClass(type_class);
+		$("#confirm_content").html(html);
+
+		$('#confirm_modal').one('shown.bs.modal', function () {
+			$("#modal_confirm_button").one("click", function(){
+				if(typeof callback_func == "function"){
+					callback_func();
+				}
+			});
+		});
+
+		$('#confirm_modal').one('hidden.bs.modal', function () {
+			$("#modal_confirm_button").off("click");
+		});
+
+		$('#confirm_modal').modal('show');
+	},
+	/**
+	 * Show a global dialog box
+	 * @method showDialog
+	 * @param  {string}   title    The HTML title of the modal
+	 * @param  {string}   content  The HTML content of the modal
+	 * @param  {string}   footer   The HTML footer of the modal
+	 * @param  {Function} callback Callback function when the modal is displayed
+	 */
+	showDialog: function(title, content, footer, callback) {
+		var show = function() {
+			$('#globalModal .modal-title').html(title);
+			$('#globalModal .modal-body').html(content);
+			$('#globalModal .modal-footer').html(footer);
+			$("#globalModal").one('shown.bs.modal', function (e) {
 				if (typeof callback === "function") {
 					callback();
 				}
 			});
-		}
-	},
-	addPhone: function(module, id, s, msg, contacts, callback) {
-		var message = (typeof msg !== "undefined") ? msg : "",
-				state = (typeof s !== "undefined") ? s : "call";
-		if ($( ".phone-box[data-id=\"" + id + "\"]" ).length > 0) {
-			return;
-		}
-		$.ajax({ url: "index.php", data: { quietmode: 1, command: "template", type: "phone", template: { id: id, state: state, message: message, module: module, contacts: contacts } }, success: function(data) {
-			$( "#messages-container" ).append( data.contents );
-			if (typeof callback === "function") {
-				callback(id, state, message);
-			}
-			$( ".phone-box[data-id=\"" + id + "\"]" ).fadeIn("fast", function() {
-				$(document).trigger( "phoneWindowAdded" );
-				if (!$( "#messages-container .phone-box[data-id=\"" + id + "\"]" ).hasClass("expand")) {
-					$( "#messages-container .phone-box[data-id=\"" + id + "\"]" ).one("webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend", function() {
-						$("#messages-container .phone-box[data-id=\"" + id + "\"] input").focus();
-					});
-					$( "#messages-container .phone-box[data-id=\"" + id + "\"]" ).addClass("expand");
-					$( "#messages-container .phone-box[data-id=\"" + id + "\"]" ).find(".fa-arrow-up").addClass("fa-arrow-down").removeClass("fa-arrow-up");
-				}
+			$("#globalModal").modal('show');
+		};
+		if($("#globalModal").is(":visible")) {
+			$("#globalModal").modal('hide');
+			$("#globalModal").one('hidden.bs.modal', function (e) {
+				show();
 			});
-			$( "#messages-container .phone-box[data-id=\"" + id + "\"] .title-bar" ).on("click", function(event) {
-				if (!$(event.target).hasClass("cancelExpand")) {
-					var container = $("#messages-container .phone-box");
-					if (!container.hasClass("expand")) {
-						container.find(".fa-arrow-up").addClass("fa-arrow-down").removeClass("fa-arrow-up");
-					} else {
-						container.find(".fa-arrow-down").addClass("fa-arrow-up").removeClass("fa-arrow-down");
-					}
-					container.one("webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend", function() {
-						if (container.hasClass("expand")) {
-							$("#messages-container .phone-box[data-id=\"" + id + "\"] input").focus();
-						}
-					});
-					container.toggleClass("expand");
-				} else {
-					UCP.removePhone(id);
-				}
-			});
-		}, dataType: "json", type: "POST" });
+		} else {
+			show();
+		}
+
 	},
-	removePhone: function(id) {
-		$( "#messages-container .phone-box[data-id=\"" + id + "\"]" ).off("click");
-		$( "#messages-container .phone-box[data-id=\"" + id + "\"]" ).fadeOut("fast", function() {
-			$(this).remove();
-			$(document).trigger( "phoneWindowRemoved");
-		});
-	},
-	addChat: function(module, id, icon, from, to, cnam, msgid, message, callback, htmlV, direction) {
-		var html = (typeof htmlV !== "undefined") ? htmlV : false;
+	addChat: function(module, id, icon, from, to, title, msgid, message, callback, html, direction) {
+		html = (typeof html !== "undefined") ? html : false;
+		title = (typeof title !== "undefined") ? title : '<div class="from"><strong>F:</strong> '+from+'</div><br/><div class="to"><strong>T:</strong> '+to+'</div>';
 		if (!$( "#messages-container .message-box[data-id=\"" + id + "\"]" ).length && (typeof this.messageBuffer[id] === "undefined")) {
 			//add placeholder
 			if (typeof msgid !== "undefined") {
 				this.messageBuffer[id] = [];
 				this.messageBuffer[id].push({
-					sender: cnam,
 					msgid: msgid,
 					message: message
 				});
 			}
 			var newWindow = (typeof msgid === "undefined");
-			$.ajax({ url: "index.php", data: { quietmode: 1, command: "template", type: "chat", newWindow: newWindow, template: { module: module, icon: icon, id: id, to: to, from: from } }, success: function(data) {
+			$.ajax({ url: "ajax.php", data: { module: "ucp", command: "template", type: "chat", newWindow: newWindow, template: { module: module, icon: icon, id: id, to: to, from: from, title: title } }, success: function(data) {
 				$( "#messages-container" ).append( data.contents );
+				$("#messages-container .message-box[data-id=\"" + id + "\"] .response textarea").emojioneArea({
+					pickerPosition: "top",
+					filtersPosition: "top",
+					tonesStyle: "checkbox",
+					inline: true,
+					useInternalCDN: false,
+					imageType: 'svg',
+					textcomplete: {
+						maxCount: 5,
+						placement: 'top'
+					}
+				});
 				$( "#messages-container .message-box[data-id=\"" + id + "\"]" ).fadeIn("fast", function() {
 					if (typeof msgid !== "undefined") {
 						if (typeof UCP.messageBuffer[id] !== "undefined") {
 							$.each(UCP.messageBuffer[id], function(i, v) {
-								UCP.addChatMessage(id, v.sender, v.msgid, v.message, false, html, direction);
+								UCP.addChatMessage(id, v.msgid, v.message, false, html, direction);
 							});
 							delete UCP.messageBuffer[id];
 						}
@@ -720,7 +720,7 @@ var UCPC = Class.extend({
 			}, dataType: "json", type: "POST" });
 		} else {
 			if (typeof msgid !== "undefined") {
-				UCP.addChatMessage(id, cnam, msgid, message, false, html, direction);
+				UCP.addChatMessage(id, msgid, message, false, html, direction);
 			}
 			return null;
 		}
@@ -735,7 +735,7 @@ var UCPC = Class.extend({
 			$(document).trigger( "chatWindowRemoved", [ id ] );
 		});
 	},
-	addChatMessage: function(id, cnam, msgid, message, newmsg, htmlV, direction) {
+	addChatMessage: function(id, msgid, message, newmsg, htmlV, direction) {
 		var emailre = /([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})/ig,
 				urlre = /((([A-Za-z]{3,9}:(?:\/\/)?)(?:[\-;:&=\+\$,\w]+@)?[A-Za-z0-9\.\-]+|(?:www\.|[\-;:&=\+\$,\w]+@)[A-Za-z0-9\.\-]+)((?:\/[\+~%\/\.\w\-_]*)?\??(?:[\-\+=&;%@\.\w_]*)#?(?:[\.\!\/\\\w]*))?)/ig,
 				html = (typeof htmlV !== "undefined") ? htmlV : false;
@@ -743,6 +743,11 @@ var UCPC = Class.extend({
 			message = emojione.toImage(htmlEncode(message));
 			message = message.replace(urlre,"<a href='$1' target='_blank'>$1</a>");
 			message = message.replace(emailre,"<a href='mailto:$1@$2.$3' target='_blank'>$1@$2.$3</a>");
+		}
+
+		//message already exists
+		if($( "#messages-container .message-box[data-id=\"" + id + "\"] .message[data-id='"+msgid+"']").length) {
+			return;
 		}
 
 		if ($( "#messages-container .message-box[data-id=\"" + id + "\"]" ).length) {
@@ -773,109 +778,19 @@ var UCPC = Class.extend({
 			});
 		} else if (typeof this.messageBuffer[id] !== "undefined") {
 			this.messageBuffer[id].push({
-				sender: cnam,
 				msgid: msgid,
 				message: message
 			});
 		}
 	},
-	toggleMenu: function() {
-		$(".pushmenu-push").toggleClass("pushmenu-push-toright");
-		$(".pushmenu-left").toggleClass("pushmenu-open");
-		//dropdown-pushmenu
-		$( ".pushmenu .dropdown-pushmenu" ).each(function( index ) {
-			if ($(this).is(":visible")) {
-				$(this).slideToggle();
-			}
-		});
-	},
 	displayGlobalMessage: function(message, color, sticky) {
-		color = (typeof color !== "undefined") ? color : "#f76a6a;";
-		sticky = (typeof sticky !== "undefined") ? sticky : false;
-		$("#global-message").text(message);
-		$("#global-message-container").css("background-color", color);
-		$("#global-message-container").fadeIn("slow", function() {
-			if (!sticky) {
-				setTimeout(function() {
-					$("#global-message-container").fadeOut("slow");
-				}, 3000);
-			}
-		});
+		UCP.showAlert(message,'danger');
 	},
 	removeGlobalMessage: function() {
-		$("#global-message-container").fadeOut("slow");
+		//nothing
 	},
 	toTitleCase: function(str) {
 		return str.replace(/\w\S*/g, function(txt) { return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase(); });
-	},
-	pjaxEnd: function(event) {
-		var display = $.url().param("display"),
-				breadcrumbs = "<li class=\"home\"><a data-mod=\"home\" data-pjax href=\"?display=dashboard&amp;mod=home\">" + _("Home") + "</a></li>",
-				sub = $.url().param("sub");
-
-		this.windowResize();
-		NProgress.done();
-		$("#nav-btn-settings .icon i").removeClass("out");
-		if (typeof window[this.activeModule] == "object" &&
-			typeof window[this.activeModule].hide == "function") {
-			window[this.activeModule].hide(event);
-		} else if (this.validMethod(this.activeModule, "hide")) {
-			this.Modules[this.activeModule].hide(event);
-		}
-
-		if (typeof display === "undefined" || display == "dashboard") {
-			this.activeModule = $.url().param("mod");
-			this.activeModule = (this.activeModule !== undefined) ? UCP.toTitleCase(this.activeModule) : "Home";
-			textdomain(this.activeModule.toLowerCase());
-			if (typeof window[this.activeModule] == "object" &&
-				typeof window[this.activeModule].display == "function") {
-				window[this.activeModule].display(event);
-			} else if (this.validMethod(this.activeModule, "display")) {
-				this.Modules[this.activeModule].display(event);
-			}
-		} else if (display == "settings") {
-			this.settingsBinds();
-		}
-
-		if (typeof UCP.Modules[this.activeModule] !== "undefined" && typeof UCP.Modules[this.activeModule].getInfo !== "undefined") {
-			var tmp = UCP.Modules[this.activeModule].getInfo();
-			name = tmp.name;
-		} else {
-			name = this.activeModule;
-		}
-
-		if (typeof display === "undefined" || display == "dashboard") {
-			if (this.activeModule != "Home") {
-				breadcrumbs = breadcrumbs + "<li class=\"module bc-" + this.activeModule.toLowerCase() + " active\">" + name + "</li>";
-			}
-			if (typeof sub !== "undefined") {
-				breadcrumbs = breadcrumbs + "<li class=\"subsection bc-" + sub + " active\">" + sub + "</li>";
-			}
-		} else if (display == "settings") {
-			breadcrumbs = breadcrumbs + "<li class=\"module active\">" + _("Settings") + "</li>";
-		}
-
-		$("#top-dashboard-nav").html(breadcrumbs);
-
-		this.binds();
-	},
-	pjaxStart: function(event) {
-		NProgress.start();
-		$("#nav-btn-settings .icon i").addClass("out");
-	},
-	pjaxTimeout: function(event) {
-		//query higher up event here
-		event.preventDefault();
-		return false;
-	},
-	pjaxError: function(event) {
-		//query higher up event here
-		console.log("error");
-		console.log(event);
-		event.preventDefault();
-		NProgress.done();
-		$("#nav-btn-settings .icon i").removeClass("out");
-		return false;
 	},
 	validMethod: function(module, method) {
 		if (typeof this.Modules[module] == "object" &&
@@ -886,358 +801,64 @@ var UCPC = Class.extend({
 		}
 	},
 	online: function(event) {
-		if (this.loggedIn && this.pollID === null) {
-			this.connect();
+		var $this = this;
+		if (this.loggedIn) {
+			$(document).on("post-body.widgets", function(event, widget_id, dashboard_id) {
+				if(widget_id === null) {
+					$this.connect();
+				}
+			});
+
 		}
 	},
 	offline: function(event) {
 		this.disconnect();
 	},
-	logIn: function(event, username, password) {
-		this.activeModule = $.url().param("mod");
-		this.activeModule = (this.activeModule !== undefined) ? UCP.toTitleCase(this.activeModule) : "Home";
+	logIn: function(event) {
+		var username = sessionStorage.getItem('username');
+		var password = sessionStorage.getItem('password');
+		sessionStorage.removeItem('username');
+		sessionStorage.removeItem('password');
+		//TODO: need to figure out text domains!
 		textdomain(this.activeModule.toLowerCase());
 		this.loggedIn = true;
-		this.connect(username, password);
+		var $this = this;
+		$(document).on("post-body.widgets", function(event, widget_id, dashboard_id) {
+			if(widget_id === null) {
+				$this.connect(username, password);
+			}
+		});
 		if (!Notify.needsPermission() && this.notify === null) {
 			this.notify = true;
 		}
-		var display = $.url().param("display");
-		if (typeof display === "undefined" || display == "dashboard") {
-			if (typeof window[this.activeModule] == "object" &&
-				typeof window[this.activeModule].display == "function") {
-				window[this.activeModule].display(event);
-			} else if (this.validMethod(this.activeModule, "display")) {
-				this.Modules[this.activeModule].display(event);
-			}
-		} else if (display == "settings") {
-			this.settingsBinds();
-		}
-		this.binds();
 	},
 	logOut: function(event) {
-		if (typeof window[this.activeModule] == "object" &&
-			typeof window[this.activeModule].hide == "function") {
-			window[this.activeModule].hide(event);
-		} else if (this.validMethod(this.activeModule, "hide")) {
-			this.Modules[this.activeModule].hide(event);
-		}
-		localforage.clear();
 		this.loggedIn = false;
 		this.disconnect();
 	},
-	settingsBinds: function() {
-		$("#ucp-settings .masonry-container").packery({
-			columnWidth: 40,
-			itemSelector: ".section"
-		});
-		if (Notify.isSupported()) {
-			$("#ucp-settings input[name=\"desktopnotifications\"]").prop("checked", UCP.notify);
-			$("#ucp-settings input[name=\"desktopnotifications\"]").off();
-			$("#ucp-settings input[name=\"desktopnotifications\"]").change(function() {
-				if (!UCP.notify && $(this).is(":checked")) {
-					Notify.requestPermission(function() {
-						UCP.notificationsAllowed();
-						$("#ucp-settings input[name=\"desktopnotifications\"]").prop("checked", true);
-						$("#message").addClass("alert-success");
-						$("#message").text("Saved!");
-						$("#message").fadeIn( "slow", function() {
-							setTimeout(function() { $("#message").fadeOut("slow"); }, 2000);
-						});
-					}, function() {
-						UCP.notificationsDenied();
-						$("#ucp-settings input[name=\"desktopnotifications\"]").prop("checked", false);
-					});
-				} else {
-					UCP.notify = false;
-					$("#message").addClass("alert-success");
-					$("#message").text("Saved!");
-					$("#message").fadeIn( "slow", function() {
-						setTimeout(function() { $("#message").fadeOut("slow"); }, 2000);
-					});
-				}
-			});
-			$("#ucp-settings .desktopnotifications-group").show(function() {
-				$("#ucp-settings .masonry-container").packery();
-			});
-		}
-
-		if (typeof $.cookie("lang") !== "undefined") {
-			$("#ucp-settings select[name=\"lang\"]").val($.cookie("lang"));
-		}
-		$("#ucp-settings select[name=\"lang\"]").change(function() {
-			$.cookie("lang", $(this).val());
-			if (confirm(_("UCP needs to reload, ok?"))) {
-				window.location.reload();
-			}
-		});
-
-		$("#ucp-settings input[type!=\"checkbox\"]").off();
-		$("#ucp-settings input[name=username]").keyup(function() {
-			var parent = $(this).parents(".form-group"), green = "rgba(60, 118, 61, 0.11)", red = 'rgba(169, 68, 66, 0.11)', $this = this;
-			parent.removeClass("has-success has-error");
-			$(this).css("background-color","");
-			//check username input
-			if($(this).val() != $(this).data("prevusername")) {
-				$.post( "?quietmode=1&command=ucpsettings", { key: "usernamecheck", value: $(this).val() }, function( data ) {
-					if(data.status) {
-						parent.addClass("has-success");
-						$($this).css("background-color",green);
-					} else {
-						parent.addClass("has-error");
-						$($this).css("background-color",red);
-					}
-				});
-			}
-		});
-		$("#update-pwd").click(function(e) {
-			e.preventDefault();
-			e.stopPropagation();
-			var password = $("#pwd").val(), confirm = $("#pwd-confirm").val();
-			if (password !== "" && password != "******" && confirm !== "") {
-				if (confirm != password) {
-					$("#message").addClass("alert-danger");
-					$("#message").text(_("Password Confirmation Didn't Match!"));
-					$("#message").fadeIn( "fast" );
-				} else {
-					$.post( "?quietmode=1&command=ucpsettings", { key: "password", value: confirm }, function( data ) {
-						if (data.status) {
-							$("#message").addClass("alert-success");
-							$("#message").text(_("Saved!"));
-							$("#message").fadeIn( "slow", function() {
-								setTimeout(function() { $("#message").fadeOut("slow"); }, 2000);
-							});
-						} else {
-							$("#message").addClass("alert-danger");
-							$("#message").text(data.message);
-						}
-					});
-				}
-			} else {
-				$("#message").addClass("alert-danger");
-				$("#message").text(_("Password has not changed!"));
-				$("#message").fadeIn( "fast" );
-			}
-		});
-		$("#ucp-settings input[type!=\"checkbox\"]").change(function() {
-			var password = $(this).val();
-			if ($(this).prop("type") == "password") {
-				return;
-			}
-			$(this).blur(function() {
-				$(this).off("blur");
-				if($(this).prop("name") == "username") {
-					if($(this).val() != $(this).data("prevusername")) {
-						//do ajax
-						if($(this).parents(".form-group").hasClass("has-success")) {
-							if(confirm(_("Are you sure you wish to change your username?"))) {
-								$.post( "?quietmode=1&command=ucpsettings", { key: "username", value: $(this).val() }, function( data ) {
-									if(data.status) {
-										alert(_("Username has been changed, reloading"));
-										location.reload();
-									} else {
-										alert(data.message);
-									}
-								});
-							}
-						} else {
-
-						}
-					}
-				} else {
-					$.post( "?quietmode=1&command=ucpsettings", { key: $(this).prop("name"), value: $(this).val() }, function( data ) {
-						if (data.status) {
-							$("#message").addClass("alert-success");
-							$("#message").text(_("Saved!"));
-							$("#message").fadeIn( "slow", function() {
-								setTimeout(function() { $("#message").fadeOut("slow"); }, 2000);
-							});
-						} else {
-							$("#message").addClass("alert-danger");
-							$("#message").text(data.message);
-						}
-						$(this).off("blur");
-					});
-				}
-			});
-		});
-		if($("#Contactmanager-image").length) {
-			/**
-			 * Drag/Drop/Upload Files
-			 */
-			$('#contactmanager_dropzone').on('drop dragover', function (e) {
-				e.preventDefault();
-			});
-			$('#contactmanager_dropzone').on('dragleave drop', function (e) {
-				$(this).removeClass("activate");
-			});
-			$('#contactmanager_dropzone').on('dragover', function (e) {
-				$(this).addClass("activate");
-			});
-			var supportedRegExp = "png|jpg|jpeg";
-			$( document ).ready(function() {
-				$('#contactmanager_imageupload').fileupload({
-					dataType: 'json',
-					dropZone: $("#contactmanager_dropzone"),
-					add: function (e, data) {
-						//TODO: Need to check all supported formats
-						var sup = "\.("+supportedRegExp+")$",
-								patt = new RegExp(sup),
-								submit = true;
-						$.each(data.files, function(k, v) {
-							if(!patt.test(v.name.toLowerCase())) {
-								submit = false;
-								alert(_("Unsupported file type"));
-								return false;
-							}
-						});
-						if(submit) {
-							$("#contactmanager_upload-progress .progress-bar").addClass("progress-bar-striped active");
-							data.submit();
-						}
-					},
-					drop: function () {
-						$("#contactmanager_upload-progress .progress-bar").css("width", "0%");
-					},
-					dragover: function (e, data) {
-					},
-					change: function (e, data) {
-					},
-					done: function (e, data) {
-						$("#contactmanager_upload-progress .progress-bar").removeClass("progress-bar-striped active");
-						$("#contactmanager_upload-progress .progress-bar").css("width", "0%");
-
-						if(data.result.status) {
-							$("#contactmanager_dropzone img").attr("src",data.result.url);
-							$("#contactmanager_image").val(data.result.filename);
-							$("#contactmanager_dropzone img").removeClass("hidden");
-							$("#contactmanager_del-image").removeClass("hidden");
-							$("#contactmanager_gravatar").prop('checked', false);
-						} else {
-							alert(data.result.message);
-						}
-					},
-					progressall: function (e, data) {
-						var progress = parseInt(data.loaded / data.total * 100, 10);
-						$("#contactmanager_upload-progress .progress-bar").css("width", progress+"%");
-					},
-					fail: function (e, data) {
-					},
-					always: function (e, data) {
-					}
-				});
-
-				$("#contactmanager_del-image").click(function(e) {
-					e.preventDefault();
-					e.stopPropagation();
-					var id = $("input[name=user]").val(),
-							grouptype = 'userman';
-					$.post( "?quietmode=1&module=Contactmanager&command=delimage", {id: id, img: $("#contactmanager_image").val()}, function( data ) {
-						if(data.status) {
-							$("#contactmanager_image").val("");
-							$("#contactmanager_dropzone img").addClass("hidden");
-							$("#contactmanager_dropzone img").attr("src","");
-							$("#contactmanager_del-image").addClass("hidden");
-							$("#contactmanager_gravatar").prop('checked', false);
-						}
-					});
-				});
-
-				$("#contactmanager_gravatar").change(function() {
-					if($(this).is(":checked")) {
-						var id = $("input[name=user]").val(),
-								grouptype = 'userman';
-						if($("#email").val() === "") {
-							alert(_("No email defined"));
-							$("#contactmanager_gravatar").prop('checked', false);
-							return;
-						}
-						var t = $("label[for=contactmanager_gravatar]").text();
-						$("label[for=contactmanager_gravatar]").text(_("Loading..."));
-						$.post( "?quietmode=1&module=Contactmanager&command=getgravatar", {id: id, grouptype: grouptype, email: $("#email").val()}, function( data ) {
-							$("label[for=contactmanager_gravatar]").text(t);
-							if(data.status) {
-								$("#contactmanager_dropzone img").data("oldsrc",$("#dropzone img").attr("src"));
-								$("#contactmanager_dropzone img").attr("src",data.url);
-								$("#contactmanager_image").data("old",$("#image").val());
-								$("#contactmanager_image").val(data.filename);
-								$("#contactmanager_dropzone img").removeClass("hidden");
-								$("#contactmanager_del-image").removeClass("hidden");
-							} else {
-								alert(data.message);
-								$("#contactmanager_gravatar").prop('checked', false);
-							}
-						});
-					} else {
-						var oldsrc = $("#contactmanager_dropzone img").data("oldsrc");
-						if(typeof oldsrc !== "undefined" && oldsrc !== "") {
-							$("#contactmanager_dropzone img").attr("src",oldsrc);
-							$("#contactmanager_image").val($("#image").data("old"));
-						} else {
-							$("#contactmanager_image").val("");
-							$("#contactmanager_dropzone img").addClass("hidden");
-							$("#contactmanager_dropzone img").attr("src","");
-							$("#contactmanager_del-image").addClass("hidden");
-						}
-					}
-				});
-			});
-		}
+	dateTimeFormatter: function(unixtimestamp) {
+		unixtimestamp = parseInt(unixtimestamp);
+		return moment.unix(unixtimestamp).tz(timezone).format(datetimeformat);
 	},
-	binds: function() {
-		var UCPSettings = this.UCPSettings;
-		$(".form-group label.help").off("click");
-		$(".form-group label.help").click(function() {
-			var f = $(this).prop("for");
-			if (!$(".help-hidden[data-for=\"" + f + "\"]").is(":visible")) {
-				//hide all others
-				$(".help-hidden").fadeOut("slow", function() {
-					if (("#ucp-settings .masonry-container").length && UCPSettings.packery) {
-						$("#ucp-settings .masonry-container").packery();
-					}
-					if (("#module-page-settings .masonry-container").length && Settings.packery) {
-						$("#module-page-settings .masonry-container").packery();
-					}
-				});
-				//display our reference
-				$(".help-hidden[data-for=\"" + f + "\"]").fadeIn("slow");
-				if (("#ucp-settings .masonry-container").length && UCPSettings.packery) {
-					$("#ucp-settings .masonry-container").packery();
-				}
-				if (("#module-page-settings .masonry-container").length && Settings.packery) {
-					$("#module-page-settings .masonry-container").packery();
-				}
-			} else {
-				$(".help-hidden[data-for=\"" + f + "\"]").fadeOut("slow", function() {
-					if (("#ucp-settings .masonry-container").length && UCPSettings.packery) {
-						$("#ucp-settings .masonry-container").packery();
-					}
-					if (("#module-page-settings .masonry-container").length && Settings.packery) {
-						$("#module-page-settings .masonry-container").packery();
-					}
-				});
-			}
-		});
-		$('table[data-toggle="table"]').bootstrapTable();
+	timeFormatter: function(unixtimestamp) {
+		unixtimestamp = parseInt(unixtimestamp);
+		return moment.unix(unixtimestamp).tz(timezone).format(timeformat);
 	},
 	dateFormatter: function(unixtimestamp) {
 		unixtimestamp = parseInt(unixtimestamp);
-		return moment.unix(unixtimestamp).tz(timezone).format('MM/DD/YYYY h:mm:ssa');
+		return moment.unix(unixtimestamp).tz(timezone).format(dateformat);
 	},
-	updateNavBadge: function(button, num) {
-		var badge = $("#nav-btn-" + button + " .badge");
-		if (num > 0) {
-			badge.text(num);
-			badge.fadeIn("fast");
-		} else {
-			badge.fadeOut("fast", function() {
-				badge.text(0);
-			});
-		}
+	humanDiff: function(unixtimestamp) {
+		unixtimestamp = parseInt(unixtimestamp);
+		return moment.duration(moment.unix(unixtimestamp).diff(moment(new Date()))).humanize(true);
+	},
+	durationFormatter: function(value, amount) {
+		amount = (typeof amount !== "undefined" && amount !== null) ? amount : "seconds"
+		return moment.duration(parseInt(value), amount).format('D[ day] H[ hour(s)] m[ minute] s[ second]');
 	}
 }), UCP = new UCPC();
 $(function() {
-	UCP.ready();
+	UCP.ready(UCP.loggedIn);
 });
 
 String.prototype.modularize = function() {
@@ -1261,6 +882,17 @@ function htmlDecode( html ) {
 	var a = document.createElement( "a" ); a.innerHTML = html;
 	return a.textContent;
 }
+
+function dbug(data) {
+	console.log(data);
+}
+
+$('#globalModal').on('hide.bs.modal',function(){
+	$('#globalModalLabel').html("");
+	$('#globalModalBody').html("");
+	$('#globalModalFooter').html("");
+});
+
 
 /** Language, global functions so they act like php procedurals **/
 UCP.i18n = new Jed(languages);

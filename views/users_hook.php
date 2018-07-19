@@ -67,6 +67,35 @@
 			</div>
 		</div>
 		<!--END UCP LOGIN-->
+		<div class="element-container">
+			<div class="row">
+				<div class="col-md-12">
+					<div class="row">
+						<div class="form-group">
+							<div class="col-md-3">
+								<label class="control-label" for="ucp_tour"><?php echo _('Enable Tour Mode')?></label>
+								<i class="fa fa-question-circle fpbx-help-icon" data-for="ucp_tour"></i>
+							</div>
+							<div class="col-md-9 radioset">
+								<input type="radio" id="ucpt1" name="ucp_tour" value="true" <?php echo ($tourMode) ? 'checked' : ''?>>
+								<label for="ucpt1"><?php echo _("Yes")?></label>
+								<input type="radio" id="ucpt2" name="ucp_tour" value="false" <?php echo (!is_null($tourMode) && !$tourMode) ? 'checked' : ''?>>
+								<label for="ucpt2"><?php echo _("No")?></label>
+								<?php if($mode == "user") {?>
+									<input type="radio" id="ucpt3" name="ucp_tour" value='inherit' <?php echo is_null($tourMode) ? 'checked' : ''?>>
+									<label for="ucpt3"><?php echo _('Inherit')?></label>
+								<?php } ?>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+					<span id="ucp_tour-help" class="help-block fpbx-help-block"><?php echo _("Enable tour mode in UCP upon first login. If disabled the tour will not automatically start upon first login")?></span>
+				</div>
+			</div>
+		</div>
 		<!--UCP Sessions-->
 		<?php if($mode == "user") { ?>
 		<div class="element-container">
