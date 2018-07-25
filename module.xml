@@ -2,7 +2,7 @@
 	<rawname>ucp</rawname>
 	<name>User Control Panel</name>
 	<repo>standard</repo>
-	<version>14.0.2.8</version>
+	<version>14.0.2.9</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>AGPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/agpl-3.0.txt</licenselink>
@@ -10,6 +10,7 @@
 		The user control panel is a way for users to control call handling and personal settings from a web browser.
 	</description>
 	<changelog>
+		*14.0.2.9* FREEPBX-17784 UCP - Forgot password 
 		*14.0.2.8* Fix method calls and no widget dashboards
 		*14.0.2.7* Fixing FREEPBX-17566 spelling errors 
 		*14.0.2.6* Fix logrotate
