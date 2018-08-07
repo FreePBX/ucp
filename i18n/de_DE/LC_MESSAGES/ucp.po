@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-07-24 20:58-0400\n"
-"PO-Revision-Date: 2018-07-28 09:00+0000\n"
+"PO-Revision-Date: 2018-08-08 23:00+0000\n"
 "Last-Translator: Bastian Mertgen <b.mertgen@bastian-mertgen.de>\n"
 "Language-Team: German <http://*/projects/freepbx/ucp/de/>\n"
 "Language: de_DE\n"
@@ -60,11 +60,11 @@ msgstr ".htaccess sind auf diesem Server deaktiviert. Bitte aktiviere diese"
 
 #: htdocs/index.php:91
 msgid ".htaccess files are not supported on this webserver."
-msgstr ".htaccess Dateien werden von diesem Webserver nicht unterstütz."
+msgstr ".htaccess-Dateien werden von diesem Webserver nicht unterstützt."
 
 #: htdocs/assets/js/moment-with-locales-2.20.1.min.js:1
 msgid ": "
-msgstr ""
+msgstr ": "
 
 #: htdocs/modules/Ucptour/assets/js/global.js:123
 #, perl-format
@@ -77,7 +77,7 @@ msgstr "ABC"
 
 #: htdocs/views/dashboard-footer.php:202
 msgid "Accept"
-msgstr ""
+msgstr "Akzeptieren"
 
 #: htdocs/modules/Settings/views/settings.php:5
 msgid "Account Settings"
