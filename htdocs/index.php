@@ -123,6 +123,7 @@ foreach($usw as $id => $widget) {
 	$name = ucfirst(strtolower($widget['rawname']));
 	$id = $widget['id'];
 	$info = $all_simple_widgets['widget'][$name]['list'][$widget['widget_type_id']];
+	$icon = !empty($all_simple_widgets['widget'][$name]['list'][$widget['widget_type_id']]['icon']) ? $all_simple_widgets['widget'][$name]['list'][$widget['widget_type_id']]['icon'] : $all_simple_widgets['widget'][$name]['icon'];
 	$display = $all_simple_widgets['widget'][$name]['display'];
 	if(empty($info)) {
 		continue;
@@ -131,6 +132,7 @@ foreach($usw as $id => $widget) {
 	$user_small_widgets[$id]['widget_name'] = $info['display'];
 	$user_small_widgets[$id]['name'] = $display;
 	$user_small_widgets[$id]['hasSettings'] = !empty($info['hasSettings']);
+	$user_small_widgets[$id]['icon'] = $icon;
 }
 
 $user_dashboards = $ucp->Dashboards->getDashboards();

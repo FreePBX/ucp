@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-06-29 13:12-0400\n"
+"POT-Creation-Date: 2018-07-24 20:58-0400\n"
 "PO-Revision-Date: 2016-09-02 16:04+0200\n"
 "Last-Translator: Kenichi <k.kitani@qloog.com>\n"
 "Language-Team: Japanese <http://weblate.freepbx.org/projects/freepbx/ucp/"
@@ -502,7 +502,7 @@ msgstr ""
 msgid "Interface Settings"
 msgstr "インターフェイス設定"
 
-#: htdocs/index.php:234
+#: htdocs/index.php:236
 #, php-format
 msgid ""
 "Internet Explorer %s is not supported. Functionality will be deteriorated "
@@ -524,7 +524,7 @@ msgstr "無効なデバイス"
 msgid "Invalid Login Credentials"
 msgstr "ログイン情報が間違っています"
 
-#: htdocs/index.php:223
+#: htdocs/index.php:225
 msgid "Invalid Token"
 msgstr "不正トークン"
 
@@ -553,7 +553,8 @@ msgid "Loading..."
 msgstr "読み込み中..."
 
 #: htdocs/views/forgot.php:45 htdocs/views/login.php:38
-#: htdocs/assets/js/ucp.js:294 htdocs/assets/js/ucp.js:304
+#: htdocs/assets/js/ucp.js:293 htdocs/assets/js/ucp.js:316
+#: htdocs/assets/js/ucp.js:326
 msgid "Login"
 msgstr "ログイン"
 
@@ -708,7 +709,7 @@ msgstr ""
 msgid "Port to bind to. Default is 8003"
 msgstr ""
 
-#: htdocs/assets/js/ucp.js:287
+#: htdocs/assets/js/ucp.js:286 htdocs/assets/js/ucp.js:309
 msgid "Processing..."
 msgstr "処理中..."
 
@@ -953,7 +954,7 @@ msgstr "UCPやその他のサービスのログインに使うパスワード"
 msgid "The removal of this copyright notice is stricly prohibited"
 msgstr "著作権情報の削除は禁止されています"
 
-#: htdocs/assets/js/ucp.js:505
+#: htdocs/assets/js/ucp.js:527
 msgid "The session has expired and you are being forcibly logged out"
 msgstr ""
 
@@ -1102,7 +1103,7 @@ msgstr ""
 msgid "UCP is currently disabled. Please talk to your system Administrator"
 msgstr "UCPは無効です。システムの管理者にご相談ください。"
 
-#: htdocs/assets/js/ucp.js:322
+#: htdocs/assets/js/ucp.js:344
 msgid "UCP is not supported in your browser"
 msgstr ""
 
@@ -1159,7 +1160,7 @@ msgid "User"
 msgstr ""
 
 #: htdocs/views/forgot.php:5 htdocs/views/header.php:4 htdocs/views/login.php:5
-#: ucp.i18n.php:4 /usr/src/freepbx/ucp/ucp.i18n.php:56
+#: ucp.i18n.php:4 /dev/shm/freepbx/ucp/ucp.i18n.php:56
 #: htdocs/modules/Widgets/assets/js/global.js:47
 msgid "User Control Panel"
 msgstr "UCP"
@@ -1350,7 +1351,7 @@ msgstr ""
 msgid "You must set a dashboard name!"
 msgstr ""
 
-#: htdocs/assets/js/ucp.js:309
+#: htdocs/assets/js/ucp.js:331
 msgid "Your Browser is unsupported at this time."
 msgstr "このブラウザはサポートされていません。"
 
@@ -1398,7 +1399,7 @@ msgstr "あなたの役職"
 msgid "Your Work Number"
 msgstr "あなたの勤務先電話番号"
 
-#: htdocs/assets/js/ucp.js:311
+#: htdocs/assets/js/ucp.js:333
 msgid ""
 "Your browser is unsupported at this time. Please upgrade or talk to your "
 "system administrator"

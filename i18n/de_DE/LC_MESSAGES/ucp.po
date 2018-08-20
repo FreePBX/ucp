@@ -9,17 +9,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-06-29 13:12-0400\n"
-"PO-Revision-Date: 2017-11-12 16:21+0200\n"
-"Last-Translator: hammer125 <auswertung@aon.at>\n"
-"Language-Team: German <http://weblate.freepbx.org/projects/freepbx/ucp/de_DE/"
-">\n"
+"POT-Creation-Date: 2018-07-24 20:58-0400\n"
+"PO-Revision-Date: 2018-08-08 23:00+0000\n"
+"Last-Translator: Bastian Mertgen <b.mertgen@bastian-mertgen.de>\n"
+"Language-Team: German <http://*/projects/freepbx/ucp/de/>\n"
 "Language: de_DE\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.4\n"
+"X-Generator: Weblate 3.0.1\n"
 
 #: htdocs/assets/js/lodash-4.17.2.js:8787
 msgid "  abc  "
@@ -61,11 +60,11 @@ msgstr ".htaccess sind auf diesem Server deaktiviert. Bitte aktiviere diese"
 
 #: htdocs/index.php:91
 msgid ".htaccess files are not supported on this webserver."
-msgstr ".htaccess Dateien werden von diesem Webserver nicht unterstütz."
+msgstr ".htaccess-Dateien werden von diesem Webserver nicht unterstützt."
 
 #: htdocs/assets/js/moment-with-locales-2.20.1.min.js:1
 msgid ": "
-msgstr ""
+msgstr ": "
 
 #: htdocs/modules/Ucptour/assets/js/global.js:123
 #, perl-format
@@ -78,11 +77,11 @@ msgstr "ABC"
 
 #: htdocs/views/dashboard-footer.php:202
 msgid "Accept"
-msgstr ""
+msgstr "Akzeptieren"
 
 #: htdocs/modules/Settings/views/settings.php:5
 msgid "Account Settings"
-msgstr "Konten-Einstellungen"
+msgstr "Kontoeinstellungen"
 
 #: views/users_hook.php:107
 msgid "Active Sessions"
@@ -119,7 +118,7 @@ msgstr ""
 
 #: ucp.i18n.php:6
 msgid "Admin"
-msgstr "Administrator"
+msgstr "Admin"
 
 #: htdocs/views/dashboard-footer.php:214
 msgid "Alert"
@@ -296,7 +295,7 @@ msgstr ""
 
 #: htdocs/modules/Settings/views/settings.php:162
 msgid "Date Format"
-msgstr ""
+msgstr "Datumsformat"
 
 #: htdocs/modules/Settings/views/settings.php:154
 msgid "Date and Time Format"
@@ -363,7 +362,7 @@ msgstr "Email-Adresse unbekannt!"
 
 #: htdocs/assets/js/ucp.js:78
 msgid "Enable"
-msgstr ""
+msgstr "Aktivieren"
 
 #: views/users_hook.php:173
 msgid "Enable Originating Calls"
@@ -497,7 +496,7 @@ msgstr ""
 
 #: views/users_hook.php:56 views/users_hook.php:86 views/users_hook.php:183
 msgid "Inherit"
-msgstr "Geerbt"
+msgstr "Übernehmen"
 
 #: Ucp.class.php:122
 msgid "Installing/Updating Required Libraries. This may take a while..."
@@ -507,7 +506,7 @@ msgstr ""
 msgid "Interface Settings"
 msgstr "Schnittstellen-Einstellungen"
 
-#: htdocs/index.php:234
+#: htdocs/index.php:236
 #, php-format
 msgid ""
 "Internet Explorer %s is not supported. Functionality will be deteriorated "
@@ -529,7 +528,7 @@ msgstr "Ungültiges Gerät"
 msgid "Invalid Login Credentials"
 msgstr "Ungültige Login Zugangsdaten"
 
-#: htdocs/index.php:223
+#: htdocs/index.php:225
 msgid "Invalid Token"
 msgstr "Ungültiger Token"
 
@@ -558,9 +557,10 @@ msgid "Loading..."
 msgstr "Laden..."
 
 #: htdocs/views/forgot.php:45 htdocs/views/login.php:38
-#: htdocs/assets/js/ucp.js:294 htdocs/assets/js/ucp.js:304
+#: htdocs/assets/js/ucp.js:293 htdocs/assets/js/ucp.js:316
+#: htdocs/assets/js/ucp.js:326
 msgid "Login"
-msgstr "Anmeldung"
+msgstr "Einloggen"
 
 #: htdocs/modules/Ucptour/assets/js/global.js:351
 msgid "Logout"
@@ -674,13 +674,13 @@ msgstr ""
 #: htdocs/modules/Home/assets/js/global.js:47
 #: htdocs/modules/Home/assets/js/global.js:126
 msgid "Originate"
-msgstr "Mache"
+msgstr "Aufbauen"
 
 #: htdocs/modules/Home/assets/js/global.js:22
 #: htdocs/modules/Home/assets/js/global.js:45
 #: htdocs/modules/Home/assets/js/global.js:125
 msgid "Originate Call"
-msgstr "Mache einen Anruf"
+msgstr "Anruf aufbauen"
 
 #: htdocs/views/templates/phone.php:65
 msgid "PQRS"
@@ -713,7 +713,7 @@ msgstr ""
 msgid "Port to bind to. Default is 8003"
 msgstr ""
 
-#: htdocs/assets/js/ucp.js:287
+#: htdocs/assets/js/ucp.js:286 htdocs/assets/js/ucp.js:309
 msgid "Processing..."
 msgstr "Verarbeiten..."
 
@@ -797,7 +797,7 @@ msgstr ""
 #: htdocs/modules/Widgets/assets/js/global.js:100
 #: htdocs/modules/Widgets/assets/js/global.js:384
 msgid "Settings"
-msgstr "Einstellungen"
+msgstr "Einstellung"
 
 #: htdocs/views/dashboard-footer.php:60
 #: htdocs/modules/Ucptour/assets/js/global.js:243
@@ -960,7 +960,7 @@ msgstr ""
 msgid "The removal of this copyright notice is stricly prohibited"
 msgstr "Die Entfernung des Copyright-Vermerks ist streng verboten"
 
-#: htdocs/assets/js/ucp.js:505
+#: htdocs/assets/js/ucp.js:527
 msgid "The session has expired and you are being forcibly logged out"
 msgstr ""
 
@@ -1111,9 +1111,9 @@ msgid "UCP is currently disabled. Please talk to your system Administrator"
 msgstr ""
 "UCP ist derzeit deaktiviert. Bitte sprechen Sie mit Ihrem Systemadministrator"
 
-#: htdocs/assets/js/ucp.js:322
+#: htdocs/assets/js/ucp.js:344
 msgid "UCP is not supported in your browser"
-msgstr ""
+msgstr "UCP wird in Ihrem Browser nicht unterstützt"
 
 #: htdocs/modules/Settings/assets/js/global.js:101
 #: htdocs/modules/Settings/assets/js/global.js:116
@@ -1134,7 +1134,7 @@ msgstr "Email zum Zurücksetzen des Passworts konnte nicht gesendet werden"
 
 #: Ucp.class.php:1217
 msgid "Unknown"
-msgstr ""
+msgstr "Unbekannt"
 
 #: htdocs/modules/Settings/assets/js/global.js:271
 msgid "Unsupported file type"
@@ -1146,11 +1146,11 @@ msgstr "Passwort geändert"
 
 #: htdocs/modules/Settings/views/settings.php:122
 msgid "Use Browser Language"
-msgstr ""
+msgstr "Sprache des Browsers verwenden"
 
 #: htdocs/modules/Settings/views/settings.php:135
 msgid "Use Browser Timezone"
-msgstr ""
+msgstr "Zeitzone des Browsers verwenden"
 
 #: htdocs/modules/Settings/views/settings.php:111
 msgid "Use Gravatar"
@@ -1169,7 +1169,7 @@ msgid "User"
 msgstr ""
 
 #: htdocs/views/forgot.php:5 htdocs/views/header.php:4 htdocs/views/login.php:5
-#: ucp.i18n.php:4 /usr/src/freepbx/ucp/ucp.i18n.php:56
+#: ucp.i18n.php:4 /dev/shm/freepbx/ucp/ucp.i18n.php:56
 #: htdocs/modules/Widgets/assets/js/global.js:47
 msgid "User Control Panel"
 msgstr "Benutzer Kontrollzentrum (UCP)"
@@ -1358,7 +1358,7 @@ msgstr ""
 msgid "You must set a dashboard name!"
 msgstr ""
 
-#: htdocs/assets/js/ucp.js:309
+#: htdocs/assets/js/ucp.js:331
 msgid "Your Browser is unsupported at this time."
 msgstr "Ihr Browser wird im moment nicht unterstützt."
 
@@ -1406,7 +1406,7 @@ msgstr "Ihr Titel"
 msgid "Your Work Number"
 msgstr "Ihr Telefonnummer in der Firma"
 
-#: htdocs/assets/js/ucp.js:311
+#: htdocs/assets/js/ucp.js:333
 msgid ""
 "Your browser is unsupported at this time. Please upgrade or talk to your "
 "system administrator"
@@ -1508,7 +1508,7 @@ msgstr "oder"
 
 #~ msgid "Unable to get a token to use UCP Node Server because: '%s'"
 #~ msgstr ""
-#~ "Es kann kein Token vom UCP Knoten Server erhalten werden, weil: '% s'"
+#~ "Es kann kein Token vom UCP Knoten Server erhalten werden, weil: '%s'"
 
 #~ msgid "Unknown Module %s"
 #~ msgstr "Unbekanntes Modul %s"

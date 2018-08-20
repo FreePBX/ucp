@@ -277,6 +277,28 @@ var UCPC = Class.extend({
 				}
 			}
 		});
+		$("#btn-login").click(function(event) {
+			var queryString = $("#frm-login").formSerialize(),
+			username = $("input[name=username]").val(),
+			password = $("input[name=password]").val();
+
+			btn.prop("disabled", true);
+			btn.text(_("Processing..."));
+			queryString = queryString + "&module=User&command=login";
+			$.post( UCP.ajaxUrl, queryString, function( data ) {
+				if (!data.status) {
+					$("#error-msg").html(data.message).fadeIn("fast");
+					$("#login-window").height("300");
+					btn.prop("disabled", false);
+					btn.text(_("Login"));
+				} else {
+					sessionStorage.setItem('username', username);
+					sessionStorage.setItem('password', password);
+					location.reload();
+				}
+			});
+			return false
+		});
 		if ($("html").hasClass("history")) {
 			$(document).on("submit", "#frm-login", function(event) {
 				var queryString = $(this).formSerialize(),
