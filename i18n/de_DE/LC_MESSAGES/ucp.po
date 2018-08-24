@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-07-24 20:58-0400\n"
-"PO-Revision-Date: 2018-08-08 23:00+0000\n"
+"PO-Revision-Date: 2018-08-25 15:00+0000\n"
 "Last-Translator: Bastian Mertgen <b.mertgen@bastian-mertgen.de>\n"
 "Language-Team: German <http://*/projects/freepbx/ucp/de/>\n"
 "Language: de_DE\n"
@@ -118,7 +118,7 @@ msgstr ""
 
 #: ucp.i18n.php:6
 msgid "Admin"
-msgstr "Admin"
+msgstr "Administrator"
 
 #: htdocs/views/dashboard-footer.php:214
 msgid "Alert"
@@ -304,7 +304,7 @@ msgstr ""
 #: htdocs/modules/Settings/views/settings.php:120
 #: htdocs/modules/Settings/views/settings.php:133
 msgid "Default"
-msgstr ""
+msgstr "Standard"
 
 #: htdocs/modules/Settings/views/settings.php:97
 msgid "Delete Image"
@@ -324,7 +324,7 @@ msgstr "Gelöschte Benutzer Sitzung"
 
 #: htdocs/assets/js/ucp.js:81
 msgid "Disable"
-msgstr ""
+msgstr "Deaktivieren"
 
 #: htdocs/modules/Settings/views/settings.php:42
 msgid "Display Name"
