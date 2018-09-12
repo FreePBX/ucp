@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-07-24 20:58-0400\n"
+"POT-Creation-Date: 2018-09-12 17:21-0400\n"
 "PO-Revision-Date: 2017-03-08 21:13+0200\n"
 "Last-Translator: Kingvoice <suporte@kingvoice.com.br>\n"
 "Language-Team: Portuguese (Brazil) <http://weblate.freepbx.org/projects/"
@@ -181,7 +181,7 @@ msgstr "Permitir usuários mudarem suas senhas no PCU"
 msgid "Allowed Extension Settings"
 msgstr "Configurações de Ramais Permitidos"
 
-#: htdocs/modules/Widgets/assets/js/global.js:885
+#: htdocs/modules/Widgets/assets/js/global.js:886
 msgid "Are you sure you want to delete this dashboard?"
 msgstr ""
 
@@ -737,7 +737,7 @@ msgid "Remember Me"
 msgstr "Lembrar Me"
 
 #: htdocs/views/dashboard-header.php:66
-#: htdocs/modules/Widgets/assets/js/global.js:445
+#: htdocs/modules/Widgets/assets/js/global.js:446
 msgid "Remove Widget"
 msgstr ""
 
@@ -798,7 +798,7 @@ msgid "Sets the path to the HTTPS server certificate. This is required if "
 msgstr ""
 
 #: htdocs/modules/Widgets/assets/js/global.js:100
-#: htdocs/modules/Widgets/assets/js/global.js:384
+#: htdocs/modules/Widgets/assets/js/global.js:385
 msgid "Settings"
 msgstr "Configurações"
 
@@ -832,17 +832,17 @@ msgid ""
 "shown for each widget"
 msgstr ""
 
-#: htdocs/modules/Widgets/assets/js/global.js:1192
+#: htdocs/modules/Widgets/assets/js/global.js:1193
 msgid "Something went wrong getting the content of the widget"
 msgstr ""
 
-#: htdocs/modules/Widgets/assets/js/global.js:1234
-#: htdocs/modules/Widgets/assets/js/global.js:1272
+#: htdocs/modules/Widgets/assets/js/global.js:1235
+#: htdocs/modules/Widgets/assets/js/global.js:1273
 msgid "Something went wrong getting the settings from the widget"
 msgstr ""
 
-#: htdocs/modules/Widgets/assets/js/global.js:859
-#: htdocs/modules/Widgets/assets/js/global.js:913
+#: htdocs/modules/Widgets/assets/js/global.js:860
+#: htdocs/modules/Widgets/assets/js/global.js:914
 msgid "Something went wrong removing the dashboard"
 msgstr ""
 
@@ -989,12 +989,12 @@ msgid ""
 "widgets. Let's start with dashboard widgets"
 msgstr ""
 
-#: htdocs/modules/Widgets/assets/js/global.js:976
+#: htdocs/modules/Widgets/assets/js/global.js:977
 msgid "There is no active dashboard to add widgets to"
 msgstr ""
 
-#: htdocs/modules/Widgets/assets/js/global.js:1054
-#: htdocs/modules/Widgets/assets/js/global.js:1136
+#: htdocs/modules/Widgets/assets/js/global.js:1055
+#: htdocs/modules/Widgets/assets/js/global.js:1137
 msgid "There was an error getting the widget information, try again later"
 msgstr ""
 
@@ -1174,7 +1174,7 @@ msgid "User"
 msgstr ""
 
 #: htdocs/views/forgot.php:5 htdocs/views/header.php:4 htdocs/views/login.php:5
-#: ucp.i18n.php:4 /dev/shm/freepbx/ucp/ucp.i18n.php:56
+#: ucp.i18n.php:4 /usr/src/freepbx/ucp/ucp.i18n.php:56
 #: htdocs/modules/Widgets/assets/js/global.js:47
 msgid "User Control Panel"
 msgstr "Painel de Controle do Usuário"
@@ -1329,11 +1329,11 @@ msgstr "Fone Trabalho"
 msgid "Yes"
 msgstr "Sim"
 
-#: htdocs/modules/Widgets/assets/js/global.js:1144
+#: htdocs/modules/Widgets/assets/js/global.js:1145
 msgid "You already have this widget on the side bar"
 msgstr ""
 
-#: htdocs/modules/Widgets/assets/js/global.js:1062
+#: htdocs/modules/Widgets/assets/js/global.js:1063
 msgid "You already have this widget on this dashboard"
 msgstr ""
 
@@ -1351,7 +1351,7 @@ msgid ""
 msgstr ""
 
 #: htdocs/modules/Widgets/Widgets.class.php:41
-#: htdocs/modules/Widgets/assets/js/global.js:904
+#: htdocs/modules/Widgets/assets/js/global.js:905
 msgid "You have no dashboards. Click here to add one"
 msgstr ""
 
@@ -1359,7 +1359,7 @@ msgstr ""
 msgid "You just successfully logged in for the first time!"
 msgstr ""
 
-#: htdocs/modules/Widgets/assets/js/global.js:1382
+#: htdocs/modules/Widgets/assets/js/global.js:1383
 msgid "You must set a dashboard name!"
 msgstr ""
 

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-07-24 20:58-0400\n"
+"POT-Creation-Date: 2018-09-12 17:21-0400\n"
 "PO-Revision-Date: 2018-09-11 06:39+0000\n"
 "Last-Translator: Thomas Rock <trock@sangoma.com>\n"
 "Language-Team: German <http://*/projects/freepbx/ucp/de/>\n"
@@ -202,7 +202,7 @@ msgstr "Dem Benutzer erlauben im UCP sein eigenes Passwort zu ändern"
 msgid "Allowed Extension Settings"
 msgstr "Erlaubte Nebenstellen Einstellungen"
 
-#: htdocs/modules/Widgets/assets/js/global.js:885
+#: htdocs/modules/Widgets/assets/js/global.js:886
 msgid "Are you sure you want to delete this dashboard?"
 msgstr "Sind Sie sicher, dass Sie das Dashboard löschen möchten?"
 
@@ -779,7 +779,7 @@ msgid "Remember Me"
 msgstr "Login merken"
 
 #: htdocs/views/dashboard-header.php:66
-#: htdocs/modules/Widgets/assets/js/global.js:445
+#: htdocs/modules/Widgets/assets/js/global.js:446
 msgid "Remove Widget"
 msgstr "Widget löschen"
 
@@ -841,7 +841,7 @@ msgstr ""
 "Setzt den Pfad zu dem HTTPS Server certificate. Dies ist notwendig wenn "
 
 #: htdocs/modules/Widgets/assets/js/global.js:100
-#: htdocs/modules/Widgets/assets/js/global.js:384
+#: htdocs/modules/Widgets/assets/js/global.js:385
 msgid "Settings"
 msgstr "Einstellung"
 
@@ -881,17 +881,17 @@ msgstr ""
 "Kleine Widgets sind auf der rechten Seite gelistet. Die Titel und "
 "Beschreibung werden für jedes Widget angezeigt"
 
-#: htdocs/modules/Widgets/assets/js/global.js:1192
+#: htdocs/modules/Widgets/assets/js/global.js:1193
 msgid "Something went wrong getting the content of the widget"
 msgstr "Etwas lief falsch um den Inhalt des Widgets zu erhalten"
 
-#: htdocs/modules/Widgets/assets/js/global.js:1234
-#: htdocs/modules/Widgets/assets/js/global.js:1272
+#: htdocs/modules/Widgets/assets/js/global.js:1235
+#: htdocs/modules/Widgets/assets/js/global.js:1273
 msgid "Something went wrong getting the settings from the widget"
 msgstr "Etwas lief falsch um die Einstellungen des Widget zu erhalten"
 
-#: htdocs/modules/Widgets/assets/js/global.js:859
-#: htdocs/modules/Widgets/assets/js/global.js:913
+#: htdocs/modules/Widgets/assets/js/global.js:860
+#: htdocs/modules/Widgets/assets/js/global.js:914
 msgid "Something went wrong removing the dashboard"
 msgstr "Etwas lief falsch, um das Dashboard zu entfernen"
 
@@ -979,8 +979,8 @@ msgid ""
 "locale aware. If left blank this will use the group/system format. For more "
 "formats please see: %s"
 msgstr ""
-"Das Datums- und Zeitformat sollte angezeigt werden. Der Standard des \"llll\""
-" ist regional. Falls unbestimt, wird das group/system Format genutzt. Für "
+"Das Datums- und Zeitformat sollte angezeigt werden. Der Standard des \"llll"
+"\" ist regional. Falls unbestimt, wird das group/system Format genutzt. Für "
 "mehr Formate bitte hier nachsehen: %s"
 
 #: htdocs/modules/Settings/views/settings.php:167
@@ -1053,12 +1053,12 @@ msgstr ""
 "Es gibt zwei Arten von Widgets. Das Dashboard Widget und das Side Bar "
 "Widget. Lassen Sie uns mit dem Dashboard Widget beginnen"
 
-#: htdocs/modules/Widgets/assets/js/global.js:976
+#: htdocs/modules/Widgets/assets/js/global.js:977
 msgid "There is no active dashboard to add widgets to"
 msgstr "Es gibt keine aktiven Dashboards, zu denen Widgets hinzugefügt werden"
 
-#: htdocs/modules/Widgets/assets/js/global.js:1054
-#: htdocs/modules/Widgets/assets/js/global.js:1136
+#: htdocs/modules/Widgets/assets/js/global.js:1055
+#: htdocs/modules/Widgets/assets/js/global.js:1137
 msgid "There was an error getting the widget information, try again later"
 msgstr ""
 "Es ist ein Fehler aufgetreten, die Widget Information zu erhalten, bitte "
@@ -1249,7 +1249,7 @@ msgid "User"
 msgstr "Nutzer"
 
 #: htdocs/views/forgot.php:5 htdocs/views/header.php:4 htdocs/views/login.php:5
-#: ucp.i18n.php:4 /dev/shm/freepbx/ucp/ucp.i18n.php:56
+#: ucp.i18n.php:4 /usr/src/freepbx/ucp/ucp.i18n.php:56
 #: htdocs/modules/Widgets/assets/js/global.js:47
 msgid "User Control Panel"
 msgstr "Benutzerkontrollzentrum (UCP)"
@@ -1421,11 +1421,11 @@ msgstr "Bürotelefon"
 msgid "Yes"
 msgstr "Ja"
 
-#: htdocs/modules/Widgets/assets/js/global.js:1144
+#: htdocs/modules/Widgets/assets/js/global.js:1145
 msgid "You already have this widget on the side bar"
 msgstr "Sie haben das Widget bereits auf ihrer Side bar"
 
-#: htdocs/modules/Widgets/assets/js/global.js:1062
+#: htdocs/modules/Widgets/assets/js/global.js:1063
 msgid "You already have this widget on this dashboard"
 msgstr "Sie haben dieses Widget bereits auf diesem Dashboard"
 
@@ -1447,7 +1447,7 @@ msgstr ""
 "Tour jederzeit erneut starten. Gehen Sie hierzu in die Benutzereinstellungen"
 
 #: htdocs/modules/Widgets/Widgets.class.php:41
-#: htdocs/modules/Widgets/assets/js/global.js:904
+#: htdocs/modules/Widgets/assets/js/global.js:905
 msgid "You have no dashboards. Click here to add one"
 msgstr ""
 "Sie haben keine Dashboards. Bitte klicken Sie hier um eines hinzuzufügen"
@@ -1456,7 +1456,7 @@ msgstr ""
 msgid "You just successfully logged in for the first time!"
 msgstr "Sie haben sich erfolgreich zum ersten Mal eingeloggt!"
 
-#: htdocs/modules/Widgets/assets/js/global.js:1382
+#: htdocs/modules/Widgets/assets/js/global.js:1383
 msgid "You must set a dashboard name!"
 msgstr "Sie müssen den Dashboard-Namen bestimmen!"
 
