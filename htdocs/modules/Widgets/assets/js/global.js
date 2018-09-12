@@ -131,6 +131,7 @@ var WidgetsC = Class.extend({
 
 		if(!$(".grid-stack").length) {
 			this.activeDashboard = null;
+			$(document).trigger("post-body.widgets",[ null, this.activeDashboard ]);
 		} else {
 			var dashboard_id = $(".grid-stack").data("dashboard_id");
 			//Are we looking a dashboard?
