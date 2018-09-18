@@ -10,8 +10,8 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-09-12 17:21-0400\n"
-"PO-Revision-Date: 2018-09-11 06:39+0000\n"
-"Last-Translator: Thomas Rock <trock@sangoma.com>\n"
+"PO-Revision-Date: 2018-09-18 15:43+0000\n"
+"Last-Translator: Bastian Mertgen <b.mertgen@bastian-mertgen.de>\n"
 "Language-Team: German <http://*/projects/freepbx/ucp/de/>\n"
 "Language: de_DE\n"
 "MIME-Version: 1.0\n"
@@ -1222,7 +1222,7 @@ msgstr "Nicht unterstützter Dateityp"
 
 #: htdocs/modules/Settings/views/settings.php:36
 msgid "Update Password"
-msgstr "Passwort geändert"
+msgstr "Passwort aktualisieren"
 
 #: htdocs/modules/Settings/views/settings.php:122
 msgid "Use Browser Language"
@@ -1238,15 +1238,15 @@ msgstr "Gravatar benutzen"
 
 #: htdocs/modules/Settings/views/settings.php:125
 msgid "Use PBX Language"
-msgstr "Nutzen der TK-Anlagen Sprache"
+msgstr "Sprache der TK-Anlage verwenden"
 
 #: htdocs/modules/Settings/views/settings.php:138
 msgid "Use PBX Timezone"
-msgstr "Nutzen der TK-Anlagen Zeitzone"
+msgstr "Zeitzone der TK-Anlage verwenden"
 
 #: htdocs/modules/Settings/Settings.class.php:185
 msgid "User"
-msgstr "Nutzer"
+msgstr "Benutzer"
 
 #: htdocs/views/forgot.php:5 htdocs/views/header.php:4 htdocs/views/login.php:5
 #: ucp.i18n.php:4 /usr/src/freepbx/ucp/ucp.i18n.php:56
