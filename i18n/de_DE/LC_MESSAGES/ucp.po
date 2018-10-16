@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-09-12 17:21-0400\n"
-"PO-Revision-Date: 2018-10-09 21:00+0000\n"
+"PO-Revision-Date: 2018-10-17 14:00+0000\n"
 "Last-Translator: Bastian Mertgen <b.mertgen@bastian-mertgen.de>\n"
 "Language-Team: German <http://*/projects/freepbx/ucp/de/>\n"
 "Language: de_DE\n"
@@ -226,7 +226,7 @@ msgstr "Anruf"
 #: htdocs/views/dashboard-footer.php:22 htdocs/views/dashboard-footer.php:43
 #: htdocs/views/dashboard-footer.php:151 htdocs/views/dashboard-footer.php:201
 msgid "Cancel"
-msgstr "Abbruch"
+msgstr "Abbrechen"
 
 #: htdocs/modules/Settings/views/settings.php:72
 msgid "Cell Phone"
