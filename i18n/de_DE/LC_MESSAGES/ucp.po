@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-09-12 17:21-0400\n"
-"PO-Revision-Date: 2018-10-17 14:00+0000\n"
+"PO-Revision-Date: 2018-10-19 15:00+0000\n"
 "Last-Translator: Bastian Mertgen <b.mertgen@bastian-mertgen.de>\n"
 "Language-Team: German <http://*/projects/freepbx/ucp/de/>\n"
 "Language: de_DE\n"
@@ -531,7 +531,7 @@ msgstr "Die ICU Version ist: %s Voraussetzung ist %s"
 
 #: views/users_hook.php:56 views/users_hook.php:86 views/users_hook.php:183
 msgid "Inherit"
-msgstr "Übernehmen"
+msgstr "Erben"
 
 #: Ucp.class.php:122
 msgid "Installing/Updating Required Libraries. This may take a while..."
@@ -843,7 +843,7 @@ msgstr ""
 #: htdocs/modules/Widgets/assets/js/global.js:100
 #: htdocs/modules/Widgets/assets/js/global.js:385
 msgid "Settings"
-msgstr "Einstellung"
+msgstr "Einstellungen"
 
 #: htdocs/views/dashboard-footer.php:60
 #: htdocs/modules/Ucptour/assets/js/global.js:243
