@@ -10,8 +10,8 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-09-12 17:21-0400\n"
-"PO-Revision-Date: 2018-09-11 06:39+0000\n"
-"Last-Translator: Thomas Rock <trock@sangoma.com>\n"
+"PO-Revision-Date: 2018-10-19 15:00+0000\n"
+"Last-Translator: Bastian Mertgen <b.mertgen@bastian-mertgen.de>\n"
 "Language-Team: German <http://*/projects/freepbx/ucp/de/>\n"
 "Language: de_DE\n"
 "MIME-Version: 1.0\n"
@@ -226,7 +226,7 @@ msgstr "Anruf"
 #: htdocs/views/dashboard-footer.php:22 htdocs/views/dashboard-footer.php:43
 #: htdocs/views/dashboard-footer.php:151 htdocs/views/dashboard-footer.php:201
 msgid "Cancel"
-msgstr "Abbruch"
+msgstr "Abbrechen"
 
 #: htdocs/modules/Settings/views/settings.php:72
 msgid "Cell Phone"
@@ -531,7 +531,7 @@ msgstr "Die ICU Version ist: %s Voraussetzung ist %s"
 
 #: views/users_hook.php:56 views/users_hook.php:86 views/users_hook.php:183
 msgid "Inherit"
-msgstr "Übernehmen"
+msgstr "Erben"
 
 #: Ucp.class.php:122
 msgid "Installing/Updating Required Libraries. This may take a while..."
@@ -647,7 +647,7 @@ msgstr "Nein"
 
 #: Ucp.class.php:87
 msgid "Node Package Manager is not installed"
-msgstr "Node Package Manager ist nicht installiert"
+msgstr "\"Node Package Manager\" ist nicht installiert"
 
 #: Ucp.class.php:75
 msgid "Node is not installed"
@@ -659,32 +659,32 @@ msgid ""
 "Node version is: %s requirement is %s. Run 'yum upgrade nodejs' from the CLI "
 "as root"
 msgstr ""
-"Die Node Version ist : %s Voraussetzung ist %s. Führen Sie 'yum upgrade "
-"nodejs' als root von der CLI Ebene aus"
+"Die Node-Version ist %s, Voraussetzung ist %s. Führen Sie \"yum upgrade "
+"nodejs\" als root von der Kommandozeile aus"
 
 #: ucp.i18n.php:32
 msgid "NodeJS Bind Address"
-msgstr "NodeJS Bind Address"
+msgstr "NodeJS: Bind-Adresse"
 
 #: ucp.i18n.php:36
 msgid "NodeJS Bind Port"
-msgstr "NodeJS Bind Port"
+msgstr "NodeJS: Bind-Port"
 
 #: ucp.i18n.php:40
 msgid "NodeJS HTTPS Bind Address"
-msgstr "NodeJS HTTPS Bind Address"
+msgstr "NodeJS: HTTPS-Bind-Adresse"
 
 #: ucp.i18n.php:42
 msgid "NodeJS HTTPS Bind Port"
-msgstr "NodeJS HTTPS Bind Port"
+msgstr "NodeJS: HTTPS-Bind-Port"
 
 #: ucp.i18n.php:46
 msgid "NodeJS HTTPS TLS Certificate Location"
-msgstr "NodeJS HTTPS TLS Certificate Location"
+msgstr "NodeJS: Speicherort des HTTPS-TLS-Zertifikats"
 
 #: ucp.i18n.php:50
 msgid "NodeJS HTTPS TLS Private Key Location"
-msgstr "NodeJS HTTPS TLS Private Key Location"
+msgstr "NodeJS: Speicherort des privaten HTTP-TLS-Schlüssels"
 
 #: htdocs/modules/Ucptour/assets/js/global.js:216
 msgid "Note: some widgets have size restrictions!"
@@ -843,7 +843,7 @@ msgstr ""
 #: htdocs/modules/Widgets/assets/js/global.js:100
 #: htdocs/modules/Widgets/assets/js/global.js:385
 msgid "Settings"
-msgstr "Einstellung"
+msgstr "Einstellungen"
 
 #: htdocs/views/dashboard-footer.php:60
 #: htdocs/modules/Ucptour/assets/js/global.js:243
@@ -1097,8 +1097,8 @@ msgid ""
 "This tour will take you on a brief walkthrough of the new User Control Panel "
 "in a few simple steps."
 msgstr ""
-"Diese Tour wird Sie mit einfachen Schritten durch das neue User Control "
-"Panel führen"
+"Dieser Rundgang wird Sie in ein paar einfachen Schritten die neue "
+"Benutzerkonsole einführen."
 
 #: htdocs/modules/Settings/views/settings.php:170
 msgid "Time Format"
@@ -1150,7 +1150,7 @@ msgstr "UCP Administrator"
 
 #: Ucp.class.php:1215
 msgid "UCP Daemon"
-msgstr "UCP Daemon"
+msgstr "UCP-Dämon"
 
 #: Ucp.class.php:1355
 #, php-format
@@ -1172,7 +1172,7 @@ msgstr "UCP Node läuft nicht"
 
 #: ucp.i18n.php:24
 msgid "UCP NodeJS Server"
-msgstr "UCP NodeJS Server"
+msgstr "UCP-NodeJS-Server"
 
 #: ucp.i18n.php:68
 msgid "UCP Session Timeout"
@@ -1222,7 +1222,7 @@ msgstr "Nicht unterstützter Dateityp"
 
 #: htdocs/modules/Settings/views/settings.php:36
 msgid "Update Password"
-msgstr "Passwort geändert"
+msgstr "Passwort aktualisieren"
 
 #: htdocs/modules/Settings/views/settings.php:122
 msgid "Use Browser Language"
@@ -1238,15 +1238,15 @@ msgstr "Gravatar benutzen"
 
 #: htdocs/modules/Settings/views/settings.php:125
 msgid "Use PBX Language"
-msgstr "Nutzen der TK-Anlagen Sprache"
+msgstr "Sprache der TK-Anlage verwenden"
 
 #: htdocs/modules/Settings/views/settings.php:138
 msgid "Use PBX Timezone"
-msgstr "Nutzen der TK-Anlagen Zeitzone"
+msgstr "Zeitzone der TK-Anlage verwenden"
 
 #: htdocs/modules/Settings/Settings.class.php:185
 msgid "User"
-msgstr "Nutzer"
+msgstr "Benutzer"
 
 #: htdocs/views/forgot.php:5 htdocs/views/header.php:4 htdocs/views/login.php:5
 #: ucp.i18n.php:4 /usr/src/freepbx/ucp/ucp.i18n.php:56
