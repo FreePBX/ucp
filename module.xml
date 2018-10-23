@@ -97,5 +97,6 @@
 		<version>14.0.4</version>
 		<module>pm2 ge 13.0.3.18</module>
 		<module>certman ge 13.0.36.6</module>
+		<module>dashboard</module>
 	</depends>
 </module>

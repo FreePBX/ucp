@@ -213,13 +213,7 @@ class Home extends Modules{
 		}
 		$widgets = array();
 
-		//Check if dashboard is installed and enabled,
-		//if so then we will use the same cache engine dashboard uses
-		if($this->UCP->FreePBX->Modules->moduleHasMethod("dashboard","getConfig")) {
-			$storage = $this->UCP->FreePBX->Dashboard;
-		} else {
-			$storage = $this->UCP->FreePBX->Ucp;
-		}
+		$storage = $this->UCP->FreePBX->Dashboard;
 
 		foreach($feeds as $k => $feed) {
 			try {
