@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-10-22 17:10-0400\n"
+"POT-Creation-Date: 2018-10-29 19:23-0400\n"
 "PO-Revision-Date: 2018-10-25 08:00+0000\n"
 "Last-Translator: Bastian Mertgen <b.mertgen@bastian-mertgen.de>\n"
 "Language-Team: German <http://*/projects/freepbx/ucp/de/>\n"
@@ -770,6 +770,10 @@ msgstr "RSS-Feeds"
 msgid "RSS Feeds that are displayed in UCP. This overrides "
 msgstr "RSS-Feeds, die im UCP angezeigt werden. Dies überschriebt "
 
+#: Api/Rest/Dashboard.php:12
+msgid "Read UCP Dashboard Information"
+msgstr ""
+
 #: Ucp.class.php:268
 msgid "Refreshing all UCP Assets, this could take a while..."
 msgstr "Aktualisiere alle UCP Inhalte, dies kann einen Moment dauern..."
@@ -1416,6 +1420,10 @@ msgstr ""
 #: htdocs/modules/Settings/views/settings.php:77
 msgid "Work Phone"
 msgstr "Bürotelefon"
+
+#: Api/Rest/Dashboard.php:15
+msgid "Write UCP Dashboard Information"
+msgstr ""
 
 #: views/users_hook.php:51 views/users_hook.php:81 views/users_hook.php:178
 msgid "Yes"
