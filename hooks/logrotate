@@ -6,6 +6,8 @@ cat <<- EOF > /etc/logrotate.d/freepbx-ucp
 	size 50M
 	missingok
 	rotate 5
+	dateext
+	dateformat -%Y%m%d%s
 	notifempty
 	dateext
 	sharedscripts

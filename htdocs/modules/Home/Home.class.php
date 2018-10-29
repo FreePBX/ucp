@@ -24,7 +24,6 @@
 */
 namespace UCP\Modules;
 use \UCP\Modules as Modules;
-use PicoFeed\Reader\Reader;
 
 class Home extends Modules{
 	protected $module = 'Home';
@@ -213,59 +212,54 @@ class Home extends Modules{
 			$feeds = array($feeds[$feed]);
 		}
 		$widgets = array();
-		$reader = new Reader;
 
-		//Check if dashboard is installed and enabled,
-		//if so then we will use the same cache engine dashboard uses
-		if($this->UCP->FreePBX->Modules->moduleHasMethod("dashboard","getConfig")) {
-			$storage = $this->UCP->FreePBX->Dashboard;
-		} else {
-			$storage = $this->UCP->FreePBX->Ucp;
-		}
+		$storage = $this->UCP->FreePBX->Dashboard;
+
 		foreach($feeds as $k => $feed) {
-			$etag = $storage->getConfig($feed, "etag");
-			$last_modified = $storage->getConfig($feed, "last_modified");
-			$content = '';
 			try {
-				$resource = $reader->download(trim($feed), $last_modified, $etag);
-				if ($resource->isModified()) {
-					$parser = $reader->getParser(
-						$resource->getUrl(),
-						$resource->getContent(),
-						$resource->getEncoding()
+				$reader = new \SimplePie();
+				$reader->set_cache_location($this->UCP->FreePBX->Config->get('ASTSPOOLDIR'));
+				$reader->set_cache_class("SimplePie_Cache_File");
+
+				$reader->set_feed_url($feed);
+				$reader->enable_cache(true);
+				$reader->init();
+
+				$items = $reader->get_items();
+				$content = array(
+					"title" => $reader->get_title(),
+					"description" => $reader->get_description(),
+					"items" => array()
+				);
+				foreach ($items as $item) {
+					$content['items'][] = array(
+						"title" => $item->get_title(),
+						"url" => $item->get_permalink(),
+						"content" => $item->get_description()
 					);
-
-					$content = $parser->execute();
-					$etag = $resource->getEtag();
-					$last_modified = $resource->getLastModified();
-
-					$storage->setConfig($feed, $content, "content");
-					$storage->setConfig($feed, $etag, "etag");
-					$etag = $storage->getConfig($feed, "etag");
-					$storage->setConfig($feed, $last_modified, "last_modified");
-				} else {
-					$content = $storage->getConfig($feed, "content");
 				}
-			}	catch (\PicoFeed\PicoFeedException $e) {
+				$storage->setConfig($feed, $content, "content");
+			}	catch (\Exception $e) {
 				$content = $storage->getConfig($feed, "content");
 			}
+
 			if(empty($content)) {
 				continue;
 			}
 			$htmlcontent = '<ul>';
 			$i = 1;
-			foreach($content->items as $item) {
+			foreach($content['items'] as $item) {
 				if($i > 5) {
 					break;
 				}
-				$htmlcontent .= '<li><a href="'.$item->url.'" target="_blank">'.$item->title.'</a></li>';
+				$htmlcontent .= '<li><a href="'.$item['url'].'" target="_blank">'.$item['title'].'</a></li>';
 				$i++;
 			}
 			$htmlcontent .= '</ul>';
 			$widgets[$k] = array(
-				"display" => $content->title,
+				"display" => $content['title'],
 				"content" => $htmlcontent,
-				"description" => $content->description
+				"description" => $content['description']
 			);
 		}
 		return $widgets;

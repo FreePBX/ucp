@@ -862,7 +862,6 @@ class Ucp implements \BMO {
 				if(file_exists($path.'/admin/modules/'.$rawname.'/ucp') && file_exists($path.'/admin/modules/'.$rawname.'/ucp/'.ucfirst($rawname).".class.php")) {
 					if($module['status'] == MODULE_STATUS_ENABLED) {
 						if(!file_exists($location."/modules/".ucfirst($rawname))) {
-							print_r(array($path.'/admin/modules/'.$rawname.'/ucp',$location.'/modules/'.ucfirst($rawname)));
 							symlink($path.'/admin/modules/'.$rawname.'/ucp',$location.'/modules/'.ucfirst($rawname));
 						}
 					} elseif($module['status'] != MODULE_STATUS_DISABLED && $module['status'] != MODULE_STATUS_ENABLED) {
