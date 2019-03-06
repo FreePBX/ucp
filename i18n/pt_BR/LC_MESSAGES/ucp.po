@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-02-21 23:29-0500\n"
+"POT-Creation-Date: 2019-03-06 18:10-0500\n"
 "PO-Revision-Date: 2017-03-08 21:13+0200\n"
 "Last-Translator: Kingvoice <suporte@kingvoice.com.br>\n"
 "Language-Team: Portuguese (Brazil) <http://weblate.freepbx.org/projects/"
@@ -115,7 +115,7 @@ msgstr ""
 msgid "Adding a dashboard"
 msgstr ""
 
-#: ucp.i18n.php:24
+#: ucp.i18n.php:34
 msgid "Address to bind to. Default is "
 msgstr ""
 
@@ -149,6 +149,14 @@ msgstr "Permitir Notificações Desktop"
 msgid "Allow Login"
 msgstr "Permitir Logar-se"
 
+#: ucp.i18n.php:54
+msgid "Allow Password Changes"
+msgstr "Permitir Mudar Senha"
+
+#: ucp.i18n.php:60
+msgid "Allow Username Changes"
+msgstr "Permitir Mudar Usuário"
+
 #: htdocs/modules/Settings/views/settings.php:146
 msgid "Allow browser desktop notifications from UCP modules."
 msgstr "Permitir navegar notificações de desktop dos módulos PCU."
@@ -160,6 +168,14 @@ msgid ""
 msgstr ""
 "Permitir que este usuário origine chamadas pelo PCU. Isso não é o mesmo que "
 "WebRTC"
+
+#: ucp.i18n.php:62
+msgid "Allow users to change their username in UCP"
+msgstr "Permitir que os usuários alterem seu nome de usuário no PCU"
+
+#: ucp.i18n.php:58
+msgid "Allow users to change thier password in UCP"
+msgstr "Permitir usuários mudarem suas senhas no PCU"
 
 #: views/users_hook.php:147
 msgid "Allowed Extension Settings"
@@ -355,7 +371,7 @@ msgstr ""
 msgid "Enable Originating Calls"
 msgstr "Habilitar Originar Chamadas"
 
-#: ucp.i18n.php:18
+#: ucp.i18n.php:28
 msgid "Enable TLS for the NodeJS Server"
 msgstr ""
 
@@ -363,7 +379,7 @@ msgstr ""
 msgid "Enable Tour Mode"
 msgstr ""
 
-#: ucp.i18n.php:12
+#: ucp.i18n.php:22
 msgid "Enable the NodeJS Server"
 msgstr ""
 
@@ -606,27 +622,27 @@ msgid ""
 "as root"
 msgstr ""
 
-#: ucp.i18n.php:22
+#: ucp.i18n.php:32
 msgid "NodeJS Bind Address"
 msgstr ""
 
-#: ucp.i18n.php:26
+#: ucp.i18n.php:36
 msgid "NodeJS Bind Port"
 msgstr ""
 
-#: ucp.i18n.php:30
+#: ucp.i18n.php:40
 msgid "NodeJS HTTPS Bind Address"
 msgstr ""
 
-#: ucp.i18n.php:32
+#: ucp.i18n.php:42
 msgid "NodeJS HTTPS Bind Port"
 msgstr ""
 
-#: ucp.i18n.php:36
+#: ucp.i18n.php:46
 msgid "NodeJS HTTPS TLS Certificate Location"
 msgstr ""
 
-#: ucp.i18n.php:40
+#: ucp.i18n.php:50
 msgid "NodeJS HTTPS TLS Private Key Location"
 msgstr ""
 
@@ -692,11 +708,11 @@ msgstr "Redefinição de Senha para: %s"
 msgid "Password has been changed!"
 msgstr "A senha foi alterada!"
 
-#: ucp.i18n.php:28
+#: ucp.i18n.php:38
 msgid "Port to bind to. Default is 8001"
 msgstr ""
 
-#: ucp.i18n.php:34
+#: ucp.i18n.php:44
 msgid "Port to bind to. Default is 8003"
 msgstr ""
 
@@ -704,9 +720,13 @@ msgstr ""
 msgid "Processing..."
 msgstr "Processando…"
 
-#: htdocs/modules/Home/Home.class.php:53
+#: htdocs/modules/Home/Home.class.php:53 ucp.i18n.php:64
 msgid "RSS Feeds"
 msgstr "Feeds RSS"
+
+#: ucp.i18n.php:66
+msgid "RSS Feeds that are displayed in UCP. This overrides "
+msgstr "Feeds RSS que são mostrados no PCU. Isto substitui "
 
 #: Api/Rest/Dashboard.php:12
 msgid "Read UCP Dashboard Information"
@@ -773,11 +793,11 @@ msgstr "Envie-me Um Link de Redefinição de Senha"
 msgid "Sent at %s"
 msgstr "Enviado para %s"
 
-#: ucp.i18n.php:42
+#: ucp.i18n.php:52
 msgid "Sets the path to the HTTPS private key. This is required if "
 msgstr ""
 
-#: ucp.i18n.php:38
+#: ucp.i18n.php:48
 msgid "Sets the path to the HTTPS server certificate. This is required if "
 msgstr ""
 
@@ -860,6 +880,10 @@ msgstr ""
 msgid "Stopping old running processes..."
 msgstr ""
 
+#: ucp.i18n.php:14
+msgid "Styling and Logos"
+msgstr "Estilo e Logos"
+
 #: htdocs/modules/Settings/assets/js/global.js:100
 #: htdocs/modules/Settings/assets/js/global.js:113
 msgid "Success!"
@@ -923,6 +947,14 @@ msgid ""
 "If left blank this will use the group/system format. For more formats please "
 "see: %s"
 msgstr ""
+
+#: ucp.i18n.php:70
+msgid ""
+"The number of days a session token will be valid for. Clear this setting if "
+"you want tokens to last forever (Not Recommended)"
+msgstr ""
+"O número de dias em que um token de sessão será válido. Limpe esta definição "
+"se pretender que os tokens durem para sempre (Não recomendado)"
 
 #: htdocs/modules/Settings/views/settings.php:29
 #: htdocs/modules/Settings/views/settings.php:34
@@ -1066,9 +1098,21 @@ msgstr ""
 msgid "UCP Node is not running"
 msgstr ""
 
-#: ucp.i18n.php:14
+#: ucp.i18n.php:24
 msgid "UCP NodeJS Server"
 msgstr ""
+
+#: ucp.i18n.php:68
+msgid "UCP Session Timeout"
+msgstr "Tempo limite da sessão do PCU"
+
+#: ucp.i18n.php:20
+msgid ""
+"UCP icons folder. This should never be changed except for very advanced "
+"layout changes"
+msgstr ""
+"Pasta de ícones do PCU. Isto não deve ser nunca alterado exceto para "
+"alterações de layout muito avançadas"
 
 #: htdocs/index.php:23
 msgid "UCP is currently disabled. Please talk to your system Administrator"
@@ -1134,7 +1178,8 @@ msgid "User"
 msgstr ""
 
 #: htdocs/views/forgot.php:5 htdocs/views/header.php:4 htdocs/views/login.php:5
-#: ucp.i18n.php:4 htdocs/modules/Widgets/assets/js/global.js:47
+#: ucp.i18n.php:4 /usr/src/freepbx/ucp/ucp.i18n.php:56
+#: htdocs/modules/Widgets/assets/js/global.js:47
 msgid "User Control Panel"
 msgstr "Painel de Controle do Usuário"
 
@@ -1168,6 +1213,14 @@ msgstr "Configurações do Usuário"
 msgid "Username"
 msgstr "Usuário"
 
+#: ucp.i18n.php:12
+msgid "View: UCP dashfootercontent.php"
+msgstr "Ver: dashfootercontent.php PCU"
+
+#: ucp.i18n.php:18
+msgid "View: UCP icons"
+msgstr "Ver: Ícones PCU"
+
 #: htdocs/views/templates/phone.php:73
 msgid "WXYZ"
 msgstr "WXYZ"
@@ -1195,13 +1248,13 @@ msgid ""
 "When you are finished simply hit 'Create Dashboard' to create your dashboard"
 msgstr ""
 
-#: ucp.i18n.php:20
+#: ucp.i18n.php:30
 msgid ""
 "Whether to enable TLS for the backend server for UCP which allows "
 "instantaneous updates to the interface"
 msgstr ""
 
-#: ucp.i18n.php:16
+#: ucp.i18n.php:26
 msgid ""
 "Whether to enable the backend server for UCP which allows instantaneous "
 "updates to the interface"
@@ -1388,6 +1441,14 @@ msgid ""
 "bar"
 msgstr ""
 
+#: ucp.i18n.php:16
+msgid ""
+"dashfootercontent.php view. This should never be changed except for very "
+"advanced layout changes"
+msgstr ""
+"visualização dashfootercontent.php. Isto não deve nunca ser mudado exceto "
+"para mudanças de layout muito avançadas"
+
 #: htdocs/assets/js/lodash-4.17.2.js:15638
 #: htdocs/assets/js/lodash-4.17.2.js:15642
 msgid "fred"
@@ -1415,54 +1476,6 @@ msgstr ""
 #: htdocs/views/login.php:25
 msgid "or"
 msgstr "ou"
-
-#~ msgid "Allow Password Changes"
-#~ msgstr "Permitir Mudar Senha"
-
-#~ msgid "Allow Username Changes"
-#~ msgstr "Permitir Mudar Usuário"
-
-#~ msgid "Allow users to change their username in UCP"
-#~ msgstr "Permitir que os usuários alterem seu nome de usuário no PCU"
-
-#~ msgid "Allow users to change thier password in UCP"
-#~ msgstr "Permitir usuários mudarem suas senhas no PCU"
-
-#~ msgid "RSS Feeds that are displayed in UCP. This overrides "
-#~ msgstr "Feeds RSS que são mostrados no PCU. Isto substitui "
-
-#~ msgid "Styling and Logos"
-#~ msgstr "Estilo e Logos"
-
-#~ msgid ""
-#~ "The number of days a session token will be valid for. Clear this setting "
-#~ "if you want tokens to last forever (Not Recommended)"
-#~ msgstr ""
-#~ "O número de dias em que um token de sessão será válido. Limpe esta "
-#~ "definição se pretender que os tokens durem para sempre (Não recomendado)"
-
-#~ msgid "UCP Session Timeout"
-#~ msgstr "Tempo limite da sessão do PCU"
-
-#~ msgid ""
-#~ "UCP icons folder. This should never be changed except for very advanced "
-#~ "layout changes"
-#~ msgstr ""
-#~ "Pasta de ícones do PCU. Isto não deve ser nunca alterado exceto para "
-#~ "alterações de layout muito avançadas"
-
-#~ msgid "View: UCP dashfootercontent.php"
-#~ msgstr "Ver: dashfootercontent.php PCU"
-
-#~ msgid "View: UCP icons"
-#~ msgstr "Ver: Ícones PCU"
-
-#~ msgid ""
-#~ "dashfootercontent.php view. This should never be changed except for very "
-#~ "advanced layout changes"
-#~ msgstr ""
-#~ "visualização dashfootercontent.php. Isto não deve nunca ser mudado exceto "
-#~ "para mudanças de layout muito avançadas"
 
 #~ msgid " + field + "
 #~ msgstr " + campo + "
