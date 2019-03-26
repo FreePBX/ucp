@@ -2,7 +2,7 @@
 	<rawname>ucp</rawname>
 	<name>User Control Panel</name>
 	<repo>standard</repo>
-	<version>14.0.3.1</version>
+	<version>14.0.3.2</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>AGPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/agpl-3.0.txt</licenselink>
@@ -10,6 +10,7 @@
 		The user control panel is a way for users to control call handling and personal settings from a web browser.
 	</description>
 	<changelog>
+		*14.0.3.2* FREEEPBX-19390 
 		*14.0.3.1* Depend on dashboard
 		*14.0.3* Change RSS engine
 		*14.0.2.10* trigger post-body.widgets even if there are no dashboards
