@@ -346,6 +346,9 @@ class User {
 		$result = $this->UCP->FreePBX->Ucp->checkCredentials($username, $password);
 		if(!empty($result) && $this->_allowed($result)) {
 			$this->uid = $result;
+			if(function_exists('freepbx_log_security')) {
+				freepbx_log_security('Authentication successfull for '.(!empty($username) ? $username : 'unknown').' from '.$_SERVER['REMOTE_ADDR']);
+			}
 			return true;
 		}
 		if(function_exists('freepbx_log_security')) {
