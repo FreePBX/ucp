@@ -38,6 +38,22 @@ class Ucp implements \BMO {
 		$this->nodeloc = __DIR__."/node";
 	}
 
+
+	/**
+	 * get_OS : Retruns the name of the operating system.
+	 * 
+	 * @return string
+	 */
+	public function get_OS(){
+		$os = php_uname();
+		preg_match('/\bubuntu\b|\bdebian\b|\bcentos\b|\bfreepbx+[0-9]{2}\b/', strtolower($os), $matches, PREG_OFFSET_CAPTURE, 0);
+		if(!empty($matches[0][0])){
+			return trim($matches[0][0]); 
+		}
+
+		return "unknown";
+	}
+
 	public function install() {
 		$settings = array(
 			'NODEJSENABLED' => true,
@@ -92,12 +108,28 @@ class Ucp implements \BMO {
 			return false;
 		}
 
-		$output = exec("icu-config --version"); //v4.2.1
-		$output = trim($output);
-		if(empty($output)) {
-			out(_("icu is not installed. You need to run: yum install icu libicu-devel"));
-			return false;
+		$os	= trim($this->get_OS());
+		out(_("System")." : ".$os);
+		switch ($os) {
+			case "ubuntu":
+			case "debian":
+				$output = exec("pkg-config --modversion icu-i18n", $out, $retval);
+				$output = trim($output);
+						if(empty($output)) {
+								out(_("icu, pkg-config or pkgconf is not installed. You need to run: apt-get install icu libicu-devel pkg-config pkgconf"));
+								return false;
+						}
+				break;
+			case "centos":
+			default:				
+				$output = exec("icu-config --version"); //v4.2.1
+				$output = trim($output);
+				if(empty($output)) {
+						out(_("icu is not installed. You need to run: yum install icu libicu-devel"));
+						return false;
+				}
 		}
+
 		if(version_compare($output,$this->icuver,"<")) {
 			out(sprintf(_("ICU version is: %s requirement is %s"),$output,$this->icuver));
 			return false;
