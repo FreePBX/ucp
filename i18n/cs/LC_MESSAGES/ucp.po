@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-03-06 18:10-0500\n"
+"POT-Creation-Date: 2019-05-06 22:05+0530\n"
 "PO-Revision-Date: 2018-08-08 11:42+0000\n"
 "Last-Translator: Petr Varvarovsky <petrv@atlantis.cz>\n"
 "Language-Team: Czech <http://*/projects/freepbx/ucp/cs/>\n"
@@ -207,7 +207,7 @@ msgstr "Povolit nastavení pobočky"
 msgid "Are you sure you want to delete this dashboard?"
 msgstr "Opravdu chcete tento ovládací panel smazat?"
 
-#: Ucp.class.php:1206
+#: Ucp.class.php:1238
 #, php-format
 msgid ""
 "Asterisk home dir (%s) doesn't exist, and, ASTSPOOLDIR doesn't exist. "
@@ -345,11 +345,11 @@ msgstr "Smazat obrázek"
 msgid "Delete a Dashboard"
 msgstr "Smazat ovládací panel"
 
-#: Ucp.class.php:1065
+#: Ucp.class.php:1097
 msgid "Deleted Session"
 msgstr "Odstraněná relace"
 
-#: Ucp.class.php:373 Ucp.class.php:908
+#: Ucp.class.php:405 Ucp.class.php:940
 msgid "Deleted User Session"
 msgstr "Odstraněná relace uživatele"
 
@@ -361,13 +361,13 @@ msgstr "Zakázat"
 msgid "Display Name"
 msgstr "Zobrazovaný název"
 
-#: Ucp.class.php:1373
+#: Ucp.class.php:1405
 #, php-format
 msgid "Don't know what %s is"
 msgstr "Nevím, co je %s"
 
-#: Ucp.class.php:254 Ucp.class.php:280 Ucp.class.php:1159 Ucp.class.php:1163
-#: Ucp.class.php:1167 Ucp.class.php:1171
+#: Ucp.class.php:286 Ucp.class.php:312 Ucp.class.php:1191 Ucp.class.php:1195
+#: Ucp.class.php:1199 Ucp.class.php:1203
 msgid "Done"
 msgstr "Hotovo"
 
@@ -441,16 +441,16 @@ msgid "Failed to install %s due to the following conflicting module(s): %s"
 msgstr ""
 "Instalace %s se nezdařila z důvodu následujících konfliktních modulů: %s"
 
-#: Ucp.class.php:1283
+#: Ucp.class.php:1315
 #, php-format
 msgid "Failed to run: '%s'"
 msgstr "Nepodařilo se spustit: '%s'"
 
-#: Ucp.class.php:132
+#: Ucp.class.php:164
 msgid "Failed updating libraries!"
 msgstr "Nepodařilo se aktualizovat knihovny!"
 
-#: Ucp.class.php:262
+#: Ucp.class.php:294
 msgid "Failed!"
 msgstr "Neúspěšně!"
 
@@ -458,7 +458,7 @@ msgstr "Neúspěšně!"
 msgid "Fax"
 msgstr "Fax"
 
-#: Ucp.class.php:135
+#: Ucp.class.php:167
 msgid "Finished updating libraries!"
 msgstr "Aktualizace knihoven dokončeny!"
 
@@ -482,19 +482,19 @@ msgstr "GHI"
 msgid "General"
 msgstr "Obecné"
 
-#: Ucp.class.php:1169
+#: Ucp.class.php:1201
 msgid "Generating Main CSS..."
 msgstr "Generování hlavního CSS..."
 
-#: Ucp.class.php:1165
+#: Ucp.class.php:1197
 msgid "Generating Main Scripts..."
 msgstr "Generování hlavních skriptů..."
 
-#: Ucp.class.php:1161
+#: Ucp.class.php:1193
 msgid "Generating Module CSS..."
 msgstr "Generování CSS modulu..."
 
-#: Ucp.class.php:1157
+#: Ucp.class.php:1189
 msgid "Generating Module Scripts..."
 msgstr "Generování skriptů modulů..."
 
@@ -510,7 +510,7 @@ msgstr "Domů"
 msgid "Home Phone"
 msgstr "Telefon domů"
 
-#: Ucp.class.php:110 Ucp.class.php:117
+#: Ucp.class.php:142 Ucp.class.php:149
 #, php-format
 msgid "Home directory [%s] is not writable"
 msgstr "Do domovského adresáře [%s] nelze zapisovat"
@@ -521,7 +521,7 @@ msgid ""
 msgstr ""
 "Jak byste chtěli, aby se vaše jméno zobrazovalo v UCP a manažeru kontaktů"
 
-#: Ucp.class.php:102
+#: Ucp.class.php:134
 #, php-format
 msgid "ICU version is: %s requirement is %s"
 msgstr "Verze ICU je: %s Požadavek je %s"
@@ -530,7 +530,7 @@ msgstr "Verze ICU je: %s Požadavek je %s"
 msgid "Inherit"
 msgstr "Zdědit"
 
-#: Ucp.class.php:122
+#: Ucp.class.php:154
 msgid "Installing/Updating Required Libraries. This may take a while..."
 msgstr "Instalace / aktualizace požadovaných knihoven. Může to chvíli trvat..."
 
@@ -623,7 +623,7 @@ msgstr ""
 "Více navigačních panelů lze uspořádat pomocí kurzoru myši. Klikněte a "
 "přetáhněte ovládací desku v pořadí, které chcete"
 
-#: Ucp.class.php:91
+#: Ucp.class.php:107
 #, php-format
 msgid ""
 "NPM version is: %s requirement is %s. Run 'yum upgrade nodejs' from the CLI "
@@ -640,15 +640,15 @@ msgstr "Pojmenujte svůj ovládací panel"
 msgid "No"
 msgstr "Ne"
 
-#: Ucp.class.php:87
+#: Ucp.class.php:103
 msgid "Node Package Manager is not installed"
 msgstr "Node Package Manager není nainstalován"
 
-#: Ucp.class.php:75
+#: Ucp.class.php:91
 msgid "Node is not installed"
 msgstr "Nod není nainstalován"
 
-#: Ucp.class.php:79
+#: Ucp.class.php:95
 #, php-format
 msgid ""
 "Node version is: %s requirement is %s. Run 'yum upgrade nodejs' from the CLI "
@@ -729,7 +729,7 @@ msgstr "PQRS"
 msgid "Password"
 msgstr "Heslo"
 
-#: Ucp.class.php:456
+#: Ucp.class.php:488
 #, php-format
 msgid "Password Reset Link (Valid Until: %s): %s"
 msgstr "Odkaz na obnovení hesla (platný do: %s): %s"
@@ -767,7 +767,7 @@ msgstr "Kanály RSS, které jsou zobrazeny v UCP. To nahrazuje "
 msgid "Read UCP Dashboard Information"
 msgstr ""
 
-#: Ucp.class.php:268
+#: Ucp.class.php:300
 msgid "Refreshing all UCP Assets, this could take a while..."
 msgstr "Obnovení všech zdrojů UCP. toto může chvíli trvat..."
 
@@ -788,7 +788,7 @@ msgstr "Resetování hesla"
 msgid "Restart Tour"
 msgstr "Restartovat prohlížení"
 
-#: Ucp.class.php:1223
+#: Ucp.class.php:1255
 #, php-format
 msgid "Running (Uptime: %s)"
 msgstr "Aktivní (V provozu: %s)"
@@ -890,33 +890,33 @@ msgstr "Chyba při získání nastavení z widgetu"
 msgid "Something went wrong removing the dashboard"
 msgstr "Napodařilo se odstranit ovládací panel"
 
-#: Ucp.class.php:1278
+#: Ucp.class.php:1310
 #, php-format
 msgid "Started UCP Node Server. PID is %s"
 msgstr "Spuštěn UCP Node Server. PID je %s"
 
-#: Ucp.class.php:264
+#: Ucp.class.php:296
 #, php-format
 msgid "Started with PID %s!"
 msgstr "Spuštěno s PID %s!"
 
-#: Ucp.class.php:1249
+#: Ucp.class.php:1281
 msgid "Starting UCP Node Server..."
 msgstr "Spouštění UCP Node serveru..."
 
-#: Ucp.class.php:259
+#: Ucp.class.php:291
 msgid "Starting new UCP Node Process..."
 msgstr "Spouštění nového UCP Node procesu..."
 
-#: Ucp.class.php:1350
+#: Ucp.class.php:1382
 msgid "Stopped UCP Node Server"
 msgstr "Zastaven UCP Node server"
 
-#: Ucp.class.php:1319
+#: Ucp.class.php:1351
 msgid "Stopping UCP Node Server"
 msgstr "Zastavování UCP Node serveru"
 
-#: Ucp.class.php:252 Ucp.class.php:278
+#: Ucp.class.php:284 Ucp.class.php:310
 msgid "Stopping old running processes..."
 msgstr "Zastavování starých běžících procesů..."
 
@@ -928,6 +928,10 @@ msgstr "Styl a loga"
 #: htdocs/modules/Settings/assets/js/global.js:113
 msgid "Success!"
 msgstr "Podařilo se!"
+
+#: Ucp.class.php:112
+msgid "System"
+msgstr ""
 
 #: htdocs/views/templates/phone.php:69
 msgid "TUV"
@@ -1138,25 +1142,25 @@ msgstr "UCP"
 msgid "UCP Admin"
 msgstr "Administrator UCP"
 
-#: Ucp.class.php:1214
+#: Ucp.class.php:1246
 msgid "UCP Daemon"
 msgstr "UCP Daemon"
 
-#: Ucp.class.php:1354
+#: Ucp.class.php:1386
 #, php-format
 msgid "UCP Node Server Failed: %s"
 msgstr "Chyba UCP Node serveru: %s"
 
-#: Ucp.class.php:1243
+#: Ucp.class.php:1275
 #, php-format
 msgid "UCP Node Server has already been running on PID %s for %s"
 msgstr "Server UCP Node již běží na PID %s pro %s"
 
-#: Ucp.class.php:1312
+#: Ucp.class.php:1344
 msgid "UCP Node Server is not running"
 msgstr "UCP Node server neběží"
 
-#: Ucp.class.php:1225
+#: Ucp.class.php:1257
 msgid "UCP Node is not running"
 msgstr "UCP Node neběží"
 
@@ -1202,7 +1206,7 @@ msgstr ""
 msgid "Unable to send Password Reset Email"
 msgstr "Nelze odeslat e-mail s obnovením hesla"
 
-#: Ucp.class.php:1216
+#: Ucp.class.php:1248
 msgid "Unknown"
 msgstr "Neznámý"
 
@@ -1253,7 +1257,7 @@ msgstr "Nastavení uživatelského portálu"
 msgid "User Control Panel is released as %s or newer"
 msgstr "Uživatelský portál je publikovaný jako %s nebo vyšší"
 
-#: Ucp.class.php:452
+#: Ucp.class.php:484
 #, php-format
 msgid "User Control Panel: %s"
 msgstr "Uživatelský portál: %s"
@@ -1262,7 +1266,7 @@ msgstr "Uživatelský portál: %s"
 msgid "User Details"
 msgstr "Podrobnosti o uživateli"
 
-#: Ucp.class.php:315 Ucp.class.php:344
+#: Ucp.class.php:347 Ucp.class.php:376
 msgid "User Primary Extension"
 msgstr "Hlavní linka uživatele"
 
@@ -1531,7 +1535,7 @@ msgstr ""
 msgid "fred"
 msgstr "fred"
 
-#: Ucp.class.php:68
+#: Ucp.class.php:84
 msgid "gcc-c++ is not installed"
 msgstr "Není nainstalován gcc-c++"
 
@@ -1546,9 +1550,15 @@ msgstr ""
 "cesty a adresáře souborů jsou správně uzamčené. Další informace naleznete na "
 "adrese: %s"
 
-#: Ucp.class.php:98
+#: Ucp.class.php:128
 msgid "icu is not installed. You need to run: yum install icu libicu-devel"
 msgstr "Není nainstalován icu. Musíte spustit: yum install icu libicu-devel"
+
+#: Ucp.class.php:119
+msgid ""
+"icu, pkg-config or pkgconf is not installed. You need to run: apt-get "
+"install icu libicu-devel pkg-config pkgconf"
+msgstr ""
 
 #: htdocs/views/login.php:25
 msgid "or"

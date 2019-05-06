@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-03-06 18:10-0500\n"
+"POT-Creation-Date: 2019-05-06 22:05+0530\n"
 "PO-Revision-Date: 2017-03-08 21:13+0200\n"
 "Last-Translator: Kingvoice <suporte@kingvoice.com.br>\n"
 "Language-Team: Portuguese (Brazil) <http://weblate.freepbx.org/projects/"
@@ -185,7 +185,7 @@ msgstr "Configurações de Ramais Permitidos"
 msgid "Are you sure you want to delete this dashboard?"
 msgstr ""
 
-#: Ucp.class.php:1206
+#: Ucp.class.php:1238
 #, php-format
 msgid ""
 "Asterisk home dir (%s) doesn't exist, and, ASTSPOOLDIR doesn't exist. "
@@ -317,11 +317,11 @@ msgstr "Apagar Imagem"
 msgid "Delete a Dashboard"
 msgstr ""
 
-#: Ucp.class.php:1065
+#: Ucp.class.php:1097
 msgid "Deleted Session"
 msgstr "Sessão Apagada"
 
-#: Ucp.class.php:373 Ucp.class.php:908
+#: Ucp.class.php:405 Ucp.class.php:940
 msgid "Deleted User Session"
 msgstr "Sessão do Usuário Apagada"
 
@@ -333,13 +333,13 @@ msgstr ""
 msgid "Display Name"
 msgstr "Nome de Exibição"
 
-#: Ucp.class.php:1373
+#: Ucp.class.php:1405
 #, php-format
 msgid "Don't know what %s is"
 msgstr ""
 
-#: Ucp.class.php:254 Ucp.class.php:280 Ucp.class.php:1159 Ucp.class.php:1163
-#: Ucp.class.php:1167 Ucp.class.php:1171
+#: Ucp.class.php:286 Ucp.class.php:312 Ucp.class.php:1191 Ucp.class.php:1195
+#: Ucp.class.php:1199 Ucp.class.php:1203
 msgid "Done"
 msgstr "Concluído"
 
@@ -411,16 +411,16 @@ msgid "Failed to install %s due to the following conflicting module(s): %s"
 msgstr ""
 "Falha ao instalar %s devido ao(s) seguinte(s) módulo(s) em conflito: %s"
 
-#: Ucp.class.php:1283
+#: Ucp.class.php:1315
 #, php-format
 msgid "Failed to run: '%s'"
 msgstr ""
 
-#: Ucp.class.php:132
+#: Ucp.class.php:164
 msgid "Failed updating libraries!"
 msgstr ""
 
-#: Ucp.class.php:262
+#: Ucp.class.php:294
 msgid "Failed!"
 msgstr ""
 
@@ -428,7 +428,7 @@ msgstr ""
 msgid "Fax"
 msgstr "Fax"
 
-#: Ucp.class.php:135
+#: Ucp.class.php:167
 msgid "Finished updating libraries!"
 msgstr ""
 
@@ -452,19 +452,19 @@ msgstr "GHI"
 msgid "General"
 msgstr "Geral"
 
-#: Ucp.class.php:1169
+#: Ucp.class.php:1201
 msgid "Generating Main CSS..."
 msgstr "Gerando CSS Principal..."
 
-#: Ucp.class.php:1165
+#: Ucp.class.php:1197
 msgid "Generating Main Scripts..."
 msgstr "Gerando Scripts Principais…"
 
-#: Ucp.class.php:1161
+#: Ucp.class.php:1193
 msgid "Generating Module CSS..."
 msgstr "Gerando CSS de Módulo…"
 
-#: Ucp.class.php:1157
+#: Ucp.class.php:1189
 msgid "Generating Module Scripts..."
 msgstr "Gerando Scripts de Módulos…"
 
@@ -480,7 +480,7 @@ msgstr "Início"
 msgid "Home Phone"
 msgstr "Fone Casa"
 
-#: Ucp.class.php:110 Ucp.class.php:117
+#: Ucp.class.php:142 Ucp.class.php:149
 #, php-format
 msgid "Home directory [%s] is not writable"
 msgstr ""
@@ -492,7 +492,7 @@ msgstr ""
 "Como você deseja que seu nome seja mostrado dentro do PCU e Gerenciador de "
 "Contato"
 
-#: Ucp.class.php:102
+#: Ucp.class.php:134
 #, php-format
 msgid "ICU version is: %s requirement is %s"
 msgstr ""
@@ -501,7 +501,7 @@ msgstr ""
 msgid "Inherit"
 msgstr "Herdar"
 
-#: Ucp.class.php:122
+#: Ucp.class.php:154
 msgid "Installing/Updating Required Libraries. This may take a while..."
 msgstr ""
 
@@ -592,7 +592,7 @@ msgid ""
 "you want"
 msgstr ""
 
-#: Ucp.class.php:91
+#: Ucp.class.php:107
 #, php-format
 msgid ""
 "NPM version is: %s requirement is %s. Run 'yum upgrade nodejs' from the CLI "
@@ -607,15 +607,15 @@ msgstr ""
 msgid "No"
 msgstr "Não"
 
-#: Ucp.class.php:87
+#: Ucp.class.php:103
 msgid "Node Package Manager is not installed"
 msgstr ""
 
-#: Ucp.class.php:75
+#: Ucp.class.php:91
 msgid "Node is not installed"
 msgstr ""
 
-#: Ucp.class.php:79
+#: Ucp.class.php:95
 #, php-format
 msgid ""
 "Node version is: %s requirement is %s. Run 'yum upgrade nodejs' from the CLI "
@@ -694,7 +694,7 @@ msgstr "PQRS"
 msgid "Password"
 msgstr "Senha"
 
-#: Ucp.class.php:456
+#: Ucp.class.php:488
 #, php-format
 msgid "Password Reset Link (Valid Until: %s): %s"
 msgstr "Link de Redefinição de Senha (Válido Até: %s): %s"
@@ -732,7 +732,7 @@ msgstr "Feeds RSS que são mostrados no PCU. Isto substitui "
 msgid "Read UCP Dashboard Information"
 msgstr ""
 
-#: Ucp.class.php:268
+#: Ucp.class.php:300
 msgid "Refreshing all UCP Assets, this could take a while..."
 msgstr "Atualizando todos os recursos do PCU, isso pode levar algum tempo…"
 
@@ -753,7 +753,7 @@ msgstr "Redefinir Senha"
 msgid "Restart Tour"
 msgstr ""
 
-#: Ucp.class.php:1223
+#: Ucp.class.php:1255
 #, php-format
 msgid "Running (Uptime: %s)"
 msgstr ""
@@ -850,33 +850,33 @@ msgstr ""
 msgid "Something went wrong removing the dashboard"
 msgstr ""
 
-#: Ucp.class.php:1278
+#: Ucp.class.php:1310
 #, php-format
 msgid "Started UCP Node Server. PID is %s"
 msgstr ""
 
-#: Ucp.class.php:264
+#: Ucp.class.php:296
 #, php-format
 msgid "Started with PID %s!"
 msgstr ""
 
-#: Ucp.class.php:1249
+#: Ucp.class.php:1281
 msgid "Starting UCP Node Server..."
 msgstr ""
 
-#: Ucp.class.php:259
+#: Ucp.class.php:291
 msgid "Starting new UCP Node Process..."
 msgstr ""
 
-#: Ucp.class.php:1350
+#: Ucp.class.php:1382
 msgid "Stopped UCP Node Server"
 msgstr ""
 
-#: Ucp.class.php:1319
+#: Ucp.class.php:1351
 msgid "Stopping UCP Node Server"
 msgstr ""
 
-#: Ucp.class.php:252 Ucp.class.php:278
+#: Ucp.class.php:284 Ucp.class.php:310
 msgid "Stopping old running processes..."
 msgstr ""
 
@@ -887,6 +887,10 @@ msgstr "Estilo e Logos"
 #: htdocs/modules/Settings/assets/js/global.js:100
 #: htdocs/modules/Settings/assets/js/global.js:113
 msgid "Success!"
+msgstr ""
+
+#: Ucp.class.php:112
+msgid "System"
 msgstr ""
 
 #: htdocs/views/templates/phone.php:69
@@ -1076,25 +1080,25 @@ msgstr "PCU"
 msgid "UCP Admin"
 msgstr "Admin. PCU"
 
-#: Ucp.class.php:1214
+#: Ucp.class.php:1246
 msgid "UCP Daemon"
 msgstr ""
 
-#: Ucp.class.php:1354
+#: Ucp.class.php:1386
 #, php-format
 msgid "UCP Node Server Failed: %s"
 msgstr ""
 
-#: Ucp.class.php:1243
+#: Ucp.class.php:1275
 #, php-format
 msgid "UCP Node Server has already been running on PID %s for %s"
 msgstr ""
 
-#: Ucp.class.php:1312
+#: Ucp.class.php:1344
 msgid "UCP Node Server is not running"
 msgstr ""
 
-#: Ucp.class.php:1225
+#: Ucp.class.php:1257
 msgid "UCP Node is not running"
 msgstr ""
 
@@ -1141,7 +1145,7 @@ msgstr ""
 msgid "Unable to send Password Reset Email"
 msgstr "Não é possível enviar o Email de Redefinição de Senha"
 
-#: Ucp.class.php:1216
+#: Ucp.class.php:1248
 msgid "Unknown"
 msgstr ""
 
@@ -1192,7 +1196,7 @@ msgstr "Configurações Painel de Controle do Usuário"
 msgid "User Control Panel is released as %s or newer"
 msgstr "Painel de Controle do Usuário está liberado como %s ou mais novo"
 
-#: Ucp.class.php:452
+#: Ucp.class.php:484
 #, php-format
 msgid "User Control Panel: %s"
 msgstr "Painel de Controle do Usuário: %s"
@@ -1201,7 +1205,7 @@ msgstr "Painel de Controle do Usuário: %s"
 msgid "User Details"
 msgstr "Detalhes do Usuário"
 
-#: Ucp.class.php:315 Ucp.class.php:344
+#: Ucp.class.php:347 Ucp.class.php:376
 msgid "User Primary Extension"
 msgstr "Ramal Principal do Usuário"
 
@@ -1454,7 +1458,7 @@ msgstr ""
 msgid "fred"
 msgstr ""
 
-#: Ucp.class.php:68
+#: Ucp.class.php:84
 msgid "gcc-c++ is not installed"
 msgstr ""
 
@@ -1469,8 +1473,14 @@ msgstr ""
 "assegure-se os caminhos dos arquivos e diretórios estão bloqueados "
 "apropriadamente. Para mais informações veja: %s"
 
-#: Ucp.class.php:98
+#: Ucp.class.php:128
 msgid "icu is not installed. You need to run: yum install icu libicu-devel"
+msgstr ""
+
+#: Ucp.class.php:119
+msgid ""
+"icu, pkg-config or pkgconf is not installed. You need to run: apt-get "
+"install icu libicu-devel pkg-config pkgconf"
 msgstr ""
 
 #: htdocs/views/login.php:25
