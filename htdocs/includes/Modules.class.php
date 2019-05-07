@@ -168,6 +168,7 @@ class Modules extends Module_Helpers {
 	 * @param bool $force Whether to forcefully regenerate all cache even if we dont need to do so
 	 */
 	public function getGlobalScripts($force = false,$packaged=true) {
+		set_time_limit(0);
 		$cache = dirname(__DIR__).'/assets/js/compiled/modules';
 		if(!file_exists($cache) && !mkdir($cache,0777,true)) {
 			die('Can Not Create Cache Folder at '.$cache);
@@ -216,6 +217,7 @@ class Modules extends Module_Helpers {
 	 * @param bool $force Whether to forcefully regenerate all CSS from LESS
 	 */
 	public function getGlobalLess($force = false) {
+		set_time_limit(0);
 		$cache = dirname(__DIR__).'/assets/css/compiled/modules';
 		if(!file_exists($cache) && !mkdir($cache,0777,true)) {
 			die('Can Not Create Cache Folder at '.$cache);

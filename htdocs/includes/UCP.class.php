@@ -163,6 +163,7 @@ class UCP extends UCP_Helpers {
 	 * @param bool $force Whether to forcefully regenerate the minified JS
 	 */
 	public function getScripts($force = false,$packaged=false) {
+		set_time_limit(0);
 		$cache = dirname(__DIR__).'/assets/js/compiled/main';
 		if(!file_exists($cache) && !mkdir($cache,0777,true)) {
 			die('Can Not Create Cache Folder at '.$cache);
@@ -264,6 +265,7 @@ class UCP extends UCP_Helpers {
 	 * @param bool $force Whether to forcefully regenerate the minified CSS
 	 */
 	public function getCss($force = false, $packaged=false) {
+		set_time_limit(0);
 		$cache = dirname(__DIR__).'/assets/css/compiled/main';
 		//TODO: needs to be an array of directories that need to be created on install
 		if(!file_exists($cache) && !mkdir($cache,0777,true)) {
