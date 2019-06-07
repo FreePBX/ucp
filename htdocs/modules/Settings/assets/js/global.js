@@ -160,24 +160,6 @@ var SettingsC = UCPMC.extend({
 			}
 		});
 
-		$("#ucp-settings input[name=username]").blur(function() {
-			var parent = $(this).parents(".form-group"), green = "rgba(60, 118, 61, 0.11)", red = 'rgba(169, 68, 66, 0.11)', $this = this;
-			parent.removeClass("has-success has-error");
-			$(this).css("background-color","");
-			//check username input
-			if($(this).val() != $(this).data("prevusername")) {
-				$.post( "ajax.php?module=Settings&command=settings", { key: "usernamecheck", value: $(this).val() }, function( data ) {
-					if(data.status) {
-						$this.showMessage(_("Success!"),"success");
-						UCP.showConfirm(_("UCP needs to reload, ok?"), 'warning', function() {
-							window.location.reload();
-						});
-					} else {
-						$this.showMessage(_("There was an error"),"danger");
-					}
-				});
-			}
-		});
 		$("#update-pwd").click(function(e) {
 			e.preventDefault();
 			e.stopPropagation();
@@ -201,10 +183,12 @@ var SettingsC = UCPMC.extend({
 				$this.showMessage(_("Password has not changed!"));
 			}
 		});
+
 		$("#username").blur(function() {
-			if($(this).val() != $(this).data("prevusername")) {
+			new_user = $(this).val();
+			if($(this).val() != $(this).data("prevusername")) {				
 				UCP.showConfirm(_("Are you sure you wish to change your username? UCP will reload after"), 'warning', function() {
-					$.post( "ajax.php?module=Settings&command=settings", { key: "username", value: $(this).val() }, function( data ) {
+					$.post( "ajax.php?module=Settings&command=settings", { key: "username", value: new_user}, function( data ) {
 						if(data.status) {
 							$this.showMessage(_("Username has been changed, reloading"),"success");
 							window.location.reload();
