@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-05-06 22:05+0530\n"
+"POT-Creation-Date: 2019-06-10 09:05+0530\n"
 "PO-Revision-Date: 2017-03-08 21:13+0200\n"
 "Last-Translator: Kingvoice <suporte@kingvoice.com.br>\n"
 "Language-Team: Portuguese (Brazil) <http://weblate.freepbx.org/projects/"
@@ -762,7 +762,7 @@ msgstr ""
 msgid "Save your dashboard"
 msgstr ""
 
-#: htdocs/modules/Settings/assets/js/global.js:238
+#: htdocs/modules/Settings/assets/js/global.js:222
 msgid "Saved!"
 msgstr "Salvo!"
 
@@ -1149,7 +1149,7 @@ msgstr "Não é possível enviar o Email de Redefinição de Senha"
 msgid "Unknown"
 msgstr ""
 
-#: htdocs/modules/Settings/assets/js/global.js:271
+#: htdocs/modules/Settings/assets/js/global.js:255
 msgid "Unsupported file type"
 msgstr "Tipo de arquivo não suportado"
 
@@ -1182,7 +1182,7 @@ msgid "User"
 msgstr ""
 
 #: htdocs/views/forgot.php:5 htdocs/views/header.php:4 htdocs/views/login.php:5
-#: ucp.i18n.php:4 /usr/src/freepbx/ucp/ucp.i18n.php:56
+#: ucp.i18n.php:4 /dev/shm/freepbx/ucp/ucp.i18n.php:56
 #: htdocs/modules/Widgets/assets/js/global.js:47
 msgid "User Control Panel"
 msgstr "Painel de Controle do Usuário"
