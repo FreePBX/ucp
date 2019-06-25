@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-06-10 09:03+0530\n"
-"PO-Revision-Date: 2018-10-25 08:00+0000\n"
+"PO-Revision-Date: 2019-06-25 15:01+0000\n"
 "Last-Translator: Bastian Mertgen <b.mertgen@bastian-mertgen.de>\n"
 "Language-Team: German <http://*/projects/freepbx/ucp/de/>\n"
 "Language: de_DE\n"
@@ -936,7 +936,7 @@ msgstr "Erfolgreich!"
 
 #: Ucp.class.php:112
 msgid "System"
-msgstr ""
+msgstr "System"
 
 #: htdocs/views/templates/phone.php:69
 msgid "TUV"
@@ -1576,6 +1576,8 @@ msgid ""
 "icu, pkg-config or pkgconf is not installed. You need to run: apt-get "
 "install icu libicu-devel pkg-config pkgconf"
 msgstr ""
+"icu, pkg-config oder pkgconfig ist nicht installiert. Sie müssen 'apt get "
+"install icu libicu-devel pkg-config pkgconf' ausführen"
 
 #: htdocs/views/login.php:25
 msgid "or"
