@@ -45,14 +45,28 @@ class Ucp implements \BMO {
 	 * @return string
 	 */
 	public function get_OS(){
-		$os = php_uname();
-		preg_match('/\bubuntu\b|\bdebian\b|\bcentos\b|\bfreepbx+[0-9]{2}\b/', strtolower($os), $matches, PREG_OFFSET_CAPTURE, 0);
-		if(!empty($matches[0][0])){
-			return trim($matches[0][0]); 
-		}
-
-		return "unknown";
-	}
+        if(file_exists("/etc/os-release")){
+            $file_content   = file_get_contents("/etc/os-release");
+            $f_content      = explode("\n",$file_content);
+            foreach($f_content as $line){
+                list($key, $value)  = explode("=", $line);
+                if(!empty($key)){
+                    $var[trim($key)]= str_replace('"','',trim($value));
+                }        
+            }
+            extract($var); 
+            if(!empty($ID)){
+                return $ID;
+            }
+        }
+        
+        $os = php_uname();
+        preg_match('/\bubuntu\b|\bdebian\b|\bcentos\b|\bfreepbx+[0-9]{2}\b/', strtolower($os), $matches, PREG_OFFSET_CAPTURE, 0);
+        if(!empty($matches[0][0])){
+            return trim($matches[0][0]); 
+        }            
+        return "unknown";
+    }
 
 	public function install() {
 		$settings = array(
@@ -113,14 +127,14 @@ class Ucp implements \BMO {
 		switch ($os) {
 			case "ubuntu":
 			case "debian":
+          	case "raspbian":
 				$output = exec("pkg-config --modversion icu-i18n", $out, $retval);
 				$output = trim($output);
-						if(empty($output)) {
-								out(_("icu, pkg-config or pkgconf is not installed. You need to run: apt-get install icu libicu-devel pkg-config pkgconf"));
-								return false;
-						}
+				if(empty($output)) {
+						out(_("icu, pkg-config or pkgconf is not installed. You need to run: apt-get install icu libicu-devel pkg-config pkgconf"));
+						return false;
+				}
 				break;
-			case "centos":
 			default:				
 				$output = exec("icu-config --version"); //v4.2.1
 				$output = trim($output);
