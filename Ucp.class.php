@@ -847,7 +847,7 @@ class Ucp implements \BMO {
 	 */
 	public function constructModuleConfigPages($mode, $user, $action) {
 		$mods = $this->FreePBX->Hooks->processHooks($mode, $user, $action);
-		$html = '';
+		$html = array();
 		if(!empty($mods) && is_array($mods)) {
 			foreach($mods as $module) {
 				if(!empty($module) && is_array($module)) {
