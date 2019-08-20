@@ -132,7 +132,7 @@ class Modules extends Module_Helpers {
 	 * Get module display
 	 * This will get the Module HTML for display inside of dashboard
 	 */
-	public function getDisplay() {
+	public function getDisplay($dashboard_id) {
 		return '';
 	}
 
