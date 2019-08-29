@@ -9,15 +9,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-01-30 22:04-0500\n"
+"POT-Creation-Date: 2019-08-29 08:59+0530\n"
 "PO-Revision-Date: 2016-09-02 16:04+0200\n"
 "Last-Translator: Kenichi <k.kitani@qloog.com>\n"
 "Language-Team: Japanese <http://weblate.freepbx.org/projects/freepbx/ucp/"
 "ja_JP/>\n"
+"Language: ja_JP\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: ja_JP\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Weblate 2.4\n"
 
@@ -38,6 +38,19 @@ msgstr ""
 #: htdocs/assets/js/bootstrap-table-1.9.0.js:1480
 msgid " + field + "
 msgstr " + field + "
+
+#: htdocs/assets/js/localforage.js:2383
+msgid ""
+");\n"
+"                }\n"
+"\n"
+"                this._config[i] = options[i];\n"
+"            }\n"
+"\n"
+"            // after all config options are set and\n"
+"            // the driver option is used, try setting it\n"
+"            if ("
+msgstr ""
 
 #: htdocs/index.php:88
 msgid ".htaccess files are disabled on this webserver. Please enable them"
@@ -60,6 +73,14 @@ msgstr "アカウント設定"
 msgid "Active Sessions"
 msgstr "有効セッション"
 
+#: ucp.i18n.php:34
+msgid "Address to bind to. Default is "
+msgstr ""
+
+#: ucp.i18n.php:6
+msgid "Admin"
+msgstr "アドミン"
+
 #: htdocs/views/settings.php:11
 msgid ""
 "All fields update when unfocused (selecting another field) except password"
@@ -73,6 +94,14 @@ msgstr "デスクトップ通知を許可する"
 msgid "Allow Login"
 msgstr "ログインを許可する"
 
+#: ucp.i18n.php:54
+msgid "Allow Password Changes"
+msgstr "パスワードの変更を許可"
+
+#: ucp.i18n.php:60
+msgid "Allow Username Changes"
+msgstr "ユーザ名の変更を許可"
+
 #: htdocs/views/settings.php:119
 msgid "Allow browser desktop notifications from UCP modules."
 msgstr "UCPモジュールからのデスクトップ通知（ブラウザ経由）を許可します。"
@@ -83,6 +112,14 @@ msgid ""
 "WebRTC"
 msgstr ""
 "このユーザにUCPからの発信権限を付与する。注意: WebRTCとは別の設定です。"
+
+#: ucp.i18n.php:62
+msgid "Allow users to change their username in UCP"
+msgstr "UCPでユーザ名の変更を可能にする権限をユーザに与えます。"
+
+#: ucp.i18n.php:58
+msgid "Allow users to change thier password in UCP"
+msgstr "UCPでパスワードの変更を可能にする権限をユーザに与えます。"
 
 #: views/users_hook.php:118
 msgid "Allowed Extension Settings"
@@ -155,6 +192,14 @@ msgstr ""
 #: views/users_hook.php:144
 msgid "Enable Originating Calls"
 msgstr "発信元を有効にする"
+
+#: ucp.i18n.php:28
+msgid "Enable TLS for the NodeJS Server"
+msgstr ""
+
+#: ucp.i18n.php:22
+msgid "Enable the NodeJS Server"
+msgstr ""
 
 #: htdocs/modules/Settings/Settings.class.php:83
 msgid "Endpoint Settings"
@@ -290,7 +335,6 @@ msgid "Loading"
 msgstr "読み込み中"
 
 #: htdocs/views/forgot.php:61 htdocs/views/login.php:53
-#: htdocs/assets/js/ucp.js:1156
 msgid "Loading..."
 msgstr "読み込み中..."
 
@@ -327,9 +371,29 @@ msgstr "新しいパスワードと古いパスワードが一致しません"
 msgid "No"
 msgstr "いいえ"
 
-#: htdocs/assets/js/ucp.js:1151
-msgid "No email defined"
-msgstr "Emailが設定されていません"
+#: ucp.i18n.php:32
+msgid "NodeJS Bind Address"
+msgstr ""
+
+#: ucp.i18n.php:36
+msgid "NodeJS Bind Port"
+msgstr ""
+
+#: ucp.i18n.php:40
+msgid "NodeJS HTTPS Bind Address"
+msgstr ""
+
+#: ucp.i18n.php:42
+msgid "NodeJS HTTPS Bind Port"
+msgstr ""
+
+#: ucp.i18n.php:46
+msgid "NodeJS HTTPS TLS Certificate Location"
+msgstr ""
+
+#: ucp.i18n.php:50
+msgid "NodeJS HTTPS TLS Private Key Location"
+msgstr ""
 
 #: htdocs/modules/Home/assets/js/global.js:75
 msgid "Nothing Entered"
@@ -396,9 +460,25 @@ msgstr "パスワードは変更されていません！"
 msgid "Please enter either a username or email address"
 msgstr "ユーザー名もしくはメールアドレスを入力してください"
 
+#: ucp.i18n.php:38
+msgid "Port to bind to. Default is 8001"
+msgstr ""
+
+#: ucp.i18n.php:44
+msgid "Port to bind to. Default is 8003"
+msgstr ""
+
 #: htdocs/assets/js/ucp.js:71 htdocs/assets/js/ucp.js:122
 msgid "Processing..."
 msgstr "処理中..."
+
+#: ucp.i18n.php:64
+msgid "RSS Feeds"
+msgstr "RSSフィード"
+
+#: ucp.i18n.php:66
+msgid "RSS Feeds that are displayed in UCP. This overrides "
+msgstr "RSSフィードがUCPで表示され、上書きします "
 
 #: Ucp.class.php:29
 msgid "Refreshing all UCP Assets, this could take a while..."
@@ -425,13 +505,33 @@ msgstr "パスワードリセットリンクを送信する"
 msgid "Sent at %s"
 msgstr "%s に送信された"
 
+#: ucp.i18n.php:52
+msgid "Sets the path to the HTTPS private key. This is required if "
+msgstr ""
+
+#: ucp.i18n.php:48
+msgid "Sets the path to the HTTPS server certificate. This is required if "
+msgstr ""
+
 #: htdocs/views/dashboard.php:39 htdocs/assets/js/ucp.js:855
 msgid "Settings"
 msgstr "設定"
 
+#: ucp.i18n.php:14
+msgid "Styling and Logos"
+msgstr "デザインとロゴ"
+
 #: htdocs/views/templates/phone.php:69
 msgid "TUV"
 msgstr "TUV"
+
+#: ucp.i18n.php:70
+msgid ""
+"The number of days a session token will be valid for. Clear this setting if "
+"you want tokens to last forever (Not Recommended)"
+msgstr ""
+"セッショントークンが有効な日数。トークンが永久に有効になることを希望する場合"
+"この設定をクリアしてください（非推奨）"
 
 #: htdocs/views/settings.php:24 htdocs/views/settings.php:29
 msgid "The password used to login to User Control Panel and other services"
@@ -440,6 +540,14 @@ msgstr "UCPやその他のサービスのログインに使うパスワード"
 #: htdocs/views/dashfootercontent.php:10
 msgid "The removal of this copyright notice is stricly prohibited"
 msgstr "著作権情報の削除は禁止されています"
+
+#: ucp.i18n.php:8
+msgid ""
+"The user control panel is a way for users to control call handling and "
+"personal settings from a web browser."
+msgstr ""
+"ユーザーコントロールパネルを使用すると呼の処理と個人設定をウェブブラウザから"
+"コントロールできます。"
 
 #: htdocs/views/settings.php:15
 msgid "The username used to login to User Control Panel and other services"
@@ -474,6 +582,10 @@ msgstr ""
 "ウェブサーバーの設定ファイルにオーバーライドを許可する必要があります。詳しく"
 "はこちら： %s"
 
+#: ucp.i18n.php:10
+msgid "UCP"
+msgstr "UCP"
+
 #: views/header.php:1
 msgid "UCP Admin"
 msgstr "UCP管理者"
@@ -481,6 +593,20 @@ msgstr "UCP管理者"
 #: htdocs/views/settings.php:108
 msgid "UCP Language"
 msgstr "UCPの言語"
+
+#: ucp.i18n.php:24
+msgid "UCP NodeJS Server"
+msgstr ""
+
+#: ucp.i18n.php:68
+msgid "UCP Session Timeout"
+msgstr "UCP セッション タイムアウト"
+
+#: ucp.i18n.php:20
+msgid ""
+"UCP icons folder. This should never be changed except for very advanced "
+"layout changes"
+msgstr ""
 
 #: htdocs/index.php:25
 msgid "UCP is currently disabled. Please talk to your system Administrator"
@@ -523,8 +649,8 @@ msgstr "パスワード更新"
 msgid "Use Gravatar"
 msgstr "グラバターを使用"
 
-#: htdocs/views/forgot.php:5 htdocs/views/header.php:4
-#: htdocs/views/login.php:4
+#: htdocs/views/forgot.php:5 htdocs/views/header.php:4 htdocs/views/login.php:4
+#: ucp.i18n.php:4 /dev/shm/freepbx/ucp/ucp.i18n.php:56
 msgid "User Control Panel"
 msgstr "UCP"
 
@@ -548,7 +674,7 @@ msgstr "ユーザーコントロールパネル： %s"
 msgid "User Details"
 msgstr "ユーザー詳細"
 
-#: Ucp.class.php:70 /usr/src/freepbx/ucp/Ucp.class.php:98
+#: Ucp.class.php:70 /dev/shm/freepbx/ucp/Ucp.class.php:98
 msgid "User Primary Extension"
 msgstr "ユーザープライマリ内線"
 
@@ -564,6 +690,14 @@ msgstr "ユーザー名"
 msgid "Username has been changed, reloading"
 msgstr "ユーザー名は変更されました、リロード中。"
 
+#: ucp.i18n.php:12
+msgid "View: UCP dashfootercontent.php"
+msgstr ""
+
+#: ucp.i18n.php:18
+msgid "View: UCP icons"
+msgstr ""
+
 #: htdocs/views/templates/phone.php:73
 msgid "WXYZ"
 msgstr "WXYZ"
@@ -576,6 +710,18 @@ msgstr "こんにちは %s"
 #: views/users_hook.php:4
 msgid "What is UCP"
 msgstr "UCPとは何か"
+
+#: ucp.i18n.php:30
+msgid ""
+"Whether to enable TLS for the backend server for UCP which allows "
+"instantaneous updates to the interface"
+msgstr ""
+
+#: ucp.i18n.php:26
+msgid ""
+"Whether to enable the backend server for UCP which allows instantaneous "
+"updates to the interface"
+msgstr ""
 
 #: htdocs/views/settings.php:79
 msgid "Work Phone"
@@ -641,6 +787,12 @@ msgstr ""
 msgid "Your reset link is in the mail!"
 msgstr "リセットリンクはメールで送信しました！"
 
+#: ucp.i18n.php:16
+msgid ""
+"dashfootercontent.php view. This should never be changed except for very "
+"advanced layout changes"
+msgstr ""
+
 #: htdocs/index.php:102
 #, php-format
 msgid ""
@@ -655,49 +807,8 @@ msgstr ""
 msgid "or"
 msgstr "もしくは"
 
-#~ msgid "Admin"
-#~ msgstr "アドミン"
-
-#~ msgid "Allow Password Changes"
-#~ msgstr "パスワードの変更を許可"
-
-#~ msgid "Allow Username Changes"
-#~ msgstr "ユーザ名の変更を許可"
-
-#~ msgid "Allow users to change their username in UCP"
-#~ msgstr "UCPでユーザ名の変更を可能にする権限をユーザに与えます。"
-
-#~ msgid "Allow users to change thier password in UCP"
-#~ msgstr "UCPでパスワードの変更を可能にする権限をユーザに与えます。"
-
-#~ msgid "RSS Feeds"
-#~ msgstr "RSSフィード"
-
-#~ msgid "RSS Feeds that are displayed in UCP. This overrides "
-#~ msgstr "RSSフィードがUCPで表示され、上書きします "
-
-#~ msgid "Styling and Logos"
-#~ msgstr "デザインとロゴ"
-
-#~ msgid ""
-#~ "The number of days a session token will be valid for. Clear this setting "
-#~ "if you want tokens to last forever (Not Recommended)"
-#~ msgstr ""
-#~ "セッショントークンが有効な日数。トークンが永久に有効になることを希望する場"
-#~ "合この設定をクリアしてください（非推奨）"
-
-#~ msgid ""
-#~ "The user control panel is a way for users to control call handling and "
-#~ "personal settings from a web browser."
-#~ msgstr ""
-#~ "ユーザーコントロールパネルを使用すると呼の処理と個人設定をウェブブラウザか"
-#~ "らコントロールできます。"
-
-#~ msgid "UCP"
-#~ msgstr "UCP"
-
-#~ msgid "UCP Session Timeout"
-#~ msgstr "UCP セッション タイムアウト"
+#~ msgid "No email defined"
+#~ msgstr "Emailが設定されていません"
 
 #~ msgid "User Panel"
 #~ msgstr "ユーザーパネル"
