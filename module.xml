@@ -2,7 +2,7 @@
 	<rawname>ucp</rawname>
 	<name>User Control Panel</name>
 	<repo>standard</repo>
-	<version>15.0.6.8</version>
+	<version>15.0.6.9</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>AGPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/agpl-3.0.txt</licenselink>
@@ -10,6 +10,7 @@
 		The user control panel is a way for users to control call handling and personal settings from a web browser.
 	</description>
 	<changelog>
+		*15.0.6.9* Related to FREEPBX-20414: removed $jobid from runRestore() 
 		*15.0.6.8* Fixing FREEPBX-20211, FREEPBX-20212, FREEPBX-20215 
 		*15.0.6.7* Fixes FREEPBX-20455: add $dashboard_id to the getDisplay() signature 
 		*15.0.6.6* FREEPBX-20209 FreePBX 15 module UCP fails to install under Raspbian (Debian) OS 
