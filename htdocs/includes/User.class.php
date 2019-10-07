@@ -233,7 +233,6 @@ class User {
 			$this->uid = null;
 			$this->user = null;
 			unset($_SESSION['id']);
-			session_regenerate_id(true);
 		}
 		return true;
 	}
