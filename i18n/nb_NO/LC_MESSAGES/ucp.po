@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-09-24 20:36+0530\n"
+"POT-Creation-Date: 2019-11-22 09:34+0530\n"
 "PO-Revision-Date: 2015-08-30 14:46+0200\n"
 "Last-Translator: Vidar Skjelanger <vidar@unimicro.no>\n"
 "Language-Team: Norwegian Bokmål <http://weblate.freepbx.org/projects/freepbx/"
@@ -1155,7 +1155,7 @@ msgid "User"
 msgstr ""
 
 #: htdocs/views/forgot.php:5 htdocs/views/header.php:4 htdocs/views/login.php:5
-#: ucp.i18n.php:4 /usr/src/freepbx/ucp/ucp.i18n.php:56
+#: ucp.i18n.php:4 /dev/shm/freepbx/ucp/ucp.i18n.php:56
 #: htdocs/modules/Widgets/assets/js/global.js:47
 msgid "User Control Panel"
 msgstr "Kontrollpanel for brukere"
