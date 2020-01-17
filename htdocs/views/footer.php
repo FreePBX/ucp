@@ -4,6 +4,7 @@
 				<?php echo $dashboard_footer_content?>
 			</div
 		</footer>
+		<script type="text/javascript" src="assets/js/jquery.toast.min.js"></script>
 		<script>
 			$(document).bind("mobileinit", function() {
 				$.mobile.ignoreContentEnabled = true;
