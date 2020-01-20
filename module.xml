@@ -2,7 +2,7 @@
 	<rawname>ucp</rawname>
 	<name>User Control Panel</name>
 	<repo>standard</repo>
-	<version>15.0.6.13</version>
+	<version>15.0.6.14</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>AGPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/agpl-3.0.txt</licenselink>
@@ -10,6 +10,7 @@
 		The user control panel is a way for users to control call handling and personal settings from a web browser.
 	</description>
 	<changelog>
+		*15.0.6.14* FREEI-1099 Improve poll error notification in UCP 
 		*15.0.6.13* FREEI-931: sanitize the date and time format fields like we do for some of the other fields to prevent script injections 
 		*15.0.6.12* FREEPBX-20615 cannot regenerate deleted session 
 		*15.0.6.11* update JShrink lib 
