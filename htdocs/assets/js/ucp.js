@@ -411,7 +411,7 @@ var UCPC = Class.extend({
 					UCP.token = data.token;
 					UCP.wsconnect(namespace, callback);
 				} else {
-					UCP.displayGlobalMessage(sprintf(_("Unable to get a token to use UCP Node Server because: '%s'"),data.message), "red", true);
+					UCP.displayGlobalMessage(sprintf(_("Unable to get a token to use UCP Node Server.<br>%s"),data.message), "red", true);
 					callback(false);
 				}
 			});
@@ -442,7 +442,7 @@ var UCPC = Class.extend({
 				callback(socket);
 			});
 			socket.on("connect_error", function(reason) {
-				UCP.displayGlobalMessage(sprintf(_("Unable to connect to the UCP Node Server because: '%s'"),reason), "red", true);
+				UCP.displayGlobalMessage(sprintf(_("Unable to connect to the UCP Node Server.<br>%s"),reason), "red", true);
 				callback(false);
 			});
 		}
@@ -551,48 +551,53 @@ var UCPC = Class.extend({
 		$("#globalModal").modal('hide');
 	},
 	/**
-	 * Show Alert Modal Box
+	 * Show Alert Toast
 	 * @method showAlert
 	 * @param  {string}  message       The HTML to show
 	 * @param  {string}  type          The alert info type
-	 * @param  {function}  callback_func Callback function when the alert is shown
 	 */
-	showAlert: function(message, type, callback_func){
+	showAlert: function(message, type){
+		/**
+		 * https://kamranahmed.info/toast
+		 * https://github.com/kamranahmedse/jquery-toast-plugin
+		 */
 		var type_class = "";
 		switch(type) {
 			case 'success':
-				type_class = "alert-success";
+				type_class = "#50CB34";
+				icon_type  = "success";
+				t_color    = "white";
 			break;
 			case 'warning':
-				type_class = "alert-warning";
+				type_class = "#F7FFAA";
+				icon_type  = "error";
+				t_color    = "grey";
 			break;
 			case 'danger':
-				type_class = "alert-danger";
+				type_class = "#FF4B4B";
+				icon_type  = "warning";
+				t_color    = "white";
 			break;
 			case 'info':
 			default:
-				type_class = "alert-info";
+				type_class = "#2471F0";
+				icon_type  = "info";
+				t_color    = "white";
 			break;
 		}
-
-		$("#alert_message").removeClass("alert-success alert-info alert-warning alert-danger");
-
-		$("#alert_message").addClass(type_class);
-
-		$("#alert_message").html(message);
-
-		if(typeof callback_func == "function") {
-			$(document).on("click", "#close_alert_button", function () {
-				$("#alert_modal").modal("hide");
-				callback_func();
-			});
-		}else {
-			$(document).on("click", "#close_alert_button", function () {
-				$("#alert_modal").modal("hide");
-			});
-		}
-
-		$("#alert_modal").modal("show");
+		$.toast({ 
+			text : "<b>"+message+"</b>", 
+			showHideTransition : 'slide',  	// It can be plain, fade or slide
+			bgColor : type_class,         	// Background color for toast
+			loader : false,					// Show progress bar
+			icon : icon_type,				// show icon
+			textColor : t_color,           	// text color
+			allowToastClose : false,       	// Show the close button or not
+			hideAfter : 5000,              	// `false` to make it sticky or time in miliseconds to hide after
+			stack : 5,                     	// `fakse` to show one stack at a time count showing the number of toasts that can be shown at once
+			textAlign : 'left',            	// Alignment of text i.e. left, right, center
+			position : 'top-right'       	// bottom-left or bottom-right or bottom-center or top-left or top-right or top-center or mid-center or an object representing the left, right, top, bottom values to position the toast on page
+		  })
 	},
 	/**
 	 * Show Confirmation Modal Box

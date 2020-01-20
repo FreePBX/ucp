@@ -8,7 +8,7 @@
 			<script src="assets/js/html5shiv.js"></script>
 		<![endif]-->
 		<?php } ?>
-
+		<link href="assets/css/jquery.toast.min.css" rel="stylesheet" type="text/css">
 		<?php foreach($ucpcss as $file) { ?>
 			<link href="assets/css/<?php echo $file.$version_tag?>" rel="stylesheet" type="text/css">
 		<?php } ?>
