@@ -411,7 +411,7 @@ var WidgetsC = Class.extend({
 	smallWidgetLayout: function(widget_id, widget_rawname, widget_name, widget_type_id, widget_icon){
 		var html = '' +
 			'<li class="custom-widget" data-widget_id="'+widget_id+'" data-widget_rawname="'+widget_rawname+'" data-widget_type_id="'+widget_type_id+'">' +
-				'<a href="#" data-id="'+widget_id+'" data-name="'+widget_name+'" data-rawname="'+widget_rawname+'" data-widget_type_id="'+widget_type_id+'" data-icon="' + widget_icon + '"><i class="' + widget_icon + '" aria-hidden="true"></i></a>' +
+				'<a href="#" title="'+widget_rawname+' '+widget_type_id+'" data-id="'+widget_id+'" data-name="'+widget_name+'" data-rawname="'+widget_rawname+'" data-widget_type_id="'+widget_type_id+'" data-icon="' + widget_icon + '"><i class="' + widget_icon + '" aria-hidden="true"></i></a>' +
 			'</li>';
 
 		return html;
@@ -1075,7 +1075,7 @@ var WidgetsC = Class.extend({
 					widget_sub = $(this).data('widget_type_id'),
 					new_widget_id = uuid.v4(),
 					widget_info = allSimpleWidgets[widget_rawname.modularize()].list[widget_id],
-					widget_icon = allSimpleWidgets[widget_rawname.modularize()].icon,
+					widget_icon = $(this).data('icon'),
 					hasSettings = false,
 					dynamic = false;
 
