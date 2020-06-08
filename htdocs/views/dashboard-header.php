@@ -38,7 +38,7 @@
 					}
 				?>
 				<li class="custom-widget" data-widget_id="<?php echo $small_widget['id']; ?>" data-widget_rawname="<?php echo $small_widget['rawname']; ?>" data-widget_type_id="<?php echo $small_widget['widget_type_id']?>">
-					<a href="#" data-module_name="<?php echo $small_widget['module_name']; ?>" <?php echo $regenuuid?> data-id="<?php echo $small_widget['id']; ?>" data-widget_type_id="<?php echo $small_widget['widget_type_id']?>" data-name="<?php echo $small_widget['name']; ?>" data-rawname="<?php echo $small_widget['rawname']; ?>" data-icon="<?php echo $small_widget['icon']; ?>">
+					<a href="#" title="<?php echo $small_widget['rawname']." ".$small_widget['widget_type_id']; ?>" data-module_name="<?php echo $small_widget['module_name']; ?>" <?php echo $regenuuid?> data-id="<?php echo $small_widget['id']; ?>" data-widget_type_id="<?php echo $small_widget['widget_type_id']?>" data-name="<?php echo $small_widget['name']; ?>" data-rawname="<?php echo $small_widget['rawname']; ?>" data-icon="<?php echo $small_widget['icon']; ?>">
 						<i class="<?php echo $small_widget['icon']; ?>" aria-hidden="true"></i>
 					</a>
 				</li>
