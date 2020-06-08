@@ -2,7 +2,7 @@
 	<rawname>ucp</rawname>
 	<name>User Control Panel</name>
 	<repo>standard</repo>
-	<version>14.0.3.9</version>
+	<version>14.0.3.10</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>AGPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/agpl-3.0.txt</licenselink>
@@ -10,6 +10,7 @@
 		The user control panel is a way for users to control call handling and personal settings from a web browser.
 	</description>
 	<changelog>
+		*14.0.3.10* FREEI-1495 UCP phone incorrectly labeled as : Softphone (Zulu) 
 		*14.0.3.9* FREEI-1099 Improve poll error notification in UCP 
 		*14.0.3.8* FREEI-931: sanitize the date and time format fields like we do for some of the other fields to prevent script injections 
 		*14.0.3.7* FREEPBX-20473 Apache Errors when browsing UCP 

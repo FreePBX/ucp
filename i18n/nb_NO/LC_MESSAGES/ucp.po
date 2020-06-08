@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-01-20 08:32+0530\n"
+"POT-Creation-Date: 2020-06-08 10:43+0530\n"
 "PO-Revision-Date: 2015-08-30 14:46+0200\n"
 "Last-Translator: Vidar Skjelanger <vidar@unimicro.no>\n"
 "Language-Team: Norwegian Bokmål <http://weblate.freepbx.org/projects/freepbx/"
@@ -114,8 +114,12 @@ msgstr ""
 msgid "Adding a dashboard"
 msgstr ""
 
-#: ucp.i18n.php:26
+#: ucp.i18n.php:34
 msgid "Address to bind to. Default is "
+msgstr ""
+
+#: ucp.i18n.php:6
+msgid "Admin"
 msgstr ""
 
 #: htdocs/views/dashboard-footer.php:214
@@ -142,11 +146,11 @@ msgstr "Tillat varsler på skrivebordet"
 msgid "Allow Login"
 msgstr "Tillat pålogging"
 
-#: ucp.i18n.php:46
+#: ucp.i18n.php:54
 msgid "Allow Password Changes"
 msgstr ""
 
-#: ucp.i18n.php:52
+#: ucp.i18n.php:60
 msgid "Allow Username Changes"
 msgstr ""
 
@@ -160,11 +164,11 @@ msgid ""
 "WebRTC"
 msgstr ""
 
-#: ucp.i18n.php:54
+#: ucp.i18n.php:62
 msgid "Allow users to change their username in UCP"
 msgstr ""
 
-#: ucp.i18n.php:50
+#: ucp.i18n.php:58
 msgid "Allow users to change thier password in UCP"
 msgstr ""
 
@@ -362,7 +366,7 @@ msgstr ""
 msgid "Enable Originating Calls"
 msgstr ""
 
-#: ucp.i18n.php:20
+#: ucp.i18n.php:28
 msgid "Enable TLS for the NodeJS Server"
 msgstr ""
 
@@ -370,7 +374,7 @@ msgstr ""
 msgid "Enable Tour Mode"
 msgstr ""
 
-#: ucp.i18n.php:14
+#: ucp.i18n.php:22
 msgid "Enable the NodeJS Server"
 msgstr ""
 
@@ -610,27 +614,27 @@ msgid ""
 "as root"
 msgstr ""
 
-#: ucp.i18n.php:24
+#: ucp.i18n.php:32
 msgid "NodeJS Bind Address"
 msgstr ""
 
-#: ucp.i18n.php:28
+#: ucp.i18n.php:36
 msgid "NodeJS Bind Port"
 msgstr ""
 
-#: ucp.i18n.php:32
+#: ucp.i18n.php:40
 msgid "NodeJS HTTPS Bind Address"
 msgstr ""
 
-#: ucp.i18n.php:34
+#: ucp.i18n.php:42
 msgid "NodeJS HTTPS Bind Port"
 msgstr ""
 
-#: ucp.i18n.php:38
+#: ucp.i18n.php:46
 msgid "NodeJS HTTPS TLS Certificate Location"
 msgstr ""
 
-#: ucp.i18n.php:42
+#: ucp.i18n.php:50
 msgid "NodeJS HTTPS TLS Private Key Location"
 msgstr ""
 
@@ -696,11 +700,11 @@ msgstr "Tilbakestilling av passord for: %s"
 msgid "Password has been changed!"
 msgstr ""
 
-#: ucp.i18n.php:30
+#: ucp.i18n.php:38
 msgid "Port to bind to. Default is 8001"
 msgstr ""
 
-#: ucp.i18n.php:36
+#: ucp.i18n.php:44
 msgid "Port to bind to. Default is 8003"
 msgstr ""
 
@@ -708,11 +712,11 @@ msgstr ""
 msgid "Processing..."
 msgstr "Behandler..."
 
-#: htdocs/modules/Home/Home.class.php:53 ucp.i18n.php:56
+#: htdocs/modules/Home/Home.class.php:53 ucp.i18n.php:64
 msgid "RSS Feeds"
 msgstr ""
 
-#: ucp.i18n.php:58
+#: ucp.i18n.php:66
 msgid "RSS Feeds that are displayed in UCP. This overrides "
 msgstr ""
 
@@ -777,11 +781,11 @@ msgstr "Send meg en link for nullstilling av passord"
 msgid "Sent at %s"
 msgstr "Sendt %s"
 
-#: ucp.i18n.php:44
+#: ucp.i18n.php:52
 msgid "Sets the path to the HTTPS private key. This is required if "
 msgstr ""
 
-#: ucp.i18n.php:40
+#: ucp.i18n.php:48
 msgid "Sets the path to the HTTPS server certificate. This is required if "
 msgstr ""
 
@@ -864,7 +868,7 @@ msgstr ""
 msgid "Stopping old running processes..."
 msgstr ""
 
-#: ucp.i18n.php:6
+#: ucp.i18n.php:14
 msgid "Styling and Logos"
 msgstr ""
 
@@ -936,7 +940,7 @@ msgid ""
 "see: %s"
 msgstr ""
 
-#: ucp.i18n.php:62
+#: ucp.i18n.php:70
 msgid ""
 "The number of days a session token will be valid for. Clear this setting if "
 "you want tokens to last forever (Not Recommended)"
@@ -953,6 +957,12 @@ msgstr "Å fjerne dette varselet om opphavsrett er ikke tillatt"
 
 #: htdocs/assets/js/ucp.js:527
 msgid "The session has expired and you are being forcibly logged out"
+msgstr ""
+
+#: ucp.i18n.php:8
+msgid ""
+"The user control panel is a way for users to control call handling and "
+"personal settings from a web browser."
 msgstr ""
 
 #: htdocs/modules/Settings/views/settings.php:20
@@ -1040,7 +1050,7 @@ msgstr ""
 msgid "To remove this widget from the side bar click 'Remove Widget'"
 msgstr ""
 
-#: htdocs/index.php:108
+#: htdocs/index.php:108 ucp.i18n.php:10
 msgid "UCP"
 msgstr "UCP"
 
@@ -1070,15 +1080,15 @@ msgstr ""
 msgid "UCP Node is not running"
 msgstr ""
 
-#: ucp.i18n.php:16
+#: ucp.i18n.php:24
 msgid "UCP NodeJS Server"
 msgstr ""
 
-#: ucp.i18n.php:60
+#: ucp.i18n.php:68
 msgid "UCP Session Timeout"
 msgstr ""
 
-#: ucp.i18n.php:12
+#: ucp.i18n.php:20
 msgid ""
 "UCP icons folder. This should never be changed except for very advanced "
 "layout changes"
@@ -1145,7 +1155,8 @@ msgid "User"
 msgstr ""
 
 #: htdocs/views/forgot.php:5 htdocs/views/header.php:4 htdocs/views/login.php:5
-#: ucp.i18n.php:48 htdocs/modules/Widgets/assets/js/global.js:47
+#: ucp.i18n.php:4 /dev/shm/freepbx/ucp/ucp.i18n.php:56
+#: htdocs/modules/Widgets/assets/js/global.js:47
 msgid "User Control Panel"
 msgstr "Kontrollpanel for brukere"
 
@@ -1179,11 +1190,11 @@ msgstr ""
 msgid "Username"
 msgstr "Brukernavn"
 
-#: ucp.i18n.php:4
+#: ucp.i18n.php:12
 msgid "View: UCP dashfootercontent.php"
 msgstr ""
 
-#: ucp.i18n.php:10
+#: ucp.i18n.php:18
 msgid "View: UCP icons"
 msgstr ""
 
@@ -1214,13 +1225,13 @@ msgid ""
 "When you are finished simply hit 'Create Dashboard' to create your dashboard"
 msgstr ""
 
-#: ucp.i18n.php:22
+#: ucp.i18n.php:30
 msgid ""
 "Whether to enable TLS for the backend server for UCP which allows "
 "instantaneous updates to the interface"
 msgstr ""
 
-#: ucp.i18n.php:18
+#: ucp.i18n.php:26
 msgid ""
 "Whether to enable the backend server for UCP which allows instantaneous "
 "updates to the interface"
@@ -1403,7 +1414,7 @@ msgid ""
 "bar"
 msgstr ""
 
-#: ucp.i18n.php:8
+#: ucp.i18n.php:16
 msgid ""
 "dashfootercontent.php view. This should never be changed except for very "
 "advanced layout changes"
