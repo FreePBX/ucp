@@ -1264,6 +1264,11 @@ class Ucp implements \BMO {
 			'glyph-class' => ''
 		);
 		$data = $this->FreePBX->Pm2->getStatus("ucp");
+      	if(!$this->FreePBX->Config->get("NODEJSENABLED")) {
+			$service = array_merge($service, $this->genAlertGlyphicon('error', _("UCP Node Disabled in Advanced Settings.")));
+			return array($service);
+		}
+      
 		if(!empty($data) && $data['pm2_env']['status'] == 'online') {
 			$uptime = $data['pm2_env']['created_at_human_diff'];
 			$service = array_merge($service, $this->genAlertGlyphicon('ok', sprintf(_("Running (Uptime: %s)"),$uptime)));
