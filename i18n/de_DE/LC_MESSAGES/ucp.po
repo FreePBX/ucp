@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-06-08 10:44+0530\n"
+"POT-Creation-Date: 2020-06-22 09:00+0000\n"
 "PO-Revision-Date: 2018-10-25 08:00+0000\n"
 "Last-Translator: Bastian Mertgen <b.mertgen@bastian-mertgen.de>\n"
 "Language-Team: German <http://*/projects/freepbx/ucp/de/>\n"
@@ -134,7 +134,7 @@ msgstr "Widgets hinzufügen"
 msgid "Adding a dashboard"
 msgstr "Ein Dashboard hinzufügen"
 
-#: ucp.i18n.php:34
+#: ucp.i18n.php:24
 msgid "Address to bind to. Default is "
 msgstr "Adresse an die gebunden werden soll. Standard ist "
 
@@ -170,14 +170,6 @@ msgstr "Erlaube Desktop Benachrichtigungen"
 msgid "Allow Login"
 msgstr "Erlaube Login"
 
-#: ucp.i18n.php:54
-msgid "Allow Password Changes"
-msgstr "Änderungen des Passworts zulassen"
-
-#: ucp.i18n.php:60
-msgid "Allow Username Changes"
-msgstr "Änderung des Benutzernamens zulassen"
-
 #: htdocs/modules/Settings/views/settings.php:146
 msgid "Allow browser desktop notifications from UCP modules."
 msgstr "Erlaube Browser Desktop Benachrichtigungen von UCP Modulen."
@@ -189,14 +181,6 @@ msgid ""
 msgstr ""
 "Erlaube diesem User Gespräche innerhalb des UCPs zu machen. Dies ist nicht "
 "dasselbe wie WebRTC"
-
-#: ucp.i18n.php:62
-msgid "Allow users to change their username in UCP"
-msgstr "erlaube Benutzern, ihren Benutzernamen im UCP zu ändern"
-
-#: ucp.i18n.php:58
-msgid "Allow users to change thier password in UCP"
-msgstr "Dem Benutzer erlauben im UCP sein eigenes Passwort zu ändern"
 
 #: views/users_hook.php:147
 msgid "Allowed Extension Settings"
@@ -363,7 +347,7 @@ msgstr "Deaktivieren"
 msgid "Display Name"
 msgstr "Anzeigename"
 
-#: Ucp.class.php:1419
+#: Ucp.class.php:1424
 #, php-format
 msgid "Don't know what %s is"
 msgstr "Sie wissen nicht was %s ist"
@@ -401,7 +385,7 @@ msgstr "Aktivieren"
 msgid "Enable Originating Calls"
 msgstr "Aktiviere ursprüngliche Gespräche"
 
-#: ucp.i18n.php:28
+#: ucp.i18n.php:18
 msgid "Enable TLS for the NodeJS Server"
 msgstr "Aktiviere TLS für den NodeJS Server"
 
@@ -409,7 +393,7 @@ msgstr "Aktiviere TLS für den NodeJS Server"
 msgid "Enable Tour Mode"
 msgstr "Aktiviere Tour Mode"
 
-#: ucp.i18n.php:22
+#: ucp.i18n.php:12
 msgid "Enable the NodeJS Server"
 msgstr "Aktiviere den NodeJS Server"
 
@@ -444,7 +428,7 @@ msgstr ""
 "Fehler bei der Installation von %s aufgrund eines Konfliktes mit dem(n) "
 "Modul(en): %s"
 
-#: Ucp.class.php:1329
+#: Ucp.class.php:1334
 #, php-format
 msgid "Failed to run: '%s'"
 msgstr "Ausführung fehlgeschlagen: '%s'"
@@ -662,27 +646,27 @@ msgstr ""
 "Die Node-Version ist %s, Voraussetzung ist %s. Führen Sie \"yum upgrade "
 "nodejs\" als root von der Kommandozeile aus"
 
-#: ucp.i18n.php:32
+#: ucp.i18n.php:22
 msgid "NodeJS Bind Address"
 msgstr "NodeJS: Bind-Adresse"
 
-#: ucp.i18n.php:36
+#: ucp.i18n.php:26
 msgid "NodeJS Bind Port"
 msgstr "NodeJS: Bind-Port"
 
-#: ucp.i18n.php:40
+#: ucp.i18n.php:30
 msgid "NodeJS HTTPS Bind Address"
 msgstr "NodeJS: HTTPS-Bind-Adresse"
 
-#: ucp.i18n.php:42
+#: ucp.i18n.php:32
 msgid "NodeJS HTTPS Bind Port"
 msgstr "NodeJS: HTTPS-Bind-Port"
 
-#: ucp.i18n.php:46
+#: ucp.i18n.php:36
 msgid "NodeJS HTTPS TLS Certificate Location"
 msgstr "NodeJS: Speicherort des HTTPS-TLS-Zertifikats"
 
-#: ucp.i18n.php:50
+#: ucp.i18n.php:40
 msgid "NodeJS HTTPS TLS Private Key Location"
 msgstr "NodeJS: Speicherort des privaten HTTP-TLS-Schlüssels"
 
@@ -750,11 +734,11 @@ msgstr "Passwort zurücksetzen für: %s"
 msgid "Password has been changed!"
 msgstr "Passwort wurde geändert!"
 
-#: ucp.i18n.php:38
+#: ucp.i18n.php:28
 msgid "Port to bind to. Default is 8001"
 msgstr "Der Port anzuknüpfen. Standard ist 8001"
 
-#: ucp.i18n.php:44
+#: ucp.i18n.php:34
 msgid "Port to bind to. Default is 8003"
 msgstr "Port zum anknüpfen. Standard ist 8003"
 
@@ -762,13 +746,9 @@ msgstr "Port zum anknüpfen. Standard ist 8003"
 msgid "Processing..."
 msgstr "Verarbeiten..."
 
-#: htdocs/modules/Home/Home.class.php:53 ucp.i18n.php:64
+#: htdocs/modules/Home/Home.class.php:53
 msgid "RSS Feeds"
 msgstr "RSS-Feeds"
-
-#: ucp.i18n.php:66
-msgid "RSS Feeds that are displayed in UCP. This overrides "
-msgstr "RSS-Feeds, die im UCP angezeigt werden. Dies überschriebt "
 
 #: Api/Rest/Dashboard.php:12
 msgid "Read UCP Dashboard Information"
@@ -795,7 +775,7 @@ msgstr "Passwort zurücksetzen"
 msgid "Restart Tour"
 msgstr "Tour erneut starten"
 
-#: Ucp.class.php:1269
+#: Ucp.class.php:1274
 #, php-format
 msgid "Running (Uptime: %s)"
 msgstr "Aktiver Prozess (Uptime: %s)"
@@ -835,11 +815,11 @@ msgstr "Senden Sie mir einen Passwort Reset Link"
 msgid "Sent at %s"
 msgstr "Gesendet um %s"
 
-#: ucp.i18n.php:52
+#: ucp.i18n.php:42
 msgid "Sets the path to the HTTPS private key. This is required if "
 msgstr "Setzt den Pfad zum HTTPS private key. Dies ist notwendig, wenn. "
 
-#: ucp.i18n.php:48
+#: ucp.i18n.php:38
 msgid "Sets the path to the HTTPS server certificate. This is required if "
 msgstr ""
 "Gibt den Pfad zu dem HTTPS-Serverzertifikat an. Dies ist notwendig, wenn "
@@ -899,7 +879,7 @@ msgstr "Etwas lief falsch um die Einstellungen des Widget zu erhalten"
 msgid "Something went wrong removing the dashboard"
 msgstr "Etwas lief falsch, um das Dashboard zu entfernen"
 
-#: Ucp.class.php:1324
+#: Ucp.class.php:1329
 #, php-format
 msgid "Started UCP Node Server. PID is %s"
 msgstr "Startet UCP Node Server. PID ist %s"
@@ -909,7 +889,7 @@ msgstr "Startet UCP Node Server. PID ist %s"
 msgid "Started with PID %s!"
 msgstr "Startet mit PID %s!"
 
-#: Ucp.class.php:1295
+#: Ucp.class.php:1300
 msgid "Starting UCP Node Server..."
 msgstr "Starten UCP Node Server..."
 
@@ -917,21 +897,17 @@ msgstr "Starten UCP Node Server..."
 msgid "Starting new UCP Node Process..."
 msgstr "Starten neuen UPC Node Process..."
 
-#: Ucp.class.php:1396
+#: Ucp.class.php:1401
 msgid "Stopped UCP Node Server"
 msgstr "Stoppt UCP Node Server"
 
-#: Ucp.class.php:1365
+#: Ucp.class.php:1370
 msgid "Stopping UCP Node Server"
 msgstr "Stoppt UCP Node Server"
 
 #: Ucp.class.php:298 Ucp.class.php:324
 msgid "Stopping old running processes..."
 msgstr "Stoppt alte laufende Prozesse..."
-
-#: ucp.i18n.php:14
-msgid "Styling and Logos"
-msgstr "Styling und Logos"
 
 #: htdocs/modules/Settings/assets/js/global.js:100
 #: htdocs/modules/Settings/assets/js/global.js:113
@@ -1012,15 +988,6 @@ msgstr ""
 "Das Zeitformat sollte angezeigt werden. Der Standard des \"LT\" ist "
 "regional. Falls unbestimmt, wird das group/system Format genutzt. Für mehr "
 "Formate bitte hier nachsehen: %s"
-
-#: ucp.i18n.php:70
-msgid ""
-"The number of days a session token will be valid for. Clear this setting if "
-"you want tokens to last forever (Not Recommended)"
-msgstr ""
-"Die Anzahl der Tage die ein Session-Token gültig ist. Deaktivieren Sie diese "
-"Einstellung, wenn die Tokens kein Ablaufdatum besitzen sollen (nicht "
-"empfohlen)"
 
 #: htdocs/modules/Settings/views/settings.php:29
 #: htdocs/modules/Settings/views/settings.php:34
@@ -1160,39 +1127,31 @@ msgstr "UCP Administrator"
 msgid "UCP Daemon"
 msgstr "UCP-Dämon"
 
-#: Ucp.class.php:1400
+#: Ucp.class.php:1268
+msgid "UCP Node Disabled in Advanced Settings."
+msgstr ""
+
+#: Ucp.class.php:1405
 #, php-format
 msgid "UCP Node Server Failed: %s"
 msgstr "UCP Node Server funktioniert nicht: %s"
 
-#: Ucp.class.php:1289
+#: Ucp.class.php:1294
 #, php-format
 msgid "UCP Node Server has already been running on PID %s for %s"
 msgstr "UCP Node Server wird bereits ausgeführt PID %s für %s"
 
-#: Ucp.class.php:1358
+#: Ucp.class.php:1363
 msgid "UCP Node Server is not running"
 msgstr "Der UCP Node Server läuft nicht"
 
-#: Ucp.class.php:1271
+#: Ucp.class.php:1276
 msgid "UCP Node is not running"
 msgstr "UCP Node läuft nicht"
 
-#: ucp.i18n.php:24
+#: ucp.i18n.php:14
 msgid "UCP NodeJS Server"
 msgstr "UCP-NodeJS-Server"
-
-#: ucp.i18n.php:68
-msgid "UCP Session Timeout"
-msgstr "UCP Sitzungszeitüberschreitung"
-
-#: ucp.i18n.php:20
-msgid ""
-"UCP icons folder. This should never be changed except for very advanced "
-"layout changes"
-msgstr ""
-"UCP Symbol Verzeichnis. Dies sollte nie verändert werden, außer für sehr "
-"erweiterte Layoutänderungen"
 
 #: htdocs/index.php:23
 msgid "UCP is currently disabled. Please talk to your system Administrator"
@@ -1257,8 +1216,7 @@ msgid "User"
 msgstr "Benutzer"
 
 #: htdocs/views/forgot.php:5 htdocs/views/header.php:4 htdocs/views/login.php:5
-#: ucp.i18n.php:4 /dev/shm/freepbx/ucp/ucp.i18n.php:56
-#: htdocs/modules/Widgets/assets/js/global.js:47
+#: ucp.i18n.php:4 htdocs/modules/Widgets/assets/js/global.js:47
 msgid "User Control Panel"
 msgstr "Benutzerkontrollzentrum (UCP)"
 
@@ -1292,14 +1250,6 @@ msgstr "Benutzereinstellungen"
 msgid "Username"
 msgstr "Benutzername"
 
-#: ucp.i18n.php:12
-msgid "View: UCP dashfootercontent.php"
-msgstr "Ansicht: UCP dashfootercontent.php"
-
-#: ucp.i18n.php:18
-msgid "View: UCP icons"
-msgstr "Ansicht: UCP Symbole"
-
 #: htdocs/views/templates/phone.php:73
 msgid "WXYZ"
 msgstr "WXYZ"
@@ -1331,7 +1281,7 @@ msgstr ""
 "Wenn Sie fertig sind, einfach 'Erstelle Dashboard\" drücken um ihr Dashboard "
 "zu erstellen"
 
-#: ucp.i18n.php:30
+#: ucp.i18n.php:20
 msgid ""
 "Whether to enable TLS for the backend server for UCP which allows "
 "instantaneous updates to the interface"
@@ -1339,7 +1289,7 @@ msgstr ""
 "Gibt an, ob TLS für den backend Server für UCP aktiviert werden soll, "
 "wodurch eine sofortige Aktualisierungen der Schnittstelle möglich ist"
 
-#: ucp.i18n.php:26
+#: ucp.i18n.php:16
 msgid ""
 "Whether to enable the backend server for UCP which allows instantaneous "
 "updates to the interface"
@@ -1545,14 +1495,6 @@ msgstr ""
 "Ihre spezifischen Einstellungen werden definiert, wenn Sie in der Side bar "
 "auf das 'Zahnradsymbol' klicken"
 
-#: ucp.i18n.php:16
-msgid ""
-"dashfootercontent.php view. This should never be changed except for very "
-"advanced layout changes"
-msgstr ""
-"dashfootercontent.php Ansicht. Dies sollte niemals geändert werden, außer "
-"bei sehr fortgeschrittenen Layoutänderungen"
-
 #: htdocs/assets/js/lodash-4.17.2.js:15638
 #: htdocs/assets/js/lodash-4.17.2.js:15642
 msgid "fred"
@@ -1588,6 +1530,55 @@ msgstr ""
 #: htdocs/views/login.php:25
 msgid "or"
 msgstr "oder"
+
+#~ msgid "Allow Password Changes"
+#~ msgstr "Änderungen des Passworts zulassen"
+
+#~ msgid "Allow Username Changes"
+#~ msgstr "Änderung des Benutzernamens zulassen"
+
+#~ msgid "Allow users to change their username in UCP"
+#~ msgstr "erlaube Benutzern, ihren Benutzernamen im UCP zu ändern"
+
+#~ msgid "Allow users to change thier password in UCP"
+#~ msgstr "Dem Benutzer erlauben im UCP sein eigenes Passwort zu ändern"
+
+#~ msgid "RSS Feeds that are displayed in UCP. This overrides "
+#~ msgstr "RSS-Feeds, die im UCP angezeigt werden. Dies überschriebt "
+
+#~ msgid "Styling and Logos"
+#~ msgstr "Styling und Logos"
+
+#~ msgid ""
+#~ "The number of days a session token will be valid for. Clear this setting "
+#~ "if you want tokens to last forever (Not Recommended)"
+#~ msgstr ""
+#~ "Die Anzahl der Tage die ein Session-Token gültig ist. Deaktivieren Sie "
+#~ "diese Einstellung, wenn die Tokens kein Ablaufdatum besitzen sollen "
+#~ "(nicht empfohlen)"
+
+#~ msgid "UCP Session Timeout"
+#~ msgstr "UCP Sitzungszeitüberschreitung"
+
+#~ msgid ""
+#~ "UCP icons folder. This should never be changed except for very advanced "
+#~ "layout changes"
+#~ msgstr ""
+#~ "UCP Symbol Verzeichnis. Dies sollte nie verändert werden, außer für sehr "
+#~ "erweiterte Layoutänderungen"
+
+#~ msgid "View: UCP dashfootercontent.php"
+#~ msgstr "Ansicht: UCP dashfootercontent.php"
+
+#~ msgid "View: UCP icons"
+#~ msgstr "Ansicht: UCP Symbole"
+
+#~ msgid ""
+#~ "dashfootercontent.php view. This should never be changed except for very "
+#~ "advanced layout changes"
+#~ msgstr ""
+#~ "dashfootercontent.php Ansicht. Dies sollte niemals geändert werden, außer "
+#~ "bei sehr fortgeschrittenen Layoutänderungen"
 
 #~ msgid " + field + "
 #~ msgstr " + feld + "
