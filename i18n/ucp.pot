@@ -3,13 +3,13 @@
 # For licensing information, please see the file named LICENSE located in the module directory
 #
 # FreePBX language template for ucp
-# Copyright (C) 2008-2019 Sangoma Technologies, Inc.
+# Copyright (C) 2008-2020 Sangoma Technologies, Inc.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-08-29 08:59+0530\n"
+"POT-Creation-Date: 2020-06-30 05:51+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -69,7 +69,7 @@ msgstr ""
 msgid "Active Sessions"
 msgstr ""
 
-#: ucp.i18n.php:34
+#: ucp.i18n.php:24
 msgid "Address to bind to. Default is "
 msgstr ""
 
@@ -90,14 +90,6 @@ msgstr ""
 msgid "Allow Login"
 msgstr ""
 
-#: ucp.i18n.php:54
-msgid "Allow Password Changes"
-msgstr ""
-
-#: ucp.i18n.php:60
-msgid "Allow Username Changes"
-msgstr ""
-
 #: htdocs/views/settings.php:119
 msgid "Allow browser desktop notifications from UCP modules."
 msgstr ""
@@ -106,14 +98,6 @@ msgstr ""
 msgid ""
 "Allow this user to originate calls from within UCP. This is not the same as "
 "WebRTC"
-msgstr ""
-
-#: ucp.i18n.php:62
-msgid "Allow users to change their username in UCP"
-msgstr ""
-
-#: ucp.i18n.php:58
-msgid "Allow users to change thier password in UCP"
 msgstr ""
 
 #: views/users_hook.php:118
@@ -194,11 +178,11 @@ msgstr ""
 msgid "Enable Originating Calls"
 msgstr ""
 
-#: ucp.i18n.php:28
+#: ucp.i18n.php:18
 msgid "Enable TLS for the NodeJS Server"
 msgstr ""
 
-#: ucp.i18n.php:22
+#: ucp.i18n.php:12
 msgid "Enable the NodeJS Server"
 msgstr ""
 
@@ -331,7 +315,7 @@ msgstr ""
 msgid "Last Name"
 msgstr ""
 
-#: htdocs/views/header.php:67
+#: htdocs/views/header.php:68
 msgid "Loading"
 msgstr ""
 
@@ -376,27 +360,27 @@ msgstr ""
 msgid "No"
 msgstr ""
 
-#: ucp.i18n.php:32
+#: ucp.i18n.php:22
 msgid "NodeJS Bind Address"
 msgstr ""
 
-#: ucp.i18n.php:36
+#: ucp.i18n.php:26
 msgid "NodeJS Bind Port"
 msgstr ""
 
-#: ucp.i18n.php:40
+#: ucp.i18n.php:30
 msgid "NodeJS HTTPS Bind Address"
 msgstr ""
 
-#: ucp.i18n.php:42
+#: ucp.i18n.php:32
 msgid "NodeJS HTTPS Bind Port"
 msgstr ""
 
-#: ucp.i18n.php:46
+#: ucp.i18n.php:36
 msgid "NodeJS HTTPS TLS Certificate Location"
 msgstr ""
 
-#: ucp.i18n.php:50
+#: ucp.i18n.php:40
 msgid "NodeJS HTTPS TLS Private Key Location"
 msgstr ""
 
@@ -408,11 +392,11 @@ msgstr ""
 msgid "Nothing was Provided!"
 msgstr ""
 
-#: htdocs/views/header.php:60
+#: htdocs/views/header.php:61
 msgid "OFF"
 msgstr ""
 
-#: htdocs/views/header.php:57
+#: htdocs/views/header.php:58
 msgid "ON"
 msgstr ""
 
@@ -467,25 +451,17 @@ msgstr ""
 msgid "Please enter either a username or email address"
 msgstr ""
 
-#: ucp.i18n.php:38
+#: ucp.i18n.php:28
 msgid "Port to bind to. Default is 8001"
 msgstr ""
 
-#: ucp.i18n.php:44
+#: ucp.i18n.php:34
 msgid "Port to bind to. Default is 8003"
 msgstr ""
 
 #: htdocs/assets/js/ucp.js:71
 #: htdocs/assets/js/ucp.js:122
 msgid "Processing..."
-msgstr ""
-
-#: ucp.i18n.php:64
-msgid "RSS Feeds"
-msgstr ""
-
-#: ucp.i18n.php:66
-msgid "RSS Feeds that are displayed in UCP. This overrides "
 msgstr ""
 
 #: Ucp.class.php:29
@@ -515,11 +491,11 @@ msgstr ""
 msgid "Sent at %s"
 msgstr ""
 
-#: ucp.i18n.php:52
+#: ucp.i18n.php:42
 msgid "Sets the path to the HTTPS private key. This is required if "
 msgstr ""
 
-#: ucp.i18n.php:48
+#: ucp.i18n.php:38
 msgid "Sets the path to the HTTPS server certificate. This is required if "
 msgstr ""
 
@@ -528,18 +504,8 @@ msgstr ""
 msgid "Settings"
 msgstr ""
 
-#: ucp.i18n.php:14
-msgid "Styling and Logos"
-msgstr ""
-
 #: htdocs/views/templates/phone.php:69
 msgid "TUV"
-msgstr ""
-
-#: ucp.i18n.php:70
-msgid ""
-"The number of days a session token will be valid for. Clear this setting if "
-"you want tokens to last forever (Not Recommended)"
 msgstr ""
 
 #: htdocs/views/settings.php:24
@@ -596,18 +562,8 @@ msgstr ""
 msgid "UCP Language"
 msgstr ""
 
-#: ucp.i18n.php:24
+#: ucp.i18n.php:14
 msgid "UCP NodeJS Server"
-msgstr ""
-
-#: ucp.i18n.php:68
-msgid "UCP Session Timeout"
-msgstr ""
-
-#: ucp.i18n.php:20
-msgid ""
-"UCP icons folder. This should never be changed except for very advanced "
-"layout changes"
 msgstr ""
 
 #: htdocs/index.php:25
@@ -653,7 +609,7 @@ msgstr ""
 #: htdocs/views/forgot.php:5
 #: htdocs/views/header.php:4
 #: htdocs/views/login.php:4
-#: ucp.i18n.php:4 /dev/shm/freepbx/ucp/ucp.i18n.php:56
+#: ucp.i18n.php:4
 msgid "User Control Panel"
 msgstr ""
 
@@ -692,14 +648,6 @@ msgstr ""
 msgid "Username has been changed, reloading"
 msgstr ""
 
-#: ucp.i18n.php:12
-msgid "View: UCP dashfootercontent.php"
-msgstr ""
-
-#: ucp.i18n.php:18
-msgid "View: UCP icons"
-msgstr ""
-
 #: htdocs/views/templates/phone.php:73
 msgid "WXYZ"
 msgstr ""
@@ -713,13 +661,13 @@ msgstr ""
 msgid "What is UCP"
 msgstr ""
 
-#: ucp.i18n.php:30
+#: ucp.i18n.php:20
 msgid ""
 "Whether to enable TLS for the backend server for UCP which allows "
 "instantaneous updates to the interface"
 msgstr ""
 
-#: ucp.i18n.php:26
+#: ucp.i18n.php:16
 msgid ""
 "Whether to enable the backend server for UCP which allows instantaneous "
 "updates to the interface"
@@ -786,12 +734,6 @@ msgstr ""
 
 #: htdocs/assets/js/ucp.js:83
 msgid "Your reset link is in the mail!"
-msgstr ""
-
-#: ucp.i18n.php:16
-msgid ""
-"dashfootercontent.php view. This should never be changed except for very "
-"advanced layout changes"
 msgstr ""
 
 #: htdocs/index.php:102
