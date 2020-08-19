@@ -2,14 +2,16 @@
 	<rawname>ucp</rawname>
 	<name>User Control Panel</name>
 	<repo>standard</repo>
-	<version>14.0.3.12</version>
+	<version>14.0.3.13</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>AGPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/agpl-3.0.txt</licenselink>
 	<description>
 		The user control panel is a way for users to control call handling and personal settings from a web browser.
 	</description>
+  	<more-info>https://wiki.freepbx.org/pages/viewpage.action?pageId=28180526</more-info>
 	<changelog>
+		*14.0.3.13* Packaging of ver 14.0.3.13
 		*14.0.3.12* FREEI-1784 Changing the logo,favicon [ucp 14.0] 
 		*14.0.3.11* FREEI-1638 UCP daemon not running - should be : disabled in advanced settings 
 		*14.0.3.10* FREEI-1495 UCP phone incorrectly labeled as : Softphone (Zulu) 
