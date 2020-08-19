@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-06-30 05:51+0000\n"
+"POT-Creation-Date: 2020-08-19 10:27+0000\n"
 "PO-Revision-Date: 2016-09-02 16:04+0200\n"
 "Last-Translator: Kenichi <k.kitani@qloog.com>\n"
 "Language-Team: Japanese <http://weblate.freepbx.org/projects/freepbx/ucp/"
@@ -628,7 +628,7 @@ msgstr "ユーザーコントロールパネル： %s"
 msgid "User Details"
 msgstr "ユーザー詳細"
 
-#: Ucp.class.php:70 /dev/shm/freepbx/ucp/Ucp.class.php:98
+#: Ucp.class.php:70 /usr/src/freepbx/ucp/Ucp.class.php:98
 msgid "User Primary Extension"
 msgstr "ユーザープライマリ内線"
 

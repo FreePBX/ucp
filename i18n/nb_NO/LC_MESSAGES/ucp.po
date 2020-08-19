@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-06-30 05:51+0000\n"
+"POT-Creation-Date: 2020-08-19 10:27+0000\n"
 "PO-Revision-Date: 2015-08-30 14:46+0200\n"
 "Last-Translator: Vidar Skjelanger <vidar@unimicro.no>\n"
 "Language-Team: Norwegian Bokmål <http://weblate.freepbx.org/projects/freepbx/"
@@ -619,7 +619,7 @@ msgstr "Kontrollpanel for brukere: %s"
 msgid "User Details"
 msgstr ""
 
-#: Ucp.class.php:70 /dev/shm/freepbx/ucp/Ucp.class.php:98
+#: Ucp.class.php:70 /usr/src/freepbx/ucp/Ucp.class.php:98
 msgid "User Primary Extension"
 msgstr ""
 

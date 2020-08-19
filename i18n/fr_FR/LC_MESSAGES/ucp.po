@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-06-30 05:51+0000\n"
+"POT-Creation-Date: 2020-08-19 10:27+0000\n"
 "PO-Revision-Date: 2017-03-12 17:22+0200\n"
 "Last-Translator: Nicolas <freepbx@riendeau.org>\n"
 "Language-Team: French <http://weblate.freepbx.org/projects/freepbx/ucp/fr_FR/"
@@ -645,7 +645,7 @@ msgstr "Panneau de l'utilisateur (UCP): %s"
 msgid "User Details"
 msgstr "Détail de l'utilisateur"
 
-#: Ucp.class.php:70 /dev/shm/freepbx/ucp/Ucp.class.php:98
+#: Ucp.class.php:70 /usr/src/freepbx/ucp/Ucp.class.php:98
 msgid "User Primary Extension"
 msgstr "Poste primaire de l'utilisateur"
 

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-06-30 05:51+0000\n"
+"POT-Creation-Date: 2020-08-19 10:27+0000\n"
 "PO-Revision-Date: 2016-12-13 14:49+0200\n"
 "Last-Translator: Maxim <maxim@ua.fm>\n"
 "Language-Team: Ukrainian <http://weblate.freepbx.org/projects/freepbx/ucp/"
@@ -637,7 +637,7 @@ msgstr "Панель керування користувача: %s"
 msgid "User Details"
 msgstr "Відомості про користувача"
 
-#: Ucp.class.php:70 /dev/shm/freepbx/ucp/Ucp.class.php:98
+#: Ucp.class.php:70 /usr/src/freepbx/ucp/Ucp.class.php:98
 msgid "User Primary Extension"
 msgstr "Основний додатковий номер користувача"
 
