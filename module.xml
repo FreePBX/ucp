@@ -2,15 +2,16 @@
 	<rawname>ucp</rawname>
 	<name>User Control Panel</name>
 	<repo>standard</repo>
-	<version>13.0.42.9</version>
+	<version>13.0.42.10</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>AGPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/agpl-3.0.txt</licenselink>
 	<description>
 		The user control panel is a way for users to control call handling and personal settings from a web browser.
 	</description>
-  	<more-info>https://wiki.freepbx.org/pages/viewpage.action?pageId=4161584</more-info>
+  	<more-info>https://wiki.freepbx.org/pages/viewpage.action?pageId=28180526</more-info>
 	<changelog>
+		*13.0.42.10* Packaging of ver 13.0.42.10
 		*13.0.42.9* Packaging of ver 13.0.42.9
 		*13.0.42.8* FREEI-1784 Changing the logo,favicon [ucp 13.0] 
 		*13.0.42.7* FREEPBX-20473 Apache Errors when browsing UCP 
