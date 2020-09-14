@@ -1,6 +1,6 @@
 
 /* COMMON COLORS */
-@main_color: #2F4050;
+@main_color: darken(@ucp-color, 12%);
 @secundary_color: #e7eaec;
 @third_color: #18A689;
 @light_hover: #a7b1c2;
@@ -8,10 +8,10 @@
 /* COMMON COLORS */
 
 /* WIDGET COLORS */
-@widget_title_background: #2F4050;
+@widget_title_background: @main_color;
 @widget_title_color: #FFF;
 @widget_content_background: #e7eaec;
-@widget_content_color: #2F4050;
+@widget_content_color: @main_color;
 @widget_settings_title_background: #A77B66;
 @widget_settings_title_color: #FFF;
 /* WIDGET COLORS */
@@ -20,6 +20,9 @@
 @widget_title_height: 34px;
 @widget_content_height: 55px;
 /* WIDGET SIZES */
+
+/* New Changes */
+@ucp-color: #4FB580;
 
 .grid-stack .grid-stack-item .grid-stack-item-content,
 .grid-stack .grid-stack-item .placeholder-content {
@@ -150,8 +153,8 @@
 			.widget-content {
 				width: 100%;
 				background-color: white;
-				border-left: 3px solid #2f404f;
-				border-right: 3px solid #2f404f;
+				border-left: 3px solid @main_color;
+				border-right: 3px solid @main_color;
 				//height: ~"calc(100% - @{widget_title_height})";
 			}
 
