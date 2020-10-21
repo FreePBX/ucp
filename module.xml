@@ -2,7 +2,7 @@
 	<rawname>ucp</rawname>
 	<name>User Control Panel</name>
 	<repo>standard</repo>
-	<version>14.0.3.14</version>
+	<version>14.0.3.15</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>AGPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/agpl-3.0.txt</licenselink>
@@ -11,6 +11,7 @@
 	</description>
   	<more-info>https://wiki.freepbx.org/pages/viewpage.action?pageId=28180526</more-info>
 	<changelog>
+		*14.0.3.15* Packaging of ver 14.0.3.15
 		*14.0.3.14* Packaging of ver 14.0.3.14
 		*14.0.3.13* Packaging of ver 14.0.3.13
 		*14.0.3.12* FREEI-1784 Changing the logo,favicon [ucp 14.0] 
