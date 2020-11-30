@@ -1,5 +1,5 @@
 /* COMMON COLORS */
-@main_color: #2F4050;
+@main_color: darken(@ucp-color, 12%);
 @secundary_color: #e7eaec;
 @third_color: #18A689;
 @light_hover: #a7b1c2;
@@ -15,16 +15,16 @@
 
 /* TOP BAR COLORS */
 @tab_background: #FFF;
-@tab_color: #2F4050;
-@tab_border_color: #2F4050;
-@tab_inactive_color: #b2b2b2;
-@add_dashboard_color: #45596C;
+@tab_color: @main_color;
+@tab_border_color: @main_color;
+@tab_inactive_color: @ucp-hover-background-color;
+@add_dashboard_color: @main_color;
 /* TOP BAR COLORS */
 
 
 /* SIDE BAR COLORS */
 @bar_background_color: #e7eaec;
-@button_background_color: #2F4050;
+@button_background_color: @main_color;
 @button_color: #e7eaec;
 @menu_secundary_color: #A77B66;
 /* SIDE BAR COLORS */
@@ -33,6 +33,10 @@
 @background-color: @base-color;
 @text-color: darken(@background-color, 50%);
 @border-color: fadeout(darken(@background-color, 10%),10%);
+
+/* New Changes */
+@ucp-color:#4FB580;
+@ucp-hover-background-color: darken(@ucp-color, 10%);
 
 /* Table */
 @table-striped-even-background-color: @background-color;
