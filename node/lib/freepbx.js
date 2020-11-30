@@ -75,6 +75,7 @@ connect2database = function(config, callback) {
 			user: config.AMPDBUSER,
 			password: config.AMPDBPASS,
 			db: config.AMPDBNAME,
+			port: (typeof config.AMPDBPORT !== "undefined")? config.AMPDBPORT : '3306',
 			charset: 'UTF8'
 		});
 	}
