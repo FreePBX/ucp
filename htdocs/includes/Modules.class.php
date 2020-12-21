@@ -247,7 +247,13 @@ class Modules extends Module_Helpers {
 				}
 			}
 		}
-		$css_file_name = \Less_Cache::Get( $files, array('compress' => true) );
+		$ucpModSkinVariables = array();
+		if ($this->UCP->FreePBX->Modules->checkStatus('oembranding') && 
+				($this->UCP->FreePBX->Modules->moduleHasMethod('oembranding', 'getUCPModuleSkin'))) {
+			$ucpModSkinVariables = \FreePBX::Oembranding()->getUCPModuleSkin();
+		}
+		$css_file_name = \Less_Cache::Get( $files, array('compress' => true), $ucpModSkinVariables );
+
 		return $css_file_name;
 	}
 
