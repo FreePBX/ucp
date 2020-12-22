@@ -331,7 +331,14 @@ class UCP extends UCP_Helpers {
 
 		$ucpfiles = array();
 		$ucpfiles[dirname(__DIR__).'/assets/less/ucp/ucp.less'] = '../../../../';
-		$final[] = "compiled/main/".\Less_Cache::Get( $ucpfiles, $options );
+
+		$ucpSkinVariables = array();
+		if ($this->UCP->FreePBX->Modules->checkStatus('oembranding') && 
+				($this->UCP->FreePBX->Modules->moduleHasMethod('oembranding', 'getUCPSkin'))) {
+                        $ucpSkinVariables = \FreePBX::Oembranding()->getUCPSkin();
+                }
+		$final[] = "compiled/main/".\Less_Cache::Get( $ucpfiles, $options , $ucpSkinVariables);
+
 
 		$ucpfiles = array();
 		$vars = array("fa-font-path" => '"fonts"');
