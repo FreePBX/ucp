@@ -333,8 +333,8 @@ class UCP extends UCP_Helpers {
 		$ucpfiles[dirname(__DIR__).'/assets/less/ucp/ucp.less'] = '../../../../';
 
 		$ucpSkinVariables = array();
-		if ($this->UCP->FreePBX->Modules->checkStatus('oembranding') && 
-				($this->UCP->FreePBX->Modules->moduleHasMethod('oembranding', 'getUCPSkin'))) {
+		if ($this->FreePBX->Modules->checkStatus('oembranding') && 
+				($this->FreePBX->Modules->moduleHasMethod('oembranding', 'getUCPSkin'))) {
                         $ucpSkinVariables = \FreePBX::Oembranding()->getUCPSkin();
                 }
 		$final[] = "compiled/main/".\Less_Cache::Get( $ucpfiles, $options , $ucpSkinVariables);
