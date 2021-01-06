@@ -706,8 +706,26 @@ section{
 	bottom: 0;
 	transition: bottom .3s;
 	z-index: 99;
-	height: 20px;
+	height: 100px;
 	color: #000;
+	#footer-content {
+		margin: 0px auto;
+    		padding-top: 10px;
+    		display: table;
+    		text-align: center;
+    		clear: both;
+    		color: #524d4d;
+    		font-size: 10px;
+	}
+
+}
+hr {
+	background-color: @main_color;
+    	border: 1px solid rgba(94,156,125,0.9);
+    	height: 3px;
+    	border-radius: 5px;
+    	margin-top: 0px;
+    	margin-bottom: 0px;
 }
 #footer.shrink {
 	bottom: -75px;
@@ -725,13 +743,8 @@ section{
 	height: 100%;
 	padding-top: 2px;
 }
-#footer-image {
-	padding-top: 0;
-	float: right;
-	padding-right: 5px;
-}
 #footer-image img{
-	height: 15px;
+	height: 26px;
 }
 #footer-message{
 	float: right;
