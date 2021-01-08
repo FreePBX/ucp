@@ -259,10 +259,10 @@ foreach($mods as $m) {
 }
 $ucp->Modgettext->push_textdomain("ucp");
 
+$displayvars['year'] = date('Y',time());
+$dbfc = FreePBX::Config()->get('VIEW_UCP_FOOTER_CONTENT');
+$displayvars['dashboard_footer_content'] = $ucp->View->load_view(__DIR__."/".$dbfc, array("year" => date('Y',time())));
 if(!empty($user["id"])) {
-	$displayvars['year'] = date('Y',time());
-	$dbfc = FreePBX::Config()->get('VIEW_UCP_FOOTER_CONTENT');
-	$displayvars['dashboard_footer_content'] = $ucp->View->load_view(__DIR__."/".$dbfc, array("year" => date('Y',time())));
 	$ucp->View->show_view(__DIR__ . '/views/dashboard-footer.php', $displayvars);
 }
 
