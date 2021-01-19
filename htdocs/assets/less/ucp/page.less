@@ -805,15 +805,15 @@ section{
 	margin: 5px 0px;
         .active {
            a {
-            background-color: #3b8c62;
-            border-color: #3b8c62;
+            background-color: @pagination-color;
+            border-color: @pagination-color;
            }
         }
         li {
           a {
-            color: #3b8c62;
+            color: @pagination-color;
             &:hover {
-              color: #3b8c62;
+              color: @pagination-color;
             }
           }
         }
@@ -858,7 +858,7 @@ section{
 	-moz-box-shadow: -3px 1px 8px 0px rgba(0, 0, 0, 0.5);
 	box-shadow: -3px 1px 8px 0px rgba(0, 0, 0, 0.5);
 	.title-bar {
-		background-color: #3b8c62;
+		background-color: @main_color;
 		height: 38px;
 		cursor: pointer;
 		.type {
@@ -1376,7 +1376,7 @@ select[multiple].Tokenize, select[size].Tokenize {
 
 .modal {
 	.modal-dialog {
-		border-bottom: 3px solid #3b8c62;
+		border-bottom: 3px solid @main_color;
 		.modal-content {
 			border-radius: 0px;
 			background-color: #e7eaec;
@@ -1394,7 +1394,7 @@ select[multiple].Tokenize, select[size].Tokenize {
 				}
 			}
 			.modal-footer {
-				border-top: 1px solid #3b8c62;
+				border-top: 1px solid @main_color;
 			}
 		}
 	}
@@ -1631,14 +1631,14 @@ div.bhoechie-tab div.bhoechie-tab-content:not(.active){
 
 #widget_settings {
 	.modal-dialog {
-		border-bottom: 3px solid #3b8c62;
+		border-bottom: 3px solid @main_color;
 		.modal-content {
 			border-radius: 0px;
 			background-color: #e7eaec;
 			.modal-header {
 				padding: 5px;
 				padding-left: 15px;
-				background-color: #3b8c62;
+				background-color: @main_color;
 				color: white;
 				text-transform: uppercase;
 				.close {
