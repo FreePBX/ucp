@@ -102,7 +102,8 @@ class Settings extends Modules{
 					case 'password':
 						$status = $this->UCP->FreePBX->Userman->updateUser($user['id'],$user['username'], $user['username'], $user['default_extension'], $user['description'], array(), $_POST['value']);
 						$ret = array(
-							"status" => $status['status']
+							"status" => $status['status'],
+							"message" => "<h4 class='text-center'>"._("Password does not match security policy.")."</h4><ul style='font-size: small;'>".$status['message']."</ul>"
 						);
 					break;
 					case 'timezone':
