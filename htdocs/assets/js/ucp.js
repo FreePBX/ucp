@@ -996,27 +996,27 @@ var UCPC = Class.extend({
 			var password = $("#pwd").val(), confirm = $("#pwd-confirm").val();
 			if (password !== "" && password != "******" && confirm !== "") {
 				if (confirm != password) {
-					$("#message").addClass("alert-danger");
-					$("#message").text(_("Password Confirmation Didn't Match!"));
-					$("#message").fadeIn( "fast" );
+					$("#alert").addClass("alert-danger");
+					$("#alert").html(_("Password Confirmation Didn't Match!"));
+					$("#alert").fadeIn( "fast" );
 				} else {
 					$.post( "?quietmode=1&command=ucpsettings", { key: "password", value: confirm }, function( data ) {
 						if (data.status) {
-							$("#message").addClass("alert-success");
-							$("#message").text(_("Saved!"));
-							$("#message").fadeIn( "slow", function() {
-								setTimeout(function() { $("#message").fadeOut("slow"); }, 2000);
+							$("#alert").addClass("alert-success");
+							$("#alert").html(_("Saved!"));
+							$("#alert").fadeIn( "slow", function() {
+								setTimeout(function() { $("#alert").fadeOut("slow"); }, 2000);
 							});
-						} else {
-							$("#message").addClass("alert-danger");
-							$("#message").text(data.message);
+						} else {							
+							$("#alert").addClass("alert-danger");
+							$("#alert").html(data.message);
 						}
 					});
 				}
 			} else {
-				$("#message").addClass("alert-danger");
-				$("#message").text(_("Password has not changed!"));
-				$("#message").fadeIn( "fast" );
+				$("#alert").addClass("alert-danger");
+				$("#alert").text(_("Password has not changed!"));
+				$("#alert").fadeIn( "fast" );
 			}
 		});
 		$("#ucp-settings input[type!=\"checkbox\"]").change(function() {
