@@ -103,7 +103,7 @@ class Settings extends Modules{
 						$status = $this->UCP->FreePBX->Userman->updateUser($user['id'],$user['username'], $user['username'], $user['default_extension'], $user['description'], array(), $_POST['value']);
 						$ret = array(
 							"status" => $status['status'],
-							"message" => "<h4 class='text-center'>"._("Password does not match security policy.")."</h4><ul style='font-size: small;'>".$status['message']."</ul>"
+							"message" => $this->UCP->View->load_view(__DIR__.'/views/pwd_alert.php',array("message" => $status['message'])),
 						);
 					break;
 					case 'timezone':
