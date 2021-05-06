@@ -75,8 +75,12 @@ class User {
 					return $return;
 				}
 				if(empty($user['email'])) {
-					$return['message'] = _('Email address unknown!');
-					$return['status'] = false;
+					/**
+					 * Force the status to True, even if this email is not matched. Any hackers could check this response event if
+					 * the message show "Submitted".
+					 */
+					$return['message'] 	= _('Submitted');
+					$return['status'] 	= true;  
 					return $return;
 				}
 				if (!$this->UCP->FreePBX->Ucp->sendPassResetEmail($user['id'])) {
