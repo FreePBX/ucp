@@ -76,7 +76,7 @@ class Ajax extends UCP {
 						$status = $this->UCP->FreePBX->Userman->updateUser($user['id'],$user['username'], $user['username'], $user['default_extension'], $user['description'], array(), $_POST['value']);
 						$ret = array(
 							"status" => $status['status'],
-							"message" => "<h4>"._("Password does not match security policy.")."</h4>".$status['message']
+							"message" => $this->UCP->View->load_view(__DIR__.'/../views/pwd_alert.php',array("message" => $status['message'])),
 						);
 					break;
 					default:
