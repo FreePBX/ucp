@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-05-13 02:27+0000\n"
+"POT-Creation-Date: 2021-05-13 02:50+0000\n"
 "PO-Revision-Date: 2018-08-08 11:42+0000\n"
 "Last-Translator: Petr Varvarovsky <petrv@atlantis.cz>\n"
 "Language-Team: Czech <http://*/projects/freepbx/ucp/cs/>\n"
@@ -415,7 +415,7 @@ msgstr ""
 "Aktivovat režim prohlížení v UCP při prvním přihlášení. Pokud je toto "
 "vypnuto, režim prohlížení se při prvním přihlášení automaticky nezapne"
 
-#: htdocs/modules/Settings/assets/js/global.js:134
+#: htdocs/modules/Settings/assets/js/global.js:140
 msgid "Enabling notifications was denied"
 msgstr "Zakázáno povolit upozornění"
 
@@ -423,7 +423,7 @@ msgstr "Zakázáno povolit upozornění"
 msgid "End of tour"
 msgstr "Konec prohlížení"
 
-#: htdocs/modules/Settings/Settings.class.php:142
+#: htdocs/modules/Settings/Settings.class.php:143
 msgid "English"
 msgstr "Angličtina"
 
@@ -735,6 +735,10 @@ msgstr "Odkaz na obnovení hesla (platný do: %s): %s"
 msgid "Password Reset for: %s"
 msgstr "Reset hesla pro: %s"
 
+#: htdocs/modules/Settings/views/pwd_alert.php:1
+msgid "Password does not match security policy."
+msgstr ""
+
 #: htdocs/assets/js/ucp.js:269
 msgid "Password has been changed!"
 msgstr "Heslo bylo změněno!"
@@ -793,7 +797,7 @@ msgstr "Aktivní (V provozu: %s)"
 msgid "Save your dashboard"
 msgstr "Uložte svůj ovládací panel"
 
-#: htdocs/modules/Settings/assets/js/global.js:222
+#: htdocs/modules/Settings/assets/js/global.js:229
 msgid "Saved!"
 msgstr "Uloženo!"
 
@@ -924,8 +928,8 @@ msgstr "Styl a loga"
 msgid "Submitted"
 msgstr ""
 
-#: htdocs/modules/Settings/assets/js/global.js:100
-#: htdocs/modules/Settings/assets/js/global.js:113
+#: htdocs/modules/Settings/assets/js/global.js:106
+#: htdocs/modules/Settings/assets/js/global.js:119
 msgid "Success!"
 msgstr "Podařilo se!"
 
@@ -937,19 +941,19 @@ msgstr ""
 msgid "TUV"
 msgstr "TUV"
 
-#: htdocs/modules/Settings/assets/js/global.js:55
+#: htdocs/modules/Settings/assets/js/global.js:61
 msgid "The Browser Language could not be determined"
 msgstr "Nebyl zjištěn jazyk prohlížeče"
 
-#: htdocs/modules/Settings/assets/js/global.js:77
+#: htdocs/modules/Settings/assets/js/global.js:83
 msgid "The Browser Timezone could not be determined"
 msgstr "Nebylo zjištěno časové pásmo prohlížeče"
 
-#: htdocs/modules/Settings/assets/js/global.js:66
+#: htdocs/modules/Settings/assets/js/global.js:72
 msgid "The PBX Language is not set"
 msgstr "Není nastaven jazyk ústředny"
 
-#: htdocs/modules/Settings/assets/js/global.js:88
+#: htdocs/modules/Settings/assets/js/global.js:94
 msgid "The PBX Timezone is not set"
 msgstr "Není nastaveno časové pásmo ústředny"
 
@@ -1193,8 +1197,8 @@ msgstr ""
 msgid "UCP is not supported in your browser"
 msgstr "UCP není podporován ve vašem prohlížeči"
 
-#: htdocs/modules/Settings/assets/js/global.js:101
-#: htdocs/modules/Settings/assets/js/global.js:116
+#: htdocs/modules/Settings/assets/js/global.js:107
+#: htdocs/modules/Settings/assets/js/global.js:122
 msgid "UCP needs to reload, ok?"
 msgstr "UCP se musí restartovat, ok?"
 
@@ -1214,7 +1218,7 @@ msgstr "Nelze odeslat e-mail s obnovením hesla"
 msgid "Unknown"
 msgstr "Neznámý"
 
-#: htdocs/modules/Settings/assets/js/global.js:255
+#: htdocs/modules/Settings/assets/js/global.js:262
 msgid "Unsupported file type"
 msgstr "Nepodporovaný typ souboru"
 
@@ -1242,7 +1246,7 @@ msgstr "Použij jazyk ústředny"
 msgid "Use PBX Timezone"
 msgstr "Použij časové pásmo ústředny"
 
-#: htdocs/modules/Settings/Settings.class.php:185
+#: htdocs/modules/Settings/Settings.class.php:186
 msgid "User"
 msgstr "Uživatel"
 
