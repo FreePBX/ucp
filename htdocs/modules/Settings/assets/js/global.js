@@ -9,10 +9,16 @@ var SettingsC = UCPMC.extend({
 	poll: function(data) {
 		//console.log(data)
 	},
-	showMessage: function(message, type, timeout) {
+	showMessage: function(message, type, timeout, html = false) {
 		type = typeof type !== "undefined" ? type : "info";
 		timeout = typeof timeout !== "undefined" ? timeout : 2000;
-		$("#settings-message").removeClass().addClass("alert alert-"+type+" text-center").text(message);
+		if(html){
+			$("#settings-message").removeClass().addClass("alert alert-"+type+" text-left").html(message);
+		}
+		else{
+			$("#settings-message").removeClass().addClass("alert alert-"+type+" text-center").text(message);
+		}
+		
 		setTimeout(function() {
 			$("#settings-message").addClass("hidden");
 		}, timeout);
@@ -175,7 +181,8 @@ var SettingsC = UCPMC.extend({
 								window.location.reload();
 							});
 						} else {
-							$this.showMessage(data.message,"danger");
+							$this.showMessage(data.message,"warning", 3000,  true);
+
 						}
 					});
 				}
