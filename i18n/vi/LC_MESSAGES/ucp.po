@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-05-13 02:26+0000\n"
+"POT-Creation-Date: 2021-05-13 02:49+0000\n"
 "PO-Revision-Date: 2017-08-02 21:28+0200\n"
 "Last-Translator: PETER <ftek@ymail.com>\n"
 "Language-Team: Vietnamese <http://weblate.freepbx.org/projects/freepbx/ucp/"
@@ -383,7 +383,7 @@ msgid ""
 "automatically start upon first login"
 msgstr ""
 
-#: htdocs/modules/Settings/assets/js/global.js:134
+#: htdocs/modules/Settings/assets/js/global.js:140
 msgid "Enabling notifications was denied"
 msgstr ""
 
@@ -391,7 +391,7 @@ msgstr ""
 msgid "End of tour"
 msgstr ""
 
-#: htdocs/modules/Settings/Settings.class.php:142
+#: htdocs/modules/Settings/Settings.class.php:143
 msgid "English"
 msgstr "Tiếng anh"
 
@@ -696,6 +696,10 @@ msgstr "Liên kết để cài đặt lại mật khẩu ( Có hiệu lực đ�
 msgid "Password Reset for: %s"
 msgstr "Cài lại mật khẩu cho: %s"
 
+#: htdocs/modules/Settings/views/pwd_alert.php:1
+msgid "Password does not match security policy."
+msgstr ""
+
 #: htdocs/assets/js/ucp.js:269
 msgid "Password has been changed!"
 msgstr "Mật khẩu vừa được thay đổi!"
@@ -751,7 +755,7 @@ msgstr ""
 msgid "Save your dashboard"
 msgstr ""
 
-#: htdocs/modules/Settings/assets/js/global.js:222
+#: htdocs/modules/Settings/assets/js/global.js:229
 msgid "Saved!"
 msgstr "Đã lưu!"
 
@@ -877,8 +881,8 @@ msgstr "Phong cách và Lô gô"
 msgid "Submitted"
 msgstr ""
 
-#: htdocs/modules/Settings/assets/js/global.js:100
-#: htdocs/modules/Settings/assets/js/global.js:113
+#: htdocs/modules/Settings/assets/js/global.js:106
+#: htdocs/modules/Settings/assets/js/global.js:119
 msgid "Success!"
 msgstr ""
 
@@ -890,19 +894,19 @@ msgstr ""
 msgid "TUV"
 msgstr "TUV"
 
-#: htdocs/modules/Settings/assets/js/global.js:55
+#: htdocs/modules/Settings/assets/js/global.js:61
 msgid "The Browser Language could not be determined"
 msgstr ""
 
-#: htdocs/modules/Settings/assets/js/global.js:77
+#: htdocs/modules/Settings/assets/js/global.js:83
 msgid "The Browser Timezone could not be determined"
 msgstr ""
 
-#: htdocs/modules/Settings/assets/js/global.js:66
+#: htdocs/modules/Settings/assets/js/global.js:72
 msgid "The PBX Language is not set"
 msgstr ""
 
-#: htdocs/modules/Settings/assets/js/global.js:88
+#: htdocs/modules/Settings/assets/js/global.js:94
 msgid "The PBX Timezone is not set"
 msgstr ""
 
@@ -1127,8 +1131,8 @@ msgstr ""
 msgid "UCP is not supported in your browser"
 msgstr ""
 
-#: htdocs/modules/Settings/assets/js/global.js:101
-#: htdocs/modules/Settings/assets/js/global.js:116
+#: htdocs/modules/Settings/assets/js/global.js:107
+#: htdocs/modules/Settings/assets/js/global.js:122
 msgid "UCP needs to reload, ok?"
 msgstr "Cần tải lại UCP, ok?"
 
@@ -1148,7 +1152,7 @@ msgstr "Không thể gửi Email cài đặt lại mật khẩu"
 msgid "Unknown"
 msgstr ""
 
-#: htdocs/modules/Settings/assets/js/global.js:255
+#: htdocs/modules/Settings/assets/js/global.js:262
 msgid "Unsupported file type"
 msgstr "Kiểu tệp không được hỗ trợ"
 
@@ -1176,7 +1180,7 @@ msgstr ""
 msgid "Use PBX Timezone"
 msgstr ""
 
-#: htdocs/modules/Settings/Settings.class.php:185
+#: htdocs/modules/Settings/Settings.class.php:186
 msgid "User"
 msgstr ""
 

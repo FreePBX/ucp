@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-05-13 02:26+0000\n"
+"POT-Creation-Date: 2021-05-13 02:49+0000\n"
 "PO-Revision-Date: 2019-06-26 16:00+0000\n"
 "Last-Translator: Bastian Mertgen <b.mertgen@bastian-mertgen.de>\n"
 "Language-Team: German <http://*/projects/freepbx/ucp/de/>\n"
@@ -417,7 +417,7 @@ msgstr ""
 "Aktiviert den Tour Mode im UCP nach erstem Login. Wenn deaktiviert, die Tour "
 "wird nicht automatisch nach dem ersten Login starten"
 
-#: htdocs/modules/Settings/assets/js/global.js:134
+#: htdocs/modules/Settings/assets/js/global.js:140
 msgid "Enabling notifications was denied"
 msgstr "Das Aktivieren von Benachrichtigungen wurde abgelehnt"
 
@@ -425,7 +425,7 @@ msgstr "Das Aktivieren von Benachrichtigungen wurde abgelehnt"
 msgid "End of tour"
 msgstr "Ende der Tour"
 
-#: htdocs/modules/Settings/Settings.class.php:142
+#: htdocs/modules/Settings/Settings.class.php:143
 msgid "English"
 msgstr "Englisch"
 
@@ -742,6 +742,10 @@ msgstr "Passwort Reset Link (Gültig bis: %s): %s"
 msgid "Password Reset for: %s"
 msgstr "Passwort zurücksetzen für: %s"
 
+#: htdocs/modules/Settings/views/pwd_alert.php:1
+msgid "Password does not match security policy."
+msgstr ""
+
 #: htdocs/assets/js/ucp.js:269
 msgid "Password has been changed!"
 msgstr "Passwort wurde geändert!"
@@ -796,7 +800,7 @@ msgstr "Aktiver Prozess (Uptime: %s)"
 msgid "Save your dashboard"
 msgstr "Speichern Sie ihr Dashboard"
 
-#: htdocs/modules/Settings/assets/js/global.js:222
+#: htdocs/modules/Settings/assets/js/global.js:229
 msgid "Saved!"
 msgstr "Gespeichert!"
 
@@ -929,8 +933,8 @@ msgstr "Styling und Logos"
 msgid "Submitted"
 msgstr ""
 
-#: htdocs/modules/Settings/assets/js/global.js:100
-#: htdocs/modules/Settings/assets/js/global.js:113
+#: htdocs/modules/Settings/assets/js/global.js:106
+#: htdocs/modules/Settings/assets/js/global.js:119
 msgid "Success!"
 msgstr "Erfolgreich!"
 
@@ -942,19 +946,19 @@ msgstr "System"
 msgid "TUV"
 msgstr "TUV"
 
-#: htdocs/modules/Settings/assets/js/global.js:55
+#: htdocs/modules/Settings/assets/js/global.js:61
 msgid "The Browser Language could not be determined"
 msgstr "Die Browser-Sprache konnte nicht bestimmt werden"
 
-#: htdocs/modules/Settings/assets/js/global.js:77
+#: htdocs/modules/Settings/assets/js/global.js:83
 msgid "The Browser Timezone could not be determined"
 msgstr "Die Browser-Zeitzone konnte nicht bestimmt werden"
 
-#: htdocs/modules/Settings/assets/js/global.js:66
+#: htdocs/modules/Settings/assets/js/global.js:72
 msgid "The PBX Language is not set"
 msgstr "Die TK-Anlagen Sprache ist nicht definiert"
 
-#: htdocs/modules/Settings/assets/js/global.js:88
+#: htdocs/modules/Settings/assets/js/global.js:94
 msgid "The PBX Timezone is not set"
 msgstr "Die TK-Anlagen Zeitzone ist nicht definiert"
 
@@ -1203,8 +1207,8 @@ msgstr ""
 msgid "UCP is not supported in your browser"
 msgstr "UCP wird in Ihrem Browser nicht unterstützt"
 
-#: htdocs/modules/Settings/assets/js/global.js:101
-#: htdocs/modules/Settings/assets/js/global.js:116
+#: htdocs/modules/Settings/assets/js/global.js:107
+#: htdocs/modules/Settings/assets/js/global.js:122
 msgid "UCP needs to reload, ok?"
 msgstr "UCP muss neu geladen werden, ok?"
 
@@ -1224,7 +1228,7 @@ msgstr "Email zum Zurücksetzen des Passworts konnte nicht gesendet werden"
 msgid "Unknown"
 msgstr "Unbekannt"
 
-#: htdocs/modules/Settings/assets/js/global.js:255
+#: htdocs/modules/Settings/assets/js/global.js:262
 msgid "Unsupported file type"
 msgstr "Nicht unterstützter Dateityp"
 
@@ -1252,7 +1256,7 @@ msgstr "Sprache der TK-Anlage verwenden"
 msgid "Use PBX Timezone"
 msgstr "Zeitzone der TK-Anlage verwenden"
 
-#: htdocs/modules/Settings/Settings.class.php:185
+#: htdocs/modules/Settings/Settings.class.php:186
 msgid "User"
 msgstr "Benutzer"
 
