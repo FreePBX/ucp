@@ -3,13 +3,13 @@
 # For licensing information, please see the file named LICENSE located in the module directory
 #
 # FreePBX language template for ucp
-# Copyright (C) 2008-2020 Sangoma Technologies, Inc.
+# Copyright (C) 2008-2021 Sangoma Technologies, Inc.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-08-19 10:32+0000\n"
+"POT-Creation-Date: 2021-05-13 02:39+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -61,7 +61,7 @@ msgstr ""
 msgid "ABC"
 msgstr ""
 
-#: htdocs/views/settings.php:8
+#: htdocs/views/settings.php:9
 msgid "Account Settings"
 msgstr ""
 
@@ -69,7 +69,7 @@ msgstr ""
 msgid "Active Sessions"
 msgstr ""
 
-#: ucp.i18n.php:24
+#: ucp.i18n.php:34
 msgid "Address to bind to. Default is "
 msgstr ""
 
@@ -77,12 +77,12 @@ msgstr ""
 msgid "Admin"
 msgstr ""
 
-#: htdocs/views/settings.php:11
+#: htdocs/views/settings.php:12
 msgid ""
 "All fields update when unfocused (selecting another field) except password"
 msgstr ""
 
-#: htdocs/views/settings.php:111
+#: htdocs/views/settings.php:112
 msgid "Allow Desktop Notifications"
 msgstr ""
 
@@ -90,7 +90,15 @@ msgstr ""
 msgid "Allow Login"
 msgstr ""
 
-#: htdocs/views/settings.php:119
+#: ucp.i18n.php:54
+msgid "Allow Password Changes"
+msgstr ""
+
+#: ucp.i18n.php:60
+msgid "Allow Username Changes"
+msgstr ""
+
+#: htdocs/views/settings.php:120
 msgid "Allow browser desktop notifications from UCP modules."
 msgstr ""
 
@@ -98,6 +106,14 @@ msgstr ""
 msgid ""
 "Allow this user to originate calls from within UCP. This is not the same as "
 "WebRTC"
+msgstr ""
+
+#: ucp.i18n.php:62
+msgid "Allow users to change their username in UCP"
+msgstr ""
+
+#: ucp.i18n.php:58
+msgid "Allow users to change thier password in UCP"
 msgstr ""
 
 #: views/users_hook.php:118
@@ -108,7 +124,7 @@ msgstr ""
 msgid "Are you sure you wish to change your username?"
 msgstr ""
 
-#: htdocs/views/settings.php:140
+#: htdocs/views/settings.php:141
 msgid "Browse"
 msgstr ""
 
@@ -117,19 +133,19 @@ msgstr ""
 msgid "Call"
 msgstr ""
 
-#: htdocs/views/settings.php:74
+#: htdocs/views/settings.php:75
 msgid "Cell Phone"
 msgstr ""
 
-#: htdocs/views/settings.php:69
+#: htdocs/views/settings.php:70
 msgid "Company"
 msgstr ""
 
-#: htdocs/views/settings.php:27
+#: htdocs/views/settings.php:28
 msgid "Confirm Password"
 msgstr ""
 
-#: htdocs/views/settings.php:127
+#: htdocs/views/settings.php:128
 msgid "Contact Image"
 msgstr ""
 
@@ -137,7 +153,7 @@ msgstr ""
 msgid "DEF"
 msgstr ""
 
-#: htdocs/views/settings.php:135
+#: htdocs/views/settings.php:136
 msgid "Delete Image"
 msgstr ""
 
@@ -150,7 +166,7 @@ msgstr ""
 msgid "Deleted User Session"
 msgstr ""
 
-#: htdocs/views/settings.php:44
+#: htdocs/views/settings.php:45
 msgid "Display Name"
 msgstr ""
 
@@ -161,12 +177,12 @@ msgstr ""
 msgid "Done"
 msgstr ""
 
-#: htdocs/views/settings.php:132
+#: htdocs/views/settings.php:133
 msgid "Drop a new image here"
 msgstr ""
 
 #: htdocs/views/login.php:29
-#: htdocs/views/settings.php:49
+#: htdocs/views/settings.php:50
 msgid "Email"
 msgstr ""
 
@@ -178,11 +194,11 @@ msgstr ""
 msgid "Enable Originating Calls"
 msgstr ""
 
-#: ucp.i18n.php:18
+#: ucp.i18n.php:28
 msgid "Enable TLS for the NodeJS Server"
 msgstr ""
 
-#: ucp.i18n.php:12
+#: ucp.i18n.php:22
 msgid "Enable the NodeJS Server"
 msgstr ""
 
@@ -203,7 +219,7 @@ msgstr ""
 msgid "Failed to install %s due to the following conflicting module(s): %s"
 msgstr ""
 
-#: htdocs/views/settings.php:89
+#: htdocs/views/settings.php:90
 msgid "Fax"
 msgstr ""
 
@@ -211,7 +227,7 @@ msgstr ""
 msgid "First"
 msgstr ""
 
-#: htdocs/views/settings.php:54
+#: htdocs/views/settings.php:55
 msgid "First Name"
 msgstr ""
 
@@ -257,11 +273,11 @@ msgstr ""
 msgid "Home"
 msgstr ""
 
-#: htdocs/views/settings.php:84
+#: htdocs/views/settings.php:85
 msgid "Home Phone"
 msgstr ""
 
-#: htdocs/views/settings.php:46
+#: htdocs/views/settings.php:47
 msgid ""
 "How you would like your name displayed throughout UCP and Contact Manager"
 msgstr ""
@@ -271,7 +287,7 @@ msgstr ""
 msgid "Inherit"
 msgstr ""
 
-#: htdocs/views/settings.php:99
+#: htdocs/views/settings.php:100
 msgid "Interface Settings"
 msgstr ""
 
@@ -303,7 +319,7 @@ msgstr ""
 msgid "JKL"
 msgstr ""
 
-#: htdocs/views/settings.php:102
+#: htdocs/views/settings.php:103
 msgid "Language"
 msgstr ""
 
@@ -311,7 +327,7 @@ msgstr ""
 msgid "Last"
 msgstr ""
 
-#: htdocs/views/settings.php:59
+#: htdocs/views/settings.php:60
 msgid "Last Name"
 msgstr ""
 
@@ -347,7 +363,7 @@ msgstr ""
 msgid "Miscellaneous"
 msgstr ""
 
-#: htdocs/includes/Ajax.class.php:139
+#: htdocs/includes/Ajax.class.php:140
 msgid "Module or Command were null. Check your code."
 msgstr ""
 
@@ -360,27 +376,27 @@ msgstr ""
 msgid "No"
 msgstr ""
 
-#: ucp.i18n.php:22
+#: ucp.i18n.php:32
 msgid "NodeJS Bind Address"
 msgstr ""
 
-#: ucp.i18n.php:26
+#: ucp.i18n.php:36
 msgid "NodeJS Bind Port"
 msgstr ""
 
-#: ucp.i18n.php:30
+#: ucp.i18n.php:40
 msgid "NodeJS HTTPS Bind Address"
 msgstr ""
 
-#: ucp.i18n.php:32
+#: ucp.i18n.php:42
 msgid "NodeJS HTTPS Bind Port"
 msgstr ""
 
-#: ucp.i18n.php:36
+#: ucp.i18n.php:46
 msgid "NodeJS HTTPS TLS Certificate Location"
 msgstr ""
 
-#: ucp.i18n.php:40
+#: ucp.i18n.php:50
 msgid "NodeJS HTTPS TLS Private Key Location"
 msgstr ""
 
@@ -417,7 +433,7 @@ msgid "PQRS"
 msgstr ""
 
 #: htdocs/views/login.php:20
-#: htdocs/views/settings.php:22
+#: htdocs/views/settings.php:23
 msgid "Password"
 msgstr ""
 
@@ -433,6 +449,10 @@ msgstr ""
 #: htdocs/views/forgot.php:27
 #, php-format
 msgid "Password Reset for: %s"
+msgstr ""
+
+#: htdocs/views/pwd_alert.php:1
+msgid "Password does not match security policy."
 msgstr ""
 
 #: htdocs/assets/js/ucp.js:98
@@ -451,17 +471,25 @@ msgstr ""
 msgid "Please enter either a username or email address"
 msgstr ""
 
-#: ucp.i18n.php:28
+#: ucp.i18n.php:38
 msgid "Port to bind to. Default is 8001"
 msgstr ""
 
-#: ucp.i18n.php:34
+#: ucp.i18n.php:44
 msgid "Port to bind to. Default is 8003"
 msgstr ""
 
 #: htdocs/assets/js/ucp.js:71
 #: htdocs/assets/js/ucp.js:122
 msgid "Processing..."
+msgstr ""
+
+#: ucp.i18n.php:64
+msgid "RSS Feeds"
+msgstr ""
+
+#: ucp.i18n.php:66
+msgid "RSS Feeds that are displayed in UCP. This overrides "
 msgstr ""
 
 #: Ucp.class.php:29
@@ -491,11 +519,11 @@ msgstr ""
 msgid "Sent at %s"
 msgstr ""
 
-#: ucp.i18n.php:42
+#: ucp.i18n.php:52
 msgid "Sets the path to the HTTPS private key. This is required if "
 msgstr ""
 
-#: ucp.i18n.php:38
+#: ucp.i18n.php:48
 msgid "Sets the path to the HTTPS server certificate. This is required if "
 msgstr ""
 
@@ -504,12 +532,22 @@ msgstr ""
 msgid "Settings"
 msgstr ""
 
+#: ucp.i18n.php:14
+msgid "Styling and Logos"
+msgstr ""
+
 #: htdocs/views/templates/phone.php:69
 msgid "TUV"
 msgstr ""
 
-#: htdocs/views/settings.php:24
-#: htdocs/views/settings.php:29
+#: ucp.i18n.php:70
+msgid ""
+"The number of days a session token will be valid for. Clear this setting if "
+"you want tokens to last forever (Not Recommended)"
+msgstr ""
+
+#: htdocs/views/settings.php:25
+#: htdocs/views/settings.php:30
 msgid "The password used to login to User Control Panel and other services"
 msgstr ""
 
@@ -523,7 +561,7 @@ msgid ""
 "personal settings from a web browser."
 msgstr ""
 
-#: htdocs/views/settings.php:15
+#: htdocs/views/settings.php:16
 msgid "The username used to login to User Control Panel and other services"
 msgstr ""
 
@@ -538,7 +576,7 @@ msgid ""
 "and others"
 msgstr ""
 
-#: htdocs/views/settings.php:64
+#: htdocs/views/settings.php:65
 msgid "Title"
 msgstr ""
 
@@ -558,12 +596,22 @@ msgstr ""
 msgid "UCP Admin"
 msgstr ""
 
-#: htdocs/views/settings.php:108
+#: htdocs/views/settings.php:109
 msgid "UCP Language"
 msgstr ""
 
-#: ucp.i18n.php:14
+#: ucp.i18n.php:24
 msgid "UCP NodeJS Server"
+msgstr ""
+
+#: ucp.i18n.php:68
+msgid "UCP Session Timeout"
+msgstr ""
+
+#: ucp.i18n.php:20
+msgid ""
+"UCP icons folder. This should never be changed except for very advanced "
+"layout changes"
 msgstr ""
 
 #: htdocs/index.php:25
@@ -598,22 +646,22 @@ msgstr ""
 msgid "Unsupported file type"
 msgstr ""
 
-#: htdocs/views/settings.php:31
+#: htdocs/views/settings.php:32
 msgid "Update Password"
 msgstr ""
 
-#: htdocs/views/settings.php:149
+#: htdocs/views/settings.php:150
 msgid "Use Gravatar"
 msgstr ""
 
 #: htdocs/views/forgot.php:5
 #: htdocs/views/header.php:4
 #: htdocs/views/login.php:4
-#: ucp.i18n.php:4
+#: ucp.i18n.php:4 /usr/src/freepbx/ucp/ucp.i18n.php:56
 msgid "User Control Panel"
 msgstr ""
 
-#: htdocs/views/settings.php:2
+#: htdocs/views/settings.php:3
 msgid "User Control Panel Settings"
 msgstr ""
 
@@ -627,7 +675,7 @@ msgstr ""
 msgid "User Control Panel: %s"
 msgstr ""
 
-#: htdocs/views/settings.php:41
+#: htdocs/views/settings.php:42
 msgid "User Details"
 msgstr ""
 
@@ -640,12 +688,20 @@ msgid "User Settings"
 msgstr ""
 
 #: htdocs/views/login.php:15
-#: htdocs/views/settings.php:13
+#: htdocs/views/settings.php:14
 msgid "Username"
 msgstr ""
 
 #: htdocs/assets/js/ucp.js:1036
 msgid "Username has been changed, reloading"
+msgstr ""
+
+#: ucp.i18n.php:12
+msgid "View: UCP dashfootercontent.php"
+msgstr ""
+
+#: ucp.i18n.php:18
+msgid "View: UCP icons"
 msgstr ""
 
 #: htdocs/views/templates/phone.php:73
@@ -661,19 +717,19 @@ msgstr ""
 msgid "What is UCP"
 msgstr ""
 
-#: ucp.i18n.php:20
+#: ucp.i18n.php:30
 msgid ""
 "Whether to enable TLS for the backend server for UCP which allows "
 "instantaneous updates to the interface"
 msgstr ""
 
-#: ucp.i18n.php:16
+#: ucp.i18n.php:26
 msgid ""
 "Whether to enable the backend server for UCP which allows instantaneous "
 "updates to the interface"
 msgstr ""
 
-#: htdocs/views/settings.php:79
+#: htdocs/views/settings.php:80
 msgid "Work Phone"
 msgstr ""
 
@@ -690,39 +746,39 @@ msgstr ""
 msgid "Your Browser is unsupported at this time."
 msgstr ""
 
-#: htdocs/views/settings.php:76
+#: htdocs/views/settings.php:77
 msgid "Your Cell Phone Number"
 msgstr ""
 
-#: htdocs/views/settings.php:71
+#: htdocs/views/settings.php:72
 msgid "Your Company"
 msgstr ""
 
-#: htdocs/views/settings.php:51
+#: htdocs/views/settings.php:52
 msgid "Your Email Address"
 msgstr ""
 
-#: htdocs/views/settings.php:91
+#: htdocs/views/settings.php:92
 msgid "Your Fax Number"
 msgstr ""
 
-#: htdocs/views/settings.php:56
+#: htdocs/views/settings.php:57
 msgid "Your First Name"
 msgstr ""
 
-#: htdocs/views/settings.php:86
+#: htdocs/views/settings.php:87
 msgid "Your Home Number"
 msgstr ""
 
-#: htdocs/views/settings.php:61
+#: htdocs/views/settings.php:62
 msgid "Your Last Name"
 msgstr ""
 
-#: htdocs/views/settings.php:66
+#: htdocs/views/settings.php:67
 msgid "Your Title"
 msgstr ""
 
-#: htdocs/views/settings.php:81
+#: htdocs/views/settings.php:82
 msgid "Your Work Number"
 msgstr ""
 
@@ -734,6 +790,12 @@ msgstr ""
 
 #: htdocs/assets/js/ucp.js:83
 msgid "Your reset link is in the mail!"
+msgstr ""
+
+#: ucp.i18n.php:16
+msgid ""
+"dashfootercontent.php view. This should never be changed except for very "
+"advanced layout changes"
 msgstr ""
 
 #: htdocs/index.php:102

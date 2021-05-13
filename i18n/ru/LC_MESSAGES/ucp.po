@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-08-19 10:27+0000\n"
+"POT-Creation-Date: 2021-05-13 02:39+0000\n"
 "PO-Revision-Date: 2017-05-17 01:59+0200\n"
 "Last-Translator: Evgeniy <yen81@mail.ru>\n"
 "Language-Team: Russian <http://weblate.freepbx.org/projects/freepbx/ucp/ru/"
@@ -65,7 +65,7 @@ msgstr "Файлы .htaccess не поддерживаются на этом в�
 msgid "ABC"
 msgstr "ABC"
 
-#: htdocs/views/settings.php:8
+#: htdocs/views/settings.php:9
 msgid "Account Settings"
 msgstr "Настройки учетной записи"
 
@@ -73,7 +73,7 @@ msgstr "Настройки учетной записи"
 msgid "Active Sessions"
 msgstr "Активные сессии"
 
-#: ucp.i18n.php:24
+#: ucp.i18n.php:34
 msgid "Address to bind to. Default is "
 msgstr ""
 
@@ -81,14 +81,14 @@ msgstr ""
 msgid "Admin"
 msgstr "Администратор"
 
-#: htdocs/views/settings.php:11
+#: htdocs/views/settings.php:12
 msgid ""
 "All fields update when unfocused (selecting another field) except password"
 msgstr ""
 "Изменения значений всех полей применяюся сразу (например, при выборе другого "
 "поля), кроме поля с паролем"
 
-#: htdocs/views/settings.php:111
+#: htdocs/views/settings.php:112
 msgid "Allow Desktop Notifications"
 msgstr "Разрешить уведомления на рабочем столе"
 
@@ -96,7 +96,15 @@ msgstr "Разрешить уведомления на рабочем столе
 msgid "Allow Login"
 msgstr "Разрешить вход"
 
-#: htdocs/views/settings.php:119
+#: ucp.i18n.php:54
+msgid "Allow Password Changes"
+msgstr "Разрешить смену пароля"
+
+#: ucp.i18n.php:60
+msgid "Allow Username Changes"
+msgstr "Разрешить смену имени"
+
+#: htdocs/views/settings.php:120
 msgid "Allow browser desktop notifications from UCP modules."
 msgstr "Разрешить уведомления браузера от модулей UCP на рабочем столе"
 
@@ -108,6 +116,14 @@ msgstr ""
 "Разрешить этому пользователю совершать вызовы из UCP. Это не то же самое, "
 "что и WebRTC."
 
+#: ucp.i18n.php:62
+msgid "Allow users to change their username in UCP"
+msgstr "Разрешить пользователям менять имя в панели управления"
+
+#: ucp.i18n.php:58
+msgid "Allow users to change thier password in UCP"
+msgstr "Разрешить пользователям менять пароль в панели управления"
+
 #: views/users_hook.php:118
 msgid "Allowed Extension Settings"
 msgstr "Разрешенные настройки extension"
@@ -116,7 +132,7 @@ msgstr "Разрешенные настройки extension"
 msgid "Are you sure you wish to change your username?"
 msgstr "Вы уверены, что хотите поменять имя?"
 
-#: htdocs/views/settings.php:140
+#: htdocs/views/settings.php:141
 msgid "Browse"
 msgstr "Просмотр"
 
@@ -124,19 +140,19 @@ msgstr "Просмотр"
 msgid "Call"
 msgstr "Вызов"
 
-#: htdocs/views/settings.php:74
+#: htdocs/views/settings.php:75
 msgid "Cell Phone"
 msgstr "Номер мобильного"
 
-#: htdocs/views/settings.php:69
+#: htdocs/views/settings.php:70
 msgid "Company"
 msgstr "Компания"
 
-#: htdocs/views/settings.php:27
+#: htdocs/views/settings.php:28
 msgid "Confirm Password"
 msgstr "Подтвердить пароль"
 
-#: htdocs/views/settings.php:127
+#: htdocs/views/settings.php:128
 msgid "Contact Image"
 msgstr "Фото контакта"
 
@@ -144,7 +160,7 @@ msgstr "Фото контакта"
 msgid "DEF"
 msgstr ""
 
-#: htdocs/views/settings.php:135
+#: htdocs/views/settings.php:136
 msgid "Delete Image"
 msgstr "Удалить фото"
 
@@ -156,7 +172,7 @@ msgstr "Удаленные сессии"
 msgid "Deleted User Session"
 msgstr "Удаленные сесии пользователя"
 
-#: htdocs/views/settings.php:44
+#: htdocs/views/settings.php:45
 msgid "Display Name"
 msgstr "Отображаемое имя"
 
@@ -164,11 +180,11 @@ msgstr "Отображаемое имя"
 msgid "Done"
 msgstr "Готово"
 
-#: htdocs/views/settings.php:132
+#: htdocs/views/settings.php:133
 msgid "Drop a new image here"
 msgstr "Перетащите сюда новое фото"
 
-#: htdocs/views/login.php:29 htdocs/views/settings.php:49
+#: htdocs/views/login.php:29 htdocs/views/settings.php:50
 msgid "Email"
 msgstr "Email"
 
@@ -180,11 +196,11 @@ msgstr "Неизвестный адрес электронной почты"
 msgid "Enable Originating Calls"
 msgstr ""
 
-#: ucp.i18n.php:18
+#: ucp.i18n.php:28
 msgid "Enable TLS for the NodeJS Server"
 msgstr ""
 
-#: ucp.i18n.php:12
+#: ucp.i18n.php:22
 msgid "Enable the NodeJS Server"
 msgstr ""
 
@@ -205,7 +221,7 @@ msgstr ""
 msgid "Failed to install %s due to the following conflicting module(s): %s"
 msgstr "Не удалось установить %s из-за конфликта с модулем(лями): %s"
 
-#: htdocs/views/settings.php:89
+#: htdocs/views/settings.php:90
 msgid "Fax"
 msgstr "Факс"
 
@@ -213,7 +229,7 @@ msgstr "Факс"
 msgid "First"
 msgstr "Первый"
 
-#: htdocs/views/settings.php:54
+#: htdocs/views/settings.php:55
 msgid "First Name"
 msgstr "Имя"
 
@@ -258,11 +274,11 @@ msgstr "Удержание"
 msgid "Home"
 msgstr "Главная"
 
-#: htdocs/views/settings.php:84
+#: htdocs/views/settings.php:85
 msgid "Home Phone"
 msgstr "Домашний телефон"
 
-#: htdocs/views/settings.php:46
+#: htdocs/views/settings.php:47
 msgid ""
 "How you would like your name displayed throughout UCP and Contact Manager"
 msgstr ""
@@ -273,7 +289,7 @@ msgstr ""
 msgid "Inherit"
 msgstr "Наследовать"
 
-#: htdocs/views/settings.php:99
+#: htdocs/views/settings.php:100
 msgid "Interface Settings"
 msgstr "Настройки интерфейса"
 
@@ -307,7 +323,7 @@ msgstr "Недопустимый признак"
 msgid "JKL"
 msgstr ""
 
-#: htdocs/views/settings.php:102
+#: htdocs/views/settings.php:103
 msgid "Language"
 msgstr "Язык"
 
@@ -315,7 +331,7 @@ msgstr "Язык"
 msgid "Last"
 msgstr "Последний"
 
-#: htdocs/views/settings.php:59
+#: htdocs/views/settings.php:60
 msgid "Last Name"
 msgstr "Фамилия"
 
@@ -348,7 +364,7 @@ msgstr "Можно ли этому пользователю входить в UC
 msgid "Miscellaneous"
 msgstr "Разное"
 
-#: htdocs/includes/Ajax.class.php:139
+#: htdocs/includes/Ajax.class.php:140
 msgid "Module or Command were null. Check your code."
 msgstr "Пустой модуль или команда. Проверьте ваш код."
 
@@ -360,27 +376,27 @@ msgstr "Новый и старый пароли не совпадают"
 msgid "No"
 msgstr "Нет"
 
-#: ucp.i18n.php:22
+#: ucp.i18n.php:32
 msgid "NodeJS Bind Address"
 msgstr ""
 
-#: ucp.i18n.php:26
+#: ucp.i18n.php:36
 msgid "NodeJS Bind Port"
 msgstr ""
 
-#: ucp.i18n.php:30
+#: ucp.i18n.php:40
 msgid "NodeJS HTTPS Bind Address"
 msgstr ""
 
-#: ucp.i18n.php:32
+#: ucp.i18n.php:42
 msgid "NodeJS HTTPS Bind Port"
 msgstr ""
 
-#: ucp.i18n.php:36
+#: ucp.i18n.php:46
 msgid "NodeJS HTTPS TLS Certificate Location"
 msgstr ""
 
-#: ucp.i18n.php:40
+#: ucp.i18n.php:50
 msgid "NodeJS HTTPS TLS Private Key Location"
 msgstr ""
 
@@ -415,7 +431,7 @@ msgstr "Инициировать звонок"
 msgid "PQRS"
 msgstr ""
 
-#: htdocs/views/login.php:20 htdocs/views/settings.php:22
+#: htdocs/views/login.php:20 htdocs/views/settings.php:23
 msgid "Password"
 msgstr "Пароль"
 
@@ -433,6 +449,10 @@ msgstr "Ссылка для сброса пароля (Действительн�
 msgid "Password Reset for: %s"
 msgstr "Сбросить пароль пользователю %s"
 
+#: htdocs/views/pwd_alert.php:1
+msgid "Password does not match security policy."
+msgstr ""
+
 #: htdocs/assets/js/ucp.js:98
 msgid "Password fields can't be blank!"
 msgstr "Поля для ввода пароля не могут быть пустыми!"
@@ -449,17 +469,25 @@ msgstr "Пароль не был изменен!"
 msgid "Please enter either a username or email address"
 msgstr "Пожалуйста, введите имя или адрес электронной почты"
 
-#: ucp.i18n.php:28
+#: ucp.i18n.php:38
 msgid "Port to bind to. Default is 8001"
 msgstr ""
 
-#: ucp.i18n.php:34
+#: ucp.i18n.php:44
 msgid "Port to bind to. Default is 8003"
 msgstr ""
 
 #: htdocs/assets/js/ucp.js:71 htdocs/assets/js/ucp.js:122
 msgid "Processing..."
 msgstr "Выполняется..."
+
+#: ucp.i18n.php:64
+msgid "RSS Feeds"
+msgstr "Каналы RSS"
+
+#: ucp.i18n.php:66
+msgid "RSS Feeds that are displayed in UCP. This overrides "
+msgstr "Каналы RSS, отображаемые в UCP. Это отменяет "
 
 #: Ucp.class.php:29
 msgid "Refreshing all UCP Assets, this could take a while..."
@@ -486,11 +514,11 @@ msgstr "Прислать мне ссылку для сброса парол"
 msgid "Sent at %s"
 msgstr "Отправлено на адрес %s"
 
-#: ucp.i18n.php:42
+#: ucp.i18n.php:52
 msgid "Sets the path to the HTTPS private key. This is required if "
 msgstr ""
 
-#: ucp.i18n.php:38
+#: ucp.i18n.php:48
 msgid "Sets the path to the HTTPS server certificate. This is required if "
 msgstr ""
 
@@ -498,11 +526,23 @@ msgstr ""
 msgid "Settings"
 msgstr "Настройки"
 
+#: ucp.i18n.php:14
+msgid "Styling and Logos"
+msgstr "Фирменный стиль и логотипы"
+
 #: htdocs/views/templates/phone.php:69
 msgid "TUV"
 msgstr ""
 
-#: htdocs/views/settings.php:24 htdocs/views/settings.php:29
+#: ucp.i18n.php:70
+msgid ""
+"The number of days a session token will be valid for. Clear this setting if "
+"you want tokens to last forever (Not Recommended)"
+msgstr ""
+"Количество дней, в течение которых будет доступен признак сессии. Очистите "
+"поле, если хотите, чтобы снять ограничение по времени (не рекомендуется)"
+
+#: htdocs/views/settings.php:25 htdocs/views/settings.php:30
 msgid "The password used to login to User Control Panel and other services"
 msgstr ""
 "Пароль, используемый для входа в панель настроек пользователя и к другим "
@@ -520,7 +560,7 @@ msgstr ""
 "Панель пользовательских настроек позволяет пользователям контролировать "
 "обработку звонков и задавать персональные настройки из веб-браузера."
 
-#: htdocs/views/settings.php:15
+#: htdocs/views/settings.php:16
 msgid "The username used to login to User Control Panel and other services"
 msgstr ""
 "Учетная запись, используемая для входа в панель настроек пользователя и к "
@@ -537,7 +577,7 @@ msgid ""
 "and others"
 msgstr ""
 
-#: htdocs/views/settings.php:64
+#: htdocs/views/settings.php:65
 msgid "Title"
 msgstr "Должность"
 
@@ -560,12 +600,22 @@ msgstr ""
 msgid "UCP Admin"
 msgstr "Администратор UCP"
 
-#: htdocs/views/settings.php:108
+#: htdocs/views/settings.php:109
 msgid "UCP Language"
 msgstr "Язык UCP"
 
-#: ucp.i18n.php:14
+#: ucp.i18n.php:24
 msgid "UCP NodeJS Server"
+msgstr ""
+
+#: ucp.i18n.php:68
+msgid "UCP Session Timeout"
+msgstr "Таймаут сессии UCP"
+
+#: ucp.i18n.php:20
+msgid ""
+"UCP icons folder. This should never be changed except for very advanced "
+"layout changes"
 msgstr ""
 
 #: htdocs/index.php:25
@@ -603,20 +653,20 @@ msgstr "Неизвестный модуль %s"
 msgid "Unsupported file type"
 msgstr "Неподдерживаемый тип файла"
 
-#: htdocs/views/settings.php:31
+#: htdocs/views/settings.php:32
 msgid "Update Password"
 msgstr "Обновить пароль"
 
-#: htdocs/views/settings.php:149
+#: htdocs/views/settings.php:150
 msgid "Use Gravatar"
 msgstr "Использовать gravatar"
 
 #: htdocs/views/forgot.php:5 htdocs/views/header.php:4 htdocs/views/login.php:4
-#: ucp.i18n.php:4
+#: ucp.i18n.php:4 /usr/src/freepbx/ucp/ucp.i18n.php:56
 msgid "User Control Panel"
 msgstr "Панель настроек пользователя"
 
-#: htdocs/views/settings.php:2
+#: htdocs/views/settings.php:3
 msgid "User Control Panel Settings"
 msgstr "Параметры панели настроек пользователя"
 
@@ -630,7 +680,7 @@ msgstr ""
 msgid "User Control Panel: %s"
 msgstr "Панель настроек пользователя: %s"
 
-#: htdocs/views/settings.php:41
+#: htdocs/views/settings.php:42
 msgid "User Details"
 msgstr "Информация о пользователе"
 
@@ -642,13 +692,21 @@ msgstr "Первичный экстеншен пользователя"
 msgid "User Settings"
 msgstr "Настройки пользователя"
 
-#: htdocs/views/login.php:15 htdocs/views/settings.php:13
+#: htdocs/views/login.php:15 htdocs/views/settings.php:14
 msgid "Username"
 msgstr "Имя пользователя"
 
 #: htdocs/assets/js/ucp.js:1036
 msgid "Username has been changed, reloading"
 msgstr "Имя полльхователя изменено, перезагрузка"
+
+#: ucp.i18n.php:12
+msgid "View: UCP dashfootercontent.php"
+msgstr ""
+
+#: ucp.i18n.php:18
+msgid "View: UCP icons"
+msgstr ""
 
 #: htdocs/views/templates/phone.php:73
 msgid "WXYZ"
@@ -663,19 +721,19 @@ msgstr "%s, добро пожаловать"
 msgid "What is UCP"
 msgstr "Что такое UCP"
 
-#: ucp.i18n.php:20
+#: ucp.i18n.php:30
 msgid ""
 "Whether to enable TLS for the backend server for UCP which allows "
 "instantaneous updates to the interface"
 msgstr ""
 
-#: ucp.i18n.php:16
+#: ucp.i18n.php:26
 msgid ""
 "Whether to enable the backend server for UCP which allows instantaneous "
 "updates to the interface"
 msgstr ""
 
-#: htdocs/views/settings.php:79
+#: htdocs/views/settings.php:80
 msgid "Work Phone"
 msgstr "Рабочий телефон"
 
@@ -691,39 +749,39 @@ msgstr "В данный момент вы работете в оффлайнов
 msgid "Your Browser is unsupported at this time."
 msgstr "Ваш браузер не поддерживается."
 
-#: htdocs/views/settings.php:76
+#: htdocs/views/settings.php:77
 msgid "Your Cell Phone Number"
 msgstr "Номер вашего сотового"
 
-#: htdocs/views/settings.php:71
+#: htdocs/views/settings.php:72
 msgid "Your Company"
 msgstr "Ваша компани"
 
-#: htdocs/views/settings.php:51
+#: htdocs/views/settings.php:52
 msgid "Your Email Address"
 msgstr "Ваш e-mail"
 
-#: htdocs/views/settings.php:91
+#: htdocs/views/settings.php:92
 msgid "Your Fax Number"
 msgstr "Номер вашего факса"
 
-#: htdocs/views/settings.php:56
+#: htdocs/views/settings.php:57
 msgid "Your First Name"
 msgstr "Ваше имя"
 
-#: htdocs/views/settings.php:86
+#: htdocs/views/settings.php:87
 msgid "Your Home Number"
 msgstr "Ваш домашний номер телефона"
 
-#: htdocs/views/settings.php:61
+#: htdocs/views/settings.php:62
 msgid "Your Last Name"
 msgstr "Ваша фамилия"
 
-#: htdocs/views/settings.php:66
+#: htdocs/views/settings.php:67
 msgid "Your Title"
 msgstr "Ваша должность"
 
-#: htdocs/views/settings.php:81
+#: htdocs/views/settings.php:82
 msgid "Your Work Number"
 msgstr "Ваш рабочий номер"
 
@@ -739,6 +797,12 @@ msgstr ""
 msgid "Your reset link is in the mail!"
 msgstr "Ссылка для сброса пароля отправлена по электронной почте."
 
+#: ucp.i18n.php:16
+msgid ""
+"dashfootercontent.php view. This should never be changed except for very "
+"advanced layout changes"
+msgstr ""
+
 #: htdocs/index.php:102
 #, php-format
 msgid ""
@@ -753,38 +817,6 @@ msgstr ""
 #: htdocs/views/login.php:24
 msgid "or"
 msgstr "или"
-
-#~ msgid "Allow Password Changes"
-#~ msgstr "Разрешить смену пароля"
-
-#~ msgid "Allow Username Changes"
-#~ msgstr "Разрешить смену имени"
-
-#~ msgid "Allow users to change their username in UCP"
-#~ msgstr "Разрешить пользователям менять имя в панели управления"
-
-#~ msgid "Allow users to change thier password in UCP"
-#~ msgstr "Разрешить пользователям менять пароль в панели управления"
-
-#~ msgid "RSS Feeds"
-#~ msgstr "Каналы RSS"
-
-#~ msgid "RSS Feeds that are displayed in UCP. This overrides "
-#~ msgstr "Каналы RSS, отображаемые в UCP. Это отменяет "
-
-#~ msgid "Styling and Logos"
-#~ msgstr "Фирменный стиль и логотипы"
-
-#~ msgid ""
-#~ "The number of days a session token will be valid for. Clear this setting "
-#~ "if you want tokens to last forever (Not Recommended)"
-#~ msgstr ""
-#~ "Количество дней, в течение которых будет доступен признак сессии. "
-#~ "Очистите поле, если хотите, чтобы снять ограничение по времени (не "
-#~ "рекомендуется)"
-
-#~ msgid "UCP Session Timeout"
-#~ msgstr "Таймаут сессии UCP"
 
 #~ msgid "No email defined"
 #~ msgstr "Не задан адрес электронной почты"

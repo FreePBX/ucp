@@ -2,7 +2,7 @@
 	<rawname>ucp</rawname>
 	<name>User Control Panel</name>
 	<repo>standard</repo>
-	<version>13.0.42.10</version>
+	<version>13.0.42.11</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>AGPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/agpl-3.0.txt</licenselink>
@@ -11,6 +11,7 @@
 	</description>
   	<more-info>https://wiki.freepbx.org/pages/viewpage.action?pageId=28180526</more-info>
 	<changelog>
+		*13.0.42.11* FREEI-3161 
 		*13.0.42.10* Packaging of ver 13.0.42.10
 		*13.0.42.9* Packaging of ver 13.0.42.9
 		*13.0.42.8* FREEI-1784 Changing the logo,favicon [ucp 13.0] 

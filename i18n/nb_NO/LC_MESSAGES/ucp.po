@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-08-19 10:27+0000\n"
+"POT-Creation-Date: 2021-05-13 02:39+0000\n"
 "PO-Revision-Date: 2015-08-30 14:46+0200\n"
 "Last-Translator: Vidar Skjelanger <vidar@unimicro.no>\n"
 "Language-Team: Norwegian Bokmål <http://weblate.freepbx.org/projects/freepbx/"
@@ -65,7 +65,7 @@ msgstr ".htaccess-filer er ikke støttet på denne webserveren."
 msgid "ABC"
 msgstr "ABC"
 
-#: htdocs/views/settings.php:8
+#: htdocs/views/settings.php:9
 msgid "Account Settings"
 msgstr ""
 
@@ -73,7 +73,7 @@ msgstr ""
 msgid "Active Sessions"
 msgstr "Aktive Sesjoner"
 
-#: ucp.i18n.php:24
+#: ucp.i18n.php:34
 msgid "Address to bind to. Default is "
 msgstr ""
 
@@ -81,12 +81,12 @@ msgstr ""
 msgid "Admin"
 msgstr ""
 
-#: htdocs/views/settings.php:11
+#: htdocs/views/settings.php:12
 msgid ""
 "All fields update when unfocused (selecting another field) except password"
 msgstr ""
 
-#: htdocs/views/settings.php:111
+#: htdocs/views/settings.php:112
 msgid "Allow Desktop Notifications"
 msgstr "Tillat varsler på skrivebordet"
 
@@ -94,7 +94,15 @@ msgstr "Tillat varsler på skrivebordet"
 msgid "Allow Login"
 msgstr "Tillat pålogging"
 
-#: htdocs/views/settings.php:119
+#: ucp.i18n.php:54
+msgid "Allow Password Changes"
+msgstr ""
+
+#: ucp.i18n.php:60
+msgid "Allow Username Changes"
+msgstr ""
+
+#: htdocs/views/settings.php:120
 msgid "Allow browser desktop notifications from UCP modules."
 msgstr "Tillat meldinger på nettleser-skrivebordet fra UCP-moduler."
 
@@ -102,6 +110,14 @@ msgstr "Tillat meldinger på nettleser-skrivebordet fra UCP-moduler."
 msgid ""
 "Allow this user to originate calls from within UCP. This is not the same as "
 "WebRTC"
+msgstr ""
+
+#: ucp.i18n.php:62
+msgid "Allow users to change their username in UCP"
+msgstr ""
+
+#: ucp.i18n.php:58
+msgid "Allow users to change thier password in UCP"
 msgstr ""
 
 #: views/users_hook.php:118
@@ -112,7 +128,7 @@ msgstr ""
 msgid "Are you sure you wish to change your username?"
 msgstr "Er du sikker på at du ønsker å endre brukernavnet ditt?"
 
-#: htdocs/views/settings.php:140
+#: htdocs/views/settings.php:141
 msgid "Browse"
 msgstr ""
 
@@ -120,19 +136,19 @@ msgstr ""
 msgid "Call"
 msgstr "Ring"
 
-#: htdocs/views/settings.php:74
+#: htdocs/views/settings.php:75
 msgid "Cell Phone"
 msgstr "Mobiltelefon"
 
-#: htdocs/views/settings.php:69
+#: htdocs/views/settings.php:70
 msgid "Company"
 msgstr "Bedrift"
 
-#: htdocs/views/settings.php:27
+#: htdocs/views/settings.php:28
 msgid "Confirm Password"
 msgstr "Bekreft passord"
 
-#: htdocs/views/settings.php:127
+#: htdocs/views/settings.php:128
 msgid "Contact Image"
 msgstr ""
 
@@ -140,7 +156,7 @@ msgstr ""
 msgid "DEF"
 msgstr "DEF"
 
-#: htdocs/views/settings.php:135
+#: htdocs/views/settings.php:136
 msgid "Delete Image"
 msgstr ""
 
@@ -152,7 +168,7 @@ msgstr "Slettet sesjon"
 msgid "Deleted User Session"
 msgstr "Slettet brukersesjon"
 
-#: htdocs/views/settings.php:44
+#: htdocs/views/settings.php:45
 msgid "Display Name"
 msgstr "Visningsnavn"
 
@@ -160,11 +176,11 @@ msgstr "Visningsnavn"
 msgid "Done"
 msgstr "Ferdig"
 
-#: htdocs/views/settings.php:132
+#: htdocs/views/settings.php:133
 msgid "Drop a new image here"
 msgstr ""
 
-#: htdocs/views/login.php:29 htdocs/views/settings.php:49
+#: htdocs/views/login.php:29 htdocs/views/settings.php:50
 msgid "Email"
 msgstr "Epost"
 
@@ -176,11 +192,11 @@ msgstr ""
 msgid "Enable Originating Calls"
 msgstr ""
 
-#: ucp.i18n.php:18
+#: ucp.i18n.php:28
 msgid "Enable TLS for the NodeJS Server"
 msgstr ""
 
-#: ucp.i18n.php:12
+#: ucp.i18n.php:22
 msgid "Enable the NodeJS Server"
 msgstr ""
 
@@ -201,7 +217,7 @@ msgstr "Vennligst vent mens ditt innhold blir hentet"
 msgid "Failed to install %s due to the following conflicting module(s): %s"
 msgstr ""
 
-#: htdocs/views/settings.php:89
+#: htdocs/views/settings.php:90
 msgid "Fax"
 msgstr "Fax"
 
@@ -209,7 +225,7 @@ msgstr "Fax"
 msgid "First"
 msgstr "Første"
 
-#: htdocs/views/settings.php:54
+#: htdocs/views/settings.php:55
 msgid "First Name"
 msgstr "Fornavn"
 
@@ -254,11 +270,11 @@ msgstr "Parker"
 msgid "Home"
 msgstr "Hjem"
 
-#: htdocs/views/settings.php:84
+#: htdocs/views/settings.php:85
 msgid "Home Phone"
 msgstr "Fasttelefon"
 
-#: htdocs/views/settings.php:46
+#: htdocs/views/settings.php:47
 msgid ""
 "How you would like your name displayed throughout UCP and Contact Manager"
 msgstr ""
@@ -269,7 +285,7 @@ msgstr ""
 msgid "Inherit"
 msgstr ""
 
-#: htdocs/views/settings.php:99
+#: htdocs/views/settings.php:100
 msgid "Interface Settings"
 msgstr ""
 
@@ -301,7 +317,7 @@ msgstr "Ugyldig token"
 msgid "JKL"
 msgstr "JKL"
 
-#: htdocs/views/settings.php:102
+#: htdocs/views/settings.php:103
 msgid "Language"
 msgstr "Språk"
 
@@ -309,7 +325,7 @@ msgstr "Språk"
 msgid "Last"
 msgstr "Siste"
 
-#: htdocs/views/settings.php:59
+#: htdocs/views/settings.php:60
 msgid "Last Name"
 msgstr "Etternavn"
 
@@ -342,7 +358,7 @@ msgstr ""
 msgid "Miscellaneous"
 msgstr ""
 
-#: htdocs/includes/Ajax.class.php:139
+#: htdocs/includes/Ajax.class.php:140
 msgid "Module or Command were null. Check your code."
 msgstr "Modul eller kommando var null. Sjekk koden din."
 
@@ -354,27 +370,27 @@ msgstr ""
 msgid "No"
 msgstr ""
 
-#: ucp.i18n.php:22
+#: ucp.i18n.php:32
 msgid "NodeJS Bind Address"
 msgstr ""
 
-#: ucp.i18n.php:26
+#: ucp.i18n.php:36
 msgid "NodeJS Bind Port"
 msgstr ""
 
-#: ucp.i18n.php:30
+#: ucp.i18n.php:40
 msgid "NodeJS HTTPS Bind Address"
 msgstr ""
 
-#: ucp.i18n.php:32
+#: ucp.i18n.php:42
 msgid "NodeJS HTTPS Bind Port"
 msgstr ""
 
-#: ucp.i18n.php:36
+#: ucp.i18n.php:46
 msgid "NodeJS HTTPS TLS Certificate Location"
 msgstr ""
 
-#: ucp.i18n.php:40
+#: ucp.i18n.php:50
 msgid "NodeJS HTTPS TLS Private Key Location"
 msgstr ""
 
@@ -409,7 +425,7 @@ msgstr "Opprett samtale"
 msgid "PQRS"
 msgstr "PQRS"
 
-#: htdocs/views/login.php:20 htdocs/views/settings.php:22
+#: htdocs/views/login.php:20 htdocs/views/settings.php:23
 msgid "Password"
 msgstr "Passord"
 
@@ -427,6 +443,10 @@ msgstr "Link for å resette passordet (Gyldig til: %s): %s"
 msgid "Password Reset for: %s"
 msgstr "Tilbakestilling av passord for: %s"
 
+#: htdocs/views/pwd_alert.php:1
+msgid "Password does not match security policy."
+msgstr ""
+
 #: htdocs/assets/js/ucp.js:98
 msgid "Password fields can't be blank!"
 msgstr ""
@@ -443,17 +463,25 @@ msgstr ""
 msgid "Please enter either a username or email address"
 msgstr "Vennligst oppgi enten et brukernavn eller en epostadresse"
 
-#: ucp.i18n.php:28
+#: ucp.i18n.php:38
 msgid "Port to bind to. Default is 8001"
 msgstr ""
 
-#: ucp.i18n.php:34
+#: ucp.i18n.php:44
 msgid "Port to bind to. Default is 8003"
 msgstr ""
 
 #: htdocs/assets/js/ucp.js:71 htdocs/assets/js/ucp.js:122
 msgid "Processing..."
 msgstr "Behandler..."
+
+#: ucp.i18n.php:64
+msgid "RSS Feeds"
+msgstr ""
+
+#: ucp.i18n.php:66
+msgid "RSS Feeds that are displayed in UCP. This overrides "
+msgstr ""
 
 #: Ucp.class.php:29
 msgid "Refreshing all UCP Assets, this could take a while..."
@@ -480,11 +508,11 @@ msgstr "Send meg en link for nullstilling av passord"
 msgid "Sent at %s"
 msgstr "Sendt %s"
 
-#: ucp.i18n.php:42
+#: ucp.i18n.php:52
 msgid "Sets the path to the HTTPS private key. This is required if "
 msgstr ""
 
-#: ucp.i18n.php:38
+#: ucp.i18n.php:48
 msgid "Sets the path to the HTTPS server certificate. This is required if "
 msgstr ""
 
@@ -492,11 +520,21 @@ msgstr ""
 msgid "Settings"
 msgstr "Innstillinger"
 
+#: ucp.i18n.php:14
+msgid "Styling and Logos"
+msgstr ""
+
 #: htdocs/views/templates/phone.php:69
 msgid "TUV"
 msgstr "TUV"
 
-#: htdocs/views/settings.php:24 htdocs/views/settings.php:29
+#: ucp.i18n.php:70
+msgid ""
+"The number of days a session token will be valid for. Clear this setting if "
+"you want tokens to last forever (Not Recommended)"
+msgstr ""
+
+#: htdocs/views/settings.php:25 htdocs/views/settings.php:30
 msgid "The password used to login to User Control Panel and other services"
 msgstr "Passordet som brukes for å logge inn i UCP og andre tjenester"
 
@@ -510,7 +548,7 @@ msgid ""
 "personal settings from a web browser."
 msgstr ""
 
-#: htdocs/views/settings.php:15
+#: htdocs/views/settings.php:16
 msgid "The username used to login to User Control Panel and other services"
 msgstr "Brukernavnet som brukes for å logge inn i UCP og andre tjenester"
 
@@ -525,7 +563,7 @@ msgid ""
 "and others"
 msgstr ""
 
-#: htdocs/views/settings.php:64
+#: htdocs/views/settings.php:65
 msgid "Title"
 msgstr "Tittel"
 
@@ -547,12 +585,22 @@ msgstr "UCP"
 msgid "UCP Admin"
 msgstr "UCP Admin"
 
-#: htdocs/views/settings.php:108
+#: htdocs/views/settings.php:109
 msgid "UCP Language"
 msgstr "UCP språk"
 
-#: ucp.i18n.php:14
+#: ucp.i18n.php:24
 msgid "UCP NodeJS Server"
+msgstr ""
+
+#: ucp.i18n.php:68
+msgid "UCP Session Timeout"
+msgstr ""
+
+#: ucp.i18n.php:20
+msgid ""
+"UCP icons folder. This should never be changed except for very advanced "
+"layout changes"
 msgstr ""
 
 #: htdocs/index.php:25
@@ -588,20 +636,20 @@ msgstr "Ukjent modul %s"
 msgid "Unsupported file type"
 msgstr ""
 
-#: htdocs/views/settings.php:31
+#: htdocs/views/settings.php:32
 msgid "Update Password"
 msgstr ""
 
-#: htdocs/views/settings.php:149
+#: htdocs/views/settings.php:150
 msgid "Use Gravatar"
 msgstr ""
 
 #: htdocs/views/forgot.php:5 htdocs/views/header.php:4 htdocs/views/login.php:4
-#: ucp.i18n.php:4
+#: ucp.i18n.php:4 /usr/src/freepbx/ucp/ucp.i18n.php:56
 msgid "User Control Panel"
 msgstr "Kontrollpanel for brukere"
 
-#: htdocs/views/settings.php:2
+#: htdocs/views/settings.php:3
 msgid "User Control Panel Settings"
 msgstr "Innstillinger for UCP"
 
@@ -615,7 +663,7 @@ msgstr "UCP er distribuert som %s eller nyere"
 msgid "User Control Panel: %s"
 msgstr "Kontrollpanel for brukere: %s"
 
-#: htdocs/views/settings.php:41
+#: htdocs/views/settings.php:42
 msgid "User Details"
 msgstr ""
 
@@ -627,13 +675,21 @@ msgstr ""
 msgid "User Settings"
 msgstr ""
 
-#: htdocs/views/login.php:15 htdocs/views/settings.php:13
+#: htdocs/views/login.php:15 htdocs/views/settings.php:14
 msgid "Username"
 msgstr "Brukernavn"
 
 #: htdocs/assets/js/ucp.js:1036
 msgid "Username has been changed, reloading"
 msgstr "Brukernavn har blitt endret, laster på nytt"
+
+#: ucp.i18n.php:12
+msgid "View: UCP dashfootercontent.php"
+msgstr ""
+
+#: ucp.i18n.php:18
+msgid "View: UCP icons"
+msgstr ""
 
 #: htdocs/views/templates/phone.php:73
 msgid "WXYZ"
@@ -648,19 +704,19 @@ msgstr "Velkommen %s"
 msgid "What is UCP"
 msgstr ""
 
-#: ucp.i18n.php:20
+#: ucp.i18n.php:30
 msgid ""
 "Whether to enable TLS for the backend server for UCP which allows "
 "instantaneous updates to the interface"
 msgstr ""
 
-#: ucp.i18n.php:16
+#: ucp.i18n.php:26
 msgid ""
 "Whether to enable the backend server for UCP which allows instantaneous "
 "updates to the interface"
 msgstr ""
 
-#: htdocs/views/settings.php:79
+#: htdocs/views/settings.php:80
 msgid "Work Phone"
 msgstr "Telefon arbeid"
 
@@ -676,39 +732,39 @@ msgstr "Du arbeider nå i frakoblet modus."
 msgid "Your Browser is unsupported at this time."
 msgstr "Din nettleser er ikke støttet på nåværende tidspunkt."
 
-#: htdocs/views/settings.php:76
+#: htdocs/views/settings.php:77
 msgid "Your Cell Phone Number"
 msgstr "Ditt mobilnummer"
 
-#: htdocs/views/settings.php:71
+#: htdocs/views/settings.php:72
 msgid "Your Company"
 msgstr "Din bedrift"
 
-#: htdocs/views/settings.php:51
+#: htdocs/views/settings.php:52
 msgid "Your Email Address"
 msgstr "Din epostadresse"
 
-#: htdocs/views/settings.php:91
+#: htdocs/views/settings.php:92
 msgid "Your Fax Number"
 msgstr "Ditt faksnummer"
 
-#: htdocs/views/settings.php:56
+#: htdocs/views/settings.php:57
 msgid "Your First Name"
 msgstr "Ditt fornavn"
 
-#: htdocs/views/settings.php:86
+#: htdocs/views/settings.php:87
 msgid "Your Home Number"
 msgstr "Ditt hjemmenummer"
 
-#: htdocs/views/settings.php:61
+#: htdocs/views/settings.php:62
 msgid "Your Last Name"
 msgstr "Ditt etternavn"
 
-#: htdocs/views/settings.php:66
+#: htdocs/views/settings.php:67
 msgid "Your Title"
 msgstr "Din tittel"
 
-#: htdocs/views/settings.php:81
+#: htdocs/views/settings.php:82
 msgid "Your Work Number"
 msgstr "Ditt telefonnummer (arbeid)"
 
@@ -723,6 +779,12 @@ msgstr ""
 #: htdocs/assets/js/ucp.js:83
 msgid "Your reset link is in the mail!"
 msgstr "Din lenke for å nullstille passord er sendt på epost!"
+
+#: ucp.i18n.php:16
+msgid ""
+"dashfootercontent.php view. This should never be changed except for very "
+"advanced layout changes"
+msgstr ""
 
 #: htdocs/index.php:102
 #, php-format
