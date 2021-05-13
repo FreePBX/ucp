@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-03-16 13:41+0000\n"
+"POT-Creation-Date: 2021-05-13 02:27+0000\n"
 "PO-Revision-Date: 2016-07-06 05:21+0200\n"
 "Last-Translator: Media <mousavi.media@gmail.com>\n"
 "Language-Team: Persian (Iran) <http://weblate.freepbx.org/projects/freepbx/"
@@ -322,7 +322,7 @@ msgstr "اتصال حذف شده"
 msgid "Deleted User Session"
 msgstr "اتصال حذف شده کاربر"
 
-#: htdocs/assets/js/ucp.js:81
+#: htdocs/assets/js/ucp.js:80
 msgid "Disable"
 msgstr ""
 
@@ -356,11 +356,7 @@ msgstr ""
 msgid "Email"
 msgstr "ایمیل"
 
-#: htdocs/includes/User.class.php:78
-msgid "Email address unknown!"
-msgstr ""
-
-#: htdocs/assets/js/ucp.js:78
+#: htdocs/assets/js/ucp.js:77
 msgid "Enable"
 msgstr ""
 
@@ -512,7 +508,7 @@ msgstr ""
 "مرورگر IE %s پشتیبانی نمی شود. شما باید مرورگر خود را به %s یا بالاتر به روز "
 "کنید"
 
-#: htdocs/includes/User.class.php:93
+#: htdocs/includes/User.class.php:97
 msgid "Invalid"
 msgstr "نا معتبر"
 
@@ -521,7 +517,7 @@ msgstr "نا معتبر"
 msgid "Invalid Device"
 msgstr "دستگاه نامعتبر"
 
-#: htdocs/includes/User.class.php:101
+#: htdocs/includes/User.class.php:105
 msgid "Invalid Login Credentials"
 msgstr "اطلاعات کاربری نامعتبر"
 
@@ -554,8 +550,8 @@ msgid "Loading..."
 msgstr "در حال بارگذاری…"
 
 #: htdocs/views/forgot.php:45 htdocs/views/login.php:38
-#: htdocs/assets/js/ucp.js:293 htdocs/assets/js/ucp.js:316
-#: htdocs/assets/js/ucp.js:326
+#: htdocs/assets/js/ucp.js:290 htdocs/assets/js/ucp.js:313
+#: htdocs/assets/js/ucp.js:323
 msgid "Login"
 msgstr "ورود"
 
@@ -698,7 +694,7 @@ msgstr "لینک بازنشانی کلمه عبور (معتبر تا : %s): %s"
 msgid "Password Reset for: %s"
 msgstr "بازنشانی کلمه عبور برای:%s"
 
-#: htdocs/assets/js/ucp.js:272
+#: htdocs/assets/js/ucp.js:269
 msgid "Password has been changed!"
 msgstr "کلمه عبور تغییر یافت!"
 
@@ -710,7 +706,7 @@ msgstr ""
 msgid "Port to bind to. Default is 8003"
 msgstr ""
 
-#: htdocs/assets/js/ucp.js:286 htdocs/assets/js/ucp.js:309
+#: htdocs/assets/js/ucp.js:283 htdocs/assets/js/ucp.js:306
 msgid "Processing..."
 msgstr "در حال پردازش..."
 
@@ -879,6 +875,10 @@ msgstr ""
 msgid "Styling and Logos"
 msgstr ""
 
+#: htdocs/includes/User.class.php:82
+msgid "Submitted"
+msgstr ""
+
 #: htdocs/modules/Settings/assets/js/global.js:100
 #: htdocs/modules/Settings/assets/js/global.js:113
 msgid "Success!"
@@ -965,7 +965,7 @@ msgstr ""
 msgid "The removal of this copyright notice is stricly prohibited"
 msgstr "حذف اعلان کپی رایت اکیدا ممنوع است"
 
-#: htdocs/assets/js/ucp.js:527
+#: htdocs/assets/js/ucp.js:524
 msgid "The session has expired and you are being forcibly logged out"
 msgstr ""
 
@@ -1006,7 +1006,7 @@ msgstr ""
 msgid "There was an error trying to load UCP"
 msgstr "خطایی در هنگام بارگذاری پنل کنترل کاربری رخ داده است"
 
-#: htdocs/assets/js/ucp.js:34 htdocs/assets/js/ucp.js:49
+#: htdocs/assets/js/ucp.js:33 htdocs/assets/js/ucp.js:48
 msgid "There was an error. See the console log for more details"
 msgstr ""
 
@@ -1119,7 +1119,7 @@ msgid "UCP is currently disabled. Please talk to your system Administrator"
 msgstr ""
 "پنل کنترل کاربری در حال حاضر غیرفعال است. لطفا با مدیر سیستم خود تماس بگیرید"
 
-#: htdocs/assets/js/ucp.js:344
+#: htdocs/assets/js/ucp.js:341
 msgid "UCP is not supported in your browser"
 msgstr ""
 
@@ -1135,7 +1135,7 @@ msgid ""
 msgstr ""
 "UCP، یا به عبارت دیگر پنل کنترل کاربری، یک رابط کاربری برای FreePBX است."
 
-#: htdocs/includes/User.class.php:84
+#: htdocs/includes/User.class.php:88
 msgid "Unable to send Password Reset Email"
 msgstr ""
 
@@ -1176,7 +1176,7 @@ msgid "User"
 msgstr ""
 
 #: htdocs/views/forgot.php:5 htdocs/views/header.php:4 htdocs/views/login.php:5
-#: ucp.i18n.php:4 /usr/src/freepbx/ucp/ucp.i18n.php:56
+#: ucp.i18n.php:4 /dev/shm/freepbx/ucp/ucp.i18n.php:56
 #: htdocs/modules/Widgets/assets/js/global.js:47
 msgid "User Control Panel"
 msgstr "پنل کنترل کاربری"
@@ -1369,7 +1369,7 @@ msgstr ""
 msgid "You must set a dashboard name!"
 msgstr ""
 
-#: htdocs/assets/js/ucp.js:331
+#: htdocs/assets/js/ucp.js:328
 msgid "Your Browser is unsupported at this time."
 msgstr "در حال حاضر مرورگر شما پشتیبانی نمی شود."
 
@@ -1417,7 +1417,7 @@ msgstr "عنوان شما"
 msgid "Your Work Number"
 msgstr "تلفن محل کار شما"
 
-#: htdocs/assets/js/ucp.js:333
+#: htdocs/assets/js/ucp.js:330
 msgid ""
 "Your browser is unsupported at this time. Please upgrade or talk to your "
 "system administrator"

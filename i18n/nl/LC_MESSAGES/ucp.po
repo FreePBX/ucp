@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-03-16 13:41+0000\n"
+"POT-Creation-Date: 2021-05-13 02:27+0000\n"
 "PO-Revision-Date: 2016-06-01 07:08+0200\n"
 "Last-Translator: Hans <info@hansvaneijsden.nl>\n"
 "Language-Team: Dutch <http://weblate.freepbx.org/projects/freepbx/ucp/nl/>\n"
@@ -326,7 +326,7 @@ msgstr "Verwijderde Sessie"
 msgid "Deleted User Session"
 msgstr "Verwijderde Gebruikerssessie"
 
-#: htdocs/assets/js/ucp.js:81
+#: htdocs/assets/js/ucp.js:80
 msgid "Disable"
 msgstr ""
 
@@ -360,11 +360,7 @@ msgstr ""
 msgid "Email"
 msgstr "E-mail"
 
-#: htdocs/includes/User.class.php:78
-msgid "Email address unknown!"
-msgstr ""
-
-#: htdocs/assets/js/ucp.js:78
+#: htdocs/assets/js/ucp.js:77
 msgid "Enable"
 msgstr ""
 
@@ -518,7 +514,7 @@ msgstr ""
 "Internet Explorer %s wordt niet ondersteund. De functionaliteit wordt "
 "beperkt totdat je deze bijwerkt naar %s of hoger"
 
-#: htdocs/includes/User.class.php:93
+#: htdocs/includes/User.class.php:97
 msgid "Invalid"
 msgstr "Ongeldig"
 
@@ -527,7 +523,7 @@ msgstr "Ongeldig"
 msgid "Invalid Device"
 msgstr "Ongeldig Apparaat"
 
-#: htdocs/includes/User.class.php:101
+#: htdocs/includes/User.class.php:105
 msgid "Invalid Login Credentials"
 msgstr "Ongeldige Login"
 
@@ -560,8 +556,8 @@ msgid "Loading..."
 msgstr "Laden..."
 
 #: htdocs/views/forgot.php:45 htdocs/views/login.php:38
-#: htdocs/assets/js/ucp.js:293 htdocs/assets/js/ucp.js:316
-#: htdocs/assets/js/ucp.js:326
+#: htdocs/assets/js/ucp.js:290 htdocs/assets/js/ucp.js:313
+#: htdocs/assets/js/ucp.js:323
 msgid "Login"
 msgstr "Inloggen"
 
@@ -704,7 +700,7 @@ msgstr "Wachtwoord-resetlink (geldig tot: %s): %s"
 msgid "Password Reset for: %s"
 msgstr "Wachtwoordreset voor: %s"
 
-#: htdocs/assets/js/ucp.js:272
+#: htdocs/assets/js/ucp.js:269
 msgid "Password has been changed!"
 msgstr ""
 
@@ -716,7 +712,7 @@ msgstr ""
 msgid "Port to bind to. Default is 8003"
 msgstr ""
 
-#: htdocs/assets/js/ucp.js:286 htdocs/assets/js/ucp.js:309
+#: htdocs/assets/js/ucp.js:283 htdocs/assets/js/ucp.js:306
 msgid "Processing..."
 msgstr "Verwerken..."
 
@@ -884,6 +880,10 @@ msgstr ""
 msgid "Styling and Logos"
 msgstr ""
 
+#: htdocs/includes/User.class.php:82
+msgid "Submitted"
+msgstr ""
+
 #: htdocs/modules/Settings/assets/js/global.js:100
 #: htdocs/modules/Settings/assets/js/global.js:113
 msgid "Success!"
@@ -971,7 +971,7 @@ msgstr ""
 msgid "The removal of this copyright notice is stricly prohibited"
 msgstr "Het verwijderen van dit copyrightbericht is niet toegestaan"
 
-#: htdocs/assets/js/ucp.js:527
+#: htdocs/assets/js/ucp.js:524
 msgid "The session has expired and you are being forcibly logged out"
 msgstr ""
 
@@ -1013,7 +1013,7 @@ msgstr ""
 msgid "There was an error trying to load UCP"
 msgstr "Er is een fout opgetreden tijdens het laden van UCP"
 
-#: htdocs/assets/js/ucp.js:34 htdocs/assets/js/ucp.js:49
+#: htdocs/assets/js/ucp.js:33 htdocs/assets/js/ucp.js:48
 msgid "There was an error. See the console log for more details"
 msgstr ""
 
@@ -1128,7 +1128,7 @@ msgid "UCP is currently disabled. Please talk to your system Administrator"
 msgstr ""
 "UCP is momenteel uitgeschakeld. Neem contact op met je systeembeheerder"
 
-#: htdocs/assets/js/ucp.js:344
+#: htdocs/assets/js/ucp.js:341
 msgid "UCP is not supported in your browser"
 msgstr ""
 
@@ -1145,7 +1145,7 @@ msgstr ""
 "UCP, een afkorting voor User Control Panel, is een gebruikersinterface voor "
 "FreePBX."
 
-#: htdocs/includes/User.class.php:84
+#: htdocs/includes/User.class.php:88
 msgid "Unable to send Password Reset Email"
 msgstr ""
 
@@ -1186,7 +1186,7 @@ msgid "User"
 msgstr ""
 
 #: htdocs/views/forgot.php:5 htdocs/views/header.php:4 htdocs/views/login.php:5
-#: ucp.i18n.php:4 /usr/src/freepbx/ucp/ucp.i18n.php:56
+#: ucp.i18n.php:4 /dev/shm/freepbx/ucp/ucp.i18n.php:56
 #: htdocs/modules/Widgets/assets/js/global.js:47
 msgid "User Control Panel"
 msgstr "Gebruikers Beheerpanel"
@@ -1379,7 +1379,7 @@ msgstr ""
 msgid "You must set a dashboard name!"
 msgstr ""
 
-#: htdocs/assets/js/ucp.js:331
+#: htdocs/assets/js/ucp.js:328
 msgid "Your Browser is unsupported at this time."
 msgstr "Je browser wordt (momenteel) niet ondersteund."
 
@@ -1427,7 +1427,7 @@ msgstr "Je aanhef"
 msgid "Your Work Number"
 msgstr "Je werktelefoonnummer"
 
-#: htdocs/assets/js/ucp.js:333
+#: htdocs/assets/js/ucp.js:330
 msgid ""
 "Your browser is unsupported at this time. Please upgrade or talk to your "
 "system administrator"

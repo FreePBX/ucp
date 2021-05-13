@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-03-16 13:41+0000\n"
+"POT-Creation-Date: 2021-05-13 02:27+0000\n"
 "PO-Revision-Date: 2017-03-08 21:13+0200\n"
 "Last-Translator: Kingvoice <suporte@kingvoice.com.br>\n"
 "Language-Team: Portuguese (Brazil) <http://weblate.freepbx.org/projects/"
@@ -325,7 +325,7 @@ msgstr "Sessão Apagada"
 msgid "Deleted User Session"
 msgstr "Sessão do Usuário Apagada"
 
-#: htdocs/assets/js/ucp.js:81
+#: htdocs/assets/js/ucp.js:80
 msgid "Disable"
 msgstr ""
 
@@ -359,11 +359,7 @@ msgstr ""
 msgid "Email"
 msgstr "Email"
 
-#: htdocs/includes/User.class.php:78
-msgid "Email address unknown!"
-msgstr "Endereço de e-mail desconhecido!"
-
-#: htdocs/assets/js/ucp.js:78
+#: htdocs/assets/js/ucp.js:77
 msgid "Enable"
 msgstr ""
 
@@ -518,7 +514,7 @@ msgstr ""
 "O Internet Explorer %s não é suportado. A funcionalidade estará prejudicada "
 "até que você atualize para  %s ou superior"
 
-#: htdocs/includes/User.class.php:93
+#: htdocs/includes/User.class.php:97
 msgid "Invalid"
 msgstr "Inválido"
 
@@ -527,7 +523,7 @@ msgstr "Inválido"
 msgid "Invalid Device"
 msgstr "Dispositivo Inválido"
 
-#: htdocs/includes/User.class.php:101
+#: htdocs/includes/User.class.php:105
 msgid "Invalid Login Credentials"
 msgstr "Credenciais de login Inválidas"
 
@@ -560,8 +556,8 @@ msgid "Loading..."
 msgstr "Carregando..."
 
 #: htdocs/views/forgot.php:45 htdocs/views/login.php:38
-#: htdocs/assets/js/ucp.js:293 htdocs/assets/js/ucp.js:316
-#: htdocs/assets/js/ucp.js:326
+#: htdocs/assets/js/ucp.js:290 htdocs/assets/js/ucp.js:313
+#: htdocs/assets/js/ucp.js:323
 msgid "Login"
 msgstr "Login"
 
@@ -704,7 +700,7 @@ msgstr "Link de Redefinição de Senha (Válido Até: %s): %s"
 msgid "Password Reset for: %s"
 msgstr "Redefinição de Senha para: %s"
 
-#: htdocs/assets/js/ucp.js:272
+#: htdocs/assets/js/ucp.js:269
 msgid "Password has been changed!"
 msgstr "A senha foi alterada!"
 
@@ -716,7 +712,7 @@ msgstr ""
 msgid "Port to bind to. Default is 8003"
 msgstr ""
 
-#: htdocs/assets/js/ucp.js:286 htdocs/assets/js/ucp.js:309
+#: htdocs/assets/js/ucp.js:283 htdocs/assets/js/ucp.js:306
 msgid "Processing..."
 msgstr "Processando…"
 
@@ -884,6 +880,10 @@ msgstr ""
 msgid "Styling and Logos"
 msgstr "Estilo e Logos"
 
+#: htdocs/includes/User.class.php:82
+msgid "Submitted"
+msgstr ""
+
 #: htdocs/modules/Settings/assets/js/global.js:100
 #: htdocs/modules/Settings/assets/js/global.js:113
 msgid "Success!"
@@ -970,7 +970,7 @@ msgstr ""
 msgid "The removal of this copyright notice is stricly prohibited"
 msgstr "A remoção deste aviso de direitos autorais é estritamente proibida"
 
-#: htdocs/assets/js/ucp.js:527
+#: htdocs/assets/js/ucp.js:524
 msgid "The session has expired and you are being forcibly logged out"
 msgstr ""
 
@@ -1010,7 +1010,7 @@ msgstr ""
 msgid "There was an error trying to load UCP"
 msgstr "Houve um erro ao tentar carregar o PCU"
 
-#: htdocs/assets/js/ucp.js:34 htdocs/assets/js/ucp.js:49
+#: htdocs/assets/js/ucp.js:33 htdocs/assets/js/ucp.js:48
 msgid "There was an error. See the console log for more details"
 msgstr ""
 
@@ -1128,7 +1128,7 @@ msgstr ""
 "PCU está desabilitado atualmente. Por favor fale com seu Administrador de "
 "sistema"
 
-#: htdocs/assets/js/ucp.js:344
+#: htdocs/assets/js/ucp.js:341
 msgid "UCP is not supported in your browser"
 msgstr ""
 
@@ -1145,7 +1145,7 @@ msgstr ""
 "PCU, também conhecido como Painel de Controle do Usuário, é uma interface de "
 "usuário para o FreePBX."
 
-#: htdocs/includes/User.class.php:84
+#: htdocs/includes/User.class.php:88
 msgid "Unable to send Password Reset Email"
 msgstr "Não é possível enviar o Email de Redefinição de Senha"
 
@@ -1186,7 +1186,7 @@ msgid "User"
 msgstr ""
 
 #: htdocs/views/forgot.php:5 htdocs/views/header.php:4 htdocs/views/login.php:5
-#: ucp.i18n.php:4 /usr/src/freepbx/ucp/ucp.i18n.php:56
+#: ucp.i18n.php:4 /dev/shm/freepbx/ucp/ucp.i18n.php:56
 #: htdocs/modules/Widgets/assets/js/global.js:47
 msgid "User Control Panel"
 msgstr "Painel de Controle do Usuário"
@@ -1379,7 +1379,7 @@ msgstr ""
 msgid "You must set a dashboard name!"
 msgstr ""
 
-#: htdocs/assets/js/ucp.js:331
+#: htdocs/assets/js/ucp.js:328
 msgid "Your Browser is unsupported at this time."
 msgstr "Seu Navegador não é suportado neste momento."
 
@@ -1427,7 +1427,7 @@ msgstr "Seu Título"
 msgid "Your Work Number"
 msgstr "Seu Número de Trabalho"
 
-#: htdocs/assets/js/ucp.js:333
+#: htdocs/assets/js/ucp.js:330
 msgid ""
 "Your browser is unsupported at this time. Please upgrade or talk to your "
 "system administrator"
@@ -1490,6 +1490,9 @@ msgstr ""
 #: htdocs/views/login.php:25
 msgid "or"
 msgstr "ou"
+
+#~ msgid "Email address unknown!"
+#~ msgstr "Endereço de e-mail desconhecido!"
 
 #~ msgid " + field + "
 #~ msgstr " + campo + "

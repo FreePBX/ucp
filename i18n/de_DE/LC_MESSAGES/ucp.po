@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-03-16 13:41+0000\n"
+"POT-Creation-Date: 2021-05-13 02:27+0000\n"
 "PO-Revision-Date: 2018-10-25 08:00+0000\n"
 "Last-Translator: Bastian Mertgen <b.mertgen@bastian-mertgen.de>\n"
 "Language-Team: German <http://*/projects/freepbx/ucp/de/>\n"
@@ -355,7 +355,7 @@ msgstr "Gelöschte Sitzung"
 msgid "Deleted User Session"
 msgstr "Gelöschte Benutzer Sitzung"
 
-#: htdocs/assets/js/ucp.js:81
+#: htdocs/assets/js/ucp.js:80
 msgid "Disable"
 msgstr "Deaktivieren"
 
@@ -389,11 +389,7 @@ msgstr "Bearbeitung eines Dashboards"
 msgid "Email"
 msgstr "E-Mail"
 
-#: htdocs/includes/User.class.php:78
-msgid "Email address unknown!"
-msgstr "Email-Adresse unbekannt!"
-
-#: htdocs/assets/js/ucp.js:78
+#: htdocs/assets/js/ucp.js:77
 msgid "Enable"
 msgstr "Aktivieren"
 
@@ -551,7 +547,7 @@ msgstr ""
 "Der Internet Explorer %s wird nicht unterstützt. Die Funktionalität ist "
 "eingeschränkt, bis Sie auf die Version %s oder höher aktualisieren"
 
-#: htdocs/includes/User.class.php:93
+#: htdocs/includes/User.class.php:97
 msgid "Invalid"
 msgstr "Ungültig"
 
@@ -560,7 +556,7 @@ msgstr "Ungültig"
 msgid "Invalid Device"
 msgstr "Ungültiges Gerät"
 
-#: htdocs/includes/User.class.php:101
+#: htdocs/includes/User.class.php:105
 msgid "Invalid Login Credentials"
 msgstr "Ungültige Login Zugangsdaten"
 
@@ -593,8 +589,8 @@ msgid "Loading..."
 msgstr "Laden..."
 
 #: htdocs/views/forgot.php:45 htdocs/views/login.php:38
-#: htdocs/assets/js/ucp.js:293 htdocs/assets/js/ucp.js:316
-#: htdocs/assets/js/ucp.js:326
+#: htdocs/assets/js/ucp.js:290 htdocs/assets/js/ucp.js:313
+#: htdocs/assets/js/ucp.js:323
 msgid "Login"
 msgstr "Einloggen"
 
@@ -746,7 +742,7 @@ msgstr "Passwort Reset Link (Gültig bis: %s): %s"
 msgid "Password Reset for: %s"
 msgstr "Passwort zurücksetzen für: %s"
 
-#: htdocs/assets/js/ucp.js:272
+#: htdocs/assets/js/ucp.js:269
 msgid "Password has been changed!"
 msgstr "Passwort wurde geändert!"
 
@@ -758,7 +754,7 @@ msgstr "Der Port anzuknüpfen. Standard ist 8001"
 msgid "Port to bind to. Default is 8003"
 msgstr "Port zum anknüpfen. Standard ist 8003"
 
-#: htdocs/assets/js/ucp.js:286 htdocs/assets/js/ucp.js:309
+#: htdocs/assets/js/ucp.js:283 htdocs/assets/js/ucp.js:306
 msgid "Processing..."
 msgstr "Verarbeiten..."
 
@@ -933,6 +929,10 @@ msgstr "Stoppt alte laufende Prozesse..."
 msgid "Styling and Logos"
 msgstr "Styling und Logos"
 
+#: htdocs/includes/User.class.php:82
+msgid "Submitted"
+msgstr ""
+
 #: htdocs/modules/Settings/assets/js/global.js:100
 #: htdocs/modules/Settings/assets/js/global.js:113
 msgid "Success!"
@@ -1032,7 +1032,7 @@ msgstr ""
 msgid "The removal of this copyright notice is stricly prohibited"
 msgstr "Die Entfernung des Copyright-Vermerks ist streng verboten"
 
-#: htdocs/assets/js/ucp.js:527
+#: htdocs/assets/js/ucp.js:524
 msgid "The session has expired and you are being forcibly logged out"
 msgstr "Die Session ist abgelaufen und Sie sind zwangsweise ausgeloggt"
 
@@ -1076,7 +1076,7 @@ msgstr ""
 msgid "There was an error trying to load UCP"
 msgstr "Beim Versuch das UCP zu laden ist ein Fehler aufgetreten"
 
-#: htdocs/assets/js/ucp.js:34 htdocs/assets/js/ucp.js:49
+#: htdocs/assets/js/ucp.js:33 htdocs/assets/js/ucp.js:48
 msgid "There was an error. See the console log for more details"
 msgstr ""
 "Es ist ein Fehler aufgetreten. Bitte schauen Sie in dem Konsolen Log nach "
@@ -1203,7 +1203,7 @@ msgid "UCP is currently disabled. Please talk to your system Administrator"
 msgstr ""
 "UCP ist derzeit deaktiviert. Bitte sprechen Sie mit Ihrem Systemadministrator"
 
-#: htdocs/assets/js/ucp.js:344
+#: htdocs/assets/js/ucp.js:341
 msgid "UCP is not supported in your browser"
 msgstr "UCP wird in Ihrem Browser nicht unterstützt"
 
@@ -1220,7 +1220,7 @@ msgstr ""
 "UCP, bekannt als das User Control Panel, ist die Benutzer Schnittstelle für "
 "FreePBX."
 
-#: htdocs/includes/User.class.php:84
+#: htdocs/includes/User.class.php:88
 msgid "Unable to send Password Reset Email"
 msgstr "Email zum Zurücksetzen des Passworts konnte nicht gesendet werden"
 
@@ -1261,7 +1261,7 @@ msgid "User"
 msgstr "Benutzer"
 
 #: htdocs/views/forgot.php:5 htdocs/views/header.php:4 htdocs/views/login.php:5
-#: ucp.i18n.php:4 /usr/src/freepbx/ucp/ucp.i18n.php:56
+#: ucp.i18n.php:4 /dev/shm/freepbx/ucp/ucp.i18n.php:56
 #: htdocs/modules/Widgets/assets/js/global.js:47
 msgid "User Control Panel"
 msgstr "Benutzerkontrollzentrum (UCP)"
@@ -1476,7 +1476,7 @@ msgstr "Sie haben sich erfolgreich zum ersten Mal eingeloggt!"
 msgid "You must set a dashboard name!"
 msgstr "Sie müssen den Dashboard-Namen bestimmen!"
 
-#: htdocs/assets/js/ucp.js:331
+#: htdocs/assets/js/ucp.js:328
 msgid "Your Browser is unsupported at this time."
 msgstr "Ihr Browser wird im Moment nicht unterstützt."
 
@@ -1524,7 +1524,7 @@ msgstr "Ihr Titel"
 msgid "Your Work Number"
 msgstr "Ihre Telefonnummer in der Firma"
 
-#: htdocs/assets/js/ucp.js:333
+#: htdocs/assets/js/ucp.js:330
 msgid ""
 "Your browser is unsupported at this time. Please upgrade or talk to your "
 "system administrator"
@@ -1592,6 +1592,9 @@ msgstr ""
 #: htdocs/views/login.php:25
 msgid "or"
 msgstr "oder"
+
+#~ msgid "Email address unknown!"
+#~ msgstr "Email-Adresse unbekannt!"
 
 #~ msgid " + field + "
 #~ msgstr " + feld + "

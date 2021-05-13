@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-03-16 13:41+0000\n"
+"POT-Creation-Date: 2021-05-13 02:27+0000\n"
 "PO-Revision-Date: 2016-05-03 03:14+0200\n"
 "Last-Translator: Michal <mboltz@tlen.pl>\n"
 "Language-Team: Polish <http://weblate.freepbx.org/projects/freepbx/ucp/pl/>\n"
@@ -319,7 +319,7 @@ msgstr "Skasowane sesje"
 msgid "Deleted User Session"
 msgstr "Skasowane sesje użytkownika"
 
-#: htdocs/assets/js/ucp.js:81
+#: htdocs/assets/js/ucp.js:80
 msgid "Disable"
 msgstr ""
 
@@ -353,11 +353,7 @@ msgstr ""
 msgid "Email"
 msgstr "Email"
 
-#: htdocs/includes/User.class.php:78
-msgid "Email address unknown!"
-msgstr ""
-
-#: htdocs/assets/js/ucp.js:78
+#: htdocs/assets/js/ucp.js:77
 msgid "Enable"
 msgstr ""
 
@@ -507,7 +503,7 @@ msgid ""
 "until you upgrade to %s or higher"
 msgstr ""
 
-#: htdocs/includes/User.class.php:93
+#: htdocs/includes/User.class.php:97
 msgid "Invalid"
 msgstr "Nieprawidłowe"
 
@@ -516,7 +512,7 @@ msgstr "Nieprawidłowe"
 msgid "Invalid Device"
 msgstr ""
 
-#: htdocs/includes/User.class.php:101
+#: htdocs/includes/User.class.php:105
 msgid "Invalid Login Credentials"
 msgstr "Błędne dane logowania"
 
@@ -549,8 +545,8 @@ msgid "Loading..."
 msgstr "Wczytywanie..."
 
 #: htdocs/views/forgot.php:45 htdocs/views/login.php:38
-#: htdocs/assets/js/ucp.js:293 htdocs/assets/js/ucp.js:316
-#: htdocs/assets/js/ucp.js:326
+#: htdocs/assets/js/ucp.js:290 htdocs/assets/js/ucp.js:313
+#: htdocs/assets/js/ucp.js:323
 msgid "Login"
 msgstr "Zaloguj"
 
@@ -693,7 +689,7 @@ msgstr "Odnośnik do resetu hasło (ważny do: %s): %s"
 msgid "Password Reset for: %s"
 msgstr "Rest hasła dla: %s"
 
-#: htdocs/assets/js/ucp.js:272
+#: htdocs/assets/js/ucp.js:269
 msgid "Password has been changed!"
 msgstr ""
 
@@ -705,7 +701,7 @@ msgstr ""
 msgid "Port to bind to. Default is 8003"
 msgstr ""
 
-#: htdocs/assets/js/ucp.js:286 htdocs/assets/js/ucp.js:309
+#: htdocs/assets/js/ucp.js:283 htdocs/assets/js/ucp.js:306
 msgid "Processing..."
 msgstr "Przetwarzanie..."
 
@@ -873,6 +869,10 @@ msgstr ""
 msgid "Styling and Logos"
 msgstr ""
 
+#: htdocs/includes/User.class.php:82
+msgid "Submitted"
+msgstr ""
+
 #: htdocs/modules/Settings/assets/js/global.js:100
 #: htdocs/modules/Settings/assets/js/global.js:113
 msgid "Success!"
@@ -956,7 +956,7 @@ msgstr "Hasło używane do logowania do Panelu Użytkownika (UCP) i innych usłu
 msgid "The removal of this copyright notice is stricly prohibited"
 msgstr "Usunięcie tej informacji o prawach autorskich jest surowo zabronione"
 
-#: htdocs/assets/js/ucp.js:527
+#: htdocs/assets/js/ucp.js:524
 msgid "The session has expired and you are being forcibly logged out"
 msgstr ""
 
@@ -995,7 +995,7 @@ msgstr ""
 msgid "There was an error trying to load UCP"
 msgstr "Wystąpił błąd przy wczytywaniu UCP"
 
-#: htdocs/assets/js/ucp.js:34 htdocs/assets/js/ucp.js:49
+#: htdocs/assets/js/ucp.js:33 htdocs/assets/js/ucp.js:48
 msgid "There was an error. See the console log for more details"
 msgstr ""
 
@@ -1108,7 +1108,7 @@ msgstr ""
 "UCO jest obecnie wyłączone. Proszę skontaktuj się z administratorem Twojego "
 "systemu"
 
-#: htdocs/assets/js/ucp.js:344
+#: htdocs/assets/js/ucp.js:341
 msgid "UCP is not supported in your browser"
 msgstr ""
 
@@ -1123,7 +1123,7 @@ msgid ""
 "FreePBX."
 msgstr ""
 
-#: htdocs/includes/User.class.php:84
+#: htdocs/includes/User.class.php:88
 msgid "Unable to send Password Reset Email"
 msgstr ""
 
@@ -1164,7 +1164,7 @@ msgid "User"
 msgstr ""
 
 #: htdocs/views/forgot.php:5 htdocs/views/header.php:4 htdocs/views/login.php:5
-#: ucp.i18n.php:4 /usr/src/freepbx/ucp/ucp.i18n.php:56
+#: ucp.i18n.php:4 /dev/shm/freepbx/ucp/ucp.i18n.php:56
 #: htdocs/modules/Widgets/assets/js/global.js:47
 msgid "User Control Panel"
 msgstr "Panel Użytkownika (UCP)"
@@ -1357,7 +1357,7 @@ msgstr ""
 msgid "You must set a dashboard name!"
 msgstr ""
 
-#: htdocs/assets/js/ucp.js:331
+#: htdocs/assets/js/ucp.js:328
 msgid "Your Browser is unsupported at this time."
 msgstr "W obecnej chwili Twoja przeglądarka nie jest wspierana."
 
@@ -1405,7 +1405,7 @@ msgstr "Twój tytuł"
 msgid "Your Work Number"
 msgstr "Twój numer służbowy"
 
-#: htdocs/assets/js/ucp.js:333
+#: htdocs/assets/js/ucp.js:330
 msgid ""
 "Your browser is unsupported at this time. Please upgrade or talk to your "
 "system administrator"
