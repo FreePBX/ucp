@@ -1,4 +1,5 @@
 <div id="ucp-settings">
+	<div id="alert"></div>
 	<h3><?php echo _('User Control Panel Settings')?></h3>
 	<form role="form">
 		<div class="masonry-container">
