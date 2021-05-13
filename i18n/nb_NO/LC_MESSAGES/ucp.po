@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-06-22 08:59+0000\n"
+"POT-Creation-Date: 2021-05-13 02:26+0000\n"
 "PO-Revision-Date: 2015-08-30 14:46+0200\n"
 "Last-Translator: Vidar Skjelanger <vidar@unimicro.no>\n"
 "Language-Team: Norwegian Bokmål <http://weblate.freepbx.org/projects/freepbx/"
@@ -114,7 +114,7 @@ msgstr ""
 msgid "Adding a dashboard"
 msgstr ""
 
-#: ucp.i18n.php:24
+#: ucp.i18n.php:34
 msgid "Address to bind to. Default is "
 msgstr ""
 
@@ -146,6 +146,14 @@ msgstr "Tillat varsler på skrivebordet"
 msgid "Allow Login"
 msgstr "Tillat pålogging"
 
+#: ucp.i18n.php:54
+msgid "Allow Password Changes"
+msgstr ""
+
+#: ucp.i18n.php:60
+msgid "Allow Username Changes"
+msgstr ""
+
 #: htdocs/modules/Settings/views/settings.php:146
 msgid "Allow browser desktop notifications from UCP modules."
 msgstr "Tillat meldinger på nettleser-skrivebordet fra UCP-moduler."
@@ -154,6 +162,14 @@ msgstr "Tillat meldinger på nettleser-skrivebordet fra UCP-moduler."
 msgid ""
 "Allow this user to originate calls from within UCP. This is not the same as "
 "WebRTC"
+msgstr ""
+
+#: ucp.i18n.php:62
+msgid "Allow users to change their username in UCP"
+msgstr ""
+
+#: ucp.i18n.php:58
+msgid "Allow users to change thier password in UCP"
 msgstr ""
 
 #: views/users_hook.php:147
@@ -304,7 +320,7 @@ msgstr "Slettet sesjon"
 msgid "Deleted User Session"
 msgstr "Slettet brukersesjon"
 
-#: htdocs/assets/js/ucp.js:81
+#: htdocs/assets/js/ucp.js:80
 msgid "Disable"
 msgstr ""
 
@@ -338,11 +354,7 @@ msgstr ""
 msgid "Email"
 msgstr "Epost"
 
-#: htdocs/includes/User.class.php:78
-msgid "Email address unknown!"
-msgstr ""
-
-#: htdocs/assets/js/ucp.js:78
+#: htdocs/assets/js/ucp.js:77
 msgid "Enable"
 msgstr ""
 
@@ -350,7 +362,7 @@ msgstr ""
 msgid "Enable Originating Calls"
 msgstr ""
 
-#: ucp.i18n.php:18
+#: ucp.i18n.php:28
 msgid "Enable TLS for the NodeJS Server"
 msgstr ""
 
@@ -358,7 +370,7 @@ msgstr ""
 msgid "Enable Tour Mode"
 msgstr ""
 
-#: ucp.i18n.php:12
+#: ucp.i18n.php:22
 msgid "Enable the NodeJS Server"
 msgstr ""
 
@@ -494,7 +506,7 @@ msgid ""
 "until you upgrade to %s or higher"
 msgstr ""
 
-#: htdocs/includes/User.class.php:93
+#: htdocs/includes/User.class.php:97
 msgid "Invalid"
 msgstr "Ugyldig"
 
@@ -503,7 +515,7 @@ msgstr "Ugyldig"
 msgid "Invalid Device"
 msgstr ""
 
-#: htdocs/includes/User.class.php:101
+#: htdocs/includes/User.class.php:105
 msgid "Invalid Login Credentials"
 msgstr "Ugyldig påloggingsinfo"
 
@@ -536,8 +548,8 @@ msgid "Loading..."
 msgstr "Laster..."
 
 #: htdocs/views/forgot.php:45 htdocs/views/login.php:38
-#: htdocs/assets/js/ucp.js:293 htdocs/assets/js/ucp.js:316
-#: htdocs/assets/js/ucp.js:326
+#: htdocs/assets/js/ucp.js:290 htdocs/assets/js/ucp.js:313
+#: htdocs/assets/js/ucp.js:323
 msgid "Login"
 msgstr "Brukernavn"
 
@@ -598,27 +610,27 @@ msgid ""
 "as root"
 msgstr ""
 
-#: ucp.i18n.php:22
+#: ucp.i18n.php:32
 msgid "NodeJS Bind Address"
 msgstr ""
 
-#: ucp.i18n.php:26
+#: ucp.i18n.php:36
 msgid "NodeJS Bind Port"
 msgstr ""
 
-#: ucp.i18n.php:30
+#: ucp.i18n.php:40
 msgid "NodeJS HTTPS Bind Address"
 msgstr ""
 
-#: ucp.i18n.php:32
+#: ucp.i18n.php:42
 msgid "NodeJS HTTPS Bind Port"
 msgstr ""
 
-#: ucp.i18n.php:36
+#: ucp.i18n.php:46
 msgid "NodeJS HTTPS TLS Certificate Location"
 msgstr ""
 
-#: ucp.i18n.php:40
+#: ucp.i18n.php:50
 msgid "NodeJS HTTPS TLS Private Key Location"
 msgstr ""
 
@@ -680,24 +692,28 @@ msgstr "Link for å resette passordet (Gyldig til: %s): %s"
 msgid "Password Reset for: %s"
 msgstr "Tilbakestilling av passord for: %s"
 
-#: htdocs/assets/js/ucp.js:272
+#: htdocs/assets/js/ucp.js:269
 msgid "Password has been changed!"
 msgstr ""
 
-#: ucp.i18n.php:28
+#: ucp.i18n.php:38
 msgid "Port to bind to. Default is 8001"
 msgstr ""
 
-#: ucp.i18n.php:34
+#: ucp.i18n.php:44
 msgid "Port to bind to. Default is 8003"
 msgstr ""
 
-#: htdocs/assets/js/ucp.js:286 htdocs/assets/js/ucp.js:309
+#: htdocs/assets/js/ucp.js:283 htdocs/assets/js/ucp.js:306
 msgid "Processing..."
 msgstr "Behandler..."
 
-#: htdocs/modules/Home/Home.class.php:53
+#: htdocs/modules/Home/Home.class.php:53 ucp.i18n.php:64
 msgid "RSS Feeds"
+msgstr ""
+
+#: ucp.i18n.php:66
+msgid "RSS Feeds that are displayed in UCP. This overrides "
 msgstr ""
 
 #: Ucp.class.php:314
@@ -761,11 +777,11 @@ msgstr "Send meg en link for nullstilling av passord"
 msgid "Sent at %s"
 msgstr "Sendt %s"
 
-#: ucp.i18n.php:42
+#: ucp.i18n.php:52
 msgid "Sets the path to the HTTPS private key. This is required if "
 msgstr ""
 
-#: ucp.i18n.php:38
+#: ucp.i18n.php:48
 msgid "Sets the path to the HTTPS server certificate. This is required if "
 msgstr ""
 
@@ -848,6 +864,14 @@ msgstr ""
 msgid "Stopping old running processes..."
 msgstr ""
 
+#: ucp.i18n.php:14
+msgid "Styling and Logos"
+msgstr ""
+
+#: htdocs/includes/User.class.php:82
+msgid "Submitted"
+msgstr ""
+
 #: htdocs/modules/Settings/assets/js/global.js:100
 #: htdocs/modules/Settings/assets/js/global.js:113
 msgid "Success!"
@@ -916,6 +940,12 @@ msgid ""
 "see: %s"
 msgstr ""
 
+#: ucp.i18n.php:70
+msgid ""
+"The number of days a session token will be valid for. Clear this setting if "
+"you want tokens to last forever (Not Recommended)"
+msgstr ""
+
 #: htdocs/modules/Settings/views/settings.php:29
 #: htdocs/modules/Settings/views/settings.php:34
 msgid "The password used to login to User Control Panel and other services"
@@ -925,7 +955,7 @@ msgstr "Passordet som brukes for å logge inn i UCP og andre tjenester"
 msgid "The removal of this copyright notice is stricly prohibited"
 msgstr "Å fjerne dette varselet om opphavsrett er ikke tillatt"
 
-#: htdocs/assets/js/ucp.js:527
+#: htdocs/assets/js/ucp.js:524
 msgid "The session has expired and you are being forcibly logged out"
 msgstr ""
 
@@ -962,7 +992,7 @@ msgstr ""
 msgid "There was an error trying to load UCP"
 msgstr "En feil oppstod ved innlasting av UCP"
 
-#: htdocs/assets/js/ucp.js:34 htdocs/assets/js/ucp.js:49
+#: htdocs/assets/js/ucp.js:33 htdocs/assets/js/ucp.js:48
 msgid "There was an error. See the console log for more details"
 msgstr ""
 
@@ -1054,8 +1084,18 @@ msgstr ""
 msgid "UCP Node is not running"
 msgstr ""
 
-#: ucp.i18n.php:14
+#: ucp.i18n.php:24
 msgid "UCP NodeJS Server"
+msgstr ""
+
+#: ucp.i18n.php:68
+msgid "UCP Session Timeout"
+msgstr ""
+
+#: ucp.i18n.php:20
+msgid ""
+"UCP icons folder. This should never be changed except for very advanced "
+"layout changes"
 msgstr ""
 
 #: htdocs/index.php:23
@@ -1063,7 +1103,7 @@ msgid "UCP is currently disabled. Please talk to your system Administrator"
 msgstr ""
 "UCP er for øyeblikket deaktivert. Vennligst kontakt din systemadministrator"
 
-#: htdocs/assets/js/ucp.js:344
+#: htdocs/assets/js/ucp.js:341
 msgid "UCP is not supported in your browser"
 msgstr ""
 
@@ -1078,7 +1118,7 @@ msgid ""
 "FreePBX."
 msgstr ""
 
-#: htdocs/includes/User.class.php:84
+#: htdocs/includes/User.class.php:88
 msgid "Unable to send Password Reset Email"
 msgstr ""
 
@@ -1119,7 +1159,8 @@ msgid "User"
 msgstr ""
 
 #: htdocs/views/forgot.php:5 htdocs/views/header.php:4 htdocs/views/login.php:5
-#: ucp.i18n.php:4 htdocs/modules/Widgets/assets/js/global.js:47
+#: ucp.i18n.php:4 /dev/shm/freepbx/ucp/ucp.i18n.php:56
+#: htdocs/modules/Widgets/assets/js/global.js:47
 msgid "User Control Panel"
 msgstr "Kontrollpanel for brukere"
 
@@ -1153,6 +1194,14 @@ msgstr ""
 msgid "Username"
 msgstr "Brukernavn"
 
+#: ucp.i18n.php:12
+msgid "View: UCP dashfootercontent.php"
+msgstr ""
+
+#: ucp.i18n.php:18
+msgid "View: UCP icons"
+msgstr ""
+
 #: htdocs/views/templates/phone.php:73
 msgid "WXYZ"
 msgstr "WXYZ"
@@ -1180,13 +1229,13 @@ msgid ""
 "When you are finished simply hit 'Create Dashboard' to create your dashboard"
 msgstr ""
 
-#: ucp.i18n.php:20
+#: ucp.i18n.php:30
 msgid ""
 "Whether to enable TLS for the backend server for UCP which allows "
 "instantaneous updates to the interface"
 msgstr ""
 
-#: ucp.i18n.php:16
+#: ucp.i18n.php:26
 msgid ""
 "Whether to enable the backend server for UCP which allows instantaneous "
 "updates to the interface"
@@ -1299,7 +1348,7 @@ msgstr ""
 msgid "You must set a dashboard name!"
 msgstr ""
 
-#: htdocs/assets/js/ucp.js:331
+#: htdocs/assets/js/ucp.js:328
 msgid "Your Browser is unsupported at this time."
 msgstr "Din nettleser er ikke støttet på nåværende tidspunkt."
 
@@ -1347,7 +1396,7 @@ msgstr "Din tittel"
 msgid "Your Work Number"
 msgstr "Ditt telefonnummer (arbeid)"
 
-#: htdocs/assets/js/ucp.js:333
+#: htdocs/assets/js/ucp.js:330
 msgid ""
 "Your browser is unsupported at this time. Please upgrade or talk to your "
 "system administrator"
@@ -1367,6 +1416,12 @@ msgstr ""
 msgid ""
 "Your specific settings are defined when clicking the 'gear' icon in the side "
 "bar"
+msgstr ""
+
+#: ucp.i18n.php:16
+msgid ""
+"dashfootercontent.php view. This should never be changed except for very "
+"advanced layout changes"
 msgstr ""
 
 #: htdocs/assets/js/lodash-4.17.2.js:15638
