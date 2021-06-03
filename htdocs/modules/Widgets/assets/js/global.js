@@ -755,6 +755,9 @@ var WidgetsC = Class.extend({
 			}
 		});
 	},
+	htmlEntities: function(str) {
+		return $("<div/>").text(str).html();
+	},
 	/**
 	 * Initalize the document remove buttons
 	 * @method initRemoveItemButtons
@@ -841,7 +844,7 @@ var WidgetsC = Class.extend({
 				//click event
 				$("#edit_dashboard_btn").one("click",function() {
 					//get the new name
-					var name = $('#edit_dashboard_name').val();
+					var name = $this.htmlEntities($("#edit_dashboard_name").val());
 					//show loading window so nothing changes
 					$this.activateFullLoading();
 					//send it off and save!
@@ -854,7 +857,7 @@ var WidgetsC = Class.extend({
 						},
 						function( data ) {
 							if(data.status) {
-								title.text(name);
+								title.replaceWith('<a data-dashboard>'+name+'</a>');
 								$("#edit_dashboard").modal('hide');
 							} else {
 								UCP.showAlert(_("Something went wrong removing the dashboard"), "danger");
@@ -1384,15 +1387,16 @@ var WidgetsC = Class.extend({
 					$("#dashboard_name").focus();
 				});
 			} else {
+				let dashboard_name = $this.htmlEntities($("#dashboard_name").val());
 				//show loading screen while we save this dashboard
 				$this.activateFullLoading();
 
-				$.post( UCP.ajaxUrl, {module: "Dashboards", command: "add", name: $("#dashboard_name").val()}, function( data ) {
+				$.post( UCP.ajaxUrl, {module: "Dashboards", command: "add", name: dashboard_name}, function( data ) {
 					if (!data.status) {
 						UCP.showAlert(data.message,'warning');
 					} else {
 						var select = $("#all_dashboards li").length;
-						var new_dashboard_html = '<li class="menu-order dashboard-menu" data-id="'+data.id+'"><a data-dashboard>'+$("#dashboard_name").val()+'</a> <div class="dashboard-actions" data-dashboard_id="'+data.id+'"><i class="fa fa-unlock-alt lock-dashboard" aria-hidden="true"></i><i class="fa fa-pencil edit-dashboard" aria-hidden="true"></i><i class="fa fa-times remove-dashboard" aria-hidden="true"></i></div></li>';
+						var new_dashboard_html = '<li class="menu-order dashboard-menu" data-id="'+data.id+'"><a data-dashboard>'+dashboard_name+'</a> <div class="dashboard-actions" data-dashboard_id="'+data.id+'"><i class="fa fa-unlock-alt lock-dashboard" aria-hidden="true"></i><i class="fa fa-pencil edit-dashboard" aria-hidden="true"></i><i class="fa fa-times remove-dashboard" aria-hidden="true"></i></div></li>';
 						$("#all_dashboards").append(new_dashboard_html);
 
 						dashboards[data.id] = null;
