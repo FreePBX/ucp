@@ -10,7 +10,7 @@
 //TODO: In 15 this needs to be namespaced!
 use Symfony\Component\Process\Exception\ProcessFailedException;
 use Symfony\Component\Process\Process;
-//progress bar
+//progress bar 
 use Symfony\Component\Console\Helper\ProgressBar;
 class Ucp implements \BMO {
 	private $message;
@@ -368,6 +368,7 @@ class Ucp implements \BMO {
 					}
 					$sassigned = $this->Userman->getModuleSettingByGID($_REQUEST['group'],'ucp|Settings','assigned');
 					$sassigned = !empty($sassigned) ? $sassigned : array();
+					$tempList = $this->Userman->getAllUcpTemplates();
 					return array(
 						array(
 							"title" => "UCP",
@@ -380,7 +381,10 @@ class Ucp implements \BMO {
 								"user" => array(),
 								"allowLogin" => $this->Userman->getModuleSettingByGID($_REQUEST['group'],'ucp|Global','allowLogin'),
 								"originate" => $this->Userman->getModuleSettingByGID($_REQUEST['group'],'ucp|Global','originate'),
-								"tourMode" => $this->Userman->getModuleSettingByGID($_REQUEST['group'],'ucp|Global','tour'))
+								"tourMode" => $this->Userman->getModuleSettingByGID($_REQUEST['group'],'ucp|Global','tour'),
+								"tempList" => $tempList,
+								"assignedTemplate" => $this->Userman->getModuleSettingByGID($_REQUEST['group'],'ucp|template','templateid'),
+								"selectTemplate" => $this->Userman->getModuleSettingByGID($_REQUEST['group'],'ucp|template','assigntemplate'))
 							)
 						)
 					);
@@ -395,6 +399,7 @@ class Ucp implements \BMO {
 							$ausers[$list[0]] = $list[1] . " &#60;".$list[0]."&#62;";
 						}
 					}
+					$tempList = $this->Userman->getAllUcpTemplates();
 					return array(
 						array(
 							"title" => "UCP",
@@ -407,7 +412,9 @@ class Ucp implements \BMO {
 								"user" => array(),
 								"allowLogin" => true,
 								"originate" => false,
-								"tourMode" => true)
+								"tourMode" => true,
+								"selectTemplate" => false,
+								"tempList" => $tempList	)
 							)
 						)
 					);
@@ -427,6 +434,7 @@ class Ucp implements \BMO {
 						}
 					}
 					$sassigned = !empty($sassigned) ? $sassigned : array();
+					$tempList = $this->Userman->getAllUcpTemplates();
 					return array(
 						array(
 							"title" => "UCP",
@@ -440,7 +448,10 @@ class Ucp implements \BMO {
 								"allowLogin" => FreePBX::create()->Userman->getModuleSettingByID($_REQUEST['user'],'ucp|Global','allowLogin',true),
 								"originate" => FreePBX::create()->Userman->getModuleSettingByID($_REQUEST['user'],'ucp|Global','originate',true),
 								"tourMode" => FreePBX::create()->Userman->getModuleSettingByID($_REQUEST['user'],'ucp|Global','tour',true),
-								"sessions" => $this->getUserSessions($user['id'])
+								"sessions" => $this->getUserSessions($user['id']),
+								"tempList" => $tempList,
+								"assignedTemplate" => $this->Userman->getModuleSettingByID($_REQUEST['user'],'ucp|template','templateid',true),
+								"selectTemplate" => $this->Userman->getModuleSettingByID($_REQUEST['user'],'ucp|template','assigntemplate',true)
 								)
 							)
 						)
@@ -454,6 +465,7 @@ class Ucp implements \BMO {
 							$ausers[$list[0]] = $list[1] . " &#60;".$list[0]."&#62;";
 						}
 					}
+					$tempList = $this->Userman->getAllUcpTemplates();
 					return array(
 						array(
 							"title" => "UCP",
@@ -467,7 +479,9 @@ class Ucp implements \BMO {
 								"allowLogin" => null,
 								"originate" => null,
 								"tourMode" => null,
-								"sessions" => array()
+								"sessions" => array(),
+								"selectTemplate" => null,
+								"tempList" => $tempList
 								)
 							)
 						)
@@ -656,6 +670,13 @@ class Ucp implements \BMO {
 				$this->Userman->setModuleSettingByGID($id,'ucp|Global','originate', false);
 			}
 			$this->Userman->setModuleSettingByGID($id,'ucp|Settings','assigned', $_POST['ucp_settings']);
+			if($_POST['assign_template'] == 'true') {
+				$this->Userman->setModuleSettingByGID($id,'ucp|template','assigntemplate',true);
+				$this->Userman->setModuleSettingByGID($id,'ucp|template','templateid',$_POST['templateid']);
+			} else {
+				$this->Userman->setModuleSettingByGID($id,'ucp|template','assigntemplate',false);
+				$this->Userman->setModuleSettingByGID($id,'ucp|template','templateid',null);
+			}
 		}
 
 		$login = $this->Userman->getModuleSettingByGID($id,'ucp|Global','originate');
@@ -685,6 +706,13 @@ class Ucp implements \BMO {
 				$this->Userman->setModuleSettingByGID($id,'ucp|Global','originate', false);
 			}
 			$this->Userman->setModuleSettingByGID($id,'ucp|Settings','assigned', $_POST['ucp_settings']);
+			if($_POST['assign_template'] == 'true') {
+				$this->Userman->setModuleSettingByGID($id,'ucp|template','assigntemplate',true);
+				$this->Userman->setModuleSettingByGID($id,'ucp|template','templateid',$_POST['templateid']);
+			} else {
+				$this->Userman->setModuleSettingByGID($id,'ucp|template','assigntemplate',false);
+				$this->Userman->setModuleSettingByGID($id,'ucp|template','templateid',null);
+			}
 		}
 
 		$login = $this->Userman->getModuleSettingByGID($id,'ucp|Global','originate');
@@ -743,6 +771,16 @@ class Ucp implements \BMO {
 				} else {
 					$this->FreePBX->Userman->setModuleSettingByID($id,'ucp|Global','originate',null);
 				}
+				if($_POST['assign_template'] == 'true') {
+					$this->FreePBX->Userman->setModuleSettingByID($id,'ucp|template','assigntemplate',true);
+					$this->FreePBX->Userman->setModuleSettingByID($id,'ucp|template','templateid',$_POST['templateid']);
+                                } elseif($_POST['assign_template'] == 'false') {
+					$this->FreePBX->Userman->setModuleSettingByID($id,'ucp|template','assigntemplate',false);
+					$this->FreePBX->Userman->setModuleSettingByID($id,'ucp|template','templateid',null);
+                                } else {
+					$this->FreePBX->Userman->setModuleSettingByID($id,'ucp|template','assigntemplate',null);
+					$this->FreePBX->Userman->setModuleSettingByID($id,'ucp|template','templateid',null);
+                                }
 			}
 		}
 		$login = $this->FreePBX->Userman->getModuleSettingByID($id,'ucp|Global','allowLogin');
@@ -784,6 +822,16 @@ class Ucp implements \BMO {
 					$this->FreePBX->Userman->setModuleSettingByID($id,'ucp|Global','originate',false);
 				} else {
 					$this->FreePBX->Userman->setModuleSettingByID($id,'ucp|Global','originate',null);
+				}
+				if($_POST['assign_template'] == 'true') {
+					$this->FreePBX->Userman->setModuleSettingByID($id,'ucp|template','assigntemplate',true);
+					$this->FreePBX->Userman->setModuleSettingByID($id,'ucp|template','templateid',$_POST['templateid']);
+				} elseif($_POST['assign_template'] == 'false') {
+					$this->FreePBX->Userman->setModuleSettingByID($id,'ucp|template','assigntemplate',false);
+					$this->FreePBX->Userman->setModuleSettingByID($id,'ucp|template','templateid',null);
+				} else {
+					$this->FreePBX->Userman->setModuleSettingByID($id,'ucp|template','assigntemplate',null);
+					$this->FreePBX->Userman->setModuleSettingByID($id,'ucp|template','templateid',null);
 				}
 			}
 		}
@@ -1445,5 +1493,10 @@ class Ucp implements \BMO {
 
 	private function generateRunAsAsteriskCommand($command) {
 		return $this->FreePBX->Pm2->generateRunAsAsteriskCommand($command,$this->nodeloc);
+	}
+
+	public function getUserIdByKey($key) {
+		$uid = $this->FreePBX->Userman->getUidFromUnlockkey($key);
+		return $uid;
 	}
 }

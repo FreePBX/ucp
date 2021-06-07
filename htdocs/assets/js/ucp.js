@@ -923,3 +923,38 @@ $('#globalModal').on('hide.bs.modal',function(){
 
 /** Language, global functions so they act like php procedurals **/
 UCP.i18n = new Jed(languages);
+
+$("#saveTemplate").click(function() {
+	id = $("#templateID").val();
+	uid = $("#userID").val();
+	$.post("ajax.php?module=User&command=saveTemplate", {tempid: id, uid: uid}, function( data ) {
+		if (!data.status) {
+			alert(data.message);
+		} else {
+			alert(data.message);
+			location.reload();
+		}
+	});
+	return false
+});
+
+$("#resetTemplate").click(function() {
+	if (confirm("Are you sure you wish to reset the template ?")){
+		var answer = prompt ("Reset option will reset all your existing UCP dashboard/widgets configuration to your assigned template's UCP configuration. This action is irrevocable. Are you sure you want to reset, please type \"reset\" to confirm ? ");
+		if (answer != 'reset') {
+			return false;
+		}
+		uid = $("#userID").val();
+		$.post("ajax.php?module=User&command=resetTemplate", {uid: uid}, function( data ) {
+			if (!data.status) {
+				alert(data.message);
+			} else {
+				alert(data.message);
+				var ucp;
+				ucp =  $(location).attr('origin')+$(location).attr('pathname');
+				window.open(ucp,'_self');
+			}
+		});
+		return false
+	}
+});
