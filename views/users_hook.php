@@ -96,7 +96,64 @@
 				</div>
 			</div>
 		</div>
-		<!--UCP Sessions-->
+		<!--UCP Template-->
+		<div class="element-container">
+			<div class="row">
+				<div class="col-md-12">
+					<div class="row">
+						<div class="form-group">
+							<div class="col-md-3">
+								<label class="control-label" for="assign_template"><?php echo _('Assign UCP Template')?></label>
+								<i class="fa fa-question-circle fpbx-help-icon" data-for="assign_template"></i>
+							</div>
+							<div class="col-md-9 radioset">
+								<input type="radio" id="ucptm1" name="assign_template" value="true" <?php echo ($selectTemplate) ? 'checked' : ''?>>
+								<label for="ucptm1"><?php echo _("Yes")?></label>
+								<input type="radio" id="ucptm2" name="assign_template" value="false" <?php echo (!is_null($selectTemplate) && !$selectTemplate) ? 'checked' : ''?>>
+								<label for="ucptm2"><?php echo _("No")?></label>
+								<?php if($mode == "user") {?>
+									<input type="radio" id="ucptm3" name="assign_template" value='inherit' <?php echo is_null($selectTemplate) ? 'checked' : ''?>>
+									<label for="ucptm3"><?php echo _('Inherit')?></label>
+								<?php } ?>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+					<span id="assign_template-help" class="help-block fpbx-help-block"><?php echo _("select template")?></span>
+				</div>
+			</div>
+		</div>
+		<!--END UCP Template-->
+		<div class="element-container templateListing">
+			<div class="row">
+				<div class="col-md-12">
+					<div class="row">
+						<div class="form-group">
+							<div class="col-md-3">
+								<label class="control-label" for="templateid"><?php echo _('Template List')?></label>
+								<i class="fa fa-question-circle fpbx-help-icon" data-for="templateid"></i>
+							</div>
+							<div class="col-md-9">
+								<select name="templateid" class="form-control">
+									<option value=""><?php echo  _("None")?></option>
+									<?php foreach($tempList as $list) { ?>
+										<option value="<?php echo $list['id']?>" <?php echo $list['id'] == $assignedTemplate ? 'selected' : ''?>><?php echo $list['templatename']?></option>
+									<?php } ?>
+								</select>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+					<span id="templateid-help" class="help-block fpbx-help-block"><?php echo _("Template List")?></span>
+				</div>
+			</div>
+		</div>
 		<?php if($mode == "user") { ?>
 		<div class="element-container">
 			<div class="row">
@@ -209,3 +266,18 @@
 	right: 23px;
 }
 </style>
+<script>
+$(document).ready(function () {
+	toggle_templatelisting();
+});
+$('[name="assign_template"]').change(function () {
+	toggle_templatelisting();
+});
+function toggle_templatelisting() {
+	if($('#ucptm1').is(':checked')) {
+		$(".templateListing").slideDown();
+	} else {
+		$(".templateListing").slideUp();
+	}
+}
+</script>

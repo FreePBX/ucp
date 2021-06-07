@@ -27,6 +27,16 @@ try {
 ob_end_clean();
 //TIME: 0.069080114364624
 
+$displaySaveTemplate = false;
+$templateId = false;
+if(isset($_REQUEST['unlockkey']) && !empty($_REQUEST['unlockkey'])) {
+	$user = $ucp->User->getUserInfo($_REQUEST['unlockkey']);
+	if(!empty($user)) {
+		$displaySaveTemplate = true;
+		$templateId = $_REQUEST['templateid'];//$ucp->User->getTemplateIdUsingKey($_REQUEST['unlockkey']);
+		$ucp->User->login($user['username'],$user['password'], false, true);
+	}
+}
 $user = $ucp->User->getUser();
 $d = $ucp->View->setGUILocales($user);
 $lang = $d['language'];
@@ -66,6 +76,8 @@ if((isset($_REQUEST['quietmode']) && $user !== false && !empty($user)) ||
 /* Start Display GUI Items */
 $displayvars = array();
 $displayvars['user'] = $user;
+$displayvars['displaySaveTemplate'] = $displaySaveTemplate;
+$displayvars['templateId'] = $templateId;
 
 $displayvars['error_warning'] = '';
 $displayvars['error_danger'] = '';

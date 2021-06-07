@@ -44,6 +44,17 @@
 				</li>
 			<?php } ?>
 		<?php } ?>
+		<input type="hidden" id="userID" value="<?php echo $user['id'] ?>">
+		<?php if($displaySaveTemplate) { ?>
+			<input type="hidden" id="templateID" value="<?php echo $templateId ?>">
+			<li class="save-widget">
+				<a href="#" id= "saveTemplate" title="Save Template"><i class="fa fa-save" aria-hidden="true"></i></a>
+			</li>
+		<?php } else { ?>
+			<li class="reset-widget">
+				<a href="#" id= "resetTemplate" title="Reset Template"><i class="fa fa-undo" aria-hidden="true"></i></a>
+			</li>
+		<?php } ?>
 		<li class="settings-widget locked">
 			<a href="#"><i class="fa fa-cog" aria-hidden="true"></i></a>
 		</li>
