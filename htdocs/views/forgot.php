@@ -1,3 +1,25 @@
+<div class="modal fade" id="modal-policies" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header" style="background-color: #FF7171">
+                       <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">×</span>
+                </button>
+                <h3 class="modal-title text-center" id="myModalLabel">
+                                       <?php echo _('Password does not match security policy.')?>
+                </h3>
+            </div>
+            <div class="modal-body" style="background-color: #FCF8E3">
+
+            </div>
+            <div class="modal-footer" style="background-color: #DCECFE">
+                <button type="button" class="btn btn-primary active" data-dismiss="modal">
+                    Close
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
 <div id="login-window">
 	<form id="frm-login" method="POST" action="?display=dashboard">
 		<input type="hidden" name="token" value="<?php echo $token?>">

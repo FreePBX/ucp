@@ -89,8 +89,8 @@ var UCPC = Class.extend({
 			}
 			if ($("input[name=npass1]").length > 0) {
 				var token = $("input[name=ftoken]").val(),
-						pass1 = $("input[name=npass1]").val().trim(),
-						pass2 = $("input[name=npass2]").val().trim();
+				pass1 = $("input[name=npass1]").val().trim(),
+				pass2 = $("input[name=npass2]").val().trim();
 				if (pass1 != pass2) {
 					alert(_("New password and old password do not match"));
 					return false;
@@ -102,7 +102,18 @@ var UCPC = Class.extend({
 					queryString = queryString + "&quietmode=1&module=User&command=reset";
 					$.post( "index.php", queryString, function( data ) {
 						if (!data.status) {
-							$("#error-msg").html(data.message).fadeIn("fast");
+							if(typeof data.message != "undefined" && typeof data.error == "undefined"){
+								$("#error-msg").html(data.message).fadeIn("fast");
+							}
+							if(typeof data.error != "undefined"){
+									err = "<ul>";
+									$.each(data.error, function(i, v) {
+											err += "<li>"+v+"</li>";
+									});
+									err += "</ul>";
+									$("#modal-policies").modal('show');
+									$(".modal-body").html(err);
+							}
 						} else {
 							alert(_("Password has been changed!"));
 							$("#switch-login").click();
