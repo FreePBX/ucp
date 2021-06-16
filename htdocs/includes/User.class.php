@@ -96,7 +96,13 @@ class User {
 			break;
 			case 'reset':
 				if($this->validateResetToken($_POST['ftoken']) && ($_POST['npass1'] == $_POST['npass2'])) {
-					$return['status'] = $this->UCP->FreePBX->Ucp->resetPasswordWithToken($_POST['ftoken'],$_POST['npass1']);
+					$policy = $this->UCP->FreePBX->Userman->password_policies($_POST['npass1']);
+					if(!empty($policy) && $policy["status"] == true){
+							$return['status'] = $this->UCP->FreePBX->Ucp->resetPasswordWithToken($_POST['ftoken'],$_POST['npass1']);
+					}
+					else{
+							return $policy;
+					}
 				} else {
 					$return['message'] = _("Invalid");
 				}
