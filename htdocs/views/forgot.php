@@ -6,15 +6,13 @@
                     <span aria-hidden="true">×</span>
                 </button>
                 <h3 class="modal-title text-center" id="myModalLabel">
-                                       <?php echo _('Password does not match security policy.')?>
+                    <?php echo _('Password does not match security policy.')?>
                 </h3>
             </div>
-            <div class="modal-body" style="background-color: #FCF8E3">
-
-            </div>
+            <div class="modal-body" style="background-color: #FCF8E3"></div>
             <div class="modal-footer" style="background-color: #DCECFE">
                 <button type="button" class="btn btn-primary active" data-dismiss="modal">
-                    Close
+					<?php echo _('Close')?>
                 </button>
             </div>
         </div>
