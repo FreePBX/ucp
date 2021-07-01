@@ -513,7 +513,7 @@ var UCPC = Class.extend({
 						callback();
 					}
 					$.each(data.modData, function( module, data ) {
-						if (UCP.validMethod(module, "poll")) {
+						if (UCP.validMethod(module, "poll") && $(".grid-stack-item[data-rawname='"+module.toLowerCase()+"']").length) {
 							UCP.Modules[module].poll(data, $.url().param());
 						}
 					});
