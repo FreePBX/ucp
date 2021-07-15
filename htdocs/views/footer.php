@@ -1,8 +1,9 @@
 
 		<footer id="footer">
-			<div id="footer-content" class="col-md-12">
+			<hr>
+			<div id="footer-content" class="row">
 				<?php echo $dashboard_footer_content?>
-			</div
+			</div>
 		</footer>
 		<script type="text/javascript" src="assets/js/jquery.toast.min.js"></script>
 		<script>

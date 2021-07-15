@@ -706,8 +706,26 @@ section{
 	bottom: 0;
 	transition: bottom .3s;
 	z-index: 99;
-	height: 20px;
+	height: auto;
 	color: #000;
+	#footer-content {
+		font-size: 75%;
+		font-family: 'lato', sans-serif;
+		text-align: center;
+		height: 100%;
+		padding-top: 5px;
+		padding-bottom: 5px;
+		margin: 0px auto;
+		display: table;
+	}
+}
+hr {
+	background-color: @main_color;
+	border: 1px solid rgba(94, 156, 125, 0.9);
+	height: 3px;
+	border-radius: 5px;
+	margin-top: 0px;
+	margin-bottom: 0px;
 }
 #footer.shrink {
 	bottom: -75px;

@@ -7,7 +7,7 @@
  */
 
 // VIEW_UCP_FOOTER_CONTENT
-$set['value'] = 'views/dashfootercontent.php';
+$set['value'] = 'modules/ucp/htdocs/views/dashfootercontent.php';
 $set['defaultval'] =& $set['value'];
 $set['readonly'] = 1;
 $set['hidden'] = 1;
