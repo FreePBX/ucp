@@ -47,6 +47,10 @@ class User {
 			case 'getInfo':
 				return $this->uid;
 				break;
+			case 'saveTemplate':
+			case 'resetTemplate':
+				return true;
+			break;
 			default:
 				return false;
 			break;
@@ -131,6 +135,19 @@ class User {
 				}
 				return $return;
 			break;
+			case 'saveTemplate':
+				$tempId = $_REQUEST['tempid'];
+				$uId = $_REQUEST['uid'];
+				if(!empty($tempId) && !empty($uId)) {
+					return $this->saveTemplateById($tempId, $uId);
+				}
+			break;
+			case 'resetTemplate':
+				$uId = $_REQUEST['uid'];
+				if(!empty($uId)) {
+					return $this->resetTemplateById($uId);
+				}
+			break;
 		}
 		return false;
 	}
@@ -195,8 +212,8 @@ class User {
 	 * @param bool $remember Whether to use cookies or sessions
 	 * @return bool True if username and password matched, otherwise false
 	 */
-	public function login($username, $password, $remember=false) {
-		if(!empty($username) && !empty($password) && $this->_authenticate($username, $password)) {
+	public function login($username, $password, $remember=false, $directlogin = false) {
+		if(!empty($username) && !empty($password) && $this->_authenticate($username, $password, $directlogin)) {
 			if(!$this->_checkToken()) {
 				$this->token = $this->_generateToken();
 				$this->_storeToken($this->token);
@@ -345,8 +362,13 @@ class User {
 	 *
 	 * @return bool True if credentials were valid, otherwise false
 	 */
-	private function _authenticate($username, $password) {
-		$result = $this->UCP->FreePBX->Ucp->checkCredentials($username, $password);
+	private function _authenticate($username, $password, $directlogin = false) {
+		if($directlogin) {
+			$uData = $this->UCP->FreePBX->Ucp->getUserByUsername($username);
+			$result = $uData['id'];
+		} else{
+			$result = $this->UCP->FreePBX->Ucp->checkCredentials($username, $password);
+		}
 		if(!empty($result) && $this->_allowed($result)) {
 			$this->uid = $result;
 			if(function_exists('freepbx_log_security')) {
@@ -368,5 +390,37 @@ class User {
 	private function _allowed($uid) {
 		$status = $this->UCP->getCombinedSettingByID($uid,'Global','allowLogin');
 		return !empty($status) ? $status : false;
+	}
+
+	private function getTemplateCreatorUid(){
+		$key = $this->UCP->FreePBX->Userman->getConfig('unlockkey','templatecreator');
+		if($key !=''){
+			$uid = $this->UCP->FreePBX->Userman->getConfig($key,'templatecreator');
+			return $uid;
+		}
+		return false;
+	}
+	public function getUserInfo($key) {
+		$uid = $this->UCP->FreePBX->Ucp->getUserIdByKey($key);
+		if(!empty($uid)) {
+			$user = $this->UCP->FreePBX->Ucp->getUserByID($uid);
+			return $user;
+		}
+		return false;
+	}
+
+	public  function getTemplateIdUsingKey($key) {
+		$tempId = $this->UCP->FreePBX->Userman->getTemplateIdByKey($key);
+		return $tempId;
+	}
+
+	public function saveTemplateById($tempId, $uid) {
+		$ret = $this->UCP->FreePBX->Userman->addTemplateSettings($tempId, $uid);
+		return $ret;
+	}
+
+	public function resetTemplateById($uid) {
+		$ret = $this->UCP->FreePBX->Userman->resetUserTemplateFromUCP($uid);
+		return $ret;
 	}
 }
