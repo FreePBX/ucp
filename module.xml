@@ -123,7 +123,7 @@
 		</table>
 	</database>
 	<depends>
-		<module>userman ge 14.0.3.26</module>
+		<module>userman ge 15.0.42</module>
 		<module>core ge 12.0.1alpha25</module>
 		<version>14.0.1rc1.2</version>
 		<module>pm2 ge 13.0.3.18</module>
