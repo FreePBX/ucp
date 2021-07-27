@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-07-06 17:37+0000\n"
+"POT-Creation-Date: 2021-07-27 07:30+0000\n"
 "PO-Revision-Date: 2018-10-25 08:00+0000\n"
 "Last-Translator: Bastian Mertgen <b.mertgen@bastian-mertgen.de>\n"
 "Language-Team: German <http://*/projects/freepbx/ucp/de/>\n"
@@ -76,11 +76,11 @@ msgstr ""
 ");\n"
 "     * // => "
 
-#: htdocs/index.php:78
+#: htdocs/index.php:93
 msgid ".htaccess files are disabled on this webserver. Please enable them"
 msgstr ".htaccess sind auf diesem Server deaktiviert. Bitte aktiviere diese"
 
-#: htdocs/index.php:91
+#: htdocs/index.php:106
 msgid ".htaccess files are not supported on this webserver."
 msgstr ".htaccess-Dateien werden von diesem Webserver nicht unterstützt."
 
@@ -105,7 +105,7 @@ msgstr "Akzeptieren"
 msgid "Account Settings"
 msgstr "Kontoeinstellungen"
 
-#: views/users_hook.php:107
+#: views/users_hook.php:164
 msgid "Active Sessions"
 msgstr "Aktive Verbindungen"
 
@@ -182,7 +182,7 @@ msgstr "Änderung des Benutzernamens zulassen"
 msgid "Allow browser desktop notifications from UCP modules."
 msgstr "Erlaube Browser Desktop Benachrichtigungen von UCP Modulen."
 
-#: views/users_hook.php:192
+#: views/users_hook.php:249
 msgid ""
 "Allow this user to originate calls from within UCP. This is not the same as "
 "WebRTC"
@@ -198,7 +198,7 @@ msgstr "erlaube Benutzern, ihren Benutzernamen im UCP zu ändern"
 msgid "Allow users to change thier password in UCP"
 msgstr "Dem Benutzer erlauben im UCP sein eigenes Passwort zu ändern"
 
-#: views/users_hook.php:147
+#: views/users_hook.php:204
 msgid "Allowed Extension Settings"
 msgstr "Erlaubte Nebenstellen Einstellungen"
 
@@ -206,7 +206,11 @@ msgstr "Erlaubte Nebenstellen Einstellungen"
 msgid "Are you sure you want to delete this dashboard?"
 msgstr "Sind Sie sicher, dass Sie das Dashboard löschen möchten?"
 
-#: Ucp.class.php:1252
+#: views/users_hook.php:106
+msgid "Assign UCP Template"
+msgstr ""
+
+#: Ucp.class.php:1300
 #, php-format
 msgid ""
 "Asterisk home dir (%s) doesn't exist, and, ASTSPOOLDIR doesn't exist. "
@@ -347,11 +351,11 @@ msgstr "Bild löschen"
 msgid "Delete a Dashboard"
 msgstr "Ein Dashboard löschen"
 
-#: Ucp.class.php:1111
+#: Ucp.class.php:1159
 msgid "Deleted Session"
 msgstr "Gelöschte Sitzung"
 
-#: Ucp.class.php:419 Ucp.class.php:954
+#: Ucp.class.php:426 Ucp.class.php:1002
 msgid "Deleted User Session"
 msgstr "Gelöschte Benutzer Sitzung"
 
@@ -363,13 +367,13 @@ msgstr "Deaktivieren"
 msgid "Display Name"
 msgstr "Anzeigename"
 
-#: Ucp.class.php:1424
+#: Ucp.class.php:1472
 #, php-format
 msgid "Don't know what %s is"
 msgstr "Sie wissen nicht was %s ist"
 
-#: Ucp.class.php:300 Ucp.class.php:326 Ucp.class.php:1205 Ucp.class.php:1209
-#: Ucp.class.php:1213 Ucp.class.php:1217
+#: Ucp.class.php:300 Ucp.class.php:326 Ucp.class.php:1253 Ucp.class.php:1257
+#: Ucp.class.php:1261 Ucp.class.php:1265
 msgid "Done"
 msgstr "Erledigt"
 
@@ -393,7 +397,7 @@ msgstr "E-Mail"
 msgid "Enable"
 msgstr "Aktivieren"
 
-#: views/users_hook.php:173
+#: views/users_hook.php:230
 msgid "Enable Originating Calls"
 msgstr "Aktiviere ursprüngliche Gespräche"
 
@@ -440,7 +444,7 @@ msgstr ""
 "Fehler bei der Installation von %s aufgrund eines Konfliktes mit dem(n) "
 "Modul(en): %s"
 
-#: Ucp.class.php:1334
+#: Ucp.class.php:1382
 #, php-format
 msgid "Failed to run: '%s'"
 msgstr "Ausführung fehlgeschlagen: '%s'"
@@ -481,19 +485,19 @@ msgstr "GHI"
 msgid "General"
 msgstr "Allgemein"
 
-#: Ucp.class.php:1215
+#: Ucp.class.php:1263
 msgid "Generating Main CSS..."
 msgstr "Generiere Main CSS..."
 
-#: Ucp.class.php:1211
+#: Ucp.class.php:1259
 msgid "Generating Main Scripts..."
 msgstr "Generiere Main Scripts..."
 
-#: Ucp.class.php:1207
+#: Ucp.class.php:1255
 msgid "Generating Module CSS..."
 msgstr "Generiere Module CSS..."
 
-#: Ucp.class.php:1203
+#: Ucp.class.php:1251
 msgid "Generating Module Scripts..."
 msgstr "Generiere Module Scripts..."
 
@@ -525,7 +529,8 @@ msgstr ""
 msgid "ICU version is: %s requirement is %s"
 msgstr "Die ICU Version ist: %s Voraussetzung ist %s"
 
-#: views/users_hook.php:56 views/users_hook.php:86 views/users_hook.php:183
+#: views/users_hook.php:56 views/users_hook.php:86 views/users_hook.php:116
+#: views/users_hook.php:240
 msgid "Inherit"
 msgstr "Erben"
 
@@ -538,7 +543,7 @@ msgstr ""
 msgid "Interface Settings"
 msgstr "Schnittstellen-Einstellungen"
 
-#: htdocs/index.php:236
+#: htdocs/index.php:251
 #, php-format
 msgid ""
 "Internet Explorer %s is not supported. Functionality will be deteriorated "
@@ -547,7 +552,7 @@ msgstr ""
 "Der Internet Explorer %s wird nicht unterstützt. Die Funktionalität ist "
 "eingeschränkt, bis Sie auf die Version %s oder höher aktualisieren"
 
-#: htdocs/includes/User.class.php:97
+#: htdocs/includes/User.class.php:101
 msgid "Invalid"
 msgstr "Ungültig"
 
@@ -556,11 +561,11 @@ msgstr "Ungültig"
 msgid "Invalid Device"
 msgstr "Ungültiges Gerät"
 
-#: htdocs/includes/User.class.php:105
+#: htdocs/includes/User.class.php:109
 msgid "Invalid Login Credentials"
 msgstr "Ungültige Login Zugangsdaten"
 
-#: htdocs/index.php:225
+#: htdocs/index.php:240
 msgid "Invalid Token"
 msgstr "Ungültiger Token"
 
@@ -637,7 +642,8 @@ msgstr ""
 msgid "Name your dashboard"
 msgstr "Vergeben Sie einen Dashboard Namen"
 
-#: views/users_hook.php:53 views/users_hook.php:83 views/users_hook.php:180
+#: views/users_hook.php:53 views/users_hook.php:83 views/users_hook.php:113
+#: views/users_hook.php:237
 msgid "No"
 msgstr "Nein"
 
@@ -682,6 +688,10 @@ msgstr "NodeJS: Speicherort des HTTPS-TLS-Zertifikats"
 msgid "NodeJS HTTPS TLS Private Key Location"
 msgstr "NodeJS: Speicherort des privaten HTTP-TLS-Schlüssels"
 
+#: views/users_hook.php:141
+msgid "None"
+msgstr ""
+
 #: htdocs/modules/Ucptour/assets/js/global.js:216
 msgid "Note: some widgets have size restrictions!"
 msgstr "Hinweis: einige Widgets besitzen Kapazitätsbeschränkungen!"
@@ -690,7 +700,7 @@ msgstr "Hinweis: einige Widgets besitzen Kapazitätsbeschränkungen!"
 msgid "Nothing Entered"
 msgstr "Nichts eingegeben"
 
-#: htdocs/includes/User.class.php:74
+#: htdocs/includes/User.class.php:78
 msgid "Nothing was Provided!"
 msgstr "Nichts wurde zur Verfügung gestellt!"
 
@@ -732,7 +742,7 @@ msgstr "PQRS"
 msgid "Password"
 msgstr "Passwort"
 
-#: Ucp.class.php:502
+#: Ucp.class.php:516
 #, php-format
 msgid "Password Reset Link (Valid Until: %s): %s"
 msgstr "Passwort Reset Link (Gültig bis: %s): %s"
@@ -782,7 +792,7 @@ msgstr "Aktualisiere alle UCP Inhalte, dies kann einen Moment dauern..."
 msgid "Remember Me"
 msgstr "Login merken"
 
-#: htdocs/views/dashboard-header.php:66
+#: htdocs/views/dashboard-header.php:77
 #: htdocs/modules/Widgets/assets/js/global.js:446
 msgid "Remove Widget"
 msgstr "Widget löschen"
@@ -795,7 +805,7 @@ msgstr "Passwort zurücksetzen"
 msgid "Restart Tour"
 msgstr "Tour erneut starten"
 
-#: Ucp.class.php:1274
+#: Ucp.class.php:1322
 #, php-format
 msgid "Running (Uptime: %s)"
 msgstr "Aktiver Prozess (Uptime: %s)"
@@ -899,7 +909,7 @@ msgstr "Etwas lief falsch um die Einstellungen des Widget zu erhalten"
 msgid "Something went wrong removing the dashboard"
 msgstr "Etwas lief falsch, um das Dashboard zu entfernen"
 
-#: Ucp.class.php:1329
+#: Ucp.class.php:1377
 #, php-format
 msgid "Started UCP Node Server. PID is %s"
 msgstr "Startet UCP Node Server. PID ist %s"
@@ -909,7 +919,7 @@ msgstr "Startet UCP Node Server. PID ist %s"
 msgid "Started with PID %s!"
 msgstr "Startet mit PID %s!"
 
-#: Ucp.class.php:1300
+#: Ucp.class.php:1348
 msgid "Starting UCP Node Server..."
 msgstr "Starten UCP Node Server..."
 
@@ -917,11 +927,11 @@ msgstr "Starten UCP Node Server..."
 msgid "Starting new UCP Node Process..."
 msgstr "Starten neuen UPC Node Process..."
 
-#: Ucp.class.php:1401
+#: Ucp.class.php:1449
 msgid "Stopped UCP Node Server"
 msgstr "Stoppt UCP Node Server"
 
-#: Ucp.class.php:1370
+#: Ucp.class.php:1418
 msgid "Stopping UCP Node Server"
 msgstr "Stoppt UCP Node Server"
 
@@ -933,7 +943,7 @@ msgstr "Stoppt alte laufende Prozesse..."
 msgid "Styling and Logos"
 msgstr "Styling und Logos"
 
-#: htdocs/includes/User.class.php:82
+#: htdocs/includes/User.class.php:86
 msgid "Submitted"
 msgstr ""
 
@@ -949,6 +959,10 @@ msgstr ""
 #: htdocs/views/templates/phone.php:69
 msgid "TUV"
 msgstr "TUV"
+
+#: views/users_hook.php:136 views/users_hook.php:153
+msgid "Template List"
+msgstr ""
 
 #: htdocs/modules/Settings/assets/js/global.js:61
 msgid "The Browser Language could not be determined"
@@ -1076,7 +1090,7 @@ msgstr ""
 "Es ist ein Fehler aufgetreten, die Widget Information zu erhalten, bitte "
 "versuchen Sie es später"
 
-#: htdocs/index.php:108
+#: htdocs/index.php:123
 msgid "There was an error trying to load UCP"
 msgstr "Beim Versuch das UCP zu laden ist ein Fehler aufgetreten"
 
@@ -1086,7 +1100,7 @@ msgstr ""
 "Es ist ein Fehler aufgetreten. Bitte schauen Sie in dem Konsolen Log nach "
 "für mehr Details"
 
-#: views/users_hook.php:163
+#: views/users_hook.php:220
 msgid ""
 "These are the assigned and active extensions which will be allowed to edit "
 "extension settings such as Call Waiting, Call Forwarding, Find Me/Follow Me "
@@ -1135,7 +1149,7 @@ msgstr ""
 "Um den Widget Inhalt zu schließen oder zu verstecken einfach das '%s' Symbol "
 "klicken"
 
-#: htdocs/index.php:79
+#: htdocs/index.php:94
 #, php-format
 msgid ""
 "To protect the integrity of your server, you must allow overrides in your "
@@ -1152,7 +1166,7 @@ msgstr ""
 "Um dieses Widget von der Side bar zu entfernen bitte 'Entferne Widget' "
 "klicken"
 
-#: htdocs/index.php:108 ucp.i18n.php:10
+#: htdocs/index.php:123 ucp.i18n.php:10
 msgid "UCP"
 msgstr "UCP (Benutzerkontrollzentrum)"
 
@@ -1160,29 +1174,29 @@ msgstr "UCP (Benutzerkontrollzentrum)"
 msgid "UCP Admin"
 msgstr "UCP Administrator"
 
-#: Ucp.class.php:1260
+#: Ucp.class.php:1308
 msgid "UCP Daemon"
 msgstr "UCP-Dämon"
 
-#: Ucp.class.php:1268
+#: Ucp.class.php:1316
 msgid "UCP Node Disabled in Advanced Settings."
 msgstr ""
 
-#: Ucp.class.php:1405
+#: Ucp.class.php:1453
 #, php-format
 msgid "UCP Node Server Failed: %s"
 msgstr "UCP Node Server funktioniert nicht: %s"
 
-#: Ucp.class.php:1294
+#: Ucp.class.php:1342
 #, php-format
 msgid "UCP Node Server has already been running on PID %s for %s"
 msgstr "UCP Node Server wird bereits ausgeführt PID %s für %s"
 
-#: Ucp.class.php:1363
+#: Ucp.class.php:1411
 msgid "UCP Node Server is not running"
 msgstr "Der UCP Node Server läuft nicht"
 
-#: Ucp.class.php:1276
+#: Ucp.class.php:1324
 msgid "UCP Node is not running"
 msgstr "UCP Node läuft nicht"
 
@@ -1224,11 +1238,11 @@ msgstr ""
 "UCP, bekannt als das User Control Panel, ist die Benutzer Schnittstelle für "
 "FreePBX."
 
-#: htdocs/includes/User.class.php:88
+#: htdocs/includes/User.class.php:92
 msgid "Unable to send Password Reset Email"
 msgstr "Email zum Zurücksetzen des Passworts konnte nicht gesendet werden"
 
-#: Ucp.class.php:1262
+#: Ucp.class.php:1310
 msgid "Unknown"
 msgstr "Unbekannt"
 
@@ -1279,7 +1293,7 @@ msgstr "User Control Panel Einstellungen"
 msgid "User Control Panel is released as %s or newer"
 msgstr "User Control Panel ist veröffentlicht als %s oder neuer"
 
-#: Ucp.class.php:498
+#: Ucp.class.php:512
 #, php-format
 msgid "User Control Panel: %s"
 msgstr "Benutzerkontrollzentrum (UCP): %s"
@@ -1288,7 +1302,7 @@ msgstr "Benutzerkontrollzentrum (UCP): %s"
 msgid "User Details"
 msgstr "Benutzer-Details"
 
-#: Ucp.class.php:361 Ucp.class.php:390
+#: Ucp.class.php:361 Ucp.class.php:394
 msgid "User Primary Extension"
 msgstr "Primäre Benutzernebenstelle"
 
@@ -1437,7 +1451,8 @@ msgstr "Bürotelefon"
 msgid "Write UCP Dashboard Information"
 msgstr ""
 
-#: views/users_hook.php:51 views/users_hook.php:81 views/users_hook.php:178
+#: views/users_hook.php:51 views/users_hook.php:81 views/users_hook.php:111
+#: views/users_hook.php:235
 msgid "Yes"
 msgstr "Ja"
 
@@ -1570,7 +1585,7 @@ msgstr "fred"
 msgid "gcc-c++ is not installed"
 msgstr "gcc-c++ ist nicht installiert"
 
-#: htdocs/index.php:92
+#: htdocs/index.php:107
 #, php-format
 msgid ""
 "htaccess files help protect the integrity of your server. Please make sure "
@@ -1596,6 +1611,10 @@ msgstr ""
 #: htdocs/views/login.php:25
 msgid "or"
 msgstr "oder"
+
+#: views/users_hook.php:125
+msgid "select template"
+msgstr ""
 
 #~ msgid "Email address unknown!"
 #~ msgstr "Email-Adresse unbekannt!"
