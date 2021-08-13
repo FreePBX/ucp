@@ -1247,6 +1247,7 @@ class Ucp implements \BMO {
 			include(dirname(__FILE__).'/htdocs/includes/bootstrap.php');
 		}
 		$ucp = \UCP\UCP::create();
+		$compressed = $this->FreePBX->Config->get("USE_PACKAGED_JS");
 
 		outn(_("Generating Module Scripts..."));
 		$ucp->Modules->getGlobalScripts(true);
@@ -1261,7 +1262,7 @@ class Ucp implements \BMO {
 		out(_("Done"));
 
 		outn(_("Generating Main CSS..."));
-		$ucp->getScripts(true);
+		$ucp->getScripts(true, $compressed);
 		out(_("Done"));
 	}
 
