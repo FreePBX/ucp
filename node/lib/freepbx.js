@@ -8,7 +8,7 @@
 var EventEmitter = require( "events" ).EventEmitter,
 		ini = require("ini"),
 		fs = require("fs"),
-		nodeMaria = require("mariasql"),
+		nodeMaria = require("mariadb/callback"),
 		obj = {};
 
 FreePBX = function() {
@@ -62,7 +62,7 @@ connect2database = function(config, callback) {
 	var db = {},
 			init = false;
 	if(typeof config.AMPDBSOCK !== "undefined" && config.AMPDBSOCK.length) {
-		db = new nodeMaria({
+		db = nodeMaria.createConnection({
 			user: config.AMPDBUSER,
 			password: config.AMPDBPASS,
 			db: config.AMPDBNAME,
@@ -70,7 +70,7 @@ connect2database = function(config, callback) {
 			charset: 'UTF8'
 		});
 	} else {
-		db = new nodeMaria({
+		db = nodeMaria.createConnection({
 			host: config.AMPDBHOST,
 			user: config.AMPDBUSER,
 			password: config.AMPDBPASS,
