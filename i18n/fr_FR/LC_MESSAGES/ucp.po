@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-05-13 02:49+0000\n"
-"PO-Revision-Date: 2021-08-26 10:24+0000\n"
+"PO-Revision-Date: 2021-08-27 11:00+0000\n"
 "Last-Translator: jeremie cattan <freepbx@famillecattan.com>\n"
 "Language-Team: French <http://weblate.freepbx.org/projects/freepbx/ucp/fr/>\n"
 "Language: fr_FR\n"
@@ -285,7 +285,7 @@ msgstr "Confirmer le mot de passe"
 
 #: htdocs/modules/Ucptour/assets/js/global.js:25
 msgid "Congratulations!"
-msgstr "Félicitations!"
+msgstr "Félicitations !"
 
 #: htdocs/views/dashboard-footer.php:23
 msgid "Create Dashboard"
@@ -945,7 +945,7 @@ msgstr "Soumis"
 #: htdocs/modules/Settings/assets/js/global.js:106
 #: htdocs/modules/Settings/assets/js/global.js:119
 msgid "Success!"
-msgstr "Succès!"
+msgstr "Succès !"
 
 #: Ucp.class.php:126
 msgid "System"
@@ -1328,7 +1328,7 @@ msgstr "Bienvenue %s"
 #: htdocs/modules/Ucptour/assets/js/global.js:24
 #, perl-format
 msgid "Welcome to %s!"
-msgstr "Bienvenue sur %s!"
+msgstr "Bienvenue sur %s !"
 
 #: views/users_hook.php:4
 msgid "What is UCP"
