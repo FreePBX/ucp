@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-08-13 03:44+0000\n"
+"POT-Creation-Date: 2021-09-14 03:53+0000\n"
 "PO-Revision-Date: 2017-03-08 21:13+0200\n"
 "Last-Translator: Kingvoice <suporte@kingvoice.com.br>\n"
 "Language-Team: Portuguese (Brazil) <http://weblate.freepbx.org/projects/"
@@ -240,7 +240,7 @@ msgid ""
 "dashboard."
 msgstr ""
 
-#: htdocs/views/dashboard-footer.php:226
+#: htdocs/views/dashboard-footer.php:226 htdocs/views/forgot.php:15
 msgid "Close"
 msgstr ""
 
@@ -519,7 +519,7 @@ msgstr ""
 "O Internet Explorer %s não é suportado. A funcionalidade estará prejudicada "
 "até que você atualize para  %s ou superior"
 
-#: htdocs/includes/User.class.php:101
+#: htdocs/includes/User.class.php:107
 msgid "Invalid"
 msgstr "Inválido"
 
@@ -528,7 +528,7 @@ msgstr "Inválido"
 msgid "Invalid Device"
 msgstr "Dispositivo Inválido"
 
-#: htdocs/includes/User.class.php:109
+#: htdocs/includes/User.class.php:115
 msgid "Invalid Login Credentials"
 msgstr "Credenciais de login Inválidas"
 
@@ -556,13 +556,13 @@ msgstr "Último"
 msgid "Last Name"
 msgstr "Sobrenome"
 
-#: htdocs/views/forgot.php:61 htdocs/views/login.php:54
+#: htdocs/views/forgot.php:86 htdocs/views/login.php:54
 msgid "Loading..."
 msgstr "Carregando..."
 
-#: htdocs/views/forgot.php:45 htdocs/views/login.php:38
-#: htdocs/assets/js/ucp.js:290 htdocs/assets/js/ucp.js:313
-#: htdocs/assets/js/ucp.js:323
+#: htdocs/views/forgot.php:67 htdocs/views/login.php:38
+#: htdocs/assets/js/ucp.js:301 htdocs/assets/js/ucp.js:324
+#: htdocs/assets/js/ucp.js:334
 msgid "Login"
 msgstr "Login"
 
@@ -705,16 +705,16 @@ msgstr "Senha"
 msgid "Password Reset Link (Valid Until: %s): %s"
 msgstr "Link de Redefinição de Senha (Válido Até: %s): %s"
 
-#: htdocs/views/forgot.php:27
+#: htdocs/views/forgot.php:49
 #, php-format
 msgid "Password Reset for: %s"
 msgstr "Redefinição de Senha para: %s"
 
-#: htdocs/modules/Settings/views/pwd_alert.php:1
+#: htdocs/modules/Settings/views/pwd_alert.php:1 htdocs/views/forgot.php:9
 msgid "Password does not match security policy."
 msgstr ""
 
-#: htdocs/assets/js/ucp.js:269
+#: htdocs/assets/js/ucp.js:280
 msgid "Password has been changed!"
 msgstr "A senha foi alterada!"
 
@@ -726,7 +726,7 @@ msgstr ""
 msgid "Port to bind to. Default is 8003"
 msgstr ""
 
-#: htdocs/assets/js/ucp.js:283 htdocs/assets/js/ucp.js:306
+#: htdocs/assets/js/ucp.js:294 htdocs/assets/js/ucp.js:317
 msgid "Processing..."
 msgstr "Processando…"
 
@@ -746,7 +746,7 @@ msgstr ""
 msgid "Refreshing all UCP Assets, this could take a while..."
 msgstr "Atualizando todos os recursos do PCU, isso pode levar algum tempo…"
 
-#: htdocs/views/forgot.php:48 htdocs/views/login.php:41
+#: htdocs/views/forgot.php:71 htdocs/views/login.php:41
 msgid "Remember Me"
 msgstr "Lembrar Me"
 
@@ -755,7 +755,7 @@ msgstr "Lembrar Me"
 msgid "Remove Widget"
 msgstr ""
 
-#: htdocs/views/forgot.php:62
+#: htdocs/views/forgot.php:88
 msgid "Reset Password"
 msgstr "Redefinir Senha"
 
@@ -988,7 +988,7 @@ msgstr ""
 msgid "The removal of this copyright notice is stricly prohibited"
 msgstr "A remoção deste aviso de direitos autorais é estritamente proibida"
 
-#: htdocs/assets/js/ucp.js:524
+#: htdocs/assets/js/ucp.js:535
 msgid "The session has expired and you are being forcibly logged out"
 msgstr ""
 
@@ -1146,7 +1146,7 @@ msgstr ""
 "PCU está desabilitado atualmente. Por favor fale com seu Administrador de "
 "sistema"
 
-#: htdocs/assets/js/ucp.js:341
+#: htdocs/assets/js/ucp.js:352
 msgid "UCP is not supported in your browser"
 msgstr ""
 
@@ -1203,8 +1203,8 @@ msgstr ""
 msgid "User"
 msgstr ""
 
-#: htdocs/views/forgot.php:5 htdocs/views/header.php:4 htdocs/views/login.php:5
-#: ucp.i18n.php:4 /dev/shm/freepbx/ucp/ucp.i18n.php:56
+#: htdocs/views/forgot.php:27 htdocs/views/header.php:4
+#: htdocs/views/login.php:5 ucp.i18n.php:4 /usr/src/freepbx/ucp/ucp.i18n.php:56
 #: htdocs/modules/Widgets/assets/js/global.js:47
 msgid "User Control Panel"
 msgstr "Painel de Controle do Usuário"
@@ -1398,7 +1398,7 @@ msgstr ""
 msgid "You must set a dashboard name!"
 msgstr ""
 
-#: htdocs/assets/js/ucp.js:328
+#: htdocs/assets/js/ucp.js:339
 msgid "Your Browser is unsupported at this time."
 msgstr "Seu Navegador não é suportado neste momento."
 
@@ -1446,7 +1446,7 @@ msgstr "Seu Título"
 msgid "Your Work Number"
 msgstr "Seu Número de Trabalho"
 
-#: htdocs/assets/js/ucp.js:330
+#: htdocs/assets/js/ucp.js:341
 msgid ""
 "Your browser is unsupported at this time. Please upgrade or talk to your "
 "system administrator"
