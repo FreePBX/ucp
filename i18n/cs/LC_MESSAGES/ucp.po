@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-08-13 03:43+0000\n"
+"POT-Creation-Date: 2021-09-14 03:53+0000\n"
 "PO-Revision-Date: 2018-08-08 11:42+0000\n"
 "Last-Translator: Petr Varvarovsky <petrv@atlantis.cz>\n"
 "Language-Team: Czech <http://*/projects/freepbx/ucp/cs/>\n"
@@ -265,7 +265,7 @@ msgid ""
 msgstr ""
 "Kliknutím na symbol '%s' přidáte tento widget na aktuálně aktivní panel."
 
-#: htdocs/views/dashboard-footer.php:226
+#: htdocs/views/dashboard-footer.php:226 htdocs/views/forgot.php:15
 msgid "Close"
 msgstr "Zavřít"
 
@@ -548,7 +548,7 @@ msgstr ""
 "Internet Explorer %s není podporován. Funkcionalita bude zhoršena, dokud "
 "neprovedete aktualizaci na %s nebo vyšší"
 
-#: htdocs/includes/User.class.php:101
+#: htdocs/includes/User.class.php:107
 msgid "Invalid"
 msgstr "Neplatné"
 
@@ -557,7 +557,7 @@ msgstr "Neplatné"
 msgid "Invalid Device"
 msgstr "Neplatné zařízení"
 
-#: htdocs/includes/User.class.php:109
+#: htdocs/includes/User.class.php:115
 msgid "Invalid Login Credentials"
 msgstr "Neplatné přihlašovací údaje"
 
@@ -585,13 +585,13 @@ msgstr "Poslední"
 msgid "Last Name"
 msgstr "Příjmení"
 
-#: htdocs/views/forgot.php:61 htdocs/views/login.php:54
+#: htdocs/views/forgot.php:86 htdocs/views/login.php:54
 msgid "Loading..."
 msgstr "Načítání..."
 
-#: htdocs/views/forgot.php:45 htdocs/views/login.php:38
-#: htdocs/assets/js/ucp.js:290 htdocs/assets/js/ucp.js:313
-#: htdocs/assets/js/ucp.js:323
+#: htdocs/views/forgot.php:67 htdocs/views/login.php:38
+#: htdocs/assets/js/ucp.js:301 htdocs/assets/js/ucp.js:324
+#: htdocs/assets/js/ucp.js:334
 msgid "Login"
 msgstr "Přihlásit se"
 
@@ -740,16 +740,16 @@ msgstr "Heslo"
 msgid "Password Reset Link (Valid Until: %s): %s"
 msgstr "Odkaz na obnovení hesla (platný do: %s): %s"
 
-#: htdocs/views/forgot.php:27
+#: htdocs/views/forgot.php:49
 #, php-format
 msgid "Password Reset for: %s"
 msgstr "Reset hesla pro: %s"
 
-#: htdocs/modules/Settings/views/pwd_alert.php:1
+#: htdocs/modules/Settings/views/pwd_alert.php:1 htdocs/views/forgot.php:9
 msgid "Password does not match security policy."
 msgstr ""
 
-#: htdocs/assets/js/ucp.js:269
+#: htdocs/assets/js/ucp.js:280
 msgid "Password has been changed!"
 msgstr "Heslo bylo změněno!"
 
@@ -761,7 +761,7 @@ msgstr "Bind port. Výchozí hodnota je 8001"
 msgid "Port to bind to. Default is 8003"
 msgstr "Bind port. Výchozí hodnota je 8003"
 
-#: htdocs/assets/js/ucp.js:283 htdocs/assets/js/ucp.js:306
+#: htdocs/assets/js/ucp.js:294 htdocs/assets/js/ucp.js:317
 msgid "Processing..."
 msgstr "Zpracovává se..."
 
@@ -781,7 +781,7 @@ msgstr ""
 msgid "Refreshing all UCP Assets, this could take a while..."
 msgstr "Obnovení všech zdrojů UCP. toto může chvíli trvat..."
 
-#: htdocs/views/forgot.php:48 htdocs/views/login.php:41
+#: htdocs/views/forgot.php:71 htdocs/views/login.php:41
 msgid "Remember Me"
 msgstr "Zapamatovat si mě"
 
@@ -790,7 +790,7 @@ msgstr "Zapamatovat si mě"
 msgid "Remove Widget"
 msgstr "Odebrat widget"
 
-#: htdocs/views/forgot.php:62
+#: htdocs/views/forgot.php:88
 msgid "Reset Password"
 msgstr "Resetování hesla"
 
@@ -1040,7 +1040,7 @@ msgstr ""
 msgid "The removal of this copyright notice is stricly prohibited"
 msgstr "Odstranění tohoto oznámení o autorských právech je přísně zakázáno"
 
-#: htdocs/assets/js/ucp.js:524
+#: htdocs/assets/js/ucp.js:535
 msgid "The session has expired and you are being forcibly logged out"
 msgstr "Čas relace vypršel, byli jste odhlášeni"
 
@@ -1207,7 +1207,7 @@ msgid "UCP is currently disabled. Please talk to your system Administrator"
 msgstr ""
 "UCP je momentálně deaktivováno. Prosím, poraďte se s administrátorem systému"
 
-#: htdocs/assets/js/ucp.js:341
+#: htdocs/assets/js/ucp.js:352
 msgid "UCP is not supported in your browser"
 msgstr "UCP není podporován ve vašem prohlížeči"
 
@@ -1264,8 +1264,8 @@ msgstr "Použij časové pásmo ústředny"
 msgid "User"
 msgstr "Uživatel"
 
-#: htdocs/views/forgot.php:5 htdocs/views/header.php:4 htdocs/views/login.php:5
-#: ucp.i18n.php:4 /dev/shm/freepbx/ucp/ucp.i18n.php:56
+#: htdocs/views/forgot.php:27 htdocs/views/header.php:4
+#: htdocs/views/login.php:5 ucp.i18n.php:4 /usr/src/freepbx/ucp/ucp.i18n.php:56
 #: htdocs/modules/Widgets/assets/js/global.js:47
 msgid "User Control Panel"
 msgstr "Uživatelský portál (UCP)"
@@ -1473,7 +1473,7 @@ msgstr "Právě jste se úspěšně poprvé přihlásili!"
 msgid "You must set a dashboard name!"
 msgstr "Musíte zadat název ovládacího panelu!"
 
-#: htdocs/assets/js/ucp.js:328
+#: htdocs/assets/js/ucp.js:339
 msgid "Your Browser is unsupported at this time."
 msgstr "Váš prohlížeč není v současné době podporován."
 
@@ -1521,7 +1521,7 @@ msgstr "Tvůj titul"
 msgid "Your Work Number"
 msgstr "Tvůj telefon do práce"
 
-#: htdocs/assets/js/ucp.js:330
+#: htdocs/assets/js/ucp.js:341
 msgid ""
 "Your browser is unsupported at this time. Please upgrade or talk to your "
 "system administrator"

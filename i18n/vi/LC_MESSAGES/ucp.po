@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-08-13 03:43+0000\n"
+"POT-Creation-Date: 2021-09-14 03:53+0000\n"
 "PO-Revision-Date: 2017-08-02 21:28+0200\n"
 "Last-Translator: PETER <ftek@ymail.com>\n"
 "Language-Team: Vietnamese <http://weblate.freepbx.org/projects/freepbx/ucp/"
@@ -238,7 +238,7 @@ msgid ""
 "dashboard."
 msgstr ""
 
-#: htdocs/views/dashboard-footer.php:226
+#: htdocs/views/dashboard-footer.php:226 htdocs/views/forgot.php:15
 msgid "Close"
 msgstr ""
 
@@ -515,7 +515,7 @@ msgstr ""
 "Internet Explorer %s không được hỗ trợ. Chức năng sẽ bị giảm xuống cho đén "
 "khi bạn nâng cấp lên %s hoặc cao hơn"
 
-#: htdocs/includes/User.class.php:101
+#: htdocs/includes/User.class.php:107
 msgid "Invalid"
 msgstr "Không hợp lệ"
 
@@ -524,7 +524,7 @@ msgstr "Không hợp lệ"
 msgid "Invalid Device"
 msgstr "Thiết bị không hợp lệ"
 
-#: htdocs/includes/User.class.php:109
+#: htdocs/includes/User.class.php:115
 msgid "Invalid Login Credentials"
 msgstr "Thông tin đăng nhập không hợp lệ"
 
@@ -552,13 +552,13 @@ msgstr "Cuối"
 msgid "Last Name"
 msgstr "Họ"
 
-#: htdocs/views/forgot.php:61 htdocs/views/login.php:54
+#: htdocs/views/forgot.php:86 htdocs/views/login.php:54
 msgid "Loading..."
 msgstr "Đang tải..."
 
-#: htdocs/views/forgot.php:45 htdocs/views/login.php:38
-#: htdocs/assets/js/ucp.js:290 htdocs/assets/js/ucp.js:313
-#: htdocs/assets/js/ucp.js:323
+#: htdocs/views/forgot.php:67 htdocs/views/login.php:38
+#: htdocs/assets/js/ucp.js:301 htdocs/assets/js/ucp.js:324
+#: htdocs/assets/js/ucp.js:334
 msgid "Login"
 msgstr "Đăng nhập"
 
@@ -701,16 +701,16 @@ msgstr "Mật khẩu"
 msgid "Password Reset Link (Valid Until: %s): %s"
 msgstr "Liên kết để cài đặt lại mật khẩu ( Có hiệu lực đến: %s): %s"
 
-#: htdocs/views/forgot.php:27
+#: htdocs/views/forgot.php:49
 #, php-format
 msgid "Password Reset for: %s"
 msgstr "Cài lại mật khẩu cho: %s"
 
-#: htdocs/modules/Settings/views/pwd_alert.php:1
+#: htdocs/modules/Settings/views/pwd_alert.php:1 htdocs/views/forgot.php:9
 msgid "Password does not match security policy."
 msgstr ""
 
-#: htdocs/assets/js/ucp.js:269
+#: htdocs/assets/js/ucp.js:280
 msgid "Password has been changed!"
 msgstr "Mật khẩu vừa được thay đổi!"
 
@@ -722,7 +722,7 @@ msgstr ""
 msgid "Port to bind to. Default is 8003"
 msgstr ""
 
-#: htdocs/assets/js/ucp.js:283 htdocs/assets/js/ucp.js:306
+#: htdocs/assets/js/ucp.js:294 htdocs/assets/js/ucp.js:317
 msgid "Processing..."
 msgstr "Đang xử lý..."
 
@@ -743,7 +743,7 @@ msgid "Refreshing all UCP Assets, this could take a while..."
 msgstr ""
 "Làm mới tất cả các tài sản của UCP, điều này có thể tốn chút thời gian..."
 
-#: htdocs/views/forgot.php:48 htdocs/views/login.php:41
+#: htdocs/views/forgot.php:71 htdocs/views/login.php:41
 msgid "Remember Me"
 msgstr "Ghi nhớ tôi"
 
@@ -752,7 +752,7 @@ msgstr "Ghi nhớ tôi"
 msgid "Remove Widget"
 msgstr ""
 
-#: htdocs/views/forgot.php:62
+#: htdocs/views/forgot.php:88
 msgid "Reset Password"
 msgstr "Cài lại mật khẩu"
 
@@ -986,7 +986,7 @@ msgstr ""
 msgid "The removal of this copyright notice is stricly prohibited"
 msgstr "Tuyệt đối nghiêm cấm việc xóa bỏ thông báo bản quyền này"
 
-#: htdocs/assets/js/ucp.js:524
+#: htdocs/assets/js/ucp.js:535
 msgid "The session has expired and you are being forcibly logged out"
 msgstr ""
 
@@ -1145,7 +1145,7 @@ msgstr ""
 "UCP hiện đang bị vô hiệu. Vui lòng thông báo với quản trị viên hệ thống của "
 "bạn"
 
-#: htdocs/assets/js/ucp.js:341
+#: htdocs/assets/js/ucp.js:352
 msgid "UCP is not supported in your browser"
 msgstr ""
 
@@ -1202,8 +1202,8 @@ msgstr ""
 msgid "User"
 msgstr ""
 
-#: htdocs/views/forgot.php:5 htdocs/views/header.php:4 htdocs/views/login.php:5
-#: ucp.i18n.php:4 /dev/shm/freepbx/ucp/ucp.i18n.php:56
+#: htdocs/views/forgot.php:27 htdocs/views/header.php:4
+#: htdocs/views/login.php:5 ucp.i18n.php:4 /usr/src/freepbx/ucp/ucp.i18n.php:56
 #: htdocs/modules/Widgets/assets/js/global.js:47
 msgid "User Control Panel"
 msgstr "Bảng điều khiển người dùng"
@@ -1397,7 +1397,7 @@ msgstr ""
 msgid "You must set a dashboard name!"
 msgstr ""
 
-#: htdocs/assets/js/ucp.js:328
+#: htdocs/assets/js/ucp.js:339
 msgid "Your Browser is unsupported at this time."
 msgstr "Trình duyệt của bạn không được hỗ trợ tại thời điểm này."
 
@@ -1445,7 +1445,7 @@ msgstr "Chức danh của bạn"
 msgid "Your Work Number"
 msgstr "Số điện thoại cơ quan của bạn"
 
-#: htdocs/assets/js/ucp.js:330
+#: htdocs/assets/js/ucp.js:341
 msgid ""
 "Your browser is unsupported at this time. Please upgrade or talk to your "
 "system administrator"
