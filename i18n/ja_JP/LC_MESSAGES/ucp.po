@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-05-13 02:49+0000\n"
+"POT-Creation-Date: 2021-09-15 08:32+0000\n"
 "PO-Revision-Date: 2016-09-02 16:04+0200\n"
 "Last-Translator: Kenichi <k.kitani@qloog.com>\n"
 "Language-Team: Japanese <http://weblate.freepbx.org/projects/freepbx/ucp/"
@@ -177,7 +177,7 @@ msgstr "UCPでパスワードの変更を可能にする権限をユーザに与
 msgid "Allowed Extension Settings"
 msgstr "許可された内線の設定"
 
-#: htdocs/modules/Widgets/assets/js/global.js:886
+#: htdocs/modules/Widgets/assets/js/global.js:889
 msgid "Are you sure you want to delete this dashboard?"
 msgstr ""
 
@@ -825,17 +825,17 @@ msgid ""
 "shown for each widget"
 msgstr ""
 
-#: htdocs/modules/Widgets/assets/js/global.js:1193
+#: htdocs/modules/Widgets/assets/js/global.js:1196
 msgid "Something went wrong getting the content of the widget"
 msgstr ""
 
-#: htdocs/modules/Widgets/assets/js/global.js:1235
-#: htdocs/modules/Widgets/assets/js/global.js:1273
+#: htdocs/modules/Widgets/assets/js/global.js:1238
+#: htdocs/modules/Widgets/assets/js/global.js:1276
 msgid "Something went wrong getting the settings from the widget"
 msgstr ""
 
-#: htdocs/modules/Widgets/assets/js/global.js:860
-#: htdocs/modules/Widgets/assets/js/global.js:914
+#: htdocs/modules/Widgets/assets/js/global.js:863
+#: htdocs/modules/Widgets/assets/js/global.js:917
 msgid "Something went wrong removing the dashboard"
 msgstr ""
 
@@ -988,12 +988,12 @@ msgid ""
 "widgets. Let's start with dashboard widgets"
 msgstr ""
 
-#: htdocs/modules/Widgets/assets/js/global.js:977
+#: htdocs/modules/Widgets/assets/js/global.js:980
 msgid "There is no active dashboard to add widgets to"
 msgstr ""
 
-#: htdocs/modules/Widgets/assets/js/global.js:1055
-#: htdocs/modules/Widgets/assets/js/global.js:1137
+#: htdocs/modules/Widgets/assets/js/global.js:1058
+#: htdocs/modules/Widgets/assets/js/global.js:1140
 msgid "There was an error getting the widget information, try again later"
 msgstr ""
 
@@ -1172,7 +1172,7 @@ msgid "User"
 msgstr ""
 
 #: htdocs/views/forgot.php:5 htdocs/views/header.php:4 htdocs/views/login.php:5
-#: ucp.i18n.php:4 /dev/shm/freepbx/ucp/ucp.i18n.php:56
+#: ucp.i18n.php:4 /usr/src/freepbx/ucp/ucp.i18n.php:56
 #: htdocs/modules/Widgets/assets/js/global.js:47
 msgid "User Control Panel"
 msgstr "UCP"
@@ -1329,11 +1329,11 @@ msgstr "オフィス電話"
 msgid "Yes"
 msgstr "はい"
 
-#: htdocs/modules/Widgets/assets/js/global.js:1145
+#: htdocs/modules/Widgets/assets/js/global.js:1148
 msgid "You already have this widget on the side bar"
 msgstr ""
 
-#: htdocs/modules/Widgets/assets/js/global.js:1063
+#: htdocs/modules/Widgets/assets/js/global.js:1066
 msgid "You already have this widget on this dashboard"
 msgstr ""
 
@@ -1351,7 +1351,7 @@ msgid ""
 msgstr ""
 
 #: htdocs/modules/Widgets/Widgets.class.php:41
-#: htdocs/modules/Widgets/assets/js/global.js:905
+#: htdocs/modules/Widgets/assets/js/global.js:908
 msgid "You have no dashboards. Click here to add one"
 msgstr ""
 
@@ -1359,7 +1359,7 @@ msgstr ""
 msgid "You just successfully logged in for the first time!"
 msgstr ""
 
-#: htdocs/modules/Widgets/assets/js/global.js:1383
+#: htdocs/modules/Widgets/assets/js/global.js:1386
 msgid "You must set a dashboard name!"
 msgstr ""
 

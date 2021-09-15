@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-05-13 02:49+0000\n"
+"POT-Creation-Date: 2021-09-15 08:32+0000\n"
 "PO-Revision-Date: 2019-05-24 13:51+0000\n"
 "Last-Translator: Petr Varvarovsky <petrv@atlantis.cz>\n"
 "Language-Team: Czech <http://*/projects/freepbx/ucp/cs/>\n"
@@ -203,7 +203,7 @@ msgstr "Umožnit uživatelům změnit jejich heslo v UCP"
 msgid "Allowed Extension Settings"
 msgstr "Povolit nastavení pobočky"
 
-#: htdocs/modules/Widgets/assets/js/global.js:886
+#: htdocs/modules/Widgets/assets/js/global.js:889
 msgid "Are you sure you want to delete this dashboard?"
 msgstr "Opravdu chcete tento ovládací panel smazat?"
 
@@ -872,17 +872,17 @@ msgid ""
 msgstr ""
 "Malé widgety jsou vpravo. Tituly a popisy se zobrazí pro každý widget zvlášť"
 
-#: htdocs/modules/Widgets/assets/js/global.js:1193
+#: htdocs/modules/Widgets/assets/js/global.js:1196
 msgid "Something went wrong getting the content of the widget"
 msgstr "Chyba při získání obsahu widgetu"
 
-#: htdocs/modules/Widgets/assets/js/global.js:1235
-#: htdocs/modules/Widgets/assets/js/global.js:1273
+#: htdocs/modules/Widgets/assets/js/global.js:1238
+#: htdocs/modules/Widgets/assets/js/global.js:1276
 msgid "Something went wrong getting the settings from the widget"
 msgstr "Chyba při získání nastavení z widgetu"
 
-#: htdocs/modules/Widgets/assets/js/global.js:860
-#: htdocs/modules/Widgets/assets/js/global.js:914
+#: htdocs/modules/Widgets/assets/js/global.js:863
+#: htdocs/modules/Widgets/assets/js/global.js:917
 msgid "Something went wrong removing the dashboard"
 msgstr "Napodařilo se odstranit ovládací panel"
 
@@ -1052,12 +1052,12 @@ msgstr ""
 "Existují dva různé typy widgetů. Widgety ovládacího panelu a boční widgety. "
 "Začneme s widgety ovládacího panelu"
 
-#: htdocs/modules/Widgets/assets/js/global.js:977
+#: htdocs/modules/Widgets/assets/js/global.js:980
 msgid "There is no active dashboard to add widgets to"
 msgstr "Není aktivní ovládací panel pro přidání widgetů"
 
-#: htdocs/modules/Widgets/assets/js/global.js:1055
-#: htdocs/modules/Widgets/assets/js/global.js:1137
+#: htdocs/modules/Widgets/assets/js/global.js:1058
+#: htdocs/modules/Widgets/assets/js/global.js:1140
 msgid "There was an error getting the widget information, try again later"
 msgstr ""
 "Vyskytla se chyba při získání informací o widgetu, zkuste to prosím později"
@@ -1247,7 +1247,7 @@ msgid "User"
 msgstr "Uživatel"
 
 #: htdocs/views/forgot.php:5 htdocs/views/header.php:4 htdocs/views/login.php:5
-#: ucp.i18n.php:4 /dev/shm/freepbx/ucp/ucp.i18n.php:56
+#: ucp.i18n.php:4 /usr/src/freepbx/ucp/ucp.i18n.php:56
 #: htdocs/modules/Widgets/assets/js/global.js:47
 msgid "User Control Panel"
 msgstr "Uživatelský portál (UCP)"
@@ -1411,11 +1411,11 @@ msgstr "Telefon do práce"
 msgid "Yes"
 msgstr "Ano"
 
-#: htdocs/modules/Widgets/assets/js/global.js:1145
+#: htdocs/modules/Widgets/assets/js/global.js:1148
 msgid "You already have this widget on the side bar"
 msgstr "Tento widget už máte na bočním panelu"
 
-#: htdocs/modules/Widgets/assets/js/global.js:1063
+#: htdocs/modules/Widgets/assets/js/global.js:1066
 msgid "You already have this widget on this dashboard"
 msgstr "Tento widget už máte na ovládacím panelu"
 
@@ -1437,7 +1437,7 @@ msgstr ""
 "prohlídku můžete kdykoli restartovat v nastavení uživatele"
 
 #: htdocs/modules/Widgets/Widgets.class.php:41
-#: htdocs/modules/Widgets/assets/js/global.js:905
+#: htdocs/modules/Widgets/assets/js/global.js:908
 msgid "You have no dashboards. Click here to add one"
 msgstr ""
 "Nemáte žádné ovládací panely. Klikněte zde pro přidání ovládacího panelu"
@@ -1446,7 +1446,7 @@ msgstr ""
 msgid "You just successfully logged in for the first time!"
 msgstr "Právě jste se úspěšně poprvé přihlásili!"
 
-#: htdocs/modules/Widgets/assets/js/global.js:1383
+#: htdocs/modules/Widgets/assets/js/global.js:1386
 msgid "You must set a dashboard name!"
 msgstr "Musíte zadat název ovládacího panelu!"
 

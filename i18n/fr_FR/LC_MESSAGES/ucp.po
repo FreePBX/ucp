@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-05-13 02:49+0000\n"
+"POT-Creation-Date: 2021-09-15 08:32+0000\n"
 "PO-Revision-Date: 2021-08-27 11:00+0000\n"
 "Last-Translator: jeremie cattan <freepbx@famillecattan.com>\n"
 "Language-Team: French <http://weblate.freepbx.org/projects/freepbx/ucp/fr/>\n"
@@ -206,7 +206,7 @@ msgstr "Permettre aux utilisateurs de modifier leur mot de passe dans UCP"
 msgid "Allowed Extension Settings"
 msgstr "Réglages de poste permis"
 
-#: htdocs/modules/Widgets/assets/js/global.js:886
+#: htdocs/modules/Widgets/assets/js/global.js:889
 msgid "Are you sure you want to delete this dashboard?"
 msgstr "Voulez-vous vraiment supprimer ce tableau de bord ?"
 
@@ -890,17 +890,17 @@ msgstr ""
 "Les petits Widgets sont répertoriés sur la droite. Les titres et "
 "descriptions seront affichés pour chaque Widget"
 
-#: htdocs/modules/Widgets/assets/js/global.js:1193
+#: htdocs/modules/Widgets/assets/js/global.js:1196
 msgid "Something went wrong getting the content of the widget"
 msgstr "Une erreur s'est produite lors de l'obtention du contenu du widget"
 
-#: htdocs/modules/Widgets/assets/js/global.js:1235
-#: htdocs/modules/Widgets/assets/js/global.js:1273
+#: htdocs/modules/Widgets/assets/js/global.js:1238
+#: htdocs/modules/Widgets/assets/js/global.js:1276
 msgid "Something went wrong getting the settings from the widget"
 msgstr "Une erreur s'est produite lors de l'obtention des paramètres du widget"
 
-#: htdocs/modules/Widgets/assets/js/global.js:860
-#: htdocs/modules/Widgets/assets/js/global.js:914
+#: htdocs/modules/Widgets/assets/js/global.js:863
+#: htdocs/modules/Widgets/assets/js/global.js:917
 msgid "Something went wrong removing the dashboard"
 msgstr "Une erreur s'est produite lors de la suppression du tableau de bord"
 
@@ -998,10 +998,10 @@ msgid ""
 "locale aware. If left blank this will use the group/system format. For more "
 "formats please see: %s"
 msgstr ""
-"Le format des dates et des heures doit s'afficher. La valeur par défaut de \""
-"llll\" tient compte des paramètres régionaux. S'il n'est pas renseigné, il "
-"utilisera le format groupe/système. Pour plus de formats, veuillez consulter "
-": %s"
+"Le format des dates et des heures doit s'afficher. La valeur par défaut de "
+"\"llll\" tient compte des paramètres régionaux. S'il n'est pas renseigné, il "
+"utilisera le format groupe/système. Pour plus de formats, veuillez "
+"consulter : %s"
 
 #: htdocs/modules/Settings/views/settings.php:167
 #, php-format
@@ -1023,8 +1023,8 @@ msgid ""
 msgstr ""
 "Les formats d'heures doivent s'afficher. La valeur par défaut de \"LT\" "
 "tient compte des paramètres régionaux. S'il n'est pas renseigné, il "
-"utilisera le format groupe/système. Pour plus de formats, veuillez consulter "
-": %s"
+"utilisera le format groupe/système. Pour plus de formats, veuillez "
+"consulter : %s"
 
 #: ucp.i18n.php:70
 msgid ""
@@ -1075,12 +1075,12 @@ msgstr ""
 "Il existe deux types de widgets différents. Widgets du tableau de bord et "
 "widgets de la barre latérale. Commençons par les widgets de tableau de bord"
 
-#: htdocs/modules/Widgets/assets/js/global.js:977
+#: htdocs/modules/Widgets/assets/js/global.js:980
 msgid "There is no active dashboard to add widgets to"
 msgstr "Il n'y a pas de tableau de bord actif pour ajouter des widgets"
 
-#: htdocs/modules/Widgets/assets/js/global.js:1055
-#: htdocs/modules/Widgets/assets/js/global.js:1137
+#: htdocs/modules/Widgets/assets/js/global.js:1058
+#: htdocs/modules/Widgets/assets/js/global.js:1140
 msgid "There was an error getting the widget information, try again later"
 msgstr ""
 "Une erreur s'est produite lors de l'obtention des informations sur le "
@@ -1273,7 +1273,7 @@ msgid "User"
 msgstr "Utilisateur"
 
 #: htdocs/views/forgot.php:5 htdocs/views/header.php:4 htdocs/views/login.php:5
-#: ucp.i18n.php:4 /dev/shm/freepbx/ucp/ucp.i18n.php:56
+#: ucp.i18n.php:4 /usr/src/freepbx/ucp/ucp.i18n.php:56
 #: htdocs/modules/Widgets/assets/js/global.js:47
 msgid "User Control Panel"
 msgstr "Panneau de l'utilisateur (UCP)"
@@ -1447,11 +1447,11 @@ msgstr "Numéro de téléphone au travail"
 msgid "Yes"
 msgstr "Oui"
 
-#: htdocs/modules/Widgets/assets/js/global.js:1145
+#: htdocs/modules/Widgets/assets/js/global.js:1148
 msgid "You already have this widget on the side bar"
 msgstr "Vous avez déjà ce widget dans la barre latérale"
 
-#: htdocs/modules/Widgets/assets/js/global.js:1063
+#: htdocs/modules/Widgets/assets/js/global.js:1066
 msgid "You already have this widget on this dashboard"
 msgstr "Vous avez déjà ce widget sur ce tableau de bord"
 
@@ -1475,7 +1475,7 @@ msgstr ""
 "paramètres utilisateur"
 
 #: htdocs/modules/Widgets/Widgets.class.php:41
-#: htdocs/modules/Widgets/assets/js/global.js:905
+#: htdocs/modules/Widgets/assets/js/global.js:908
 msgid "You have no dashboards. Click here to add one"
 msgstr "Vous n'avez pas de tableaux de bord. Cliquez ici pour en ajouter un"
 
@@ -1483,7 +1483,7 @@ msgstr "Vous n'avez pas de tableaux de bord. Cliquez ici pour en ajouter un"
 msgid "You just successfully logged in for the first time!"
 msgstr "Vous venez de vous connecter avec succès pour la première fois !"
 
-#: htdocs/modules/Widgets/assets/js/global.js:1383
+#: htdocs/modules/Widgets/assets/js/global.js:1386
 msgid "You must set a dashboard name!"
 msgstr "Vous devez définir un nom de tableau de bord !"
 
