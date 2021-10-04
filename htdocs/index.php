@@ -219,6 +219,10 @@ if($user && !empty($user)) {
 	} else {
 		$display = '';
 	}
+	$hideLogin = false;
+	if(isset($_REQUEST['action']) && $_REQUEST['action'] == 'reset') {
+		$hideLogin = true;
+	}
 	if(!empty($_REQUEST['display']) || !empty($_REQUEST['mod']) || isset($_REQUEST['logout'])) {
 		//TODO: logout code?
 	}
@@ -243,6 +247,7 @@ switch($display) {
 	break;
 	default:
 		$displayvars['token'] = $ucp->Session->generateToken('login');
+		$displayvars['hideLogin'] = $hideLogin;
 
 		$browser = new \Sinergi\BrowserDetector\Browser();
 
