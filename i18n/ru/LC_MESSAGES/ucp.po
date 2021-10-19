@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-09-15 08:11+0000\n"
+"POT-Creation-Date: 2021-10-19 02:50+0000\n"
 "PO-Revision-Date: 2017-05-04 03:17+0200\n"
 "Last-Translator: Evgeniy <yen81@mail.ru>\n"
 "Language-Team: Russian <http://weblate.freepbx.org/projects/freepbx/ucp/ru/"
@@ -354,7 +354,7 @@ msgstr ""
 msgid "Editing a Dashboard"
 msgstr ""
 
-#: htdocs/modules/Settings/views/settings.php:47 htdocs/views/login.php:30
+#: htdocs/modules/Settings/views/settings.php:47 htdocs/views/login.php:38
 msgid "Email"
 msgstr ""
 
@@ -434,7 +434,7 @@ msgstr ""
 msgid "First Name"
 msgstr ""
 
-#: htdocs/views/login.php:37
+#: htdocs/views/login.php:46
 msgid "Forgot Password"
 msgstr ""
 
@@ -502,7 +502,7 @@ msgstr ""
 msgid "Interface Settings"
 msgstr ""
 
-#: htdocs/index.php:251
+#: htdocs/index.php:256
 #, php-format
 msgid ""
 "Internet Explorer %s is not supported. Functionality will be deteriorated "
@@ -522,7 +522,7 @@ msgstr ""
 msgid "Invalid Login Credentials"
 msgstr ""
 
-#: htdocs/index.php:240
+#: htdocs/index.php:244
 msgid "Invalid Token"
 msgstr ""
 
@@ -546,11 +546,11 @@ msgstr ""
 msgid "Last Name"
 msgstr ""
 
-#: htdocs/views/forgot.php:86 htdocs/views/login.php:54
+#: htdocs/views/forgot.php:86 htdocs/views/login.php:67
 msgid "Loading..."
 msgstr ""
 
-#: htdocs/views/forgot.php:67 htdocs/views/login.php:38
+#: htdocs/views/forgot.php:67 htdocs/views/login.php:48
 #: htdocs/assets/js/ucp.js:301 htdocs/assets/js/ucp.js:324
 #: htdocs/assets/js/ucp.js:334
 msgid "Login"
@@ -686,7 +686,7 @@ msgid "PQRS"
 msgstr ""
 
 #: htdocs/modules/Settings/views/settings.php:25
-#: htdocs/modules/Settings/views/settings.php:27 htdocs/views/login.php:21
+#: htdocs/modules/Settings/views/settings.php:27 htdocs/views/login.php:28
 msgid "Password"
 msgstr ""
 
@@ -736,7 +736,7 @@ msgstr ""
 msgid "Refreshing all UCP Assets, this could take a while..."
 msgstr ""
 
-#: htdocs/views/forgot.php:71 htdocs/views/login.php:41
+#: htdocs/views/forgot.php:71 htdocs/views/login.php:52
 msgid "Remember Me"
 msgstr ""
 
@@ -784,7 +784,7 @@ msgstr ""
 msgid "Selecting Widgets"
 msgstr ""
 
-#: htdocs/views/login.php:55
+#: htdocs/views/login.php:69
 msgid "Send Me A Password Reset Link"
 msgstr ""
 
@@ -1176,7 +1176,7 @@ msgid "User"
 msgstr ""
 
 #: htdocs/views/forgot.php:27 htdocs/views/header.php:4
-#: htdocs/views/login.php:5 ucp.i18n.php:4 /usr/src/freepbx/ucp/ucp.i18n.php:56
+#: htdocs/views/login.php:5 ucp.i18n.php:4 /dev/shm/freepbx/ucp/ucp.i18n.php:56
 #: htdocs/modules/Widgets/assets/js/global.js:47
 msgid "User Control Panel"
 msgstr ""
@@ -1471,7 +1471,7 @@ msgid ""
 "install icu libicu-devel pkg-config pkgconf"
 msgstr ""
 
-#: htdocs/views/login.php:25
+#: htdocs/views/login.php:33
 msgid "or"
 msgstr ""
 

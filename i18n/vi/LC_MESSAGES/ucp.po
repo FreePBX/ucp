@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-09-15 08:11+0000\n"
+"POT-Creation-Date: 2021-10-19 02:50+0000\n"
 "PO-Revision-Date: 2017-08-02 21:28+0200\n"
 "Last-Translator: PETER <ftek@ymail.com>\n"
 "Language-Team: Vietnamese <http://weblate.freepbx.org/projects/freepbx/ucp/"
@@ -357,7 +357,7 @@ msgstr ""
 msgid "Editing a Dashboard"
 msgstr ""
 
-#: htdocs/modules/Settings/views/settings.php:47 htdocs/views/login.php:30
+#: htdocs/modules/Settings/views/settings.php:47 htdocs/views/login.php:38
 msgid "Email"
 msgstr "Thư điện tử"
 
@@ -437,7 +437,7 @@ msgstr "Đầu tiên"
 msgid "First Name"
 msgstr "Tên của bạn"
 
-#: htdocs/views/login.php:37
+#: htdocs/views/login.php:46
 msgid "Forgot Password"
 msgstr "Đã quên mật khẩu"
 
@@ -506,7 +506,7 @@ msgstr ""
 msgid "Interface Settings"
 msgstr "Cài đặt giao diện"
 
-#: htdocs/index.php:251
+#: htdocs/index.php:256
 #, php-format
 msgid ""
 "Internet Explorer %s is not supported. Functionality will be deteriorated "
@@ -528,7 +528,7 @@ msgstr "Thiết bị không hợp lệ"
 msgid "Invalid Login Credentials"
 msgstr "Thông tin đăng nhập không hợp lệ"
 
-#: htdocs/index.php:240
+#: htdocs/index.php:244
 msgid "Invalid Token"
 msgstr "Token không hợp lệ"
 
@@ -552,11 +552,11 @@ msgstr "Cuối"
 msgid "Last Name"
 msgstr "Họ"
 
-#: htdocs/views/forgot.php:86 htdocs/views/login.php:54
+#: htdocs/views/forgot.php:86 htdocs/views/login.php:67
 msgid "Loading..."
 msgstr "Đang tải..."
 
-#: htdocs/views/forgot.php:67 htdocs/views/login.php:38
+#: htdocs/views/forgot.php:67 htdocs/views/login.php:48
 #: htdocs/assets/js/ucp.js:301 htdocs/assets/js/ucp.js:324
 #: htdocs/assets/js/ucp.js:334
 msgid "Login"
@@ -692,7 +692,7 @@ msgid "PQRS"
 msgstr "PQRS"
 
 #: htdocs/modules/Settings/views/settings.php:25
-#: htdocs/modules/Settings/views/settings.php:27 htdocs/views/login.php:21
+#: htdocs/modules/Settings/views/settings.php:27 htdocs/views/login.php:28
 msgid "Password"
 msgstr "Mật khẩu"
 
@@ -743,7 +743,7 @@ msgid "Refreshing all UCP Assets, this could take a while..."
 msgstr ""
 "Làm mới tất cả các tài sản của UCP, điều này có thể tốn chút thời gian..."
 
-#: htdocs/views/forgot.php:71 htdocs/views/login.php:41
+#: htdocs/views/forgot.php:71 htdocs/views/login.php:52
 msgid "Remember Me"
 msgstr "Ghi nhớ tôi"
 
@@ -791,7 +791,7 @@ msgstr ""
 msgid "Selecting Widgets"
 msgstr ""
 
-#: htdocs/views/login.php:55
+#: htdocs/views/login.php:69
 msgid "Send Me A Password Reset Link"
 msgstr "Gửi cho tôi Liên kết để cài lại mật khẩu"
 
@@ -1203,7 +1203,7 @@ msgid "User"
 msgstr ""
 
 #: htdocs/views/forgot.php:27 htdocs/views/header.php:4
-#: htdocs/views/login.php:5 ucp.i18n.php:4 /usr/src/freepbx/ucp/ucp.i18n.php:56
+#: htdocs/views/login.php:5 ucp.i18n.php:4 /dev/shm/freepbx/ucp/ucp.i18n.php:56
 #: htdocs/modules/Widgets/assets/js/global.js:47
 msgid "User Control Panel"
 msgstr "Bảng điều khiển người dùng"
@@ -1505,7 +1505,7 @@ msgid ""
 "install icu libicu-devel pkg-config pkgconf"
 msgstr ""
 
-#: htdocs/views/login.php:25
+#: htdocs/views/login.php:33
 msgid "or"
 msgstr "hoặc"
 

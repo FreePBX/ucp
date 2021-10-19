@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-09-15 08:11+0000\n"
+"POT-Creation-Date: 2021-10-19 02:50+0000\n"
 "PO-Revision-Date: 2018-08-08 11:42+0000\n"
 "Last-Translator: Petr Varvarovsky <petrv@atlantis.cz>\n"
 "Language-Team: Czech <http://*/projects/freepbx/ucp/cs/>\n"
@@ -387,7 +387,7 @@ msgstr "Upravit ovládací panel"
 msgid "Editing a Dashboard"
 msgstr "Upravování ovládacího panelu"
 
-#: htdocs/modules/Settings/views/settings.php:47 htdocs/views/login.php:30
+#: htdocs/modules/Settings/views/settings.php:47 htdocs/views/login.php:38
 msgid "Email"
 msgstr "Email"
 
@@ -470,7 +470,7 @@ msgstr "První"
 msgid "First Name"
 msgstr "Jméno"
 
-#: htdocs/views/login.php:37
+#: htdocs/views/login.php:46
 msgid "Forgot Password"
 msgstr "Zapomenuté heslo"
 
@@ -539,7 +539,7 @@ msgstr "Instalace / aktualizace požadovaných knihoven. Může to chvíli trvat
 msgid "Interface Settings"
 msgstr "Nastavení rozhraní"
 
-#: htdocs/index.php:251
+#: htdocs/index.php:256
 #, php-format
 msgid ""
 "Internet Explorer %s is not supported. Functionality will be deteriorated "
@@ -561,7 +561,7 @@ msgstr "Neplatné zařízení"
 msgid "Invalid Login Credentials"
 msgstr "Neplatné přihlašovací údaje"
 
-#: htdocs/index.php:240
+#: htdocs/index.php:244
 msgid "Invalid Token"
 msgstr "Neplatný token"
 
@@ -585,11 +585,11 @@ msgstr "Poslední"
 msgid "Last Name"
 msgstr "Příjmení"
 
-#: htdocs/views/forgot.php:86 htdocs/views/login.php:54
+#: htdocs/views/forgot.php:86 htdocs/views/login.php:67
 msgid "Loading..."
 msgstr "Načítání..."
 
-#: htdocs/views/forgot.php:67 htdocs/views/login.php:38
+#: htdocs/views/forgot.php:67 htdocs/views/login.php:48
 #: htdocs/assets/js/ucp.js:301 htdocs/assets/js/ucp.js:324
 #: htdocs/assets/js/ucp.js:334
 msgid "Login"
@@ -731,7 +731,7 @@ msgid "PQRS"
 msgstr "PQRS"
 
 #: htdocs/modules/Settings/views/settings.php:25
-#: htdocs/modules/Settings/views/settings.php:27 htdocs/views/login.php:21
+#: htdocs/modules/Settings/views/settings.php:27 htdocs/views/login.php:28
 msgid "Password"
 msgstr "Heslo"
 
@@ -781,7 +781,7 @@ msgstr ""
 msgid "Refreshing all UCP Assets, this could take a while..."
 msgstr "Obnovení všech zdrojů UCP. toto může chvíli trvat..."
 
-#: htdocs/views/forgot.php:71 htdocs/views/login.php:41
+#: htdocs/views/forgot.php:71 htdocs/views/login.php:52
 msgid "Remember Me"
 msgstr "Zapamatovat si mě"
 
@@ -829,7 +829,7 @@ msgstr "Výběr malých widgetů"
 msgid "Selecting Widgets"
 msgstr "Výběr widgetů"
 
-#: htdocs/views/login.php:55
+#: htdocs/views/login.php:69
 msgid "Send Me A Password Reset Link"
 msgstr "Pošli mi odkaz na resetování hesla"
 
@@ -1265,7 +1265,7 @@ msgid "User"
 msgstr "Uživatel"
 
 #: htdocs/views/forgot.php:27 htdocs/views/header.php:4
-#: htdocs/views/login.php:5 ucp.i18n.php:4 /usr/src/freepbx/ucp/ucp.i18n.php:56
+#: htdocs/views/login.php:5 ucp.i18n.php:4 /dev/shm/freepbx/ucp/ucp.i18n.php:56
 #: htdocs/modules/Widgets/assets/js/global.js:47
 msgid "User Control Panel"
 msgstr "Uživatelský portál (UCP)"
@@ -1583,7 +1583,7 @@ msgid ""
 "install icu libicu-devel pkg-config pkgconf"
 msgstr ""
 
-#: htdocs/views/login.php:25
+#: htdocs/views/login.php:33
 msgid "or"
 msgstr "nebo"
 
