@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-09-15 08:11+0000\n"
+"POT-Creation-Date: 2021-10-19 02:51+0000\n"
 "PO-Revision-Date: 2018-10-25 08:00+0000\n"
 "Last-Translator: Bastian Mertgen <b.mertgen@bastian-mertgen.de>\n"
 "Language-Team: German <http://*/projects/freepbx/ucp/de/>\n"
@@ -389,7 +389,7 @@ msgstr "Dashboard bearbeiten"
 msgid "Editing a Dashboard"
 msgstr "Bearbeitung eines Dashboards"
 
-#: htdocs/modules/Settings/views/settings.php:47 htdocs/views/login.php:30
+#: htdocs/modules/Settings/views/settings.php:47 htdocs/views/login.php:38
 msgid "Email"
 msgstr "E-Mail"
 
@@ -473,7 +473,7 @@ msgstr "Erster"
 msgid "First Name"
 msgstr "Vorname"
 
-#: htdocs/views/login.php:37
+#: htdocs/views/login.php:46
 msgid "Forgot Password"
 msgstr "Passwort vergessen"
 
@@ -543,7 +543,7 @@ msgstr ""
 msgid "Interface Settings"
 msgstr "Schnittstellen-Einstellungen"
 
-#: htdocs/index.php:251
+#: htdocs/index.php:256
 #, php-format
 msgid ""
 "Internet Explorer %s is not supported. Functionality will be deteriorated "
@@ -565,7 +565,7 @@ msgstr "Ungültiges Gerät"
 msgid "Invalid Login Credentials"
 msgstr "Ungültige Login Zugangsdaten"
 
-#: htdocs/index.php:240
+#: htdocs/index.php:244
 msgid "Invalid Token"
 msgstr "Ungültiger Token"
 
@@ -589,11 +589,11 @@ msgstr "Letzter"
 msgid "Last Name"
 msgstr "Nachname"
 
-#: htdocs/views/forgot.php:86 htdocs/views/login.php:54
+#: htdocs/views/forgot.php:86 htdocs/views/login.php:67
 msgid "Loading..."
 msgstr "Laden..."
 
-#: htdocs/views/forgot.php:67 htdocs/views/login.php:38
+#: htdocs/views/forgot.php:67 htdocs/views/login.php:48
 #: htdocs/assets/js/ucp.js:301 htdocs/assets/js/ucp.js:324
 #: htdocs/assets/js/ucp.js:334
 msgid "Login"
@@ -738,7 +738,7 @@ msgid "PQRS"
 msgstr "PQRS"
 
 #: htdocs/modules/Settings/views/settings.php:25
-#: htdocs/modules/Settings/views/settings.php:27 htdocs/views/login.php:21
+#: htdocs/modules/Settings/views/settings.php:27 htdocs/views/login.php:28
 msgid "Password"
 msgstr "Passwort"
 
@@ -788,7 +788,7 @@ msgstr ""
 msgid "Refreshing all UCP Assets, this could take a while..."
 msgstr "Aktualisiere alle UCP Inhalte, dies kann einen Moment dauern..."
 
-#: htdocs/views/forgot.php:71 htdocs/views/login.php:41
+#: htdocs/views/forgot.php:71 htdocs/views/login.php:52
 msgid "Remember Me"
 msgstr "Login merken"
 
@@ -836,7 +836,7 @@ msgstr "Auswahl der kleinen Widgets"
 msgid "Selecting Widgets"
 msgstr "Auswahl Widgets"
 
-#: htdocs/views/login.php:55
+#: htdocs/views/login.php:69
 msgid "Send Me A Password Reset Link"
 msgstr "Senden Sie mir einen Passwort Reset Link"
 
@@ -1608,7 +1608,7 @@ msgid ""
 "install icu libicu-devel pkg-config pkgconf"
 msgstr ""
 
-#: htdocs/views/login.php:25
+#: htdocs/views/login.php:33
 msgid "or"
 msgstr "oder"
 

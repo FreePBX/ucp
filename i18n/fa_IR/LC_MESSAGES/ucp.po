@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-09-15 08:11+0000\n"
+"POT-Creation-Date: 2021-10-19 02:51+0000\n"
 "PO-Revision-Date: 2016-07-06 05:21+0200\n"
 "Last-Translator: Media <mousavi.media@gmail.com>\n"
 "Language-Team: Persian (Iran) <http://weblate.freepbx.org/projects/freepbx/"
@@ -356,7 +356,7 @@ msgstr ""
 msgid "Editing a Dashboard"
 msgstr ""
 
-#: htdocs/modules/Settings/views/settings.php:47 htdocs/views/login.php:30
+#: htdocs/modules/Settings/views/settings.php:47 htdocs/views/login.php:38
 msgid "Email"
 msgstr "ایمیل"
 
@@ -436,7 +436,7 @@ msgstr "اولین"
 msgid "First Name"
 msgstr "نام"
 
-#: htdocs/views/login.php:37
+#: htdocs/views/login.php:46
 msgid "Forgot Password"
 msgstr "کلمه عبور فراموش شده"
 
@@ -504,7 +504,7 @@ msgstr ""
 msgid "Interface Settings"
 msgstr "تنظیمات اینترفیس"
 
-#: htdocs/index.php:251
+#: htdocs/index.php:256
 #, php-format
 msgid ""
 "Internet Explorer %s is not supported. Functionality will be deteriorated "
@@ -526,7 +526,7 @@ msgstr "دستگاه نامعتبر"
 msgid "Invalid Login Credentials"
 msgstr "اطلاعات کاربری نامعتبر"
 
-#: htdocs/index.php:240
+#: htdocs/index.php:244
 msgid "Invalid Token"
 msgstr "توکن نامعتبر"
 
@@ -550,11 +550,11 @@ msgstr "آخر"
 msgid "Last Name"
 msgstr "نام خانوادگی"
 
-#: htdocs/views/forgot.php:86 htdocs/views/login.php:54
+#: htdocs/views/forgot.php:86 htdocs/views/login.php:67
 msgid "Loading..."
 msgstr "در حال بارگذاری…"
 
-#: htdocs/views/forgot.php:67 htdocs/views/login.php:38
+#: htdocs/views/forgot.php:67 htdocs/views/login.php:48
 #: htdocs/assets/js/ucp.js:301 htdocs/assets/js/ucp.js:324
 #: htdocs/assets/js/ucp.js:334
 msgid "Login"
@@ -690,7 +690,7 @@ msgid "PQRS"
 msgstr "PQRS"
 
 #: htdocs/modules/Settings/views/settings.php:25
-#: htdocs/modules/Settings/views/settings.php:27 htdocs/views/login.php:21
+#: htdocs/modules/Settings/views/settings.php:27 htdocs/views/login.php:28
 msgid "Password"
 msgstr "بله"
 
@@ -741,7 +741,7 @@ msgstr ""
 msgid "Refreshing all UCP Assets, this could take a while..."
 msgstr "بازنشانی تمام مقادیر پنل کنترل کاربری. منتظر باشید..."
 
-#: htdocs/views/forgot.php:71 htdocs/views/login.php:41
+#: htdocs/views/forgot.php:71 htdocs/views/login.php:52
 msgid "Remember Me"
 msgstr "مرا بخاطر بسپار"
 
@@ -789,7 +789,7 @@ msgstr ""
 msgid "Selecting Widgets"
 msgstr ""
 
-#: htdocs/views/login.php:55
+#: htdocs/views/login.php:69
 msgid "Send Me A Password Reset Link"
 msgstr "لینک بازنشانی کلمه عبور را برایم ارسال کن"
 
@@ -1493,7 +1493,7 @@ msgid ""
 "install icu libicu-devel pkg-config pkgconf"
 msgstr ""
 
-#: htdocs/views/login.php:25
+#: htdocs/views/login.php:33
 msgid "or"
 msgstr "یا"
 

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-09-15 08:11+0000\n"
+"POT-Creation-Date: 2021-10-19 02:51+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -362,7 +362,7 @@ msgid "Editing a Dashboard"
 msgstr ""
 
 #: htdocs/modules/Settings/views/settings.php:47
-#: htdocs/views/login.php:30
+#: htdocs/views/login.php:38
 msgid "Email"
 msgstr ""
 
@@ -442,7 +442,7 @@ msgstr ""
 msgid "First Name"
 msgstr ""
 
-#: htdocs/views/login.php:37
+#: htdocs/views/login.php:46
 msgid "Forgot Password"
 msgstr ""
 
@@ -513,7 +513,7 @@ msgstr ""
 msgid "Interface Settings"
 msgstr ""
 
-#: htdocs/index.php:251
+#: htdocs/index.php:256
 #, php-format
 msgid ""
 "Internet Explorer %s is not supported. Functionality will be deteriorated "
@@ -533,7 +533,7 @@ msgstr ""
 msgid "Invalid Login Credentials"
 msgstr ""
 
-#: htdocs/index.php:240
+#: htdocs/index.php:244
 msgid "Invalid Token"
 msgstr ""
 
@@ -558,12 +558,12 @@ msgid "Last Name"
 msgstr ""
 
 #: htdocs/views/forgot.php:86
-#: htdocs/views/login.php:54
+#: htdocs/views/login.php:67
 msgid "Loading..."
 msgstr ""
 
 #: htdocs/views/forgot.php:67
-#: htdocs/views/login.php:38
+#: htdocs/views/login.php:48
 #: htdocs/assets/js/ucp.js:301
 #: htdocs/assets/js/ucp.js:324
 #: htdocs/assets/js/ucp.js:334
@@ -703,7 +703,7 @@ msgstr ""
 
 #: htdocs/modules/Settings/views/settings.php:25
 #: htdocs/modules/Settings/views/settings.php:27
-#: htdocs/views/login.php:21
+#: htdocs/views/login.php:28
 msgid "Password"
 msgstr ""
 
@@ -757,7 +757,7 @@ msgid "Refreshing all UCP Assets, this could take a while..."
 msgstr ""
 
 #: htdocs/views/forgot.php:71
-#: htdocs/views/login.php:41
+#: htdocs/views/login.php:52
 msgid "Remember Me"
 msgstr ""
 
@@ -805,7 +805,7 @@ msgstr ""
 msgid "Selecting Widgets"
 msgstr ""
 
-#: htdocs/views/login.php:55
+#: htdocs/views/login.php:69
 msgid "Send Me A Password Reset Link"
 msgstr ""
 
@@ -1502,7 +1502,7 @@ msgid ""
 "install icu libicu-devel pkg-config pkgconf"
 msgstr ""
 
-#: htdocs/views/login.php:25
+#: htdocs/views/login.php:33
 msgid "or"
 msgstr ""
 
