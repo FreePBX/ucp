@@ -15,16 +15,24 @@
 				<span class="input-group-addon"><i class="fa fa-user fa-fw"></i></span>
 				<input type="text" name="username" class="form-control" placeholder="<?php echo _('Username')?>" autocapitalize="off" autocorrect="off">
 			</div>
+			<?php 
+				$lhideClass = 'lhide';
+				if($hideLogin) {
+					$lhideClass = '';
+				}
+			?>
+			<?php if(!$hideLogin) { ?>
 			<div class="lshow">
 				<div class="input-group input-margin">
 					<span class="input-group-addon"><i class="fa fa-key fa-fw"></i></span>
 					<input type="password" name="password" class="form-control" placeholder="<?php echo _('Password')?>" autocapitalize="off" autocorrect="off">
 				</div>
 			</div>
-			<div class="lhide text-center">
+			<?php } ?>
+			<div class="<?php echo $lhideClass ?> text-center">
 				<?php echo _('or')?>
 			</div>
-			<div class="lhide">
+			<div class="<?php echo $lhideClass ?>">
 				<div class="input-group input-margin">
 					<span class="input-group-addon"><i class="fa fa-envelope fa-fw"></i></span>
 					<input type="text" name="email" class="form-control" placeholder="<?php echo _('Email')?>" autocapitalize="off" autocorrect="off">
@@ -34,9 +42,12 @@
 				<div class="col-md-12 col-ºsm-12">
 					<table class="extras">
 						<tr class="action-switch">
+							<?php if(!$hideLogin) { ?>
 							<td colspan="2" class="lshow"><span data-show="lhide" data-hide="lshow"><?php echo _('Forgot Password')?> <i class="fa fa-question"></i></span></td>
+							<?php } ?>
 							<td colspan="2" class="lhide"><span data-show="lshow" data-hide="lhide"><i class="fa fa-sign-in"></i> <?php echo _('Login')?></span></td>
 						</tr>
+						<?php if(!$hideLogin) { ?>
 						<tr class="lshow remember-me">
 							<td class="text"><?php echo _('Remember Me')?></td>
 							<td id="rm-checkbox" class="checkbox-c">
@@ -49,10 +60,13 @@
 								</div>
 							</td>
 						</tr>
+						<?php } ?>
 						<tr>
 							<td colspan="3" class="button-row">
+								<?php if(!$hideLogin) { ?>
 								<button type="submit" id="btn-login" class="btn btn-default lshow" disabled><?php echo _('Loading...')?></button>
-								<button type="button" id="btn-forgot" class="btn btn-default lhide"><?php echo _('Send Me A Password Reset Link')?></button>
+								<?php } ?>
+								<button type="button" id="btn-forgot" class="btn btn-default <?php echo $lhideClass ?>"><?php echo _('Send Me A Password Reset Link')?></button>
 							</td>
 						</tr>
 					</table>
