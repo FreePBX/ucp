@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-09-15 08:32+0000\n"
-"PO-Revision-Date: 2021-11-24 15:00+0000\n"
+"PO-Revision-Date: 2021-11-26 10:00+0000\n"
 "Last-Translator: Dmitriy Q <krotesk@ya.ru>\n"
 "Language-Team: Russian <http://weblate.freepbx.org/projects/freepbx/ucp/ru/>"
 "\n"
@@ -303,11 +303,11 @@ msgstr ""
 #: htdocs/modules/Settings/views/settings.php:120
 #: htdocs/modules/Settings/views/settings.php:133
 msgid "Default"
-msgstr ""
+msgstr "По умолчанию"
 
 #: htdocs/modules/Settings/views/settings.php:97
 msgid "Delete Image"
-msgstr ""
+msgstr "Удалить изображение"
 
 #: htdocs/modules/Ucptour/assets/js/global.js:122
 msgid "Delete a Dashboard"
