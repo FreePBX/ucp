@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-09-15 08:32+0000\n"
-"PO-Revision-Date: 2021-11-26 10:00+0000\n"
+"PO-Revision-Date: 2021-12-03 08:00+0000\n"
 "Last-Translator: Dmitriy Q <krotesk@ya.ru>\n"
 "Language-Team: Russian <http://weblate.freepbx.org/projects/freepbx/ucp/ru/>"
 "\n"
@@ -337,11 +337,11 @@ msgstr ""
 #: Ucp.class.php:300 Ucp.class.php:326 Ucp.class.php:1205 Ucp.class.php:1209
 #: Ucp.class.php:1213 Ucp.class.php:1217
 msgid "Done"
-msgstr ""
+msgstr "Завершено"
 
 #: htdocs/modules/Settings/views/settings.php:94
 msgid "Drop a new image here"
-msgstr ""
+msgstr "Перетащите изображение сюда"
 
 #: htdocs/views/dashboard-footer.php:34 htdocs/views/dashboard-footer.php:44
 msgid "Edit Dashboard"
@@ -1128,11 +1128,11 @@ msgstr ""
 
 #: htdocs/modules/Settings/assets/js/global.js:262
 msgid "Unsupported file type"
-msgstr ""
+msgstr "Неподдерживаемый тип файла"
 
 #: htdocs/modules/Settings/views/settings.php:36
 msgid "Update Password"
-msgstr ""
+msgstr "Обновить пароль"
 
 #: htdocs/modules/Settings/views/settings.php:122
 msgid "Use Browser Language"
