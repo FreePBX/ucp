@@ -105,6 +105,25 @@ connect2database = function(config, callback) {
 		obj.emit("disconnect");
 		throw "The MySQL connection was closed!";
 	});
+
+	var query = db.query("SHOW VARIABLES LIKE 'wait_timeout'");
+	query.on('result', function(res) {
+		res.on('data', function(row) {
+			let wait_time = row.Value * 1000;
+			console.log(wait_time);
+			let reping_time = wait_time / 2;
+			console.log(reping_time);
+			setInterval(function () {
+				db.query('SELECT CONNECTION_ID()');
+			}, reping_time);
+		}).on('end', function() {
+			console.log('Result set finished');
+		});
+	}).on('end', function() {
+		console.log('No more result sets!');
+	});
+
+
 };
 
 /**
