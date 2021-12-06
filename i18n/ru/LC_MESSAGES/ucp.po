@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-09-15 08:32+0000\n"
-"PO-Revision-Date: 2021-12-03 08:00+0000\n"
+"PO-Revision-Date: 2021-12-07 19:00+0000\n"
 "Last-Translator: Dmitriy Q <krotesk@ya.ru>\n"
 "Language-Team: Russian <http://weblate.freepbx.org/projects/freepbx/ucp/ru/>"
 "\n"
@@ -238,11 +238,11 @@ msgstr ""
 
 #: htdocs/modules/Settings/views/settings.php:67
 msgid "Company"
-msgstr ""
+msgstr "Компания"
 
 #: htdocs/views/dashboard-footer.php:193
 msgid "Confirm Action"
-msgstr ""
+msgstr "Подтвердить действие"
 
 #: htdocs/modules/Settings/views/settings.php:32
 msgid "Confirm Password"
@@ -327,7 +327,7 @@ msgstr ""
 
 #: htdocs/modules/Settings/views/settings.php:42
 msgid "Display Name"
-msgstr ""
+msgstr "Отображаемое имя"
 
 #: Ucp.class.php:1424
 #, php-format
