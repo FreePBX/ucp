@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-09-15 08:32+0000\n"
-"PO-Revision-Date: 2021-12-07 19:00+0000\n"
+"PO-Revision-Date: 2021-12-10 13:02+0000\n"
 "Last-Translator: Dmitriy Q <krotesk@ya.ru>\n"
 "Language-Team: Russian <http://weblate.freepbx.org/projects/freepbx/ucp/ru/>"
 "\n"
@@ -24,7 +24,7 @@ msgstr ""
 
 #: htdocs/assets/js/lodash-4.17.2.js:8787
 msgid "  abc  "
-msgstr ""
+msgstr "  abc  "
 
 #: htdocs/assets/js/lodash-4.17.2.js:15199
 msgid ""
@@ -1020,7 +1020,7 @@ msgstr ""
 
 #: htdocs/modules/Settings/views/settings.php:170
 msgid "Time Format"
-msgstr ""
+msgstr "Формат времени"
 
 #: htdocs/modules/Settings/views/settings.php:131
 msgid "Timezone"
