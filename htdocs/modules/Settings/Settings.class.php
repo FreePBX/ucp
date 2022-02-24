@@ -100,7 +100,7 @@ class Settings extends Modules{
 						);
 					break;
 					case 'password':
-						$status = $this->UCP->FreePBX->Userman->updateUser($user['id'],$user['username'], $user['username'], $user['default_extension'], $user['description'], array(), $_POST['value']);
+						$status = $this->UCP->FreePBX->Userman->updateUser($user['id'],$user['username'], $user['username'], $user['default_extension'], $user['description'], $user, $_POST['value']);
 						$ret = array(
 							"status" => $status['status'],
 							"message" => $this->UCP->View->load_view(__DIR__.'/views/pwd_alert.php',array("message" => $status['message'])),
