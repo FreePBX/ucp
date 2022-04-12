@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-09-15 08:32+0000\n"
-"PO-Revision-Date: 2021-12-10 13:02+0000\n"
+"PO-Revision-Date: 2022-04-14 05:00+0000\n"
 "Last-Translator: Dmitriy Q <krotesk@ya.ru>\n"
 "Language-Team: Russian <http://weblate.freepbx.org/projects/freepbx/ucp/ru/>"
 "\n"
@@ -83,7 +83,7 @@ msgstr "Принять"
 
 #: htdocs/modules/Settings/views/settings.php:5
 msgid "Account Settings"
-msgstr ""
+msgstr "Настройки учётной записи"
 
 #: views/users_hook.php:107
 msgid "Active Sessions"
@@ -234,7 +234,7 @@ msgstr ""
 
 #: htdocs/views/dashboard-footer.php:226
 msgid "Close"
-msgstr ""
+msgstr "Закрыть"
 
 #: htdocs/modules/Settings/views/settings.php:67
 msgid "Company"
@@ -294,11 +294,11 @@ msgstr ""
 
 #: htdocs/modules/Settings/views/settings.php:162
 msgid "Date Format"
-msgstr ""
+msgstr "Формат даты"
 
 #: htdocs/modules/Settings/views/settings.php:154
 msgid "Date and Time Format"
-msgstr ""
+msgstr "Формат даты и времени"
 
 #: htdocs/modules/Settings/views/settings.php:120
 #: htdocs/modules/Settings/views/settings.php:133
