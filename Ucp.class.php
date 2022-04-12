@@ -630,7 +630,7 @@ class Ucp implements \BMO {
 		$user['brand'] = $this->brand;
 
 		$user['link'] = $this->getUcpLink()."/?forgot=".$user['token'];
-		$user['valid'] = date("h:i:s A", $token['valid']);
+		$user['valid'] = date("Y-m-d h:i:s A", $token['valid']);
 
 		$template = file_get_contents(__DIR__.'/views/emails/reset_text.tpl');
 		preg_match_all('/%([\w|\d]*)%/',$template,$matches);
