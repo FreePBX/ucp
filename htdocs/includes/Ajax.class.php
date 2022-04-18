@@ -30,6 +30,11 @@ class Ajax extends UCP {
 	public function doRequest($module = null, $command = null) {
 		session_write_close(); //speed up
 		$this->UCP->Modgettext->textdomain("ucp");
+		
+		if (strpos($module, ".") !== false || strpos($command, ".") !== false) {
+			$this->triggerFatal(_("Module or Command requested invalid"));
+		}
+
 		switch($command) {
 			case 'template':
 				$this->UCP->Modgettext->push_textdomain("ucp");
