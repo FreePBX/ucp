@@ -29,6 +29,11 @@ class Ajax extends UCP {
 
 	public function doRequest($module = null, $command = null) {
 		$this->UCP->Modgettext->textdomain("ucp");
+		
+		if (strpos($module, ".") !== false || strpos($command, ".") !== false) {
+			$this->triggerFatal(_("Module or Command requested invalid"));
+		}
+
 		switch($command) {
 			case 'ucpsettings':
 				$this->addHeader('HTTP/1.0','200');
