@@ -1,16 +1,13 @@
 # This file is part of FreePBX.
-#
 # For licensing information, please see the file named LICENSE located in the module directory
-#
 # FreePBX language template for ucp
-# Copyright (C) 2008-2017 Sangoma Technologies, Inc.
-#
+# Copyright (C) 2008-2020 Sangoma Technologies, Inc.
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
+"Project-Id-Version: UCP 14\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-09-15 08:32+0000\n"
-"PO-Revision-Date: 2022-04-15 06:01+0000\n"
+"POT-Creation-Date: 2020-12-11 12:34+0000\n"
+"PO-Revision-Date: 2022-04-19 05:33+0000\n"
 "Last-Translator: Dmitriy Q <krotesk@ya.ru>\n"
 "Language-Team: Russian <http://weblate.freepbx.org/projects/freepbx/ucp/ru/>"
 "\n"
@@ -58,24 +55,24 @@ msgstr ""
 
 #: htdocs/index.php:78
 msgid ".htaccess files are disabled on this webserver. Please enable them"
-msgstr ""
+msgstr "файл .htaccess отключен на этом веб-сервере. Пожалуйста, включите его"
 
 #: htdocs/index.php:91
 msgid ".htaccess files are not supported on this webserver."
-msgstr "Файлы .htaccess не поддерживаются на этом веб-сервере."
+msgstr "файлы .htaccess не поддерживаются на этом вэб-сервере."
 
 #: htdocs/assets/js/moment-with-locales-2.20.1.min.js:1
 msgid ": "
-msgstr ""
+msgstr ": "
 
 #: htdocs/modules/Ucptour/assets/js/global.js:123
 #, perl-format
 msgid "A dashboard can be deleted by clicking the '%s'"
-msgstr ""
+msgstr "Панель мониторинга можно удалить, нажав кнопку '%s'"
 
 #: htdocs/views/templates/phone.php:41
 msgid "ABC"
-msgstr ""
+msgstr "ABC"
 
 #: htdocs/views/dashboard-footer.php:202
 msgid "Accept"
@@ -83,19 +80,19 @@ msgstr "Принять"
 
 #: htdocs/modules/Settings/views/settings.php:5
 msgid "Account Settings"
-msgstr "Настройки учётной записи"
+msgstr "Настройка учетных записей"
 
 #: views/users_hook.php:107
 msgid "Active Sessions"
-msgstr ""
+msgstr "Активная сессия"
 
 #: htdocs/views/dashboard-footer.php:13
 msgid "Add Dashboard"
-msgstr ""
+msgstr "Добавить панель мониторинга"
 
 #: htdocs/views/dashboard-footer.php:55
 msgid "Add Widget"
-msgstr ""
+msgstr "Добавить виджет"
 
 #: htdocs/modules/Ucptour/assets/js/global.js:250
 msgid "Adding Side Bar Widgets"
@@ -112,7 +109,7 @@ msgstr ""
 
 #: htdocs/modules/Ucptour/assets/js/global.js:32
 msgid "Adding a dashboard"
-msgstr ""
+msgstr "Добавление панели мониторинга"
 
 #: ucp.i18n.php:34
 msgid "Address to bind to. Default is "
@@ -120,11 +117,11 @@ msgstr ""
 
 #: ucp.i18n.php:6
 msgid "Admin"
-msgstr "Администратор"
+msgstr "Администрирование"
 
 #: htdocs/views/dashboard-footer.php:214
 msgid "Alert"
-msgstr ""
+msgstr "Тревога"
 
 #: htdocs/modules/Settings/views/settings.php:3
 msgid ""
@@ -140,11 +137,11 @@ msgstr ""
 
 #: htdocs/modules/Settings/views/settings.php:144
 msgid "Allow Desktop Notifications"
-msgstr ""
+msgstr "Разрешить уведомления рабочего стола"
 
 #: views/users_hook.php:46
 msgid "Allow Login"
-msgstr ""
+msgstr "Разрешить вход"
 
 #: ucp.i18n.php:54
 msgid "Allow Password Changes"
@@ -156,7 +153,7 @@ msgstr ""
 
 #: htdocs/modules/Settings/views/settings.php:146
 msgid "Allow browser desktop notifications from UCP modules."
-msgstr ""
+msgstr "Разрешить браузеру уведомления рабочего стола из модуля UCP."
 
 #: views/users_hook.php:192
 msgid ""
@@ -174,7 +171,7 @@ msgstr ""
 
 #: views/users_hook.php:147
 msgid "Allowed Extension Settings"
-msgstr ""
+msgstr "Разрешенные настройки номера"
 
 #: htdocs/modules/Widgets/assets/js/global.js:889
 msgid "Are you sure you want to delete this dashboard?"
@@ -186,7 +183,7 @@ msgid ""
 "Asterisk home dir (%s) doesn't exist, and, ASTSPOOLDIR doesn't exist. "
 "Aborting"
 msgstr ""
-"Домашняя директория Asterisk (%s) и ASTSPOOLDIR не существуют. Завершение"
+"Домашняя директория Asterisk (%s)  и ASTSPOOLDIR  не существуют. Завершение"
 
 #: htdocs/modules/Settings/views/settings.php:102
 msgid "Browse"
@@ -203,7 +200,7 @@ msgstr "Отмена"
 
 #: htdocs/modules/Settings/views/settings.php:72
 msgid "Cell Phone"
-msgstr ""
+msgstr "Сотовый телефон"
 
 #: htdocs/modules/Ucptour/assets/js/global.js:313
 msgid "Click the widget's icon to continue"
@@ -242,7 +239,7 @@ msgstr "Компания"
 
 #: htdocs/views/dashboard-footer.php:193
 msgid "Confirm Action"
-msgstr "Подтвердить действие"
+msgstr "Подтверждение действия"
 
 #: htdocs/modules/Settings/views/settings.php:32
 msgid "Confirm Password"
@@ -250,32 +247,32 @@ msgstr "Подтвердить пароль"
 
 #: htdocs/modules/Ucptour/assets/js/global.js:25
 msgid "Congratulations!"
-msgstr "Поздравляю!"
+msgstr "Поздравляем!"
 
 #: htdocs/views/dashboard-footer.php:23
 msgid "Create Dashboard"
-msgstr ""
+msgstr "Создание панели мониторинга"
 
 #: htdocs/views/templates/phone.php:45
 msgid "DEF"
-msgstr ""
+msgstr "DEF"
 
 #: htdocs/modules/Ucptour/assets/js/global.js:238
 msgid "Dashboard Locking"
-msgstr ""
+msgstr "Блокировка панели мониторинга"
 
 #: htdocs/views/dashboard-footer.php:17 htdocs/views/dashboard-footer.php:38
 msgid "Dashboard Name"
-msgstr ""
+msgstr "Название панели мониторинга"
 
 #: htdocs/modules/Ucptour/assets/js/global.js:202
 msgid "Dashboard Widget"
-msgstr ""
+msgstr "Виджет панели мониторинга"
 
 #: htdocs/views/dashboard-footer.php:59
 #: htdocs/modules/Ucptour/assets/js/global.js:101
 msgid "Dashboard Widgets"
-msgstr ""
+msgstr "Виджеты панели мониторинга"
 
 #: htdocs/modules/Ucptour/assets/js/global.js:167
 msgid ""
@@ -290,7 +287,7 @@ msgstr ""
 
 #: htdocs/modules/Ucptour/assets/js/global.js:93
 msgid "Dashboards"
-msgstr ""
+msgstr "Панели мониторинга"
 
 #: htdocs/modules/Settings/views/settings.php:162
 msgid "Date Format"
@@ -311,11 +308,11 @@ msgstr "Удалить изображение"
 
 #: htdocs/modules/Ucptour/assets/js/global.js:122
 msgid "Delete a Dashboard"
-msgstr ""
+msgstr "Удаление панели мониторинга"
 
 #: Ucp.class.php:1111
 msgid "Deleted Session"
-msgstr ""
+msgstr "Удаленная сессия"
 
 #: Ucp.class.php:419 Ucp.class.php:954
 msgid "Deleted User Session"
@@ -323,7 +320,7 @@ msgstr ""
 
 #: htdocs/assets/js/ucp.js:80
 msgid "Disable"
-msgstr ""
+msgstr "Выключить"
 
 #: htdocs/modules/Settings/views/settings.php:42
 msgid "Display Name"
@@ -345,15 +342,15 @@ msgstr "Перетащите изображение сюда"
 
 #: htdocs/views/dashboard-footer.php:34 htdocs/views/dashboard-footer.php:44
 msgid "Edit Dashboard"
-msgstr ""
+msgstr "Редактировать панель мониторинга"
 
 #: htdocs/modules/Ucptour/assets/js/global.js:115
 msgid "Editing a Dashboard"
-msgstr ""
+msgstr "Редактирование панели мониторинга"
 
 #: htdocs/modules/Settings/views/settings.php:47 htdocs/views/login.php:30
 msgid "Email"
-msgstr ""
+msgstr "E-mail"
 
 #: htdocs/assets/js/ucp.js:77
 msgid "Enable"
@@ -369,7 +366,7 @@ msgstr ""
 
 #: views/users_hook.php:76
 msgid "Enable Tour Mode"
-msgstr ""
+msgstr "Включить режим обзора"
 
 #: ucp.i18n.php:22
 msgid "Enable the NodeJS Server"
@@ -387,11 +384,11 @@ msgstr ""
 
 #: htdocs/modules/Ucptour/assets/js/global.js:355
 msgid "End of tour"
-msgstr ""
+msgstr "Конец обзора"
 
 #: htdocs/modules/Settings/Settings.class.php:143
 msgid "English"
-msgstr ""
+msgstr "Английский"
 
 #: htdocs/modules/Ucptour/assets/js/global.js:51
 msgid "Enter a name for your dashboard in this input box"
@@ -405,7 +402,7 @@ msgstr ""
 #: Ucp.class.php:1334
 #, php-format
 msgid "Failed to run: '%s'"
-msgstr ""
+msgstr "Не удалось запустить: '%s'"
 
 #: Ucp.class.php:178
 msgid "Failed updating libraries!"
@@ -413,15 +410,15 @@ msgstr ""
 
 #: Ucp.class.php:308
 msgid "Failed!"
-msgstr ""
+msgstr "Неудачно!"
 
 #: htdocs/modules/Settings/views/settings.php:87
 msgid "Fax"
-msgstr ""
+msgstr "Факс"
 
 #: Ucp.class.php:181
 msgid "Finished updating libraries!"
-msgstr ""
+msgstr "Обновление библиотек завершено!"
 
 #: htdocs/views/templates/pagnation.php:4
 msgid "First"
@@ -429,19 +426,19 @@ msgstr ""
 
 #: htdocs/modules/Settings/views/settings.php:52
 msgid "First Name"
-msgstr ""
+msgstr "Имя"
 
 #: htdocs/views/login.php:37
 msgid "Forgot Password"
-msgstr ""
+msgstr "Забыли пароль"
 
 #: htdocs/views/templates/phone.php:51
 msgid "GHI"
-msgstr ""
+msgstr "GHI"
 
 #: views/users_hook.php:19
 msgid "General"
-msgstr ""
+msgstr "Общее"
 
 #: Ucp.class.php:1215
 msgid "Generating Main CSS..."
@@ -465,16 +462,16 @@ msgstr ""
 
 #: htdocs/modules/Home/Home.class.php:187
 msgid "Home"
-msgstr ""
+msgstr "Домой"
 
 #: htdocs/modules/Settings/views/settings.php:82
 msgid "Home Phone"
-msgstr ""
+msgstr "Домашний телефон"
 
 #: Ucp.class.php:156 Ucp.class.php:163
 #, php-format
 msgid "Home directory [%s] is not writable"
-msgstr ""
+msgstr "Домашний каталог [%s] недоступен для записи"
 
 #: htdocs/modules/Settings/views/settings.php:44
 msgid ""
@@ -493,10 +490,12 @@ msgstr "Наследовать"
 #: Ucp.class.php:168
 msgid "Installing/Updating Required Libraries. This may take a while..."
 msgstr ""
+"Установка/обновление необходимых библиотек. Это может занять некоторое "
+"время..."
 
 #: htdocs/modules/Settings/views/settings.php:7
 msgid "Interface Settings"
-msgstr ""
+msgstr "Настройки интерфейса"
 
 #: htdocs/index.php:236
 #, php-format
@@ -504,6 +503,8 @@ msgid ""
 "Internet Explorer %s is not supported. Functionality will be deteriorated "
 "until you upgrade to %s or higher"
 msgstr ""
+"Internet Explorer %s не поддерживается. Функциональность будет ухудшаться до "
+"тех пор, пока вы не обновитесь до %s или выше"
 
 #: htdocs/includes/User.class.php:97
 msgid "Invalid"
@@ -528,11 +529,11 @@ msgstr ""
 
 #: htdocs/views/templates/phone.php:55
 msgid "JKL"
-msgstr ""
+msgstr "JKL"
 
 #: htdocs/modules/Settings/views/settings.php:118
 msgid "Language"
-msgstr "Язык"
+msgstr "Выберите язык"
 
 #: htdocs/views/templates/pagnation.php:20
 msgid "Last"
@@ -540,25 +541,25 @@ msgstr ""
 
 #: htdocs/modules/Settings/views/settings.php:57
 msgid "Last Name"
-msgstr ""
+msgstr "Фамилия"
 
 #: htdocs/views/forgot.php:61 htdocs/views/login.php:54
 msgid "Loading..."
-msgstr ""
+msgstr "Загрузка..."
 
 #: htdocs/views/forgot.php:45 htdocs/views/login.php:38
 #: htdocs/assets/js/ucp.js:290 htdocs/assets/js/ucp.js:313
 #: htdocs/assets/js/ucp.js:323
 msgid "Login"
-msgstr ""
+msgstr "Вход"
 
 #: htdocs/modules/Ucptour/assets/js/global.js:351
 msgid "Logout"
-msgstr ""
+msgstr "Выход"
 
 #: htdocs/views/templates/phone.php:59
 msgid "MNO"
-msgstr ""
+msgstr "MNO"
 
 #: views/users_hook.php:65
 msgid "May this user log in to UCP"
@@ -585,6 +586,7 @@ msgid ""
 "NPM version is: %s requirement is %s. Run 'yum upgrade nodejs' from the CLI "
 "as root"
 msgstr ""
+"Версия NPM: %s, требуется %s. Выполнить 'yum upgrade nodejs' из CLI от root"
 
 #: htdocs/modules/Ucptour/assets/js/global.js:50
 msgid "Name your dashboard"
@@ -596,11 +598,11 @@ msgstr "Нет"
 
 #: Ucp.class.php:117
 msgid "Node Package Manager is not installed"
-msgstr ""
+msgstr "Узел управления пакетами не установлен"
 
 #: Ucp.class.php:105
 msgid "Node is not installed"
-msgstr ""
+msgstr "Узел не установлен"
 
 #: Ucp.class.php:109
 #, php-format
@@ -608,6 +610,7 @@ msgid ""
 "Node version is: %s requirement is %s. Run 'yum upgrade nodejs' from the CLI "
 "as root"
 msgstr ""
+"Версия узла: %s требуется %s. Выполнить 'yum upgrade nodejs' из CLI от root"
 
 #: ucp.i18n.php:32
 msgid "NodeJS Bind Address"
@@ -647,11 +650,11 @@ msgstr ""
 
 #: htdocs/views/header.php:54
 msgid "OFF"
-msgstr ""
+msgstr "ВЫКЛ"
 
 #: htdocs/views/header.php:51
 msgid "ON"
-msgstr ""
+msgstr "ВКЛ"
 
 #: htdocs/modules/Ucptour/assets/js/global.js:313
 msgid "Once a small widget has been added it will show up in the left sidebar"
@@ -674,12 +677,12 @@ msgstr ""
 
 #: htdocs/views/templates/phone.php:65
 msgid "PQRS"
-msgstr ""
+msgstr "PQRS"
 
 #: htdocs/modules/Settings/views/settings.php:25
 #: htdocs/modules/Settings/views/settings.php:27 htdocs/views/login.php:21
 msgid "Password"
-msgstr ""
+msgstr "Пароль"
 
 #: Ucp.class.php:502
 #, php-format
@@ -709,11 +712,11 @@ msgstr ""
 
 #: htdocs/assets/js/ucp.js:283 htdocs/assets/js/ucp.js:306
 msgid "Processing..."
-msgstr ""
+msgstr "Обработка..."
 
 #: htdocs/modules/Home/Home.class.php:53 ucp.i18n.php:64
 msgid "RSS Feeds"
-msgstr ""
+msgstr "Каналы RSS"
 
 #: ucp.i18n.php:66
 msgid "RSS Feeds that are displayed in UCP. This overrides "
@@ -734,11 +737,11 @@ msgstr ""
 
 #: htdocs/views/forgot.php:62
 msgid "Reset Password"
-msgstr ""
+msgstr "Сбросить пароль"
 
 #: htdocs/modules/Settings/views/settings.php:149
 msgid "Restart Tour"
-msgstr ""
+msgstr "Перезапустить обзор"
 
 #: Ucp.class.php:1274
 #, php-format
@@ -747,11 +750,11 @@ msgstr ""
 
 #: htdocs/modules/Ucptour/assets/js/global.js:69
 msgid "Save your dashboard"
-msgstr ""
+msgstr "Сохранить вашу панель мониторинга"
 
 #: htdocs/modules/Settings/assets/js/global.js:229
 msgid "Saved!"
-msgstr ""
+msgstr "Сохранено!"
 
 #: htdocs/modules/Ucptour/assets/js/global.js:166
 msgid "Selecting Dashboard Widgets"
@@ -786,12 +789,12 @@ msgstr ""
 
 #: ucp.i18n.php:48
 msgid "Sets the path to the HTTPS server certificate. This is required if "
-msgstr ""
+msgstr "Укажите путь для сертификатов сервера HTTPS. Это необходимо если "
 
 #: htdocs/modules/Widgets/assets/js/global.js:100
 #: htdocs/modules/Widgets/assets/js/global.js:385
 msgid "Settings"
-msgstr ""
+msgstr "Параметры"
 
 #: htdocs/views/dashboard-footer.php:60
 #: htdocs/modules/Ucptour/assets/js/global.js:243
@@ -878,15 +881,15 @@ msgstr ""
 #: htdocs/modules/Settings/assets/js/global.js:106
 #: htdocs/modules/Settings/assets/js/global.js:119
 msgid "Success!"
-msgstr ""
+msgstr "Успешно!"
 
 #: Ucp.class.php:126
 msgid "System"
-msgstr ""
+msgstr "Система"
 
 #: htdocs/views/templates/phone.php:69
 msgid "TUV"
-msgstr ""
+msgstr "TUV"
 
 #: htdocs/modules/Settings/assets/js/global.js:61
 msgid "The Browser Language could not be determined"
@@ -898,11 +901,11 @@ msgstr ""
 
 #: htdocs/modules/Settings/assets/js/global.js:72
 msgid "The PBX Language is not set"
-msgstr ""
+msgstr "Язык АТС не установлен"
 
 #: htdocs/modules/Settings/assets/js/global.js:94
 msgid "The PBX Timezone is not set"
-msgstr ""
+msgstr "Часовой пояс АТС не установлен"
 
 #: htdocs/modules/Ucptour/assets/js/global.js:33
 msgid ""
@@ -967,6 +970,8 @@ msgid ""
 "The user control panel is a way for users to control call handling and "
 "personal settings from a web browser."
 msgstr ""
+"Панель управления пользователя - это способ для пользователей управлять "
+"обработкой вызовов и личными настройками из веб-браузера."
 
 #: htdocs/modules/Settings/views/settings.php:20
 msgid "The username used to login to User Control Panel and other services"
@@ -1028,7 +1033,7 @@ msgstr "Часовой пояс"
 
 #: htdocs/modules/Settings/views/settings.php:62
 msgid "Title"
-msgstr ""
+msgstr "Заголовок"
 
 #: htdocs/modules/Ucptour/assets/js/global.js:25
 msgid "To continue just click Next"
@@ -1046,6 +1051,9 @@ msgid ""
 "webserver's configuration file for the User Control Panel. For more "
 "information see: %s"
 msgstr ""
+"Для защиты целостности вашего сервера, необходимо разрешить перезапись "
+"конфигурационных файлов вашего Веб-сеервера с Панели Управления "
+"Пользователя. Для дополнительной информации см:%s"
 
 #: htdocs/modules/Ucptour/assets/js/global.js:330
 msgid "To remove this widget from the side bar click 'Remove Widget'"
@@ -1053,11 +1061,11 @@ msgstr ""
 
 #: htdocs/index.php:108 ucp.i18n.php:10
 msgid "UCP"
-msgstr ""
+msgstr "UCP"
 
 #: views/header.php:1
 msgid "UCP Admin"
-msgstr ""
+msgstr "Администрирование UCP"
 
 #: Ucp.class.php:1260
 msgid "UCP Daemon"
@@ -1124,7 +1132,7 @@ msgstr ""
 
 #: Ucp.class.php:1262
 msgid "Unknown"
-msgstr ""
+msgstr "Неизвестный"
 
 #: htdocs/modules/Settings/assets/js/global.js:262
 msgid "Unsupported file type"
@@ -1136,11 +1144,11 @@ msgstr "Обновить пароль"
 
 #: htdocs/modules/Settings/views/settings.php:122
 msgid "Use Browser Language"
-msgstr ""
+msgstr "Использовать язык браузера"
 
 #: htdocs/modules/Settings/views/settings.php:135
 msgid "Use Browser Timezone"
-msgstr ""
+msgstr "Использовать часовой пояс браузера"
 
 #: htdocs/modules/Settings/views/settings.php:111
 msgid "Use Gravatar"
@@ -1148,25 +1156,25 @@ msgstr ""
 
 #: htdocs/modules/Settings/views/settings.php:125
 msgid "Use PBX Language"
-msgstr ""
+msgstr "Использовать язык АТС"
 
 #: htdocs/modules/Settings/views/settings.php:138
 msgid "Use PBX Timezone"
-msgstr ""
+msgstr "Использовать часовой пояс АТС"
 
 #: htdocs/modules/Settings/Settings.class.php:186
 msgid "User"
-msgstr ""
+msgstr "Пользователь"
 
 #: htdocs/views/forgot.php:5 htdocs/views/header.php:4 htdocs/views/login.php:5
 #: ucp.i18n.php:4 /usr/src/freepbx/ucp/ucp.i18n.php:56
 #: htdocs/modules/Widgets/assets/js/global.js:47
 msgid "User Control Panel"
-msgstr ""
+msgstr "Панель управления пользователя"
 
 #: htdocs/modules/Settings/views/settings.php:2
 msgid "User Control Panel Settings"
-msgstr ""
+msgstr "Настройки панели управления пользователя"
 
 #: htdocs/views/dashfootercontent.php:2
 #, php-format
@@ -1176,15 +1184,15 @@ msgstr ""
 #: Ucp.class.php:498
 #, php-format
 msgid "User Control Panel: %s"
-msgstr ""
+msgstr "Панель управления пользователя: %s"
 
 #: htdocs/modules/Settings/views/settings.php:6
 msgid "User Details"
-msgstr ""
+msgstr "Сведения о пользователе"
 
 #: Ucp.class.php:361 Ucp.class.php:390
 msgid "User Primary Extension"
-msgstr ""
+msgstr "Основной внутренний номер пользователя"
 
 #: htdocs/modules/Ucptour/assets/js/global.js:346
 msgid "User Settings"
@@ -1192,7 +1200,7 @@ msgstr ""
 
 #: htdocs/modules/Settings/views/settings.php:18 htdocs/views/login.php:16
 msgid "Username"
-msgstr ""
+msgstr "Имя пользователя"
 
 #: ucp.i18n.php:12
 msgid "View: UCP dashfootercontent.php"
@@ -1204,21 +1212,21 @@ msgstr ""
 
 #: htdocs/views/templates/phone.php:73
 msgid "WXYZ"
-msgstr ""
+msgstr "WXYZ"
 
 #: htdocs/views/header.php:70
 #, php-format
 msgid "Welcome %s"
-msgstr ""
+msgstr "Добро пожаловать %s"
 
 #: htdocs/modules/Ucptour/assets/js/global.js:24
 #, perl-format
 msgid "Welcome to %s!"
-msgstr ""
+msgstr "Добро пожаловать в %s!"
 
 #: views/users_hook.php:4
 msgid "What is UCP"
-msgstr ""
+msgstr "Что такое UCP"
 
 #: htdocs/modules/Settings/views/settings.php:151
 msgid "When set to yes the tour will restart when this window closes"
@@ -1256,15 +1264,15 @@ msgstr ""
 #: htdocs/views/dashboard-footer.php:162
 #: htdocs/modules/Ucptour/assets/js/global.js:228
 msgid "Widget Settings"
-msgstr ""
+msgstr "Настройки виджета"
 
 #: htdocs/modules/Ucptour/assets/js/global.js:215
 msgid "Widget Size"
-msgstr ""
+msgstr "Размер виджета"
 
 #: htdocs/modules/Widgets/Widgets.class.php:199
 msgid "Widgets"
-msgstr ""
+msgstr "Виджеты"
 
 #: htdocs/modules/Ucptour/assets/js/global.js:175
 #: htdocs/modules/Ucptour/assets/js/global.js:285
@@ -1308,7 +1316,7 @@ msgstr ""
 
 #: htdocs/modules/Settings/views/settings.php:77
 msgid "Work Phone"
-msgstr ""
+msgstr "Рабочий телефон"
 
 #: views/users_hook.php:51 views/users_hook.php:81 views/users_hook.php:178
 msgid "Yes"
@@ -1354,47 +1362,47 @@ msgstr ""
 
 #: htdocs/modules/Settings/views/settings.php:74
 msgid "Your Cell Phone Number"
-msgstr ""
+msgstr "Ваш номер сотового телефона"
 
 #: htdocs/modules/Settings/views/settings.php:69
 msgid "Your Company"
-msgstr ""
+msgstr "Ваша компания"
 
 #: htdocs/modules/Settings/views/settings.php:49
 msgid "Your Email Address"
-msgstr ""
+msgstr "Ваш e-mail адрес"
 
 #: htdocs/modules/Settings/views/settings.php:89
 msgid "Your Fax Number"
-msgstr ""
+msgstr "Ваш номер факса"
 
 #: htdocs/modules/Settings/views/settings.php:54
 msgid "Your First Name"
-msgstr ""
+msgstr "Ваше имя"
 
 #: htdocs/modules/Settings/views/settings.php:84
 msgid "Your Home Number"
-msgstr ""
+msgstr "Ваш домашний номер"
 
 #: htdocs/modules/Settings/views/settings.php:128
 msgid "Your Language"
-msgstr ""
+msgstr "Ваш язык"
 
 #: htdocs/modules/Settings/views/settings.php:59
 msgid "Your Last Name"
-msgstr ""
+msgstr "Ваша фамилия"
 
 #: htdocs/modules/Settings/views/settings.php:141
 msgid "Your Timezone"
-msgstr ""
+msgstr "Ваш часовой пояс"
 
 #: htdocs/modules/Settings/views/settings.php:64
 msgid "Your Title"
-msgstr ""
+msgstr "Ваш заголовок"
 
 #: htdocs/modules/Settings/views/settings.php:79
 msgid "Your Work Number"
-msgstr ""
+msgstr "Ваш рабочий номер"
 
 #: htdocs/assets/js/ucp.js:330
 msgid ""
@@ -1429,7 +1437,7 @@ msgstr ""
 
 #: Ucp.class.php:98
 msgid "gcc-c++ is not installed"
-msgstr ""
+msgstr "gcc-c++ не установлен"
 
 #: htdocs/index.php:92
 #, php-format
@@ -1438,6 +1446,9 @@ msgid ""
 "file paths and directories are locked down properly. For more information "
 "see: %s"
 msgstr ""
+"файлы htaccess помогают защитить целостность Вашего сервера. Убедитесь, что "
+"пути к файлам и каталогам заблокированы должным образом. Для дополнительной "
+"информации смотрите: %s"
 
 #: Ucp.class.php:142
 msgid "icu is not installed. You need to run: yum install icu libicu-devel"
@@ -1451,4 +1462,4 @@ msgstr ""
 
 #: htdocs/views/login.php:25
 msgid "or"
-msgstr ""
+msgstr "или"
