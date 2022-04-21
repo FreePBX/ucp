@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-01 10:46+0000\n"
+"POT-Creation-Date: 2022-04-21 03:15+0000\n"
 "PO-Revision-Date: 2018-08-08 11:42+0000\n"
 "Last-Translator: Petr Varvarovsky <petrv@atlantis.cz>\n"
 "Language-Team: Czech <http://*/projects/freepbx/ucp/cs/>\n"
@@ -611,7 +611,11 @@ msgstr "Nechť se tento uživatel přihlásí do UCP"
 msgid "Miscellaneous"
 msgstr "Různé"
 
-#: htdocs/includes/Ajax.class.php:69
+#: htdocs/includes/Ajax.class.php:35
+msgid "Module or Command requested invalid"
+msgstr ""
+
+#: htdocs/includes/Ajax.class.php:74
 msgid "Module or Command were null. Check your code."
 msgstr "Modul nebo příkaz byly nulové. Zkontrolujte kód."
 
@@ -979,7 +983,7 @@ msgstr ""
 "Uživatelský kontrolní panel je nyní rozdělen 'Ovládacích panelů'. Nový "
 "ovládací panel můžete přidat kliknutím na tento symbol"
 
-#: htdocs/includes/Ajax.class.php:74
+#: htdocs/includes/Ajax.class.php:79
 #, php-format
 msgid "The class %s already existed. Ajax MUST load it, for security reasons"
 msgstr "Třída %s již existuje. Ajax si ho MUSÍ z bezpečnostních důvodů načíst"

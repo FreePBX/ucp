@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-01 10:46+0000\n"
+"POT-Creation-Date: 2022-04-21 03:15+0000\n"
 "PO-Revision-Date: 2015-11-23 13:55+0200\n"
 "Last-Translator: james <zhulizhong@gmail.com>\n"
 "Language-Team: Simplified Chinese <http://weblate.freepbx.org/projects/"
@@ -571,7 +571,11 @@ msgstr ""
 msgid "Miscellaneous"
 msgstr ""
 
-#: htdocs/includes/Ajax.class.php:69
+#: htdocs/includes/Ajax.class.php:35
+msgid "Module or Command requested invalid"
+msgstr ""
+
+#: htdocs/includes/Ajax.class.php:74
 msgid "Module or Command were null. Check your code."
 msgstr ""
 
@@ -926,7 +930,7 @@ msgid ""
 "dashboard by clicking this symbol"
 msgstr ""
 
-#: htdocs/includes/Ajax.class.php:74
+#: htdocs/includes/Ajax.class.php:79
 #, php-format
 msgid "The class %s already existed. Ajax MUST load it, for security reasons"
 msgstr ""
