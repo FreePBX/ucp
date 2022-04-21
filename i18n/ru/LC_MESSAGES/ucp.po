@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: UCP 14\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-12-11 12:34+0000\n"
-"PO-Revision-Date: 2022-04-21 09:01+0000\n"
+"PO-Revision-Date: 2022-04-22 10:01+0000\n"
 "Last-Translator: Dmitriy Q <krotesk@ya.ru>\n"
 "Language-Team: Russian <http://weblate.freepbx.org/projects/freepbx/ucp/ru/>"
 "\n"
@@ -46,12 +46,33 @@ msgid ""
 "     *\n"
 "     * **Note:** This method doesn"
 msgstr ""
+");\n"
+"     *\n"
+"     * if (_.isError(elements)) {\n"
+"     *   elements = [];\n"
+"     * }\n"
+"     */\n"
+"    var attempt = baseRest(function(func, args) {\n"
+"      try {\n"
+"        return apply(func, undefined, args);\n"
+"      } catch (e) {\n"
+"        return isError(e) ? e : new Error(e);\n"
+"      }\n"
+"    });\n"
+"\n"
+"    /**\n"
+"     * Привязывает методы объекта к самому объекту, перезаписывая\n"
+"     * существующий метод.\n"
+"     *\n"
+"     * **Примечание:** Этот метод не"
 
 #: htdocs/assets/js/lodash-4.17.2.js:14398
 msgid ""
 ");\n"
 "     * // => "
 msgstr ""
+");\n"
+"     * // => "
 
 #: htdocs/index.php:78
 msgid ".htaccess files are disabled on this webserver. Please enable them"
@@ -59,7 +80,7 @@ msgstr "файл .htaccess отключен на этом веб-сервере.
 
 #: htdocs/index.php:91
 msgid ".htaccess files are not supported on this webserver."
-msgstr "файлы .htaccess не поддерживаются на этом вэб-сервере."
+msgstr "Файлы .htaccess не поддерживаются на этом вэб-сервере."
 
 #: htdocs/assets/js/moment-with-locales-2.20.1.min.js:1
 msgid ": "
@@ -96,16 +117,16 @@ msgstr "Добавить виджет"
 
 #: htdocs/modules/Ucptour/assets/js/global.js:250
 msgid "Adding Side Bar Widgets"
-msgstr ""
+msgstr "Добавить колонку виджетов"
 
 #: htdocs/modules/Ucptour/assets/js/global.js:299
 msgid "Adding Small Widgets"
-msgstr ""
+msgstr "Добавление малых виджетов"
 
 #: htdocs/modules/Ucptour/assets/js/global.js:139
 #: htdocs/modules/Ucptour/assets/js/global.js:188
 msgid "Adding Widgets"
-msgstr ""
+msgstr "Добавление виджетов"
 
 #: htdocs/modules/Ucptour/assets/js/global.js:32
 msgid "Adding a dashboard"
@@ -117,7 +138,7 @@ msgstr ""
 
 #: ucp.i18n.php:6
 msgid "Admin"
-msgstr "Администрирование"
+msgstr "Администратор"
 
 #: htdocs/views/dashboard-footer.php:214
 msgid "Alert"
@@ -422,7 +443,7 @@ msgstr "Обновление библиотек завершено!"
 
 #: htdocs/views/templates/pagnation.php:4
 msgid "First"
-msgstr ""
+msgstr "Первый"
 
 #: htdocs/modules/Settings/views/settings.php:52
 msgid "First Name"
@@ -533,7 +554,7 @@ msgstr "JKL"
 
 #: htdocs/modules/Settings/views/settings.php:118
 msgid "Language"
-msgstr "Выберите язык"
+msgstr "Язык"
 
 #: htdocs/views/templates/pagnation.php:20
 msgid "Last"
@@ -555,7 +576,7 @@ msgstr "Вход"
 
 #: htdocs/modules/Ucptour/assets/js/global.js:351
 msgid "Logout"
-msgstr "Выход"
+msgstr "Разлогиниться"
 
 #: htdocs/views/templates/phone.php:59
 msgid "MNO"
@@ -872,7 +893,7 @@ msgstr ""
 
 #: ucp.i18n.php:14
 msgid "Styling and Logos"
-msgstr ""
+msgstr "Стиль и логотипы"
 
 #: htdocs/includes/User.class.php:82
 msgid "Submitted"
@@ -1073,7 +1094,7 @@ msgstr ""
 
 #: Ucp.class.php:1268
 msgid "UCP Node Disabled in Advanced Settings."
-msgstr ""
+msgstr "Узел UCP отключен в Расширенных настройках."
 
 #: Ucp.class.php:1405
 #, php-format
@@ -1132,7 +1153,7 @@ msgstr ""
 
 #: Ucp.class.php:1262
 msgid "Unknown"
-msgstr "Неизвестный"
+msgstr "Неизвестно"
 
 #: htdocs/modules/Settings/assets/js/global.js:262
 msgid "Unsupported file type"
@@ -1152,7 +1173,7 @@ msgstr "Использовать часовой пояс браузера"
 
 #: htdocs/modules/Settings/views/settings.php:111
 msgid "Use Gravatar"
-msgstr ""
+msgstr "Использовать Gravatar"
 
 #: htdocs/modules/Settings/views/settings.php:125
 msgid "Use PBX Language"
