@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-10-19 02:51+0000\n"
+"POT-Creation-Date: 2022-04-21 03:15+0000\n"
 "PO-Revision-Date: 2017-03-08 21:13+0200\n"
 "Last-Translator: Kingvoice <suporte@kingvoice.com.br>\n"
 "Language-Team: Portuguese (Brazil) <http://weblate.freepbx.org/projects/"
@@ -582,7 +582,11 @@ msgstr "Este usuário pode fazer login no PCU"
 msgid "Miscellaneous"
 msgstr "Variações"
 
-#: htdocs/includes/Ajax.class.php:69
+#: htdocs/includes/Ajax.class.php:35
+msgid "Module or Command requested invalid"
+msgstr ""
+
+#: htdocs/includes/Ajax.class.php:74
 msgid "Module or Command were null. Check your code."
 msgstr "Módulo ou Commando foi nulo. Verifique seu código."
 
@@ -937,7 +941,7 @@ msgid ""
 "dashboard by clicking this symbol"
 msgstr ""
 
-#: htdocs/includes/Ajax.class.php:74
+#: htdocs/includes/Ajax.class.php:79
 #, php-format
 msgid "The class %s already existed. Ajax MUST load it, for security reasons"
 msgstr ""

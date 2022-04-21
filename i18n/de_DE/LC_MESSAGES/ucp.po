@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-10-19 02:51+0000\n"
+"POT-Creation-Date: 2022-04-21 03:15+0000\n"
 "PO-Revision-Date: 2018-10-25 08:00+0000\n"
 "Last-Translator: Bastian Mertgen <b.mertgen@bastian-mertgen.de>\n"
 "Language-Team: German <http://*/projects/freepbx/ucp/de/>\n"
@@ -615,7 +615,11 @@ msgstr "Darf sich dieser User im UCP einloggen"
 msgid "Miscellaneous"
 msgstr "Sonstiges"
 
-#: htdocs/includes/Ajax.class.php:69
+#: htdocs/includes/Ajax.class.php:35
+msgid "Module or Command requested invalid"
+msgstr ""
+
+#: htdocs/includes/Ajax.class.php:74
 msgid "Module or Command were null. Check your code."
 msgstr "Modul bzw. Befehl war null. Überprüfen Sie Ihren Code."
 
@@ -988,7 +992,7 @@ msgstr ""
 "Die User Control Panel ist jetzt durch 'Dashboards' getrennt. Sie können ein "
 "neues Dashboard durch klicken dieses Symbols"
 
-#: htdocs/includes/Ajax.class.php:74
+#: htdocs/includes/Ajax.class.php:79
 #, php-format
 msgid "The class %s already existed. Ajax MUST load it, for security reasons"
 msgstr ""
