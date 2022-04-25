@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: UCP 14\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-12-11 12:34+0000\n"
-"PO-Revision-Date: 2022-04-22 10:01+0000\n"
+"PO-Revision-Date: 2022-04-25 09:22+0000\n"
 "Last-Translator: Dmitriy Q <krotesk@ya.ru>\n"
 "Language-Team: Russian <http://weblate.freepbx.org/projects/freepbx/ucp/ru/>"
 "\n"
@@ -134,7 +134,7 @@ msgstr "Добавление панели мониторинга"
 
 #: ucp.i18n.php:34
 msgid "Address to bind to. Default is "
-msgstr ""
+msgstr "Адрес привязки. Значение по умолчанию: "
 
 #: ucp.i18n.php:6
 msgid "Admin"
