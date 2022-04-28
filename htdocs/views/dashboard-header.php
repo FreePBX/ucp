@@ -21,6 +21,12 @@
 			<?php } ?>
 		<?php } ?>
 	</ul>
+	<div class="ucp__logo">
+		<?php global $amp_conf; ?>
+		<a href="<?php echo $amp_conf['BRAND_IMAGE_FREEPBX_LINK_LEFT']; ?>" target="_blank" >
+			<img src="/admin/<?= $amp_conf['BRAND_IMAGE_TANGO_LEFT'] ?>" alt="<?= $amp_conf['DASHBOARD_FREEPBX_BRAND'] ?>">
+		</a>
+	</div>
 </nav>
 
 <!-- left navbar -->

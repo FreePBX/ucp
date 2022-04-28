@@ -280,10 +280,15 @@ foreach($mods as $m) {
 $ucp->Modgettext->push_textdomain("ucp");
 
 if(!empty($user["id"])) {
+	// No footer for UCP dashboard after login
 	$displayvars['year'] = date('Y',time());
-	$dbfc = FreePBX::Config()->get('VIEW_UCP_FOOTER_CONTENT');
-	$displayvars['dashboard_footer_content'] = $ucp->View->load_view(__DIR__."/".$dbfc, array("year" => date('Y',time())));
 	$ucp->View->show_view(__DIR__ . '/views/dashboard-footer.php', $displayvars);
+} else {
+	// UCP login footer same as main footer
+	$displayvars['year'] = date('Y', time());
+	$dbfc = FreePBX::Config()->get('VIEW_FOOTER_CONTENT');
+	$path = FreePBX::Config()->get('AMPWEBROOT');
+	$displayvars['dashboard_footer_content'] = $ucp->View->load_view($path .'/admin/'.$dbfc, array("year" => date('Y', time())));
 }
 
 $ucp->View->show_view(dirname(__FILE__).'/views/footer.php',$displayvars);

@@ -81,7 +81,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 	background-color: @secundary_color;
 	position: absolute;
 	top: 0;
-	bottom: 0;
+	bottom: 125px;
 	left: 0;
 	right: 0;
 	margin: auto;
@@ -253,7 +253,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 }
 
 .navbar-fixed-left {
-	height: ~"calc(100% - 64px)";
+	height: ~"calc(100% - 45px)";
 	overflow-x: hidden;
 	overflow-y: auto;
 	width: 55px;
@@ -456,6 +456,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 	float: right;
 	margin-top: 5px;
 	margin-right: 5px;
+	margin-left: 55px;
 	.dashboard-menu {
 		position: relative;
 		padding-right: 62px;
@@ -1677,4 +1678,16 @@ div.bhoechie-tab div.bhoechie-tab-content:not(.active){
 .multiselect-container {
     max-height: 300px;
     overflow: auto;
+}
+
+.ucp__logo{
+    position: absolute;
+    min-width: 55px;
+    justify-content: center;
+    display: flex;
+	img{
+		height: 25px;
+		margin-top: 8px;
+		margin-left: 8px;
+	}
 }
