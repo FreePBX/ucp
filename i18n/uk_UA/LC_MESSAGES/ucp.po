@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-04-21 03:15+0000\n"
+"POT-Creation-Date: 2022-04-28 07:44+0000\n"
 "PO-Revision-Date: 2016-12-13 14:49+0200\n"
 "Last-Translator: Maxim <maxim@ua.fm>\n"
 "Language-Team: Ukrainian <http://weblate.freepbx.org/projects/freepbx/ucp/"
@@ -751,7 +751,7 @@ msgstr "Оновлення усіх активів UCP, це може зайня
 msgid "Remember Me"
 msgstr "Запам'ятати мене"
 
-#: htdocs/views/dashboard-header.php:77
+#: htdocs/views/dashboard-header.php:83
 #: htdocs/modules/Widgets/assets/js/global.js:446
 msgid "Remove Widget"
 msgstr ""

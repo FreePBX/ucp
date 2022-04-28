@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-04-21 03:15+0000\n"
+"POT-Creation-Date: 2022-04-28 07:44+0000\n"
 "PO-Revision-Date: 2015-11-23 13:55+0200\n"
 "Last-Translator: james <zhulizhong@gmail.com>\n"
 "Language-Team: Simplified Chinese <http://weblate.freepbx.org/projects/"
@@ -743,7 +743,7 @@ msgstr ""
 msgid "Remember Me"
 msgstr ""
 
-#: htdocs/views/dashboard-header.php:77
+#: htdocs/views/dashboard-header.php:83
 #: htdocs/modules/Widgets/assets/js/global.js:446
 msgid "Remove Widget"
 msgstr ""

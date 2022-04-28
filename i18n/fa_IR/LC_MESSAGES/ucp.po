@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-04-21 03:15+0000\n"
+"POT-Creation-Date: 2022-04-28 07:44+0000\n"
 "PO-Revision-Date: 2016-07-06 05:21+0200\n"
 "Last-Translator: Media <mousavi.media@gmail.com>\n"
 "Language-Team: Persian (Iran) <http://weblate.freepbx.org/projects/freepbx/"
@@ -749,7 +749,7 @@ msgstr "بازنشانی تمام مقادیر پنل کنترل کاربری. �
 msgid "Remember Me"
 msgstr "مرا بخاطر بسپار"
 
-#: htdocs/views/dashboard-header.php:77
+#: htdocs/views/dashboard-header.php:83
 #: htdocs/modules/Widgets/assets/js/global.js:446
 msgid "Remove Widget"
 msgstr ""

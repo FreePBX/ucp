@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-04-21 03:15+0000\n"
+"POT-Creation-Date: 2022-04-28 07:44+0000\n"
 "PO-Revision-Date: 2016-09-02 16:04+0200\n"
 "Last-Translator: Kenichi <k.kitani@qloog.com>\n"
 "Language-Team: Japanese <http://weblate.freepbx.org/projects/freepbx/ucp/"
@@ -747,7 +747,7 @@ msgstr "UCPアセットを再読み込みしています。お待ちください
 msgid "Remember Me"
 msgstr "保存する"
 
-#: htdocs/views/dashboard-header.php:77
+#: htdocs/views/dashboard-header.php:83
 #: htdocs/modules/Widgets/assets/js/global.js:446
 msgid "Remove Widget"
 msgstr ""

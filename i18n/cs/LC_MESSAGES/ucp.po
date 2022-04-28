@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-04-21 03:15+0000\n"
+"POT-Creation-Date: 2022-04-28 07:44+0000\n"
 "PO-Revision-Date: 2018-08-08 11:42+0000\n"
 "Last-Translator: Petr Varvarovsky <petrv@atlantis.cz>\n"
 "Language-Team: Czech <http://*/projects/freepbx/ucp/cs/>\n"
@@ -789,7 +789,7 @@ msgstr "Obnovení všech zdrojů UCP. toto může chvíli trvat..."
 msgid "Remember Me"
 msgstr "Zapamatovat si mě"
 
-#: htdocs/views/dashboard-header.php:77
+#: htdocs/views/dashboard-header.php:83
 #: htdocs/modules/Widgets/assets/js/global.js:446
 msgid "Remove Widget"
 msgstr "Odebrat widget"
