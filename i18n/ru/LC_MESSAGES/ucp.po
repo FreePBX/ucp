@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: UCP 14\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-12-11 12:34+0000\n"
-"PO-Revision-Date: 2022-04-25 09:22+0000\n"
+"PO-Revision-Date: 2022-04-30 05:01+0000\n"
 "Last-Translator: Dmitriy Q <krotesk@ya.ru>\n"
 "Language-Team: Russian <http://weblate.freepbx.org/projects/freepbx/ucp/ru/>"
 "\n"
@@ -148,6 +148,7 @@ msgstr "Тревога"
 msgid ""
 "All fields update when unfocused (selecting another field) except password"
 msgstr ""
+"Все поля обновляются при расфокусировке (выборе другого поля), кроме пароля"
 
 #: htdocs/modules/Ucptour/assets/js/global.js:239
 #, perl-format
@@ -155,6 +156,8 @@ msgid ""
 "All widgets in a dashboard can also be locked globally by clicking the '%s' "
 "symbol on the dashboard tab"
 msgstr ""
+"Все виджеты на панели мониторинга также можно заблокировать глобально, "
+"щелкнув символ '%s' на вкладке панели мониторинга"
 
 #: htdocs/modules/Settings/views/settings.php:144
 msgid "Allow Desktop Notifications"
@@ -166,11 +169,11 @@ msgstr "Разрешить вход"
 
 #: ucp.i18n.php:54
 msgid "Allow Password Changes"
-msgstr ""
+msgstr "Разрешить изменение пароля"
 
 #: ucp.i18n.php:60
 msgid "Allow Username Changes"
-msgstr ""
+msgstr "Разрешить изменение имени пользователя"
 
 #: htdocs/modules/Settings/views/settings.php:146
 msgid "Allow browser desktop notifications from UCP modules."
@@ -181,14 +184,16 @@ msgid ""
 "Allow this user to originate calls from within UCP. This is not the same as "
 "WebRTC"
 msgstr ""
+"Разрешить этому пользователю отправлять вызовы из UCP. Это не то же самое, "
+"что WebRTC"
 
 #: ucp.i18n.php:62
 msgid "Allow users to change their username in UCP"
-msgstr ""
+msgstr "Разрешить пользователям изменять свое имя пользователя в UCP"
 
 #: ucp.i18n.php:58
 msgid "Allow users to change thier password in UCP"
-msgstr ""
+msgstr "Разрешить пользователям изменять свой пароль в UCP"
 
 #: views/users_hook.php:147
 msgid "Allowed Extension Settings"
@@ -196,7 +201,7 @@ msgstr "Разрешенные настройки номера"
 
 #: htdocs/modules/Widgets/assets/js/global.js:889
 msgid "Are you sure you want to delete this dashboard?"
-msgstr ""
+msgstr "Вы уверены, что хотите удалить эту панель мониторинга?"
 
 #: Ucp.class.php:1252
 #, php-format
@@ -225,7 +230,7 @@ msgstr "Сотовый телефон"
 
 #: htdocs/modules/Ucptour/assets/js/global.js:313
 msgid "Click the widget's icon to continue"
-msgstr ""
+msgstr "Нажмите на значок виджета чтобы продолжить"
 
 #: htdocs/modules/Ucptour/assets/js/global.js:33
 #: htdocs/modules/Ucptour/assets/js/global.js:140
@@ -234,7 +239,7 @@ msgstr ""
 #: htdocs/modules/Ucptour/assets/js/global.js:300
 #: htdocs/modules/Ucptour/assets/js/global.js:335
 msgid "Click this symbol to continue"
-msgstr ""
+msgstr "Для продолжения нажмите на этот символ"
 
 #: htdocs/modules/Ucptour/assets/js/global.js:300
 #, perl-format
@@ -242,6 +247,8 @@ msgid ""
 "Clicking the '%s' symbol will add this small widget to the display. It will "
 "be visible on all dashboards"
 msgstr ""
+"Нажатие на символ '%s' добавит этот небольшой виджет на дисплей. Он будет "
+"виден на всех панелях мониторинга"
 
 #: htdocs/modules/Ucptour/assets/js/global.js:189
 #, perl-format
@@ -249,6 +256,8 @@ msgid ""
 "Clicking the '%s' symbol will add this widget to the currently active "
 "dashboard."
 msgstr ""
+"Нажатие на символ '%s' добавит этот виджет на текущую активную панель "
+"мониторинга."
 
 #: htdocs/views/dashboard-footer.php:226
 msgid "Close"
@@ -301,10 +310,13 @@ msgid ""
 "appear directly on your dashboard. You can click on any category to get a "
 "listing of the widgets available"
 msgstr ""
+"Виджеты панели мониторинга отсортированы по категориям слева. Эти виджеты "
+"появятся непосредственно на вашей панели мониторинга. Вы можете нажать на "
+"любую категорию для получения списка доступных виджетов"
 
 #: htdocs/modules/Ucptour/assets/js/global.js:102
 msgid "Dashboard widgets will be displayed here"
-msgstr ""
+msgstr "Здесь будут отображаться виджеты панели мониторинга"
 
 #: htdocs/modules/Ucptour/assets/js/global.js:93
 msgid "Dashboards"
@@ -337,7 +349,7 @@ msgstr "Удаленная сессия"
 
 #: Ucp.class.php:419 Ucp.class.php:954
 msgid "Deleted User Session"
-msgstr ""
+msgstr "Удаленный сеанс пользователя"
 
 #: htdocs/assets/js/ucp.js:80
 msgid "Disable"
@@ -350,7 +362,7 @@ msgstr "Отображаемое имя"
 #: Ucp.class.php:1424
 #, php-format
 msgid "Don't know what %s is"
-msgstr ""
+msgstr "Неизвестно что такое %s"
 
 #: Ucp.class.php:300 Ucp.class.php:326 Ucp.class.php:1205 Ucp.class.php:1209
 #: Ucp.class.php:1213 Ucp.class.php:1217
@@ -379,11 +391,11 @@ msgstr "Включить"
 
 #: views/users_hook.php:173
 msgid "Enable Originating Calls"
-msgstr ""
+msgstr "Включить исходящие вызовы"
 
 #: ucp.i18n.php:28
 msgid "Enable TLS for the NodeJS Server"
-msgstr ""
+msgstr "Включить TLS для сервера NodeJS"
 
 #: views/users_hook.php:76
 msgid "Enable Tour Mode"
@@ -391,17 +403,19 @@ msgstr "Включить режим обзора"
 
 #: ucp.i18n.php:22
 msgid "Enable the NodeJS Server"
-msgstr ""
+msgstr "Включить сервер NodeJS"
 
 #: views/users_hook.php:95
 msgid ""
 "Enable tour mode in UCP upon first login. If disabled the tour will not "
 "automatically start upon first login"
 msgstr ""
+"Включите режим тура в UCP при первом входе в систему. Если этот параметр "
+"отключен - тур не начнется автоматически при первом входе в систему"
 
 #: htdocs/modules/Settings/assets/js/global.js:140
 msgid "Enabling notifications was denied"
-msgstr ""
+msgstr "Во включении уведомлений было отказано"
 
 #: htdocs/modules/Ucptour/assets/js/global.js:355
 msgid "End of tour"
@@ -413,12 +427,12 @@ msgstr "Английский"
 
 #: htdocs/modules/Ucptour/assets/js/global.js:51
 msgid "Enter a name for your dashboard in this input box"
-msgstr ""
+msgstr "Введите название для вашей панели мониторинга в это поле ввода"
 
 #: install.inc.php:20
 #, php-format
 msgid "Failed to install %s due to the following conflicting module(s): %s"
-msgstr ""
+msgstr "Не удалось установить %s из-за следующих конфликтующих модулей: %s"
 
 #: Ucp.class.php:1334
 #, php-format
