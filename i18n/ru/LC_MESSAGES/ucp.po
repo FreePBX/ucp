@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: UCP 14\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-12-11 12:34+0000\n"
-"PO-Revision-Date: 2022-04-30 05:01+0000\n"
+"PO-Revision-Date: 2022-05-13 07:00+0000\n"
 "Last-Translator: Dmitriy Q <krotesk@ya.ru>\n"
 "Language-Team: Russian <http://weblate.freepbx.org/projects/freepbx/ucp/ru/>"
 "\n"
@@ -441,7 +441,7 @@ msgstr "Не удалось запустить: '%s'"
 
 #: Ucp.class.php:178
 msgid "Failed updating libraries!"
-msgstr ""
+msgstr "Не удалось обновить библиотеки!"
 
 #: Ucp.class.php:308
 msgid "Failed!"
@@ -477,23 +477,23 @@ msgstr "Общие"
 
 #: Ucp.class.php:1215
 msgid "Generating Main CSS..."
-msgstr ""
+msgstr "Генерируется основной CSS..."
 
 #: Ucp.class.php:1211
 msgid "Generating Main Scripts..."
-msgstr ""
+msgstr "Генерируются основные скрипты..."
 
 #: Ucp.class.php:1207
 msgid "Generating Module CSS..."
-msgstr ""
+msgstr "Генерируется модуль CSS..."
 
 #: Ucp.class.php:1203
 msgid "Generating Module Scripts..."
-msgstr ""
+msgstr "Генерируются скрипты модуля..."
 
 #: htdocs/views/templates/phone.php:98
 msgid "Hold"
-msgstr ""
+msgstr "удержание"
 
 #: htdocs/modules/Home/Home.class.php:187
 msgid "Home"
@@ -511,12 +511,12 @@ msgstr "Домашний каталог [%s] недоступен для зап�
 #: htdocs/modules/Settings/views/settings.php:44
 msgid ""
 "How you would like your name displayed throughout UCP and Contact Manager"
-msgstr ""
+msgstr "Как отображать ваше имя в UCP и Управлении контактами"
 
 #: Ucp.class.php:148
 #, php-format
 msgid "ICU version is: %s requirement is %s"
-msgstr ""
+msgstr "Версия ICU: %s требуется %s"
 
 #: views/users_hook.php:56 views/users_hook.php:86 views/users_hook.php:183
 msgid "Inherit"
@@ -543,24 +543,24 @@ msgstr ""
 
 #: htdocs/includes/User.class.php:97
 msgid "Invalid"
-msgstr ""
+msgstr "Недействительный"
 
 #: htdocs/modules/Home/Home.class.php:136
 #: htdocs/modules/Home/Home.class.php:140
 msgid "Invalid Device"
-msgstr ""
+msgstr "Недействительное устройство"
 
 #: htdocs/includes/User.class.php:105
 msgid "Invalid Login Credentials"
-msgstr ""
+msgstr "Недействительные учетные данные для входа"
 
 #: htdocs/index.php:225
 msgid "Invalid Token"
-msgstr ""
+msgstr "Недействительный токен"
 
 #: htdocs/modules/Widgets/Widgets.class.php:46
 msgid "Invalid dashboard id"
-msgstr ""
+msgstr "Недействительный ID панели мониторинга"
 
 #: htdocs/views/templates/phone.php:55
 msgid "JKL"
@@ -572,7 +572,7 @@ msgstr "Язык"
 
 #: htdocs/views/templates/pagnation.php:20
 msgid "Last"
-msgstr ""
+msgstr "Конец"
 
 #: htdocs/modules/Settings/views/settings.php:57
 msgid "Last Name"
@@ -598,15 +598,15 @@ msgstr "MNO"
 
 #: views/users_hook.php:65
 msgid "May this user log in to UCP"
-msgstr ""
+msgstr "Может ли этот пользователь войти в UCP"
 
 #: views/users_hook.php:24
 msgid "Miscellaneous"
-msgstr ""
+msgstr "Прочее"
 
 #: htdocs/includes/Ajax.class.php:69
 msgid "Module or Command were null. Check your code."
-msgstr ""
+msgstr "Модуль или команда были равны нулю. Проверьте свой код."
 
 #: htdocs/modules/Ucptour/assets/js/global.js:130
 msgid ""
