@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-04-28 07:44+0000\n"
+"POT-Creation-Date: 2022-05-17 11:30+0000\n"
 "PO-Revision-Date: 2018-08-08 11:42+0000\n"
 "Last-Translator: Petr Varvarovsky <petrv@atlantis.cz>\n"
 "Language-Team: Czech <http://*/projects/freepbx/ucp/cs/>\n"
@@ -76,6 +76,10 @@ msgstr ""
 ");\n"
 "     * // => "
 
+#: htdocs/assets/js/jquery-ui-1.13.1.min.js:6
+msgid "+t,e.props.alpha={idx:3,type:"
+msgstr ""
+
 #: htdocs/index.php:93
 msgid ".htaccess files are disabled on this webserver. Please enable them"
 msgstr ""
@@ -98,7 +102,7 @@ msgstr "Ovládací panel lze smazat kliknutím na tlačítko '%s'"
 msgid "ABC"
 msgstr "ABC"
 
-#: htdocs/views/dashboard-footer.php:202
+#: htdocs/views/dashboard-footer.php:206
 msgid "Accept"
 msgstr "Potvrdit"
 
@@ -110,11 +114,11 @@ msgstr "Nastavení účtu"
 msgid "Active Sessions"
 msgstr "Aktivní relace"
 
-#: htdocs/views/dashboard-footer.php:13
+#: htdocs/views/dashboard-footer.php:12
 msgid "Add Dashboard"
 msgstr "Přidat ovládací panel"
 
-#: htdocs/views/dashboard-footer.php:55
+#: htdocs/views/dashboard-footer.php:54
 msgid "Add Widget"
 msgstr "Přidat widget"
 
@@ -143,7 +147,7 @@ msgstr "Addresa k připojení. Výchozí hodnota je "
 msgid "Admin"
 msgstr "Administrator"
 
-#: htdocs/views/dashboard-footer.php:214
+#: htdocs/views/dashboard-footer.php:217
 msgid "Alert"
 msgstr "Upozornění"
 
@@ -227,7 +231,7 @@ msgid "Call"
 msgstr "Volat"
 
 #: htdocs/views/dashboard-footer.php:22 htdocs/views/dashboard-footer.php:43
-#: htdocs/views/dashboard-footer.php:151 htdocs/views/dashboard-footer.php:201
+#: htdocs/views/dashboard-footer.php:155 htdocs/views/dashboard-footer.php:205
 msgid "Cancel"
 msgstr "Zrušit"
 
@@ -265,7 +269,7 @@ msgid ""
 msgstr ""
 "Kliknutím na symbol '%s' přidáte tento widget na aktuálně aktivní panel."
 
-#: htdocs/views/dashboard-footer.php:226 htdocs/views/forgot.php:15
+#: htdocs/views/dashboard-footer.php:230 htdocs/views/forgot.php:15
 msgid "Close"
 msgstr "Zavřít"
 
@@ -273,7 +277,7 @@ msgstr "Zavřít"
 msgid "Company"
 msgstr "Firma"
 
-#: htdocs/views/dashboard-footer.php:193
+#: htdocs/views/dashboard-footer.php:196
 msgid "Confirm Action"
 msgstr "Potvrdit akci"
 
@@ -379,7 +383,7 @@ msgstr "Hotovo"
 msgid "Drop a new image here"
 msgstr "Umístit zde nový obrázek"
 
-#: htdocs/views/dashboard-footer.php:34 htdocs/views/dashboard-footer.php:44
+#: htdocs/views/dashboard-footer.php:33 htdocs/views/dashboard-footer.php:44
 msgid "Edit Dashboard"
 msgstr "Upravit ovládací panel"
 
@@ -749,7 +753,7 @@ msgstr "Odkaz na obnovení hesla (platný do: %s): %s"
 msgid "Password Reset for: %s"
 msgstr "Reset hesla pro: %s"
 
-#: htdocs/modules/Settings/views/pwd_alert.php:1 htdocs/views/forgot.php:9
+#: htdocs/modules/Settings/views/pwd_alert.php:1 htdocs/views/forgot.php:6
 msgid "Password does not match security policy."
 msgstr ""
 
@@ -789,7 +793,7 @@ msgstr "Obnovení všech zdrojů UCP. toto může chvíli trvat..."
 msgid "Remember Me"
 msgstr "Zapamatovat si mě"
 
-#: htdocs/views/dashboard-header.php:83
+#: htdocs/views/dashboard-header.php:84
 #: htdocs/modules/Widgets/assets/js/global.js:446
 msgid "Remove Widget"
 msgstr "Odebrat widget"
@@ -1368,7 +1372,7 @@ msgstr "Umístění widgetu"
 msgid "Widget Removal"
 msgstr "Odstranění widgetu"
 
-#: htdocs/views/dashboard-footer.php:162
+#: htdocs/views/dashboard-footer.php:165
 #: htdocs/modules/Ucptour/assets/js/global.js:228
 msgid "Widget Settings"
 msgstr "Nastavení widgetu"
@@ -1593,6 +1597,10 @@ msgstr "nebo"
 
 #: views/users_hook.php:125
 msgid "select template"
+msgstr ""
+
+#: htdocs/assets/js/jquery-ui-1.13.1.min.js:6
+msgid "string"
 msgstr ""
 
 #~ msgid "Email address unknown!"

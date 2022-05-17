@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-04-28 07:44+0000\n"
+"POT-Creation-Date: 2022-05-17 11:30+0000\n"
 "PO-Revision-Date: 2016-07-06 05:21+0200\n"
 "Last-Translator: Media <mousavi.media@gmail.com>\n"
 "Language-Team: Persian (Iran) <http://weblate.freepbx.org/projects/freepbx/"
@@ -55,6 +55,10 @@ msgid ""
 "     * // => "
 msgstr ""
 
+#: htdocs/assets/js/jquery-ui-1.13.1.min.js:6
+msgid "+t,e.props.alpha={idx:3,type:"
+msgstr ""
+
 #: htdocs/index.php:93
 msgid ".htaccess files are disabled on this webserver. Please enable them"
 msgstr ""
@@ -77,7 +81,7 @@ msgstr ""
 msgid "ABC"
 msgstr "ABC"
 
-#: htdocs/views/dashboard-footer.php:202
+#: htdocs/views/dashboard-footer.php:206
 msgid "Accept"
 msgstr ""
 
@@ -89,11 +93,11 @@ msgstr "تنظیمات حساب"
 msgid "Active Sessions"
 msgstr "اتصالات فعال"
 
-#: htdocs/views/dashboard-footer.php:13
+#: htdocs/views/dashboard-footer.php:12
 msgid "Add Dashboard"
 msgstr ""
 
-#: htdocs/views/dashboard-footer.php:55
+#: htdocs/views/dashboard-footer.php:54
 msgid "Add Widget"
 msgstr ""
 
@@ -122,7 +126,7 @@ msgstr ""
 msgid "Admin"
 msgstr "مدیر"
 
-#: htdocs/views/dashboard-footer.php:214
+#: htdocs/views/dashboard-footer.php:217
 msgid "Alert"
 msgstr ""
 
@@ -202,7 +206,7 @@ msgid "Call"
 msgstr "تماس"
 
 #: htdocs/views/dashboard-footer.php:22 htdocs/views/dashboard-footer.php:43
-#: htdocs/views/dashboard-footer.php:151 htdocs/views/dashboard-footer.php:201
+#: htdocs/views/dashboard-footer.php:155 htdocs/views/dashboard-footer.php:205
 msgid "Cancel"
 msgstr ""
 
@@ -237,7 +241,7 @@ msgid ""
 "dashboard."
 msgstr ""
 
-#: htdocs/views/dashboard-footer.php:226 htdocs/views/forgot.php:15
+#: htdocs/views/dashboard-footer.php:230 htdocs/views/forgot.php:15
 msgid "Close"
 msgstr ""
 
@@ -245,7 +249,7 @@ msgstr ""
 msgid "Company"
 msgstr "شرکت"
 
-#: htdocs/views/dashboard-footer.php:193
+#: htdocs/views/dashboard-footer.php:196
 msgid "Confirm Action"
 msgstr ""
 
@@ -348,7 +352,7 @@ msgstr "انجام شد"
 msgid "Drop a new image here"
 msgstr "یک تصویر جدید به اینجا منتقل کنید"
 
-#: htdocs/views/dashboard-footer.php:34 htdocs/views/dashboard-footer.php:44
+#: htdocs/views/dashboard-footer.php:33 htdocs/views/dashboard-footer.php:44
 msgid "Edit Dashboard"
 msgstr ""
 
@@ -708,7 +712,7 @@ msgstr "لینک بازنشانی کلمه عبور (معتبر تا : %s): %s"
 msgid "Password Reset for: %s"
 msgstr "بازنشانی کلمه عبور برای:%s"
 
-#: htdocs/modules/Settings/views/pwd_alert.php:1 htdocs/views/forgot.php:9
+#: htdocs/modules/Settings/views/pwd_alert.php:1 htdocs/views/forgot.php:6
 msgid "Password does not match security policy."
 msgstr ""
 
@@ -749,7 +753,7 @@ msgstr "بازنشانی تمام مقادیر پنل کنترل کاربری. �
 msgid "Remember Me"
 msgstr "مرا بخاطر بسپار"
 
-#: htdocs/views/dashboard-header.php:83
+#: htdocs/views/dashboard-header.php:84
 #: htdocs/modules/Widgets/assets/js/global.js:446
 msgid "Remove Widget"
 msgstr ""
@@ -1292,7 +1296,7 @@ msgstr ""
 msgid "Widget Removal"
 msgstr ""
 
-#: htdocs/views/dashboard-footer.php:162
+#: htdocs/views/dashboard-footer.php:165
 #: htdocs/modules/Ucptour/assets/js/global.js:228
 msgid "Widget Settings"
 msgstr ""
@@ -1503,6 +1507,10 @@ msgstr "یا"
 
 #: views/users_hook.php:125
 msgid "select template"
+msgstr ""
+
+#: htdocs/assets/js/jquery-ui-1.13.1.min.js:6
+msgid "string"
 msgstr ""
 
 #~ msgid "Password Confirmation Didn't Match!"
