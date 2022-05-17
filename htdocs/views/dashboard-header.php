@@ -1,10 +1,6 @@
-<nav id="nav-bar-background" class="navbar navbar-default navbar-fixed-top">
+<nav id="nav-bar-background" class="navbar navbar-expand-lg fixed-top p-0">
 	<div id="global-message-container">
 		<div id="global-message"></div>
-	</div>
-
-	<div id="add_new_dashboard" class="add-dashboard" data-toggle="modal" data-target="#add_dashboard">
-		<i class="fa fa-2x fa-plus-circle" aria-hidden="true"></i>
 	</div>
 
 	<ul class="nav nav-tabs dashboards" role="tablist" id="all_dashboards">
@@ -21,6 +17,11 @@
 			<?php } ?>
 		<?php } ?>
 	</ul>
+	
+	<div id="add_new_dashboard" class="add-dashboard" data-toggle="modal" data-target="#add_dashboard">
+		<i class="fa fa-2x fa-plus-circle" aria-hidden="true"></i>
+	</div>
+
 	<div class="ucp__logo">
 		<?php global $amp_conf; ?>
 		<a href="<?php echo $amp_conf['BRAND_IMAGE_FREEPBX_LINK_LEFT']; ?>" target="_blank" >
@@ -31,7 +32,7 @@
 
 <!-- left navbar -->
 <nav class="navbar navbar-inverse navbar-fixed-left">
-	<ul class="nav navbar-nav" id="side_bar_content">
+	<ul class="nav navbar-nav align-self-baseline" id="side_bar_content">
 		<li class="add-widget first-widget locked" data-toggle="modal" data-target="#add_widget"><a href="#"><i class="fa fa-plus-circle" aria-hidden="true"></i></a></li>
 		<?php if(!empty($user_small_widgets)) { ?>
 			<?php foreach($user_small_widgets as $small_widget) { ?>

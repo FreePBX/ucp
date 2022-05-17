@@ -172,19 +172,19 @@ class UCP extends UCP_Helpers {
 		//Loading order is important here
 		$globalJavascripts = array(
 			"async-2.1.4.min.js",
-			"jquery-migrate-3.0.0.js",
+			"jquery-migrate-3.4.0.js",
 			"socket.io-1.7.2.js",
-			"bootstrap-3.3.7.custom.min.js",
-			"bootstrap-table-1.11.0.min.js",
+			"bootstrap-4.6.1.bundle.min.js",
+			"bootstrap-table-1.20.1.min.js",
 			"bootstrap-table-extensions-1.11.0/bootstrap-table-cookie.min.js",
 			"bootstrap-table-extensions-1.11.0/bootstrap-table-toolbar.min.js",
 			"bootstrap-table-extensions-1.11.0/bootstrap-table-mobile.min.js",
 			"bootstrap-table-extensions-1.11.0/bootstrap-table-export.min.js",
-			"bootstrap-multiselect-0.9.13.js",
+			"bootstrap-multiselect-1.0.0.js",
 			"bootstrap-select-1.12.1.min.js",
 			"ajax-bootstrap-select-1.3.8.min.js",
 			"tableexport-3.2.10.min.js",
-			"jquery-ui-1.12.1.min.js",
+			"jquery-ui-1.13.1.min.js",
 			"fileinput-3.1.3.js",
 			"recorder.js",
 			"jquery.iframe-transport-9.12.5.js",
@@ -278,7 +278,8 @@ class UCP extends UCP_Helpers {
 		}
 
 		$globalCssFiles = array(
-			"bootstrap-3.3.7.min.css",
+			"bootstrap-4.6.1.min.css",
+			"bootstrap-table-1.20.1.min.css",
 			"bootstrap-toggle-2.2.2.min.css",
 			"bootstrap-select-1.12.1.min.css",
 			"ajax-bootstrap-select-1.3.8.min.css",

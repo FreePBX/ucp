@@ -1461,12 +1461,12 @@ class Ucp implements \BMO {
 
 	private function genAlertGlyphicon($res, $tt = null) {
 		$glyphs = array(
-			"ok" => "glyphicon-ok text-success",
-			"warning" => "glyphicon-warning-sign text-warning",
-			"error" => "glyphicon-remove text-danger",
-			"unknown" => "glyphicon-question-sign text-info",
-			"info" => "glyphicon-info-sign text-info",
-			"critical" => "glyphicon-fire text-danger"
+			"ok" => "fa-check text-success",
+			"warning" => "fa-exclamation-triangle text-warning",
+			"error" => "fa-times text-danger",
+			"unknown" => "fa-question-circle text-info",
+			"info" => "fa-info-circle text-info",
+			"critical" => "fa-free-code-camp text-danger"
 		);
 		// Are we being asked for an alert we actually know about?
 		if (!isset($glyphs[$res])) {

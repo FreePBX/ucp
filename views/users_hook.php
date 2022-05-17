@@ -1,7 +1,7 @@
 <div class="panel panel-info">
 	<div class="panel-heading">
 		<div class="panel-title">
-			<a href="#" data-toggle="collapse" data-target="#moreinfo-ucp"><i class="glyphicon glyphicon-info-sign"></i></a>&nbsp;&nbsp;&nbsp;<?php echo _("What is UCP")?>
+			<a href="#" data-toggle="collapse" data-target="#moreinfo-ucp"><i class="fa fa-info-circle"></i></a>&nbsp;&nbsp;&nbsp;<?php echo _("What is UCP")?>
 		</div>
 	</div>
 	<!--At some point we can probably kill this... Maybe make is a 1 time panel that may be dismissed-->
@@ -10,23 +10,23 @@
 	</div>
 </div>
 <div class="nav-container ucp-navs">
-	<div class="scroller scroller-left"><i class="glyphicon glyphicon-chevron-left"></i></div>
-	<div class="scroller scroller-right"><i class="glyphicon glyphicon-chevron-right"></i></div>
+	<div class="scroller scroller-left"><i class="fa fa-chevron-left"></i></div>
+	<div class="scroller scroller-right"><i class="fa fa-chevron-right"></i></div>
 	<div class="wrapper">
-		<ul class="nav nav-tabs list" role="tablist">
-			<li role="presentation" data-name="ucp-general" class="change-tab active">
-				<a href="#ucp-general" aria-controls="ucp-general" role="tab" data-toggle="tab">
+		<ul class="nav nav-tabs list mt-2p pb-0" role="tablist">
+			<li role="presentation" data-name="ucp-general" class="change-tab">
+				<a class="nav-link active" href="#ucp-general" aria-controls="ucp-general" role="tab" data-toggle="tab">
 					<?php echo _("General")?>
 				</a>
 			</li>
 			<li role="presentation" data-name="ucp-miscellaneous" class="change-tab">
-				<a href="#ucp-miscellaneous" aria-controls="ucp-miscellaneous" role="tab" data-toggle="tab">
+				<a class="nav-link" href="#ucp-miscellaneous" aria-controls="ucp-miscellaneous" role="tab" data-toggle="tab">
 					<?php echo _("Miscellaneous")?>
 				</a>
 			</li>
 			<?php foreach($mHtml as $mod) {?>
 				<li role="presentation" data-name="ucp-<?php echo $mod['rawname']?>" class="change-tab">
-					<a href="#ucp-<?php echo $mod['rawname']?>" aria-controls="ucp-<?php echo $mod['rawname']?>" role="tab" data-toggle="tab">
+					<a class="nav-link" href="#ucp-<?php echo $mod['rawname']?>" aria-controls="ucp-<?php echo $mod['rawname']?>" role="tab" data-toggle="tab">
 						<?php echo $mod['title']?>
 					</a>
 				</li>
