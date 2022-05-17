@@ -2,12 +2,12 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header" style="background-color: #FF7171">
-                <button type="button" class="close" data-dismiss="modal">
-                    <span aria-hidden="true">×</span>
-                </button>
                 <h4 class="modal-title text-center" id="myModalLabel">
                     <strong><?php echo _('Password does not match security policy.')?></strong>
                 </h4>
+                <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">×</span>
+                </button>
             </div>
             <div class="modal-body" style="background-color: #FCF8E3"></div>
             <div class="modal-footer" style="background-color: #DCECFE">

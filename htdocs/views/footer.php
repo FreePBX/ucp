@@ -2,7 +2,7 @@
 		<?php if(isset($dashboard_footer_content)){ ?>
 		<footer id="footer">
 			<hr>
-			<div id="footer-content" class="row">
+			<div id="footer-content" class="row d-flex justify-content-center">
 				<?php echo $dashboard_footer_content?>
 			</div>
 		</footer>

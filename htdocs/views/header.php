@@ -44,7 +44,7 @@
 		  </style>
 		<![endif]-->
 		<?php } ?>
-		<script type="text/javascript" src="assets/js/jquery-3.1.1.min.js<?php echo $version_tag?>"></script>
+		<script type="text/javascript" src="assets/js/jquery-3.6.0.min.js<?php echo $version_tag?>"></script>
 		<!-- Display hack for localization on checkbox switches -->
 		<style>
 			.onoffswitch-inner:before {
