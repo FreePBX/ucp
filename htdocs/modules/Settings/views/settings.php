@@ -1,10 +1,10 @@
 <div id="ucp-settings">
 	<h3><?php echo _('User Control Panel Settings')?></h3>
 	<div class="alert alert-info text-center" id="settings-message"><?php echo _("All fields update when unfocused (selecting another field) except password")?></div>
-	<ul class="nav nav-tabs">
-		<li class="active"><a href="#accountsettings" data-toggle="tab"><?php echo _("Account Settings")?></a></li>
-		<li><a href="#userinfo" data-toggle="tab"><?php echo _("User Details")?></a></li>
-		<li><a href="#ucpsettings" data-toggle="tab"><?php echo _("Interface Settings")?></a></li>
+	<ul class="nav nav-tabs pb-0">
+		<li><a class="active nav-link" href="#accountsettings" data-toggle="tab"><?php echo _("Account Settings")?></a></li>
+		<li><a class="nav-link" href="#userinfo" data-toggle="tab"><?php echo _("User Details")?></a></li>
+		<li><a class="nav-link" href="#ucpsettings" data-toggle="tab"><?php echo _("Interface Settings")?></a></li>
 		<?php foreach($extra as $module => $data) { ?>
 			<?php foreach($data as $e) { ?>
 				<li><a href="#settings-<?php echo $e['module']?>-<?php echo $e['rawname']?>" data-toggle="tab"><?php echo $e['name']?></a></li>

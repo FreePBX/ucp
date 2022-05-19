@@ -180,7 +180,7 @@ class UCP extends UCP_Helpers {
 			"bootstrap-table-extensions-1.11.0/bootstrap-table-toolbar.min.js",
 			"bootstrap-table-extensions-1.11.0/bootstrap-table-mobile.min.js",
 			"bootstrap-table-extensions-1.11.0/bootstrap-table-export.min.js",
-			"bootstrap-multiselect-1.0.0.js",
+			"bootstrap-multiselect-1.1.1.js",
 			"bootstrap-select-1.12.1.min.js",
 			"ajax-bootstrap-select-1.3.8.min.js",
 			"tableexport-3.2.10.min.js",
