@@ -300,3 +300,29 @@ fieldset[disabled] {
     line-height: 1.5;
     border-radius: 3px;
 }
+.btn.disabled, .btn[disabled], fieldset[disabled] .btn {
+    cursor: not-allowed;
+    opacity: .65;
+    filter: alpha(opacity=65);
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+.btn-danger {
+    background-color: #885156 !important;
+    border-color: #885156 !important;
+}
+
+.toggle-on,.toggle-off{
+	display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.fade:not(.show) {
+    opacity: 1;
+}
+label {
+    display: inline-block;
+    max-width: 100%;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
