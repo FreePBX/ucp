@@ -62,11 +62,14 @@
 .popover[class*="tour-"] .popover-navigation *[data-role="prev"].disabled,
 .popover[class*="tour-"] .popover-navigation *[data-role="next"].disabled,
 .popover[class*="tour-"] .popover-navigation *[data-role="end"].disabled {
-  cursor: default;
+  cursor: not-allowed;
 }
 .popover[class*="tour-"].orphan {
-  position: fixed;
+  left: 50% !important;
   margin-top: 0;
+  position: fixed;
+  top: 50% !important;
+  transform: translate(-50%, -50%) !important;
 }
 .popover[class*="tour-"].orphan .arrow {
   display: none;
