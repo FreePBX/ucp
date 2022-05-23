@@ -21,7 +21,7 @@
 	    <install>install.inc.php</install>
 	</fileinclude>
 	<supported>
-		<version>16.0</version>
+		<version>17.0</version>
 	</supported>
 	<hooks>
 		<userman class="Userman" namespace="FreePBX\modules">
