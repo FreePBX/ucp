@@ -2,7 +2,7 @@
 	<rawname>ucp</rawname>
 	<name>User Control Panel</name>
 	<repo>standard</repo>
-	<version>16.0.19.8</version>
+	<version>17.0.1</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>AGPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/agpl-3.0.txt</licenselink>
@@ -11,33 +11,7 @@
 	</description>
   	<more-info>https://wiki.freepbx.org/pages/viewpage.action?pageId=28180526</more-info>
 	<changelog>
-		*16.0.19.8* Packaging of ver 16.0.19.8
-		*16.0.19.7* Packaging of ver 16.0.19.7
-		*16.0.19.6* Packaging of ver 16.0.19.6
-		*16.0.19.5* Packaging of ver 16.0.19.5
-		*16.0.19.4* Packaging of ver 16.0.19.4
-		*16.0.19.3* FREEI-2496 Added branding footer to ucp dashboard and login page 
-		*16.0.19.2* Packaging of ver 16.0.19.2
-		*16.0.19.1* FREEPBX-23428 UCP password reset link valid until date and time showing
-		*16.0.19* FREEI-4412 and FREEI-4572 
-		*16.0.18* SCD-104 updated sortable library 
-		*16.0.17* FREEI-4235 UCP error: MySQL server has gone away code: 2006 
-		*16.0.16* SCD-21 password reset page that can be reached by a url 
-		*16.0.15* FREEI-3374 Vuln-001 Stored Cross-Site Scripting 
-		*16.0.14* FREEI-3161 Add forgot password check 
-		*16.0.13* FREEI-3762 fixed the issue by creating the compiled minified js file upon ucp installation itself 
-		*16.0.12* FREEI-3369 Adding UCP template feature 
-		*16.0.11* FREEI-3551 
-		*16.0.10* FREEI-3161 Need userman password validation rules 
-		*16.0.9* FREEI-3218 Can get valid email address/login name from UCP forgot password form 
-		*16.0.8* Packaging of ver 16.0.8
-		*16.0.7* FREEI-2467-ucp-url-error 
-		*16.0.6* FREEI-2368 fwconsole cannot parse AMPDBHOST with different port 
-		*16.0.5* Packaging of ver 16.0.5
-		*16.0.4* FREEI-1784 Changing the logo,favicon [ucp] 
-		*16.0.3* FREEI-1638 UCP daemon not running - should be : disabled in advanced settings 
-		*16.0.2* FREEI-1495 UCP phone incorrectly labeled as : Softphone (Zulu) 
-		*16.0.1alpha1* Initial Release
+		*17.0.1alpha1* Initial Release
 	</changelog>
 	<category>Admin</category>
 	<menuitems>
