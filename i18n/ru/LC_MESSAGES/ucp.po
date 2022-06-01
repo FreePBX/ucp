@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: UCP 14\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-12-11 12:34+0000\n"
-"PO-Revision-Date: 2022-05-13 07:00+0000\n"
+"PO-Revision-Date: 2022-06-02 06:01+0000\n"
 "Last-Translator: Dmitriy Q <krotesk@ya.ru>\n"
 "Language-Team: Russian <http://weblate.freepbx.org/projects/freepbx/ucp/ru/>"
 "\n"
@@ -614,6 +614,9 @@ msgid ""
 "move cursor is shown. Then clicking and dragging the dashboard in the order "
 "you want"
 msgstr ""
+"Порядок нескольких панелей мониторинга можно изменить, наведя курсор мыши до "
+"тех пор, пока не появится курсор перемещения. Затем кликните и перетащите "
+"панель мониторинга в нужном порядке"
 
 #: Ucp.class.php:121
 #, php-format
@@ -625,7 +628,7 @@ msgstr ""
 
 #: htdocs/modules/Ucptour/assets/js/global.js:50
 msgid "Name your dashboard"
-msgstr ""
+msgstr "Название вашей панели мониторинга"
 
 #: views/users_hook.php:53 views/users_hook.php:83 views/users_hook.php:180
 msgid "No"
