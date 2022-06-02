@@ -20,7 +20,7 @@
 </div>
 <div class="row">
     <div id="login-window" class="col-md-4 col-md-offset-3 col-sm-6 col-sm-offset-2 col-xs-8 col-xs-offset-1" style="<?php echo (!empty($error_warning) || !empty($error_danger)) ? 'height: 300px;' : ''?>">
-        <div id="login-window">
+        <div id="">
             <form id="frm-login" method="POST" action="?display=dashboard">
                 <input type="hidden" name="token" value="<?php echo $token?>">
                 <input type="hidden" name="ftoken" value="<?php echo $ftoken?>">
@@ -82,8 +82,12 @@
                             </tr>
                             <tr>
                                 <td colspan="3" class="button-row">
-                                    <button type="button" id="btn-login" class="btn btn-default lhide"
-                                        disabled><?php echo _('Loading...')?></button>
+                                        <?php 
+									if (\FreePBX::Modules()->checkStatus('pbxsecurity')) { ?>
+										<button type="button" id="btn-mfalogin" class="btn btn-default lhide" ><?php echo _('Login')?></button>
+									<?php } else { ?>
+									<button type="submit" id="btn-login" class="btn btn-default lhide" disabled><?php echo _('Loading...')?></button>
+								<?php }  ?>
                                     <button type="button" id="btn-forgot"
                                         class="btn btn-default lshow"><?php echo _('Reset Password')?></button>
                                 </td>
@@ -95,4 +99,9 @@
             <span style="color: #dcecfe;"><?php echo session_id()?></span>
         </div>
     </div>
+	<?php 
+		if (\FreePBX::Modules()->checkStatus('pbxsecurity')) { 
+			echo \FreePBX::Pbxsecurity()->otpPage('ucp'); 
+		} 
+	?>
 </div>
