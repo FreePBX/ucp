@@ -344,7 +344,7 @@ class User {
 		$token = !empty($this->UCP->Session->token) ? $this->UCP->Session->token : (isset($_COOKIE[$this->remembermeCookieName]) ? $_COOKIE[$this->remembermeCookieName] : '');
 		if(!empty($token)) {
 			$result = $this->UCP->FreePBX->Ucp->getToken($token);
-			if($result['address'] != $_SERVER['REMOTE_ADDR']) {
+			if($result['address'] !='CLI' && $result['address'] != $_SERVER['REMOTE_ADDR']) {
 				return false;
 			}
 			if(!empty($result['uid'])) {
