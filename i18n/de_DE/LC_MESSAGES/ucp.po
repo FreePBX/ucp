@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-04-28 07:44+0000\n"
+"POT-Creation-Date: 2022-06-27 02:18+0000\n"
 "PO-Revision-Date: 2018-10-25 08:00+0000\n"
 "Last-Translator: Bastian Mertgen <b.mertgen@bastian-mertgen.de>\n"
 "Language-Team: German <http://*/projects/freepbx/ucp/de/>\n"
@@ -589,11 +589,12 @@ msgstr "Letzter"
 msgid "Last Name"
 msgstr "Nachname"
 
-#: htdocs/views/forgot.php:86 htdocs/views/login.php:67
+#: htdocs/views/forgot.php:89 htdocs/views/login.php:70
 msgid "Loading..."
 msgstr "Laden..."
 
-#: htdocs/views/forgot.php:67 htdocs/views/login.php:48
+#: htdocs/views/forgot.php:67 htdocs/views/forgot.php:87
+#: htdocs/views/login.php:48 htdocs/views/login.php:68
 #: htdocs/assets/js/ucp.js:301 htdocs/assets/js/ucp.js:324
 #: htdocs/assets/js/ucp.js:334
 msgid "Login"
@@ -801,7 +802,7 @@ msgstr "Login merken"
 msgid "Remove Widget"
 msgstr "Widget löschen"
 
-#: htdocs/views/forgot.php:88
+#: htdocs/views/forgot.php:92
 msgid "Reset Password"
 msgstr "Passwort zurücksetzen"
 
@@ -840,7 +841,7 @@ msgstr "Auswahl der kleinen Widgets"
 msgid "Selecting Widgets"
 msgstr "Auswahl Widgets"
 
-#: htdocs/views/login.php:69
+#: htdocs/views/login.php:72
 msgid "Send Me A Password Reset Link"
 msgstr "Senden Sie mir einen Passwort Reset Link"
 

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-04-28 07:44+0000\n"
+"POT-Creation-Date: 2022-06-27 02:18+0000\n"
 "PO-Revision-Date: 2016-12-13 14:49+0200\n"
 "Last-Translator: Maxim <maxim@ua.fm>\n"
 "Language-Team: Ukrainian <http://weblate.freepbx.org/projects/freepbx/ucp/"
@@ -553,11 +553,12 @@ msgstr "Останній"
 msgid "Last Name"
 msgstr "Прізвище"
 
-#: htdocs/views/forgot.php:86 htdocs/views/login.php:67
+#: htdocs/views/forgot.php:89 htdocs/views/login.php:70
 msgid "Loading..."
 msgstr "Завантаження..."
 
-#: htdocs/views/forgot.php:67 htdocs/views/login.php:48
+#: htdocs/views/forgot.php:67 htdocs/views/forgot.php:87
+#: htdocs/views/login.php:48 htdocs/views/login.php:68
 #: htdocs/assets/js/ucp.js:301 htdocs/assets/js/ucp.js:324
 #: htdocs/assets/js/ucp.js:334
 msgid "Login"
@@ -756,7 +757,7 @@ msgstr "Запам'ятати мене"
 msgid "Remove Widget"
 msgstr ""
 
-#: htdocs/views/forgot.php:88
+#: htdocs/views/forgot.php:92
 msgid "Reset Password"
 msgstr "Скинути пароль"
 
@@ -795,7 +796,7 @@ msgstr ""
 msgid "Selecting Widgets"
 msgstr ""
 
-#: htdocs/views/login.php:69
+#: htdocs/views/login.php:72
 msgid "Send Me A Password Reset Link"
 msgstr "Надіслати мені посилання на відновлення паролю"
 

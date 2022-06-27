@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-04-28 07:44+0000\n"
+"POT-Creation-Date: 2022-06-27 02:18+0000\n"
 "PO-Revision-Date: 2018-08-08 11:42+0000\n"
 "Last-Translator: Petr Varvarovsky <petrv@atlantis.cz>\n"
 "Language-Team: Czech <http://*/projects/freepbx/ucp/cs/>\n"
@@ -585,11 +585,12 @@ msgstr "Poslední"
 msgid "Last Name"
 msgstr "Příjmení"
 
-#: htdocs/views/forgot.php:86 htdocs/views/login.php:67
+#: htdocs/views/forgot.php:89 htdocs/views/login.php:70
 msgid "Loading..."
 msgstr "Načítání..."
 
-#: htdocs/views/forgot.php:67 htdocs/views/login.php:48
+#: htdocs/views/forgot.php:67 htdocs/views/forgot.php:87
+#: htdocs/views/login.php:48 htdocs/views/login.php:68
 #: htdocs/assets/js/ucp.js:301 htdocs/assets/js/ucp.js:324
 #: htdocs/assets/js/ucp.js:334
 msgid "Login"
@@ -794,7 +795,7 @@ msgstr "Zapamatovat si mě"
 msgid "Remove Widget"
 msgstr "Odebrat widget"
 
-#: htdocs/views/forgot.php:88
+#: htdocs/views/forgot.php:92
 msgid "Reset Password"
 msgstr "Resetování hesla"
 
@@ -833,7 +834,7 @@ msgstr "Výběr malých widgetů"
 msgid "Selecting Widgets"
 msgstr "Výběr widgetů"
 
-#: htdocs/views/login.php:69
+#: htdocs/views/login.php:72
 msgid "Send Me A Password Reset Link"
 msgstr "Pošli mi odkaz na resetování hesla"
 

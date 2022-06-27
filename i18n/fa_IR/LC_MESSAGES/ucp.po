@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-04-28 07:44+0000\n"
+"POT-Creation-Date: 2022-06-27 02:18+0000\n"
 "PO-Revision-Date: 2016-07-06 05:21+0200\n"
 "Last-Translator: Media <mousavi.media@gmail.com>\n"
 "Language-Team: Persian (Iran) <http://weblate.freepbx.org/projects/freepbx/"
@@ -550,11 +550,12 @@ msgstr "آخر"
 msgid "Last Name"
 msgstr "نام خانوادگی"
 
-#: htdocs/views/forgot.php:86 htdocs/views/login.php:67
+#: htdocs/views/forgot.php:89 htdocs/views/login.php:70
 msgid "Loading..."
 msgstr "در حال بارگذاری…"
 
-#: htdocs/views/forgot.php:67 htdocs/views/login.php:48
+#: htdocs/views/forgot.php:67 htdocs/views/forgot.php:87
+#: htdocs/views/login.php:48 htdocs/views/login.php:68
 #: htdocs/assets/js/ucp.js:301 htdocs/assets/js/ucp.js:324
 #: htdocs/assets/js/ucp.js:334
 msgid "Login"
@@ -754,7 +755,7 @@ msgstr "مرا بخاطر بسپار"
 msgid "Remove Widget"
 msgstr ""
 
-#: htdocs/views/forgot.php:88
+#: htdocs/views/forgot.php:92
 msgid "Reset Password"
 msgstr "بازنشانی کلمه عبور"
 
@@ -793,7 +794,7 @@ msgstr ""
 msgid "Selecting Widgets"
 msgstr ""
 
-#: htdocs/views/login.php:69
+#: htdocs/views/login.php:72
 msgid "Send Me A Password Reset Link"
 msgstr "لینک بازنشانی کلمه عبور را برایم ارسال کن"
 
