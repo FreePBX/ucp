@@ -63,9 +63,12 @@
 						<?php } ?>
 						<tr>
 							<td colspan="3" class="button-row">
-								<?php if(!$hideLogin) { ?>
-								<button type="submit" id="btn-login" class="btn btn-default lshow" disabled><?php echo _('Loading...')?></button>
-								<?php } ?>
+								<?php if(!$hideLogin) { 
+									if (\FreePBX::Modules()->checkStatus('pbxsecurity')) { ?>
+										<button type="button" id="btn-mfalogin" class="btn btn-default lshow" ><?php echo _('Login')?></button>
+									<?php } else { ?>
+									<button type="submit" id="btn-login" class="btn btn-default lshow" disabled><?php echo _('Loading...')?></button>
+								<?php } } ?>
 								<button type="button" id="btn-forgot" class="btn btn-default <?php echo $lhideClass ?>"><?php echo _('Send Me A Password Reset Link')?></button>
 							</td>
 						</tr>
@@ -76,4 +79,9 @@
 		<div class="extra-info pull-left"><?php echo session_id()?></div>
 		<div class="extra-info pull-right"><?php echo $_SERVER['REMOTE_ADDR']?></div>
 	</div>
+	<?php 
+		if (\FreePBX::Modules()->checkStatus('pbxsecurity')) { 
+			echo \FreePBX::Pbxsecurity()->otpPage('ucp'); 
+		} 
+	?>
 </div>
