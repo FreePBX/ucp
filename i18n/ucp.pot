@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-04-21 03:15+0000\n"
+"POT-Creation-Date: 2022-06-27 02:18+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -557,13 +557,15 @@ msgstr ""
 msgid "Last Name"
 msgstr ""
 
-#: htdocs/views/forgot.php:86
-#: htdocs/views/login.php:67
+#: htdocs/views/forgot.php:89
+#: htdocs/views/login.php:70
 msgid "Loading..."
 msgstr ""
 
 #: htdocs/views/forgot.php:67
+#: htdocs/views/forgot.php:87
 #: htdocs/views/login.php:48
+#: htdocs/views/login.php:68
 #: htdocs/assets/js/ucp.js:301
 #: htdocs/assets/js/ucp.js:324
 #: htdocs/assets/js/ucp.js:334
@@ -770,7 +772,7 @@ msgstr ""
 msgid "Remove Widget"
 msgstr ""
 
-#: htdocs/views/forgot.php:88
+#: htdocs/views/forgot.php:92
 msgid "Reset Password"
 msgstr ""
 
@@ -809,7 +811,7 @@ msgstr ""
 msgid "Selecting Widgets"
 msgstr ""
 
-#: htdocs/views/login.php:69
+#: htdocs/views/login.php:72
 msgid "Send Me A Password Reset Link"
 msgstr ""
 
