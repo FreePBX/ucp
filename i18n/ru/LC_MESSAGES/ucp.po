@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: UCP 14\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-12-11 12:34+0000\n"
-"PO-Revision-Date: 2022-06-02 06:01+0000\n"
+"PO-Revision-Date: 2022-07-27 07:09+0000\n"
 "Last-Translator: Dmitriy Q <krotesk@ya.ru>\n"
 "Language-Team: Russian <http://weblate.freepbx.org/projects/freepbx/ucp/ru/>"
 "\n"
@@ -652,39 +652,39 @@ msgstr ""
 
 #: ucp.i18n.php:32
 msgid "NodeJS Bind Address"
-msgstr ""
+msgstr "Адрес привязки NodeJS"
 
 #: ucp.i18n.php:36
 msgid "NodeJS Bind Port"
-msgstr ""
+msgstr "Порт привязки NodeJS"
 
 #: ucp.i18n.php:40
 msgid "NodeJS HTTPS Bind Address"
-msgstr ""
+msgstr "Адрес привязки HTTPS NodeJS"
 
 #: ucp.i18n.php:42
 msgid "NodeJS HTTPS Bind Port"
-msgstr ""
+msgstr "Порт привязки HTTPS NodeJS"
 
 #: ucp.i18n.php:46
 msgid "NodeJS HTTPS TLS Certificate Location"
-msgstr ""
+msgstr "Расположение сертификата NodeJS HTTPS TLS"
 
 #: ucp.i18n.php:50
 msgid "NodeJS HTTPS TLS Private Key Location"
-msgstr ""
+msgstr "Расположение приватного ключа NodeJS HTTPS TLS"
 
 #: htdocs/modules/Ucptour/assets/js/global.js:216
 msgid "Note: some widgets have size restrictions!"
-msgstr ""
+msgstr "Примечание: некоторые виджеты имеют ограничения по размеру!"
 
 #: htdocs/modules/Home/assets/js/global.js:73
 msgid "Nothing Entered"
-msgstr ""
+msgstr "Ничего не введено"
 
 #: htdocs/includes/User.class.php:74
 msgid "Nothing was Provided!"
-msgstr ""
+msgstr "Ничего не было предоставлено!"
 
 #: htdocs/views/header.php:54
 msgid "OFF"
@@ -696,7 +696,7 @@ msgstr "ВКЛ"
 
 #: htdocs/modules/Ucptour/assets/js/global.js:313
 msgid "Once a small widget has been added it will show up in the left sidebar"
-msgstr ""
+msgstr "После добавления небольшого виджета он появится на левой боковой панели"
 
 #: htdocs/modules/Ucptour/assets/js/global.js:129
 msgid "Ordering dashboards"
