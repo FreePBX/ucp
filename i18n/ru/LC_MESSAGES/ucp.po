@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: UCP 14\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-12-11 12:34+0000\n"
-"PO-Revision-Date: 2022-07-27 07:09+0000\n"
+"PO-Revision-Date: 2022-07-28 08:01+0000\n"
 "Last-Translator: Dmitriy Q <krotesk@ya.ru>\n"
 "Language-Team: Russian <http://weblate.freepbx.org/projects/freepbx/ucp/ru/>"
 "\n"
@@ -692,7 +692,7 @@ msgstr "ВЫКЛ"
 
 #: htdocs/views/header.php:51
 msgid "ON"
-msgstr "ВКЛ"
+msgstr "Вкл"
 
 #: htdocs/modules/Ucptour/assets/js/global.js:313
 msgid "Once a small widget has been added it will show up in the left sidebar"
