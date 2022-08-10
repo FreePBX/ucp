@@ -1,12 +1,10 @@
 
-		<?php if(isset($dashboard_footer_content)){ ?>
-		<footer id="footer">
+		<footer id="footer" data-footer-content="<?php echo isset($dashboard_footer_content) ? 1 : 0?>">
 			<hr>
 			<div id="footer-content" class="row">
 				<?php echo $dashboard_footer_content?>
 			</div>
 		</footer>
-		<?php } ?>
 		<script type="text/javascript" src="assets/js/jquery.toast.min.js"></script>
 		<script>
 			$(document).bind("mobileinit", function() {
