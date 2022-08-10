@@ -709,7 +709,7 @@ section{
 	font-size: 150%;
 }
 
-#footer {
+footer[data-footer-content="1"] {
 	background-color: @bar_background_color;
 	overflow: hidden;
 	position: fixed;
@@ -731,10 +731,20 @@ section{
 		display: table;
 	}
 	hr{
-	margin: 0px 0px 1rem 0rem;
+		margin: 0px 0px 1rem 0rem;
 		border: 1px solid #4d9e9d;
 	}
 }
+
+footer[data-footer-content="0"] {
+	position: fixed;
+	bottom: 0;
+	z-index: 99;
+	hr {
+		border: none;
+	}
+}
+
 #footer.shrink {
 	bottom: -75px;
 }
