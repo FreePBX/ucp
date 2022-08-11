@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-06-27 02:18+0000\n"
+"POT-Creation-Date: 2022-08-11 05:51+0000\n"
 "PO-Revision-Date: 2017-03-08 21:13+0200\n"
 "Last-Translator: Kingvoice <suporte@kingvoice.com.br>\n"
 "Language-Team: Portuguese (Brazil) <http://weblate.freepbx.org/projects/"
@@ -510,7 +510,7 @@ msgstr ""
 msgid "Interface Settings"
 msgstr "Configurações da Interface"
 
-#: htdocs/index.php:256
+#: htdocs/index.php:272
 #, php-format
 msgid ""
 "Internet Explorer %s is not supported. Functionality will be deteriorated "
@@ -532,7 +532,7 @@ msgstr "Dispositivo Inválido"
 msgid "Invalid Login Credentials"
 msgstr "Credenciais de login Inválidas"
 
-#: htdocs/index.php:244
+#: htdocs/index.php:260
 msgid "Invalid Token"
 msgstr "Token Inválido"
 

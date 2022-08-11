@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-06-27 02:18+0000\n"
+"POT-Creation-Date: 2022-08-11 05:51+0000\n"
 "PO-Revision-Date: 2018-08-08 11:42+0000\n"
 "Last-Translator: Petr Varvarovsky <petrv@atlantis.cz>\n"
 "Language-Team: Czech <http://*/projects/freepbx/ucp/cs/>\n"
@@ -539,7 +539,7 @@ msgstr "Instalace / aktualizace požadovaných knihoven. Může to chvíli trvat
 msgid "Interface Settings"
 msgstr "Nastavení rozhraní"
 
-#: htdocs/index.php:256
+#: htdocs/index.php:272
 #, php-format
 msgid ""
 "Internet Explorer %s is not supported. Functionality will be deteriorated "
@@ -561,7 +561,7 @@ msgstr "Neplatné zařízení"
 msgid "Invalid Login Credentials"
 msgstr "Neplatné přihlašovací údaje"
 
-#: htdocs/index.php:244
+#: htdocs/index.php:260
 msgid "Invalid Token"
 msgstr "Neplatný token"
 

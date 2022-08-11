@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-06-27 02:18+0000\n"
+"POT-Creation-Date: 2022-08-11 05:51+0000\n"
 "PO-Revision-Date: 2016-06-01 07:08+0200\n"
 "Last-Translator: Hans <info@hansvaneijsden.nl>\n"
 "Language-Team: Dutch <http://weblate.freepbx.org/projects/freepbx/ucp/nl/>\n"
@@ -510,7 +510,7 @@ msgstr ""
 msgid "Interface Settings"
 msgstr ""
 
-#: htdocs/index.php:256
+#: htdocs/index.php:272
 #, php-format
 msgid ""
 "Internet Explorer %s is not supported. Functionality will be deteriorated "
@@ -532,7 +532,7 @@ msgstr "Ongeldig Apparaat"
 msgid "Invalid Login Credentials"
 msgstr "Ongeldige Login"
 
-#: htdocs/index.php:244
+#: htdocs/index.php:260
 msgid "Invalid Token"
 msgstr "Ongeldig Token"
 

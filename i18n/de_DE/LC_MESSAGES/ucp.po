@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-06-27 02:18+0000\n"
+"POT-Creation-Date: 2022-08-11 05:51+0000\n"
 "PO-Revision-Date: 2018-10-25 08:00+0000\n"
 "Last-Translator: Bastian Mertgen <b.mertgen@bastian-mertgen.de>\n"
 "Language-Team: German <http://*/projects/freepbx/ucp/de/>\n"
@@ -543,7 +543,7 @@ msgstr ""
 msgid "Interface Settings"
 msgstr "Schnittstellen-Einstellungen"
 
-#: htdocs/index.php:256
+#: htdocs/index.php:272
 #, php-format
 msgid ""
 "Internet Explorer %s is not supported. Functionality will be deteriorated "
@@ -565,7 +565,7 @@ msgstr "Ungültiges Gerät"
 msgid "Invalid Login Credentials"
 msgstr "Ungültige Login Zugangsdaten"
 
-#: htdocs/index.php:244
+#: htdocs/index.php:260
 msgid "Invalid Token"
 msgstr "Ungültiger Token"
 
