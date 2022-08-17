@@ -213,7 +213,10 @@ $acpProtocol = "http";
 $acpPort =  "";
 if ($FreePBX->Modules->checkStatus('sysadmin')) {
 	$acpnetDetails = $FreePBX->Sysadmin->getAllNetworkInfo();
-	if (isset($acpnetDetails['protocols']['acp']) && !empty($acpnetDetails['protocols']['acp'])) {
+	if(isset($acpnetDetails['protocols']['sslacp']) && !empty($acpnetDetails['protocols']['sslacp'])) {
+		$acpProtocol = $acpnetDetails['protocols']['sslacp']['protocol'];
+		$acpPort = $acpnetDetails['protocols']['sslacp']['port'];
+	} else if (isset($acpnetDetails['protocols']['acp']) && !empty($acpnetDetails['protocols']['acp'])) {
 		$acpProtocol = $acpnetDetails['protocols']['acp']['protocol'];
 		$acpPort = $acpnetDetails['protocols']['acp']['port'];
 	}
