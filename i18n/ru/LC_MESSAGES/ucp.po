@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: UCP 14\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-12-11 12:34+0000\n"
-"PO-Revision-Date: 2022-07-28 08:01+0000\n"
+"PO-Revision-Date: 2022-08-20 06:00+0000\n"
 "Last-Translator: Dmitriy Q <krotesk@ya.ru>\n"
 "Language-Team: Russian <http://weblate.freepbx.org/projects/freepbx/ucp/ru/>"
 "\n"
@@ -700,18 +700,18 @@ msgstr "После добавления небольшого виджета он
 
 #: htdocs/modules/Ucptour/assets/js/global.js:129
 msgid "Ordering dashboards"
-msgstr ""
+msgstr "Размещение панелей мониторинга"
 
 #: htdocs/modules/Home/assets/js/global.js:47
 #: htdocs/modules/Home/assets/js/global.js:126
 msgid "Originate"
-msgstr ""
+msgstr "Инициирование"
 
 #: htdocs/modules/Home/assets/js/global.js:22
 #: htdocs/modules/Home/assets/js/global.js:45
 #: htdocs/modules/Home/assets/js/global.js:125
 msgid "Originate Call"
-msgstr ""
+msgstr "Инициирование вызова"
 
 #: htdocs/views/templates/phone.php:65
 msgid "PQRS"
@@ -725,20 +725,20 @@ msgstr "Пароль"
 #: Ucp.class.php:502
 #, php-format
 msgid "Password Reset Link (Valid Until: %s): %s"
-msgstr ""
+msgstr "Ссылка для сброса пароля (действительна до: %s): %s"
 
 #: htdocs/views/forgot.php:27
 #, php-format
 msgid "Password Reset for: %s"
-msgstr ""
+msgstr "Сброс пароля для: %s"
 
 #: htdocs/modules/Settings/views/pwd_alert.php:1
 msgid "Password does not match security policy."
-msgstr ""
+msgstr "Пароль не соответствует политике безопасности."
 
 #: htdocs/assets/js/ucp.js:269
 msgid "Password has been changed!"
-msgstr ""
+msgstr "Пароль был изменен!"
 
 #: ucp.i18n.php:38
 msgid "Port to bind to. Default is 8001"
