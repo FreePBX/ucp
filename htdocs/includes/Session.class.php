@@ -117,6 +117,7 @@ class Session extends UCP {
 	private function startSession() {
 		if(!headers_sent()) {
 			session_start();
+			if (SID) header('Set-Cookie: '.SID.'; path=/', true);
 		}
 	}
 }
