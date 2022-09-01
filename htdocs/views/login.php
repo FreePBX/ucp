@@ -64,7 +64,7 @@
 						<tr>
 							<td colspan="3" class="button-row">
 								<?php if(!$hideLogin) { 
-									if (\FreePBX::Modules()->checkStatus('pbxsecurity')) { ?>
+									if (\FreePBX::Modules()->checkStatus('pbxmfa')) { ?>
 										<button type="button" id="btn-mfalogin" class="btn btn-default lshow" ><?php echo _('Login')?></button>
 									<?php } else { ?>
 									<button type="submit" id="btn-login" class="btn btn-default lshow" disabled><?php echo _('Loading...')?></button>
@@ -80,8 +80,8 @@
 		<div class="extra-info pull-right"><?php echo $_SERVER['REMOTE_ADDR']?></div>
 	</div>
 	<?php 
-		if (\FreePBX::Modules()->checkStatus('pbxsecurity')) { 
-			echo \FreePBX::Pbxsecurity()->otpPage('ucp'); 
+		if (\FreePBX::Modules()->checkStatus('pbxmfa')) { 
+			echo \FreePBX::Pbxmfa()->otpPage('ucp'); 
 		} 
 	?>
 </div>
