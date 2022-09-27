@@ -1,28 +1,104 @@
 /**
  * Bootstrap Table French (Belgium) translation
  * Author: Julien Bisconti (julien.bisconti@gmail.com)
+ *         Nevets82 <Nevets82@gmail.com>
  */
-(function ($) {
-    'use strict';
 
-    $.fn.bootstrapTable.locales['fr-BE'] = {
-        formatLoadingMessage: function () {
-            return 'Chargement en cours...';
-        },
-        formatRecordsPerPage: function (pageNumber) {
-            return pageNumber + ' entrées par page';
-        },
-        formatShowingRows: function (pageFrom, pageTo, totalRows) {
-            return 'Affiche de' + pageFrom + ' à ' + pageTo + ' sur ' + totalRows + ' lignes';
-        },
-        formatSearch: function () {
-            return 'Recherche';
-        },
-        formatNoMatches: function () {
-            return 'Pas de fichiers trouvés';
-        }
-    };
+$.fn.bootstrapTable.locales['fr-BE'] = {
+  formatCopyRows () {
+    return 'Copy Rows'
+  },
+  formatPrint () {
+    return 'Print'
+  },
+  formatLoadingMessage () {
+    return 'Chargement en cours'
+  },
+  formatRecordsPerPage (pageNumber) {
+    return `${pageNumber} lignes par page`
+  },
+  formatShowingRows (pageFrom, pageTo, totalRows, totalNotFiltered) {
+    if (totalNotFiltered !== undefined && totalNotFiltered > 0 && totalNotFiltered > totalRows) {
+      return `Affiche de ${pageFrom} à ${pageTo} sur ${totalRows} lignes (filtrés à partir de ${totalNotFiltered} lignes)`
+    }
 
-    $.extend($.fn.bootstrapTable.defaults, $.fn.bootstrapTable.locales['fr-BE']);
+    return `Affiche de ${pageFrom} à ${pageTo} sur ${totalRows} lignes`
+  },
+  formatSRPaginationPreText () {
+    return 'page précédente'
+  },
+  formatSRPaginationPageText (page) {
+    return `vers la page ${page}`
+  },
+  formatSRPaginationNextText () {
+    return 'page suivante'
+  },
+  formatDetailPagination (totalRows) {
+    return `Affiche ${totalRows} lignes`
+  },
+  formatClearSearch () {
+    return 'Effacer la recherche'
+  },
+  formatSearch () {
+    return 'Recherche'
+  },
+  formatNoMatches () {
+    return 'Pas de lignes trouvés'
+  },
+  formatPaginationSwitch () {
+    return 'Cacher/Afficher pagination'
+  },
+  formatPaginationSwitchDown () {
+    return 'Afficher pagination'
+  },
+  formatPaginationSwitchUp () {
+    return 'Cacher pagination'
+  },
+  formatRefresh () {
+    return 'Rafraichir'
+  },
+  formatToggleOn () {
+    return 'Afficher vue carte'
+  },
+  formatToggleOff () {
+    return 'Cacher vue carte'
+  },
+  formatColumns () {
+    return 'Colonnes'
+  },
+  formatColumnsToggleAll () {
+    return 'Tout basculer'
+  },
+  formatFullscreen () {
+    return 'Plein écran'
+  },
+  formatAllRows () {
+    return 'Tout'
+  },
+  formatAutoRefresh () {
+    return 'Rafraîchissement automatique'
+  },
+  formatExport () {
+    return 'Exporter les données'
+  },
+  formatJumpTo () {
+    return 'Aller à'
+  },
+  formatAdvancedSearch () {
+    return 'Recherche avancée'
+  },
+  formatAdvancedCloseButton () {
+    return 'Fermer'
+  },
+  formatFilterControlSwitch () {
+    return 'Cacher/Afficher controls'
+  },
+  formatFilterControlSwitchHide () {
+    return 'Cacher controls'
+  },
+  formatFilterControlSwitchShow () {
+    return 'Afficher controls'
+  }
+}
 
-})(jQuery);
+$.extend($.fn.bootstrapTable.defaults, $.fn.bootstrapTable.locales['fr-BE'])

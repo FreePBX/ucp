@@ -118,7 +118,7 @@
 				<label for="lang" class="help"><?php echo _('Language')?> <i class="fa fa-question-circle"></i></label><br/>
 				<div class="input-group">
 					<?php echo FreePBX::View()->languageDrawSelect('lang',$user['language'],_('Default')); ?>
-					<span class="input-group-btn">
+					<span class="input-group-btn ml-auto">
 						<a href="#" class="btn btn-default" id="browserlang"><?php echo _("Use Browser Language")?></a>
 					</span>
 					<span class="input-group-btn">
@@ -131,7 +131,7 @@
 				<label for="timezone" class="help"><?php echo _('Timezone')?> <i class="fa fa-question-circle"></i></label><br/>
 				<div class="input-group">
 					<?php echo FreePBX::View()->timezoneDrawSelect('timezone',$user['timezone'],_('Default')); ?>
-					<span class="input-group-btn">
+					<span class="input-group-btn ml-auto">
 						<a href="#" class="btn btn-default" id="browsertz"><?php echo _("Use Browser Timezone")?></a>
 					</span>
 					<span class="input-group-btn">

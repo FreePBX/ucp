@@ -3,42 +3,102 @@
  * Author: Lukas Kral (monarcha@seznam.cz)
  * Author: Jakub Svestka <svestka1999@gmail.com>
  */
-(function ($) {
-    'use strict';
 
-    $.fn.bootstrapTable.locales['cs-CZ'] = {
-        formatLoadingMessage: function () {
-            return 'Čekejte, prosím...';
-        },
-        formatRecordsPerPage: function (pageNumber) {
-            return pageNumber + ' položek na stránku';
-        },
-        formatShowingRows: function (pageFrom, pageTo, totalRows) {
-            return 'Zobrazena ' + pageFrom + '. - ' + pageTo + '. položka z celkových ' + totalRows;
-        },
-        formatSearch: function () {
-            return 'Vyhledávání';
-        },
-        formatNoMatches: function () {
-            return 'Nenalezena žádná vyhovující položka';
-        },
-        formatPaginationSwitch: function () {
-            return 'Skrýt/Zobrazit stránkování';
-        },
-        formatRefresh: function () {
-            return 'Aktualizovat';
-        },
-        formatToggle: function () {
-            return 'Přepni';
-        },
-        formatColumns: function () {
-            return 'Sloupce';
-        },
-        formatAllRows: function () {
-            return 'Vše';
-        }
-    };
+$.fn.bootstrapTable.locales['cs-CZ'] = $.fn.bootstrapTable.locales['cs'] = {
+  formatCopyRows () {
+    return 'Kopírovat řádky'
+  },
+  formatPrint () {
+    return 'Tisk'
+  },
+  formatLoadingMessage () {
+    return 'Čekejte, prosím'
+  },
+  formatRecordsPerPage (pageNumber) {
+    return `${pageNumber} položek na stránku`
+  },
+  formatShowingRows (pageFrom, pageTo, totalRows, totalNotFiltered) {
+    if (totalNotFiltered !== undefined && totalNotFiltered > 0 && totalNotFiltered > totalRows) {
+      return `Zobrazena ${pageFrom}. - ${pageTo} . položka z celkových ${totalRows} (filtered from ${totalNotFiltered} total rows)`
+    }
 
-    $.extend($.fn.bootstrapTable.defaults, $.fn.bootstrapTable.locales['cs-CZ']);
+    return `Zobrazena ${pageFrom}. - ${pageTo} . položka z celkových ${totalRows}`
+  },
+  formatSRPaginationPreText () {
+    return 'předchozí strana'
+  },
+  formatSRPaginationPageText (page) {
+    return `na stranu ${page}`
+  },
+  formatSRPaginationNextText () {
+    return 'další strana'
+  },
+  formatDetailPagination (totalRows) {
+    return `Zobrazuji ${totalRows} řádek`
+  },
+  formatClearSearch () {
+    return 'Smazat hledání'
+  },
+  formatSearch () {
+    return 'Vyhledávání'
+  },
+  formatNoMatches () {
+    return 'Nenalezena žádná vyhovující položka'
+  },
+  formatPaginationSwitch () {
+    return 'Skrýt/Zobrazit stránkování'
+  },
+  formatPaginationSwitchDown () {
+    return 'Zobrazit stránkování'
+  },
+  formatPaginationSwitchUp () {
+    return 'Skrýt stránkování'
+  },
+  formatRefresh () {
+    return 'Aktualizovat'
+  },
+  formatToggleOn () {
+    return 'Zobrazit karty'
+  },
+  formatToggleOff () {
+    return 'Zobrazit tabulku'
+  },
+  formatColumns () {
+    return 'Sloupce'
+  },
+  formatColumnsToggleAll () {
+    return 'Zobrazit/Skrýt vše'
+  },
+  formatFullscreen () {
+    return 'Zapnout/Vypnout fullscreen'
+  },
+  formatAllRows () {
+    return 'Vše'
+  },
+  formatAutoRefresh () {
+    return 'Automatické obnovení'
+  },
+  formatExport () {
+    return 'Export dat'
+  },
+  formatJumpTo () {
+    return 'GO'
+  },
+  formatAdvancedSearch () {
+    return 'Pokročilé hledání'
+  },
+  formatAdvancedCloseButton () {
+    return 'Zavřít'
+  },
+  formatFilterControlSwitch () {
+    return 'Skrýt/Zobrazit ovladače'
+  },
+  formatFilterControlSwitchHide () {
+    return 'Skrýt ovladače'
+  },
+  formatFilterControlSwitchShow () {
+    return 'Zobrazit ovladače'
+  }
+}
 
-})(jQuery);
+$.extend($.fn.bootstrapTable.defaults, $.fn.bootstrapTable.locales['cs-CZ'])

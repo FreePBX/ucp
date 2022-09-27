@@ -207,6 +207,25 @@ $displayvars['version_tag'] = $version_tag;
 
 $ucp->View->show_view(__DIR__.'/views/header.php',$displayvars);
 
+// Getting acp port and protocol because UCP branding footer images are same as main footer 
+$FreePBX = \FreePBX::Create();
+$acpProtocol = "http";
+$acpPort =  "";
+if ($FreePBX->Modules->checkStatus('sysadmin')) {
+	$acpnetDetails = $FreePBX->Sysadmin->getAllNetworkInfo();
+	if(isset($acpnetDetails['protocols']['sslacp']) && !empty($acpnetDetails['protocols']['sslacp'])) {
+		$acpProtocol = $acpnetDetails['protocols']['sslacp']['protocol'];
+		$acpPort = $acpnetDetails['protocols']['sslacp']['port'];
+	} else if (isset($acpnetDetails['protocols']['acp']) && !empty($acpnetDetails['protocols']['acp'])) {
+		$acpProtocol = $acpnetDetails['protocols']['acp']['protocol'];
+		$acpPort = $acpnetDetails['protocols']['acp']['port'];
+	}
+}
+$ampWebAddress = $FreePBX->Config->get_conf_setting('AMPWEBADDRESS');
+$ampWebAddress = isset($ampWebAddress) && !empty($ampWebAddress) ? rtrim($ampWebAddress, '/') : (isset($_SERVER['SERVER_NAME']) ? $_SERVER['SERVER_NAME'] : "");
+$baseUrl = !empty($ampWebAddress) ? ($acpProtocol . "://" . $ampWebAddress . (!empty($acpPort) ? ":$acpPort" : "")) :"" ;
+$displayvars['baseUrl'] = $baseUrl;
+
 if(!empty($user["id"])){
 	$ucp->View->show_view(__DIR__.'/views/dashboard-header.php',$displayvars);
 }
@@ -288,7 +307,7 @@ if(!empty($user["id"])) {
 	$displayvars['year'] = date('Y', time());
 	$dbfc = FreePBX::Config()->get('VIEW_FOOTER_CONTENT');
 	$path = FreePBX::Config()->get('AMPWEBROOT');
-	$displayvars['dashboard_footer_content'] = $ucp->View->load_view($path .'/admin/'.$dbfc, array("year" => date('Y', time())));
+	$displayvars['dashboard_footer_content'] = $ucp->View->load_view($path .'/admin/'.$dbfc, array("year" => date('Y', time()),'baseUrl' => $baseUrl));
 }
 
 $ucp->View->show_view(dirname(__FILE__).'/views/footer.php',$displayvars);
