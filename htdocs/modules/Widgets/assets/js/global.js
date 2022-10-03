@@ -378,7 +378,7 @@ var WidgetsC = Class.extend({
 										'</div>' +
 									'</div>' +
 								'</div>' +
-								'<div class="widget-content container">'+widget_content+'</div>' +
+			'<div class="widget-content">' + widget_content + '</div>' +
 							'</div>' +
 							'<div class="back">' +
 								'<div class="widget-title settings-title">' +
