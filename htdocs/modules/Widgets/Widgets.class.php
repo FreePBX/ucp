@@ -124,7 +124,7 @@ class Widgets extends Modules{
 									</div>
 								</div>
 							</div>
-							<div class="widget-content container"></div>
+							<div class="widget-content"></div>
 						</div>
 				</div>';
 				$html .= '</div>';
