@@ -113,8 +113,13 @@ class Home extends Modules{
 				$data = $this->getHomeWidgets($_REQUEST['id']);
 				return array("status" => true, "content" => $data[0]['content']);
 			break;
-			case "originate":
-				if($this->_checkExtension($_REQUEST['from'])) {
+			case "originate":				
+				$_REQUEST['from'] = filter_var($_REQUEST['from'], FILTER_SANITIZE_STRING);
+				$_REQUEST['to'] = filter_var($_REQUEST['to'], FILTER_SANITIZE_STRING);
+				if (strpos($_REQUEST['to'], ".") !== false || strpos($_REQUEST['from'], ".") !== false) {
+					$return['status'] = false;
+					$return['message'] = _('Invalid Device');
+				}else if($this->_checkExtension($_REQUEST['from'])) {
 					// prevent caller id spoofing
 					if($this->user['default_extension'] == $_REQUEST['from']) {
 						$out = $this->astman->originate(array(
