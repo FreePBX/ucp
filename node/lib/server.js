@@ -172,16 +172,13 @@ checkAuth = function(socket, next) {
 	address = freepbx.db.escape(socket.handshake.address);
 	address = address.replace(/^::ffff:([\d]+\.)/, "$1"); //ipv4 mapped into ipv6
 	var prep = freepbx.db.prepare('SELECT * FROM ucp_sessions WHERE session = :session AND address = :address');
-	var query = freepbx.db.query(prep({ session: suppliedToken, address: address }));
-	query.on('result', function(res) {
-		res.on('data', function(row) {
+	freepbx.db.queryStream(prep({ session: suppliedToken, address: address }))
+		.on('data', function (row) {
 			var prep = freepbx.db.prepare('UPDATE ucp_sessions SET socketid = :socketid WHERE session = :session AND address = :address');
-			var query = freepbx.db.query(prep({ session: suppliedToken, address: address, socketid: socket.id }));
+			var query = freepbx.db.queryStream(prep({ session: suppliedToken, address: address, socketid: socket.id }));
 			auth = true;
-		}).on('end', function() {
-
-		});
-	}).on('end', function() {
+		})
+		.on('end', function () {
 		if (auth) {
 			console.log("Token [" + suppliedToken + "] from: " + address + " was accepted");
 			next();
