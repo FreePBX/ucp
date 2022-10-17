@@ -8,7 +8,7 @@
 var EventEmitter = require( "events" ).EventEmitter,
 		ini = require("ini"),
 		fs = require("fs"),
-		nodeMaria = require("mariasql"),
+		nodeMaria = require("mariadb"),
 		obj = {};
 
 FreePBX = function() {
@@ -58,71 +58,56 @@ FreePBX = function() {
  * @param  {object}   config   Configuration Parameters
  * @param  {Function} callback Callback function when connected to DB
  */
-connect2database = function(config, callback) {
-	var db = {},
-			init = false;
-	if(typeof config.AMPDBSOCK !== "undefined" && config.AMPDBSOCK.length) {
-		db = new nodeMaria({
-			user: config.AMPDBUSER,
-			password: config.AMPDBPASS,
-			db: config.AMPDBNAME,
-			unixSocket: config.AMPDBSOCK,
-			charset: 'UTF8'
-		});
-	} else {
-		db = new nodeMaria({
-			host: config.AMPDBHOST,
-			user: config.AMPDBUSER,
-			password: config.AMPDBPASS,
-			db: config.AMPDBNAME,
-			port: (typeof config.AMPDBPORT !== "undefined" && config.AMPDBPORT.length) ? config.AMPDBPORT : 3306, 
-			charset: 'UTF8'
-		});
-	}
+connect2database = async function (config, callback) {
+	var db = undefined,
+		init = false;
 
-	db.on("ready", function() {
-		if (!init) {
+	try {
+
+		if (typeof config.AMPDBSOCK !== "undefined" && config.AMPDBSOCK.length) {
+			db = await nodeMaria.createConnection({
+				user: config.AMPDBUSER,
+				password: config.AMPDBPASS,
+				database: config.AMPDBNAME,
+				unixSocket: config.AMPDBSOCK,
+				charset: 'UTF8'
+			});
+		} else {
+			db = await nodeMaria.createConnection({
+				host: config.AMPDBHOST,
+				user: config.AMPDBUSER,
+				password: config.AMPDBPASS,
+				database: config.AMPDBNAME,
+				port: (typeof config.AMPDBPORT !== "undefined" && config.AMPDBPORT.length) ? config.AMPDBPORT : 3306,
+				charset: 'UTF8'
+			});
+		}
+
+		if (!init && db) {
 			init = true;
 			callback(db);
 		}
-	});
 
-	db.query("SELECT CONNECTION_ID()");
+		db.query("SELECT CONNECTION_ID()");
 
-	db.on("error", function(evt) {
-		console.warn(evt);
-		console.log(config);
+		db.queryStream("SHOW VARIABLES LIKE 'wait_timeout'")
+			.on('data', function (row) {
+				let wait_time = row.Value * 1000;
+				console.log(wait_time);
+				let reping_time = wait_time / 2;
+				console.log(reping_time);
+				setInterval(function () {
+					db.query('SELECT CONNECTION_ID()');
+				}, reping_time);
+			}).on('end', function () {
+				console.log('Result set finished');
+			});
+
+	} catch (error) {
+		console.warn(error);
 		obj.emit("disconnect");
 		throw "There was an error with MySQL Connection";
-	});
-
-	db.on("close", function() {
-		obj.emit("disconnect");
-		throw "The MySQL connection was closed!";
-	});
-
-	db.on("end", function() {
-		obj.emit("disconnect");
-		throw "The MySQL connection was closed!";
-	});
-
-	var query = db.query("SHOW VARIABLES LIKE 'wait_timeout'");
-	query.on('result', function(res) {
-		res.on('data', function(row) {
-			let wait_time = row.Value * 1000;
-			console.log(wait_time);
-			let reping_time = wait_time / 2;
-			console.log(reping_time);
-			setInterval(function () {
-				db.query('SELECT CONNECTION_ID()');
-			}, reping_time);
-		}).on('end', function() {
-			console.log('Result set finished');
-		});
-	}).on('end', function() {
-		console.log('No more result sets!');
-	});
-
+	}
 
 };
 
