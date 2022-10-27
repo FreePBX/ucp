@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: UCP 14\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-12-11 12:34+0000\n"
-"PO-Revision-Date: 2022-08-20 06:00+0000\n"
+"PO-Revision-Date: 2022-10-28 10:00+0000\n"
 "Last-Translator: Dmitriy Q <krotesk@ya.ru>\n"
 "Language-Team: Russian <http://weblate.freepbx.org/projects/freepbx/ucp/ru/>"
 "\n"
@@ -742,11 +742,11 @@ msgstr "Пароль был изменен!"
 
 #: ucp.i18n.php:38
 msgid "Port to bind to. Default is 8001"
-msgstr ""
+msgstr "Порт для привязки. По умолчанию 8001"
 
 #: ucp.i18n.php:44
 msgid "Port to bind to. Default is 8003"
-msgstr ""
+msgstr "Порт для привязки. По умолчанию 8003"
 
 #: htdocs/assets/js/ucp.js:283 htdocs/assets/js/ucp.js:306
 msgid "Processing..."
@@ -758,20 +758,20 @@ msgstr "Каналы RSS"
 
 #: ucp.i18n.php:66
 msgid "RSS Feeds that are displayed in UCP. This overrides "
-msgstr ""
+msgstr "RSS-каналы, отображаемые в UCP. Это переопределяет "
 
 #: Ucp.class.php:314
 msgid "Refreshing all UCP Assets, this could take a while..."
-msgstr ""
+msgstr "Обновление всех объектов UCP, это может занять некоторое время..."
 
 #: htdocs/views/forgot.php:48 htdocs/views/login.php:41
 msgid "Remember Me"
-msgstr ""
+msgstr "Запомнить меня"
 
 #: htdocs/views/dashboard-header.php:66
 #: htdocs/modules/Widgets/assets/js/global.js:446
 msgid "Remove Widget"
-msgstr ""
+msgstr "Удалить виджет"
 
 #: htdocs/views/forgot.php:62
 msgid "Reset Password"
@@ -784,7 +784,7 @@ msgstr "Перезапустить обзор"
 #: Ucp.class.php:1274
 #, php-format
 msgid "Running (Uptime: %s)"
-msgstr ""
+msgstr "Выполняется (время работы: %s)"
 
 #: htdocs/modules/Ucptour/assets/js/global.js:69
 msgid "Save your dashboard"
@@ -796,34 +796,34 @@ msgstr "Сохранено!"
 
 #: htdocs/modules/Ucptour/assets/js/global.js:166
 msgid "Selecting Dashboard Widgets"
-msgstr ""
+msgstr "Выбор виджетов панели мониторинга"
 
 #: htdocs/modules/Ucptour/assets/js/global.js:266
 msgid "Selecting Side Bar Widgets"
-msgstr ""
+msgstr "Выбор виджетов боковой панели"
 
 #: htdocs/modules/Ucptour/assets/js/global.js:277
 msgid "Selecting Small Widgets"
-msgstr ""
+msgstr "Выбор малых виджетов"
 
 #: htdocs/modules/Ucptour/assets/js/global.js:155
 #: htdocs/modules/Ucptour/assets/js/global.js:174
 #: htdocs/modules/Ucptour/assets/js/global.js:284
 msgid "Selecting Widgets"
-msgstr ""
+msgstr "Выбор виджетов"
 
 #: htdocs/views/login.php:55
 msgid "Send Me A Password Reset Link"
-msgstr ""
+msgstr "Отправить мне ссылку для сброса пароля"
 
 #: htdocs/views/templates/chat.php:23
 #, php-format
 msgid "Sent at %s"
-msgstr ""
+msgstr "Отправлено на %s"
 
 #: ucp.i18n.php:52
 msgid "Sets the path to the HTTPS private key. This is required if "
-msgstr ""
+msgstr "Устанавливает путь к приватному ключу HTTPS. Это необходимо, если "
 
 #: ucp.i18n.php:48
 msgid "Sets the path to the HTTPS server certificate. This is required if "
@@ -837,12 +837,14 @@ msgstr "Настройки"
 #: htdocs/views/dashboard-footer.php:60
 #: htdocs/modules/Ucptour/assets/js/global.js:243
 msgid "Side Bar Widgets"
-msgstr ""
+msgstr "Виджеты боковой панели"
 
 #: htdocs/modules/Ucptour/assets/js/global.js:267
 msgid ""
 "Side Bar widgets are grouped in a single category called 'Side Bar Widgets'"
 msgstr ""
+"Виджеты боковой панели сгруппированы в одну категорию под названием \""
+"Виджеты боковой панели\""
 
 #: htdocs/modules/Ucptour/assets/js/global.js:251
 #, perl-format
