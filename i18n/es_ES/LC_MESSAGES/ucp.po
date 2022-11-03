@@ -10,22 +10,23 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-09-15 08:32+0000\n"
-"PO-Revision-Date: 2016-06-07 10:27+0200\n"
-"Last-Translator: Ernesto <ecasas@sangoma.com>\n"
-"Language-Team: Spanish <http://weblate.freepbx.org/projects/freepbx/ucp/"
-"es_ES/>\n"
+"PO-Revision-Date: 2022-11-04 13:01+0000\n"
+"Last-Translator: Santiago Pioli <spioli@sangoma.com>\n"
+"Language-Team: Spanish <http://weblate.freepbx.org/projects/freepbx/ucp/es/>"
+"\n"
 "Language: es_ES\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.4\n"
+"X-Generator: Weblate 3.0.1\n"
 
 #: htdocs/assets/js/lodash-4.17.2.js:8787
 msgid "  abc  "
-msgstr ""
+msgstr "  abc  "
 
 #: htdocs/assets/js/lodash-4.17.2.js:15199
+#, fuzzy
 msgid ""
 ");\n"
 "     *\n"
@@ -48,12 +49,34 @@ msgid ""
 "     *\n"
 "     * **Note:** This method doesn"
 msgstr ""
+");\n"
+"     *\n"
+"     * if (_.isError(elements)) {\n"
+"     *   elements = [];\n"
+"     * }\n"
+"     */\n"
+"    var attempt = baseRest(function(func, args) {\n"
+"      try {\n"
+"        return apply(func, undefined, args);\n"
+"      } catch (e) {\n"
+"        return isError(e) ? e : new Error(e);\n"
+"      }\n"
+"    });\n"
+"\n"
+"    /**\n"
+"     * Binds methods of an object to the object itself, overwriting the "
+"existing\n"
+"     * method.\n"
+"     *\n"
+"     * **Note:** This method doesn"
 
 #: htdocs/assets/js/lodash-4.17.2.js:14398
 msgid ""
 ");\n"
 "     * // => "
 msgstr ""
+");\n"
+"     * // => "
 
 #: htdocs/index.php:78
 msgid ".htaccess files are disabled on this webserver. Please enable them"
@@ -67,12 +90,12 @@ msgstr "archivos .htaccess no son compatibles con este servidor web."
 
 #: htdocs/assets/js/moment-with-locales-2.20.1.min.js:1
 msgid ": "
-msgstr ""
+msgstr ": "
 
 #: htdocs/modules/Ucptour/assets/js/global.js:123
 #, perl-format
 msgid "A dashboard can be deleted by clicking the '%s'"
-msgstr ""
+msgstr "El panel se puede eliminar haciendo click en el '%s'"
 
 #: htdocs/views/templates/phone.php:41
 msgid "ABC"
@@ -80,11 +103,11 @@ msgstr "ABC"
 
 #: htdocs/views/dashboard-footer.php:202
 msgid "Accept"
-msgstr ""
+msgstr "Aceptar"
 
 #: htdocs/modules/Settings/views/settings.php:5
 msgid "Account Settings"
-msgstr ""
+msgstr "Ajustes de Cuenta"
 
 #: views/users_hook.php:107
 msgid "Active Sessions"
@@ -92,45 +115,47 @@ msgstr "Sesiones Activas"
 
 #: htdocs/views/dashboard-footer.php:13
 msgid "Add Dashboard"
-msgstr ""
+msgstr "Agregar Tablero"
 
 #: htdocs/views/dashboard-footer.php:55
 msgid "Add Widget"
-msgstr ""
+msgstr "Agregar Artilugio"
 
 #: htdocs/modules/Ucptour/assets/js/global.js:250
 msgid "Adding Side Bar Widgets"
-msgstr ""
+msgstr "Agregar Artilugio de Barra Lateral"
 
 #: htdocs/modules/Ucptour/assets/js/global.js:299
 msgid "Adding Small Widgets"
-msgstr ""
+msgstr "Agregar Pequeño Artilugio"
 
 #: htdocs/modules/Ucptour/assets/js/global.js:139
 #: htdocs/modules/Ucptour/assets/js/global.js:188
 msgid "Adding Widgets"
-msgstr ""
+msgstr "Agregando Artilugio"
 
 #: htdocs/modules/Ucptour/assets/js/global.js:32
 msgid "Adding a dashboard"
-msgstr ""
+msgstr "Agregando un tablero"
 
 #: ucp.i18n.php:34
 msgid "Address to bind to. Default is "
-msgstr ""
+msgstr "Dirección a la que vincularse. Por defecto es "
 
 #: ucp.i18n.php:6
 msgid "Admin"
-msgstr "Admin"
+msgstr "Administrador"
 
 #: htdocs/views/dashboard-footer.php:214
 msgid "Alert"
-msgstr ""
+msgstr "Alerta"
 
 #: htdocs/modules/Settings/views/settings.php:3
 msgid ""
 "All fields update when unfocused (selecting another field) except password"
 msgstr ""
+"Todos los campos se actualizan cuando no se hace foto (seleccionando otro "
+"campo) excepto la contraseña"
 
 #: htdocs/modules/Ucptour/assets/js/global.js:239
 #, perl-format
@@ -138,6 +163,8 @@ msgid ""
 "All widgets in a dashboard can also be locked globally by clicking the '%s' "
 "symbol on the dashboard tab"
 msgstr ""
+"Todos los artilugios en un tablero pueden ser bloqueados globalmente "
+"haciendo click en el símbolo \"%s\" en la pestaña del tablero"
 
 #: htdocs/modules/Settings/views/settings.php:144
 msgid "Allow Desktop Notifications"
@@ -164,10 +191,12 @@ msgid ""
 "Allow this user to originate calls from within UCP. This is not the same as "
 "WebRTC"
 msgstr ""
+"Permitir a este usuario originar llamadas desde dentro de UCP. Esto no es lo "
+"mismo que WebRTC"
 
 #: ucp.i18n.php:62
 msgid "Allow users to change their username in UCP"
-msgstr ""
+msgstr "Permitir a los usuarios cambiar su nombre de usuario en UCP"
 
 #: ucp.i18n.php:58
 msgid "Allow users to change thier password in UCP"
@@ -175,11 +204,11 @@ msgstr "Permitir a usuarios cambiar su contraseña en UCP"
 
 #: views/users_hook.php:147
 msgid "Allowed Extension Settings"
-msgstr ""
+msgstr "Permitir Ajustes de Extensión"
 
 #: htdocs/modules/Widgets/assets/js/global.js:889
 msgid "Are you sure you want to delete this dashboard?"
-msgstr ""
+msgstr "¿Está seguro que quiere eliminar este tablero?"
 
 #: Ucp.class.php:1252
 #, php-format
@@ -187,19 +216,21 @@ msgid ""
 "Asterisk home dir (%s) doesn't exist, and, ASTSPOOLDIR doesn't exist. "
 "Aborting"
 msgstr ""
+"El directorio de inicio de Asterisk (%s) no existe, y ASTSPOOLDIR no existe. "
+"Abortando"
 
 #: htdocs/modules/Settings/views/settings.php:102
 msgid "Browse"
-msgstr ""
+msgstr "Buscar"
 
 #: htdocs/views/templates/phone.php:7 htdocs/views/templates/phone.php:95
 msgid "Call"
-msgstr "Llamada"
+msgstr "Llamar"
 
 #: htdocs/views/dashboard-footer.php:22 htdocs/views/dashboard-footer.php:43
 #: htdocs/views/dashboard-footer.php:151 htdocs/views/dashboard-footer.php:201
 msgid "Cancel"
-msgstr ""
+msgstr "Cancelar"
 
 #: htdocs/modules/Settings/views/settings.php:72
 msgid "Cell Phone"
@@ -207,7 +238,7 @@ msgstr "Teléfono Móvil"
 
 #: htdocs/modules/Ucptour/assets/js/global.js:313
 msgid "Click the widget's icon to continue"
-msgstr ""
+msgstr "Haga click en el ícono del artilugio para continuar"
 
 #: htdocs/modules/Ucptour/assets/js/global.js:33
 #: htdocs/modules/Ucptour/assets/js/global.js:140
@@ -216,7 +247,7 @@ msgstr ""
 #: htdocs/modules/Ucptour/assets/js/global.js:300
 #: htdocs/modules/Ucptour/assets/js/global.js:335
 msgid "Click this symbol to continue"
-msgstr ""
+msgstr "Haga click en este símbolo para continuar"
 
 #: htdocs/modules/Ucptour/assets/js/global.js:300
 #, perl-format
@@ -224,6 +255,8 @@ msgid ""
 "Clicking the '%s' symbol will add this small widget to the display. It will "
 "be visible on all dashboards"
 msgstr ""
+"Haciendo click en el símbolo \"%s\" agregará este pequeño artilugio a la "
+"pantalla. Será visible en todos los tableros"
 
 #: htdocs/modules/Ucptour/assets/js/global.js:189
 #, perl-format
@@ -231,10 +264,12 @@ msgid ""
 "Clicking the '%s' symbol will add this widget to the currently active "
 "dashboard."
 msgstr ""
+"Haciendo click en el símbolo \"%s\" agregará este artilugio al tablero "
+"activo actual."
 
 #: htdocs/views/dashboard-footer.php:226
 msgid "Close"
-msgstr ""
+msgstr "Cerrar"
 
 #: htdocs/modules/Settings/views/settings.php:67
 msgid "Company"
@@ -242,7 +277,7 @@ msgstr "Empresa"
 
 #: htdocs/views/dashboard-footer.php:193
 msgid "Confirm Action"
-msgstr ""
+msgstr "Confirmar Acción"
 
 #: htdocs/modules/Settings/views/settings.php:32
 msgid "Confirm Password"
@@ -250,11 +285,11 @@ msgstr "Confirmar Contraseña"
 
 #: htdocs/modules/Ucptour/assets/js/global.js:25
 msgid "Congratulations!"
-msgstr ""
+msgstr "¡Felicidades!"
 
 #: htdocs/views/dashboard-footer.php:23
 msgid "Create Dashboard"
-msgstr ""
+msgstr "Crear Tablero"
 
 #: htdocs/views/templates/phone.php:45
 msgid "DEF"
@@ -262,20 +297,20 @@ msgstr "DEF"
 
 #: htdocs/modules/Ucptour/assets/js/global.js:238
 msgid "Dashboard Locking"
-msgstr ""
+msgstr "Bloqueo de Tablero"
 
 #: htdocs/views/dashboard-footer.php:17 htdocs/views/dashboard-footer.php:38
 msgid "Dashboard Name"
-msgstr ""
+msgstr "Nombre del Tablero"
 
 #: htdocs/modules/Ucptour/assets/js/global.js:202
 msgid "Dashboard Widget"
-msgstr ""
+msgstr "Artilugio del Tablero"
 
 #: htdocs/views/dashboard-footer.php:59
 #: htdocs/modules/Ucptour/assets/js/global.js:101
 msgid "Dashboard Widgets"
-msgstr ""
+msgstr "Artilugios del Tablero"
 
 #: htdocs/modules/Ucptour/assets/js/global.js:167
 msgid ""
@@ -283,35 +318,39 @@ msgid ""
 "appear directly on your dashboard. You can click on any category to get a "
 "listing of the widgets available"
 msgstr ""
+"Los Artilugios del Tablero están ordenados dentro de categorías a la "
+"izquierda. Estos artilugios aparecerán en el tablero directamente. Puede "
+"hacer click en cualquier categoría para obtener una lista de los artilugios "
+"disponibles"
 
 #: htdocs/modules/Ucptour/assets/js/global.js:102
 msgid "Dashboard widgets will be displayed here"
-msgstr ""
+msgstr "Los Artilugios del Tablero serán visibles aquí"
 
 #: htdocs/modules/Ucptour/assets/js/global.js:93
 msgid "Dashboards"
-msgstr ""
+msgstr "Tableros"
 
 #: htdocs/modules/Settings/views/settings.php:162
 msgid "Date Format"
-msgstr ""
+msgstr "Formato de Fecha"
 
 #: htdocs/modules/Settings/views/settings.php:154
 msgid "Date and Time Format"
-msgstr ""
+msgstr "Formato de Fecha y Hora"
 
 #: htdocs/modules/Settings/views/settings.php:120
 #: htdocs/modules/Settings/views/settings.php:133
 msgid "Default"
-msgstr ""
+msgstr "Por Defecto"
 
 #: htdocs/modules/Settings/views/settings.php:97
 msgid "Delete Image"
-msgstr ""
+msgstr "Eliminar Imagen"
 
 #: htdocs/modules/Ucptour/assets/js/global.js:122
 msgid "Delete a Dashboard"
-msgstr ""
+msgstr "Eliminar un Tablero"
 
 #: Ucp.class.php:1111
 msgid "Deleted Session"
@@ -323,7 +362,7 @@ msgstr "Sesión de usuario borrada"
 
 #: htdocs/assets/js/ucp.js:80
 msgid "Disable"
-msgstr ""
+msgstr "Deshabilitado"
 
 #: htdocs/modules/Settings/views/settings.php:42
 msgid "Display Name"
@@ -332,7 +371,7 @@ msgstr "Nombre a Mostrar"
 #: Ucp.class.php:1424
 #, php-format
 msgid "Don't know what %s is"
-msgstr ""
+msgstr "No sé que es %s"
 
 #: Ucp.class.php:300 Ucp.class.php:326 Ucp.class.php:1205 Ucp.class.php:1209
 #: Ucp.class.php:1213 Ucp.class.php:1217
@@ -341,15 +380,15 @@ msgstr "Hecho"
 
 #: htdocs/modules/Settings/views/settings.php:94
 msgid "Drop a new image here"
-msgstr ""
+msgstr "Arroje una nueva imagen aquí"
 
 #: htdocs/views/dashboard-footer.php:34 htdocs/views/dashboard-footer.php:44
 msgid "Edit Dashboard"
-msgstr ""
+msgstr "Editar Tablero"
 
 #: htdocs/modules/Ucptour/assets/js/global.js:115
 msgid "Editing a Dashboard"
-msgstr ""
+msgstr "Editando Tablero"
 
 #: htdocs/modules/Settings/views/settings.php:47 htdocs/views/login.php:30
 msgid "Email"
@@ -357,37 +396,40 @@ msgstr "Correo"
 
 #: htdocs/assets/js/ucp.js:77
 msgid "Enable"
-msgstr ""
+msgstr "Habilitar"
 
 #: views/users_hook.php:173
 msgid "Enable Originating Calls"
-msgstr ""
+msgstr "Habilitar Original Llamadas"
 
 #: ucp.i18n.php:28
 msgid "Enable TLS for the NodeJS Server"
-msgstr ""
+msgstr "Habilitar TLS para el Servidor NodeJS"
 
 #: views/users_hook.php:76
 msgid "Enable Tour Mode"
-msgstr ""
+msgstr "Habilitar Modo Tour"
 
 #: ucp.i18n.php:22
 msgid "Enable the NodeJS Server"
-msgstr ""
+msgstr "Habilitar el Servidor NodeJS"
 
 #: views/users_hook.php:95
 msgid ""
 "Enable tour mode in UCP upon first login. If disabled the tour will not "
 "automatically start upon first login"
 msgstr ""
+"Habilitar modo tour en UCP al iniciar sesión por primera vez. Si se "
+"deshabilita, el tour no iniciará automáticamente en el primer inicio de "
+"sesión"
 
 #: htdocs/modules/Settings/assets/js/global.js:140
 msgid "Enabling notifications was denied"
-msgstr ""
+msgstr "Habilitar notificaciones fue denegado"
 
 #: htdocs/modules/Ucptour/assets/js/global.js:355
 msgid "End of tour"
-msgstr ""
+msgstr "Fin del tour"
 
 #: htdocs/modules/Settings/Settings.class.php:143
 msgid "English"
@@ -395,25 +437,26 @@ msgstr "Inglés"
 
 #: htdocs/modules/Ucptour/assets/js/global.js:51
 msgid "Enter a name for your dashboard in this input box"
-msgstr ""
+msgstr "Ingrese el nombre de su tablero en este cuadro de entrada"
 
 #: install.inc.php:20
 #, php-format
 msgid "Failed to install %s due to the following conflicting module(s): %s"
 msgstr ""
+"Falló al instalar %s debido a los siguientes conflictos de módulo(s): %s"
 
 #: Ucp.class.php:1334
 #, php-format
 msgid "Failed to run: '%s'"
-msgstr ""
+msgstr "Falló al correr: \"%s\""
 
 #: Ucp.class.php:178
 msgid "Failed updating libraries!"
-msgstr ""
+msgstr "¡Falló al actualizar librerías!"
 
 #: Ucp.class.php:308
 msgid "Failed!"
-msgstr ""
+msgstr "¡Falló!"
 
 #: htdocs/modules/Settings/views/settings.php:87
 msgid "Fax"
@@ -421,7 +464,7 @@ msgstr "Fax"
 
 #: Ucp.class.php:181
 msgid "Finished updating libraries!"
-msgstr ""
+msgstr "¡Finalizó la actualización de librerías!"
 
 #: htdocs/views/templates/pagnation.php:4
 msgid "First"
@@ -433,7 +476,7 @@ msgstr "Primer Nombre"
 
 #: htdocs/views/login.php:37
 msgid "Forgot Password"
-msgstr "Olvidó  Password"
+msgstr "Olvidó Password"
 
 #: htdocs/views/templates/phone.php:51
 msgid "GHI"
@@ -441,7 +484,7 @@ msgstr "GHI"
 
 #: views/users_hook.php:19
 msgid "General"
-msgstr ""
+msgstr "General"
 
 #: Ucp.class.php:1215
 msgid "Generating Main CSS..."
@@ -474,7 +517,7 @@ msgstr "Teléfono de Casa"
 #: Ucp.class.php:156 Ucp.class.php:163
 #, php-format
 msgid "Home directory [%s] is not writable"
-msgstr ""
+msgstr "Directorio de inicio [%s] no se puede escribir"
 
 #: htdocs/modules/Settings/views/settings.php:44
 msgid ""
@@ -485,19 +528,20 @@ msgstr ""
 #: Ucp.class.php:148
 #, php-format
 msgid "ICU version is: %s requirement is %s"
-msgstr ""
+msgstr "La versión de ICU es: %s el requerimiento es %s"
 
 #: views/users_hook.php:56 views/users_hook.php:86 views/users_hook.php:183
 msgid "Inherit"
-msgstr "heredado"
+msgstr "Heredar"
 
 #: Ucp.class.php:168
 msgid "Installing/Updating Required Libraries. This may take a while..."
 msgstr ""
+"Instalando/Actualizando librerías requeridas. Esto puede tomar un momento..."
 
 #: htdocs/modules/Settings/views/settings.php:7
 msgid "Interface Settings"
-msgstr ""
+msgstr "Ajustes de Interfaz"
 
 #: htdocs/index.php:236
 #, php-format
@@ -505,6 +549,8 @@ msgid ""
 "Internet Explorer %s is not supported. Functionality will be deteriorated "
 "until you upgrade to %s or higher"
 msgstr ""
+"Internet Explorer %s no es soportado. La funcionalidad estará deteriorada "
+"hasta que actualice a %s o superior"
 
 #: htdocs/includes/User.class.php:97
 msgid "Invalid"
@@ -513,7 +559,7 @@ msgstr "Inválido"
 #: htdocs/modules/Home/Home.class.php:136
 #: htdocs/modules/Home/Home.class.php:140
 msgid "Invalid Device"
-msgstr ""
+msgstr "Dispositivo Inválido"
 
 #: htdocs/includes/User.class.php:105
 msgid "Invalid Login Credentials"
@@ -525,7 +571,7 @@ msgstr "Llave inválida"
 
 #: htdocs/modules/Widgets/Widgets.class.php:46
 msgid "Invalid dashboard id"
-msgstr ""
+msgstr "ID de Tablero Inválido"
 
 #: htdocs/views/templates/phone.php:55
 msgid "JKL"
@@ -551,7 +597,7 @@ msgstr "Cargando..."
 #: htdocs/assets/js/ucp.js:290 htdocs/assets/js/ucp.js:313
 #: htdocs/assets/js/ucp.js:323
 msgid "Login"
-msgstr "Usuario"
+msgstr "Login"
 
 #: htdocs/modules/Ucptour/assets/js/global.js:351
 msgid "Logout"
@@ -563,11 +609,11 @@ msgstr "MNO"
 
 #: views/users_hook.php:65
 msgid "May this user log in to UCP"
-msgstr ""
+msgstr "Puede este usuario iniciar sesión en UCP"
 
 #: views/users_hook.php:24
 msgid "Miscellaneous"
-msgstr ""
+msgstr "Misceláneas"
 
 #: htdocs/includes/Ajax.class.php:69
 msgid "Module or Command were null. Check your code."
@@ -579,6 +625,9 @@ msgid ""
 "move cursor is shown. Then clicking and dragging the dashboard in the order "
 "you want"
 msgstr ""
+"Se pueden reordenar varios tableros al pasar el ratón por encima hasta que "
+"el cursor de movimiento. Después haga click y arrastre el tablero en el "
+"orden que quiera"
 
 #: Ucp.class.php:121
 #, php-format
@@ -586,10 +635,12 @@ msgid ""
 "NPM version is: %s requirement is %s. Run 'yum upgrade nodejs' from the CLI "
 "as root"
 msgstr ""
+"La versión de NPM es: %s se requiere %s. Correr \"yum upgrade nodejs\" desde "
+"la consola como root"
 
 #: htdocs/modules/Ucptour/assets/js/global.js:50
 msgid "Name your dashboard"
-msgstr ""
+msgstr "Ponga nombre a su tablero"
 
 #: views/users_hook.php:53 views/users_hook.php:83 views/users_hook.php:180
 msgid "No"
@@ -597,11 +648,11 @@ msgstr "No"
 
 #: Ucp.class.php:117
 msgid "Node Package Manager is not installed"
-msgstr ""
+msgstr "Administrador de Paquetes Node no está instalado"
 
 #: Ucp.class.php:105
 msgid "Node is not installed"
-msgstr ""
+msgstr "Node no está instalado"
 
 #: Ucp.class.php:109
 #, php-format
@@ -609,42 +660,44 @@ msgid ""
 "Node version is: %s requirement is %s. Run 'yum upgrade nodejs' from the CLI "
 "as root"
 msgstr ""
+"La versión de node es: %s se requiere %s. Correr \"yum upgrade nodejs\" "
+"desde la consola como root"
 
 #: ucp.i18n.php:32
 msgid "NodeJS Bind Address"
-msgstr ""
+msgstr "Dirección de Enlace NodeJS"
 
 #: ucp.i18n.php:36
 msgid "NodeJS Bind Port"
-msgstr ""
+msgstr "Puerto de Enlace NodeJS"
 
 #: ucp.i18n.php:40
 msgid "NodeJS HTTPS Bind Address"
-msgstr ""
+msgstr "Dirección de Enlace HTTPS NodeJS"
 
 #: ucp.i18n.php:42
 msgid "NodeJS HTTPS Bind Port"
-msgstr ""
+msgstr "Puerto de Enlace HTTPS NodeJS"
 
 #: ucp.i18n.php:46
 msgid "NodeJS HTTPS TLS Certificate Location"
-msgstr ""
+msgstr "Ubicación del Certificado TLS HTTPS NodeJS"
 
 #: ucp.i18n.php:50
 msgid "NodeJS HTTPS TLS Private Key Location"
-msgstr ""
+msgstr "Ubicación de la Llave Privada TLS HTTPS NodeJS"
 
 #: htdocs/modules/Ucptour/assets/js/global.js:216
 msgid "Note: some widgets have size restrictions!"
-msgstr ""
+msgstr "Nota: ¡algunos artilugios tiene restricción de tamaño!"
 
 #: htdocs/modules/Home/assets/js/global.js:73
 msgid "Nothing Entered"
-msgstr ""
+msgstr "Nada Ingresado"
 
 #: htdocs/includes/User.class.php:74
 msgid "Nothing was Provided!"
-msgstr "Nada Provisto!"
+msgstr "¡Nada Provisto!"
 
 #: htdocs/views/header.php:54
 msgid "OFF"
@@ -657,15 +710,17 @@ msgstr "ON"
 #: htdocs/modules/Ucptour/assets/js/global.js:313
 msgid "Once a small widget has been added it will show up in the left sidebar"
 msgstr ""
+"Cuando un pequeño artilugio ha sido agregado se mostrará en la barra lateral "
+"de la izquierda"
 
 #: htdocs/modules/Ucptour/assets/js/global.js:129
 msgid "Ordering dashboards"
-msgstr ""
+msgstr "Ordenando tableros"
 
 #: htdocs/modules/Home/assets/js/global.js:47
 #: htdocs/modules/Home/assets/js/global.js:126
 msgid "Originate"
-msgstr ""
+msgstr "Originar"
 
 #: htdocs/modules/Home/assets/js/global.js:22
 #: htdocs/modules/Home/assets/js/global.js:45
@@ -694,19 +749,19 @@ msgstr "Restablece Password para: %s"
 
 #: htdocs/modules/Settings/views/pwd_alert.php:1
 msgid "Password does not match security policy."
-msgstr ""
+msgstr "La contraseña no coincide con la política de seguridad."
 
 #: htdocs/assets/js/ucp.js:269
 msgid "Password has been changed!"
-msgstr ""
+msgstr "¡La contraseña ha sido cambiada!"
 
 #: ucp.i18n.php:38
 msgid "Port to bind to. Default is 8001"
-msgstr ""
+msgstr "Puerto al que enlazar. Por defecto es 8001"
 
 #: ucp.i18n.php:44
 msgid "Port to bind to. Default is 8003"
-msgstr ""
+msgstr "Puerto al que enlazar. Por defecto es 8003"
 
 #: htdocs/assets/js/ucp.js:283 htdocs/assets/js/ucp.js:306
 msgid "Processing..."
@@ -731,7 +786,7 @@ msgstr "Recuerdeme"
 #: htdocs/views/dashboard-header.php:66
 #: htdocs/modules/Widgets/assets/js/global.js:446
 msgid "Remove Widget"
-msgstr ""
+msgstr "Eliminar Artilugio"
 
 #: htdocs/views/forgot.php:62
 msgid "Reset Password"
@@ -739,38 +794,38 @@ msgstr "Reiniciar Password"
 
 #: htdocs/modules/Settings/views/settings.php:149
 msgid "Restart Tour"
-msgstr ""
+msgstr "Reinicia Tour"
 
 #: Ucp.class.php:1274
 #, php-format
 msgid "Running (Uptime: %s)"
-msgstr ""
+msgstr "Corriendo (Tiempo de Actividad: %s)"
 
 #: htdocs/modules/Ucptour/assets/js/global.js:69
 msgid "Save your dashboard"
-msgstr ""
+msgstr "Salve su Tablero"
 
 #: htdocs/modules/Settings/assets/js/global.js:229
 msgid "Saved!"
-msgstr "Guardado!"
+msgstr "¡Guardado!"
 
 #: htdocs/modules/Ucptour/assets/js/global.js:166
 msgid "Selecting Dashboard Widgets"
-msgstr ""
+msgstr "Seleccionando Artilugios del Tablero"
 
 #: htdocs/modules/Ucptour/assets/js/global.js:266
 msgid "Selecting Side Bar Widgets"
-msgstr ""
+msgstr "Seleccionando Artilugios de la Barra Lateral"
 
 #: htdocs/modules/Ucptour/assets/js/global.js:277
 msgid "Selecting Small Widgets"
-msgstr ""
+msgstr "Seleccionando Pequeños Artilugios"
 
 #: htdocs/modules/Ucptour/assets/js/global.js:155
 #: htdocs/modules/Ucptour/assets/js/global.js:174
 #: htdocs/modules/Ucptour/assets/js/global.js:284
 msgid "Selecting Widgets"
-msgstr ""
+msgstr "Seleccionando Artilugios"
 
 #: htdocs/views/login.php:55
 msgid "Send Me A Password Reset Link"
@@ -783,11 +838,12 @@ msgstr "Enviado a %s"
 
 #: ucp.i18n.php:52
 msgid "Sets the path to the HTTPS private key. This is required if "
-msgstr ""
+msgstr "Configura la ruta a la clave privada HTTPS. Esto se requiere si "
 
 #: ucp.i18n.php:48
 msgid "Sets the path to the HTTPS server certificate. This is required if "
 msgstr ""
+"Configura la ruta al certificado del servidor HTTPS. Esto se requiere si "
 
 #: htdocs/modules/Widgets/assets/js/global.js:100
 #: htdocs/modules/Widgets/assets/js/global.js:385
@@ -797,12 +853,14 @@ msgstr "Configuracion"
 #: htdocs/views/dashboard-footer.php:60
 #: htdocs/modules/Ucptour/assets/js/global.js:243
 msgid "Side Bar Widgets"
-msgstr ""
+msgstr "Artilugios de Barra Lateral"
 
 #: htdocs/modules/Ucptour/assets/js/global.js:267
 msgid ""
 "Side Bar widgets are grouped in a single category called 'Side Bar Widgets'"
 msgstr ""
+"Los Artilugios de Barra Lateral están agrupados en una única categoría "
+"llamada \"Artilugios de Barra Lateral\""
 
 #: htdocs/modules/Ucptour/assets/js/global.js:251
 #, perl-format
