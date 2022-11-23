@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: UCP 14\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-12-11 12:34+0000\n"
-"PO-Revision-Date: 2022-10-28 10:00+0000\n"
+"PO-Revision-Date: 2022-11-24 07:01+0000\n"
 "Last-Translator: Dmitriy Q <krotesk@ya.ru>\n"
 "Language-Team: Russian <http://weblate.freepbx.org/projects/freepbx/ucp/ru/>"
 "\n"
@@ -852,6 +852,8 @@ msgid ""
 "Side bar Widgets can also be added by clicking the '%s' symbol. These appear "
 "under the '%s' symbol in this side bar"
 msgstr ""
+"Виджеты боковой панели также можно добавить, нажав на символ '%s'. Они "
+"появляются под символом '%s' в этой боковой панели"
 
 #: htdocs/modules/Ucptour/assets/js/global.js:312
 #: htdocs/modules/Ucptour/assets/js/global.js:324
