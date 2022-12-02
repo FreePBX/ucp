@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: UCP 14\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-12-11 12:34+0000\n"
-"PO-Revision-Date: 2022-12-01 08:00+0000\n"
+"PO-Revision-Date: 2022-12-03 09:01+0000\n"
 "Last-Translator: Dmitriy Q <krotesk@ya.ru>\n"
 "Language-Team: Russian <http://weblate.freepbx.org/projects/freepbx/ucp/ru/>"
 "\n"
@@ -1113,12 +1113,12 @@ msgstr "Заголовок"
 
 #: htdocs/modules/Ucptour/assets/js/global.js:25
 msgid "To continue just click Next"
-msgstr ""
+msgstr "Чтобы продолжить, просто нажмите Далее"
 
 #: htdocs/modules/Ucptour/assets/js/global.js:335
 #, perl-format
 msgid "To just close/hide the widget's content click the '%s' symbol"
-msgstr ""
+msgstr "Чтобы просто закрыть/скрыть содержимое виджета, нажмите на символ '%s'"
 
 #: htdocs/index.php:79
 #, php-format
@@ -1133,7 +1133,7 @@ msgstr ""
 
 #: htdocs/modules/Ucptour/assets/js/global.js:330
 msgid "To remove this widget from the side bar click 'Remove Widget'"
-msgstr ""
+msgstr "Чтобы удалить этот виджет с боковой панели, нажмите \"Удалить виджет\""
 
 #: htdocs/index.php:108 ucp.i18n.php:10
 msgid "UCP"
@@ -1145,7 +1145,7 @@ msgstr "Администрирование UCP"
 
 #: Ucp.class.php:1260
 msgid "UCP Daemon"
-msgstr ""
+msgstr "Демон UCP"
 
 #: Ucp.class.php:1268
 msgid "UCP Node Disabled in Advanced Settings."
@@ -1154,57 +1154,63 @@ msgstr "Узел UCP отключен в Расширенных настройк
 #: Ucp.class.php:1405
 #, php-format
 msgid "UCP Node Server Failed: %s"
-msgstr ""
+msgstr "Сбой сервера узла UCP: %s"
 
 #: Ucp.class.php:1294
 #, php-format
 msgid "UCP Node Server has already been running on PID %s for %s"
-msgstr ""
+msgstr "Сервер узлов UCP уже работает на PID %s в течение %s"
 
 #: Ucp.class.php:1363
 msgid "UCP Node Server is not running"
-msgstr ""
+msgstr "Сервер узла UCP не запущен"
 
 #: Ucp.class.php:1276
 msgid "UCP Node is not running"
-msgstr ""
+msgstr "Узел UCP не запущен"
 
 #: ucp.i18n.php:24
 msgid "UCP NodeJS Server"
-msgstr ""
+msgstr "Сервер UCP NodeJS"
 
 #: ucp.i18n.php:68
 msgid "UCP Session Timeout"
-msgstr ""
+msgstr "Тайм-аут сессии UCP"
 
 #: ucp.i18n.php:20
 msgid ""
 "UCP icons folder. This should never be changed except for very advanced "
 "layout changes"
 msgstr ""
+"Папка значков UCP. Ее не следует изменять, за исключением очень сложных "
+"изменений макета"
 
 #: htdocs/index.php:23
 msgid "UCP is currently disabled. Please talk to your system Administrator"
 msgstr ""
+"В настоящее время UCP отключена. Пожалуйста, обратитесь к администратору "
+"вашей системы"
 
 #: htdocs/assets/js/ucp.js:341
 msgid "UCP is not supported in your browser"
-msgstr ""
+msgstr "UCP не поддерживается вашим браузером"
 
 #: htdocs/modules/Settings/assets/js/global.js:107
 #: htdocs/modules/Settings/assets/js/global.js:122
 msgid "UCP needs to reload, ok?"
-msgstr ""
+msgstr "UCP необходимо перезагрузить, хорошо?"
 
 #: views/users_hook.php:9
 msgid ""
 "UCP, otherwise known as the User Control Panel, is a user interface for "
 "FreePBX."
 msgstr ""
+"UCP, иначе известная как User Control Panel, представляет собой "
+"пользовательский интерфейс для FreePBX."
 
 #: htdocs/includes/User.class.php:88
 msgid "Unable to send Password Reset Email"
-msgstr ""
+msgstr "Невозможно отправить электронное письмо для сброса пароля"
 
 #: Ucp.class.php:1262
 msgid "Unknown"
@@ -1255,7 +1261,7 @@ msgstr "Настройки панели управления пользоват�
 #: htdocs/views/dashfootercontent.php:2
 #, php-format
 msgid "User Control Panel is released as %s or newer"
-msgstr ""
+msgstr "Панель управления пользователя выпущена под номером %s или новее"
 
 #: Ucp.class.php:498
 #, php-format
@@ -1272,7 +1278,7 @@ msgstr "Основной внутренний номер пользовател�
 
 #: htdocs/modules/Ucptour/assets/js/global.js:346
 msgid "User Settings"
-msgstr ""
+msgstr "Настройки пользователя"
 
 #: htdocs/modules/Settings/views/settings.php:18 htdocs/views/login.php:16
 msgid "Username"
