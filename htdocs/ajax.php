@@ -32,6 +32,15 @@ if(!isset($_REQUEST['command'])) {
 	$json = json_encode(array("status" => "false", "message" => "forbidden"));
 	die($json);
 }
+
+//check if PBXMFA module is present/licensed, because we need to validate MFA requests before user logged-in
+if (($user === false || empty($user)) && ($_REQUEST['module'] == "pbxmfa")) {
+	if ($ucp->FreePBX->Modules->checkStatus('pbxmfa') && $ucp->FreePBX->Pbxmfa->validateAjax($_REQUEST['command'])) {
+		$module = !empty($_REQUEST['module']) ? $_REQUEST['module'] : null;
+		$ucp->Ajax->doRequest($module,$_REQUEST['command']);
+	}
+}
+
 if(($_REQUEST['command'] != "login" && $_REQUEST['module'] != "User") && ($user === false || empty($user))) {
 	header("HTTP/1.0 403 Forbidden");
 	$json = json_encode(array("status" => "false", "message" => "forbidden"));
