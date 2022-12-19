@@ -35,7 +35,9 @@ if(!isset($_REQUEST['command'])) {
 
 //check if PBXMFA module is present/licensed, because we need to validate MFA requests before user logged-in
 if (($user === false || empty($user)) && ($_REQUEST['module'] == "pbxmfa")) {
-	if ($ucp->FreePBX->Modules->checkStatus('pbxmfa') && $ucp->FreePBX->Pbxmfa->validateAjax($_REQUEST['command'])) {
+	if ($ucp->FreePBX->Modules->checkStatus('pbxmfa')
+		&& method_exists($ucp->FreePBX->Pbxmfa, 'validateAjax')
+		&& $ucp->FreePBX->Pbxmfa->validateAjax($_REQUEST['command'])) {
 		$module = !empty($_REQUEST['module']) ? $_REQUEST['module'] : null;
 		$ucp->Ajax->doRequest($module,$_REQUEST['command']);
 	}
