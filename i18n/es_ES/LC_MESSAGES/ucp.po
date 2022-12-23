@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-09-15 08:32+0000\n"
-"PO-Revision-Date: 2022-11-04 13:01+0000\n"
+"PO-Revision-Date: 2022-12-23 12:29+0000\n"
 "Last-Translator: Santiago Pioli <spioli@sangoma.com>\n"
 "Language-Team: Spanish <http://weblate.freepbx.org/projects/freepbx/ucp/es/>"
 "\n"
@@ -26,7 +26,6 @@ msgid "  abc  "
 msgstr "  abc  "
 
 #: htdocs/assets/js/lodash-4.17.2.js:15199
-#, fuzzy
 msgid ""
 ");\n"
 "     *\n"
@@ -853,13 +852,13 @@ msgstr "Configuracion"
 #: htdocs/views/dashboard-footer.php:60
 #: htdocs/modules/Ucptour/assets/js/global.js:243
 msgid "Side Bar Widgets"
-msgstr "Artilugios de Barra Lateral"
+msgstr "Widgets de Barra Lateral"
 
 #: htdocs/modules/Ucptour/assets/js/global.js:267
 msgid ""
 "Side Bar widgets are grouped in a single category called 'Side Bar Widgets'"
 msgstr ""
-"Los Artilugios de Barra Lateral están agrupados en una única categoría "
+"Los Widgets de la Barra Lateral están agrupados en una única categoría "
 "llamada \"Artilugios de Barra Lateral\""
 
 #: htdocs/modules/Ucptour/assets/js/global.js:251
@@ -868,63 +867,68 @@ msgid ""
 "Side bar Widgets can also be added by clicking the '%s' symbol. These appear "
 "under the '%s' symbol in this side bar"
 msgstr ""
+"Los Widgets de la barra lateral también pueden ser agregados haciendo click "
+"en el símbolo '%s'. Estos aparecen debajo del símbolo '%s' en esta barra "
+"lateral"
 
 #: htdocs/modules/Ucptour/assets/js/global.js:312
 #: htdocs/modules/Ucptour/assets/js/global.js:324
 #: htdocs/modules/Ucptour/assets/js/global.js:329
 #: htdocs/modules/Ucptour/assets/js/global.js:334
 msgid "Small Widget Display"
-msgstr ""
+msgstr "Pantalla de Widgets pequeños"
 
 #: htdocs/modules/Ucptour/assets/js/global.js:278
 msgid ""
 "Small Widgets are listed on the right. The titles and descriptions will be "
 "shown for each widget"
 msgstr ""
+"Los pequeños Widgets son listados a la derecha. Los títulos y descripciones "
+"serán mostradas para cada widget"
 
 #: htdocs/modules/Widgets/assets/js/global.js:1196
 msgid "Something went wrong getting the content of the widget"
-msgstr ""
+msgstr "Also salió mal obteniendo el contenido del widget"
 
 #: htdocs/modules/Widgets/assets/js/global.js:1238
 #: htdocs/modules/Widgets/assets/js/global.js:1276
 msgid "Something went wrong getting the settings from the widget"
-msgstr ""
+msgstr "Also salió mal obteniendo los ajustes del widget"
 
 #: htdocs/modules/Widgets/assets/js/global.js:863
 #: htdocs/modules/Widgets/assets/js/global.js:917
 msgid "Something went wrong removing the dashboard"
-msgstr ""
+msgstr "Also salió mal eliminando el tablero"
 
 #: Ucp.class.php:1329
 #, php-format
 msgid "Started UCP Node Server. PID is %s"
-msgstr ""
+msgstr "UCP Servidor Node iniciado. PID es %s"
 
 #: Ucp.class.php:310
 #, php-format
 msgid "Started with PID %s!"
-msgstr ""
+msgstr "¡Iniciado con PID %s!"
 
 #: Ucp.class.php:1300
 msgid "Starting UCP Node Server..."
-msgstr ""
+msgstr "Iniciando Servidor Node UCP..."
 
 #: Ucp.class.php:305
 msgid "Starting new UCP Node Process..."
-msgstr ""
+msgstr "Iniciando nuevo Proceso Node UCP..."
 
 #: Ucp.class.php:1401
 msgid "Stopped UCP Node Server"
-msgstr ""
+msgstr "Servidor Node UCP detenido"
 
 #: Ucp.class.php:1370
 msgid "Stopping UCP Node Server"
-msgstr ""
+msgstr "Deteniendo Servidor Node UCP"
 
 #: Ucp.class.php:298 Ucp.class.php:324
 msgid "Stopping old running processes..."
-msgstr ""
+msgstr "Deteniendo procesos antiguos corriendo..."
 
 #: ucp.i18n.php:14
 msgid "Styling and Logos"
@@ -932,16 +936,16 @@ msgstr "Logos y Estilos"
 
 #: htdocs/includes/User.class.php:82
 msgid "Submitted"
-msgstr ""
+msgstr "Enviado"
 
 #: htdocs/modules/Settings/assets/js/global.js:106
 #: htdocs/modules/Settings/assets/js/global.js:119
 msgid "Success!"
-msgstr ""
+msgstr "¡Éxito!"
 
 #: Ucp.class.php:126
 msgid "System"
-msgstr ""
+msgstr "Sistema"
 
 #: htdocs/views/templates/phone.php:69
 msgid "TUV"
@@ -949,34 +953,36 @@ msgstr "TUV"
 
 #: htdocs/modules/Settings/assets/js/global.js:61
 msgid "The Browser Language could not be determined"
-msgstr ""
+msgstr "No se pudo determinar el idioma del Navegador"
 
 #: htdocs/modules/Settings/assets/js/global.js:83
 msgid "The Browser Timezone could not be determined"
-msgstr ""
+msgstr "No se pudo determinar la Zona Horaria del Navegador"
 
 #: htdocs/modules/Settings/assets/js/global.js:72
 msgid "The PBX Language is not set"
-msgstr ""
+msgstr "El idioma de la PBX no está establecido"
 
 #: htdocs/modules/Settings/assets/js/global.js:94
 msgid "The PBX Timezone is not set"
-msgstr ""
+msgstr "La Zona Horaria de la PBX no está establecida"
 
 #: htdocs/modules/Ucptour/assets/js/global.js:33
 msgid ""
 "The User Control Panel is now separated by 'Dashboards'. You can add a new "
 "dashboard by clicking this symbol"
 msgstr ""
+"El Panel de Control de Usuario está ahora separado por 'Tableros'. Puede "
+"agregar nuevos tableros haciendo click en este símbolo"
 
 #: htdocs/includes/Ajax.class.php:74
 #, php-format
 msgid "The class %s already existed. Ajax MUST load it, for security reasons"
-msgstr ""
+msgstr "La clase %s ya existe. Ajax debe cargarla, por razones de seguridad"
 
 #: htdocs/modules/Ucptour/assets/js/global.js:116
 msgid "The dashboard's name can be changed by clicking the pencil"
-msgstr ""
+msgstr "EL nombre del tablero puede ser cambiado haciendo click en el lápiz"
 
 #: htdocs/modules/Settings/views/settings.php:159
 #, php-format
@@ -985,6 +991,10 @@ msgid ""
 "locale aware. If left blank this will use the group/system format. For more "
 "formats please see: %s"
 msgstr ""
+"El formato en el que se deberían mostrar las fechas y horas. El valor "
+"predeterminado 'llll' tiene en cuenta la configuración regional. Si se deja "
+"en blanco utilizará el formato del grupo/sistema. Para más formatos por "
+"favor vea: %s"
 
 #: htdocs/modules/Settings/views/settings.php:167
 #, php-format
@@ -993,6 +1003,9 @@ msgid ""
 "left blank this will use the group/system format. For more formats please "
 "see: %s"
 msgstr ""
+"El formato en el que se deberían mostrar las fechas. El valor por defecto "
+"'l' tiene en cuenta la configuración regional. Si se deja en blanco "
+"utilizará el formato del grupo/sistema. Para más formatos por favor vea: %s"
 
 #: htdocs/modules/Settings/views/settings.php:175
 #, php-format
@@ -1001,12 +1014,17 @@ msgid ""
 "If left blank this will use the group/system format. For more formats please "
 "see: %s"
 msgstr ""
+"El formato en el que se deberían mostrar las horas. El valor por defecto "
+"'LT' tiene en cuenta la configuración regional. Si se deja en blanco "
+"utilizará el formato del grupo/sistema. Para más formatos por favor vea: %s"
 
 #: ucp.i18n.php:70
 msgid ""
 "The number of days a session token will be valid for. Clear this setting if "
 "you want tokens to last forever (Not Recommended)"
 msgstr ""
+"El número de días que un token de sesión será válido. Limpie este ajuste si "
+"desea que los tokens valgan para siempre (No Recomendado)"
 
 #: htdocs/modules/Settings/views/settings.php:29
 #: htdocs/modules/Settings/views/settings.php:34
@@ -1019,13 +1037,15 @@ msgstr "Remover estos  derechos de autor esta estrictamente prohibido"
 
 #: htdocs/assets/js/ucp.js:524
 msgid "The session has expired and you are being forcibly logged out"
-msgstr ""
+msgstr "La sesión ha caducado y se le está desconectado a la fuerza"
 
 #: ucp.i18n.php:8
 msgid ""
 "The user control panel is a way for users to control call handling and "
 "personal settings from a web browser."
 msgstr ""
+"El Panel de Control de Usuarios es una forma para que los usuarios controlen "
+"el manejo de las llamadas y la configuración personal desde un navegador web."
 
 #: htdocs/modules/Settings/views/settings.php:20
 msgid "The username used to login to User Control Panel and other services"
@@ -1035,22 +1055,26 @@ msgstr ""
 
 #: htdocs/modules/Ucptour/assets/js/global.js:325
 msgid "The widget's content is displayed here"
-msgstr ""
+msgstr "El contenido del widget es mostrado aquí"
 
 #: htdocs/modules/Ucptour/assets/js/global.js:156
 msgid ""
 "There are two different types of widgets. Dashboard Widgets and Side Bar "
 "widgets. Let's start with dashboard widgets"
 msgstr ""
+"Hay dos tipos distintos de widgets. Widgets del tableto y widgets de la "
+"Barra Lateral. Empecemos con los widgets del tablero"
 
 #: htdocs/modules/Widgets/assets/js/global.js:980
 msgid "There is no active dashboard to add widgets to"
-msgstr ""
+msgstr "No hay un tablero activo para agregar widgets"
 
 #: htdocs/modules/Widgets/assets/js/global.js:1058
 #: htdocs/modules/Widgets/assets/js/global.js:1140
 msgid "There was an error getting the widget information, try again later"
 msgstr ""
+"Hubo un error obteniendo la información del widget, intento de nuevo más "
+"tarde"
 
 #: htdocs/index.php:108
 msgid "There was an error trying to load UCP"
@@ -1058,7 +1082,7 @@ msgstr "Hubo un error tratando de cargar el UCP"
 
 #: htdocs/assets/js/ucp.js:33 htdocs/assets/js/ucp.js:48
 msgid "There was an error. See the console log for more details"
-msgstr ""
+msgstr "Hubo un error. Vea los registros de la consola para más detalles"
 
 #: views/users_hook.php:163
 msgid ""
@@ -1066,26 +1090,33 @@ msgid ""
 "extension settings such as Call Waiting, Call Forwarding, Find Me/Follow Me "
 "and others"
 msgstr ""
+"Estas son las extensiones activas y asignadas que se les permitirá editar "
+"ajustes de extensión como Llamada en Espera, Desvió de Llamadas, BuscaMe/"
+"SigueMe y otros"
 
 #: htdocs/modules/Ucptour/assets/js/global.js:244
 msgid ""
 "This is where side bar widgets live. Side bar widgets do not change when you "
 "change dashboards. They are global throughout UCP"
 msgstr ""
+"Aquí es donde viven los widgets de la barra lateral. Los widgets de la barra "
+"lateral no cambian cuando cambias de tablero. Son globales en todo UCP"
 
 #: htdocs/modules/Ucptour/assets/js/global.js:25
 msgid ""
 "This tour will take you on a brief walkthrough of the new User Control Panel "
 "in a few simple steps."
 msgstr ""
+"Este recorrido lo llevará a través de un breve tutorial por el nuevo Panel "
+"de Control de Usuario en unos simples pasos."
 
 #: htdocs/modules/Settings/views/settings.php:170
 msgid "Time Format"
-msgstr ""
+msgstr "Formato de la Hora"
 
 #: htdocs/modules/Settings/views/settings.php:131
 msgid "Timezone"
-msgstr ""
+msgstr "Zona Horaria"
 
 #: htdocs/modules/Settings/views/settings.php:62
 msgid "Title"
@@ -1093,12 +1124,13 @@ msgstr "Titulo"
 
 #: htdocs/modules/Ucptour/assets/js/global.js:25
 msgid "To continue just click Next"
-msgstr ""
+msgstr "Para continuar presione en Siguiente"
 
 #: htdocs/modules/Ucptour/assets/js/global.js:335
 #, perl-format
 msgid "To just close/hide the widget's content click the '%s' symbol"
 msgstr ""
+"Para cerrar/ocultar el contenido del widget haga click en el símbolo '%s'"
 
 #: htdocs/index.php:79
 #, php-format
@@ -1114,6 +1146,7 @@ msgstr ""
 #: htdocs/modules/Ucptour/assets/js/global.js:330
 msgid "To remove this widget from the side bar click 'Remove Widget'"
 msgstr ""
+"Para quitar este widget de la barra lateral haga click en 'Eliminar Widget'"
 
 #: htdocs/index.php:108 ucp.i18n.php:10
 msgid "UCP"
@@ -1125,37 +1158,37 @@ msgstr "Admin UCP"
 
 #: Ucp.class.php:1260
 msgid "UCP Daemon"
-msgstr ""
+msgstr "Demonio UCP"
 
 #: Ucp.class.php:1268
 msgid "UCP Node Disabled in Advanced Settings."
-msgstr ""
+msgstr "Node UCP Deshabilitado en Ajustes Avanzados."
 
 #: Ucp.class.php:1405
 #, php-format
 msgid "UCP Node Server Failed: %s"
-msgstr ""
+msgstr "Servidor Node UCP falló: %s"
 
 #: Ucp.class.php:1294
 #, php-format
 msgid "UCP Node Server has already been running on PID %s for %s"
-msgstr ""
+msgstr "El Servidor Node UCP ha estado corriendo en el PID %s por %s"
 
 #: Ucp.class.php:1363
 msgid "UCP Node Server is not running"
-msgstr ""
+msgstr "Servidor Node UCP no está corriendo"
 
 #: Ucp.class.php:1276
 msgid "UCP Node is not running"
-msgstr ""
+msgstr "Node UCP no está corriendo"
 
 #: ucp.i18n.php:24
 msgid "UCP NodeJS Server"
-msgstr ""
+msgstr "Servidor NodeJS UCP"
 
 #: ucp.i18n.php:68
 msgid "UCP Session Timeout"
-msgstr ""
+msgstr "Tiempo de espera de la sesión UCP"
 
 #: ucp.i18n.php:20
 msgid ""
@@ -1172,58 +1205,60 @@ msgstr ""
 
 #: htdocs/assets/js/ucp.js:341
 msgid "UCP is not supported in your browser"
-msgstr ""
+msgstr "UCP no es soportado en su navegador"
 
 #: htdocs/modules/Settings/assets/js/global.js:107
 #: htdocs/modules/Settings/assets/js/global.js:122
 msgid "UCP needs to reload, ok?"
-msgstr "UCP necesita ser reiniciado, ok?"
+msgstr "UCP necesita ser reiniciado, ¿está bien?"
 
 #: views/users_hook.php:9
 msgid ""
 "UCP, otherwise known as the User Control Panel, is a user interface for "
 "FreePBX."
 msgstr ""
+"UCP, también conocido como Panel de Control de Usuario, es una interfaz de "
+"usuario para FreePBX."
 
 #: htdocs/includes/User.class.php:88
 msgid "Unable to send Password Reset Email"
-msgstr ""
+msgstr "No se puede enviar el Email de Restablecimiento de Contraseña"
 
 #: Ucp.class.php:1262
 msgid "Unknown"
-msgstr ""
+msgstr "Desconocido"
 
 #: htdocs/modules/Settings/assets/js/global.js:262
 msgid "Unsupported file type"
-msgstr ""
+msgstr "Tipo de archivo no soportado"
 
 #: htdocs/modules/Settings/views/settings.php:36
 msgid "Update Password"
-msgstr ""
+msgstr "Actualizar Contraseña"
 
 #: htdocs/modules/Settings/views/settings.php:122
 msgid "Use Browser Language"
-msgstr ""
+msgstr "Usar idioma del navegador"
 
 #: htdocs/modules/Settings/views/settings.php:135
 msgid "Use Browser Timezone"
-msgstr ""
+msgstr "Usar Zona Horaria del navegador"
 
 #: htdocs/modules/Settings/views/settings.php:111
 msgid "Use Gravatar"
-msgstr ""
+msgstr "Usar Gravatar"
 
 #: htdocs/modules/Settings/views/settings.php:125
 msgid "Use PBX Language"
-msgstr ""
+msgstr "Usar idioma de la PBX"
 
 #: htdocs/modules/Settings/views/settings.php:138
 msgid "Use PBX Timezone"
-msgstr ""
+msgstr "Usar Zona Horaria de la PBX"
 
 #: htdocs/modules/Settings/Settings.class.php:186
 msgid "User"
-msgstr ""
+msgstr "Usuario"
 
 #: htdocs/views/forgot.php:5 htdocs/views/header.php:4 htdocs/views/login.php:5
 #: ucp.i18n.php:4 /usr/src/freepbx/ucp/ucp.i18n.php:56
@@ -1247,7 +1282,7 @@ msgstr "Panel de Control del Usuariol: %s"
 
 #: htdocs/modules/Settings/views/settings.php:6
 msgid "User Details"
-msgstr ""
+msgstr "Detalles del Usuario"
 
 #: Ucp.class.php:361 Ucp.class.php:390
 msgid "User Primary Extension"
@@ -1255,11 +1290,11 @@ msgstr "Extension Primaria del Usuario"
 
 #: htdocs/modules/Ucptour/assets/js/global.js:346
 msgid "User Settings"
-msgstr ""
+msgstr "Ajustes del Usuario"
 
 #: htdocs/modules/Settings/views/settings.php:18 htdocs/views/login.php:16
 msgid "Username"
-msgstr "Usuario"
+msgstr "Nombre de Usuario"
 
 #: ucp.i18n.php:12
 msgid "View: UCP dashfootercontent.php"
@@ -1281,57 +1316,65 @@ msgstr "Bienvenido: %s"
 #: htdocs/modules/Ucptour/assets/js/global.js:24
 #, perl-format
 msgid "Welcome to %s!"
-msgstr ""
+msgstr "¡Bienvenido a %s!"
 
 #: views/users_hook.php:4
 msgid "What is UCP"
-msgstr ""
+msgstr "Qué es UCP"
 
 #: htdocs/modules/Settings/views/settings.php:151
 msgid "When set to yes the tour will restart when this window closes"
 msgstr ""
+"Cuando se configura en SI, el recorrido se reiniciará cuando esta ventana se "
+"cierre"
 
 #: htdocs/modules/Ucptour/assets/js/global.js:70
 msgid ""
 "When you are finished simply hit 'Create Dashboard' to create your dashboard"
 msgstr ""
+"Cuando haya finalizado simplemente presiona en 'Crear Tablero' para crear su "
+"tablero"
 
 #: ucp.i18n.php:30
 msgid ""
 "Whether to enable TLS for the backend server for UCP which allows "
 "instantaneous updates to the interface"
 msgstr ""
+"Si habilitar TLS para el servidor back-end para UCP que permite "
+"actualizaciones instantáneas de la intefaz"
 
 #: ucp.i18n.php:26
 msgid ""
 "Whether to enable the backend server for UCP which allows instantaneous "
 "updates to the interface"
 msgstr ""
+"Si habilitar el servidor back-end para UCP que permite actualizaciones "
+"instantáneas de la intefaz"
 
 #: htdocs/modules/Ucptour/assets/js/global.js:223
 msgid "Widget Locking"
-msgstr ""
+msgstr "Bloqueo de widgets"
 
 #: htdocs/modules/Ucptour/assets/js/global.js:207
 msgid "Widget Placement"
-msgstr ""
+msgstr "Posicionamiento de los Widgets"
 
 #: htdocs/modules/Ucptour/assets/js/global.js:233
 msgid "Widget Removal"
-msgstr ""
+msgstr "Eliminación de Widgets"
 
 #: htdocs/views/dashboard-footer.php:162
 #: htdocs/modules/Ucptour/assets/js/global.js:228
 msgid "Widget Settings"
-msgstr ""
+msgstr "Ajustes de Widgets"
 
 #: htdocs/modules/Ucptour/assets/js/global.js:215
 msgid "Widget Size"
-msgstr ""
+msgstr "Tamaño de los Widgets"
 
 #: htdocs/modules/Widgets/Widgets.class.php:199
 msgid "Widgets"
-msgstr ""
+msgstr "Widgets"
 
 #: htdocs/modules/Ucptour/assets/js/global.js:175
 #: htdocs/modules/Ucptour/assets/js/global.js:285
@@ -1339,43 +1382,53 @@ msgid ""
 "Widgets are listed on the right. The titles and descriptions will be shown "
 "for each widget"
 msgstr ""
+"Los Widgets están listados a la derecha. Los títulos y descripciones serán "
+"mostrados para cada widget"
 
 #: htdocs/modules/Ucptour/assets/js/global.js:203
 msgid ""
 "Widgets are placed automatically on the dashboard after they have been added"
 msgstr ""
+"Los Widgets son colocados automáticamente en el tablero luego de han sido "
+"agregados"
 
 #: htdocs/modules/Ucptour/assets/js/global.js:234
 #, perl-format
 msgid "Widgets can also be removed by clicking the '%s' symbol"
 msgstr ""
+"Los Widgets también pueden ser eliminados haciendo click en el símbolo '%s'"
 
 #: htdocs/modules/Ucptour/assets/js/global.js:140
 #, perl-format
 msgid "Widgets can be added by clicking the '%s' symbol"
-msgstr ""
+msgstr "Los Widgets pueden ser agregados haciendo click en el símbolo '%s'"
 
 #: htdocs/modules/Ucptour/assets/js/global.js:224
 msgid "Widgets can be locked into place to prevent their movement"
 msgstr ""
+"Los Widgets pueden ser bloqueados en el lugar para prevenir que se muevan"
 
 #: htdocs/modules/Ucptour/assets/js/global.js:208
 msgid "Widgets can be moved around by clicking and dragging on the title bar"
 msgstr ""
+"Los Widgets se pueden mover haciendo click y arrastrando en la barra de "
+"título"
 
 #: htdocs/modules/Ucptour/assets/js/global.js:216
 msgid ""
 "Widgets can be resized by placing your mouse near the corner of the widget. "
 "Click and drag to resize the widget."
 msgstr ""
+"Los Widfets pueden cambiar su tamaño colocando el ratón cerca de la esquina "
+"del widget. Click y arrastrar para cambiar el tamaño del widget."
 
 #: htdocs/modules/Ucptour/assets/js/global.js:229
 msgid "Widgets settings can be changed by clicking this icon"
-msgstr ""
+msgstr "Los ajustes de los widgets pueden cambiar haciendo click en este ícono"
 
 #: htdocs/modules/Settings/views/settings.php:77
 msgid "Work Phone"
-msgstr "teléfono Oficina"
+msgstr "Teléfono Oficina"
 
 #: views/users_hook.php:51 views/users_hook.php:81 views/users_hook.php:178
 msgid "Yes"
@@ -1383,17 +1436,20 @@ msgstr "Si"
 
 #: htdocs/modules/Widgets/assets/js/global.js:1148
 msgid "You already have this widget on the side bar"
-msgstr ""
+msgstr "Ya tiene este widget en la barra lateral"
 
 #: htdocs/modules/Widgets/assets/js/global.js:1066
 msgid "You already have this widget on this dashboard"
-msgstr ""
+msgstr "Ya tiene este widget en este tablero"
 
 #: htdocs/modules/Ucptour/assets/js/global.js:25
 msgid ""
 "You can always exit the tour if you'd like, and you can restart the tour at "
 "anytime by clicking your User Settings and then 'Restart Tour'"
 msgstr ""
+"Puede siempre salir de este recorrido si lo desea, y puede reiniciar el "
+"recorrido en cualquier momento haciendo click en Ajustes de Usuarios y luego "
+"en 'Reiniciar Recorrido'"
 
 #: htdocs/modules/Ucptour/assets/js/global.js:356
 #, perl-format
@@ -1401,19 +1457,21 @@ msgid ""
 "You have finished the tour of User Control Panel for %s 14. You can restart "
 "this tour at any time in your User Settings"
 msgstr ""
+"Ha terminado el recorrido del Panel de Control de Usuario para %s. Puede "
+"reiniciar este recorrido en cualquier momento en sus Ajustes de Usuario"
 
 #: htdocs/modules/Widgets/Widgets.class.php:41
 #: htdocs/modules/Widgets/assets/js/global.js:908
 msgid "You have no dashboards. Click here to add one"
-msgstr ""
+msgstr "No tiene tableros. Haga click aquí para agregar uno"
 
 #: htdocs/modules/Ucptour/assets/js/global.js:25
 msgid "You just successfully logged in for the first time!"
-msgstr ""
+msgstr "¡Acabas de inciar sesión correctamente por primera vez!"
 
 #: htdocs/modules/Widgets/assets/js/global.js:1386
 msgid "You must set a dashboard name!"
-msgstr ""
+msgstr "¡Debe definir un numbre de tablero!"
 
 #: htdocs/assets/js/ucp.js:328
 msgid "Your Browser is unsupported at this time."
@@ -1445,7 +1503,7 @@ msgstr "Numero de su Casa"
 
 #: htdocs/modules/Settings/views/settings.php:128
 msgid "Your Language"
-msgstr ""
+msgstr "Su Idioma"
 
 #: htdocs/modules/Settings/views/settings.php:59
 msgid "Your Last Name"
@@ -1453,7 +1511,7 @@ msgstr "Su Apellido"
 
 #: htdocs/modules/Settings/views/settings.php:141
 msgid "Your Timezone"
-msgstr ""
+msgstr "Su Zona Horaria"
 
 #: htdocs/modules/Settings/views/settings.php:64
 msgid "Your Title"
@@ -1474,16 +1532,19 @@ msgstr ""
 #: htdocs/modules/Ucptour/assets/js/global.js:352
 msgid "Your can logout of UCP by clicking this logout button"
 msgstr ""
+"Puede cerrar sesión de UCP haciendo click en este botón de cerrar sesión"
 
 #: htdocs/modules/Ucptour/assets/js/global.js:94
 msgid "Your dashboard has been added here"
-msgstr ""
+msgstr "Su tablero ha sido agregado aquí"
 
 #: htdocs/modules/Ucptour/assets/js/global.js:347
 msgid ""
 "Your specific settings are defined when clicking the 'gear' icon in the side "
 "bar"
 msgstr ""
+"Sus ajustes específicos se definen al hacer click en el ícono del "
+"'engranaje' en la barra lateral"
 
 #: ucp.i18n.php:16
 msgid ""
@@ -1496,11 +1557,11 @@ msgstr ""
 #: htdocs/assets/js/lodash-4.17.2.js:15638
 #: htdocs/assets/js/lodash-4.17.2.js:15642
 msgid "fred"
-msgstr ""
+msgstr "fred"
 
 #: Ucp.class.php:98
 msgid "gcc-c++ is not installed"
-msgstr ""
+msgstr "gcc-c++ no está instalado"
 
 #: htdocs/index.php:92
 #, php-format
@@ -1515,13 +1576,15 @@ msgstr ""
 
 #: Ucp.class.php:142
 msgid "icu is not installed. You need to run: yum install icu libicu-devel"
-msgstr ""
+msgstr "icu no está instalado. Necesita correr: yum install icu linicu-devel"
 
 #: Ucp.class.php:134
 msgid ""
 "icu, pkg-config or pkgconf is not installed. You need to run: apt-get "
 "install icu libicu-devel pkg-config pkgconf"
 msgstr ""
+"icu, pkg-config o pkgconf no está instalado. Necesita correr: apt-get "
+"install icu libicu-devel pkg-config pkgconf"
 
 #: htdocs/views/login.php:25
 msgid "or"
