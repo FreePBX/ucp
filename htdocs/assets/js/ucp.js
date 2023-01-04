@@ -285,15 +285,43 @@ var UCPC = Class.extend({
 				}
 			}
 		});
-		$("#btn-login").click(function(event) {
-			var queryString = $("#frm-login").formSerialize(),
-			username = $("input[name=username]").val(),
-			password = $("input[name=password]").val();
-
+		$("#btn-login").click(async function (event) {
 			btn.prop("disabled", true);
 			btn.text(_("Processing..."));
+
+			if (typeof checkPasswordReminder === "function") {
+				let res = await checkPasswordReminder();
+				await handleMFAFunc(res);
+			} else {
+				await handleMFAFunc(true);
+			}
+
+			return false
+		});
+
+		async function handleMFAFunc(val) {
+			if (val) {
+				if (typeof checkMFAEnabled === "function" && parseInt(window.isMFALicensed)) {
+					let username = $("input[name=username]").val(),
+						password = $("input[name=password]").val();
+					password = encodeURIComponent(window.btoa(password));
+					await checkMFAEnabled(username, password, false, '');
+				} else {
+					normalLogin();
+				}
+			} else {
+				normalLogin();
+			}
+		}
+
+		function normalLogin() {
+			// Regular login
+			var queryString = $("#frm-login").formSerialize(),
+				username = $("input[name=username]").val(),
+				password = $("input[name=password]").val();
+
 			queryString = queryString + "&module=User&command=login";
-			$.post( UCP.ajaxUrl, queryString, function( data ) {
+			$.post(UCP.ajaxUrl, queryString, function (data) {
 				if (!data.status) {
 					$("#error-msg").html(data.message).fadeIn("fast");
 					$("#login-window").height("300");
@@ -305,8 +333,7 @@ var UCPC = Class.extend({
 					location.reload();
 				}
 			});
-			return false
-		});
+		}
 		if ($("html").hasClass("history")) {
 			$(document).on("submit", "#frm-login", function(event) {
 				var queryString = $(this).formSerialize(),

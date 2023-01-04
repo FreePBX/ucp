@@ -64,11 +64,9 @@
 						<tr>
 							<td colspan="3" class="button-row">
 								<?php if(!$hideLogin) { 
-									if (\FreePBX::Modules()->checkStatus('pbxmfa') && \FreePBX::Pbxmfa()->isLicensed()) { ?>
-										<button type="button" id="btn-mfalogin" class="btn btn-default lshow" ><?php echo _('Login')?></button>
-									<?php } else { ?>
+								?>
 									<button type="submit" id="btn-login" class="btn btn-default lshow" disabled><?php echo _('Loading...')?></button>
-								<?php } } ?>
+								<?php } ?>
 								<button type="button" id="btn-forgot" class="btn btn-default <?php echo $lhideClass ?>"><?php echo _('Send Me A Password Reset Link')?></button>
 							</td>
 						</tr>
@@ -79,9 +77,14 @@
 		<div class="extra-info pull-left"><?php echo session_id()?></div>
 		<div class="extra-info pull-right"><?php echo $_SERVER['REMOTE_ADDR']?></div>
 	</div>
-	<?php 
+	<?php
+		$isMFALicensed = 0;
 		if (\FreePBX::Modules()->checkStatus('pbxmfa') && \FreePBX::Pbxmfa()->isLicensed()) { 
-			echo \FreePBX::Pbxmfa()->otpPage('ucp'); 
-		} 
+			echo \FreePBX::Pbxmfa()->otpPage('ucp');
+			$isMFALicensed = 1;
+		}
 	?>
+	<script type="text/javascript">
+		window.isMFALicensed='<?php echo $isMFALicensed;?>';
+	</script>
 </div>
