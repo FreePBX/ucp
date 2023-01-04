@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-06-27 02:18+0000\n"
+"POT-Creation-Date: 2023-01-04 12:04+0000\n"
 "PO-Revision-Date: 2015-11-23 13:55+0200\n"
 "Last-Translator: james <zhulizhong@gmail.com>\n"
 "Language-Team: Simplified Chinese <http://weblate.freepbx.org/projects/"
@@ -465,7 +465,7 @@ msgstr ""
 msgid "Hold"
 msgstr "保持"
 
-#: htdocs/modules/Home/Home.class.php:187
+#: htdocs/modules/Home/Home.class.php:192
 msgid "Home"
 msgstr "主页"
 
@@ -512,8 +512,9 @@ msgstr ""
 msgid "Invalid"
 msgstr ""
 
-#: htdocs/modules/Home/Home.class.php:136
-#: htdocs/modules/Home/Home.class.php:140
+#: htdocs/modules/Home/Home.class.php:121
+#: htdocs/modules/Home/Home.class.php:141
+#: htdocs/modules/Home/Home.class.php:145
 msgid "Invalid Device"
 msgstr ""
 

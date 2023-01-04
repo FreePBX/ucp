@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-06-27 02:18+0000\n"
+"POT-Creation-Date: 2023-01-04 12:04+0000\n"
 "PO-Revision-Date: 2018-10-25 08:00+0000\n"
 "Last-Translator: Bastian Mertgen <b.mertgen@bastian-mertgen.de>\n"
 "Language-Team: German <http://*/projects/freepbx/ucp/de/>\n"
@@ -505,7 +505,7 @@ msgstr "Generiere Module Scripts..."
 msgid "Hold"
 msgstr "Halten"
 
-#: htdocs/modules/Home/Home.class.php:187
+#: htdocs/modules/Home/Home.class.php:192
 msgid "Home"
 msgstr "Privat"
 
@@ -556,8 +556,9 @@ msgstr ""
 msgid "Invalid"
 msgstr "Ungültig"
 
-#: htdocs/modules/Home/Home.class.php:136
-#: htdocs/modules/Home/Home.class.php:140
+#: htdocs/modules/Home/Home.class.php:121
+#: htdocs/modules/Home/Home.class.php:141
+#: htdocs/modules/Home/Home.class.php:145
 msgid "Invalid Device"
 msgstr "Ungültiges Gerät"
 
