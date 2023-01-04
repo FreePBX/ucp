@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-11-25 06:44+0000\n"
+"POT-Creation-Date: 2023-01-04 12:04+0000\n"
 "PO-Revision-Date: 2017-03-12 17:22+0200\n"
 "Last-Translator: Nicolas <freepbx@riendeau.org>\n"
 "Language-Team: French <http://weblate.freepbx.org/projects/freepbx/ucp/fr_FR/"
@@ -474,7 +474,7 @@ msgstr "Génération des scripts module ..."
 msgid "Hold"
 msgstr "Attendre"
 
-#: htdocs/modules/Home/Home.class.php:187
+#: htdocs/modules/Home/Home.class.php:192
 msgid "Home"
 msgstr "Accueil"
 
@@ -526,8 +526,9 @@ msgstr ""
 msgid "Invalid"
 msgstr "Invalide"
 
-#: htdocs/modules/Home/Home.class.php:136
-#: htdocs/modules/Home/Home.class.php:140
+#: htdocs/modules/Home/Home.class.php:121
+#: htdocs/modules/Home/Home.class.php:141
+#: htdocs/modules/Home/Home.class.php:145
 msgid "Invalid Device"
 msgstr "Appareil invalide"
 

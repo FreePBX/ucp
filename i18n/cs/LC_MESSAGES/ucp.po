@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-11-25 06:44+0000\n"
+"POT-Creation-Date: 2023-01-04 12:04+0000\n"
 "PO-Revision-Date: 2018-08-08 11:42+0000\n"
 "Last-Translator: Petr Varvarovsky <petrv@atlantis.cz>\n"
 "Language-Team: Czech <http://*/projects/freepbx/ucp/cs/>\n"
@@ -502,7 +502,7 @@ msgstr "Generování skriptů modulů..."
 msgid "Hold"
 msgstr "Přidržet"
 
-#: htdocs/modules/Home/Home.class.php:187
+#: htdocs/modules/Home/Home.class.php:192
 msgid "Home"
 msgstr "Domů"
 
@@ -552,8 +552,9 @@ msgstr ""
 msgid "Invalid"
 msgstr "Neplatné"
 
-#: htdocs/modules/Home/Home.class.php:136
-#: htdocs/modules/Home/Home.class.php:140
+#: htdocs/modules/Home/Home.class.php:121
+#: htdocs/modules/Home/Home.class.php:141
+#: htdocs/modules/Home/Home.class.php:145
 msgid "Invalid Device"
 msgstr "Neplatné zařízení"
 
