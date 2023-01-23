@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-04 12:04+0000\n"
+"POT-Creation-Date: 2023-01-23 03:24+0000\n"
 "PO-Revision-Date: 2016-05-03 03:14+0200\n"
 "Last-Translator: Michal <mboltz@tlen.pl>\n"
 "Language-Team: Polish <http://weblate.freepbx.org/projects/freepbx/ucp/pl/>\n"
@@ -546,14 +546,13 @@ msgstr "Ostatni"
 msgid "Last Name"
 msgstr "Nazwisko"
 
-#: htdocs/views/forgot.php:89 htdocs/views/login.php:70
+#: htdocs/views/forgot.php:85 htdocs/views/login.php:68
 msgid "Loading..."
 msgstr "Wczytywanie..."
 
-#: htdocs/views/forgot.php:67 htdocs/views/forgot.php:87
-#: htdocs/views/login.php:48 htdocs/views/login.php:68
-#: htdocs/assets/js/ucp.js:301 htdocs/assets/js/ucp.js:324
-#: htdocs/assets/js/ucp.js:334
+#: htdocs/views/forgot.php:67 htdocs/views/login.php:48
+#: htdocs/assets/js/ucp.js:329 htdocs/assets/js/ucp.js:351
+#: htdocs/assets/js/ucp.js:361
 msgid "Login"
 msgstr "Zaloguj"
 
@@ -721,7 +720,7 @@ msgstr ""
 msgid "Port to bind to. Default is 8003"
 msgstr ""
 
-#: htdocs/assets/js/ucp.js:294 htdocs/assets/js/ucp.js:317
+#: htdocs/assets/js/ucp.js:290 htdocs/assets/js/ucp.js:344
 msgid "Processing..."
 msgstr "Przetwarzanie..."
 
@@ -750,7 +749,7 @@ msgstr "Zapamiętaj mnie"
 msgid "Remove Widget"
 msgstr ""
 
-#: htdocs/views/forgot.php:92
+#: htdocs/views/forgot.php:86
 msgid "Reset Password"
 msgstr "Resetuj hasło"
 
@@ -789,7 +788,7 @@ msgstr ""
 msgid "Selecting Widgets"
 msgstr ""
 
-#: htdocs/views/login.php:72
+#: htdocs/views/login.php:70
 msgid "Send Me A Password Reset Link"
 msgstr "Wyślij mi odnośnik do resetu hasła"
 
@@ -980,7 +979,7 @@ msgstr "Hasło używane do logowania do Panelu Użytkownika (UCP) i innych usłu
 msgid "The removal of this copyright notice is stricly prohibited"
 msgstr "Usunięcie tej informacji o prawach autorskich jest surowo zabronione"
 
-#: htdocs/assets/js/ucp.js:535
+#: htdocs/assets/js/ucp.js:562
 msgid "The session has expired and you are being forcibly logged out"
 msgstr ""
 
@@ -1132,7 +1131,7 @@ msgstr ""
 "UCO jest obecnie wyłączone. Proszę skontaktuj się z administratorem Twojego "
 "systemu"
 
-#: htdocs/assets/js/ucp.js:352
+#: htdocs/assets/js/ucp.js:379
 msgid "UCP is not supported in your browser"
 msgstr ""
 
@@ -1382,7 +1381,7 @@ msgstr ""
 msgid "You must set a dashboard name!"
 msgstr ""
 
-#: htdocs/assets/js/ucp.js:339
+#: htdocs/assets/js/ucp.js:366
 msgid "Your Browser is unsupported at this time."
 msgstr "W obecnej chwili Twoja przeglądarka nie jest wspierana."
 
@@ -1430,7 +1429,7 @@ msgstr "Twój tytuł"
 msgid "Your Work Number"
 msgstr "Twój numer służbowy"
 
-#: htdocs/assets/js/ucp.js:341
+#: htdocs/assets/js/ucp.js:368
 msgid ""
 "Your browser is unsupported at this time. Please upgrade or talk to your "
 "system administrator"

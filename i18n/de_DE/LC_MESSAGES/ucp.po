@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-04 12:04+0000\n"
+"POT-Creation-Date: 2023-01-23 03:24+0000\n"
 "PO-Revision-Date: 2018-10-25 08:00+0000\n"
 "Last-Translator: Bastian Mertgen <b.mertgen@bastian-mertgen.de>\n"
 "Language-Team: German <http://*/projects/freepbx/ucp/de/>\n"
@@ -590,14 +590,13 @@ msgstr "Letzter"
 msgid "Last Name"
 msgstr "Nachname"
 
-#: htdocs/views/forgot.php:89 htdocs/views/login.php:70
+#: htdocs/views/forgot.php:85 htdocs/views/login.php:68
 msgid "Loading..."
 msgstr "Laden..."
 
-#: htdocs/views/forgot.php:67 htdocs/views/forgot.php:87
-#: htdocs/views/login.php:48 htdocs/views/login.php:68
-#: htdocs/assets/js/ucp.js:301 htdocs/assets/js/ucp.js:324
-#: htdocs/assets/js/ucp.js:334
+#: htdocs/views/forgot.php:67 htdocs/views/login.php:48
+#: htdocs/assets/js/ucp.js:329 htdocs/assets/js/ucp.js:351
+#: htdocs/assets/js/ucp.js:361
 msgid "Login"
 msgstr "Einloggen"
 
@@ -774,7 +773,7 @@ msgstr "Der Port anzuknüpfen. Standard ist 8001"
 msgid "Port to bind to. Default is 8003"
 msgstr "Port zum anknüpfen. Standard ist 8003"
 
-#: htdocs/assets/js/ucp.js:294 htdocs/assets/js/ucp.js:317
+#: htdocs/assets/js/ucp.js:290 htdocs/assets/js/ucp.js:344
 msgid "Processing..."
 msgstr "Verarbeiten..."
 
@@ -803,7 +802,7 @@ msgstr "Login merken"
 msgid "Remove Widget"
 msgstr "Widget löschen"
 
-#: htdocs/views/forgot.php:92
+#: htdocs/views/forgot.php:86
 msgid "Reset Password"
 msgstr "Passwort zurücksetzen"
 
@@ -842,7 +841,7 @@ msgstr "Auswahl der kleinen Widgets"
 msgid "Selecting Widgets"
 msgstr "Auswahl Widgets"
 
-#: htdocs/views/login.php:72
+#: htdocs/views/login.php:70
 msgid "Send Me A Password Reset Link"
 msgstr "Senden Sie mir einen Passwort Reset Link"
 
@@ -1056,7 +1055,7 @@ msgstr ""
 msgid "The removal of this copyright notice is stricly prohibited"
 msgstr "Die Entfernung des Copyright-Vermerks ist streng verboten"
 
-#: htdocs/assets/js/ucp.js:535
+#: htdocs/assets/js/ucp.js:562
 msgid "The session has expired and you are being forcibly logged out"
 msgstr "Die Session ist abgelaufen und Sie sind zwangsweise ausgeloggt"
 
@@ -1227,7 +1226,7 @@ msgid "UCP is currently disabled. Please talk to your system Administrator"
 msgstr ""
 "UCP ist derzeit deaktiviert. Bitte sprechen Sie mit Ihrem Systemadministrator"
 
-#: htdocs/assets/js/ucp.js:352
+#: htdocs/assets/js/ucp.js:379
 msgid "UCP is not supported in your browser"
 msgstr "UCP wird in Ihrem Browser nicht unterstützt"
 
@@ -1501,7 +1500,7 @@ msgstr "Sie haben sich erfolgreich zum ersten Mal eingeloggt!"
 msgid "You must set a dashboard name!"
 msgstr "Sie müssen den Dashboard-Namen bestimmen!"
 
-#: htdocs/assets/js/ucp.js:339
+#: htdocs/assets/js/ucp.js:366
 msgid "Your Browser is unsupported at this time."
 msgstr "Ihr Browser wird im Moment nicht unterstützt."
 
@@ -1549,7 +1548,7 @@ msgstr "Ihr Titel"
 msgid "Your Work Number"
 msgstr "Ihre Telefonnummer in der Firma"
 
-#: htdocs/assets/js/ucp.js:341
+#: htdocs/assets/js/ucp.js:368
 msgid ""
 "Your browser is unsupported at this time. Please upgrade or talk to your "
 "system administrator"

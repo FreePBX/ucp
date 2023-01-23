@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-04 12:04+0000\n"
+"POT-Creation-Date: 2023-01-23 03:24+0000\n"
 "PO-Revision-Date: 2018-08-08 11:42+0000\n"
 "Last-Translator: Petr Varvarovsky <petrv@atlantis.cz>\n"
 "Language-Team: Czech <http://*/projects/freepbx/ucp/cs/>\n"
@@ -586,14 +586,13 @@ msgstr "Poslední"
 msgid "Last Name"
 msgstr "Příjmení"
 
-#: htdocs/views/forgot.php:89 htdocs/views/login.php:70
+#: htdocs/views/forgot.php:85 htdocs/views/login.php:68
 msgid "Loading..."
 msgstr "Načítání..."
 
-#: htdocs/views/forgot.php:67 htdocs/views/forgot.php:87
-#: htdocs/views/login.php:48 htdocs/views/login.php:68
-#: htdocs/assets/js/ucp.js:301 htdocs/assets/js/ucp.js:324
-#: htdocs/assets/js/ucp.js:334
+#: htdocs/views/forgot.php:67 htdocs/views/login.php:48
+#: htdocs/assets/js/ucp.js:329 htdocs/assets/js/ucp.js:351
+#: htdocs/assets/js/ucp.js:361
 msgid "Login"
 msgstr "Přihlásit se"
 
@@ -767,7 +766,7 @@ msgstr "Bind port. Výchozí hodnota je 8001"
 msgid "Port to bind to. Default is 8003"
 msgstr "Bind port. Výchozí hodnota je 8003"
 
-#: htdocs/assets/js/ucp.js:294 htdocs/assets/js/ucp.js:317
+#: htdocs/assets/js/ucp.js:290 htdocs/assets/js/ucp.js:344
 msgid "Processing..."
 msgstr "Zpracovává se..."
 
@@ -796,7 +795,7 @@ msgstr "Zapamatovat si mě"
 msgid "Remove Widget"
 msgstr "Odebrat widget"
 
-#: htdocs/views/forgot.php:92
+#: htdocs/views/forgot.php:86
 msgid "Reset Password"
 msgstr "Resetování hesla"
 
@@ -835,7 +834,7 @@ msgstr "Výběr malých widgetů"
 msgid "Selecting Widgets"
 msgstr "Výběr widgetů"
 
-#: htdocs/views/login.php:72
+#: htdocs/views/login.php:70
 msgid "Send Me A Password Reset Link"
 msgstr "Pošli mi odkaz na resetování hesla"
 
@@ -1046,7 +1045,7 @@ msgstr ""
 msgid "The removal of this copyright notice is stricly prohibited"
 msgstr "Odstranění tohoto oznámení o autorských právech je přísně zakázáno"
 
-#: htdocs/assets/js/ucp.js:535
+#: htdocs/assets/js/ucp.js:562
 msgid "The session has expired and you are being forcibly logged out"
 msgstr "Čas relace vypršel, byli jste odhlášeni"
 
@@ -1213,7 +1212,7 @@ msgid "UCP is currently disabled. Please talk to your system Administrator"
 msgstr ""
 "UCP je momentálně deaktivováno. Prosím, poraďte se s administrátorem systému"
 
-#: htdocs/assets/js/ucp.js:352
+#: htdocs/assets/js/ucp.js:379
 msgid "UCP is not supported in your browser"
 msgstr "UCP není podporován ve vašem prohlížeči"
 
@@ -1479,7 +1478,7 @@ msgstr "Právě jste se úspěšně poprvé přihlásili!"
 msgid "You must set a dashboard name!"
 msgstr "Musíte zadat název ovládacího panelu!"
 
-#: htdocs/assets/js/ucp.js:339
+#: htdocs/assets/js/ucp.js:366
 msgid "Your Browser is unsupported at this time."
 msgstr "Váš prohlížeč není v současné době podporován."
 
@@ -1527,7 +1526,7 @@ msgstr "Tvůj titul"
 msgid "Your Work Number"
 msgstr "Tvůj telefon do práce"
 
-#: htdocs/assets/js/ucp.js:341
+#: htdocs/assets/js/ucp.js:368
 msgid ""
 "Your browser is unsupported at this time. Please upgrade or talk to your "
 "system administrator"
