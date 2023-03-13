@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-09-15 08:32+0000\n"
-"PO-Revision-Date: 2023-03-13 17:49+0000\n"
+"PO-Revision-Date: 2023-03-14 19:00+0000\n"
 "Last-Translator: Klemens Starybrat <klemens.starybrat@gmail.com>\n"
 "Language-Team: Polish <http://weblate.freepbx.org/projects/freepbx/ucp/pl/>\n"
 "Language: pl\n"
@@ -92,7 +92,7 @@ msgstr ": "
 #: htdocs/modules/Ucptour/assets/js/global.js:123
 #, perl-format
 msgid "A dashboard can be deleted by clicking the '%s'"
-msgstr "Pulpit może zostać usunięty po kliknięciu '%s'"
+msgstr "Pulpit można usunąć, klikając '%s'"
 
 #: htdocs/views/templates/phone.php:41
 msgid "ABC"
@@ -160,8 +160,8 @@ msgid ""
 "All widgets in a dashboard can also be locked globally by clicking the '%s' "
 "symbol on the dashboard tab"
 msgstr ""
-"Wszystkie widgety w pulpicie mogą również zostać zablokowane globalnie "
-"poprzez kliknięcie symbolu '%s' na zakładce pulpitu"
+"Wszystkie widgety w pulpicie można zablokować globalnie, klikając symbol '%"
+"s' na zakładce pulpitu"
 
 #: htdocs/modules/Settings/views/settings.php:144
 msgid "Allow Desktop Notifications"
@@ -235,7 +235,7 @@ msgstr "Telefon komórkowy"
 
 #: htdocs/modules/Ucptour/assets/js/global.js:313
 msgid "Click the widget's icon to continue"
-msgstr "Kliknij ikonę widgetu, aby kontynuować"
+msgstr "Kliknij ikonę widżetu, aby kontynuować"
 
 #: htdocs/modules/Ucptour/assets/js/global.js:33
 #: htdocs/modules/Ucptour/assets/js/global.js:140
@@ -252,7 +252,7 @@ msgid ""
 "Clicking the '%s' symbol will add this small widget to the display. It will "
 "be visible on all dashboards"
 msgstr ""
-"Kliknięcie symbolu '%s' doda ten mały widget do widoku. Będzie widoczny na "
+"Kliknięcie symbolu '%s' doda ten mały widżet do widoku. Będzie widoczny na "
 "wszystkich pulpitach"
 
 #: htdocs/modules/Ucptour/assets/js/global.js:189
@@ -260,7 +260,7 @@ msgstr ""
 msgid ""
 "Clicking the '%s' symbol will add this widget to the currently active "
 "dashboard."
-msgstr "Kliknięcie symbolu '%s' doda ten widget do obecnie aktywnego pulpitu."
+msgstr "Kliknięcie symbolu '%s' doda ten widżet do obecnie aktywnego pulpitu."
 
 #: htdocs/views/dashboard-footer.php:226
 msgid "Close"
@@ -284,7 +284,7 @@ msgstr "Gratulacje!"
 
 #: htdocs/views/dashboard-footer.php:23
 msgid "Create Dashboard"
-msgstr "Stwórz Pulpit"
+msgstr "Utwórz Pulpit"
 
 #: htdocs/views/templates/phone.php:45
 msgid "DEF"
@@ -300,12 +300,12 @@ msgstr "Nazwa pulpitu"
 
 #: htdocs/modules/Ucptour/assets/js/global.js:202
 msgid "Dashboard Widget"
-msgstr "Widget pulpitu"
+msgstr "Widżet pulpitu"
 
 #: htdocs/views/dashboard-footer.php:59
 #: htdocs/modules/Ucptour/assets/js/global.js:101
 msgid "Dashboard Widgets"
-msgstr "Widgety pulpitu"
+msgstr "Widżety pulpitu"
 
 #: htdocs/modules/Ucptour/assets/js/global.js:167
 msgid ""
@@ -313,13 +313,13 @@ msgid ""
 "appear directly on your dashboard. You can click on any category to get a "
 "listing of the widgets available"
 msgstr ""
-"Widgety pulpitu są posortowane wg kategorii po lewej stronie. Te widgety "
+"Widżety pulpitu są posortowane wg kategorii po lewej stronie. Te widżety "
 "pojawią się bezpośrednio na twoim pulpicie. Możesz kliknąć dowolną kategorię "
-"aby zobaczyć listę dostępnych widgetów"
+"aby zobaczyć listę dostępnych widżetów"
 
 #: htdocs/modules/Ucptour/assets/js/global.js:102
 msgid "Dashboard widgets will be displayed here"
-msgstr "Tutaj zostaną wyświetlone widgety pulpitu"
+msgstr "Tutaj zostaną wyświetlone widżety pulpitu"
 
 #: htdocs/modules/Ucptour/assets/js/global.js:93
 msgid "Dashboards"
@@ -402,7 +402,7 @@ msgstr "Aktywuj TLS dla serwera NodeJS"
 
 #: views/users_hook.php:76
 msgid "Enable Tour Mode"
-msgstr "Aktywuj Tryb Zwiedzania"
+msgstr "Aktywuj Tryb Wycieczki"
 
 #: ucp.i18n.php:22
 msgid "Enable the NodeJS Server"
@@ -413,8 +413,8 @@ msgid ""
 "Enable tour mode in UCP upon first login. If disabled the tour will not "
 "automatically start upon first login"
 msgstr ""
-"Aktywuj Tryb Zwiedzania w UCP po pierwszym zalogowaniu. Jeśli wyłączone, "
-"zwiedzanie nie rozpocznie się automatycznie po pierwszym zalogowaniu"
+"Aktywuj Tryb Wycieczki w UCP po pierwszym zalogowaniu. Jeśli wyłączone, "
+"wycieczka nie rozpocznie się automatycznie po pierwszym zalogowaniu"
 
 #: htdocs/modules/Settings/assets/js/global.js:140
 msgid "Enabling notifications was denied"
@@ -616,9 +616,9 @@ msgid ""
 "move cursor is shown. Then clicking and dragging the dashboard in the order "
 "you want"
 msgstr ""
-"Kolejność wielu pulpitów może być zmieniona poprzez najechanie kursorem aż "
-"pojawi się ikona przesuwania. Następnie należy kliknąć i przeciągnąć pulpit "
-"na żądane miejsce"
+"Kolejność wielu pulpitów można zmienić najeżdżając kursorem aż pojawi się "
+"ikona przesuwania. Następnie należy kliknąć i przeciągnąć pulpit na żądane "
+"miejsce"
 
 #: Ucp.class.php:121
 #, php-format
@@ -700,7 +700,7 @@ msgstr "ON"
 
 #: htdocs/modules/Ucptour/assets/js/global.js:313
 msgid "Once a small widget has been added it will show up in the left sidebar"
-msgstr "Po dodaniu małego widgetu, pojawi się w pasku bocznym po lewej stronie"
+msgstr "Po dodaniu małego widżetu, pojawi się w pasku bocznym po lewej stronie"
 
 #: htdocs/modules/Ucptour/assets/js/global.js:129
 msgid "Ordering dashboards"
@@ -715,7 +715,7 @@ msgstr "Zainicjuj"
 #: htdocs/modules/Home/assets/js/global.js:45
 #: htdocs/modules/Home/assets/js/global.js:125
 msgid "Originate Call"
-msgstr "Źródło połączenia"
+msgstr "Zainicjuj połączenie"
 
 #: htdocs/views/templates/phone.php:65
 msgid "PQRS"
@@ -729,7 +729,7 @@ msgstr "Hasło"
 #: Ucp.class.php:502
 #, php-format
 msgid "Password Reset Link (Valid Until: %s): %s"
-msgstr "Odnośnik do resetu hasło (ważny do: %s): %s"
+msgstr "Odnośnik do resetu hasła (ważny do: %s): %s"
 
 #: htdocs/views/forgot.php:27
 #, php-format
@@ -775,7 +775,7 @@ msgstr "Zapamiętaj mnie"
 #: htdocs/views/dashboard-header.php:66
 #: htdocs/modules/Widgets/assets/js/global.js:446
 msgid "Remove Widget"
-msgstr "Usuń widget"
+msgstr "Usuń widżet"
 
 #: htdocs/views/forgot.php:62
 msgid "Reset Password"
@@ -783,7 +783,7 @@ msgstr "Resetuj hasło"
 
 #: htdocs/modules/Settings/views/settings.php:149
 msgid "Restart Tour"
-msgstr "Rozpocznij Zwiedzanie od początku"
+msgstr "Rozpocznij Wycieczkę od początku"
 
 #: Ucp.class.php:1274
 #, php-format
@@ -800,21 +800,21 @@ msgstr "Zapisane!"
 
 #: htdocs/modules/Ucptour/assets/js/global.js:166
 msgid "Selecting Dashboard Widgets"
-msgstr "Wybieranie widgetów pulpitu"
+msgstr "Wybieranie widżetów pulpitu"
 
 #: htdocs/modules/Ucptour/assets/js/global.js:266
 msgid "Selecting Side Bar Widgets"
-msgstr "Wybieranie widgetów paska bocznego"
+msgstr "Wybieranie widżetów paska bocznego"
 
 #: htdocs/modules/Ucptour/assets/js/global.js:277
 msgid "Selecting Small Widgets"
-msgstr "Wybieranie małych widgetów"
+msgstr "Wybieranie małych widżetów"
 
 #: htdocs/modules/Ucptour/assets/js/global.js:155
 #: htdocs/modules/Ucptour/assets/js/global.js:174
 #: htdocs/modules/Ucptour/assets/js/global.js:284
 msgid "Selecting Widgets"
-msgstr "Wybieranie widgetów"
+msgstr "Wybieranie widżetów"
 
 #: htdocs/views/login.php:55
 msgid "Send Me A Password Reset Link"
@@ -836,18 +836,18 @@ msgstr "Ustawia ścieżkę do certyfikatu serwera HTTPS. Jest to wymagane jeśli
 #: htdocs/modules/Widgets/assets/js/global.js:100
 #: htdocs/modules/Widgets/assets/js/global.js:385
 msgid "Settings"
-msgstr "Opcje"
+msgstr "Ustawienia"
 
 #: htdocs/views/dashboard-footer.php:60
 #: htdocs/modules/Ucptour/assets/js/global.js:243
 msgid "Side Bar Widgets"
-msgstr "Widgety paska bocznego"
+msgstr "Widżety paska bocznego"
 
 #: htdocs/modules/Ucptour/assets/js/global.js:267
 msgid ""
 "Side Bar widgets are grouped in a single category called 'Side Bar Widgets'"
 msgstr ""
-"Widgety paska bocznego są zgrupowane w jedną kategorię o nazwie 'Widgety "
+"Widżety paska bocznego są zgrupowane w jedną kategorię o nazwie 'Widżety "
 "paska bocznego'"
 
 #: htdocs/modules/Ucptour/assets/js/global.js:251
@@ -856,32 +856,32 @@ msgid ""
 "Side bar Widgets can also be added by clicking the '%s' symbol. These appear "
 "under the '%s' symbol in this side bar"
 msgstr ""
-"Widgety paska bocznego mogą również być dodane poprzez kliknięcie symbolu '%"
-"s'. Pojawią się poniżej symbolu '%s' na pasku bocznym"
+"Widżety paska bocznego można również dodawać klikając symbol '%s'. Pojawią "
+"się poniżej symbolu '%s' na pasku bocznym"
 
 #: htdocs/modules/Ucptour/assets/js/global.js:312
 #: htdocs/modules/Ucptour/assets/js/global.js:324
 #: htdocs/modules/Ucptour/assets/js/global.js:329
 #: htdocs/modules/Ucptour/assets/js/global.js:334
 msgid "Small Widget Display"
-msgstr "Wyświetlanie małych widgetów"
+msgstr "Wyświetlanie małych widżetów"
 
 #: htdocs/modules/Ucptour/assets/js/global.js:278
 msgid ""
 "Small Widgets are listed on the right. The titles and descriptions will be "
 "shown for each widget"
 msgstr ""
-"Lista małych widgetów znajduje się po prawej stronie. Dla każdego widgetu "
+"Lista małych widżetów znajduje się po prawej stronie. Dla każdego widżetu "
 "pokazane zostaną tytuł i opis"
 
 #: htdocs/modules/Widgets/assets/js/global.js:1196
 msgid "Something went wrong getting the content of the widget"
-msgstr "Coś poszło nie tak podczas pobierania zawartości widgetu"
+msgstr "Coś poszło nie tak podczas pobierania zawartości widżetu"
 
 #: htdocs/modules/Widgets/assets/js/global.js:1238
 #: htdocs/modules/Widgets/assets/js/global.js:1276
 msgid "Something went wrong getting the settings from the widget"
-msgstr "Coś poszło nie tak podczas pobierania ustawień widgetu"
+msgstr "Coś poszło nie tak podczas pobierania ustawień widżetu"
 
 #: htdocs/modules/Widgets/assets/js/global.js:863
 #: htdocs/modules/Widgets/assets/js/global.js:917
@@ -1045,25 +1045,25 @@ msgstr ""
 
 #: htdocs/modules/Ucptour/assets/js/global.js:325
 msgid "The widget's content is displayed here"
-msgstr "Zawartość widgetu jest wyświetlana tutaj"
+msgstr "Zawartość widżetu jest wyświetlana tutaj"
 
 #: htdocs/modules/Ucptour/assets/js/global.js:156
 msgid ""
 "There are two different types of widgets. Dashboard Widgets and Side Bar "
 "widgets. Let's start with dashboard widgets"
 msgstr ""
-"Są dwa różne rodzaje widgetów. Widgety pulpity i widgety paska bocznego. "
-"Zacznijmy od widgetów pulpitu"
+"Są dwa różne rodzaje widżetów. Widżety pulpity i widżety paska bocznego. "
+"Zacznijmy od widżetów pulpitu"
 
 #: htdocs/modules/Widgets/assets/js/global.js:980
 msgid "There is no active dashboard to add widgets to"
-msgstr "Nie ma aktywnego pulpitu do którego można dodać widgety"
+msgstr "Nie ma aktywnego pulpitu do którego można dodać widżety"
 
 #: htdocs/modules/Widgets/assets/js/global.js:1058
 #: htdocs/modules/Widgets/assets/js/global.js:1140
 msgid "There was an error getting the widget information, try again later"
 msgstr ""
-"Wystąpił błąd podczas pobierania informacji o widgecie, spróbuj ponownie "
+"Wystąpił błąd podczas pobierania informacji o widżecie, spróbuj ponownie "
 "później"
 
 #: htdocs/index.php:108
@@ -1088,7 +1088,7 @@ msgid ""
 "This is where side bar widgets live. Side bar widgets do not change when you "
 "change dashboards. They are global throughout UCP"
 msgstr ""
-"Tutaj żyją widgety paska bocznego. Widgety paska bocznego nie zmieniają się "
+"Tutaj żyją widżety paska bocznego. Widżety paska bocznego nie zmieniają się "
 "gdy zmieniasz pulpity. Są globalne dla całego UCP"
 
 #: htdocs/modules/Ucptour/assets/js/global.js:25
@@ -1118,7 +1118,7 @@ msgstr "Aby kontynuować kliknij Dalej"
 #: htdocs/modules/Ucptour/assets/js/global.js:335
 #, perl-format
 msgid "To just close/hide the widget's content click the '%s' symbol"
-msgstr "Aby zamknąc/ukryć zawartość widgetu kliknij symbol '%s'"
+msgstr "Aby zamknąć/ukryć zawartość widżetu kliknij symbol '%s'"
 
 #: htdocs/index.php:79
 #, php-format
@@ -1133,7 +1133,7 @@ msgstr ""
 
 #: htdocs/modules/Ucptour/assets/js/global.js:330
 msgid "To remove this widget from the side bar click 'Remove Widget'"
-msgstr "Aby usunąć ten widget z paska bocznego kliknij 'Usuń Widget'"
+msgstr "Aby usunąć ten widżet z paska bocznego kliknij 'Usuń Widżet'"
 
 #: htdocs/index.php:108 ucp.i18n.php:10
 msgid "UCP"
@@ -1163,7 +1163,7 @@ msgstr "Serwer UCP Node był już uruchomiony na PID %s przez %s"
 
 #: Ucp.class.php:1363
 msgid "UCP Node Server is not running"
-msgstr "Server UCP Node nie jest uruhomiony"
+msgstr "Server UCP Node nie jest uruchomiony"
 
 #: Ucp.class.php:1276
 msgid "UCP Node is not running"
@@ -1340,28 +1340,28 @@ msgstr ""
 
 #: htdocs/modules/Ucptour/assets/js/global.js:223
 msgid "Widget Locking"
-msgstr "Blokowanie widgetu"
+msgstr "Blokowanie widżetu"
 
 #: htdocs/modules/Ucptour/assets/js/global.js:207
 msgid "Widget Placement"
-msgstr "Umieszczanie widgetu"
+msgstr "Umieszczanie widżetu"
 
 #: htdocs/modules/Ucptour/assets/js/global.js:233
 msgid "Widget Removal"
-msgstr "Usuwanie widgetu"
+msgstr "Usuwanie widżetu"
 
 #: htdocs/views/dashboard-footer.php:162
 #: htdocs/modules/Ucptour/assets/js/global.js:228
 msgid "Widget Settings"
-msgstr "Ustawienia widgetu"
+msgstr "Ustawienia widżetu"
 
 #: htdocs/modules/Ucptour/assets/js/global.js:215
 msgid "Widget Size"
-msgstr "Rozmiar widgetu"
+msgstr "Rozmiar widżetu"
 
 #: htdocs/modules/Widgets/Widgets.class.php:199
 msgid "Widgets"
-msgstr "Widgety"
+msgstr "Widżety"
 
 #: htdocs/modules/Ucptour/assets/js/global.js:175
 #: htdocs/modules/Ucptour/assets/js/global.js:285
@@ -1369,40 +1369,40 @@ msgid ""
 "Widgets are listed on the right. The titles and descriptions will be shown "
 "for each widget"
 msgstr ""
-"Lista widgetów znajduje się po prawej stronie. Dla każdego widgetu pokazane "
+"Lista widżetów znajduje się po prawej stronie. Dla każdego widżetu pokazane "
 "będą tytuł oraz opis"
 
 #: htdocs/modules/Ucptour/assets/js/global.js:203
 msgid ""
 "Widgets are placed automatically on the dashboard after they have been added"
-msgstr "Widgety są umieszczane automatycznie na pulpicie gdy zostaną dodane"
+msgstr "Widżety są umieszczane automatycznie na pulpicie gdy zostaną dodane"
 
 #: htdocs/modules/Ucptour/assets/js/global.js:234
 #, perl-format
 msgid "Widgets can also be removed by clicking the '%s' symbol"
-msgstr "Widgety mogą również usunąć, klikając symbol '%s'"
+msgstr "Widżety mogą również usunąć, klikając symbol '%s'"
 
 #: htdocs/modules/Ucptour/assets/js/global.js:140
 #, perl-format
 msgid "Widgets can be added by clicking the '%s' symbol"
-msgstr "Widgety można dodawać, klikając symbol '%s'"
+msgstr "Widżety można dodawać, klikając symbol '%s'"
 
 #: htdocs/modules/Ucptour/assets/js/global.js:224
 msgid "Widgets can be locked into place to prevent their movement"
 msgstr ""
-"Widgety mogą być zablokowane w miejscu aby uniemożliwić ich przenoszenie"
+"Widżety mogą być zablokowane w miejscu aby uniemożliwić ich przenoszenie"
 
 #: htdocs/modules/Ucptour/assets/js/global.js:208
 msgid "Widgets can be moved around by clicking and dragging on the title bar"
-msgstr "Widgety można przenosić, klikając i przeciągając pasek tytułu"
+msgstr "Widżety można przenosić, klikając i przeciągając pasek tytułu"
 
 #: htdocs/modules/Ucptour/assets/js/global.js:216
 msgid ""
 "Widgets can be resized by placing your mouse near the corner of the widget. "
 "Click and drag to resize the widget."
 msgstr ""
-"Rozmiar widgetów można zmieniać, umieszczając kursor myszy w pobliżu rogu "
-"widżetu. Kliknij i przeciągnij, aby zmienić rozmiar widgetu."
+"Rozmiar widżetów można zmieniać, umieszczając kursor myszy w pobliżu rogu "
+"widżetu. Kliknij i przeciągnij, aby zmienić rozmiar widżetu."
 
 #: htdocs/modules/Ucptour/assets/js/global.js:229
 msgid "Widgets settings can be changed by clicking this icon"
@@ -1509,7 +1509,7 @@ msgid ""
 "Your browser is unsupported at this time. Please upgrade or talk to your "
 "system administrator"
 msgstr ""
-"W obecnej chwili Twoja przeglądarka nie jest wspierana. Zaktualizjuj ją lub "
+"W obecnej chwili Twoja przeglądarka nie jest wspierana. Zaktualizuj ją lub "
 "skontaktuj się z Twoim administratorem systemu"
 
 #: htdocs/modules/Ucptour/assets/js/global.js:352
@@ -1557,7 +1557,8 @@ msgstr ""
 
 #: Ucp.class.php:142
 msgid "icu is not installed. You need to run: yum install icu libicu-devel"
-msgstr "icu nie jest zainstalowny. Musisz wykonać: yum install icu libicu-devel"
+msgstr ""
+"icu nie jest zainstalowany. Musisz wykonać: yum install icu libicu-devel"
 
 #: Ucp.class.php:134
 msgid ""
