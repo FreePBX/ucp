@@ -101,7 +101,7 @@
 	<depends>
 		<module>userman ge 16.0.18</module>
 		<module>core ge 16.0.56.4</module>
-		<version>16.0.10.20</version>
+		<version>16.0.37</version>
 		<module>pm2 ge 16.0.4</module>
 		<module>certman ge 16.0.13</module>
 	</depends>
