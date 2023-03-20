@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-23 03:24+0000\n"
+"POT-Creation-Date: 2023-03-20 09:31+0000\n"
 "PO-Revision-Date: 2016-05-03 03:14+0200\n"
 "Last-Translator: Michal <mboltz@tlen.pl>\n"
 "Language-Team: Polish <http://weblate.freepbx.org/projects/freepbx/ucp/pl/>\n"
@@ -391,7 +391,7 @@ msgstr ""
 msgid "End of tour"
 msgstr ""
 
-#: htdocs/modules/Settings/Settings.class.php:143
+#: htdocs/modules/Settings/Settings.class.php:148
 msgid "English"
 msgstr "Angielski"
 
@@ -766,7 +766,7 @@ msgstr ""
 msgid "Save your dashboard"
 msgstr ""
 
-#: htdocs/modules/Settings/assets/js/global.js:229
+#: htdocs/modules/Settings/assets/js/global.js:238
 msgid "Saved!"
 msgstr "Zapisane!"
 
@@ -1154,7 +1154,7 @@ msgstr ""
 msgid "Unknown"
 msgstr ""
 
-#: htdocs/modules/Settings/assets/js/global.js:262
+#: htdocs/modules/Settings/assets/js/global.js:271
 msgid "Unsupported file type"
 msgstr ""
 
@@ -1182,7 +1182,7 @@ msgstr ""
 msgid "Use PBX Timezone"
 msgstr ""
 
-#: htdocs/modules/Settings/Settings.class.php:186
+#: htdocs/modules/Settings/Settings.class.php:191
 msgid "User"
 msgstr ""
 

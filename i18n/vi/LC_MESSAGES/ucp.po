@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-23 03:24+0000\n"
+"POT-Creation-Date: 2023-03-20 09:31+0000\n"
 "PO-Revision-Date: 2017-08-02 21:28+0200\n"
 "Last-Translator: PETER <ftek@ymail.com>\n"
 "Language-Team: Vietnamese <http://weblate.freepbx.org/projects/freepbx/ucp/"
@@ -395,7 +395,7 @@ msgstr ""
 msgid "End of tour"
 msgstr ""
 
-#: htdocs/modules/Settings/Settings.class.php:143
+#: htdocs/modules/Settings/Settings.class.php:148
 msgid "English"
 msgstr "Tiếng anh"
 
@@ -774,7 +774,7 @@ msgstr ""
 msgid "Save your dashboard"
 msgstr ""
 
-#: htdocs/modules/Settings/assets/js/global.js:229
+#: htdocs/modules/Settings/assets/js/global.js:238
 msgid "Saved!"
 msgstr "Đã lưu!"
 
@@ -1175,7 +1175,7 @@ msgstr "Không thể gửi Email cài đặt lại mật khẩu"
 msgid "Unknown"
 msgstr ""
 
-#: htdocs/modules/Settings/assets/js/global.js:262
+#: htdocs/modules/Settings/assets/js/global.js:271
 msgid "Unsupported file type"
 msgstr "Kiểu tệp không được hỗ trợ"
 
@@ -1203,7 +1203,7 @@ msgstr ""
 msgid "Use PBX Timezone"
 msgstr ""
 
-#: htdocs/modules/Settings/Settings.class.php:186
+#: htdocs/modules/Settings/Settings.class.php:191
 msgid "User"
 msgstr ""
 

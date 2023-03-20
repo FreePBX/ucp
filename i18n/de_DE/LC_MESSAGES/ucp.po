@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-23 03:24+0000\n"
+"POT-Creation-Date: 2023-03-20 09:31+0000\n"
 "PO-Revision-Date: 2018-10-25 08:00+0000\n"
 "Last-Translator: Bastian Mertgen <b.mertgen@bastian-mertgen.de>\n"
 "Language-Team: German <http://*/projects/freepbx/ucp/de/>\n"
@@ -429,7 +429,7 @@ msgstr "Das Aktivieren von Benachrichtigungen wurde abgelehnt"
 msgid "End of tour"
 msgstr "Ende der Tour"
 
-#: htdocs/modules/Settings/Settings.class.php:143
+#: htdocs/modules/Settings/Settings.class.php:148
 msgid "English"
 msgstr "Englisch"
 
@@ -819,7 +819,7 @@ msgstr "Aktiver Prozess (Uptime: %s)"
 msgid "Save your dashboard"
 msgstr "Speichern Sie ihr Dashboard"
 
-#: htdocs/modules/Settings/assets/js/global.js:229
+#: htdocs/modules/Settings/assets/js/global.js:238
 msgid "Saved!"
 msgstr "Gespeichert!"
 
@@ -1251,7 +1251,7 @@ msgstr "Email zum Zurücksetzen des Passworts konnte nicht gesendet werden"
 msgid "Unknown"
 msgstr "Unbekannt"
 
-#: htdocs/modules/Settings/assets/js/global.js:262
+#: htdocs/modules/Settings/assets/js/global.js:271
 msgid "Unsupported file type"
 msgstr "Nicht unterstützter Dateityp"
 
@@ -1279,7 +1279,7 @@ msgstr "Sprache der TK-Anlage verwenden"
 msgid "Use PBX Timezone"
 msgstr "Zeitzone der TK-Anlage verwenden"
 
-#: htdocs/modules/Settings/Settings.class.php:186
+#: htdocs/modules/Settings/Settings.class.php:191
 msgid "User"
 msgstr "Benutzer"
 

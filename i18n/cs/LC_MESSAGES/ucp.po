@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-23 03:24+0000\n"
+"POT-Creation-Date: 2023-03-20 09:31+0000\n"
 "PO-Revision-Date: 2018-08-08 11:42+0000\n"
 "Last-Translator: Petr Varvarovsky <petrv@atlantis.cz>\n"
 "Language-Team: Czech <http://*/projects/freepbx/ucp/cs/>\n"
@@ -427,7 +427,7 @@ msgstr "Zakázáno povolit upozornění"
 msgid "End of tour"
 msgstr "Konec prohlížení"
 
-#: htdocs/modules/Settings/Settings.class.php:143
+#: htdocs/modules/Settings/Settings.class.php:148
 msgid "English"
 msgstr "Angličtina"
 
@@ -812,7 +812,7 @@ msgstr "Aktivní (V provozu: %s)"
 msgid "Save your dashboard"
 msgstr "Uložte svůj ovládací panel"
 
-#: htdocs/modules/Settings/assets/js/global.js:229
+#: htdocs/modules/Settings/assets/js/global.js:238
 msgid "Saved!"
 msgstr "Uloženo!"
 
@@ -1237,7 +1237,7 @@ msgstr "Nelze odeslat e-mail s obnovením hesla"
 msgid "Unknown"
 msgstr "Neznámý"
 
-#: htdocs/modules/Settings/assets/js/global.js:262
+#: htdocs/modules/Settings/assets/js/global.js:271
 msgid "Unsupported file type"
 msgstr "Nepodporovaný typ souboru"
 
@@ -1265,7 +1265,7 @@ msgstr "Použij jazyk ústředny"
 msgid "Use PBX Timezone"
 msgstr "Použij časové pásmo ústředny"
 
-#: htdocs/modules/Settings/Settings.class.php:186
+#: htdocs/modules/Settings/Settings.class.php:191
 msgid "User"
 msgstr "Uživatel"
 

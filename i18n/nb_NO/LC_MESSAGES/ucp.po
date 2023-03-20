@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-23 03:24+0000\n"
+"POT-Creation-Date: 2023-03-20 09:31+0000\n"
 "PO-Revision-Date: 2015-08-30 14:46+0200\n"
 "Last-Translator: Vidar Skjelanger <vidar@unimicro.no>\n"
 "Language-Team: Norwegian Bokmål <http://weblate.freepbx.org/projects/freepbx/"
@@ -392,7 +392,7 @@ msgstr ""
 msgid "End of tour"
 msgstr ""
 
-#: htdocs/modules/Settings/Settings.class.php:143
+#: htdocs/modules/Settings/Settings.class.php:148
 msgid "English"
 msgstr "Engelsk"
 
@@ -769,7 +769,7 @@ msgstr ""
 msgid "Save your dashboard"
 msgstr ""
 
-#: htdocs/modules/Settings/assets/js/global.js:229
+#: htdocs/modules/Settings/assets/js/global.js:238
 msgid "Saved!"
 msgstr "Lagret!"
 
@@ -1153,7 +1153,7 @@ msgstr ""
 msgid "Unknown"
 msgstr ""
 
-#: htdocs/modules/Settings/assets/js/global.js:262
+#: htdocs/modules/Settings/assets/js/global.js:271
 msgid "Unsupported file type"
 msgstr ""
 
@@ -1181,7 +1181,7 @@ msgstr ""
 msgid "Use PBX Timezone"
 msgstr ""
 
-#: htdocs/modules/Settings/Settings.class.php:186
+#: htdocs/modules/Settings/Settings.class.php:191
 msgid "User"
 msgstr ""
 

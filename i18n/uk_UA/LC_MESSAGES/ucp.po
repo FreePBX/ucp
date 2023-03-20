@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-23 03:24+0000\n"
+"POT-Creation-Date: 2023-03-20 09:31+0000\n"
 "PO-Revision-Date: 2016-12-13 14:49+0200\n"
 "Last-Translator: Maxim <maxim@ua.fm>\n"
 "Language-Team: Ukrainian <http://weblate.freepbx.org/projects/freepbx/ucp/"
@@ -397,7 +397,7 @@ msgstr ""
 msgid "End of tour"
 msgstr ""
 
-#: htdocs/modules/Settings/Settings.class.php:143
+#: htdocs/modules/Settings/Settings.class.php:148
 msgid "English"
 msgstr "Англійська"
 
@@ -774,7 +774,7 @@ msgstr ""
 msgid "Save your dashboard"
 msgstr ""
 
-#: htdocs/modules/Settings/assets/js/global.js:229
+#: htdocs/modules/Settings/assets/js/global.js:238
 msgid "Saved!"
 msgstr "Збережено!"
 
@@ -1172,7 +1172,7 @@ msgstr "Неможливо відправити скидання пароля н
 msgid "Unknown"
 msgstr ""
 
-#: htdocs/modules/Settings/assets/js/global.js:262
+#: htdocs/modules/Settings/assets/js/global.js:271
 msgid "Unsupported file type"
 msgstr "Непідтримуваний тип файлу"
 
@@ -1200,7 +1200,7 @@ msgstr ""
 msgid "Use PBX Timezone"
 msgstr ""
 
-#: htdocs/modules/Settings/Settings.class.php:186
+#: htdocs/modules/Settings/Settings.class.php:191
 msgid "User"
 msgstr ""
 
