@@ -203,7 +203,7 @@ class UCP extends UCP_Helpers {
 			"emojionearea-3.1.6.min.js",
 			"jquery.tokenize-2.6.js",
 			"moment-with-locales-2.20.1.min.js",
-			"moment-timezone-with-data-2012-2022-0.5.14-2017c.min.js",
+			"moment-timezone-with-data-1970-2030-0.5.41.min.js",
 			"moment-duration-format-2.2.1.js",
 			"nprogress-0.2.0.js",
 			"imagesloaded.pkgd-4.1.1.min.js",
