@@ -207,7 +207,16 @@ var SettingsC = UCPMC.extend({
 			}
 		});
 		$("#userinfo input[type!=checkbox][type!=radio][name!=dateformat][name!=timeformat][name!=datetimeformat]").blur(function() {
-			$.post( "ajax.php?module=Settings&command=settings", { key: $(this).prop("name"), value: $(this).val() }, function( data ) {
+			var getValueOtherInput = {};
+			var filterInput = ["displayname", "fname", "lname","title","company"];
+			$("#userinfo input").each(function() {
+				var name = $(this).prop("name");
+				if (filterInput.includes(name)) {
+					var value = $(this).val();
+					getValueOtherInput[name] = value;
+				}
+			});
+			$.post( "ajax.php?module=Settings&command=settings", { key: $(this).prop("name"), value: $(this).val(), OtherInputValues:getValueOtherInput }, function( data ) {
 				if (data.status) {
 					$this.showMessage(_("Saved!"),"success");
 				} else {
