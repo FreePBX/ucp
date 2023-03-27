@@ -50,6 +50,21 @@ $set['description'] = 'UCP icons folder. This should never be changed except for
 $set['type'] = CONF_TYPE_TEXT;
 FreePBX::Config()->define_conf_setting('VIEW_UCP_ICONS_FOLDER',$set,true);
 
+// VIEW_UCP_IMAGE_FOLDER
+$set['value'] = 'assets/images';
+$set['defaultval'] = &$set['value'];
+$set['readonly'] = 1;
+$set['hidden'] = 1;
+$set['level'] = 1;
+$set['sortorder'] = 355;
+$set['module'] = 'ucp'; //This will help delete the settings when module is uninstalled
+$set['category'] = 'Styling and Logos';
+$set['emptyok'] = 0;
+$set['name'] = 'View: UCP images';
+$set['description'] = 'UCP images folder. This should never be changed except for very advanced layout changes';
+$set['type'] = CONF_TYPE_TEXT;
+FreePBX::Config()->define_conf_setting('VIEW_UCP_IMAGE_FOLDER', $set, true);
+
 //UCPCHANGEUSERNAME
 $set['value'] = true;
 $set['defaultval'] =& $set['value'];
