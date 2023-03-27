@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-03-20 09:31+0000\n"
+"POT-Creation-Date: 2023-03-27 10:21+0000\n"
 "PO-Revision-Date: 2016-05-03 03:14+0200\n"
 "Last-Translator: Michal <mboltz@tlen.pl>\n"
 "Language-Team: Polish <http://weblate.freepbx.org/projects/freepbx/ucp/pl/>\n"
@@ -23,6 +23,16 @@ msgstr ""
 
 #: htdocs/assets/js/lodash-4.17.2.js:8787
 msgid "  abc  "
+msgstr ""
+
+#: htdocs/views/dashfootercontent.php:28
+#, php-format
+msgid "%s %s is licensed under the %s"
+msgstr ""
+
+#: htdocs/views/dashfootercontent.php:27
+#, php-format
+msgid "%s is a registered trademark of"
 msgstr ""
 
 #: htdocs/assets/js/lodash-4.17.2.js:15199
@@ -256,6 +266,11 @@ msgstr ""
 
 #: htdocs/views/dashboard-footer.php:23
 msgid "Create Dashboard"
+msgstr ""
+
+#: htdocs/views/dashfootercontent.php:34
+#, php-format
+msgid "Current module licensed under %s"
 msgstr ""
 
 #: htdocs/views/templates/phone.php:45
@@ -501,7 +516,7 @@ msgstr ""
 msgid "Interface Settings"
 msgstr ""
 
-#: htdocs/index.php:275
+#: htdocs/index.php:256
 #, php-format
 msgid ""
 "Internet Explorer %s is not supported. Functionality will be deteriorated "
@@ -522,7 +537,7 @@ msgstr ""
 msgid "Invalid Login Credentials"
 msgstr "Błędne dane logowania"
 
-#: htdocs/index.php:263
+#: htdocs/index.php:244
 msgid "Invalid Token"
 msgstr "Błędny token"
 
@@ -975,10 +990,6 @@ msgstr ""
 msgid "The password used to login to User Control Panel and other services"
 msgstr "Hasło używane do logowania do Panelu Użytkownika (UCP) i innych usług"
 
-#: htdocs/views/dashfootercontent.php:4
-msgid "The removal of this copyright notice is stricly prohibited"
-msgstr "Usunięcie tej informacji o prawach autorskich jest surowo zabronione"
-
 #: htdocs/assets/js/ucp.js:562
 msgid "The session has expired and you are being forcibly logged out"
 msgstr ""
@@ -1195,11 +1206,6 @@ msgstr "Panel Użytkownika (UCP)"
 #: htdocs/modules/Settings/views/settings.php:2
 msgid "User Control Panel Settings"
 msgstr "Ustawienia Panelu Użytkownika"
-
-#: htdocs/views/dashfootercontent.php:2
-#, php-format
-msgid "User Control Panel is released as %s or newer"
-msgstr "Panel Użytkownika jest opublikowany jako %s lub nowszy"
 
 #: Ucp.class.php:512
 #, php-format
@@ -1493,6 +1499,13 @@ msgstr "lub"
 #: views/users_hook.php:125
 msgid "select template"
 msgstr ""
+
+#~ msgid "The removal of this copyright notice is stricly prohibited"
+#~ msgstr ""
+#~ "Usunięcie tej informacji o prawach autorskich jest surowo zabronione"
+
+#~ msgid "User Control Panel is released as %s or newer"
+#~ msgstr "Panel Użytkownika jest opublikowany jako %s lub nowszy"
 
 #~ msgid "Password Confirmation Didn't Match!"
 #~ msgstr "Powtórzone hasło nie zgadza się!"

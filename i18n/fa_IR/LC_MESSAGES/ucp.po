@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-03-20 09:31+0000\n"
+"POT-Creation-Date: 2023-03-27 10:21+0000\n"
 "PO-Revision-Date: 2016-07-06 05:21+0200\n"
 "Last-Translator: Media <mousavi.media@gmail.com>\n"
 "Language-Team: Persian (Iran) <http://weblate.freepbx.org/projects/freepbx/"
@@ -23,6 +23,16 @@ msgstr ""
 
 #: htdocs/assets/js/lodash-4.17.2.js:8787
 msgid "  abc  "
+msgstr ""
+
+#: htdocs/views/dashfootercontent.php:28
+#, php-format
+msgid "%s %s is licensed under the %s"
+msgstr ""
+
+#: htdocs/views/dashfootercontent.php:27
+#, php-format
+msgid "%s is a registered trademark of"
 msgstr ""
 
 #: htdocs/assets/js/lodash-4.17.2.js:15199
@@ -259,6 +269,11 @@ msgstr ""
 
 #: htdocs/views/dashboard-footer.php:23
 msgid "Create Dashboard"
+msgstr ""
+
+#: htdocs/views/dashfootercontent.php:34
+#, php-format
+msgid "Current module licensed under %s"
 msgstr ""
 
 #: htdocs/views/templates/phone.php:45
@@ -504,7 +519,7 @@ msgstr ""
 msgid "Interface Settings"
 msgstr "تنظیمات اینترفیس"
 
-#: htdocs/index.php:275
+#: htdocs/index.php:256
 #, php-format
 msgid ""
 "Internet Explorer %s is not supported. Functionality will be deteriorated "
@@ -527,7 +542,7 @@ msgstr "دستگاه نامعتبر"
 msgid "Invalid Login Credentials"
 msgstr "اطلاعات کاربری نامعتبر"
 
-#: htdocs/index.php:263
+#: htdocs/index.php:244
 msgid "Invalid Token"
 msgstr "توکن نامعتبر"
 
@@ -984,10 +999,6 @@ msgid "The password used to login to User Control Panel and other services"
 msgstr ""
 "از این کلمه عبور برای ورود به پنل کنترل کاربری و دیگر سرویس ها استفاده می شود"
 
-#: htdocs/views/dashfootercontent.php:4
-msgid "The removal of this copyright notice is stricly prohibited"
-msgstr "حذف اعلان کپی رایت اکیدا ممنوع است"
-
 #: htdocs/assets/js/ucp.js:562
 msgid "The session has expired and you are being forcibly logged out"
 msgstr ""
@@ -1207,11 +1218,6 @@ msgstr "پنل کنترل کاربری"
 #: htdocs/modules/Settings/views/settings.php:2
 msgid "User Control Panel Settings"
 msgstr "تنظیمات پنل کنترل کاربری"
-
-#: htdocs/views/dashfootercontent.php:2
-#, php-format
-msgid "User Control Panel is released as %s or newer"
-msgstr "پنل کنترل کاربری منتشر شده %s یا جدیدتر"
 
 #: Ucp.class.php:512
 #, php-format
@@ -1505,6 +1511,12 @@ msgstr "یا"
 #: views/users_hook.php:125
 msgid "select template"
 msgstr ""
+
+#~ msgid "The removal of this copyright notice is stricly prohibited"
+#~ msgstr "حذف اعلان کپی رایت اکیدا ممنوع است"
+
+#~ msgid "User Control Panel is released as %s or newer"
+#~ msgstr "پنل کنترل کاربری منتشر شده %s یا جدیدتر"
 
 #~ msgid "Password Confirmation Didn't Match!"
 #~ msgstr "کلمه های عبور یکسان نیستند!"

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-03-20 09:31+0000\n"
+"POT-Creation-Date: 2023-03-27 10:21+0000\n"
 "PO-Revision-Date: 2017-08-02 21:28+0200\n"
 "Last-Translator: PETER <ftek@ymail.com>\n"
 "Language-Team: Vietnamese <http://weblate.freepbx.org/projects/freepbx/ucp/"
@@ -23,6 +23,16 @@ msgstr ""
 
 #: htdocs/assets/js/lodash-4.17.2.js:8787
 msgid "  abc  "
+msgstr ""
+
+#: htdocs/views/dashfootercontent.php:28
+#, php-format
+msgid "%s %s is licensed under the %s"
+msgstr ""
+
+#: htdocs/views/dashfootercontent.php:27
+#, php-format
+msgid "%s is a registered trademark of"
 msgstr ""
 
 #: htdocs/assets/js/lodash-4.17.2.js:15199
@@ -260,6 +270,11 @@ msgstr ""
 
 #: htdocs/views/dashboard-footer.php:23
 msgid "Create Dashboard"
+msgstr ""
+
+#: htdocs/views/dashfootercontent.php:34
+#, php-format
+msgid "Current module licensed under %s"
 msgstr ""
 
 #: htdocs/views/templates/phone.php:45
@@ -506,7 +521,7 @@ msgstr ""
 msgid "Interface Settings"
 msgstr "Cài đặt giao diện"
 
-#: htdocs/index.php:275
+#: htdocs/index.php:256
 #, php-format
 msgid ""
 "Internet Explorer %s is not supported. Functionality will be deteriorated "
@@ -529,7 +544,7 @@ msgstr "Thiết bị không hợp lệ"
 msgid "Invalid Login Credentials"
 msgstr "Thông tin đăng nhập không hợp lệ"
 
-#: htdocs/index.php:263
+#: htdocs/index.php:244
 msgid "Invalid Token"
 msgstr "Token không hợp lệ"
 
@@ -987,10 +1002,6 @@ msgstr ""
 "Mật khẩu được sử dụng để đăng nhập vào Bảng điều khiển người dùng và các "
 "dịch vụ khác"
 
-#: htdocs/views/dashfootercontent.php:4
-msgid "The removal of this copyright notice is stricly prohibited"
-msgstr "Tuyệt đối nghiêm cấm việc xóa bỏ thông báo bản quyền này"
-
 #: htdocs/assets/js/ucp.js:562
 msgid "The session has expired and you are being forcibly logged out"
 msgstr ""
@@ -1216,11 +1227,6 @@ msgstr "Bảng điều khiển người dùng"
 #: htdocs/modules/Settings/views/settings.php:2
 msgid "User Control Panel Settings"
 msgstr "Các cài đặt trong Bảng điều khiển người dùng"
-
-#: htdocs/views/dashfootercontent.php:2
-#, php-format
-msgid "User Control Panel is released as %s or newer"
-msgstr "Bảng điều khiển người dùng được phát hành dưới dạng %s hoặc mới hơn"
 
 #: Ucp.class.php:512
 #, php-format
@@ -1517,6 +1523,12 @@ msgstr "hoặc"
 #: views/users_hook.php:125
 msgid "select template"
 msgstr ""
+
+#~ msgid "The removal of this copyright notice is stricly prohibited"
+#~ msgstr "Tuyệt đối nghiêm cấm việc xóa bỏ thông báo bản quyền này"
+
+#~ msgid "User Control Panel is released as %s or newer"
+#~ msgstr "Bảng điều khiển người dùng được phát hành dưới dạng %s hoặc mới hơn"
 
 #~ msgid "Email address unknown!"
 #~ msgstr "Địa chỉ Email không xác đinh!"

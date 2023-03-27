@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-03-20 09:31+0000\n"
+"POT-Creation-Date: 2023-03-27 10:21+0000\n"
 "PO-Revision-Date: 2017-03-08 21:13+0200\n"
 "Last-Translator: Kingvoice <suporte@kingvoice.com.br>\n"
 "Language-Team: Portuguese (Brazil) <http://weblate.freepbx.org/projects/"
@@ -23,6 +23,16 @@ msgstr ""
 
 #: htdocs/assets/js/lodash-4.17.2.js:8787
 msgid "  abc  "
+msgstr ""
+
+#: htdocs/views/dashfootercontent.php:28
+#, php-format
+msgid "%s %s is licensed under the %s"
+msgstr ""
+
+#: htdocs/views/dashfootercontent.php:27
+#, php-format
+msgid "%s is a registered trademark of"
 msgstr ""
 
 #: htdocs/assets/js/lodash-4.17.2.js:15199
@@ -262,6 +272,11 @@ msgstr ""
 
 #: htdocs/views/dashboard-footer.php:23
 msgid "Create Dashboard"
+msgstr ""
+
+#: htdocs/views/dashfootercontent.php:34
+#, php-format
+msgid "Current module licensed under %s"
 msgstr ""
 
 #: htdocs/views/templates/phone.php:45
@@ -510,7 +525,7 @@ msgstr ""
 msgid "Interface Settings"
 msgstr "Configurações da Interface"
 
-#: htdocs/index.php:275
+#: htdocs/index.php:256
 #, php-format
 msgid ""
 "Internet Explorer %s is not supported. Functionality will be deteriorated "
@@ -533,7 +548,7 @@ msgstr "Dispositivo Inválido"
 msgid "Invalid Login Credentials"
 msgstr "Credenciais de login Inválidas"
 
-#: htdocs/index.php:263
+#: htdocs/index.php:244
 msgid "Invalid Token"
 msgstr "Token Inválido"
 
@@ -989,10 +1004,6 @@ msgid "The password used to login to User Control Panel and other services"
 msgstr ""
 "A senha usada para logar no Painel de Controle do Usuário e outros serviços"
 
-#: htdocs/views/dashfootercontent.php:4
-msgid "The removal of this copyright notice is stricly prohibited"
-msgstr "A remoção deste aviso de direitos autorais é estritamente proibida"
-
 #: htdocs/assets/js/ucp.js:562
 msgid "The session has expired and you are being forcibly logged out"
 msgstr ""
@@ -1217,11 +1228,6 @@ msgstr "Painel de Controle do Usuário"
 #: htdocs/modules/Settings/views/settings.php:2
 msgid "User Control Panel Settings"
 msgstr "Configurações Painel de Controle do Usuário"
-
-#: htdocs/views/dashfootercontent.php:2
-#, php-format
-msgid "User Control Panel is released as %s or newer"
-msgstr "Painel de Controle do Usuário está liberado como %s ou mais novo"
 
 #: Ucp.class.php:512
 #, php-format
@@ -1518,6 +1524,12 @@ msgstr "ou"
 #: views/users_hook.php:125
 msgid "select template"
 msgstr ""
+
+#~ msgid "The removal of this copyright notice is stricly prohibited"
+#~ msgstr "A remoção deste aviso de direitos autorais é estritamente proibida"
+
+#~ msgid "User Control Panel is released as %s or newer"
+#~ msgstr "Painel de Controle do Usuário está liberado como %s ou mais novo"
 
 #~ msgid "Email address unknown!"
 #~ msgstr "Endereço de e-mail desconhecido!"

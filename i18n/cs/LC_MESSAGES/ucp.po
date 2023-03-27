@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-03-20 09:31+0000\n"
+"POT-Creation-Date: 2023-03-27 10:21+0000\n"
 "PO-Revision-Date: 2018-08-08 11:42+0000\n"
 "Last-Translator: Petr Varvarovsky <petrv@atlantis.cz>\n"
 "Language-Team: Czech <http://*/projects/freepbx/ucp/cs/>\n"
@@ -23,6 +23,16 @@ msgstr ""
 #: htdocs/assets/js/lodash-4.17.2.js:8787
 msgid "  abc  "
 msgstr "  abc  "
+
+#: htdocs/views/dashfootercontent.php:28
+#, php-format
+msgid "%s %s is licensed under the %s"
+msgstr ""
+
+#: htdocs/views/dashfootercontent.php:27
+#, php-format
+msgid "%s is a registered trademark of"
+msgstr ""
 
 #: htdocs/assets/js/lodash-4.17.2.js:15199
 msgid ""
@@ -289,6 +299,11 @@ msgstr "Gratulace!"
 msgid "Create Dashboard"
 msgstr "Vytvořit ovládací panel"
 
+#: htdocs/views/dashfootercontent.php:34
+#, php-format
+msgid "Current module licensed under %s"
+msgstr ""
+
 #: htdocs/views/templates/phone.php:45
 msgid "DEF"
 msgstr "DEF"
@@ -539,7 +554,7 @@ msgstr "Instalace / aktualizace požadovaných knihoven. Může to chvíli trvat
 msgid "Interface Settings"
 msgstr "Nastavení rozhraní"
 
-#: htdocs/index.php:275
+#: htdocs/index.php:256
 #, php-format
 msgid ""
 "Internet Explorer %s is not supported. Functionality will be deteriorated "
@@ -562,7 +577,7 @@ msgstr "Neplatné zařízení"
 msgid "Invalid Login Credentials"
 msgstr "Neplatné přihlašovací údaje"
 
-#: htdocs/index.php:263
+#: htdocs/index.php:244
 msgid "Invalid Token"
 msgstr "Neplatný token"
 
@@ -1041,10 +1056,6 @@ msgstr ""
 "Heslo, které se používá pro přihlášení k uživatelskému portálu (UCP) a "
 "dalším službám"
 
-#: htdocs/views/dashfootercontent.php:4
-msgid "The removal of this copyright notice is stricly prohibited"
-msgstr "Odstranění tohoto oznámení o autorských právech je přísně zakázáno"
-
 #: htdocs/assets/js/ucp.js:562
 msgid "The session has expired and you are being forcibly logged out"
 msgstr "Čas relace vypršel, byli jste odhlášeni"
@@ -1278,11 +1289,6 @@ msgstr "Uživatelský portál (UCP)"
 #: htdocs/modules/Settings/views/settings.php:2
 msgid "User Control Panel Settings"
 msgstr "Nastavení uživatelského portálu"
-
-#: htdocs/views/dashfootercontent.php:2
-#, php-format
-msgid "User Control Panel is released as %s or newer"
-msgstr "Uživatelský portál je publikovaný jako %s nebo vyšší"
 
 #: Ucp.class.php:512
 #, php-format
@@ -1595,6 +1601,12 @@ msgstr "nebo"
 #: views/users_hook.php:125
 msgid "select template"
 msgstr ""
+
+#~ msgid "The removal of this copyright notice is stricly prohibited"
+#~ msgstr "Odstranění tohoto oznámení o autorských právech je přísně zakázáno"
+
+#~ msgid "User Control Panel is released as %s or newer"
+#~ msgstr "Uživatelský portál je publikovaný jako %s nebo vyšší"
 
 #~ msgid "Email address unknown!"
 #~ msgstr "Neznámá e-mailová adresa!"

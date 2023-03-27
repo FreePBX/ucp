@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-03-20 09:31+0000\n"
+"POT-Creation-Date: 2023-03-27 10:21+0000\n"
 "PO-Revision-Date: 2018-10-25 08:00+0000\n"
 "Last-Translator: Bastian Mertgen <b.mertgen@bastian-mertgen.de>\n"
 "Language-Team: German <http://*/projects/freepbx/ucp/de/>\n"
@@ -23,6 +23,16 @@ msgstr ""
 #: htdocs/assets/js/lodash-4.17.2.js:8787
 msgid "  abc  "
 msgstr "  ..abc..  "
+
+#: htdocs/views/dashfootercontent.php:28
+#, php-format
+msgid "%s %s is licensed under the %s"
+msgstr ""
+
+#: htdocs/views/dashfootercontent.php:27
+#, php-format
+msgid "%s is a registered trademark of"
+msgstr ""
 
 #: htdocs/assets/js/lodash-4.17.2.js:15199
 msgid ""
@@ -291,6 +301,11 @@ msgstr "Glückwunsch!"
 msgid "Create Dashboard"
 msgstr "Erstelle Dashboard"
 
+#: htdocs/views/dashfootercontent.php:34
+#, php-format
+msgid "Current module licensed under %s"
+msgstr ""
+
 #: htdocs/views/templates/phone.php:45
 msgid "DEF"
 msgstr "DEF"
@@ -543,7 +558,7 @@ msgstr ""
 msgid "Interface Settings"
 msgstr "Schnittstellen-Einstellungen"
 
-#: htdocs/index.php:275
+#: htdocs/index.php:256
 #, php-format
 msgid ""
 "Internet Explorer %s is not supported. Functionality will be deteriorated "
@@ -566,7 +581,7 @@ msgstr "Ungültiges Gerät"
 msgid "Invalid Login Credentials"
 msgstr "Ungültige Login Zugangsdaten"
 
-#: htdocs/index.php:263
+#: htdocs/index.php:244
 msgid "Invalid Token"
 msgstr "Ungültiger Token"
 
@@ -1051,10 +1066,6 @@ msgid "The password used to login to User Control Panel and other services"
 msgstr ""
 "Dieses Passwort wird für den Login zum UCP und für andere Dienste verwendet"
 
-#: htdocs/views/dashfootercontent.php:4
-msgid "The removal of this copyright notice is stricly prohibited"
-msgstr "Die Entfernung des Copyright-Vermerks ist streng verboten"
-
 #: htdocs/assets/js/ucp.js:562
 msgid "The session has expired and you are being forcibly logged out"
 msgstr "Die Session ist abgelaufen und Sie sind zwangsweise ausgeloggt"
@@ -1292,11 +1303,6 @@ msgstr "Benutzerkontrollzentrum (UCP)"
 #: htdocs/modules/Settings/views/settings.php:2
 msgid "User Control Panel Settings"
 msgstr "User Control Panel Einstellungen"
-
-#: htdocs/views/dashfootercontent.php:2
-#, php-format
-msgid "User Control Panel is released as %s or newer"
-msgstr "User Control Panel ist veröffentlicht als %s oder neuer"
 
 #: Ucp.class.php:512
 #, php-format
@@ -1620,6 +1626,12 @@ msgstr "oder"
 #: views/users_hook.php:125
 msgid "select template"
 msgstr ""
+
+#~ msgid "The removal of this copyright notice is stricly prohibited"
+#~ msgstr "Die Entfernung des Copyright-Vermerks ist streng verboten"
+
+#~ msgid "User Control Panel is released as %s or newer"
+#~ msgstr "User Control Panel ist veröffentlicht als %s oder neuer"
 
 #~ msgid "Email address unknown!"
 #~ msgstr "Email-Adresse unbekannt!"
