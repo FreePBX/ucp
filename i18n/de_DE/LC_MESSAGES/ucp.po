@@ -10,9 +10,9 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-09-15 08:32+0000\n"
-"PO-Revision-Date: 2019-06-26 16:00+0000\n"
-"Last-Translator: Bastian Mertgen <b.mertgen@bastian-mertgen.de>\n"
-"Language-Team: German <http://*/projects/freepbx/ucp/de/>\n"
+"PO-Revision-Date: 2021-11-29 11:42+0000\n"
+"Last-Translator: florian alberts <alberts@ar-systems.de>\n"
+"Language-Team: German <http://weblate.freepbx.org/projects/freepbx/ucp/de/>\n"
 "Language: de_DE\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -744,7 +744,7 @@ msgstr "Passwort zurücksetzen für: %s"
 
 #: htdocs/modules/Settings/views/pwd_alert.php:1
 msgid "Password does not match security policy."
-msgstr ""
+msgstr "Das Passwort entspricht nicht den Sicherheitsvorgaben."
 
 #: htdocs/assets/js/ucp.js:269
 msgid "Password has been changed!"
@@ -931,7 +931,7 @@ msgstr "Styling und Logos"
 
 #: htdocs/includes/User.class.php:82
 msgid "Submitted"
-msgstr ""
+msgstr "Bestätigt"
 
 #: htdocs/modules/Settings/assets/js/global.js:106
 #: htdocs/modules/Settings/assets/js/global.js:119
@@ -1162,7 +1162,7 @@ msgstr "UCP-Dämon"
 
 #: Ucp.class.php:1268
 msgid "UCP Node Disabled in Advanced Settings."
-msgstr ""
+msgstr "UCP Node in erweiterten Einstellungen deaktiviert."
 
 #: Ucp.class.php:1405
 #, php-format
