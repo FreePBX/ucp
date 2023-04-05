@@ -2,7 +2,7 @@
 	<rawname>ucp</rawname>
 	<name>User Control Panel</name>
 	<repo>standard</repo>
-	<version>14.0.3.21</version>
+	<version>14.0.4</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>AGPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/agpl-3.0.txt</licenselink>
@@ -11,6 +11,7 @@
 	</description>
   	<more-info>https://wiki.freepbx.org/pages/viewpage.action?pageId=28180526</more-info>
 	<changelog>
+		*14.0.4*    FREEPBX-24071 Updated moment timezone library
 		*14.0.3.21* FREEI-3374 Vuln-001 Stored Cross-Site Scripting 
 		*14.0.3.20* FREEI-3161 Need userman password validation rules 
 		*14.0.3.19* FREEI-3218 Can get valid email address/login name from UCP forgot password form 
