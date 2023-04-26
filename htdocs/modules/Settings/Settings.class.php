@@ -78,7 +78,12 @@ class Settings extends Modules{
 					case 'work':
 					case 'home':
 						$val = htmlentities(strip_tags($_POST['value']));
-						$this->UCP->FreePBX->Userman->updateUserExtraData($user['id'],array($_POST['key'] => $val));
+						$OtherInputValues = (isset($_POST['OtherInputValues']) && is_array($_POST['OtherInputValues']))? $_POST['OtherInputValues']: [];
+						$postFieldValues = (count($OtherInputValues) > 0 )? $OtherInputValues: array($_POST['key'] => $val);
+						if (!in_array($_POST['key'], $postFieldValues)) { 
+							$postFieldValues[$_POST['key']] = $val;
+						}
+						$this->UCP->FreePBX->Userman->updateUserExtraData($user['id'],$postFieldValues);
 						$ret = array(
 							"status" => true
 						);

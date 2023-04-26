@@ -82,14 +82,8 @@
                             </tr>
                             <tr>
                                 <td colspan="3" class="button-row">
-                                        <?php 
-									if (\FreePBX::Modules()->checkStatus('pbxmfa')) { ?>
-										<button type="button" id="btn-mfalogin" class="btn btn-default lhide" ><?php echo _('Login')?></button>
-									<?php } else { ?>
-									<button type="submit" id="btn-login" class="btn btn-default lhide" disabled><?php echo _('Loading...')?></button>
-								<?php }  ?>
-                                    <button type="button" id="btn-forgot"
-                                        class="btn btn-default lshow"><?php echo _('Reset Password')?></button>
+                                    <button type="submit" id="btn-login" class="btn btn-default lhide" disabled><?php echo _('Loading...') ?></button>
+                                    <button type="button" id="btn-forgot" class="btn btn-default lshow"><?php echo _('Reset Password') ?></button>
                                 </td>
                             </tr>
                         </table>
@@ -99,9 +93,14 @@
             <span style="color: #dcecfe;"><?php echo session_id()?></span>
         </div>
     </div>
-	<?php 
-		if (\FreePBX::Modules()->checkStatus('pbxmfa')) { 
-			echo \FreePBX::Pbxmfa()->otpPage('ucp'); 
-		} 
+	<?php
+		$isMFALicensed = 0;
+		if (\FreePBX::Modules()->checkStatus('pbxmfa') && \FreePBX::Pbxmfa()->isLicensed()) { 
+			echo \FreePBX::Pbxmfa()->otpPage('ucp');
+			$isMFALicensed = 1;
+		}
 	?>
+	<script type="text/javascript">
+		window.isMFALicensed='<?php echo $isMFALicensed;?>';
+	</script>
 </div>

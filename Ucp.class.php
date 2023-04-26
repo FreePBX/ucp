@@ -943,7 +943,8 @@ class Ucp implements \BMO {
 	 * @param {bool} $regenassets = false If set to true regenerate assets even if not needed
 	 */
 	public function generateUCP($regenassets = false) {
-		$modulef =& module_functions::create();
+		$moduleFunctionsCreate = module_functions::create();
+		$modulef =& $moduleFunctionsCreate;
 		$modules = $modulef->getinfo(false);
 		$path = $this->FreePBX->Config->get_conf_setting('AMPWEBROOT');
 		$location = $path.'/ucp';
