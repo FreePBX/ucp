@@ -6,8 +6,6 @@
  * @type {[type]}
  */
 var EventEmitter = require( "events" ).EventEmitter,
-		ini = require("ini"),
-		fs = require("fs"),
 		nodeMaria = require("mariadb"),
 		obj = {};
 

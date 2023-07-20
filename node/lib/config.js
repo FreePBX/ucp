@@ -8,7 +8,6 @@
  */
 var configs = {},
 		db = null,
-		inspect = require("util").inspect,
 		EventEmitter = require( "events" ).EventEmitter,
 		obj = {};
 
