@@ -14,15 +14,15 @@ use Symfony\Component\Process\Process;
 use Symfony\Component\Console\Helper\ProgressBar;
 class Ucp implements \BMO {
 	private $message;
-	private $registeredHooks = array();
+	private array $registeredHooks = [];
 	private $brand = 'FreePBX';
 	private $tokenCache = false;
 
 	//node server
-	private $nodever = "6.5.0";
-	private $npmver = "3.10.3";
-	private $icuver = "50.1.2";
-	private $gcc = "4.8.5";
+	private string $nodever = "6.5.0";
+	private string $npmver = "3.10.3";
+	private string $icuver = "50.1.2";
+	private string $gcc = "4.8.5";
 	private $nodeloc = "/tmp";
 
 	public function __construct($freepbx = null) {
@@ -45,14 +45,17 @@ class Ucp implements \BMO {
 	 * @return string
 	 */
 	public function get_OS(){
+        $var = [];
         if(file_exists("/etc/os-release")){
             $file_content   = file_get_contents("/etc/os-release");
             $f_content      = explode("\n",$file_content);
             foreach($f_content as $line){
-                list($key, $value)  = explode("=", $line);
-                if(!empty($key)){
-                    $var[trim($key)]= str_replace('"','',trim($value));
-                }        
+				if(!empty($line)) {
+					[$key, $value]  = explode("=", $line);
+					if(!empty($key)){
+						$var[trim($key)]= str_replace('"','',trim($value));
+					} 
+				}       
             }
             extract($var); 
             if(!empty($ID)){
@@ -69,16 +72,7 @@ class Ucp implements \BMO {
     }
 
 	public function install() {
-		$settings = array(
-			'NODEJSENABLED' => true,
-			'NODEJSTLSENABLED' => false,
-			'NODEJSBINDADDRESS' => '::',
-			'NODEJSBINDPORT' => '8001',
-			'NODEJSHTTPSBINDADDRESS' => '::',
-			'NODEJSHTTPSBINDPORT' => '8003',
-			'NODEJSTLSCERTFILE' => '',
-			'NODEJSTLSPRIVATEKEY' => ''
-		);
+		$settings = ['NODEJSENABLED' => true, 'NODEJSTLSENABLED' => false, 'NODEJSBINDADDRESS' => '::', 'NODEJSBINDPORT' => '8001', 'NODEJSHTTPSBINDADDRESS' => '::', 'NODEJSHTTPSBINDPORT' => '8003', 'NODEJSTLSCERTFILE' => '', 'NODEJSTLSPRIVATEKEY' => ''];
 
 		$info = $this->FreePBX->Modules->getInfo('ucpnode');
 		if(!empty($info['ucpnode'])) {
@@ -181,7 +175,7 @@ class Ucp implements \BMO {
 			out(_("Finished updating libraries!"));
 		}
 
-		$set = array();
+		$set = [];
 		$set['module'] = 'ucp';
 		$set['category'] = 'UCP NodeJS Server';
 
@@ -228,7 +222,7 @@ class Ucp implements \BMO {
 		$set['name'] = 'NodeJS Bind Port';
 		$set['description'] = 'Port to bind to. Default is 8001';
 		$set['emptyok'] = 0;
-		$set['options'] = array(10,65536);
+		$set['options'] = [10, 65536];
 		$set['type'] = CONF_TYPE_INT;
 		$set['level'] = 2;
 		$set['readonly'] = 0;
@@ -253,7 +247,7 @@ class Ucp implements \BMO {
 		$set['name'] = 'NodeJS HTTPS Bind Port';
 		$set['description'] = 'Port to bind to. Default is 8003';
 		$set['emptyok'] = 0;
-		$set['options'] = array(10,65536);
+		$set['options'] = [10, 65536];
 		$set['type'] = CONF_TYPE_INT;
 		$set['level'] = 2;
 		$set['readonly'] = 0;
@@ -327,7 +321,7 @@ class Ucp implements \BMO {
 		exec("rm -Rf ".$this->nodeloc."/node_modules");
 		try {
 			$this->FreePBX->Pm2->delete("ucp");
-		} catch(\Exception $e) {}
+		} catch(\Exception) {}
 	}
 	public function backup(){
 
@@ -357,9 +351,7 @@ class Ucp implements \BMO {
 			switch($_REQUEST['action']) {
 				case 'showgroup':
 					$group = $this->getGroupByGID($_REQUEST['group']);
-					$ausers = array(
-						'self' => _("User Primary Extension")
-					);
+					$ausers = ['self' => _("User Primary Extension")];
 					$users = core_users_list();
 					if(!empty($users) && is_array($users)) {
 						foreach($users as $list) {
@@ -367,32 +359,13 @@ class Ucp implements \BMO {
 						}
 					}
 					$sassigned = $this->Userman->getModuleSettingByGID($_REQUEST['group'],'ucp|Settings','assigned');
-					$sassigned = !empty($sassigned) ? $sassigned : array();
+					$sassigned = !empty($sassigned) ? $sassigned : [];
 					$tempList = $this->Userman->getAllUcpTemplates();
-					return array(
-						array(
-							"title" => "UCP",
-							"rawname" => "ucp",
-							"content" => load_view(dirname(__FILE__).'/views/users_hook.php',array(
-								"mode" => $mode,
-								"ausers" => $ausers,
-								"sassigned" => $sassigned,
-								"mHtml" => $this->constructModuleConfigPages('group',$group,$_REQUEST['action']),
-								"user" => array(),
-								"allowLogin" => $this->Userman->getModuleSettingByGID($_REQUEST['group'],'ucp|Global','allowLogin'),
-								"originate" => $this->Userman->getModuleSettingByGID($_REQUEST['group'],'ucp|Global','originate'),
-								"tourMode" => $this->Userman->getModuleSettingByGID($_REQUEST['group'],'ucp|Global','tour'),
-								"tempList" => $tempList,
-								"assignedTemplate" => $this->Userman->getModuleSettingByGID($_REQUEST['group'],'ucp|template','templateid'),
-								"selectTemplate" => $this->Userman->getModuleSettingByGID($_REQUEST['group'],'ucp|template','assigntemplate'))
-							)
-						)
-					);
+					return [["title" => "UCP", "rawname" => "ucp", "content" => load_view(__DIR__.'/views/users_hook.php',["mode" => $mode, "ausers" => $ausers, "sassigned" => $sassigned, "mHtml" => $this->constructModuleConfigPages('group',$group,$_REQUEST['action']), "user" => [], "allowLogin" => $this->Userman->getModuleSettingByGID($_REQUEST['group'],'ucp|Global','allowLogin'), "originate" => $this->Userman->getModuleSettingByGID($_REQUEST['group'],'ucp|Global','originate'), "tourMode" => $this->Userman->getModuleSettingByGID($_REQUEST['group'],'ucp|Global','tour'), "tempList" => $tempList, "assignedTemplate" => $this->Userman->getModuleSettingByGID($_REQUEST['group'],'ucp|template','templateid'), "selectTemplate" => $this->Userman->getModuleSettingByGID($_REQUEST['group'],'ucp|template','assigntemplate')]
+							)]];
 				break;
 				case 'addgroup':
-					$ausers = array(
-						'self' => _("User Primary Extension")
-					);
+					$ausers = ['self' => _("User Primary Extension")];
 					$users = core_users_list();
 					if(!empty($users) && is_array($users)) {
 						foreach($users as $list) {
@@ -400,24 +373,8 @@ class Ucp implements \BMO {
 						}
 					}
 					$tempList = $this->Userman->getAllUcpTemplates();
-					return array(
-						array(
-							"title" => "UCP",
-							"rawname" => "ucp",
-							"content" => load_view(dirname(__FILE__).'/views/users_hook.php',array(
-								"mode" => $mode,
-								"ausers" => $ausers,
-								"sassigned" => array('self'),
-								"mHtml" => $this->constructModuleConfigPages('group', array(),$_REQUEST['action']),
-								"user" => array(),
-								"allowLogin" => true,
-								"originate" => false,
-								"tourMode" => true,
-								"selectTemplate" => false,
-								"tempList" => $tempList	)
-							)
-						)
-					);
+					return [["title" => "UCP", "rawname" => "ucp", "content" => load_view(__DIR__.'/views/users_hook.php',["mode" => $mode, "ausers" => $ausers, "sassigned" => ['self'], "mHtml" => $this->constructModuleConfigPages('group', [],$_REQUEST['action']), "user" => [], "allowLogin" => true, "originate" => false, "tourMode" => true, "selectTemplate" => false, "tempList" => $tempList]
+							)]];
 				break;
 				case 'showuser':
 					$user = $this->getUserByID($_REQUEST['user']);
@@ -425,7 +382,7 @@ class Ucp implements \BMO {
 						$this->expireUserSession($_REQUEST['deletesession']);
 						$this->setUsermanMessage(_('Deleted User Session'),'success');
 					}
-					$ausers = array();
+					$ausers = [];
 					$sassigned = $this->getSetting($user['username'],'Settings','assigned');
 					$users = core_users_list();
 					if(!empty($users) && is_array($users)) {
@@ -433,32 +390,13 @@ class Ucp implements \BMO {
 							$ausers[$list[0]] = $list[1] . " &#60;".$list[0]."&#62;";
 						}
 					}
-					$sassigned = !empty($sassigned) ? $sassigned : array();
+					$sassigned = !empty($sassigned) ? $sassigned : [];
 					$tempList = $this->Userman->getAllUcpTemplates();
-					return array(
-						array(
-							"title" => "UCP",
-							"rawname" => "ucp",
-							"content" => load_view(dirname(__FILE__).'/views/users_hook.php',array(
-								"mode" => $mode,
-								"ausers" => $ausers,
-								"sassigned" => $sassigned,
-								"mHtml" => $this->constructModuleConfigPages('user',$user,$_REQUEST['action']),
-								"user" => $user,
-								"allowLogin" => FreePBX::create()->Userman->getModuleSettingByID($_REQUEST['user'],'ucp|Global','allowLogin',true),
-								"originate" => FreePBX::create()->Userman->getModuleSettingByID($_REQUEST['user'],'ucp|Global','originate',true),
-								"tourMode" => FreePBX::create()->Userman->getModuleSettingByID($_REQUEST['user'],'ucp|Global','tour',true),
-								"sessions" => $this->getUserSessions($user['id']),
-								"tempList" => $tempList,
-								"assignedTemplate" => $this->Userman->getModuleSettingByID($_REQUEST['user'],'ucp|template','templateid',true),
-								"selectTemplate" => $this->Userman->getModuleSettingByID($_REQUEST['user'],'ucp|template','assigntemplate',true)
-								)
-							)
-						)
-					);
+					return [["title" => "UCP", "rawname" => "ucp", "content" => load_view(__DIR__.'/views/users_hook.php',["mode" => $mode, "ausers" => $ausers, "sassigned" => $sassigned, "mHtml" => $this->constructModuleConfigPages('user',$user,$_REQUEST['action']), "user" => $user, "allowLogin" => FreePBX::create()->Userman->getModuleSettingByID($_REQUEST['user'],'ucp|Global','allowLogin',true), "originate" => FreePBX::create()->Userman->getModuleSettingByID($_REQUEST['user'],'ucp|Global','originate',true), "tourMode" => FreePBX::create()->Userman->getModuleSettingByID($_REQUEST['user'],'ucp|Global','tour',true), "sessions" => $this->getUserSessions($user['id']), "tempList" => $tempList, "assignedTemplate" => $this->Userman->getModuleSettingByID($_REQUEST['user'],'ucp|template','templateid',true), "selectTemplate" => $this->Userman->getModuleSettingByID($_REQUEST['user'],'ucp|template','assigntemplate',true)]
+							)]];
 				break;
 				case 'adduser':
-					$ausers = array();
+					$ausers = [];
 					$users = core_users_list();
 					if(!empty($users) && is_array($users)) {
 						foreach($users as $list) {
@@ -466,26 +404,8 @@ class Ucp implements \BMO {
 						}
 					}
 					$tempList = $this->Userman->getAllUcpTemplates();
-					return array(
-						array(
-							"title" => "UCP",
-							"rawname" => "ucp",
-							"content" => load_view(dirname(__FILE__).'/views/users_hook.php',array(
-								"mode" => $mode,
-								"ausers" => $ausers,
-								"sassigned" => array('self'),
-								"mHtml" => $this->constructModuleConfigPages('user',array(),$_REQUEST['action']),
-								"user" => array(),
-								"allowLogin" => null,
-								"originate" => null,
-								"tourMode" => null,
-								"sessions" => array(),
-								"selectTemplate" => null,
-								"tempList" => $tempList
-								)
-							)
-						)
-					);
+					return [["title" => "UCP", "rawname" => "ucp", "content" => load_view(__DIR__.'/views/users_hook.php',["mode" => $mode, "ausers" => $ausers, "sassigned" => ['self'], "mHtml" => $this->constructModuleConfigPages('user',[],$_REQUEST['action']), "user" => [], "allowLogin" => null, "originate" => null, "tourMode" => null, "sessions" => [], "selectTemplate" => null, "tempList" => $tempList]
+							)]];
 				break;
 				default:
 				break;
@@ -508,9 +428,7 @@ class Ucp implements \BMO {
 
 		$usettings = $this->FreePBX->Userman->getAuthAllPermissions();
 
-		$final = array(
-			"\t".sprintf(_('User Control Panel: %s'),$link),
-		);
+		$final = ["\t".sprintf(_('User Control Panel: %s'),$link)];
 		if(!$data['password'] && $usettings['changePassword']) {
 			$token = $this->FreePBX->Userman->generatePasswordResetToken($id,"1 day",true);
 			$final[] = "\n".sprintf(_('Password Reset Link (Valid Until: %s): %s'),date("F j, Y, g:i A", $token['valid']),$link."/?forgot=".$token['token']);
@@ -540,7 +458,7 @@ class Ucp implements \BMO {
 		if(empty($hostname)){
 			$hostname = $_SERVER["SERVER_NAME"];
 		}else{
-			$tmp_data = parse_url($hostname);
+			$tmp_data = parse_url((string) $hostname);
 			if(isset($tmp_data['host'])){
 				$hostname = $tmp_data['host'];
 			}else{
@@ -564,9 +482,9 @@ class Ucp implements \BMO {
 				// No sysadmin on this machine. Let's try and figure out what we've got.
 				if (isset($_SERVER["HTTPS"])) {
 					// We're using a SSL connection to request this
-					$ports = array("sslacp" => $_SERVER["SERVER_PORT"]);
+					$ports = ["sslacp" => $_SERVER["SERVER_PORT"]];
 				} else {
-					$ports = array("acp" => $_SERVER["SERVER_PORT"]);
+					$ports = ["acp" => $_SERVER["SERVER_PORT"]];
 				}
 			}
 		}
@@ -850,7 +768,7 @@ class Ucp implements \BMO {
 		if(!class_exists("po2json")) {
 			require_once(__DIR__."/includes/po2json.php");
 		}
-		$final = array();
+		$final = [];
 		$root = $this->FreePBX->Config->get("AMPWEBROOT");
 		//first get ucp
 		$po = $root."/admin/modules/ucp/i18n/" . $language . "/LC_MESSAGES/ucp.po";
@@ -863,7 +781,7 @@ class Ucp implements \BMO {
 		}
 		//now get the modules
 		foreach ($modules as $module) {
-			$module = strtolower($module);
+			$module = strtolower((string) $module);
 			$po = $root."/admin/modules/".$module."/i18n/" . $language . "/LC_MESSAGES/".$module.".po";
 			if(file_exists($po)) {
 				$c = new po2json($po,$module);
@@ -873,7 +791,7 @@ class Ucp implements \BMO {
 				}
 			}
 		}
-		return json_encode($final);
+		return json_encode($final, JSON_THROW_ON_ERROR);
 	}
 
 	/**
@@ -884,7 +802,7 @@ class Ucp implements \BMO {
 	 * @param {string} $method The method name
 	 */
 	public function registerHook($action,$class,$method) {
-		$this->registeredHooks[$action] = array('class' => $class, 'method' => $method);
+		$this->registeredHooks[$action] = ['class' => $class, 'method' => $method];
 	}
 
 	/**
@@ -905,21 +823,13 @@ class Ucp implements \BMO {
 						}
 						if(is_array($item)) {
 							if(!isset($html[$item['rawname']])) {
-								$html[$item['rawname']] = array(
-									"title" => $item['title'],
-									"rawname" => $item['rawname'],
-									"content" => $item['content']
-								);
+								$html[$item['rawname']] = ["title" => $item['title'], "rawname" => $item['rawname'], "content" => $item['content']];
 							} else {
 								$item['rawname']['content'] .= $item['content'];
 							}
 						} else {
 							if(!isset($html[$mod])) {
-								$html[$mod] = array(
-									"title" => ucfirst(strtolower($mod)),
-									"rawname" => $mod,
-									"content" => $item
-								);
+								$html[$mod] = ["title" => ucfirst(strtolower((string) $mod)), "rawname" => $mod, "content" => $item];
 							} else {
 								$item[$mod]['content'] .= $item;
 							}
@@ -949,11 +859,11 @@ class Ucp implements \BMO {
 		$path = $this->FreePBX->Config->get_conf_setting('AMPWEBROOT');
 		$location = $path.'/ucp';
 		if(!file_exists($location)) {
-			symlink(dirname(__FILE__).'/htdocs',$location);
+			symlink(__DIR__.'/htdocs',$location);
 		}
 		foreach($modules as $module) {
 			if(isset($module['rawname'])) {
-				$rawname = trim($module['rawname']);
+				$rawname = trim((string) $module['rawname']);
 				if(file_exists($path.'/admin/modules/'.$rawname.'/ucp') && file_exists($path.'/admin/modules/'.$rawname.'/ucp/'.ucfirst($rawname).".class.php")) {
 					if($module['status'] == MODULE_STATUS_ENABLED) {
 						if(!file_exists($location."/modules/".ucfirst($rawname))) {
@@ -1005,7 +915,7 @@ class Ucp implements \BMO {
 	}
 
 	public function getCombinedSettingByID($id,$module,$setting) {
-		$assigned = $this->FreePBX->Userman->getCombinedModuleSettingByID($id,'ucp|'.ucfirst(strtolower($module)),$setting);
+		$assigned = $this->FreePBX->Userman->getCombinedModuleSettingByID($id,'ucp|'.ucfirst(strtolower((string) $module)),$setting);
 		return $assigned;
 	}
 
@@ -1017,7 +927,7 @@ class Ucp implements \BMO {
 	 */
 	public function getSetting($username,$module,$setting) {
 		$user = $this->getUserByUsername($username);
-		$assigned = $this->FreePBX->Userman->getModuleSettingByID($user['id'],'ucp|'.ucfirst(strtolower($module)),$setting,true);
+		$assigned = $this->FreePBX->Userman->getModuleSettingByID($user['id'],'ucp|'.ucfirst(strtolower((string) $module)),$setting,true);
 		return $assigned;
 	}
 
@@ -1028,7 +938,7 @@ class Ucp implements \BMO {
 	* @param {string} $setting  The setting name
 	*/
 	public function getSettingByID($id,$module,$setting) {
-		$assigned = $this->FreePBX->Userman->getModuleSettingByID($id,'ucp|'.ucfirst(strtolower($module)),$setting,true);
+		$assigned = $this->FreePBX->Userman->getModuleSettingByID($id,'ucp|'.ucfirst(strtolower((string) $module)),$setting,true);
 		return $assigned;
 	}
 
@@ -1039,7 +949,7 @@ class Ucp implements \BMO {
 	* @param {string} $setting  The setting name
 	*/
 	public function getSettingByGID($gid,$module,$setting) {
-		$assigned = $this->FreePBX->Userman->getModuleSettingByGID($gid,'ucp|'.ucfirst(strtolower($module)),$setting,true);
+		$assigned = $this->FreePBX->Userman->getModuleSettingByGID($gid,'ucp|'.ucfirst(strtolower((string) $module)),$setting,true);
 		return $assigned;
 	}
 
@@ -1052,7 +962,7 @@ class Ucp implements \BMO {
 	 */
 	public function setSetting($username,$module,$setting,$value) {
 		$user = $this->getUserByUsername($username);
-		$assigned = $this->FreePBX->Userman->setModuleSettingByID($user['id'],'ucp|'.ucfirst(strtolower($module)),$setting,$value);
+		$assigned = $this->FreePBX->Userman->setModuleSettingByID($user['id'],'ucp|'.ucfirst(strtolower((string) $module)),$setting,$value);
 		return $assigned;
 	}
 
@@ -1064,7 +974,7 @@ class Ucp implements \BMO {
 	* @param {mixed} $value    The value
 	*/
 	public function setSettingByID($id,$module,$setting,$value) {
-		$assigned = $this->FreePBX->Userman->setModuleSettingByID($id,'ucp|'.ucfirst(strtolower($module)),$setting,$value);
+		$assigned = $this->FreePBX->Userman->setModuleSettingByID($id,'ucp|'.ucfirst(strtolower((string) $module)),$setting,$value);
 		return $assigned;
 	}
 
@@ -1076,7 +986,7 @@ class Ucp implements \BMO {
 	* @param {mixed} $value    The value
 	*/
 	public function setSettingByGID($gid,$module,$setting,$value) {
-		$assigned = $this->FreePBX->Userman->setModuleSettingByGID($gid,'ucp|'.ucfirst(strtolower($module)),$setting,$value);
+		$assigned = $this->FreePBX->Userman->setModuleSettingByGID($gid,'ucp|'.ucfirst(strtolower((string) $module)),$setting,$value);
 		return $assigned;
 	}
 
@@ -1085,7 +995,7 @@ class Ucp implements \BMO {
 	 */
 	public function getAllUsers() {
 		$final = $this->FreePBX->Userman->getAllUsers();
-		return !empty($final) ? $final : array();
+		return !empty($final) ? $final : [];
 	}
 
 	/**
@@ -1126,7 +1036,7 @@ class Ucp implements \BMO {
 	public function expireAllUserSessions($days = null) {
 		if(empty($days)) {
 			$sql = "TRUNCATE TABLE ucp_sessions";
-		} elseif(ctype_digit($days)) {
+		} elseif(ctype_digit((string) $days)) {
 			$sql = "DELETE FROM ucp_sessions WHERE `time` < unix_timestamp(now() - interval ".$days." day))";
 		} else {
 			return false;
@@ -1134,7 +1044,7 @@ class Ucp implements \BMO {
 		try {
 			$sth = $this->db->prepare($sql);
 			$sth->execute();
-		} catch(\Exception $e) {}
+		} catch(\Exception) {}
 		return true;
 	}
 
@@ -1145,7 +1055,7 @@ class Ucp implements \BMO {
 	public function expireUserSessions($uid) {
 		$sql = "DELETE FROM ucp_sessions WHERE uid = :uid";
 		$sth = $this->db->prepare($sql);
-		$sth->execute(array(':uid' => $uid));
+		$sth->execute([':uid' => $uid]);
 		return true;
 	}
 
@@ -1156,8 +1066,8 @@ class Ucp implements \BMO {
 	public function expireUserSession($session) {
 		$sql = "DELETE FROM ucp_sessions WHERE session = :session";
 		$sth = $this->db->prepare($sql);
-		$sth->execute(array(':session' => $session));
-		return array("status" => true, "type" => "success", "message" => _("Deleted Session"));
+		$sth->execute([':session' => $session]);
+		return ["status" => true, "type" => "success", "message" => _("Deleted Session")];
 	}
 
 	/**
@@ -1167,9 +1077,9 @@ class Ucp implements \BMO {
 	public function getUserSessions($uid) {
 		$sql = "SELECT * FROM ucp_sessions WHERE uid = :uid";
 		$sth = $this->db->prepare($sql);
-		$sth->execute(array(':uid' => $uid));
+		$sth->execute([':uid' => $uid]);
 		$sessions = $sth->fetchAll(PDO::FETCH_ASSOC);
-		return !empty($sessions) ? $sessions : array();
+		return !empty($sessions) ? $sessions : [];
 	}
 
 	/**
@@ -1180,7 +1090,7 @@ class Ucp implements \BMO {
 	public function deleteToken($token, $uid) {
 		$sql = "DELETE FROM ucp_sessions WHERE session = :session AND uid = :uid";
 		$sth = $this->db->prepare($sql);
-		return $sth->execute(array(':session' => $token, ':uid' => $uid));
+		return $sth->execute([':session' => $token, ':uid' => $uid]);
 	}
 
 	/**
@@ -1189,11 +1099,11 @@ class Ucp implements \BMO {
 	 * @param {string} $session  session id
 	 */
 	public function sessionUnlock($username, $session, $address = "CLI") {
-		$user = $this->getUserByUsername(trim($username));
+		$user = $this->getUserByUsername(trim((string) $username));
 		if(empty($user["id"])) {
 			return false;
 		}
-		session_id(trim($session));
+		session_id(trim((string) $session));
 		session_start();
 		$token = bin2hex(openssl_random_pseudo_bytes(16));
 		$_SESSION["UCP_token"] = $token;
@@ -1211,7 +1121,7 @@ class Ucp implements \BMO {
 	public function storeToken($token, $uid, $address) {
 		$sql = "INSERT INTO ucp_sessions (session, uid, address, time) VALUES (:session, :uid, :address, :time) ON DUPLICATE KEY UPDATE time = VALUES(time)";
 		$sth = $this->db->prepare($sql);
-		return $sth->execute(array(':session' => $token, ':uid' => $uid, ':address' => $address, ':time' => time()));
+		return $sth->execute([':session' => $token, ':uid' => $uid, ':address' => $address, ':time' => time()]);
 	}
 
 	/**
@@ -1223,13 +1133,13 @@ class Ucp implements \BMO {
 			return $this->tokenCache;
 		}
 		$expire = $this->FreePBX->Config->get("UCPSESSIONTIMEOUT");
-		if(!empty($expire) && ctype_digit($expire)) {
+		if(!empty($expire) && ctype_digit((string) $expire)) {
 			$this->expireAllUserSessions($expire);
 		}
 
 		$sql = "SELECT uid, address FROM ucp_sessions WHERE session = :token";
 		$sth = $this->db->prepare($sql);
-		$sth->execute(array(':token' => $token));
+		$sth->execute([':token' => $token]);
 		$this->tokenCache = $sth->fetch(\PDO::FETCH_ASSOC);
 		return $this->tokenCache;
 	}
@@ -1245,7 +1155,7 @@ class Ucp implements \BMO {
 
 	public function refreshAssets() {
 		if(!class_exists('UCP\UCP',false)) {
-			include(dirname(__FILE__).'/htdocs/includes/bootstrap.php');
+			include(__DIR__.'/htdocs/includes/bootstrap.php');
 		}
 		$ucp = \UCP\UCP::create();
 		$compressed = $this->FreePBX->Config->get("USE_PACKAGED_JS");
@@ -1268,16 +1178,14 @@ class Ucp implements \BMO {
 	}
 
 	public function chownFreepbx() {
-		$files = array();
+		$files = [];
 		$ampwebroot = $this->FreePBX->Config->get("AMPWEBROOT");
-		$files[] = array('type' => 'rdir',
-												'path' => $ampwebroot.'/ucp',
-												'perms' => 0775);
+		$files[] = ['type' => 'rdir', 'path' => $ampwebroot.'/ucp', 'perms' => 0775];
 		return $files;
 	}
 
 	public function setDefaultCert($details, $restart=true) {
-		$certF = isset($details['integration']['files']['pem']) ? $details['integration']['files']['pem'] : $details['integration']['files']['crt'];
+		$certF = $details['integration']['files']['pem'] ?? $details['integration']['files']['crt'];
 		$keyF = $details['integration']['files']['key'];
 		$this->FreePBX->Config->update("NODEJSTLSENABLED",true);
 		$this->FreePBX->Config->update("NODEJSTLSCERTFILE",$certF);
@@ -1285,14 +1193,14 @@ class Ucp implements \BMO {
 		if($restart) {
 			try {
 				$this->FreePBX->Pm2->restart("ucp");
-			} catch(\Exception $e) {}
+			} catch(\Exception) {}
 		}
 	}
 
 	public function getHomeDir() {
 		$webuser = \FreePBX::Freepbx_conf()->get('AMPASTERISKWEBUSER');
 		$web = posix_getpwnam($webuser);
-		$home = trim($web['dir']);
+		$home = trim((string) $web['dir']);
 		if (!is_dir($home)) {
 			// Well, that's handy. It doesn't exist. Let's use ASTSPOOLDIR instead, because
 			// that should exist and be writable.
@@ -1306,17 +1214,11 @@ class Ucp implements \BMO {
 	}
 
 	public function dashboardService() {
-		$service = array(
-			'title' => _('UCP Daemon'),
-			'type' => 'unknown',
-			'tooltip' => _("Unknown"),
-			'order' => 999,
-			'glyph-class' => ''
-		);
+		$service = ['title' => _('UCP Daemon'), 'type' => 'unknown', 'tooltip' => _("Unknown"), 'order' => 999, 'glyph-class' => ''];
 		$data = $this->FreePBX->Pm2->getStatus("ucp");
       	if(!$this->FreePBX->Config->get("NODEJSENABLED")) {
 			$service = array_merge($service, $this->genAlertGlyphicon('error', _("UCP Node Disabled in Advanced Settings.")));
-			return array($service);
+			return [$service];
 		}
       
 		if(!empty($data) && $data['pm2_env']['status'] == 'online') {
@@ -1326,7 +1228,7 @@ class Ucp implements \BMO {
 			$service = array_merge($service, $this->genAlertGlyphicon('critical', _("UCP Node is not running")));
 		}
 
-		return array($service);
+		return [$service];
 	}
 
 	/**
@@ -1337,53 +1239,55 @@ class Ucp implements \BMO {
 		if(!$this->FreePBX->Config->get("NODEJSENABLED")) {
 			return;
 		}
-		$status = $this->FreePBX->Pm2->getStatus("ucp");
-		switch($status['pm2_env']['status']) {
-			case 'online':
-				if(is_object($output)) {
-					$output->writeln(sprintf(_("UCP Node Server has already been running on PID %s for %s"),$status['pid'],$status['pm2_env']['created_at_human_diff']));
-				}
-				return $status['pid'];
-			break;
-			default:
-				if(is_object($output)) {
-					$output->writeln(_("Starting UCP Node Server..."));
-				}
-				$this->FreePBX->Pm2->start("ucp",__DIR__."/node/index.js");
-				if(is_object($output)) {
-					$progress = new ProgressBar($output, 0);
-					$progress->setFormat('[%bar%] %elapsed%');
-					$progress->start();
-				}
-				$i = 0;
-				while($i < 100) {
-					$data = $this->FreePBX->Pm2->getStatus("ucp");
-					if(!empty($data) && $data['pm2_env']['status'] == 'online') {
-						if(is_object($output)) {
-							$progress->finish();
+		$status = ($this->FreePBX->Pm2->getStatus("ucp")) ? $this->FreePBX->Pm2->getStatus("ucp") : [];
+		if(isset($status['pm2_env'])) {
+			switch($status['pm2_env']['status']) {
+				case 'online':
+					if(is_object($output)) {
+						$output->writeln(sprintf(_("UCP Node Server has already been running on PID %s for %s"),$status['pid'],$status['pm2_env']['created_at_human_diff']));
+					}
+					return $status['pid'];
+				break;
+				default:
+					if(is_object($output)) {
+						$output->writeln(_("Starting UCP Node Server..."));
+					}
+					$this->FreePBX->Pm2->start("ucp",__DIR__."/node/index.js");
+					if(is_object($output)) {
+						$progress = new ProgressBar($output, 0);
+						$progress->setFormat('[%bar%] %elapsed%');
+						$progress->start();
+					}
+					$i = 0;
+					while($i < 100) {
+						$data = $this->FreePBX->Pm2->getStatus("ucp");
+						if(!empty($data) && $data['pm2_env']['status'] == 'online') {
+							if(is_object($output)) {
+								$progress->finish();
+							}
+							break;
 						}
-						break;
+						if(is_object($output)) {
+							$progress->setProgress($i);
+						}
+						$i++;
+						usleep(100000);
 					}
 					if(is_object($output)) {
-						$progress->setProgress($i);
+						$output->writeln("");
 					}
-					$i++;
-					usleep(100000);
-				}
-				if(is_object($output)) {
-					$output->writeln("");
-				}
-				if(!empty($data)) {
-					$this->FreePBX->Pm2->reset("ucp");
+					if(!empty($data)) {
+						$this->FreePBX->Pm2->reset("ucp");
+						if(is_object($output)) {
+							$output->writeln(sprintf(_("Started UCP Node Server. PID is %s"),$data['pid']));
+						}
+						return $data['pid'];
+					}
 					if(is_object($output)) {
-						$output->writeln(sprintf(_("Started UCP Node Server. PID is %s"),$data['pid']));
+						$output->write("<error>".sprintf(_("Failed to run: '%s'")."</error>",$command));
 					}
-					return $data['pid'];
-				}
-				if(is_object($output)) {
-					$output->write("<error>".sprintf(_("Failed to run: '%s'")."</error>",$command));
-				}
-			break;
+				break;
+			}
 		}
 		return false;
 	}
@@ -1393,7 +1297,8 @@ class Ucp implements \BMO {
 	 * @param object $output The output object.
 	 */
 	public function stopFreepbx($output=null) {
-		exec("pgrep -f ucpnode/node/node_modules/forever/bin/monitor",$o);
+		$process = null;
+  exec("pgrep -f ucpnode/node/node_modules/forever/bin/monitor",$o);
 		if($o) {
 			foreach($o as $z) {
 				$z = trim($z);
@@ -1461,34 +1366,27 @@ class Ucp implements \BMO {
 	}
 
 	private function genAlertGlyphicon($res, $tt = null) {
-		$glyphs = array(
-			"ok" => "fa-check text-success",
-			"warning" => "fa-exclamation-triangle text-warning",
-			"error" => "fa-times text-danger",
-			"unknown" => "fa-question-circle text-info",
-			"info" => "fa-info-circle text-info",
-			"critical" => "fa-free-code-camp text-danger"
-		);
+		$glyphs = ["ok" => "fa-check text-success", "warning" => "fa-exclamation-triangle text-warning", "error" => "fa-times text-danger", "unknown" => "fa-question-circle text-info", "info" => "fa-info-circle text-info", "critical" => "fa-free-code-camp text-danger"];
 		// Are we being asked for an alert we actually know about?
 		if (!isset($glyphs[$res])) {
-			return array('type' => 'unknown', "tooltip" => sprintf(_("Don't know what %s is").$res), "glyph-class" => $glyphs['unknown']);
+			return ['type' => 'unknown', "tooltip" => sprintf(_("Don't know what %s is").$res), "glyph-class" => $glyphs['unknown']];
 		}
 
 		if ($tt === null) {
 			// No Tooltip
-			return array('type' => $res, "tooltip" => null, "glyph-class" => $glyphs[$res]);
+			return ['type' => $res, "tooltip" => null, "glyph-class" => $glyphs[$res]];
 		} else {
 			// Generate a tooltip
 			$html = '';
 			if (is_array($tt)) {
 				foreach ($tt as $line) {
-					$html .= htmlentities($line, ENT_QUOTES, "UTF-8")."\n";
+					$html .= htmlentities((string) $line, ENT_QUOTES, "UTF-8")."\n";
 				}
 			} else {
-				$html .= htmlentities($tt, ENT_QUOTES, "UTF-8");
+				$html .= htmlentities((string) $tt, ENT_QUOTES, "UTF-8");
 			}
 
-			return array('type' => $res, "tooltip" => $html, "glyph-class" => $glyphs[$res]);
+			return ['type' => $res, "tooltip" => $html, "glyph-class" => $glyphs[$res]];
 		}
 		return '';
 	}

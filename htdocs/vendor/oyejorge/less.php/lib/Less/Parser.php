@@ -1747,7 +1747,7 @@ class Less_Parser{
 
 		$this->expectChar(']');
 
-		return $this->NewObj3('Less_Tree_Attribute',array( $key, $op[0], $val));
+		return $this->NewObj3('Less_Tree_Attribute',array( $key, $op[0] ?? '', $val));
 	}
 
 	//
