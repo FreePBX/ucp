@@ -163,7 +163,7 @@ class Dashboards {
 			return $this->dashboardCache;
 		}
 		$user = $this->UCP->User->getUser();
-		$dashboards = $this->UCP->getGlobalSettingByID($user['id'],'dashboards');
+		$dashboards = $user ? $this->UCP->getGlobalSettingByID($user['id'],'dashboards') : [];
 		$dashboards = is_array($dashboards) ? $dashboards : array();
 		$this->dashboardCache = $dashboards;
 		return $this->dashboardCache;
@@ -186,7 +186,7 @@ class Dashboards {
 
 	public function getSimpleLayout() {
 		$user = $this->UCP->User->getUser();
-		return $this->UCP->getGlobalSettingByID($user['id'],'dashboard-simple-layout');
+		return $user ? $this->UCP->getGlobalSettingByID($user['id'],'dashboard-simple-layout') : '';
 	}
 
 	public function getAllWidgets() {

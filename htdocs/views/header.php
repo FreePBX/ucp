@@ -67,7 +67,9 @@
 
 		<!-- small device nav menu -->
 		<nav class="pushmenu pushmenu-left">
+			<?php if($user) {?>
 			<h3><?php echo sprintf(_('Welcome %s'),(!empty($user['fname']) ? $user['fname'] : $user['username']))?></h3>
+			<?php } ?>
 			<ul>
 				<?php foreach($menu as $module) {?>
 					<li data-mod="<?php echo $module['rawname']?>" class="<?php echo ($module['rawname'] == $active_module) ? 'active' : ''?>">

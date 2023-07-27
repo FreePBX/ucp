@@ -28,10 +28,14 @@ use PicoFeed\Reader\Reader;
 
 class Ucptour extends Modules{
 	protected $module = 'Ucptour';
+	private $user = null;
+	private $userId = false;
 
 	function __construct($Modules) {
 		$this->Modules = $Modules;
 		$this->astman = $this->UCP->FreePBX->astman;
+		$this->user = $this->UCP->User->getUser();
+		$this->userId = $this->user ? $this->user["id"] : false;
 	}
 
 	/**
@@ -58,9 +62,8 @@ class Ucptour extends Modules{
 		$return = array("status" => false, "message" => "");
 		switch($_REQUEST['command']) {
 			case 'tour':
-				$user = $this->UCP->User->getUser();
 				$state = (boolean)$_POST['state'];
-				$this->UCP->FreePBX->Userman->setModuleSettingByID($user['id'],'ucp|Global','tour',$state);
+				$this->UCP->FreePBX->Userman->setModuleSettingByID($this->userId,'ucp|Global','tour',$state);
 				$return['status'] = true;
 				return $return;
 			break;
@@ -71,8 +74,7 @@ class Ucptour extends Modules{
 	* Send settings to UCP upon initalization
 	*/
 	function getStaticSettings() {
-		$user = $this->UCP->User->getUser();
-		$show = $this->UCP->FreePBX->Userman->getCombinedModuleSettingByID($user['id'],'ucp|Global','tour');
+		$show = $this->UCP->FreePBX->Userman->getCombinedModuleSettingByID($this->userId,'ucp|Global','tour');
 		return array(
 			'show' => is_null($show) ? true : (boolean)$show,
 			'brand' => $this->UCP->FreePBX->Config->get("DASHBOARD_FREEPBX_BRAND")

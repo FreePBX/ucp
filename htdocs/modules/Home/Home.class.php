@@ -27,11 +27,14 @@ use \UCP\Modules as Modules;
 
 class Home extends Modules{
 	protected $module = 'Home';
+	private $user = null;
+	private $userId = false;
 
 	function __construct($Modules) {
 		$this->Modules = $Modules;
 		$this->astman = $this->UCP->FreePBX->astman;
 		$this->user = $this->UCP->User->getUser();
+		$this->userId = $this->user ? $this->user["id"] : false;
 	}
 
 	function getWidgetList() {
@@ -178,11 +181,10 @@ class Home extends Modules{
 	* Send settings to UCP upon initalization
 	*/
 	function getStaticSettings() {
-		$user = $this->UCP->User->getUser();
-		$extensions = array($this->user['default_extension']);
+		$extensions = $this->user ? [$this->user['default_extension']] : [];
 		return array(
 			'extensions' => $extensions,
-			'enableOriginate' => $this->UCP->getCombinedSettingByID($user['id'],'Global','originate')
+			'enableOriginate' => $this->UCP->getCombinedSettingByID($this->userId,'Global','originate')
 		);
 	}
 
@@ -196,8 +198,7 @@ class Home extends Modules{
 	}
 
 	private function _checkExtension($extension) {
-		$user = $this->UCP->User->getUser();
-		return $this->UCP->getCombinedSettingByID($user['id'],'Global','originate');
+		return $this->UCP->getCombinedSettingByID($this->userId,'Global','originate');
 	}
 
 	private function getFeeds() {

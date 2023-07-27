@@ -927,7 +927,8 @@ class Ucp implements \BMO {
 	 */
 	public function getSetting($username,$module,$setting) {
 		$user = $this->getUserByUsername($username);
-		$assigned = $this->FreePBX->Userman->getModuleSettingByID($user['id'],'ucp|'.ucfirst(strtolower((string) $module)),$setting,true);
+		$userId = $user ? $user['id'] : false;
+		$assigned = $this->FreePBX->Userman->getModuleSettingByID($userId,'ucp|'.ucfirst(strtolower((string) $module)),$setting,true);
 		return $assigned;
 	}
 

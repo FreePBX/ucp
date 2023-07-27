@@ -117,12 +117,12 @@ if ( !isset($_SERVER['HTACCESS']) && preg_match("/apache/i", $_SERVER['SERVER_SO
 //TIME: 0.1096019744873
 
 
-try {
+// try {
 	$active_modules = $ucp->Modules->getActiveModules();
-} catch(\Exception $e) {
-	echo "<html><head><title>"._("UCP")."</title></head><body style='background-color: rgb(211, 234, 255);'><div style='border-radius: 5px;border: 1px solid black;text-align: center;padding: 5px;width: 90%;margin: auto;left: 0px;right: 0px;background-color: rgba(53, 77, 255, 0.18);'>"._('There was an error trying to load UCP').":<br>".$e->getMessage()."</div></body></html>";
-	die();
-}
+// } catch(\Exception $e) {
+// 	echo "<html><head><title>"._("UCP")."</title></head><body style='background-color: rgb(211, 234, 255);'><div style='border-radius: 5px;border: 1px solid black;text-align: center;padding: 5px;width: 90%;margin: auto;left: 0px;right: 0px;background-color: rgba(53, 77, 255, 0.18);'>"._('There was an error trying to load UCP').":<br>".$e->getMessage()."</div></body></html>";
+// 	die();
+// }
 //TIME: 0.37255001068115
 
 $all_widgets = $ucp->Dashboards->getAllWidgets();

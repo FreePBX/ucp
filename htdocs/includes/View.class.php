@@ -95,7 +95,7 @@ class View extends UCP {
 		// set the language so local module languages take
 		$lang = '';
 		if(php_sapi_name() !== 'cli') {
-			$language = $this->UCP->FreePBX->Userman->getLocaleSpecificSettingByUID($user['id'], 'language');
+			$language = $user ? $this->UCP->FreePBX->Userman->getLocaleSpecificSettingByUID($user['id'], 'language') : '';
 			if(!empty($language)) {
 				$lang = $language;
 			} elseif (!empty($_COOKIE['lang'])) {
@@ -109,7 +109,7 @@ class View extends UCP {
 		}
 		$language = $lang;
 		//set this before we run date functions
-		$timezone = $this->UCP->FreePBX->Userman->getLocaleSpecificSettingByUID($user['id'], 'timezone');
+		$timezone = $user ? $this->UCP->FreePBX->Userman->getLocaleSpecificSettingByUID($user['id'], 'timezone') : '';
 		if(php_sapi_name() !== 'cli' && !empty($timezone)) {
 			//userman mode
 			$phptimezone = $timezone;
@@ -118,17 +118,17 @@ class View extends UCP {
 		}
 		$this->timezone = $view->setTimezone($phptimezone);
 
-		$datetimeformat = $this->UCP->FreePBX->Userman->getLocaleSpecificSettingByUID($user['id'], 'datetimeformat');
+		$datetimeformat =  $user ? $this->UCP->FreePBX->Userman->getLocaleSpecificSettingByUID($user['id'], 'datetimeformat') : '';
 		if(php_sapi_name() !== 'cli' && !empty($datetimeformat)) {
 			$view->setDateTimeFormat($datetimeformat);
 		}
 
-		$timeformat = $this->UCP->FreePBX->Userman->getLocaleSpecificSettingByUID($user['id'], 'timeformat');
+		$timeformat =  $user ? $this->UCP->FreePBX->Userman->getLocaleSpecificSettingByUID($user['id'], 'timeformat') : '';
 		if(php_sapi_name() !== 'cli' && !empty($timeformat)) {
 			$view->setTimeFormat($timeformat);
 		}
 
-		$dateformat = $this->UCP->FreePBX->Userman->getLocaleSpecificSettingByUID($user['id'], 'dateformat');
+		$dateformat =  $user ? $this->UCP->FreePBX->Userman->getLocaleSpecificSettingByUID($user['id'], 'dateformat') : '';
 		if(php_sapi_name() !== 'cli' && !empty($dateformat)) {
 			$view->setDateFormat($dateformat);
 		}

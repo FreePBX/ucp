@@ -123,7 +123,7 @@ class Modules extends Module_Helpers {
 	 */
 	function getDefaultDevice() {
 		$user = $this->UCP->User->getUser();
-		return ($user['default_extension'] != 'none') ? $user['default_extension'] : false;
+		return $user ? (($user['default_extension'] != 'none') ? $user['default_extension'] : false) : false;
 	}
 
 	/** Module Specific Funtions, These should be extended into each module **/
