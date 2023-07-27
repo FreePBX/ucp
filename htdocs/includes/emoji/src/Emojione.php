@@ -2,8 +2,7 @@
 
 namespace Emojione;
 
-class Emojione
-{
+class Emojione {
     public static $ascii = false; // convert ascii smileys?
     public static $unicodeAlt = true; // use the unicode char as the alt attribute (makes copy and pasting the resulting text better)
     public static $imageType = 'png';
@@ -24,19 +23,17 @@ class Emojione
      *
      * @throws \BadMethodCallException If the method doesn't exists in client
      */
-    public static function __callStatic($method, $args)
-    {
+    public static function __callStatic($method, $args) {
         $client = static::getClient();
 
         // DEPRECATED
         static::updateConfig($client);
 
-        if ( ! method_exists($client, $method) )
-        {
+        if (!method_exists($client, $method)) {
             throw new \BadMethodCallException('The method "' . $method . '" does not exist.');
         }
 
-        return call_user_func_array(array($client, $method), $args);
+        return call_user_func_array([ $client, $method ], $args);
 
     }
 
@@ -45,10 +42,8 @@ class Emojione
      *
      * @return ClientInterface The Client
      */
-    public static function getClient()
-    {
-        if ( static::$client === null )
-        {
+    public static function getClient() {
+        if (static::$client === null) {
             static::setClient(new Client);
         }
 
@@ -61,8 +56,7 @@ class Emojione
      * @param  ClientInterface $client The Client
      * @return void
      */
-    public static function setClient(ClientInterface $client)
-    {
+    public static function setClient(ClientInterface $client) {
         // DEPRECATED
         static::loadConfig($client);
 
@@ -77,8 +71,7 @@ class Emojione
      * @param  ClientInterface $client The Client
      * @return self
      */
-    protected static function loadConfig(ClientInterface $client)
-    {
+    protected static function loadConfig(ClientInterface $client) {
         static::$ascii               = $client->ascii;
         static::$unicodeAlt          = $client->unicodeAlt;
         static::$imageType           = $client->imageType;
@@ -101,8 +94,7 @@ class Emojione
      * @param  ClientInterface $client The Client
      * @return self
      */
-    protected static function updateConfig(ClientInterface $client)
-    {
+    protected static function updateConfig(ClientInterface $client) {
         $client->ascii               = static::$ascii;
         $client->unicodeAlt          = static::$unicodeAlt;
         $client->imageType           = static::$imageType;

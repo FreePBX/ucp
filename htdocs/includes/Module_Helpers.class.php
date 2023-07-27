@@ -11,6 +11,7 @@
  * Copyright 2006-2014 Schmooze Com Inc.
  */
 namespace UCP;
+
 class Module_Helpers extends UCP {
 
 	function __construct($UCP) {
@@ -92,14 +93,14 @@ class Module_Helpers extends UCP {
 		// one we've been called by __get.
 
 		$args = func_get_args();
-		$var = $args[0];
+		$var  = $args[0];
 
 		if ($var == "UCP") {
 			throw new \Exception("No. You ALREADY HAVE the UCP Object. You don't need another one.");
 		}
 
 		// Ensure no-one's trying to include something with a path in it.
-		if (strpos($var, "/") || strpos($var, "..")) {
+		if (strpos((string) $var, "/") || strpos((string) $var, "..")) {
 			throw new \Exception("Invalid include given to AutoLoader - $var");
 		}
 
@@ -112,11 +113,12 @@ class Module_Helpers extends UCP {
 			if (isset($args[1][1])) {
 				throw new \Exception("Multiple params to autoload (__call) not supported. Don't do that. Or re-write this.");
 			}
-			$class = __NAMESPACE__."\\Modules\\$var";
+			$class      = __NAMESPACE__ . "\\Modules\\$var";
 			$this->$var = new $class($this, $args[1][0]);
-		} else {
-			$class = __NAMESPACE__."\\Modules\\$var";
-			$this->$var = new $class($this);
+		}
+		else {
+			$class                  = __NAMESPACE__ . "\\Modules\\$var";
+			$this->$var             = new $class($this);
 			Modules::create()->$var = $this->$var;
 
 		}
@@ -127,8 +129,9 @@ class Module_Helpers extends UCP {
 	 * Find the file for the object $objname
 	 */
 	private function loadObject($objname, $hint = null) {
+		$try2 = null;
 		// If it already exists, we're fine.
-		if (class_exists(__NAMESPACE__."\\Modules\\".$objname)) {
+		if (class_exists(__NAMESPACE__ . "\\Modules\\" . $objname)) {
 			return true;
 		}
 
@@ -138,27 +141,31 @@ class Module_Helpers extends UCP {
 		if ($hint) {
 			if (!file_exists($hint)) {
 				throw new \Exception("I was asked to load $objname, with a hint of $hint, and it didn't exist");
-			} else {
+			}
+			else {
 				$try = $hint;
 			}
-		} else {
+		}
+		else {
 			// Does this exist as a default Library inside UCP?
-			$try = dirname(__DIR__)."/modules/$objname.class.php";
-			$try2 = dirname(__DIR__)."/modules/$objname/$objname.class.php";
+			$try  = dirname(__DIR__) . "/modules/$objname.class.php";
+			$try2 = dirname(__DIR__) . "/modules/$objname/$objname.class.php";
 		}
 
 		if (file_exists($try)) {
 			include $try;
 			$loaded = $try;
-		} elseif(file_exists($try2)) {
+		}
+		elseif (file_exists($try2)) {
 			include $try2;
 			$loaded = $try2;
-		} else {
+		}
+		else {
 			//TODO: Something here??
 		}
 
 		// Right, after all of this we should now have our object ready to create.
-		if (!class_exists(__NAMESPACE__."\\Modules\\".$objname)) {
+		if (!class_exists(__NAMESPACE__ . "\\Modules\\" . $objname)) {
 			// Bad things have happened.
 			if (!$loaded) {
 				throw new \Exception("I was unable to locate the UCP Class $objname. I looked everywhere for $objname.class.php");

@@ -14,9 +14,9 @@ namespace UCP;
 class Ajax extends UCP {
 
 	public $storage = 'null';
-	private $headers = array();
+	private array $headers = [];
 	//unused right now
-	public $settings = array( "authenticate" => true, "allowremote" => false );
+	public $settings = ["authenticate" => true, "allowremote" => false];
 
 	public function __construct($UCP) {
 		$this->UCP = $UCP;
@@ -28,34 +28,32 @@ class Ajax extends UCP {
 	}
 
 	public function doRequest($module = null, $command = null) {
-		session_write_close(); //speed up
+		$ret = null;
+  session_write_close(); //speed up
 		$this->UCP->Modgettext->textdomain("ucp");
 		
-		if (strpos($module, ".") !== false || strpos($command, ".") !== false) {
+		if (str_contains((string) $module, ".") || str_contains((string) $command, ".")) {
 			$this->triggerFatal(_("Module or Command requested invalid"));
 		}
 
 		switch($command) {
 			case 'template':
 				$this->UCP->Modgettext->push_textdomain("ucp");
-				$file = dirname(__DIR__).'/views/templates/'.basename($_REQUEST['type']).'.php';
-				if(ctype_alpha($_REQUEST['type']) && file_exists($file)) {
+				$file = dirname(__DIR__).'/views/templates/'.basename((string) $_REQUEST['type']).'.php';
+				if(ctype_alpha((string) $_REQUEST['type']) && file_exists($file)) {
 					$this->addHeader('HTTP/1.0','200');
 					$template = $_POST['template'];
 					if($_REQUEST['type'] == 'chat') {
 						$mods = $this->UCP->Modules->getModulesByMethod('getChatHistory');
-						$template['history'] = array();
+						$template['history'] = [];
 						foreach($mods as $m) {
-							$this->UCP->Modgettext->push_textdomain(strtolower($m));
+							$this->UCP->Modgettext->push_textdomain(strtolower((string) $m));
 							$template['history'] = $this->UCP->Modules->$m->getChatHistory($_POST['template']['from'],$_POST['template']['to'],$_POST['newWindow']);
 							$this->UCP->Modgettext->pop_textdomain();
 						}
 					}
 					$this->UCP->Modgettext->push_textdomain("ucp");
-					$ret = array(
-						"status" => true,
-						"contents" => $this->UCP->View->load_view($file, $template)
-					);
+					$ret = ["status" => true, "contents" => $this->UCP->View->load_view($file, $template)];
 					$this->UCP->Modgettext->pop_textdomain();
 				} else {
 					$this->triggerFatal();
@@ -74,7 +72,7 @@ class Ajax extends UCP {
 					$this->triggerFatal(_("Module or Command were null. Check your code."));
 				}
 
-				$ucMod = ucfirst(strtolower($module));
+				$ucMod = ucfirst(strtolower((string) $module));
 				if ($module != 'UCP' && $module != 'User' && class_exists(__NAMESPACE__."\\".$ucMod)) {
 					$this->triggerFatal(sprintf(_("The class %s already existed. Ajax MUST load it, for security reasons"),$module));
 				}
@@ -83,8 +81,8 @@ class Ajax extends UCP {
 				//TODO: security check
 				if($module == 'User' || $module == 'UCP' || $module == 'Dashboards') {
 					// Is someone trying to be tricky with filenames?
-					$file = dirname(__FILE__).'/'.$ucMod.'.class.php';
-					if((strpos($module, ".") !== false) || !file_exists($file)) {
+					$file = __DIR__.'/'.$ucMod.'.class.php';
+					if((str_contains((string) $module, ".")) || !file_exists($file)) {
 						$this->triggerFatal("Module requested invalid");
 					}
 
@@ -103,7 +101,7 @@ class Ajax extends UCP {
 					$this->ajaxError(501, 'ajaxRequest not found');
 				}
 
-				$this->UCP->Modgettext->push_textdomain(strtolower($module));
+				$this->UCP->Modgettext->push_textdomain(strtolower((string) $module));
 				if (!$thisModule->ajaxRequest($command, $this->settings)) {
 					$this->ajaxError(403, 'ajaxRequest declined');
 				}
@@ -131,15 +129,9 @@ class Ajax extends UCP {
 		}
 		//some helpers
 		if(!is_array($ret) && is_bool($ret)) {
-			$ret = array(
-				"status" => $ret,
-				"message" => "unknown"
-			);
+			$ret = ["status" => $ret, "message" => "unknown"];
 		} elseif(!is_array($ret) && is_string($ret)) {
-			$ret = array(
-				"status" => true,
-				"message" => $ret
-			);
+			$ret = ["status" => true, "message" => $ret];
 		}
 		$output = $this->generateResponse($ret);
 		$this->sendHeaders();
@@ -149,32 +141,29 @@ class Ajax extends UCP {
 
 	public function poll() {
 		$modules = $this->UCP->Modules->getModulesByMethod('poll');
-		$modData = array();
+		$modData = [];
 		foreach($modules as $module) {
-			$mdata = !empty($_POST['data'][$module]) ? $_POST['data'][$module] : array();
-			$this->UCP->Modgettext->push_textdomain(strtolower($module));
+			$mdata = !empty($_POST['data'][$module]) ? $_POST['data'][$module] : [];
+			$this->UCP->Modgettext->push_textdomain(strtolower((string) $module));
 			if(!empty($mdata)) {
 				$modData[$module] = $this->UCP->Modules->$module->poll($mdata);
 			} else {
-				$modData[$module] = $this->UCP->Modules->$module->poll(array());
+				$modData[$module] = $this->UCP->Modules->$module->poll([]);
 			}
 			$this->UCP->Modgettext->pop_textdomain();
 		}
-		return array(
-			"status" => true,
-			"modData" => $modData
-		);
+		return ["status" => true, "modData" => $modData];
 	}
 
-	public function ajaxError($errnum, $message = 'Unknown Error') {
+	public function ajaxError($errnum, $message = 'Unknown Error'): never {
 		$this->addHeader('HTTP/1.0',$errnum);
-		$output = $this->generateResponse(array("error" => $message));
+		$output = $this->generateResponse(["error" => $message]);
 		$this->sendHeaders();
 		echo $output;
 		exit;
 	}
 
-	private function triggerFatal($message = 'Unknown Error') {
+	private function triggerFatal($message = 'Unknown Error'): never {
 		$this->ajaxError(500, $message);
 	}
 
@@ -196,22 +185,7 @@ class Ajax extends UCP {
 	 * @access private
 	 */
 	private function getHeaders() {
-		$h = array(
-			'accept'        => '',
-			'address'		=> '',
-			'content_type'	=> '',
-			'host' 			=> '',
-			'ip'			=> '',
-			'nonce'			=> '',
-			'port'			=> '',
-			'signature'		=> '',
-			'timestamp'		=> '',
-			'token'			=> '',
-			'uri'			=> '',
-			'request'		=> '',
-			'user_agent'	=> '',
-			'verb'			=> '',
-		);
+		$h = ['accept'        => '', 'address'		=> '', 'content_type'	=> '', 'host' 			=> '', 'ip'			=> '', 'nonce'			=> '', 'port'			=> '', 'signature'		=> '', 'timestamp'		=> '', 'token'			=> '', 'uri'			=> '', 'request'		=> '', 'user_agent'	=> '', 'verb'			=> ''];
 
 		foreach ($_SERVER as $k => $v) {
 			switch ($k) {
@@ -249,7 +223,7 @@ class Ajax extends UCP {
 					$h['user_agent'] = $v;
 				break;
 				case 'REQUEST_METHOD':
-					$h['verb'] = strtolower($v);
+					$h['verb'] = strtolower((string) $v);
 				break;
 				case 'PATH_INFO':
 					$h['uri'] = $v;
@@ -291,28 +265,8 @@ class Ajax extends UCP {
 	 * @return $object New Object
 	 * @access private
 	 */
-	public function addHeader($type, $value = '') {
-		$responses = array(
-			200	=> 'OK',
-			201	=> 'Created',
-			202	=> 'Accepted',
-			204	=> 'No Content',
-			301	=> 'Moved Permanently',
-			303	=> 'See Other',
-			304	=> 'Not Modified',
-			307	=> 'Temporary Redirect',
-			400	=> 'Bad Request',
-			401	=> 'Unauthorized',
-			402	=> 'Forbidden',
-			404	=> 'Not Found',
-			405	=> 'Method Not Allowed',
-			406	=> 'Not Acceptable',
-			409	=> 'Conflict',
-			412	=> 'Precondition Failed',
-			415	=> 'Unsupported Media Type',
-			500	=> 'Internal Server Error',
-			503 => 'Service Unavailable'
-		);
+	public function addHeader(mixed $type, mixed $value = '') {
+		$responses = [200	=> 'OK', 201	=> 'Created', 202	=> 'Accepted', 204	=> 'No Content', 301	=> 'Moved Permanently', 303	=> 'See Other', 304	=> 'Not Modified', 307	=> 'Temporary Redirect', 400	=> 'Bad Request', 401	=> 'Unauthorized', 402	=> 'Forbidden', 404	=> 'Not Found', 405	=> 'Method Not Allowed', 406	=> 'Not Acceptable', 409	=> 'Conflict', 412	=> 'Precondition Failed', 415	=> 'Unsupported Media Type', 500	=> 'Internal Server Error', 503 => 'Service Unavailable'];
 
 		if ($type && !$value) {
 			$value = $type;
@@ -320,10 +274,10 @@ class Ajax extends UCP {
 		}
 
 		//clean up type
-		$type = str_replace(array('_', ' '), '-', trim($type));
+		$type = str_replace(['_', ' '], '-', trim((string) $type));
 		//HTTP responses headers
 		if ($type == 'HTTP/1.1') {
-			$value = ucfirst($value);
+			$value = ucfirst((string) $value);
 			//ok is always fully capitalized, not just its first letter
 			if ($value == 'Ok') {
 				$value = 'OK';
@@ -371,10 +325,10 @@ class Ajax extends UCP {
 		//CORS: http://en.wikipedia.org/wiki/Cross-origin_resource_sharing
 		$origin = !empty($_SERVER['HTTP_ORIGIN']) ? $_SERVER['HTTP_ORIGIN'] : "";
 		header('Access-Control-Allow-Headers:Content-Type, Depth, User-Agent, X-File-Size, X-Requested-With, If-Modified-Since, X-File-Name, Cache-Control, X-Auth-Token');
-		header('Access-Control-Allow-Methods: '.strtoupper($this->req->headers->verb));
+		header('Access-Control-Allow-Methods: '.strtoupper((string) $this->req->headers->verb));
 		header('Access-Control-Allow-Origin:'.$origin);
 		header('Access-Control-Max-Age:86400');
-		header('Allow: '.strtoupper($this->req->headers->verb));
+		header('Allow: '.strtoupper((string) $this->req->headers->verb));
 	}
 
 	/**
@@ -386,14 +340,14 @@ class Ajax extends UCP {
 	 * @return string XML or JSON or WHATever
 	 * @access private
 	 */
-	private function generateResponse($body) {
+	private function generateResponse(mixed $body) {
 		$ret = false;
 
 		if(!is_array($body)) {
-			$body = array("message" => $body);
+			$body = ["message" => $body];
 		}
 
-		$accepts = explode(",",$this->req->headers->accept);
+		$accepts = explode(",",(string) $this->req->headers->accept);
 		foreach($accepts as $accept) {
 			//strip off content accept priority
 			$accept = preg_replace('/;(.*)/i','',$accept);
@@ -402,7 +356,7 @@ class Ajax extends UCP {
 				case "text/json":
 				case "application/json":
 					$this->addHeader('Content-Type', 'application/json');
-					return json_encode($body);
+					return json_encode($body, JSON_THROW_ON_ERROR);
 					break;
 				/*
 				case "text/xml":
@@ -419,7 +373,7 @@ class Ajax extends UCP {
 		//If nothing is defined then just default to showing json
 		//TODO: move this up into the switch statement?
 		$this->addHeader('Content-Type', 'application/json');
-		return json_encode($body);
+		return json_encode($body, JSON_THROW_ON_ERROR);
     }
 
 	/**
@@ -432,6 +386,6 @@ class Ajax extends UCP {
 	 * @access private
 	 */
 	private function arrayToObject($arr) {
-		return json_decode(json_encode($arr), false);
+		return json_decode(json_encode($arr, JSON_THROW_ON_ERROR), false, 512, JSON_THROW_ON_ERROR);
 	}
 }

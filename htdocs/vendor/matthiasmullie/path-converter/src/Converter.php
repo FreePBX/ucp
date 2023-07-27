@@ -40,8 +40,8 @@ class Converter implements ConverterInterface
             // when both paths have nothing in common, one of them is probably
             // absolute while the other is relative
             $root = $root ?: getcwd();
-            $from = strpos($from, $root) === 0 ? $from : preg_replace('/\/+/', '/', $root.'/'.$from);
-            $to = strpos($to, $root) === 0 ? $to : preg_replace('/\/+/', '/', $root.'/'.$to);
+            $from = str_starts_with($from, $root) ? $from : preg_replace('/\/+/', '/', $root.'/'.$from);
+            $to = str_starts_with($to, $root) ? $to : preg_replace('/\/+/', '/', $root.'/'.$to);
 
             // or traveling the tree via `..`
             // attempt to resolve path, or assume it's fine if it doesn't exist
@@ -72,7 +72,7 @@ class Converter implements ConverterInterface
         $path = rtrim(str_replace(DIRECTORY_SEPARATOR, '/', $path), '/');
 
         // remove leading current directory.
-        if (substr($path, 0, 2) === './') {
+        if (str_starts_with($path, './')) {
             $path = substr($path, 2);
         }
 
@@ -112,10 +112,10 @@ class Converter implements ConverterInterface
         // $path could theoretically be empty (e.g. no path is given), in which
         // case it shouldn't expand to array(''), which would compare to one's
         // root /
-        $path1 = $path1 ? explode('/', $path1) : array();
-        $path2 = $path2 ? explode('/', $path2) : array();
+        $path1 = $path1 ? explode('/', $path1) : [];
+        $path2 = $path2 ? explode('/', $path2) : [];
 
-        $shared = array();
+        $shared = [];
 
         // compare paths & strip identical ancestors
         foreach ($path1 as $i => $chunk) {
@@ -151,7 +151,7 @@ class Converter implements ConverterInterface
 
         $path = $this->normalize($path);
         // if we're not dealing with a relative path, just return absolute
-        if (strpos($path, '/') === 0) {
+        if (str_starts_with($path, '/')) {
             return $path;
         }
 

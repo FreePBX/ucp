@@ -1155,7 +1155,7 @@ class Ucp implements \BMO {
 	}
 
 	public function refreshAssets() {
-		if(!class_exists('UCP\UCP',false)) {
+		if(!class_exists(\UCP\UCP::class,false)) {
 			include(__DIR__.'/htdocs/includes/bootstrap.php');
 		}
 		$ucp = \UCP\UCP::create();
@@ -1240,7 +1240,7 @@ class Ucp implements \BMO {
 		if(!$this->FreePBX->Config->get("NODEJSENABLED")) {
 			return;
 		}
-		$status = ($this->FreePBX->Pm2->getStatus("ucp")) ? $this->FreePBX->Pm2->getStatus("ucp") : [];
+		$status = $this->FreePBX->Pm2->getStatus("ucp") ?: [];
 		if(isset($status['pm2_env'])) {
 			switch($status['pm2_env']['status']) {
 				case 'online':

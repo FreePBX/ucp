@@ -11,15 +11,17 @@
  * Copyright 2006-2014 Schmooze Com Inc.
  */
 namespace UCP;
+
 use Emojione\Client;
 use Emojione\Ruleset;
-include(__DIR__.'/UCP_Helpers.class.php');
+
+include(__DIR__ . '/UCP_Helpers.class.php');
 class UCP extends UCP_Helpers {
 	// Static Object used for self-referencing.
-	private static $uobj;
+	private static \UCP\UCP $uobj;
 
 	function __construct($mode = 'local') {
-		if($mode == 'local') {
+		if ($mode == 'local') {
 			//Setup our objects for use
 			//FreePBX is the FreePBX Object
 			$this->FreePBX = \FreePBX::create();
@@ -34,8 +36,8 @@ class UCP extends UCP_Helpers {
 			//$this->db->setAttribute(\PDO::MYSQL_ATTR_USE_BUFFERED_QUERY, false);
 		}
 
-		$this->emoji = new Client(new Ruleset());
-		$this->emoji->imageType = 'svg';
+		$this->emoji               = new Client(new Ruleset());
+		$this->emoji->imageType    = 'svg';
 		$this->emoji->imagePathSVG = 'assets/images/emoji/svg/'; // defaults to jsdelivr's free CDN
 
 		$this->detect = new \Mobile_Detect;
@@ -74,17 +76,7 @@ class UCP extends UCP_Helpers {
 	 */
 	function getVersion() {
 		$info = $this->FreePBX->Modules->getInfo("Ucp");
-		return 'v'.$info['ucp']['dbversion'];
-	}
-
-	/**
-	* Get a UCP Setting
-	* @param string $username The username
-	* @param string $module   The module name
-	* @param string $setting  The setting key
-	*/
-	function getCombinedSettingByID($uid,$module,$setting) {
-		return $this->FreePBX->Ucp->getCombinedSettingByID($uid,$module,$setting);
+		return 'v' . $info['ucp']['dbversion'];
 	}
 
 	/**
@@ -93,8 +85,18 @@ class UCP extends UCP_Helpers {
 	 * @param string $module   The module name
 	 * @param string $setting  The setting key
 	 */
-	function getSetting($username,$module,$setting) {
-		return $this->FreePBX->Ucp->getSetting($username,$module,$setting);
+	function getCombinedSettingByID($uid, $module, $setting) {
+		return $this->FreePBX->Ucp->getCombinedSettingByID($uid, $module, $setting);
+	}
+
+	/**
+	 * Get a UCP Setting
+	 * @param string $username The username
+	 * @param string $module   The module name
+	 * @param string $setting  The setting key
+	 */
+	function getSetting($username, $module, $setting) {
+		return $this->FreePBX->Ucp->getSetting($username, $module, $setting);
 	}
 
 	/**
@@ -104,8 +106,8 @@ class UCP extends UCP_Helpers {
 	 * @param  {[type]}       $setting [description]
 	 * @return {[type]}                [description]
 	 */
-	function getSettingByID($id,$module,$setting) {
-		return $this->FreePBX->Ucp->getSettingByID($id,$module,$setting);
+	function getSettingByID($id, $module, $setting) {
+		return $this->FreePBX->Ucp->getSettingByID($id, $module, $setting);
 	}
 
 	/**
@@ -116,16 +118,16 @@ class UCP extends UCP_Helpers {
 	 * @param  {[type]}       $setting [description]
 	 * @param  {[type]}       $value   [description]
 	 */
-	function setSettingByID($id,$module,$setting,$value) {
-		return $this->FreePBX->Ucp->setSettingByID($id,$module,$setting,$value);
+	function setSettingByID($id, $module, $setting, $value) {
+		return $this->FreePBX->Ucp->setSettingByID($id, $module, $setting, $value);
 	}
 
-	function setGlobalSettingByID($id,$setting,$value) {
-		return $this->FreePBX->Ucp->setSettingByID($id,'Global',$setting,$value);
+	function setGlobalSettingByID($id, $setting, $value) {
+		return $this->FreePBX->Ucp->setSettingByID($id, 'Global', $setting, $value);
 	}
 
-	function getGlobalSettingByID($id,$setting) {
-		return $this->FreePBX->Ucp->getSettingByID($id,'Global',$setting);
+	function getGlobalSettingByID($id, $setting) {
+		return $this->FreePBX->Ucp->getSettingByID($id, 'Global', $setting);
 	}
 
 	/**
@@ -135,8 +137,8 @@ class UCP extends UCP_Helpers {
 	 * @param string $setting  The setting key
 	 * @param string $value    the setting value
 	 */
-	function setSetting($username,$module,$setting,$value) {
-		return $this->FreePBX->Ucp->setSetting($username,$module,$setting,$value);
+	function setSetting($username, $module, $setting, $value) {
+		return $this->FreePBX->Ucp->setSetting($username, $module, $setting, $value);
 	}
 
 	/**
@@ -145,16 +147,16 @@ class UCP extends UCP_Helpers {
 	function getServerSettings() {
 		$enabled = $this->FreePBX->Config->get('NODEJSENABLED');
 		$enabled = is_bool($enabled) || is_int($enabled) ? $enabled : true;
-		$port = $this->FreePBX->Config->get('NODEJSBINDPORT');
-		$port = !empty($port) ? $port : 8001;
+		$port    = $this->FreePBX->Config->get('NODEJSBINDPORT');
+		$port    = !empty($port) ? $port : 8001;
 
 		$enabledS = $this->FreePBX->Config->get('NODEJSTLSENABLED');
 		$enabledS = is_bool($enabledS) || is_int($enabledS) ? $enabledS : true;
-		$portS = $this->FreePBX->Config->get('NODEJSHTTPSBINDPORT');
-		$portS = !empty($portS) ? $portS : 8003;
+		$portS    = $this->FreePBX->Config->get('NODEJSHTTPSBINDPORT');
+		$portS    = !empty($portS) ? $portS : 8003;
 
-		$serverparts = explode(":", $_SERVER['HTTP_HOST']); //strip off port because we define it
-		return array("enabled" => $enabled, "port" => $port, "host" => $serverparts[0], "enabledS" => $enabledS, "portS" => $portS);
+		$serverparts = explode(":", (string) $_SERVER['HTTP_HOST']); //strip off port because we define it
+		return [ "enabled" => $enabled, "port" => $port, "host" => $serverparts[0], "enabledS" => $enabledS, "portS" => $portS ];
 	}
 
 	/**
@@ -162,73 +164,28 @@ class UCP extends UCP_Helpers {
 	 * Minified all scripts.
 	 * @param bool $force Whether to forcefully regenerate the minified JS
 	 */
-	public function getScripts($force = false,$packaged=false) {
+	public function getScripts($force = false, $packaged = false) {
 		set_time_limit(0);
-		$cache = dirname(__DIR__).'/assets/js/compiled/main';
-		if(!file_exists($cache) && !mkdir($cache,0777,true)) {
-			die('Can Not Create Cache Folder at '.$cache);
+		$cache = dirname(__DIR__) . '/assets/js/compiled/main';
+		if (!file_exists($cache) && !mkdir($cache, 0777, true)) {
+			die('Can Not Create Cache Folder at ' . $cache);
 		}
 
 		//Loading order is important here
-		$globalJavascripts = array(
-			"async-2.1.4.min.js",
-			"jquery-migrate-3.4.0.js",
-			"socket.io-1.7.2.js",
-			"bootstrap-4.6.1.bundle.min.js",
-			"bootstrap-table-1.21.0.min.js",
-			"bootstrap-table-extensions-1.21.0/bootstrap-table-cookie.min.js",
-			"bootstrap-table-extensions-1.21.0/bootstrap-table-toolbar.min.js",
-			"bootstrap-table-extensions-1.21.0/bootstrap-table-mobile.min.js",
-			"bootstrap-table-extensions-1.21.0/bootstrap-table-export.min.js",
-			"bootstrap-multiselect-1.1.1.js",
-			"bootstrap-select-1.13.14.min.js",
-			"ajax-bootstrap-select-1.4.5.min.js",
-			"tableexport-3.2.10.min.js",
-			"jquery-ui-1.13.2.min.js",
-			"fileinput-3.1.3.js",
-			"recorder.js",
-			"jquery.iframe-transport-10.32.0.js",
-			"jquery.fileupload-10.32.0.js",
-			"jquery.form-4.3.0.min.js",
-			"jquery.jplayer-2.9.2.min.js",
-			"purl-2.3.1.js",
-			"modernizr-3.3.1.js",
-			"notify-2.0.3.js",
-			"class.js",
-			"jquery.textfill-0.6.0.min.js",
-			"jed-1.1.1.js",
-			"modgettext.js",
-			"js.cookie-3.0.1.min.js",
-			"emojione-3.1.1.min.js",
-			"emojionearea-3.4.2.min.js",
-			"jquery.tokenize-2.6.js",
-			"moment-with-locales-2.20.1.min.js",
-			"moment-timezone-with-data-1970-2030-0.5.41.min.js",
-			"moment-duration-format-2.2.1.js",
-			"nprogress-0.2.0.js",
-			"imagesloaded.pkgd-4.1.1.min.js",
-			"lodash-4.17.2.js",
-			"jquery.ui.touch-punch-0.2.3.min.js",
-			"gridstack-0.2.6.js",
-			"Sortable-1.15.0.min.js",
-			"bootstrap-toggle-2.2.2.min.js",
-			"browser-locale-1.0.0.min.js",
-			"uuid-3.0.1.js",
-			"ucp.js",
-			"module.js"
-		);
+		$globalJavascripts = [ "async-2.1.4.min.js", "jquery-migrate-3.4.0.js", "socket.io-1.7.2.js", "bootstrap-4.6.1.bundle.min.js", "bootstrap-table-1.21.0.min.js", "bootstrap-table-extensions-1.21.0/bootstrap-table-cookie.min.js", "bootstrap-table-extensions-1.21.0/bootstrap-table-toolbar.min.js", "bootstrap-table-extensions-1.21.0/bootstrap-table-mobile.min.js", "bootstrap-table-extensions-1.21.0/bootstrap-table-export.min.js", "bootstrap-multiselect-1.1.1.js", "bootstrap-select-1.13.14.min.js", "ajax-bootstrap-select-1.4.5.min.js", "tableexport-3.2.10.min.js", "jquery-ui-1.13.2.min.js", "fileinput-3.1.3.js", "recorder.js", "jquery.iframe-transport-10.32.0.js", "jquery.fileupload-10.32.0.js", "jquery.form-4.3.0.min.js", "jquery.jplayer-2.9.2.min.js", "purl-2.3.1.js", "modernizr-3.3.1.js", "notify-2.0.3.js", "class.js", "jquery.textfill-0.6.0.min.js", "jed-1.1.1.js", "modgettext.js", "js.cookie-3.0.1.min.js", "emojione-3.1.1.min.js", "emojionearea-3.4.2.min.js", "jquery.tokenize-2.6.js", "moment-with-locales-2.20.1.min.js", "moment-timezone-with-data-1970-2030-0.5.41.min.js", "moment-duration-format-2.2.1.js", "nprogress-0.2.0.js", "imagesloaded.pkgd-4.1.1.min.js", "lodash-4.17.2.js", "jquery.ui.touch-punch-0.2.3.min.js", "gridstack-0.2.6.js", "Sortable-1.15.0.min.js", "bootstrap-toggle-2.2.2.min.js", "browser-locale-1.0.0.min.js", "uuid-3.0.1.js", "ucp.js", "module.js" ];
 
 		$time_start = microtime(true);
 
-		$contents = '';
-		$files = array();
+		$contents  = '';
+		$files     = [];
 		$md5string = '';
 		foreach ($globalJavascripts as $f) {
-			$file = dirname(__DIR__).'/assets/js/'.$f;
-			if(file_exists($file)) {
-				$files[] = str_replace(dirname(__DIR__).'/assets/js/','',$file);
+			$file = dirname(__DIR__) . '/assets/js/' . $f;
+			if (file_exists($file)) {
+				$files[]   = str_replace(dirname(__DIR__) . '/assets/js/', '', $file);
 				$md5string .= md5_file($file);
-			} else {
+			}
+			else {
 				throw new \Exception("Cant find $file");
 			}
 		}
@@ -238,25 +195,26 @@ class UCP extends UCP_Helpers {
 			return $files;
 		}
 
-		$md5 = md5($md5string);
-		$filename = 'jsphpg_'.$md5.'.js';
-		if(!file_exists($cache.'/'.$filename) || $force) {
-			foreach(glob($cache.'/jsphpg_*.js') as $f) {
+		$md5      = md5($md5string);
+		$filename = 'jsphpg_' . $md5 . '.js';
+		if (!file_exists($cache . '/' . $filename) || $force) {
+			foreach (glob($cache . '/jsphpg_*.js') as $f) {
 				unlink($f);
 			}
-			foreach($globalJavascripts as $f) {
-				$file = dirname(__DIR__).'/assets/js/'.$f;
-				$raw = file_get_contents($file);
-				if(!preg_match("/min\.js$/",$file)) {
-					$contents .= \JShrink\Minifier::minify($raw)."\n\n";
-				} else {
-					$contents .= $raw."\n\n";
+			foreach ($globalJavascripts as $f) {
+				$file = dirname(__DIR__) . '/assets/js/' . $f;
+				$raw  = file_get_contents($file);
+				if (!preg_match("/min\.js$/", $file)) {
+					$contents .= \JShrink\Minifier::minify($raw) . "\n\n";
+				}
+				else {
+					$contents .= $raw . "\n\n";
 				}
 			}
-			file_put_contents($cache.'/'.$filename,$contents);
+			file_put_contents($cache . '/' . $filename, $contents);
 		}
 
-		return array("compiled/main/".$filename);
+		return [ "compiled/main/" . $filename ];
 	}
 
 	/**
@@ -264,87 +222,78 @@ class UCP extends UCP_Helpers {
 	 * These Scripts persist throughout the navigation of UCP
 	 * @param bool $force Whether to forcefully regenerate the minified CSS
 	 */
-	public function getCss($force = false, $packaged=false) {
+	public function getCss($force = false, $packaged = false) {
 		set_time_limit(0);
-		$cache = dirname(__DIR__).'/assets/css/compiled/main';
+		$cache = dirname(__DIR__) . '/assets/css/compiled/main';
 		//TODO: needs to be an array of directories that need to be created on install
-		if(!file_exists($cache) && !mkdir($cache,0777,true)) {
-			die('Can Not Create Cache Folder at '.$cache);
+		if (!file_exists($cache) && !mkdir($cache, 0777, true)) {
+			die('Can Not Create Cache Folder at ' . $cache);
 		}
-		if($force) {
-			foreach(glob($cache.'/lessphp*') as $f) {
+		if ($force) {
+			foreach (glob($cache . '/lessphp*') as $f) {
 				unlink($f);
 			}
 		}
 
-		$globalCssFiles = array(
-			"bootstrap-4.6.1.min.css",
-			"bootstrap-table-1.21.1.min.css",
-			"bootstrap-toggle-2.2.2.min.css",
-			"bootstrap-select-1.13.14.min.css",
-			"ajax-bootstrap-select-1.4.5.min.css",
-			"emojione-3.1.1.min.css",
-			"emojionearea-3.4.2.min.css",
-			"font-awesome.min-4.7.0.css",
-			"gridstack.min.css",
-			"jquery.tokenize-2.6.css"
-		);
+		$globalCssFiles = [ "bootstrap-4.6.1.min.css", "bootstrap-table-1.21.1.min.css", "bootstrap-toggle-2.2.2.min.css", "bootstrap-select-1.13.14.min.css", "ajax-bootstrap-select-1.4.5.min.css", "emojione-3.1.1.min.css", "emojionearea-3.4.2.min.css", "font-awesome.min-4.7.0.css", "gridstack.min.css", "jquery.tokenize-2.6.css" ];
 
 
-		$contents = '';
-		$files = array();
+		$contents  = '';
+		$files     = [];
 		$md5string = '';
-		foreach($globalCssFiles as $f) {
-			$file = dirname(__DIR__).'/assets/css/'.$f;
-			if(file_exists($file)) {
-				$files[] = str_replace(dirname(__DIR__).'/assets/css/','',$file);
+		foreach ($globalCssFiles as $f) {
+			$file = dirname(__DIR__) . '/assets/css/' . $f;
+			if (file_exists($file)) {
+				$files[]   = str_replace(dirname(__DIR__) . '/assets/css/', '', $file);
 				$md5string .= md5_file($file);
-			} else {
+			}
+			else {
 				throw new \Exception("Cant find $file");
 			}
 		}
 
-		$final = array();
+		$final = [];
 
-		$md5 = md5($md5string);
-		$filename = 'cssphpg_'.$md5.'.css';
-		if(!file_exists($cache.'/'.$filename) || $force) {
-			foreach(glob($cache.'/cssphpg_*.css') as $f) {
+		$md5      = md5($md5string);
+		$filename = 'cssphpg_' . $md5 . '.css';
+		if (!file_exists($cache . '/' . $filename) || $force) {
+			foreach (glob($cache . '/cssphpg_*.css') as $f) {
 				unlink($f);
 			}
-			foreach($globalCssFiles as $f) {
+			foreach ($globalCssFiles as $f) {
 				$minifier = new \MatthiasMullie\Minify\CSS();
-				$file = dirname(__DIR__).'/assets/css/'.$f;
-				$raw = file_get_contents($file);
-				if(!preg_match("/min\.css$/",$file)) {
+				$file     = dirname(__DIR__) . '/assets/css/' . $f;
+				$raw      = file_get_contents($file);
+				if (!preg_match("/min\.css$/", $file)) {
 					$minifier->add($raw);
-					$contents .= $minifier->minify()."\n";
-				} else {
-					$contents .= $raw."\n";
+					$contents .= $minifier->minify() . "\n";
+				}
+				else {
+					$contents .= $raw . "\n";
 				}
 			}
-			file_put_contents($cache.'/'.$filename,$contents);
+			file_put_contents($cache . '/' . $filename, $contents);
 		}
 
-		$final[] = "compiled/main/".$filename;
+		$final[] = "compiled/main/" . $filename;
 
-		$options = array( 'cache_dir' => $cache );
+		$options = [ 'cache_dir' => $cache ];
 
-		$ucpfiles = array();
-		$ucpfiles[dirname(__DIR__).'/assets/less/ucp/ucp.less'] = '../../../../';
+		$ucpfiles                                               = [];
+		$ucpfiles[dirname(__DIR__) . '/assets/less/ucp/ucp.less'] = '../../../../';
 
-		$ucpSkinVariables = array();
-		if ($this->FreePBX->Modules->checkStatus('oembranding') && 
-				($this->FreePBX->Modules->moduleHasMethod('oembranding', 'getUCPSkin'))) {
-                        $ucpSkinVariables = \FreePBX::Oembranding()->getUCPSkin();
-                }
-		$final[] = "compiled/main/".\Less_Cache::Get( $ucpfiles, $options , $ucpSkinVariables);
+		$ucpSkinVariables = [];
+		if ($this->FreePBX->Modules->checkStatus('oembranding') &&
+			($this->FreePBX->Modules->moduleHasMethod('oembranding', 'getUCPSkin'))) {
+			$ucpSkinVariables = \FreePBX::Oembranding()->getUCPSkin();
+		}
+		$final[] = "compiled/main/" . \Less_Cache::Get($ucpfiles, $options, $ucpSkinVariables);
 
 
-		$ucpfiles = array();
-		$vars = array("fa-font-path" => '"fonts"');
-		$ucpfiles[dirname(__DIR__).'/assets/less/schmooze-font/schmooze-font.less'] = '../../';
-		$final[] = "compiled/main/".\Less_Cache::Get( $ucpfiles, $options, $vars );
+		$ucpfiles                                                                   = [];
+		$vars                                                                       = [ "fa-font-path" => '"fonts"' ];
+		$ucpfiles[dirname(__DIR__) . '/assets/less/schmooze-font/schmooze-font.less'] = '../../';
+		$final[]                                                                    = "compiled/main/" . \Less_Cache::Get($ucpfiles, $options, $vars);
 
 		return $final;
 	}

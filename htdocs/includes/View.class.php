@@ -11,11 +11,12 @@
  * Copyright 2006-2014 Schmooze Com Inc.
  */
 namespace UCP;
+
 class View extends UCP {
 	private $timezone = '';
-	private $dateformat = '';
-	private $datetimeformat = '';
-	private $timeformat = '';
+	private string $dateformat = '';
+	private string $datetimeformat = '';
+	private string $timeformat = '';
 
 	public function __construct($UCP) {
 		$this->UCP = $UCP;
@@ -36,16 +37,16 @@ class View extends UCP {
 	 * @return	string
 	 *
 	 */
-	public function load_view($view_filename_protected, $vars = array()) {
+	public function load_view($view_filename_protected, $vars = []) {
 
 		//return false if we cant find the file or if we cant open it
-		if (!$view_filename_protected || !file_exists($view_filename_protected) || !is_readable($view_filename_protected) ) {
+		if (!$view_filename_protected || !file_exists($view_filename_protected) || !is_readable($view_filename_protected)) {
 			dbug('load_view failed to load view for inclusion:', $view_filename_protected);
 			return false;
 		}
 
 		// Import the view variables to local namespace
-		extract( (array) $vars, EXTR_SKIP);
+		extract((array) $vars, EXTR_SKIP);
 
 		// Capture the view output
 		ob_start();
@@ -80,7 +81,7 @@ class View extends UCP {
 	 * @return	string
 	 *
 	 */
-	public function show_view($view_filename_protected, $vars = array()) {
+	public function show_view($view_filename_protected, $vars = []) {
 		$buffer = $this->load_view($view_filename_protected, $vars);
 		if ($buffer !== false) {
 			echo $buffer;
@@ -94,46 +95,48 @@ class View extends UCP {
 		$view = $this->UCP->FreePBX->View;
 		// set the language so local module languages take
 		$lang = '';
-		if(php_sapi_name() !== 'cli') {
+		if (php_sapi_name() !== 'cli') {
 			$language = $user ? $this->UCP->FreePBX->Userman->getLocaleSpecificSettingByUID($user['id'], 'language') : '';
-			if(!empty($language)) {
+			if (!empty($language)) {
 				$lang = $language;
-			} elseif (!empty($_COOKIE['lang'])) {
+			}
+			elseif (!empty($_COOKIE['lang'])) {
 				$lang = $_COOKIE['lang'];
 			}
 		}
 		$lang = $view->setLanguage($lang);
-		if(php_sapi_name() !== 'cli') {
-			setcookie("lang", $lang);
+		if (php_sapi_name() !== 'cli') {
+			setcookie("lang", (string) $lang);
 			$_COOKIE['lang'] = $lang;
 		}
 		$language = $lang;
 		//set this before we run date functions
 		$timezone = $user ? $this->UCP->FreePBX->Userman->getLocaleSpecificSettingByUID($user['id'], 'timezone') : '';
-		if(php_sapi_name() !== 'cli' && !empty($timezone)) {
+		if (php_sapi_name() !== 'cli' && !empty($timezone)) {
 			//userman mode
 			$phptimezone = $timezone;
-		} else {
+		}
+		else {
 			$phptimezone = '';
 		}
 		$this->timezone = $view->setTimezone($phptimezone);
 
-		$datetimeformat =  $user ? $this->UCP->FreePBX->Userman->getLocaleSpecificSettingByUID($user['id'], 'datetimeformat') : '';
-		if(php_sapi_name() !== 'cli' && !empty($datetimeformat)) {
+		$datetimeformat = $user ? $this->UCP->FreePBX->Userman->getLocaleSpecificSettingByUID($user['id'], 'datetimeformat') : '';
+		if (php_sapi_name() !== 'cli' && !empty($datetimeformat)) {
 			$view->setDateTimeFormat($datetimeformat);
 		}
 
-		$timeformat =  $user ? $this->UCP->FreePBX->Userman->getLocaleSpecificSettingByUID($user['id'], 'timeformat') : '';
-		if(php_sapi_name() !== 'cli' && !empty($timeformat)) {
+		$timeformat = $user ? $this->UCP->FreePBX->Userman->getLocaleSpecificSettingByUID($user['id'], 'timeformat') : '';
+		if (php_sapi_name() !== 'cli' && !empty($timeformat)) {
 			$view->setTimeFormat($timeformat);
 		}
 
-		$dateformat =  $user ? $this->UCP->FreePBX->Userman->getLocaleSpecificSettingByUID($user['id'], 'dateformat') : '';
-		if(php_sapi_name() !== 'cli' && !empty($dateformat)) {
+		$dateformat = $user ? $this->UCP->FreePBX->Userman->getLocaleSpecificSettingByUID($user['id'], 'dateformat') : '';
+		if (php_sapi_name() !== 'cli' && !empty($dateformat)) {
 			$view->setDateFormat($dateformat);
 		}
 
-		return array("timezone" => $timezone, "language" => $language, "datetimeformat" => "", "timeformat" => "", "dateformat" => "");
+		return [ "timezone" => $timezone, "language" => $language, "datetimeformat" => "", "timeformat" => "", "dateformat" => "" ];
 	}
 
 	public function getLocale() {
@@ -143,21 +146,21 @@ class View extends UCP {
 	/**
 	 * See function in BMO
 	 */
-	public function getDate($timestamp=null) {
+	public function getDate($timestamp = null) {
 		return $this->UCP->FreePBX->View->getDate($timestamp);
 	}
 
 	/**
 	 * See function in BMO
 	 */
-	public function getDateTime($timestamp=null) {
+	public function getDateTime($timestamp = null) {
 		return $this->UCP->FreePBX->View->getDateTime($timestamp);
 	}
 
 	/**
 	 * See function in BMO
 	 */
-	public function getTime($timestamp=null) {
+	public function getTime($timestamp = null) {
 		return $this->UCP->FreePBX->View->getTime($timestamp);
 	}
 

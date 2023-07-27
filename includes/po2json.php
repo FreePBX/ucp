@@ -6,51 +6,50 @@
  */
 
 class po2json {
-	public $pofile = "";
-	public $entry = array();
-	private $encoding = 'utf-8';
-	private $lang = 'en';
-	private $pluralForms = 'nplurals=2; plural=n != 1;';
+	public $entry = [];
+	private string $encoding = 'utf-8';
+	private string $lang = 'en';
+	private string $pluralForms = 'nplurals=2; plural=n != 1;';
 
-	function __construct($pofile) {
-		$this->pofile=$pofile;
+	function __construct(public $pofile) {
 	}
 
 	private function parseEntry(&$out) {
-		$out = preg_replace("/(?m)\[BLOCK\s*([^\]]*)\](.*?)\[ENDBLOCK\s*\\1\]/se", "\$this->memoEntry('\\1','\\2')", $out);
+		$out = preg_replace_callback('/(?m)\[BLOCK\s*([^\]]*)\](.*?)\[ENDBLOCK\s*\1\]/s', fn ($matches) => $this->memoEntry($matches[1], $matches[2]), (string) $out);
 	}
 
 	private function trimquote($s) {
-		return trim($s,'"');
+		return trim((string) $s, '"');
 	}
 
-	public function memoEntry($key,$text) {
-		$tkey=explode("\n",$key);
-		$ttext=explode("\n","$text");
-		$key=trim(implode("\n",array_map(array($this,"trimquote"),$tkey)));
-		$text=trim(implode("\n",array_map(array($this,"trimquote"),$ttext)));
+	public function memoEntry($key, $text) {
+		$tkey  = explode("\n", (string) $key);
+		$ttext = explode("\n", "$text");
+		$key   = trim(implode("\n", array_map($this->trimquote(...), $tkey)));
+		$text  = trim(implode("\n", array_map($this->trimquote(...), $ttext)));
 		if ($key && $text) {
-			$this->entry[$key]=array(null, $text);
-		} else if ($key=="") {
-			if (stristr($text,"charset=ISO-8859") !== false) {
-				$this->encoding='iso';
+			$this->entry[$key] = [ null, $text ];
+		}
+		else if ($key == "") {
+			if (stristr($text, "charset=ISO-8859") !== false) {
+				$this->encoding = 'iso';
 			}
-			if(preg_match('/Language: (.*)/m',$text,$matches)) {
-				$this->lang = trim(str_replace("\\n","",$matches[1]));
+			if (preg_match('/Language: (.*)/m', $text, $matches)) {
+				$this->lang = trim(str_replace("\\n", "", $matches[1]));
 			}
-			if(preg_match('/Plural-Forms: (.*)/m',$text,$matches)) {
-				$this->pluralForms = trim(str_replace("\\n","",$matches[1]));
+			if (preg_match('/Plural-Forms: (.*)/m', $text, $matches)) {
+				$this->pluralForms = trim(str_replace("\\n", "", $matches[1]));
 			}
 		}
 	}
 
 	private function process() {
 		if (file_exists($this->pofile)) {
-			$pocontent=file_get_contents($this->pofile);
+			$pocontent = file_get_contents($this->pofile);
 			if ($pocontent) {
-				$pocontent.="\n\n";
+				$pocontent .= "\n\n";
 				preg_match_all('/^msgid (?P<msgid>".*?)msgstr (?P<msgstr>".*?")\n\n/ms', $pocontent, $matches, PREG_SET_ORDER);
-				foreach($matches as $m) {
+				foreach ($matches as $m) {
 					$this->memoEntry($m['msgid'], $m['msgstr']);
 				}
 			}
@@ -60,27 +59,24 @@ class po2json {
 	private function finalize() {
 		dbug("finalize");
 		$this->process();
-		$this->entry[""] = array(
-			"domain" => "messages",
-			"lang" => $this->lang,
-			"plural_forms" => $this->pluralForms
-		);
+		$this->entry[""] = [ "domain" => "messages", "lang" => $this->lang, "plural_forms" => $this->pluralForms ];
 	}
 
 	public function po2json() {
 		if (count($this->entry) > 0) {
 			$this->finalize();
-			$js=json_encode($this->entry);
-			if ($this->encoding=="iso") {
-				$js=utf8_encode($js);
+			$js = json_encode($this->entry, JSON_THROW_ON_ERROR);
+			if ($this->encoding == "iso") {
+				$js = utf8_encode($js);
 			}
 			return $js;
-		} else {
+		}
+		else {
 			return "";
 		}
 	}
 
 	public function po2array() {
-		return json_decode($this->po2json(),true);
+		return json_decode((string) $this->po2json(), true, 512, JSON_THROW_ON_ERROR);
 	}
 }

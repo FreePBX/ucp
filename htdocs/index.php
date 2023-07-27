@@ -6,19 +6,19 @@
  * Copyright 2006 Sangoma Technologies, Inc
  */
 ob_start();
-$bootstrap_settings = array();
+$bootstrap_settings = [];
 $bootstrap_settings['freepbx_auth'] = false;
 //TODO: We need to make sure security is 100%!
 $restrict_mods = true; //Set to true so that we just load framework and the page wont bomb out because we have no session
 include '/etc/freepbx.conf';
 
-include(dirname(__FILE__).'/includes/bootstrap.php');
+include(__DIR__.'/includes/bootstrap.php');
 try {
 	$ucp = \UCP\UCP::create();
 	$ucp->Modgettext->textdomain("ucp");
-} catch(\Exception $e) {
+} catch(\Exception) {
 	if(isset($_REQUEST['quietmode'])) {
-		echo json_encode(array("status" => false, "message" => "UCP is disabled"));
+		echo json_encode(["status" => false, "message" => "UCP is disabled"]);
 	} else {
 		echo "<html><head><title>UCP</title></head><body style='background-color: rgb(211, 234, 255);'><div style='border-radius: 5px;border: 1px solid black;text-align: center;padding: 5px;width: 90%;margin: auto;left: 0px;right: 0px;background-color: rgba(53, 77, 255, 0.18);'>"._('UCP is currently disabled. Please talk to your system Administrator')."</div></body></html>";
 	}
@@ -30,7 +30,7 @@ ob_end_clean();
 $displaySaveTemplate = false;
 $templateId = false;
 if(isset($_REQUEST['unlockkey']) && !empty($_REQUEST['unlockkey'])) {
-	$unlockkey = htmlentities($_REQUEST['unlockkey']);
+	$unlockkey = htmlentities((string) $_REQUEST['unlockkey']);
 	$user = $ucp->User->getUserInfo($unlockkey);
 	if(!empty($user)) {
 		$displaySaveTemplate = true;
@@ -48,7 +48,7 @@ if(isset($_REQUEST['logout'])) {
 	if($user) {
 		$ucp->User->logout();
 	}
-	$uri_parts = explode('?', $_SERVER['REQUEST_URI'], 2);
+	$uri_parts = explode('?', (string) $_SERVER['REQUEST_URI'], 2);
 	$url = ((isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') ? "https" : "http") . "://".$_SERVER['HTTP_HOST']. $uri_parts[0];
 	header('Location: '.$url);
 	die();
@@ -71,13 +71,13 @@ if((isset($_REQUEST['quietmode']) && $user !== false && !empty($user)) ||
 	die();
 } elseif(isset($_REQUEST['quietmode']) && ($user === false || empty($user))) {
 	header("HTTP/1.0 401 Unauthorized");
-	$json = json_encode(array("status" => "false", "message" => "forbidden"));
+	$json = json_encode(["status" => "false", "message" => "forbidden"]);
 	die($json);
 }
 //TIME: 0.11812996864319
 
 /* Start Display GUI Items */
-$displayvars = array();
+$displayvars = [];
 $displayvars['user'] = $user;
 $displayvars['displaySaveTemplate'] = $displaySaveTemplate;
 $displayvars['templateId'] = $templateId;
@@ -87,13 +87,13 @@ $displayvars['error_danger'] = '';
 
 //Check .htaccess and make sure it actually works
 $nt = $ucp->notifications;
-if ( !isset($_SERVER['HTACCESS']) && preg_match("/apache/i", $_SERVER['SERVER_SOFTWARE'])) {
+if ( !isset($_SERVER['HTACCESS']) && preg_match("/apache/i", (string) $_SERVER['SERVER_SOFTWARE'])) {
 	// No .htaccess support
 	if(!$nt->exists('ucp', 'htaccess')) {
 		$nt->add_security('ucp', 'htaccess', _('.htaccess files are disabled on this webserver. Please enable them'),
 		sprintf(_("To protect the integrity of your server, you must allow overrides in your webserver's configuration file for the User Control Panel. For more information see: %s"), '<a href="http://wiki.freepbx.org/display/F2/Webserver+Overrides">http://wiki.freepbx.org/display/F2/Webserver+Overrides</a>'));
 	}
-} elseif(!preg_match("/apache/i", $_SERVER['SERVER_SOFTWARE'])) {
+} elseif(!preg_match("/apache/i", (string) $_SERVER['SERVER_SOFTWARE'])) {
 	$sql = "SELECT value FROM admin WHERE variable = 'htaccess'";
 	$sth = FreePBX::Database()->prepare($sql);
 	$sth->execute();
@@ -132,10 +132,10 @@ $all_simple_widgets = $ucp->Dashboards->getAllSimpleWidgets();
 
 
 //Simple widgets by user
-$usw = (array)json_decode($ucp->Dashboards->getSimpleLayout(),true);
-$user_small_widgets = array();
+$usw = (array)json_decode((string) $ucp->Dashboards->getSimpleLayout(),true);
+$user_small_widgets = [];
 foreach($usw as $id => $widget) {
-	$name = ucfirst(strtolower($widget['rawname']));
+	$name = ucfirst(strtolower((string) $widget['rawname']));
 	$id = $widget['id'];
 	$info = $all_simple_widgets['widget'][$name]['list'][$widget['widget_type_id']];
 	$icon = !empty($all_simple_widgets['widget'][$name]['list'][$widget['widget_type_id']]['icon']) ? $all_simple_widgets['widget'][$name]['list'][$widget['widget_type_id']]['icon'] : $all_simple_widgets['widget'][$name]['icon'];
@@ -154,7 +154,7 @@ $user_dashboards = $ucp->Dashboards->getDashboards();
 foreach($user_dashboards as $dashboard_info){
 	$tmp = $ucp->Modules->Widgets->getWidgetsFromDashboard($dashboard_info["id"]);
 	$id = $dashboard_info["id"];
-	$displayvars['dashboards_info'][$id] = json_decode($tmp,true);
+	$displayvars['dashboards_info'][$id] = json_decode((string) $tmp,true, 512, JSON_THROW_ON_ERROR);
 }
 $active_dashboard_id = "";
 
@@ -195,10 +195,10 @@ $browser = new \Sinergi\BrowserDetector\Browser();
 
 $ie = 10;
 $displayvars['shiv'] = ($browser->getName() === \Sinergi\BrowserDetector\Browser::IE && $browser->getVersion() < $ie);
-$displayvars['menu'] = ($user && !empty($user)) ? $ucp->Modules->generateMenu() : array();
+$displayvars['menu'] = ($user && !empty($user)) ? $ucp->Modules->generateMenu() : [];
 
 $version	 = $ucp->getVersion();
-$version_tag = '?load_version=' . urlencode($version);
+$version_tag = '?load_version=' . urlencode((string) $version);
 if (FreePBX::Config()->get('FORCE_JS_CSS_IMG_DOWNLOAD')) {
 	$this_time_append	= '.' . time();
 	$version_tag 		.= $this_time_append;
@@ -255,14 +255,14 @@ switch($display) {
 		if ($browser->getName() === \Sinergi\BrowserDetector\Browser::IE && $browser->getVersion() < $ie) {
 			$displayvars['error_danger'] = sprintf(_("Internet Explorer %s is not supported. Functionality will be deteriorated until you upgrade to %s or higher"),$browser->getVersion(), $ie);
 		}
-		$ucp->View->show_view(dirname(__FILE__).'/views/login.php',$displayvars);
+		$ucp->View->show_view(__DIR__.'/views/login.php',$displayvars);
 	break;
 }
 
 $displayvars['language'] = $ucp->Modules->getGlobalLanguageJSON($lang);
 $displayvars['lang'] = $lang;
-$displayvars['ucpserver'] = json_encode($ucp->getServerSettings());
-$displayvars['modules'] = json_encode($active_modules);
+$displayvars['ucpserver'] = json_encode($ucp->getServerSettings(), JSON_THROW_ON_ERROR);
+$displayvars['modules'] = json_encode($active_modules, JSON_THROW_ON_ERROR);
 $displayvars['gScripts'] = $ucp->getScripts(false,$compressed);
 $displayvars['scripts'] = $ucp->Modules->getGlobalScripts(false,$compressed);
 $displayvars['timezone'] = $ucp->View->getTimezone();
@@ -271,9 +271,9 @@ $displayvars['datetimeformat'] = $ucp->View->getDateTimeFormat();
 $displayvars['dateformat'] = $ucp->View->getDateFormat();
 $displayvars['desktop'] = (!$ucp->Session->isMobile && !$ucp->Session->isTablet);
 $mods = $ucp->Modules->getModulesByMethod('getStaticSettings');
-$displayvars['moduleSettings'] = array();
+$displayvars['moduleSettings'] = [];
 foreach($mods as $m) {
-	$ucp->Modgettext->push_textdomain(strtolower($m));
+	$ucp->Modgettext->push_textdomain(strtolower((string) $m));
 	$displayvars['moduleSettings'][$m] = $ucp->Modules->$m->getStaticSettings();
 	$ucp->Modgettext->pop_textdomain();
 }
@@ -286,7 +286,7 @@ if(!empty($user["id"])) {
 } else {
 	$displayvars['year'] = date('Y', time());
 	$dbfc = FreePBX::Config()->get('VIEW_UCP_FOOTER_CONTENT');
-	$displayvars['dashboard_footer_content'] = $ucp->View->load_view(__DIR__ . "/" . $dbfc, array("year" => date('Y', time())));
+	$displayvars['dashboard_footer_content'] = $ucp->View->load_view(__DIR__ . "/" . $dbfc, ["year" => date('Y', time())]);
 }
 
-$ucp->View->show_view(dirname(__FILE__).'/views/footer.php',$displayvars);
+$ucp->View->show_view(__DIR__.'/views/footer.php',$displayvars);

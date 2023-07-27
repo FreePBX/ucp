@@ -6,7 +6,7 @@
  * Copyright 2006-2014 Schmooze Com Inc.
  */
 out('Remove all UCP tables');
-$tables = array('ucp_sessions');
+$tables = ['ucp_sessions'];
 foreach ($tables as $table) {
 	$sql = "DROP TABLE IF EXISTS {$table}";
 	$result = $db->query($sql);

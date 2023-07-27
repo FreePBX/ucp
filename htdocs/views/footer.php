@@ -1,5 +1,4 @@
-
-		<footer id="footer" data-footer-content="<?php echo isset($dashboard_footer_content) ? 1 : 0?>">
+<footer id="footer" data-footer-content="<?php $dashboard_footer_content??=''; echo isset($dashboard_footer_content) ? 1 : 0?>">
 			<hr>
 			<div id="footer-content" class="row d-flex justify-content-center">
 				<?php echo $dashboard_footer_content?>
@@ -25,8 +24,8 @@
 					$html .= "<script>$.extend($.fn.bootstrapTable.defaults, $.fn.bootstrapTable.locales['es-SP']);</script>";
 				break;
 				default:
-					$html .= '<script src="assets/js/bootstrap-table-locale/bootstrap-table-'.str_replace("_","-",$lang).'.js'.$version_tag.'"></script>';
-					$html .= "<script>$.extend($.fn.bootstrapTable.defaults, $.fn.bootstrapTable.locales['".str_replace("_","-",$lang)."']);</script>";
+					$html .= '<script src="assets/js/bootstrap-table-locale/bootstrap-table-'.str_replace("_","-",(string) $lang).'.js'.$version_tag.'"></script>';
+					$html .= "<script>$.extend($.fn.bootstrapTable.defaults, $.fn.bootstrapTable.locales['".str_replace("_","-",(string) $lang)."']);</script>";
 				break;
 			}
 			echo $html;
@@ -47,10 +46,10 @@
 				var timeformat = '<?php echo $timeformat ?>';
 				var dateformat = '<?php echo $dateformat ?>';
 				var datetimeformat = '<?php echo $datetimeformat ?>';
-				var moduleSettings = <?php echo json_encode($moduleSettings)?>;
-				var dashboards = <?php echo !empty($dashboards_info) ? json_encode($dashboards_info) : '{}'?>;
-				var allWidgets = <?php echo json_encode($all_widgets['widget'])?>;
-				var allSimpleWidgets = <?php echo json_encode($all_simple_widgets['widget'])?>;
+				var moduleSettings = <?php echo json_encode($moduleSettings, JSON_THROW_ON_ERROR)?>;
+				var dashboards = <?php echo !empty($dashboards_info) ? json_encode($dashboards_info, JSON_THROW_ON_ERROR) : '{}'?>;
+				var allWidgets = <?php echo json_encode($all_widgets['widget'], JSON_THROW_ON_ERROR)?>;
+				var allSimpleWidgets = <?php echo json_encode($all_simple_widgets['widget'], JSON_THROW_ON_ERROR)?>;
 				emojione.imagePathSVG = 'assets/images/emoji/svg/';
 				emojione.imageType = 'svg';
 			</script>

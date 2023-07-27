@@ -11,21 +11,22 @@
  * Copyright 2006-2014 Schmooze Com Inc.
  */
 namespace UCP;
-include(__DIR__.'/Module_Helpers.class.php');
+
+include(__DIR__ . '/Module_Helpers.class.php');
 class Modules extends Module_Helpers {
 	// Static Object used for self-referencing.
-	private static $obj;
+	private static \UCP\Modules $obj;
 	public static $conf;
 	protected $module = null;
-	private $freepbxActiveModules = array();
-	private $ucpActiveModules = array();
-	private $moduleMethods = array();
-	private $defaultModules = array("home", "settings", "widgets", "ucptour");
+	private $freepbxActiveModules = [];
+	private array $ucpActiveModules = [];
+	private array $moduleMethods = [];
+	private array $defaultModules = [ "home", "settings", "widgets", "ucptour" ];
 
 	function __construct($UCP) {
 		$this->UCP = $UCP;
 		// Ensure the local object is available
-		self::$obj = $this;
+		self::$obj                  = $this;
 		$this->freepbxActiveModules = $this->UCP->FreePBX->Modules->getActiveModules();
 	}
 
@@ -50,19 +51,19 @@ class Modules extends Module_Helpers {
 	 * Generate the navigation menu
 	 */
 	public function generateMenu() {
-		$menu = array();
+		$menu = [];
 		//module with no module folder
 		$modules = $this->getModulesByMethod('getMenuItems');
 		//Move Home to the Top in the menu structure.
 		unset($modules[array_search('Home', $modules)]);
 		array_unshift($modules, 'Home');
-		foreach($modules as $module) {
-			$module = ucfirst(strtolower($module));
-			$lc = strtolower($module);
+		foreach ($modules as $module) {
+			$module = ucfirst(strtolower((string) $module));
+			$lc     = strtolower($module);
 			$this->UCP->Modgettext->push_textdomain($lc);
 			$mm = $this->$module->getMenuItems();
 			$this->UCP->Modgettext->pop_textdomain();
-			if(!empty($mm)) {
+			if (!empty($mm)) {
 				$menu[$lc] = $mm;
 			}
 		}
@@ -76,12 +77,12 @@ class Modules extends Module_Helpers {
 	 */
 	public function moduleHasMethod($module, $method) {
 		$module = ucfirst(strtolower($module));
-		if(!empty($this->moduleMethods[$module]) && in_array($method,$this->moduleMethods[$module])) {
+		if (!empty($this->moduleMethods[$module]) && in_array($method, $this->moduleMethods[$module])) {
 			return true;
 		}
 		$amods = array_merge($this->defaultModules, array_keys($this->freepbxActiveModules));
-		if(file_exists(dirname(__DIR__)."/modules/".$module.'/'.$module.'.class.php') && in_array(strtolower($module),$amods)) {
-			if(method_exists($this->$module,$method)) {
+		if (file_exists(dirname(__DIR__) . "/modules/" . $module . '/' . $module . '.class.php') && in_array(strtolower($module), $amods)) {
+			if (method_exists($this->$module, $method)) {
 				$reflection = new \ReflectionMethod($this->$module, $method);
 				if ($reflection->isPublic()) {
 					$this->moduleMethods[$module][] = $method;
@@ -98,12 +99,12 @@ class Modules extends Module_Helpers {
 	 * @return {array} Hash of the object names
 	 */
 	public function getModulesByMethod($method) {
-		$objects = array();
-		$amods = array_merge($this->defaultModules, array_keys($this->freepbxActiveModules));
-		foreach (glob(dirname(__DIR__)."/modules/*", GLOB_ONLYDIR) as $module) {
-			$mod = basename($module);
-			if($this->moduleHasMethod($mod,$method)) {
-				$module = ucfirst(strtolower($mod));
+		$objects = [];
+		$amods   = array_merge($this->defaultModules, array_keys($this->freepbxActiveModules));
+		foreach (glob(dirname(__DIR__) . "/modules/*", GLOB_ONLYDIR) as $module) {
+			$mod = basename((string) $module);
+			if ($this->moduleHasMethod($mod, $method)) {
+				$module    = ucfirst(strtolower($mod));
 				$objects[] = $module;
 			}
 		}
@@ -115,7 +116,7 @@ class Modules extends Module_Helpers {
 	 */
 	function getAssignedDevices() {
 		$user = $this->UCP->User->getUser();
-		return !empty($user['assigned']) ? $user['assigned'] : array();
+		return !empty($user['assigned']) ? $user['assigned'] : [];
 	}
 
 	/**
@@ -140,7 +141,7 @@ class Modules extends Module_Helpers {
 	 * Get Module Menu Items
 	 */
 	public function getMenuItems() {
-		return array();
+		return [];
 	}
 
 
@@ -167,27 +168,27 @@ class Modules extends Module_Helpers {
 	 * Get all module Javascripts
 	 * @param bool $force Whether to forcefully regenerate all cache even if we dont need to do so
 	 */
-	public function getGlobalScripts($force = false,$packaged=true) {
+	public function getGlobalScripts($force = false, $packaged = true) {
 		set_time_limit(0);
-		$cache = dirname(__DIR__).'/assets/js/compiled/modules';
-		if(!file_exists($cache) && !mkdir($cache,0777,true)) {
-			die('Can Not Create Cache Folder at '.$cache);
+		$cache = dirname(__DIR__) . '/assets/js/compiled/modules';
+		if (!file_exists($cache) && !mkdir($cache, 0777, true)) {
+			die('Can Not Create Cache Folder at ' . $cache);
 		}
-		$amods = array_merge($this->defaultModules, array_keys($this->freepbxActiveModules));
+		$amods    = array_merge($this->defaultModules, array_keys($this->freepbxActiveModules));
 		$contents = '';
-		$files = array();
-		foreach (glob(dirname(__DIR__)."/modules/*", GLOB_ONLYDIR) as $module) {
-			$mod = basename($module);
-			if(file_exists($module.'/'.$mod.'.class.php')) {
+		$files    = [];
+		foreach (glob(dirname(__DIR__) . "/modules/*", GLOB_ONLYDIR) as $module) {
+			$mod = basename((string) $module);
+			if (file_exists($module . '/' . $mod . '.class.php')) {
 				$module = ucfirst(strtolower($mod));
-				if(!in_array(strtolower($mod), $amods)) {
+				if (!in_array(strtolower($mod), $amods)) {
 					continue;
 				}
-				$dir = dirname(__DIR__)."/modules/".$module."/assets/js";
-				if(is_dir($dir)) {
-					foreach (glob($dir."/*.js") as $file) {
-						$files[] = str_replace(dirname(__DIR__).'/modules/','modules/',$file);
-						$contents .= file_get_contents($file)."\n";
+				$dir = dirname(__DIR__) . "/modules/" . $module . "/assets/js";
+				if (is_dir($dir)) {
+					foreach (glob($dir . "/*.js") as $file) {
+						$files[]  = str_replace(dirname(__DIR__) . '/modules/', 'modules/', (string) $file);
+						$contents .= file_get_contents($file) . "\n";
 					}
 				}
 			}
@@ -198,18 +199,18 @@ class Modules extends Module_Helpers {
 			return $files;
 		}
 
-		$md5 = md5($contents);
-		$filename = 'jsphp_'.$md5.'.js';
-		if(!file_exists($cache.'/'.$filename) || $force) {
-			foreach(glob($cache.'/jsphp_*.js') as $f) {
+		$md5      = md5($contents);
+		$filename = 'jsphp_' . $md5 . '.js';
+		if (!file_exists($cache . '/' . $filename) || $force) {
+			foreach (glob($cache . '/jsphp_*.js') as $f) {
 				unlink($f);
 			}
 			$output = \JShrink\Minifier::minify($contents);
 			$output = $contents;
-			file_put_contents($cache.'/'.$filename,$output);
+			file_put_contents($cache . '/' . $filename, $output);
 		}
 
-		return array("assets/js/compiled/modules/".$filename);
+		return [ "assets/js/compiled/modules/" . $filename ];
 	}
 
 	/**
@@ -218,41 +219,42 @@ class Modules extends Module_Helpers {
 	 */
 	public function getGlobalLess($force = false) {
 		set_time_limit(0);
-		$cache = dirname(__DIR__).'/assets/css/compiled/modules';
-		if(!file_exists($cache) && !mkdir($cache,0777,true)) {
-			die('Can Not Create Cache Folder at '.$cache);
+		$cache = dirname(__DIR__) . '/assets/css/compiled/modules';
+		if (!file_exists($cache) && !mkdir($cache, 0777, true)) {
+			die('Can Not Create Cache Folder at ' . $cache);
 		}
-		if($force) {
-			foreach(glob($cache.'/lessphp_*') as $f) {
+		if ($force) {
+			foreach (glob($cache . '/lessphp_*') as $f) {
 				unlink($f);
 			}
 		}
-		$amods = array_merge($this->defaultModules, array_keys($this->freepbxActiveModules));
+		$amods                  = array_merge($this->defaultModules, array_keys($this->freepbxActiveModules));
 		\Less_Cache::$cache_dir = $cache;
-		$files = array();
-		foreach (glob(dirname(__DIR__)."/modules/*", GLOB_ONLYDIR) as $module) {
-			$mod = basename($module);
-			if(file_exists($module.'/'.$mod.'.class.php')) {
+		$files                  = [];
+		foreach (glob(dirname(__DIR__) . "/modules/*", GLOB_ONLYDIR) as $module) {
+			$mod = basename((string) $module);
+			if (file_exists($module . '/' . $mod . '.class.php')) {
 				$module = ucfirst(strtolower($mod));
-				if(!in_array(strtolower($mod), $amods)) {
+				if (!in_array(strtolower($mod), $amods)) {
 					continue;
 				}
-				$dir = dirname(__DIR__)."/modules/".$module."/assets/less";
-				if(is_dir($dir)) {
-					if(file_exists($dir.'/bootstrap.less')) {
-						$files[$dir."/bootstrap.less"] = '../../../../modules/'.ucfirst($module).'/assets';
-					} elseif(file_exists($dir.'/'.$module.'.less')) {
-						$files[$dir."/".$module.".less"] = '../../../../modules/'.ucfirst($module).'/assets';
+				$dir = dirname(__DIR__) . "/modules/" . $module . "/assets/less";
+				if (is_dir($dir)) {
+					if (file_exists($dir . '/bootstrap.less')) {
+						$files[$dir . "/bootstrap.less"] = '../../../../modules/' . ucfirst($module) . '/assets';
+					}
+					elseif (file_exists($dir . '/' . $module . '.less')) {
+						$files[$dir . "/" . $module . ".less"] = '../../../../modules/' . ucfirst($module) . '/assets';
 					}
 				}
 			}
 		}
-		$ucpModSkinVariables = array();
-		if ($this->UCP->FreePBX->Modules->checkStatus('oembranding') && 
-				($this->UCP->FreePBX->Modules->moduleHasMethod('oembranding', 'getUCPModuleSkin'))) {
+		$ucpModSkinVariables = [];
+		if ($this->UCP->FreePBX->Modules->checkStatus('oembranding') &&
+			($this->UCP->FreePBX->Modules->moduleHasMethod('oembranding', 'getUCPModuleSkin'))) {
 			$ucpModSkinVariables = \FreePBX::Oembranding()->getUCPModuleSkin();
 		}
-		$css_file_name = \Less_Cache::Get( $files, array('compress' => true), $ucpModSkinVariables );
+		$css_file_name = \Less_Cache::Get($files, [ 'compress' => true ], $ucpModSkinVariables);
 
 		return $css_file_name;
 	}
@@ -262,21 +264,21 @@ class Modules extends Module_Helpers {
 	 * @param string $language the language
 	 */
 	public function getGlobalLanguageJSON($language) {
-		$modules = array();
-		foreach (glob(dirname(__DIR__)."/modules/*", GLOB_ONLYDIR) as $module) {
-			$mod = basename($module);
-			if(file_exists($module.'/'.$mod.'.class.php')) {
+		$modules = [];
+		foreach (glob(dirname(__DIR__) . "/modules/*", GLOB_ONLYDIR) as $module) {
+			$mod = basename((string) $module);
+			if (file_exists($module . '/' . $mod . '.class.php')) {
 				$modules[] = $mod;
 			}
 		}
 		return $this->UCP->FreePBX->Ucp->getModulesLanguage($language, $modules);
 	}
 
-	protected function load_view($view_filename_protected, $vars = array()) {
+	protected function load_view($view_filename_protected, $vars = []) {
 		return $this->UCP->View->load_view($view_filename_protected, $vars);
 	}
 
-	protected function show_view($view_filename_protected, $vars = array()) {
+	protected function show_view($view_filename_protected, $vars = []) {
 		return $this->UCP->View->show_view($view_filename_protected, $vars);
 	}
 }

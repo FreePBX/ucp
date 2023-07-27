@@ -32,25 +32,10 @@ class Dashboards {
 	 * @return bool True if pass
 	 */
 	function ajaxRequest($command, $settings) {
-		switch($command) {
-			case 'add':
-			case 'rename':
-			case 'remove':
-			case 'reorder':
-			case 'dashboards':
-			case 'savedashlayout':
-			case 'savesimplelayout':
-			case 'getdashlayout':
-			case 'getallwidgets':
-			case 'getwidgetcontent':
-			case 'getsimplewidgetcontent':
-			case 'getwidgetsettingscontent':
-			case 'getsimplewidgetsettingscontent':
-				return true;
-			default:
-				return false;
-			break;
-		}
+		return match ($command) {
+      'add', 'rename', 'remove', 'reorder', 'dashboards', 'savedashlayout', 'savesimplelayout', 'getdashlayout', 'getallwidgets', 'getwidgetcontent', 'getsimplewidgetcontent', 'getwidgetsettingscontent', 'getsimplewidgetsettingscontent' => true,
+      default => false,
+  };
 	}
 
 	/**
@@ -61,44 +46,41 @@ class Dashboards {
 	 * @return mixed Output if success, otherwise false will generate a 500 error serverside
 	 */
 	function ajaxHandler() {
-		$return = array("status" => false, "message" => "");
+		$return = ["status" => false, "message" => ""];
 		switch($_REQUEST['command']) {
 			case 'add':
 				$user = $this->UCP->User->getUser();
 				$dashboards = $this->UCP->getGlobalSettingByID($user['id'],'dashboards');
-				$dashboards = is_array($dashboards) ? $dashboards : array();
+				$dashboards = is_array($dashboards) ? $dashboards : [];
 				$id = (string)Uuid::uuid4();
-				$dashboards[] = array(
-					"id" => $id,
-					"name" => $_POST['name']
-				);
+				$dashboards[] = ["id" => $id, "name" => $_POST['name']];
 				$this->UCP->setGlobalSettingByID($user['id'],'dashboards',$dashboards);
-				return array("status" => true, "id" => $id);
+				return ["status" => true, "id" => $id??''];
 			break;
 			case 'rename':
 				$user = $this->UCP->User->getUser();
 				$dashboards = $this->UCP->getGlobalSettingByID($user['id'],'dashboards');
-				$dashboards = is_array($dashboards) ? $dashboards : array();
+				$dashboards = is_array($dashboards) ? $dashboards : [];
 				foreach($dashboards as $k => $d) {
 					if($d['id'] == $_POST['id']) {
 						$dashboards[$k]['name'] = $_POST['name'];
 						$this->UCP->setGlobalSettingByID($user['id'],'dashboards',$dashboards);
-						return array("status" => true, "id" => $id);
+						return ["status" => true, "id" => $id??''];
 						break;
 					}
 				}
-				return array("status" => false, "message" => "Invalid Dashboard ID");
+				return ["status" => false, "message" => "Invalid Dashboard ID"];
 			break;
 			case 'remove':
 				$user = $this->UCP->User->getUser();
 				$dashboards = $this->UCP->getGlobalSettingByID($user['id'],'dashboards');
-				$dashboards = is_array($dashboards) ? $dashboards : array();
+				$dashboards = is_array($dashboards) ? $dashboards : [];
 				foreach($dashboards as $k => $d) {
 					if($d['id'] == $_POST['id']) {
 						unset($dashboards[$k]);
 						$this->UCP->setGlobalSettingByID($user['id'],'dashboards',$dashboards);
 						$this->UCP->setGlobalSettingByID($user['id'],'dashboard-layout-'.$_POST['id'],null);
-						return array("status" => true);
+						return ["status" => true];
 						break;
 					}
 				}
@@ -107,14 +89,14 @@ class Dashboards {
 				$order = $_POST['order'];
 				$user = $this->UCP->User->getUser();
 				$dashboards = $this->UCP->getGlobalSettingByID($user['id'],'dashboards');
-				$dashboards = is_array($dashboards) ? $dashboards : array();
+				$dashboards = is_array($dashboards) ? $dashboards : [];
 				@usort($dashboards, function($a,$b) use ($order) {
 					$keya = array_search($a['id'],$order);
 					$keyb = array_search($b['id'],$order);
 					return ($keya < $keyb) ? -1 : 1;
 				});
 				$this->UCP->setGlobalSettingByID($user['id'],'dashboards',$dashboards);
-				return array("status" => true);
+				return ["status" => true];
 			break;
 			case 'dashboards':
 				return $this->getDashboards();
@@ -164,7 +146,7 @@ class Dashboards {
 		}
 		$user = $this->UCP->User->getUser();
 		$dashboards = $user ? $this->UCP->getGlobalSettingByID($user['id'],'dashboards') : [];
-		$dashboards = is_array($dashboards) ? $dashboards : array();
+		$dashboards = is_array($dashboards) ? $dashboards : [];
 		$this->dashboardCache = $dashboards;
 		return $this->dashboardCache;
 	}
@@ -191,9 +173,9 @@ class Dashboards {
 
 	public function getAllWidgets() {
 		$modules = $this->UCP->Modules->getModulesByMethod('getWidgetList');
-		$list = array();
+		$list = [];
 		foreach($modules as $module) {
-			$module = ucfirst(strtolower($module));
+			$module = ucfirst(strtolower((string) $module));
 			$lc = strtolower($module);
 			$this->UCP->Modgettext->push_textdomain($lc);
 			$mm = $this->UCP->Modules->$module->getWidgetList();
@@ -202,14 +184,14 @@ class Dashboards {
 				$list[$module] = $mm;
 			}
 		}
-		return array("status" => true, "widget" => $list);
+		return ["status" => true, "widget" => $list];
 	}
 
 	public function getAllSimpleWidgets() {
 		$modules = $this->UCP->Modules->getModulesByMethod('getSimpleWidgetList');
-		$list = array();
+		$list = [];
 		foreach($modules as $module) {
-			$module = ucfirst(strtolower($module));
+			$module = ucfirst(strtolower((string) $module));
 			$lc = strtolower($module);
 			$this->UCP->Modgettext->push_textdomain($lc);
 			$mm = $this->UCP->Modules->$module->getSimpleWidgetList();
@@ -219,36 +201,36 @@ class Dashboards {
 			}
 		}
 
-		return array("status" => true, "widget" => $list);
+		return ["status" => true, "widget" => $list];
 	}
 
 	public function getWidgetContent($rawname, $id, $uuid) {
 		if($this->UCP->Modules->moduleHasMethod($rawname, 'getWidgetDisplay')) {
-			$module = ucfirst(strtolower($rawname));
+			$module = ucfirst(strtolower((string) $rawname));
 			return $this->UCP->Modules->$module->getWidgetDisplay($id, $uuid);
 		}
 	}
 
 	public function getSimpleWidgetContent($rawname, $id, $uuid) {
 		if($this->UCP->Modules->moduleHasMethod($rawname, 'getSimpleWidgetDisplay')) {
-			$module = ucfirst(strtolower($rawname));
+			$module = ucfirst(strtolower((string) $rawname));
 			return $this->UCP->Modules->$module->getSimpleWidgetDisplay($id, $uuid);
 		}
 		if($this->UCP->Modules->moduleHasMethod($rawname, 'getWidgetDisplay')) {
-			$module = ucfirst(strtolower($rawname));
+			$module = ucfirst(strtolower((string) $rawname));
 			return $this->UCP->Modules->$module->getWidgetDisplay($id, $uuid);
 		}
 	}
 
 	public function getWidgetSettingsContent($rawname, $id, $uuid) {
 		if($this->UCP->Modules->moduleHasMethod($rawname, 'getWidgetSettingsDisplay')) {
-			$module = ucfirst(strtolower($rawname));
+			$module = ucfirst(strtolower((string) $rawname));
 			return $this->UCP->Modules->$module->getWidgetSettingsDisplay($id, $uuid);
 		}
 	}
 	public function getSimpleWidgetSettingsContent($rawname, $id, $uuid) {
 		if($this->UCP->Modules->moduleHasMethod($rawname, 'getSimpleWidgetSettingsDisplay')) {
-			$module = ucfirst(strtolower($rawname));
+			$module = ucfirst(strtolower((string) $rawname));
 			return $this->UCP->Modules->$module->getSimpleWidgetSettingsDisplay($id, $uuid);
 		}
 	}

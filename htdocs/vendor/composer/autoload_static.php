@@ -4,63 +4,63 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInit15b5352b00b3e50849592447f8f8987f
-{
-    public static $prefixLengthsPsr4 = array (
-        'M' => 
-        array (
+class ComposerStaticInit15b5352b00b3e50849592447f8f8987f {
+    public static $prefixLengthsPsr4 = array(
+        'M' =>
+        array(
             'MatthiasMullie\\PathConverter\\' => 29,
-            'MatthiasMullie\\Minify\\' => 22,
+            'MatthiasMullie\\Minify\\'        => 22,
         ),
     );
 
-    public static $prefixDirsPsr4 = array (
-        'MatthiasMullie\\PathConverter\\' => 
-        array (
+    public static $prefixDirsPsr4 = array(
+        'MatthiasMullie\\PathConverter\\' =>
+        array(
             0 => __DIR__ . '/..' . '/matthiasmullie/path-converter/src',
         ),
-        'MatthiasMullie\\Minify\\' => 
-        array (
+        'MatthiasMullie\\Minify\\'        =>
+        array(
             0 => __DIR__ . '/..' . '/matthiasmullie/minify/src',
         ),
     );
 
-    public static $prefixesPsr0 = array (
-        'L' => 
-        array (
-            'Less' => 
-            array (
-                0 => __DIR__ . '/..' . '/oyejorge/less.php/lib',
+    public static $prefixesPsr0 = array(
+        'L' =>
+        array(
+            'Less' =>
+            array(
+                0 => __DIR__ . '/..' . '/wikimedia/less.php/lib',
             ),
         ),
-        'J' => 
-        array (
-            'JShrink' => 
-            array (
+        'J' =>
+        array(
+            'JShrink' =>
+            array(
                 0 => __DIR__ . '/..' . '/tedivm/jshrink/src',
             ),
         ),
-        'D' => 
-        array (
-            'Detection' => 
-            array (
+        'D' =>
+        array(
+            'Detection' =>
+            array(
                 0 => __DIR__ . '/..' . '/mobiledetect/mobiledetectlib/namespaced',
             ),
         ),
     );
 
-    public static $classMap = array (
-        'Mobile_Detect' => __DIR__ . '/..' . '/mobiledetect/mobiledetectlib/Mobile_Detect.php',
-        'lessc' => __DIR__ . '/..' . '/oyejorge/less.php/lessc.inc.php',
+    public static $classMap = array(
+        'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
+        'Mobile_Detect'               => __DIR__ . '/..' . '/mobiledetect/mobiledetectlib/Mobile_Detect.php',
+        'lessc'                       => __DIR__ . '/..' . '/wikimedia/less.php/lessc.inc.php',
     );
 
-    public static function getInitializer(ClassLoader $loader)
-    {
-        return \Closure::bind(function () use ($loader) {
+    public static function getInitializer(ClassLoader $loader) {
+        return \Closure::bind(function () use ($loader)
+        {
             $loader->prefixLengthsPsr4 = ComposerStaticInit15b5352b00b3e50849592447f8f8987f::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInit15b5352b00b3e50849592447f8f8987f::$prefixDirsPsr4;
-            $loader->prefixesPsr0 = ComposerStaticInit15b5352b00b3e50849592447f8f8987f::$prefixesPsr0;
-            $loader->classMap = ComposerStaticInit15b5352b00b3e50849592447f8f8987f::$classMap;
+            $loader->prefixDirsPsr4    = ComposerStaticInit15b5352b00b3e50849592447f8f8987f::$prefixDirsPsr4;
+            $loader->prefixesPsr0      = ComposerStaticInit15b5352b00b3e50849592447f8f8987f::$prefixesPsr0;
+            $loader->classMap          = ComposerStaticInit15b5352b00b3e50849592447f8f8987f::$classMap;
 
         }, null, ClassLoader::class);
     }

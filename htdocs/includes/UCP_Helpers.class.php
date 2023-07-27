@@ -97,7 +97,7 @@ class UCP_Helpers {
 		}
 
 		// Ensure no-one's trying to include something with a path in it.
-		if (strpos($var, "/") || strpos($var, ".."))
+		if (strpos((string) $var, "/") || strpos((string) $var, ".."))
 			throw new \Exception("Invalid include given to AutoLoader - $var");
 
 		// This will throw an Exception if it can't find the class.

@@ -11,12 +11,11 @@
  * Copyright 2006-2014 Schmooze Com Inc.
  */
 namespace UCP;
-class Session extends UCP {
-	private $UCP;
-	private $prefix = 'UCP_';
 
-	function __construct($UCP) {
-		$this->UCP = $UCP;
+class Session extends UCP {
+	private string $prefix = 'UCP_';
+
+	function __construct(private $UCP) {
 	}
 
 	/**
@@ -27,10 +26,10 @@ class Session extends UCP {
 	 * @param string $id The Token 'key'
 	 * @return string The token
 	 */
-	function generateToken($id='default') {
+	function generateToken($id = 'default') {
 		$token = bin2hex(openssl_random_pseudo_bytes(16));
 		$this->startSession();
-		$_SESSION['UCP_'.$id.'_token'] = $token;
+		$_SESSION['UCP_' . $id . '_token'] = $token;
 		session_write_close();
 		return $token;
 	}
@@ -43,19 +42,19 @@ class Session extends UCP {
 	 * @param string $id The Token 'key'
 	 * @return bool true is passed, false if failure
 	 */
-	function verifyToken($id='default') {
+	function verifyToken($id = 'default') {
 		$this->startSession();
-		if(!isset($_SESSION[$this->prefix.$id.'_token'])) {
+		if (!isset($_SESSION[$this->prefix . $id . '_token'])) {
 			return false;
 		}
-		if(!isset($_POST['token'])) {
+		if (!isset($_POST['token'])) {
 			session_write_close();
 			return false;
-	    }
-		if ($_SESSION[$this->prefix.$id.'_token'] !== $_POST['token']) {
+		}
+		if ($_SESSION[$this->prefix . $id . '_token'] !== $_POST['token']) {
 			session_write_close();
 			return false;
-	    }
+		}
 		session_write_close();
 		return true;
 	}
@@ -71,7 +70,7 @@ class Session extends UCP {
 	 */
 	public function __isset($name) {
 		$this->startSession();
-		$var = isset($_SESSION[$this->prefix.$name]);
+		$var = isset($_SESSION[$this->prefix . $name]);
 		session_write_close();
 		return $var;
 	}
@@ -87,11 +86,12 @@ class Session extends UCP {
 	 */
 	public function __get($name) {
 		$this->startSession();
-		if(isset($_SESSION[$this->prefix.$name])) {
-			$var = $_SESSION[$this->prefix.$name];
+		if (isset($_SESSION[$this->prefix . $name])) {
+			$var = $_SESSION[$this->prefix . $name];
 			session_write_close();
 			return $var;
-		} else {
+		}
+		else {
 			session_write_close();
 			return null;
 		}
@@ -109,13 +109,13 @@ class Session extends UCP {
 	 */
 	public function __set($name, $value) {
 		$this->startSession();
-		$_SESSION[$this->prefix.$name] = $value;
+		$_SESSION[$this->prefix . $name] = $value;
 		session_write_close();
 		return true;
 	}
 
 	private function startSession() {
-		if(!headers_sent()) {
+		if (!headers_sent()) {
 			session_start();
 		}
 	}

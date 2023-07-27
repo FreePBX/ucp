@@ -11,6 +11,7 @@
  * Copyright 2006-2014 Schmooze Com Inc.
  */
 namespace UCP;
+
 class Template extends UCP {
 	function __construct($UCP) {
 		$this->UCP = $UCP;
@@ -25,18 +26,12 @@ class Template extends UCP {
 	 * @param {string} $link     The link for the href tag that will be appended to
 	 * @param {int} $break=10 How many page links to display to the user
 	 */
-	public function generatePagnation($total,$current,$link,$break=10) {
+	public function generatePagnation($total, $current, $link, $break = 10) {
 		$this->UCP->Modgettext->push_textdomain("ucp");
-		$start = (ceil($current / $break) * $break) - ($break -1);
-		$end = ceil($current / $break) * $break;
-		$data = array(
-			'startPage' => $start,
-			'activePage' => $current,
-			'endPage' => ($end < $total) ? $end : $total,
-			'totalPages' => $total,
-			'link' => $link
-		);
-		$html = $this->UCP->View->load_view(dirname(__DIR__).'/views/templates/pagnation.php', $data);
+		$start = (ceil($current / $break) * $break) - ($break - 1);
+		$end   = ceil($current / $break) * $break;
+		$data  = [ 'startPage' => $start, 'activePage' => $current, 'endPage' => ($end < $total) ? $end : $total, 'totalPages' => $total, 'link' => $link ];
+		$html  = $this->UCP->View->load_view(dirname(__DIR__) . '/views/templates/pagnation.php', $data);
 		$this->UCP->Modgettext->pop_textdomain();
 		return $html;
 	}

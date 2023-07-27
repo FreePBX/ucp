@@ -21,7 +21,7 @@ class Dashboard extends Base {
 		$app->get('/dashboard/tab', function ($request, $response, $args) {
 			$user = $request->getAttribute('oauth_user_id');
 			$dashboards = $this->freepbx->Ucp->getSettingByID($user,'Global','dashboards');
-			$dashboards = is_array($dashboards) ? $dashboards : array();
+			$dashboards = is_array($dashboards) ? $dashboards : [];
 			return $response->withJson($dashboards);
 		})->add($this->checkReadScopeMiddleware('dashboard'));
 
@@ -30,14 +30,14 @@ class Dashboard extends Base {
 			$order = $request->getParsedBody();
 			$user = $request->getAttribute('oauth_user_id');
 			$dashboards = $this->freepbx->Ucp->getSettingByID($user,'Global','dashboards');
-			$dashboards = is_array($dashboards) ? $dashboards : array();
+			$dashboards = is_array($dashboards) ? $dashboards : [];
 			@usort($dashboards, function($a,$b) use ($order) {
 				$keya = array_search($a['id'],$order);
 				$keyb = array_search($b['id'],$order);
 				return ($keya < $keyb) ? -1 : 1;
 			});
 			$this->freepbx->Ucp->setSettingByID($user,'Global','dashboards',$dashboards);
-			return $response->withJson(array("status" => true));
+			return $response->withJson(["status" => true]);
 		})->add($this->checkWriteScopeMiddleware('dashboard'));
 
 		//add new dashboard
@@ -45,14 +45,11 @@ class Dashboard extends Base {
 			$params = $request->getParsedBody();
 			$user = $request->getAttribute('oauth_user_id');
 			$dashboards = $this->freepbx->Ucp->getSettingByID($user,'Global','dashboards');
-			$dashboards = is_array($dashboards) ? $dashboards : array();
+			$dashboards = is_array($dashboards) ? $dashboards : [];
 			$id = (string)Uuid::uuid4();
-			$dashboards[] = array(
-				"id" => $id,
-				"name" => $params['name']
-			);
+			$dashboards[] = ["id" => $id, "name" => $params['name']];
 			$this->freepbx->Ucp->setSettingByID($user,'Global','dashboards',$dashboards);
-			return $response->withJson(array("status" => true, "id" => $id));
+			return $response->withJson(["status" => true, "id" => $id]);
 		})->add($this->checkWriteScopeMiddleware('dashboard'));
 
 		//update dashboard
@@ -60,13 +57,13 @@ class Dashboard extends Base {
 			$params = $request->getParsedBody();
 			$user = $request->getAttribute('oauth_user_id');
 			$dashboards = $this->freepbx->Ucp->getSettingByID($user,'Global','dashboards');
-			$dashboards = is_array($dashboards) ? $dashboards : array();
-			$res = array("status" => false, "message" => "Invalid Dashboard ID");
+			$dashboards = is_array($dashboards) ? $dashboards : [];
+			$res = ["status" => false, "message" => "Invalid Dashboard ID"];
 			foreach($dashboards as $k => $d) {
 				if($d['id'] == $args['dashboard_id']) {
 					$dashboards[$k]['name'] = $params['name'];
 					$this->freepbx->Ucp->setSettingByID($user,'Global','dashboards',$dashboards);
-					$res = array("status" => true, "id" => $d['id']);
+					$res = ["status" => true, "id" => $d['id']];
 					break;
 				}
 			}
@@ -77,14 +74,14 @@ class Dashboard extends Base {
 		$app->delete('/dashboard/tab/{dashboard_id}', function ($request, $response, $args) {
 			$user = $request->getAttribute('oauth_user_id');
 			$dashboards = $this->freepbx->Ucp->getSettingByID($user,'Global','dashboards');
-			$dashboards = is_array($dashboards) ? $dashboards : array();
-			$res = array("status" => false, "message" => "Invalid Dashboard ID");
+			$dashboards = is_array($dashboards) ? $dashboards : [];
+			$res = ["status" => false, "message" => "Invalid Dashboard ID"];
 			foreach($dashboards as $k => $d) {
 				if($d['id'] == $args['dashboard_id']) {
 					unset($dashboards[$k]);
 					$this->freepbx->Ucp->setSettingByID($user,'Global','dashboards',$dashboards);
 					$this->freepbx->Ucp->setSettingByID($user,'Global','dashboard-layout-'.$args['dashboard_id'],null);
-					$res = array("status" => true);
+					$res = ["status" => true];
 					break;
 				}
 			}
@@ -95,15 +92,15 @@ class Dashboard extends Base {
 		$app->get('/dashboard/{dashboard_id}/widget', function ($request, $response, $args) {
 			$user = $request->getAttribute('oauth_user_id');
 			$widgets = $this->freepbx->Ucp->getSettingByID($user,'Global','dashboard-layout-'.$args['dashboard_id']);
-			$widgets = json_decode($widgets,true);
+			$widgets = json_decode($widgets,true, 512, JSON_THROW_ON_ERROR);
 			return $response->withJson($widgets);
 		})->add($this->checkReadScopeMiddleware('dashboard'));
 
 		//update dashboard widget layout
 		$app->post('/dashboard/{dashboard_id}/widget/layout', function ($request, $response, $args) {
 			$user = $request->getAttribute('oauth_user_id');
-			$this->freepbx->Ucp->setSettingByID($user,'Global','dashboard-layout-'.$args['dashboard_id'],json_encode($request->getParsedBody()));
-			return $response->withJson(array("status" => true));
+			$this->freepbx->Ucp->setSettingByID($user,'Global','dashboard-layout-'.$args['dashboard_id'],json_encode($request->getParsedBody(), JSON_THROW_ON_ERROR));
+			return $response->withJson(["status" => true]);
 		})->add($this->checkWriteScopeMiddleware('dashboard'));
 
 		//get widget content
@@ -113,17 +110,17 @@ class Dashboard extends Base {
 
 			$widgets = $this->freepbx->Ucp->getSettingByID($user,'Global','dashboard-layout-'.$args['dashboard_id']);
 
-			$widgets = json_decode($widgets,true);
+			$widgets = json_decode($widgets,true, 512, JSON_THROW_ON_ERROR);
 
 			foreach($widgets as $widget) {
 				if($widget['id'] === $args['widget_id']) {
 					if($ucp->Modules->moduleHasMethod($widget['rawname'], 'getWidgetDisplay')) {
-						$module = ucfirst(strtolower($widget['rawname']));
+						$module = ucfirst(strtolower((string) $widget['rawname']));
 						return $response->withJson($ucp->Modules->$module->getWidgetDisplay($widget['widget_type_id'], $widget['id']));
 					}
 				}
 			}
-			return $response->withJson(array());
+			return $response->withJson([]);
 		})->add($this->checkReadScopeMiddleware('dashboard'));
 
 		//get widget setting content
@@ -133,57 +130,57 @@ class Dashboard extends Base {
 
 			$widgets = $this->freepbx->Ucp->getSettingByID($user,'Global','dashboard-layout-'.$args['dashboard_id']);
 
-			$widgets = json_decode($widgets,true);
+			$widgets = json_decode($widgets,true, 512, JSON_THROW_ON_ERROR);
 
 			foreach($widgets as $widget) {
 				if($widget['id'] === $args['widget_id']) {
 					if($ucp->Modules->moduleHasMethod($widget['rawname'], 'getWidgetDisplay')) {
-						$module = ucfirst(strtolower($widget['rawname']));
+						$module = ucfirst(strtolower((string) $widget['rawname']));
 						return $response->withJson($ucp->Modules->$module->getWidgetSettingsDisplay($widget['widget_type_id'], $widget['id']));
 					}
 				}
 			}
-			return $response->withJson(array());
+			return $response->withJson([]);
 		})->add($this->checkReadScopeMiddleware('dashboard'));
 
 		//get side widgets
 		$app->get('/dashboard/side', function ($request, $response, $args) {
 			$user = $request->getAttribute('oauth_user_id');
 			$dashboards = $this->freepbx->Ucp->getSettingByID($user,'Global','dashboard-simple-layout');
-			$dashboards = json_decode($dashboards,true);
-			$dashboards = is_array($dashboards) ? $dashboards : array();
+			$dashboards = json_decode($dashboards,true, 512, JSON_THROW_ON_ERROR);
+			$dashboards = is_array($dashboards) ? $dashboards : [];
 			return $response->withJson($dashboards);
 		})->add($this->checkReadScopeMiddleware('dashboard'));
 
 		//update side layout
 		$app->post('/dashboard/side/layout', function ($request, $response, $args) {
 			$user = $request->getAttribute('oauth_user_id');
-			$this->freepbx->Ucp->setSettingByID($user,'Global','dashboard-simple-layout',json_encode($request->getParsedBody()));
-			return $response->withJson(array('status' => true));
+			$this->freepbx->Ucp->setSettingByID($user,'Global','dashboard-simple-layout',json_encode($request->getParsedBody(), JSON_THROW_ON_ERROR));
+			return $response->withJson(['status' => true]);
 		})->add($this->checkWriteScopeMiddleware('dashboard'));
 
 		//get side widget content
 		$app->get('/dashboard/side/{widget_id}/content', function ($request, $response, $args) {
 			$user = $request->getAttribute('oauth_user_id');
 			$widgets = $this->freepbx->Ucp->getSettingByID($user,'Global','dashboard-simple-layout');
-			$widgets = json_decode($widgets,true);
+			$widgets = json_decode($widgets,true, 512, JSON_THROW_ON_ERROR);
 
 			$ucp = $this->freepbx->Ucp->getUCPObject($user);
 
 			foreach($widgets as $widget) {
 				if($widget['id'] === $args['widget_id']) {
 					if($ucp->Modules->moduleHasMethod($widget['rawname'], 'getSimpleWidgetDisplay')) {
-						$module = ucfirst(strtolower($widget['rawname']));
+						$module = ucfirst(strtolower((string) $widget['rawname']));
 						return $response->withJson($ucp->Modules->$module->getSimpleWidgetDisplay($widget['widget_type_id'], $widget['id']));
 					}
 					if($ucp->Modules->moduleHasMethod($widget['rawname'], 'getWidgetDisplay')) {
-						$module = ucfirst(strtolower($widget['rawname']));
+						$module = ucfirst(strtolower((string) $widget['rawname']));
 						return $response->withJson($ucp->Modules->$module->getWidgetDisplay($widget['widget_type_id'], $widget['id']));
 					}
 				}
 			}
 
-			return $response->withJson(array());
+			return $response->withJson([]);
 		})->add($this->checkReadScopeMiddleware('dashboard'));
 
 		//get side widget setting content
@@ -193,17 +190,17 @@ class Dashboard extends Base {
 
 			$widgets = $this->freepbx->Ucp->getSettingByID($user,'Global','dashboard-simple-layout');
 
-			$widgets = json_decode($widgets,true);
+			$widgets = json_decode($widgets,true, 512, JSON_THROW_ON_ERROR);
 
 			foreach($widgets as $widget) {
 				if($widget['id'] === $args['widget_id']) {
 					if($ucp->Modules->moduleHasMethod($widget['rawname'], 'getSimpleWidgetSettingsDisplay')) {
-						$module = ucfirst(strtolower($widget['rawname']));
+						$module = ucfirst(strtolower((string) $widget['rawname']));
 						return $response->withJson($ucp->Modules->$module->getSimpleWidgetSettingsDisplay($widget['widget_type_id'], $widget['id']));
 					}
 				}
 			}
-			return $response->withJson(array());
+			return $response->withJson([]);
 		})->add($this->checkReadScopeMiddleware('dashboard'));
 	}
 }
