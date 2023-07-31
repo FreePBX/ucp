@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-05-17 11:30+0000\n"
+"POT-Creation-Date: 2023-07-31 06:09+0000\n"
 "PO-Revision-Date: 2016-12-13 14:49+0200\n"
 "Last-Translator: Maxim <maxim@ua.fm>\n"
 "Language-Team: Ukrainian <http://weblate.freepbx.org/projects/freepbx/ucp/"
@@ -24,6 +24,20 @@ msgstr ""
 
 #: htdocs/assets/js/lodash-4.17.2.js:8787
 msgid "  abc  "
+msgstr ""
+
+#: htdocs/views/dashfootercontent.php:28
+#, php-format
+msgid "%s %s is licensed under the %s"
+msgstr ""
+
+#: htdocs/views/dashfootercontent.php:27
+#, php-format
+msgid "%s is a registered trademark of"
+msgstr ""
+
+#: htdocs/assets/js/emojionearea-3.4.2.min.js:9
+msgid ").replace(/"
 msgstr ""
 
 #: htdocs/assets/js/lodash-4.17.2.js:15199
@@ -56,7 +70,7 @@ msgid ""
 "     * // => "
 msgstr ""
 
-#: htdocs/assets/js/jquery-ui-1.13.1.min.js:6
+#: htdocs/assets/js/jquery-ui-1.13.2.min.js:6
 msgid "+t,e.props.alpha={idx:3,type:"
 msgstr ""
 
@@ -193,7 +207,7 @@ msgstr ""
 msgid "Assign UCP Template"
 msgstr ""
 
-#: Ucp.class.php:1301
+#: Ucp.class.php:1211
 #, php-format
 msgid ""
 "Asterisk home dir (%s) doesn't exist, and, ASTSPOOLDIR doesn't exist. "
@@ -268,6 +282,11 @@ msgstr ""
 msgid "Create Dashboard"
 msgstr ""
 
+#: htdocs/views/dashfootercontent.php:35
+#, php-format
+msgid "Current module licensed under %s"
+msgstr ""
+
 #: htdocs/views/templates/phone.php:45
 msgid "DEF"
 msgstr "DEF"
@@ -325,11 +344,11 @@ msgstr "Видалити зображення"
 msgid "Delete a Dashboard"
 msgstr ""
 
-#: Ucp.class.php:1159
+#: Ucp.class.php:1071
 msgid "Deleted Session"
 msgstr "Видалена сесія"
 
-#: Ucp.class.php:426 Ucp.class.php:1002
+#: Ucp.class.php:383 Ucp.class.php:913
 msgid "Deleted User Session"
 msgstr "Видалена користувацька сесія"
 
@@ -341,13 +360,13 @@ msgstr ""
 msgid "Display Name"
 msgstr "Відображене ім'я"
 
-#: Ucp.class.php:1473
+#: Ucp.class.php:1373
 #, php-format
 msgid "Don't know what %s is"
 msgstr ""
 
-#: Ucp.class.php:300 Ucp.class.php:326 Ucp.class.php:1254 Ucp.class.php:1258
-#: Ucp.class.php:1262 Ucp.class.php:1266
+#: Ucp.class.php:294 Ucp.class.php:320 Ucp.class.php:1166 Ucp.class.php:1170
+#: Ucp.class.php:1174 Ucp.class.php:1178
 msgid "Done"
 msgstr "Зроблено"
 
@@ -401,7 +420,7 @@ msgstr ""
 msgid "End of tour"
 msgstr ""
 
-#: htdocs/modules/Settings/Settings.class.php:143
+#: htdocs/modules/Settings/Settings.class.php:132
 msgid "English"
 msgstr "Англійська"
 
@@ -414,16 +433,16 @@ msgstr ""
 msgid "Failed to install %s due to the following conflicting module(s): %s"
 msgstr "Не вдалося встановити %s через наступний конфлікт модуля(ів): %s"
 
-#: Ucp.class.php:1383
+#: Ucp.class.php:1288
 #, php-format
 msgid "Failed to run: '%s'"
 msgstr ""
 
-#: Ucp.class.php:178
+#: Ucp.class.php:172
 msgid "Failed updating libraries!"
 msgstr ""
 
-#: Ucp.class.php:308
+#: Ucp.class.php:302
 msgid "Failed!"
 msgstr ""
 
@@ -431,7 +450,7 @@ msgstr ""
 msgid "Fax"
 msgstr "Факс"
 
-#: Ucp.class.php:181
+#: Ucp.class.php:175
 msgid "Finished updating libraries!"
 msgstr ""
 
@@ -455,19 +474,19 @@ msgstr "GHI"
 msgid "General"
 msgstr "Загальні"
 
-#: Ucp.class.php:1264
+#: Ucp.class.php:1176
 msgid "Generating Main CSS..."
 msgstr "Створення головного CSS..."
 
-#: Ucp.class.php:1260
+#: Ucp.class.php:1172
 msgid "Generating Main Scripts..."
 msgstr "Створення головного сценарію..."
 
-#: Ucp.class.php:1256
+#: Ucp.class.php:1168
 msgid "Generating Module CSS..."
 msgstr "Створення модуля CSS..."
 
-#: Ucp.class.php:1252
+#: Ucp.class.php:1164
 msgid "Generating Module Scripts..."
 msgstr "Створення модуля сценарію..."
 
@@ -475,7 +494,7 @@ msgstr "Створення модуля сценарію..."
 msgid "Hold"
 msgstr "Тримати"
 
-#: htdocs/modules/Home/Home.class.php:187
+#: htdocs/modules/Home/Home.class.php:173
 msgid "Home"
 msgstr "До дому"
 
@@ -483,7 +502,7 @@ msgstr "До дому"
 msgid "Home Phone"
 msgstr "Домашній телефон"
 
-#: Ucp.class.php:156 Ucp.class.php:163
+#: Ucp.class.php:150 Ucp.class.php:157
 #, php-format
 msgid "Home directory [%s] is not writable"
 msgstr ""
@@ -493,7 +512,7 @@ msgid ""
 "How you would like your name displayed throughout UCP and Contact Manager"
 msgstr "Як ви бажаєте відображати ваше ім'я в UCP та менеджері контактів"
 
-#: Ucp.class.php:148
+#: Ucp.class.php:142
 #, php-format
 msgid "ICU version is: %s requirement is %s"
 msgstr ""
@@ -503,7 +522,7 @@ msgstr ""
 msgid "Inherit"
 msgstr "Успадковувати"
 
-#: Ucp.class.php:168
+#: Ucp.class.php:162
 msgid "Installing/Updating Required Libraries. This may take a while..."
 msgstr ""
 
@@ -520,16 +539,17 @@ msgstr ""
 "Internet Explorer %s не підтримується. Функціональність буде погіршуватися, "
 "поки ви не оновитеся до %s або вище"
 
-#: htdocs/includes/User.class.php:107
+#: htdocs/includes/User.class.php:111
 msgid "Invalid"
 msgstr "Недійсний"
 
-#: htdocs/modules/Home/Home.class.php:136
-#: htdocs/modules/Home/Home.class.php:140
+#: htdocs/modules/Home/Home.class.php:113
+#: htdocs/modules/Home/Home.class.php:129
+#: htdocs/modules/Home/Home.class.php:134
 msgid "Invalid Device"
 msgstr "Недійсний пристрій"
 
-#: htdocs/includes/User.class.php:115
+#: htdocs/includes/User.class.php:119
 msgid "Invalid Login Credentials"
 msgstr "Невірні логін або пароль"
 
@@ -537,7 +557,7 @@ msgstr "Невірні логін або пароль"
 msgid "Invalid Token"
 msgstr "Неприпустимий маркер"
 
-#: htdocs/modules/Widgets/Widgets.class.php:46
+#: htdocs/modules/Widgets/Widgets.class.php:47
 msgid "Invalid dashboard id"
 msgstr ""
 
@@ -557,13 +577,13 @@ msgstr "Останній"
 msgid "Last Name"
 msgstr "Прізвище"
 
-#: htdocs/views/forgot.php:86 htdocs/views/login.php:67
+#: htdocs/views/forgot.php:85 htdocs/views/login.php:68
 msgid "Loading..."
 msgstr "Завантаження..."
 
 #: htdocs/views/forgot.php:67 htdocs/views/login.php:48
-#: htdocs/assets/js/ucp.js:301 htdocs/assets/js/ucp.js:324
-#: htdocs/assets/js/ucp.js:334
+#: htdocs/assets/js/ucp.js:329 htdocs/assets/js/ucp.js:351
+#: htdocs/assets/js/ucp.js:361
 msgid "Login"
 msgstr "Ввійти"
 
@@ -583,11 +603,11 @@ msgstr "Нехай цей користувач увійде до UCP"
 msgid "Miscellaneous"
 msgstr "Різне"
 
-#: htdocs/includes/Ajax.class.php:35
+#: htdocs/includes/Ajax.class.php:36
 msgid "Module or Command requested invalid"
 msgstr ""
 
-#: htdocs/includes/Ajax.class.php:74
+#: htdocs/includes/Ajax.class.php:72
 msgid "Module or Command were null. Check your code."
 msgstr "Модуль або команда нульові. Перевірте свій код."
 
@@ -598,7 +618,7 @@ msgid ""
 "you want"
 msgstr ""
 
-#: Ucp.class.php:121
+#: Ucp.class.php:115
 #, php-format
 msgid ""
 "NPM version is: %s requirement is %s. Run 'yum upgrade nodejs' from the CLI "
@@ -614,15 +634,15 @@ msgstr ""
 msgid "No"
 msgstr "Ні"
 
-#: Ucp.class.php:117
+#: Ucp.class.php:111
 msgid "Node Package Manager is not installed"
 msgstr ""
 
-#: Ucp.class.php:105
+#: Ucp.class.php:99
 msgid "Node is not installed"
 msgstr ""
 
-#: Ucp.class.php:109
+#: Ucp.class.php:103
 #, php-format
 msgid ""
 "Node version is: %s requirement is %s. Run 'yum upgrade nodejs' from the CLI "
@@ -665,15 +685,15 @@ msgstr ""
 msgid "Nothing Entered"
 msgstr "Нічого не введено"
 
-#: htdocs/includes/User.class.php:78
+#: htdocs/includes/User.class.php:81
 msgid "Nothing was Provided!"
 msgstr "Нічого не вказано!"
 
-#: htdocs/views/header.php:54
+#: htdocs/views/header.php:59
 msgid "OFF"
 msgstr "OFF"
 
-#: htdocs/views/header.php:51
+#: htdocs/views/header.php:55
 msgid "ON"
 msgstr "ON"
 
@@ -705,7 +725,7 @@ msgstr "PQRS"
 msgid "Password"
 msgstr "Пароль"
 
-#: Ucp.class.php:516
+#: Ucp.class.php:434
 #, php-format
 msgid "Password Reset Link (Valid Until: %s): %s"
 msgstr "Посилання на скидання пароля  (дійсне до: %s): %s"
@@ -731,11 +751,11 @@ msgstr ""
 msgid "Port to bind to. Default is 8003"
 msgstr ""
 
-#: htdocs/assets/js/ucp.js:294 htdocs/assets/js/ucp.js:317
+#: htdocs/assets/js/ucp.js:290 htdocs/assets/js/ucp.js:344
 msgid "Processing..."
 msgstr "Обробка..."
 
-#: htdocs/modules/Home/Home.class.php:53 ucp.i18n.php:64
+#: htdocs/modules/Home/Home.class.php:51 ucp.i18n.php:64
 msgid "RSS Feeds"
 msgstr "RSS-канали"
 
@@ -747,7 +767,7 @@ msgstr "RSS-канали, які відображаються в UCP. Це пе�
 msgid "Read UCP Dashboard Information"
 msgstr ""
 
-#: Ucp.class.php:314
+#: Ucp.class.php:308
 msgid "Refreshing all UCP Assets, this could take a while..."
 msgstr "Оновлення усіх активів UCP, це може зайняти деякий час..."
 
@@ -755,12 +775,12 @@ msgstr "Оновлення усіх активів UCP, це може зайня
 msgid "Remember Me"
 msgstr "Запам'ятати мене"
 
-#: htdocs/views/dashboard-header.php:84
+#: htdocs/views/dashboard-header.php:108
 #: htdocs/modules/Widgets/assets/js/global.js:446
 msgid "Remove Widget"
 msgstr ""
 
-#: htdocs/views/forgot.php:88
+#: htdocs/views/forgot.php:86
 msgid "Reset Password"
 msgstr "Скинути пароль"
 
@@ -768,7 +788,7 @@ msgstr "Скинути пароль"
 msgid "Restart Tour"
 msgstr ""
 
-#: Ucp.class.php:1323
+#: Ucp.class.php:1227
 #, php-format
 msgid "Running (Uptime: %s)"
 msgstr ""
@@ -777,7 +797,7 @@ msgstr ""
 msgid "Save your dashboard"
 msgstr ""
 
-#: htdocs/modules/Settings/assets/js/global.js:229
+#: htdocs/modules/Settings/assets/js/global.js:238
 msgid "Saved!"
 msgstr "Збережено!"
 
@@ -799,7 +819,7 @@ msgstr ""
 msgid "Selecting Widgets"
 msgstr ""
 
-#: htdocs/views/login.php:69
+#: htdocs/views/login.php:70
 msgid "Send Me A Password Reset Link"
 msgstr "Надіслати мені посилання на відновлення паролю"
 
@@ -865,33 +885,33 @@ msgstr ""
 msgid "Something went wrong removing the dashboard"
 msgstr ""
 
-#: Ucp.class.php:1378
+#: Ucp.class.php:1283
 #, php-format
 msgid "Started UCP Node Server. PID is %s"
 msgstr ""
 
-#: Ucp.class.php:310
+#: Ucp.class.php:304
 #, php-format
 msgid "Started with PID %s!"
 msgstr ""
 
-#: Ucp.class.php:1349
+#: Ucp.class.php:1254
 msgid "Starting UCP Node Server..."
 msgstr ""
 
-#: Ucp.class.php:305
+#: Ucp.class.php:299
 msgid "Starting new UCP Node Process..."
 msgstr ""
 
-#: Ucp.class.php:1450
+#: Ucp.class.php:1357
 msgid "Stopped UCP Node Server"
 msgstr ""
 
-#: Ucp.class.php:1419
+#: Ucp.class.php:1326
 msgid "Stopping UCP Node Server"
 msgstr ""
 
-#: Ucp.class.php:298 Ucp.class.php:324
+#: Ucp.class.php:292 Ucp.class.php:318
 msgid "Stopping old running processes..."
 msgstr ""
 
@@ -899,7 +919,7 @@ msgstr ""
 msgid "Styling and Logos"
 msgstr ""
 
-#: htdocs/includes/User.class.php:86
+#: htdocs/includes/User.class.php:89
 msgid "Submitted"
 msgstr ""
 
@@ -908,7 +928,7 @@ msgstr ""
 msgid "Success!"
 msgstr ""
 
-#: Ucp.class.php:126
+#: Ucp.class.php:120
 msgid "System"
 msgstr ""
 
@@ -942,7 +962,7 @@ msgid ""
 "dashboard by clicking this symbol"
 msgstr ""
 
-#: htdocs/includes/Ajax.class.php:79
+#: htdocs/includes/Ajax.class.php:77
 #, php-format
 msgid "The class %s already existed. Ajax MUST load it, for security reasons"
 msgstr ""
@@ -990,11 +1010,7 @@ msgstr ""
 "Пароль, який використовується для входу в UCP (панель управління) і інші "
 "послуги"
 
-#: htdocs/views/dashfootercontent.php:4
-msgid "The removal of this copyright notice is stricly prohibited"
-msgstr "Видалення цього повідомлення про авторське право суворо заборонено"
-
-#: htdocs/assets/js/ucp.js:535
+#: htdocs/assets/js/ucp.js:562
 msgid "The session has expired and you are being forcibly logged out"
 msgstr ""
 
@@ -1030,10 +1046,6 @@ msgstr ""
 #: htdocs/modules/Widgets/assets/js/global.js:1140
 msgid "There was an error getting the widget information, try again later"
 msgstr ""
-
-#: htdocs/index.php:123
-msgid "There was an error trying to load UCP"
-msgstr "Сталася помилка при спробі завантажити UCP"
 
 #: htdocs/assets/js/ucp.js:33 htdocs/assets/js/ucp.js:48
 msgid "There was an error. See the console log for more details"
@@ -1097,7 +1109,7 @@ msgstr ""
 msgid "To remove this widget from the side bar click 'Remove Widget'"
 msgstr ""
 
-#: htdocs/index.php:123 ucp.i18n.php:10
+#: ucp.i18n.php:10
 msgid "UCP"
 msgstr "UCP"
 
@@ -1105,29 +1117,29 @@ msgstr "UCP"
 msgid "UCP Admin"
 msgstr "Адміністратор UCP"
 
-#: Ucp.class.php:1309
+#: Ucp.class.php:1218
 msgid "UCP Daemon"
 msgstr ""
 
-#: Ucp.class.php:1317
+#: Ucp.class.php:1221
 msgid "UCP Node Disabled in Advanced Settings."
 msgstr ""
 
-#: Ucp.class.php:1454
+#: Ucp.class.php:1361
 #, php-format
 msgid "UCP Node Server Failed: %s"
 msgstr ""
 
-#: Ucp.class.php:1343
+#: Ucp.class.php:1248
 #, php-format
 msgid "UCP Node Server has already been running on PID %s for %s"
 msgstr ""
 
-#: Ucp.class.php:1412
+#: Ucp.class.php:1319
 msgid "UCP Node Server is not running"
 msgstr ""
 
-#: Ucp.class.php:1325
+#: Ucp.class.php:1229
 msgid "UCP Node is not running"
 msgstr ""
 
@@ -1150,7 +1162,7 @@ msgid "UCP is currently disabled. Please talk to your system Administrator"
 msgstr ""
 "UCP в даний час відключена. Будь ласка, зверніться до адміністратора системи"
 
-#: htdocs/assets/js/ucp.js:352
+#: htdocs/assets/js/ucp.js:379
 msgid "UCP is not supported in your browser"
 msgstr ""
 
@@ -1167,15 +1179,15 @@ msgstr ""
 "UCP, інакше відома як Панель Керування Користувача являє собою "
 "користувацький інтерфейс для FreePBX."
 
-#: htdocs/includes/User.class.php:92
+#: htdocs/includes/User.class.php:95
 msgid "Unable to send Password Reset Email"
 msgstr "Неможливо відправити скидання пароля на електронну пошту"
 
-#: Ucp.class.php:1311
+#: Ucp.class.php:1218
 msgid "Unknown"
 msgstr ""
 
-#: htdocs/modules/Settings/assets/js/global.js:262
+#: htdocs/modules/Settings/assets/js/global.js:271
 msgid "Unsupported file type"
 msgstr "Непідтримуваний тип файлу"
 
@@ -1203,11 +1215,11 @@ msgstr ""
 msgid "Use PBX Timezone"
 msgstr ""
 
-#: htdocs/modules/Settings/Settings.class.php:186
+#: htdocs/modules/Settings/Settings.class.php:163
 msgid "User"
 msgstr ""
 
-#: htdocs/views/forgot.php:27 htdocs/views/header.php:4
+#: htdocs/views/forgot.php:27 htdocs/views/header.php:6
 #: htdocs/views/login.php:5 ucp.i18n.php:4 /usr/src/freepbx/ucp/ucp.i18n.php:56
 #: htdocs/modules/Widgets/assets/js/global.js:47
 msgid "User Control Panel"
@@ -1217,12 +1229,7 @@ msgstr "Панель керування користувача"
 msgid "User Control Panel Settings"
 msgstr "Налаштування панелі керування користувача"
 
-#: htdocs/views/dashfootercontent.php:2
-#, php-format
-msgid "User Control Panel is released as %s or newer"
-msgstr "Користувацька панель керування випущена як %s чи новіше"
-
-#: Ucp.class.php:512
+#: Ucp.class.php:431
 #, php-format
 msgid "User Control Panel: %s"
 msgstr "Панель керування користувача: %s"
@@ -1231,7 +1238,7 @@ msgstr "Панель керування користувача: %s"
 msgid "User Details"
 msgstr "Відомості про користувача"
 
-#: Ucp.class.php:361 Ucp.class.php:394
+#: Ucp.class.php:354 Ucp.class.php:368
 msgid "User Primary Extension"
 msgstr "Основний додатковий номер користувача"
 
@@ -1255,7 +1262,7 @@ msgstr ""
 msgid "WXYZ"
 msgstr "WXYZ"
 
-#: htdocs/views/header.php:70
+#: htdocs/views/header.php:78
 #, php-format
 msgid "Welcome %s"
 msgstr "Ласкаво просимо %s"
@@ -1311,7 +1318,7 @@ msgstr ""
 msgid "Widget Size"
 msgstr ""
 
-#: htdocs/modules/Widgets/Widgets.class.php:199
+#: htdocs/modules/Widgets/Widgets.class.php:194
 msgid "Widgets"
 msgstr ""
 
@@ -1389,7 +1396,7 @@ msgid ""
 "this tour at any time in your User Settings"
 msgstr ""
 
-#: htdocs/modules/Widgets/Widgets.class.php:41
+#: htdocs/modules/Widgets/Widgets.class.php:42
 #: htdocs/modules/Widgets/assets/js/global.js:908
 msgid "You have no dashboards. Click here to add one"
 msgstr ""
@@ -1402,7 +1409,7 @@ msgstr ""
 msgid "You must set a dashboard name!"
 msgstr ""
 
-#: htdocs/assets/js/ucp.js:339
+#: htdocs/assets/js/ucp.js:366
 msgid "Your Browser is unsupported at this time."
 msgstr "Ваш браузер наразі не підтримується."
 
@@ -1450,7 +1457,7 @@ msgstr "Ваша посада"
 msgid "Your Work Number"
 msgstr "Ваш робочій номер"
 
-#: htdocs/assets/js/ucp.js:341
+#: htdocs/assets/js/ucp.js:368
 msgid ""
 "Your browser is unsupported at this time. Please upgrade or talk to your "
 "system administrator"
@@ -1483,7 +1490,7 @@ msgstr ""
 msgid "fred"
 msgstr ""
 
-#: Ucp.class.php:98
+#: Ucp.class.php:92
 msgid "gcc-c++ is not installed"
 msgstr ""
 
@@ -1498,11 +1505,11 @@ msgstr ""
 "переконайтеся, що шляхи до файлів і каталогів заблоковані правильно. Для "
 "отримання додаткової інформації див: %s"
 
-#: Ucp.class.php:142
+#: Ucp.class.php:136
 msgid "icu is not installed. You need to run: yum install icu libicu-devel"
 msgstr ""
 
-#: Ucp.class.php:134
+#: Ucp.class.php:128
 msgid ""
 "icu, pkg-config or pkgconf is not installed. You need to run: apt-get "
 "install icu libicu-devel pkg-config pkgconf"
@@ -1516,9 +1523,18 @@ msgstr "або"
 msgid "select template"
 msgstr ""
 
-#: htdocs/assets/js/jquery-ui-1.13.1.min.js:6
+#: htdocs/assets/js/jquery-ui-1.13.2.min.js:6
 msgid "string"
 msgstr ""
+
+#~ msgid "The removal of this copyright notice is stricly prohibited"
+#~ msgstr "Видалення цього повідомлення про авторське право суворо заборонено"
+
+#~ msgid "There was an error trying to load UCP"
+#~ msgstr "Сталася помилка при спробі завантажити UCP"
+
+#~ msgid "User Control Panel is released as %s or newer"
+#~ msgstr "Користувацька панель керування випущена як %s чи новіше"
 
 #~ msgid "Email address unknown!"
 #~ msgstr "Невідома адреса електронної пошти!"

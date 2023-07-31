@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-05-17 11:30+0000\n"
+"POT-Creation-Date: 2023-07-31 06:09+0000\n"
 "PO-Revision-Date: 2016-07-06 05:21+0200\n"
 "Last-Translator: Media <mousavi.media@gmail.com>\n"
 "Language-Team: Persian (Iran) <http://weblate.freepbx.org/projects/freepbx/"
@@ -23,6 +23,20 @@ msgstr ""
 
 #: htdocs/assets/js/lodash-4.17.2.js:8787
 msgid "  abc  "
+msgstr ""
+
+#: htdocs/views/dashfootercontent.php:28
+#, php-format
+msgid "%s %s is licensed under the %s"
+msgstr ""
+
+#: htdocs/views/dashfootercontent.php:27
+#, php-format
+msgid "%s is a registered trademark of"
+msgstr ""
+
+#: htdocs/assets/js/emojionearea-3.4.2.min.js:9
+msgid ").replace(/"
 msgstr ""
 
 #: htdocs/assets/js/lodash-4.17.2.js:15199
@@ -55,7 +69,7 @@ msgid ""
 "     * // => "
 msgstr ""
 
-#: htdocs/assets/js/jquery-ui-1.13.1.min.js:6
+#: htdocs/assets/js/jquery-ui-1.13.2.min.js:6
 msgid "+t,e.props.alpha={idx:3,type:"
 msgstr ""
 
@@ -190,7 +204,7 @@ msgstr ""
 msgid "Assign UCP Template"
 msgstr ""
 
-#: Ucp.class.php:1301
+#: Ucp.class.php:1211
 #, php-format
 msgid ""
 "Asterisk home dir (%s) doesn't exist, and, ASTSPOOLDIR doesn't exist. "
@@ -265,6 +279,11 @@ msgstr ""
 msgid "Create Dashboard"
 msgstr ""
 
+#: htdocs/views/dashfootercontent.php:35
+#, php-format
+msgid "Current module licensed under %s"
+msgstr ""
+
 #: htdocs/views/templates/phone.php:45
 msgid "DEF"
 msgstr "DEF"
@@ -322,11 +341,11 @@ msgstr "حذف تصویر"
 msgid "Delete a Dashboard"
 msgstr ""
 
-#: Ucp.class.php:1159
+#: Ucp.class.php:1071
 msgid "Deleted Session"
 msgstr "اتصال حذف شده"
 
-#: Ucp.class.php:426 Ucp.class.php:1002
+#: Ucp.class.php:383 Ucp.class.php:913
 msgid "Deleted User Session"
 msgstr "اتصال حذف شده کاربر"
 
@@ -338,13 +357,13 @@ msgstr ""
 msgid "Display Name"
 msgstr "نام قابل نمایش"
 
-#: Ucp.class.php:1473
+#: Ucp.class.php:1373
 #, php-format
 msgid "Don't know what %s is"
 msgstr ""
 
-#: Ucp.class.php:300 Ucp.class.php:326 Ucp.class.php:1254 Ucp.class.php:1258
-#: Ucp.class.php:1262 Ucp.class.php:1266
+#: Ucp.class.php:294 Ucp.class.php:320 Ucp.class.php:1166 Ucp.class.php:1170
+#: Ucp.class.php:1174 Ucp.class.php:1178
 msgid "Done"
 msgstr "انجام شد"
 
@@ -398,7 +417,7 @@ msgstr ""
 msgid "End of tour"
 msgstr ""
 
-#: htdocs/modules/Settings/Settings.class.php:143
+#: htdocs/modules/Settings/Settings.class.php:132
 msgid "English"
 msgstr "انگلیسی"
 
@@ -411,16 +430,16 @@ msgstr ""
 msgid "Failed to install %s due to the following conflicting module(s): %s"
 msgstr "خطا در نصب %s که ناشی است از تداخل با ماژول(ها): %s"
 
-#: Ucp.class.php:1383
+#: Ucp.class.php:1288
 #, php-format
 msgid "Failed to run: '%s'"
 msgstr ""
 
-#: Ucp.class.php:178
+#: Ucp.class.php:172
 msgid "Failed updating libraries!"
 msgstr ""
 
-#: Ucp.class.php:308
+#: Ucp.class.php:302
 msgid "Failed!"
 msgstr ""
 
@@ -428,7 +447,7 @@ msgstr ""
 msgid "Fax"
 msgstr "فکس"
 
-#: Ucp.class.php:181
+#: Ucp.class.php:175
 msgid "Finished updating libraries!"
 msgstr ""
 
@@ -452,19 +471,19 @@ msgstr "GHI"
 msgid "General"
 msgstr "عمومی"
 
-#: Ucp.class.php:1264
+#: Ucp.class.php:1176
 msgid "Generating Main CSS..."
 msgstr "ایجاد CSS اصلی..."
 
-#: Ucp.class.php:1260
+#: Ucp.class.php:1172
 msgid "Generating Main Scripts..."
 msgstr "ایجاد اسکریپت های اصلی..."
 
-#: Ucp.class.php:1256
+#: Ucp.class.php:1168
 msgid "Generating Module CSS..."
 msgstr "ایجاد ماژول CSS..."
 
-#: Ucp.class.php:1252
+#: Ucp.class.php:1164
 msgid "Generating Module Scripts..."
 msgstr "ایجاد اسکریپت های ماژول..."
 
@@ -472,7 +491,7 @@ msgstr "ایجاد اسکریپت های ماژول..."
 msgid "Hold"
 msgstr "انتظار مکالمه"
 
-#: htdocs/modules/Home/Home.class.php:187
+#: htdocs/modules/Home/Home.class.php:173
 msgid "Home"
 msgstr "خانه"
 
@@ -480,7 +499,7 @@ msgstr "خانه"
 msgid "Home Phone"
 msgstr "تلفن منزل"
 
-#: Ucp.class.php:156 Ucp.class.php:163
+#: Ucp.class.php:150 Ucp.class.php:157
 #, php-format
 msgid "Home directory [%s] is not writable"
 msgstr ""
@@ -490,7 +509,7 @@ msgid ""
 "How you would like your name displayed throughout UCP and Contact Manager"
 msgstr "نامی که در کنترل پنل کاربری و مدیریت مخاطب نمایش داده می شود"
 
-#: Ucp.class.php:148
+#: Ucp.class.php:142
 #, php-format
 msgid "ICU version is: %s requirement is %s"
 msgstr ""
@@ -500,7 +519,7 @@ msgstr ""
 msgid "Inherit"
 msgstr "موروثی"
 
-#: Ucp.class.php:168
+#: Ucp.class.php:162
 msgid "Installing/Updating Required Libraries. This may take a while..."
 msgstr ""
 
@@ -517,16 +536,17 @@ msgstr ""
 "مرورگر IE %s پشتیبانی نمی شود. شما باید مرورگر خود را به %s یا بالاتر به روز "
 "کنید"
 
-#: htdocs/includes/User.class.php:107
+#: htdocs/includes/User.class.php:111
 msgid "Invalid"
 msgstr "نا معتبر"
 
-#: htdocs/modules/Home/Home.class.php:136
-#: htdocs/modules/Home/Home.class.php:140
+#: htdocs/modules/Home/Home.class.php:113
+#: htdocs/modules/Home/Home.class.php:129
+#: htdocs/modules/Home/Home.class.php:134
 msgid "Invalid Device"
 msgstr "دستگاه نامعتبر"
 
-#: htdocs/includes/User.class.php:115
+#: htdocs/includes/User.class.php:119
 msgid "Invalid Login Credentials"
 msgstr "اطلاعات کاربری نامعتبر"
 
@@ -534,7 +554,7 @@ msgstr "اطلاعات کاربری نامعتبر"
 msgid "Invalid Token"
 msgstr "توکن نامعتبر"
 
-#: htdocs/modules/Widgets/Widgets.class.php:46
+#: htdocs/modules/Widgets/Widgets.class.php:47
 msgid "Invalid dashboard id"
 msgstr ""
 
@@ -554,13 +574,13 @@ msgstr "آخر"
 msgid "Last Name"
 msgstr "نام خانوادگی"
 
-#: htdocs/views/forgot.php:86 htdocs/views/login.php:67
+#: htdocs/views/forgot.php:85 htdocs/views/login.php:68
 msgid "Loading..."
 msgstr "در حال بارگذاری…"
 
 #: htdocs/views/forgot.php:67 htdocs/views/login.php:48
-#: htdocs/assets/js/ucp.js:301 htdocs/assets/js/ucp.js:324
-#: htdocs/assets/js/ucp.js:334
+#: htdocs/assets/js/ucp.js:329 htdocs/assets/js/ucp.js:351
+#: htdocs/assets/js/ucp.js:361
 msgid "Login"
 msgstr "ورود"
 
@@ -580,11 +600,11 @@ msgstr "ممکن است این کاربر به پنل کنترل کاربری و
 msgid "Miscellaneous"
 msgstr "متفرقه"
 
-#: htdocs/includes/Ajax.class.php:35
+#: htdocs/includes/Ajax.class.php:36
 msgid "Module or Command requested invalid"
 msgstr ""
 
-#: htdocs/includes/Ajax.class.php:74
+#: htdocs/includes/Ajax.class.php:72
 msgid "Module or Command were null. Check your code."
 msgstr "ماژول یا دستور خالی بود. کد خود را بررسی کنید."
 
@@ -595,7 +615,7 @@ msgid ""
 "you want"
 msgstr ""
 
-#: Ucp.class.php:121
+#: Ucp.class.php:115
 #, php-format
 msgid ""
 "NPM version is: %s requirement is %s. Run 'yum upgrade nodejs' from the CLI "
@@ -611,15 +631,15 @@ msgstr ""
 msgid "No"
 msgstr "خیر"
 
-#: Ucp.class.php:117
+#: Ucp.class.php:111
 msgid "Node Package Manager is not installed"
 msgstr ""
 
-#: Ucp.class.php:105
+#: Ucp.class.php:99
 msgid "Node is not installed"
 msgstr ""
 
-#: Ucp.class.php:109
+#: Ucp.class.php:103
 #, php-format
 msgid ""
 "Node version is: %s requirement is %s. Run 'yum upgrade nodejs' from the CLI "
@@ -662,15 +682,15 @@ msgstr ""
 msgid "Nothing Entered"
 msgstr "چیزی وارد نشده"
 
-#: htdocs/includes/User.class.php:78
+#: htdocs/includes/User.class.php:81
 msgid "Nothing was Provided!"
 msgstr "چیزی فراهم نشده!"
 
-#: htdocs/views/header.php:54
+#: htdocs/views/header.php:59
 msgid "OFF"
 msgstr "خاموش"
 
-#: htdocs/views/header.php:51
+#: htdocs/views/header.php:55
 msgid "ON"
 msgstr "روشن"
 
@@ -702,7 +722,7 @@ msgstr "PQRS"
 msgid "Password"
 msgstr "بله"
 
-#: Ucp.class.php:516
+#: Ucp.class.php:434
 #, php-format
 msgid "Password Reset Link (Valid Until: %s): %s"
 msgstr "لینک بازنشانی کلمه عبور (معتبر تا : %s): %s"
@@ -728,11 +748,11 @@ msgstr ""
 msgid "Port to bind to. Default is 8003"
 msgstr ""
 
-#: htdocs/assets/js/ucp.js:294 htdocs/assets/js/ucp.js:317
+#: htdocs/assets/js/ucp.js:290 htdocs/assets/js/ucp.js:344
 msgid "Processing..."
 msgstr "در حال پردازش..."
 
-#: htdocs/modules/Home/Home.class.php:53 ucp.i18n.php:64
+#: htdocs/modules/Home/Home.class.php:51 ucp.i18n.php:64
 msgid "RSS Feeds"
 msgstr "خوراک RSS"
 
@@ -745,7 +765,7 @@ msgstr ""
 msgid "Read UCP Dashboard Information"
 msgstr ""
 
-#: Ucp.class.php:314
+#: Ucp.class.php:308
 msgid "Refreshing all UCP Assets, this could take a while..."
 msgstr "بازنشانی تمام مقادیر پنل کنترل کاربری. منتظر باشید..."
 
@@ -753,12 +773,12 @@ msgstr "بازنشانی تمام مقادیر پنل کنترل کاربری. �
 msgid "Remember Me"
 msgstr "مرا بخاطر بسپار"
 
-#: htdocs/views/dashboard-header.php:84
+#: htdocs/views/dashboard-header.php:108
 #: htdocs/modules/Widgets/assets/js/global.js:446
 msgid "Remove Widget"
 msgstr ""
 
-#: htdocs/views/forgot.php:88
+#: htdocs/views/forgot.php:86
 msgid "Reset Password"
 msgstr "بازنشانی کلمه عبور"
 
@@ -766,7 +786,7 @@ msgstr "بازنشانی کلمه عبور"
 msgid "Restart Tour"
 msgstr ""
 
-#: Ucp.class.php:1323
+#: Ucp.class.php:1227
 #, php-format
 msgid "Running (Uptime: %s)"
 msgstr ""
@@ -775,7 +795,7 @@ msgstr ""
 msgid "Save your dashboard"
 msgstr ""
 
-#: htdocs/modules/Settings/assets/js/global.js:229
+#: htdocs/modules/Settings/assets/js/global.js:238
 msgid "Saved!"
 msgstr "ذخیره شد!"
 
@@ -797,7 +817,7 @@ msgstr ""
 msgid "Selecting Widgets"
 msgstr ""
 
-#: htdocs/views/login.php:69
+#: htdocs/views/login.php:70
 msgid "Send Me A Password Reset Link"
 msgstr "لینک بازنشانی کلمه عبور را برایم ارسال کن"
 
@@ -863,33 +883,33 @@ msgstr ""
 msgid "Something went wrong removing the dashboard"
 msgstr ""
 
-#: Ucp.class.php:1378
+#: Ucp.class.php:1283
 #, php-format
 msgid "Started UCP Node Server. PID is %s"
 msgstr ""
 
-#: Ucp.class.php:310
+#: Ucp.class.php:304
 #, php-format
 msgid "Started with PID %s!"
 msgstr ""
 
-#: Ucp.class.php:1349
+#: Ucp.class.php:1254
 msgid "Starting UCP Node Server..."
 msgstr ""
 
-#: Ucp.class.php:305
+#: Ucp.class.php:299
 msgid "Starting new UCP Node Process..."
 msgstr ""
 
-#: Ucp.class.php:1450
+#: Ucp.class.php:1357
 msgid "Stopped UCP Node Server"
 msgstr ""
 
-#: Ucp.class.php:1419
+#: Ucp.class.php:1326
 msgid "Stopping UCP Node Server"
 msgstr ""
 
-#: Ucp.class.php:298 Ucp.class.php:324
+#: Ucp.class.php:292 Ucp.class.php:318
 msgid "Stopping old running processes..."
 msgstr ""
 
@@ -897,7 +917,7 @@ msgstr ""
 msgid "Styling and Logos"
 msgstr ""
 
-#: htdocs/includes/User.class.php:86
+#: htdocs/includes/User.class.php:89
 msgid "Submitted"
 msgstr ""
 
@@ -906,7 +926,7 @@ msgstr ""
 msgid "Success!"
 msgstr ""
 
-#: Ucp.class.php:126
+#: Ucp.class.php:120
 msgid "System"
 msgstr ""
 
@@ -940,7 +960,7 @@ msgid ""
 "dashboard by clicking this symbol"
 msgstr ""
 
-#: htdocs/includes/Ajax.class.php:79
+#: htdocs/includes/Ajax.class.php:77
 #, php-format
 msgid "The class %s already existed. Ajax MUST load it, for security reasons"
 msgstr ""
@@ -987,11 +1007,7 @@ msgid "The password used to login to User Control Panel and other services"
 msgstr ""
 "از این کلمه عبور برای ورود به پنل کنترل کاربری و دیگر سرویس ها استفاده می شود"
 
-#: htdocs/views/dashfootercontent.php:4
-msgid "The removal of this copyright notice is stricly prohibited"
-msgstr "حذف اعلان کپی رایت اکیدا ممنوع است"
-
-#: htdocs/assets/js/ucp.js:535
+#: htdocs/assets/js/ucp.js:562
 msgid "The session has expired and you are being forcibly logged out"
 msgstr ""
 
@@ -1027,10 +1043,6 @@ msgstr ""
 #: htdocs/modules/Widgets/assets/js/global.js:1140
 msgid "There was an error getting the widget information, try again later"
 msgstr ""
-
-#: htdocs/index.php:123
-msgid "There was an error trying to load UCP"
-msgstr "خطایی در هنگام بارگذاری پنل کنترل کاربری رخ داده است"
 
 #: htdocs/assets/js/ucp.js:33 htdocs/assets/js/ucp.js:48
 msgid "There was an error. See the console log for more details"
@@ -1092,7 +1104,7 @@ msgstr ""
 msgid "To remove this widget from the side bar click 'Remove Widget'"
 msgstr ""
 
-#: htdocs/index.php:123 ucp.i18n.php:10
+#: ucp.i18n.php:10
 msgid "UCP"
 msgstr "پنل کنترل کاربری"
 
@@ -1100,29 +1112,29 @@ msgstr "پنل کنترل کاربری"
 msgid "UCP Admin"
 msgstr "مدیر پنل کنترل کاربری"
 
-#: Ucp.class.php:1309
+#: Ucp.class.php:1218
 msgid "UCP Daemon"
 msgstr ""
 
-#: Ucp.class.php:1317
+#: Ucp.class.php:1221
 msgid "UCP Node Disabled in Advanced Settings."
 msgstr ""
 
-#: Ucp.class.php:1454
+#: Ucp.class.php:1361
 #, php-format
 msgid "UCP Node Server Failed: %s"
 msgstr ""
 
-#: Ucp.class.php:1343
+#: Ucp.class.php:1248
 #, php-format
 msgid "UCP Node Server has already been running on PID %s for %s"
 msgstr ""
 
-#: Ucp.class.php:1412
+#: Ucp.class.php:1319
 msgid "UCP Node Server is not running"
 msgstr ""
 
-#: Ucp.class.php:1325
+#: Ucp.class.php:1229
 msgid "UCP Node is not running"
 msgstr ""
 
@@ -1145,7 +1157,7 @@ msgid "UCP is currently disabled. Please talk to your system Administrator"
 msgstr ""
 "پنل کنترل کاربری در حال حاضر غیرفعال است. لطفا با مدیر سیستم خود تماس بگیرید"
 
-#: htdocs/assets/js/ucp.js:352
+#: htdocs/assets/js/ucp.js:379
 msgid "UCP is not supported in your browser"
 msgstr ""
 
@@ -1161,15 +1173,15 @@ msgid ""
 msgstr ""
 "UCP، یا به عبارت دیگر پنل کنترل کاربری، یک رابط کاربری برای FreePBX است."
 
-#: htdocs/includes/User.class.php:92
+#: htdocs/includes/User.class.php:95
 msgid "Unable to send Password Reset Email"
 msgstr ""
 
-#: Ucp.class.php:1311
+#: Ucp.class.php:1218
 msgid "Unknown"
 msgstr ""
 
-#: htdocs/modules/Settings/assets/js/global.js:262
+#: htdocs/modules/Settings/assets/js/global.js:271
 msgid "Unsupported file type"
 msgstr "نوع فایل پشتیبانی نمیشود"
 
@@ -1197,11 +1209,11 @@ msgstr ""
 msgid "Use PBX Timezone"
 msgstr ""
 
-#: htdocs/modules/Settings/Settings.class.php:186
+#: htdocs/modules/Settings/Settings.class.php:163
 msgid "User"
 msgstr ""
 
-#: htdocs/views/forgot.php:27 htdocs/views/header.php:4
+#: htdocs/views/forgot.php:27 htdocs/views/header.php:6
 #: htdocs/views/login.php:5 ucp.i18n.php:4 /usr/src/freepbx/ucp/ucp.i18n.php:56
 #: htdocs/modules/Widgets/assets/js/global.js:47
 msgid "User Control Panel"
@@ -1211,12 +1223,7 @@ msgstr "پنل کنترل کاربری"
 msgid "User Control Panel Settings"
 msgstr "تنظیمات پنل کنترل کاربری"
 
-#: htdocs/views/dashfootercontent.php:2
-#, php-format
-msgid "User Control Panel is released as %s or newer"
-msgstr "پنل کنترل کاربری منتشر شده %s یا جدیدتر"
-
-#: Ucp.class.php:512
+#: Ucp.class.php:431
 #, php-format
 msgid "User Control Panel: %s"
 msgstr "پنل کنترل کاربری: %s"
@@ -1225,7 +1232,7 @@ msgstr "پنل کنترل کاربری: %s"
 msgid "User Details"
 msgstr "جزئیات کاربر"
 
-#: Ucp.class.php:361 Ucp.class.php:394
+#: Ucp.class.php:354 Ucp.class.php:368
 msgid "User Primary Extension"
 msgstr "داخلی اصلی کاربر"
 
@@ -1249,7 +1256,7 @@ msgstr ""
 msgid "WXYZ"
 msgstr "WXYZ"
 
-#: htdocs/views/header.php:70
+#: htdocs/views/header.php:78
 #, php-format
 msgid "Welcome %s"
 msgstr "خوش آمدید %s"
@@ -1305,7 +1312,7 @@ msgstr ""
 msgid "Widget Size"
 msgstr ""
 
-#: htdocs/modules/Widgets/Widgets.class.php:199
+#: htdocs/modules/Widgets/Widgets.class.php:194
 msgid "Widgets"
 msgstr ""
 
@@ -1383,7 +1390,7 @@ msgid ""
 "this tour at any time in your User Settings"
 msgstr ""
 
-#: htdocs/modules/Widgets/Widgets.class.php:41
+#: htdocs/modules/Widgets/Widgets.class.php:42
 #: htdocs/modules/Widgets/assets/js/global.js:908
 msgid "You have no dashboards. Click here to add one"
 msgstr ""
@@ -1396,7 +1403,7 @@ msgstr ""
 msgid "You must set a dashboard name!"
 msgstr ""
 
-#: htdocs/assets/js/ucp.js:339
+#: htdocs/assets/js/ucp.js:366
 msgid "Your Browser is unsupported at this time."
 msgstr "در حال حاضر مرورگر شما پشتیبانی نمی شود."
 
@@ -1444,7 +1451,7 @@ msgstr "عنوان شما"
 msgid "Your Work Number"
 msgstr "تلفن محل کار شما"
 
-#: htdocs/assets/js/ucp.js:341
+#: htdocs/assets/js/ucp.js:368
 msgid ""
 "Your browser is unsupported at this time. Please upgrade or talk to your "
 "system administrator"
@@ -1477,7 +1484,7 @@ msgstr ""
 msgid "fred"
 msgstr ""
 
-#: Ucp.class.php:98
+#: Ucp.class.php:92
 msgid "gcc-c++ is not installed"
 msgstr ""
 
@@ -1491,11 +1498,11 @@ msgstr ""
 "فایل های htaccess به محافظت از سرور شما کمک می نماید.برای اطلاعات بیشتر "
 "مراجعه کنید به: %s"
 
-#: Ucp.class.php:142
+#: Ucp.class.php:136
 msgid "icu is not installed. You need to run: yum install icu libicu-devel"
 msgstr ""
 
-#: Ucp.class.php:134
+#: Ucp.class.php:128
 msgid ""
 "icu, pkg-config or pkgconf is not installed. You need to run: apt-get "
 "install icu libicu-devel pkg-config pkgconf"
@@ -1509,9 +1516,18 @@ msgstr "یا"
 msgid "select template"
 msgstr ""
 
-#: htdocs/assets/js/jquery-ui-1.13.1.min.js:6
+#: htdocs/assets/js/jquery-ui-1.13.2.min.js:6
 msgid "string"
 msgstr ""
+
+#~ msgid "The removal of this copyright notice is stricly prohibited"
+#~ msgstr "حذف اعلان کپی رایت اکیدا ممنوع است"
+
+#~ msgid "There was an error trying to load UCP"
+#~ msgstr "خطایی در هنگام بارگذاری پنل کنترل کاربری رخ داده است"
+
+#~ msgid "User Control Panel is released as %s or newer"
+#~ msgstr "پنل کنترل کاربری منتشر شده %s یا جدیدتر"
 
 #~ msgid "Password Confirmation Didn't Match!"
 #~ msgstr "کلمه های عبور یکسان نیستند!"

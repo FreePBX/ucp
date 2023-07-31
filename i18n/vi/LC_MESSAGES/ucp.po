@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-05-17 11:30+0000\n"
+"POT-Creation-Date: 2023-07-31 06:09+0000\n"
 "PO-Revision-Date: 2017-08-02 21:28+0200\n"
 "Last-Translator: PETER <ftek@ymail.com>\n"
 "Language-Team: Vietnamese <http://weblate.freepbx.org/projects/freepbx/ucp/"
@@ -23,6 +23,20 @@ msgstr ""
 
 #: htdocs/assets/js/lodash-4.17.2.js:8787
 msgid "  abc  "
+msgstr ""
+
+#: htdocs/views/dashfootercontent.php:28
+#, php-format
+msgid "%s %s is licensed under the %s"
+msgstr ""
+
+#: htdocs/views/dashfootercontent.php:27
+#, php-format
+msgid "%s is a registered trademark of"
+msgstr ""
+
+#: htdocs/assets/js/emojionearea-3.4.2.min.js:9
+msgid ").replace(/"
 msgstr ""
 
 #: htdocs/assets/js/lodash-4.17.2.js:15199
@@ -55,7 +69,7 @@ msgid ""
 "     * // => "
 msgstr ""
 
-#: htdocs/assets/js/jquery-ui-1.13.1.min.js:6
+#: htdocs/assets/js/jquery-ui-1.13.2.min.js:6
 msgid "+t,e.props.alpha={idx:3,type:"
 msgstr ""
 
@@ -191,7 +205,7 @@ msgstr ""
 msgid "Assign UCP Template"
 msgstr ""
 
-#: Ucp.class.php:1301
+#: Ucp.class.php:1211
 #, php-format
 msgid ""
 "Asterisk home dir (%s) doesn't exist, and, ASTSPOOLDIR doesn't exist. "
@@ -266,6 +280,11 @@ msgstr ""
 msgid "Create Dashboard"
 msgstr ""
 
+#: htdocs/views/dashfootercontent.php:35
+#, php-format
+msgid "Current module licensed under %s"
+msgstr ""
+
 #: htdocs/views/templates/phone.php:45
 msgid "DEF"
 msgstr "DEF"
@@ -323,11 +342,11 @@ msgstr "Xóa hình ảnh"
 msgid "Delete a Dashboard"
 msgstr ""
 
-#: Ucp.class.php:1159
+#: Ucp.class.php:1071
 msgid "Deleted Session"
 msgstr "Phiên đã xóa"
 
-#: Ucp.class.php:426 Ucp.class.php:1002
+#: Ucp.class.php:383 Ucp.class.php:913
 msgid "Deleted User Session"
 msgstr "Phiên người dùng đã xóa"
 
@@ -339,13 +358,13 @@ msgstr ""
 msgid "Display Name"
 msgstr "Hiển thị Tên"
 
-#: Ucp.class.php:1473
+#: Ucp.class.php:1373
 #, php-format
 msgid "Don't know what %s is"
 msgstr ""
 
-#: Ucp.class.php:300 Ucp.class.php:326 Ucp.class.php:1254 Ucp.class.php:1258
-#: Ucp.class.php:1262 Ucp.class.php:1266
+#: Ucp.class.php:294 Ucp.class.php:320 Ucp.class.php:1166 Ucp.class.php:1170
+#: Ucp.class.php:1174 Ucp.class.php:1178
 msgid "Done"
 msgstr "Đã xong"
 
@@ -399,7 +418,7 @@ msgstr ""
 msgid "End of tour"
 msgstr ""
 
-#: htdocs/modules/Settings/Settings.class.php:143
+#: htdocs/modules/Settings/Settings.class.php:132
 msgid "English"
 msgstr "Tiếng anh"
 
@@ -412,16 +431,16 @@ msgstr ""
 msgid "Failed to install %s due to the following conflicting module(s): %s"
 msgstr "Cài đặt %s thất bani do các mô đun sau xung đột: %s"
 
-#: Ucp.class.php:1383
+#: Ucp.class.php:1288
 #, php-format
 msgid "Failed to run: '%s'"
 msgstr ""
 
-#: Ucp.class.php:178
+#: Ucp.class.php:172
 msgid "Failed updating libraries!"
 msgstr ""
 
-#: Ucp.class.php:308
+#: Ucp.class.php:302
 msgid "Failed!"
 msgstr ""
 
@@ -429,7 +448,7 @@ msgstr ""
 msgid "Fax"
 msgstr "Fax"
 
-#: Ucp.class.php:181
+#: Ucp.class.php:175
 msgid "Finished updating libraries!"
 msgstr ""
 
@@ -453,19 +472,19 @@ msgstr "GHI"
 msgid "General"
 msgstr "Chung"
 
-#: Ucp.class.php:1264
+#: Ucp.class.php:1176
 msgid "Generating Main CSS..."
 msgstr "Đang tạo CSS chính..."
 
-#: Ucp.class.php:1260
+#: Ucp.class.php:1172
 msgid "Generating Main Scripts..."
 msgstr "Đang tạo các kịch bản chính..."
 
-#: Ucp.class.php:1256
+#: Ucp.class.php:1168
 msgid "Generating Module CSS..."
 msgstr "Đang tạo Mô đun CSS..."
 
-#: Ucp.class.php:1252
+#: Ucp.class.php:1164
 msgid "Generating Module Scripts..."
 msgstr "Đang tạo Mô đun kịch bản..."
 
@@ -473,7 +492,7 @@ msgstr "Đang tạo Mô đun kịch bản..."
 msgid "Hold"
 msgstr "giữ"
 
-#: htdocs/modules/Home/Home.class.php:187
+#: htdocs/modules/Home/Home.class.php:173
 msgid "Home"
 msgstr "Trang chủ"
 
@@ -481,7 +500,7 @@ msgstr "Trang chủ"
 msgid "Home Phone"
 msgstr "Điện thoại cố định"
 
-#: Ucp.class.php:156 Ucp.class.php:163
+#: Ucp.class.php:150 Ucp.class.php:157
 #, php-format
 msgid "Home directory [%s] is not writable"
 msgstr ""
@@ -492,7 +511,7 @@ msgid ""
 msgstr ""
 "Bạn muốn tên của mình hiển thị như thế nào qua UCP và Trình quản lý liên lạc"
 
-#: Ucp.class.php:148
+#: Ucp.class.php:142
 #, php-format
 msgid "ICU version is: %s requirement is %s"
 msgstr ""
@@ -502,7 +521,7 @@ msgstr ""
 msgid "Inherit"
 msgstr "Kế thừa"
 
-#: Ucp.class.php:168
+#: Ucp.class.php:162
 msgid "Installing/Updating Required Libraries. This may take a while..."
 msgstr ""
 
@@ -519,16 +538,17 @@ msgstr ""
 "Internet Explorer %s không được hỗ trợ. Chức năng sẽ bị giảm xuống cho đén "
 "khi bạn nâng cấp lên %s hoặc cao hơn"
 
-#: htdocs/includes/User.class.php:107
+#: htdocs/includes/User.class.php:111
 msgid "Invalid"
 msgstr "Không hợp lệ"
 
-#: htdocs/modules/Home/Home.class.php:136
-#: htdocs/modules/Home/Home.class.php:140
+#: htdocs/modules/Home/Home.class.php:113
+#: htdocs/modules/Home/Home.class.php:129
+#: htdocs/modules/Home/Home.class.php:134
 msgid "Invalid Device"
 msgstr "Thiết bị không hợp lệ"
 
-#: htdocs/includes/User.class.php:115
+#: htdocs/includes/User.class.php:119
 msgid "Invalid Login Credentials"
 msgstr "Thông tin đăng nhập không hợp lệ"
 
@@ -536,7 +556,7 @@ msgstr "Thông tin đăng nhập không hợp lệ"
 msgid "Invalid Token"
 msgstr "Token không hợp lệ"
 
-#: htdocs/modules/Widgets/Widgets.class.php:46
+#: htdocs/modules/Widgets/Widgets.class.php:47
 msgid "Invalid dashboard id"
 msgstr ""
 
@@ -556,13 +576,13 @@ msgstr "Cuối"
 msgid "Last Name"
 msgstr "Họ"
 
-#: htdocs/views/forgot.php:86 htdocs/views/login.php:67
+#: htdocs/views/forgot.php:85 htdocs/views/login.php:68
 msgid "Loading..."
 msgstr "Đang tải..."
 
 #: htdocs/views/forgot.php:67 htdocs/views/login.php:48
-#: htdocs/assets/js/ucp.js:301 htdocs/assets/js/ucp.js:324
-#: htdocs/assets/js/ucp.js:334
+#: htdocs/assets/js/ucp.js:329 htdocs/assets/js/ucp.js:351
+#: htdocs/assets/js/ucp.js:361
 msgid "Login"
 msgstr "Đăng nhập"
 
@@ -582,11 +602,11 @@ msgstr "Người dùng này có thể đăng nhập vào UCP không"
 msgid "Miscellaneous"
 msgstr "phụ"
 
-#: htdocs/includes/Ajax.class.php:35
+#: htdocs/includes/Ajax.class.php:36
 msgid "Module or Command requested invalid"
 msgstr ""
 
-#: htdocs/includes/Ajax.class.php:74
+#: htdocs/includes/Ajax.class.php:72
 msgid "Module or Command were null. Check your code."
 msgstr "Mô đun hoặc Lệnh không có hiệu lực. Kiểm tra lại mã của bạn."
 
@@ -597,7 +617,7 @@ msgid ""
 "you want"
 msgstr ""
 
-#: Ucp.class.php:121
+#: Ucp.class.php:115
 #, php-format
 msgid ""
 "NPM version is: %s requirement is %s. Run 'yum upgrade nodejs' from the CLI "
@@ -613,15 +633,15 @@ msgstr ""
 msgid "No"
 msgstr "Không"
 
-#: Ucp.class.php:117
+#: Ucp.class.php:111
 msgid "Node Package Manager is not installed"
 msgstr ""
 
-#: Ucp.class.php:105
+#: Ucp.class.php:99
 msgid "Node is not installed"
 msgstr ""
 
-#: Ucp.class.php:109
+#: Ucp.class.php:103
 #, php-format
 msgid ""
 "Node version is: %s requirement is %s. Run 'yum upgrade nodejs' from the CLI "
@@ -664,15 +684,15 @@ msgstr ""
 msgid "Nothing Entered"
 msgstr "Không có gì được nhập"
 
-#: htdocs/includes/User.class.php:78
+#: htdocs/includes/User.class.php:81
 msgid "Nothing was Provided!"
 msgstr "Không có gì được cung cấp!"
 
-#: htdocs/views/header.php:54
+#: htdocs/views/header.php:59
 msgid "OFF"
 msgstr "TẮT"
 
-#: htdocs/views/header.php:51
+#: htdocs/views/header.php:55
 msgid "ON"
 msgstr "BẬT"
 
@@ -704,7 +724,7 @@ msgstr "PQRS"
 msgid "Password"
 msgstr "Mật khẩu"
 
-#: Ucp.class.php:516
+#: Ucp.class.php:434
 #, php-format
 msgid "Password Reset Link (Valid Until: %s): %s"
 msgstr "Liên kết để cài đặt lại mật khẩu ( Có hiệu lực đến: %s): %s"
@@ -730,11 +750,11 @@ msgstr ""
 msgid "Port to bind to. Default is 8003"
 msgstr ""
 
-#: htdocs/assets/js/ucp.js:294 htdocs/assets/js/ucp.js:317
+#: htdocs/assets/js/ucp.js:290 htdocs/assets/js/ucp.js:344
 msgid "Processing..."
 msgstr "Đang xử lý..."
 
-#: htdocs/modules/Home/Home.class.php:53 ucp.i18n.php:64
+#: htdocs/modules/Home/Home.class.php:51 ucp.i18n.php:64
 msgid "RSS Feeds"
 msgstr "Các nguồn cấp tin RSS"
 
@@ -746,7 +766,7 @@ msgstr "Các nguồn cấp dữ liệu RSS được hiển thi trong UCP. Các g
 msgid "Read UCP Dashboard Information"
 msgstr ""
 
-#: Ucp.class.php:314
+#: Ucp.class.php:308
 msgid "Refreshing all UCP Assets, this could take a while..."
 msgstr ""
 "Làm mới tất cả các tài sản của UCP, điều này có thể tốn chút thời gian..."
@@ -755,12 +775,12 @@ msgstr ""
 msgid "Remember Me"
 msgstr "Ghi nhớ tôi"
 
-#: htdocs/views/dashboard-header.php:84
+#: htdocs/views/dashboard-header.php:108
 #: htdocs/modules/Widgets/assets/js/global.js:446
 msgid "Remove Widget"
 msgstr ""
 
-#: htdocs/views/forgot.php:88
+#: htdocs/views/forgot.php:86
 msgid "Reset Password"
 msgstr "Cài lại mật khẩu"
 
@@ -768,7 +788,7 @@ msgstr "Cài lại mật khẩu"
 msgid "Restart Tour"
 msgstr ""
 
-#: Ucp.class.php:1323
+#: Ucp.class.php:1227
 #, php-format
 msgid "Running (Uptime: %s)"
 msgstr ""
@@ -777,7 +797,7 @@ msgstr ""
 msgid "Save your dashboard"
 msgstr ""
 
-#: htdocs/modules/Settings/assets/js/global.js:229
+#: htdocs/modules/Settings/assets/js/global.js:238
 msgid "Saved!"
 msgstr "Đã lưu!"
 
@@ -799,7 +819,7 @@ msgstr ""
 msgid "Selecting Widgets"
 msgstr ""
 
-#: htdocs/views/login.php:69
+#: htdocs/views/login.php:70
 msgid "Send Me A Password Reset Link"
 msgstr "Gửi cho tôi Liên kết để cài lại mật khẩu"
 
@@ -865,33 +885,33 @@ msgstr ""
 msgid "Something went wrong removing the dashboard"
 msgstr ""
 
-#: Ucp.class.php:1378
+#: Ucp.class.php:1283
 #, php-format
 msgid "Started UCP Node Server. PID is %s"
 msgstr ""
 
-#: Ucp.class.php:310
+#: Ucp.class.php:304
 #, php-format
 msgid "Started with PID %s!"
 msgstr ""
 
-#: Ucp.class.php:1349
+#: Ucp.class.php:1254
 msgid "Starting UCP Node Server..."
 msgstr ""
 
-#: Ucp.class.php:305
+#: Ucp.class.php:299
 msgid "Starting new UCP Node Process..."
 msgstr ""
 
-#: Ucp.class.php:1450
+#: Ucp.class.php:1357
 msgid "Stopped UCP Node Server"
 msgstr ""
 
-#: Ucp.class.php:1419
+#: Ucp.class.php:1326
 msgid "Stopping UCP Node Server"
 msgstr ""
 
-#: Ucp.class.php:298 Ucp.class.php:324
+#: Ucp.class.php:292 Ucp.class.php:318
 msgid "Stopping old running processes..."
 msgstr ""
 
@@ -899,7 +919,7 @@ msgstr ""
 msgid "Styling and Logos"
 msgstr "Phong cách và Lô gô"
 
-#: htdocs/includes/User.class.php:86
+#: htdocs/includes/User.class.php:89
 msgid "Submitted"
 msgstr ""
 
@@ -908,7 +928,7 @@ msgstr ""
 msgid "Success!"
 msgstr ""
 
-#: Ucp.class.php:126
+#: Ucp.class.php:120
 msgid "System"
 msgstr ""
 
@@ -942,7 +962,7 @@ msgid ""
 "dashboard by clicking this symbol"
 msgstr ""
 
-#: htdocs/includes/Ajax.class.php:79
+#: htdocs/includes/Ajax.class.php:77
 #, php-format
 msgid "The class %s already existed. Ajax MUST load it, for security reasons"
 msgstr ""
@@ -990,11 +1010,7 @@ msgstr ""
 "Mật khẩu được sử dụng để đăng nhập vào Bảng điều khiển người dùng và các "
 "dịch vụ khác"
 
-#: htdocs/views/dashfootercontent.php:4
-msgid "The removal of this copyright notice is stricly prohibited"
-msgstr "Tuyệt đối nghiêm cấm việc xóa bỏ thông báo bản quyền này"
-
-#: htdocs/assets/js/ucp.js:535
+#: htdocs/assets/js/ucp.js:562
 msgid "The session has expired and you are being forcibly logged out"
 msgstr ""
 
@@ -1030,10 +1046,6 @@ msgstr ""
 #: htdocs/modules/Widgets/assets/js/global.js:1140
 msgid "There was an error getting the widget information, try again later"
 msgstr ""
-
-#: htdocs/index.php:123
-msgid "There was an error trying to load UCP"
-msgstr "Đã xảy ra một lỗi khi đang tải UCP"
 
 #: htdocs/assets/js/ucp.js:33 htdocs/assets/js/ucp.js:48
 msgid "There was an error. See the console log for more details"
@@ -1097,7 +1109,7 @@ msgstr ""
 msgid "To remove this widget from the side bar click 'Remove Widget'"
 msgstr ""
 
-#: htdocs/index.php:123 ucp.i18n.php:10
+#: ucp.i18n.php:10
 msgid "UCP"
 msgstr "User Control Panel- Bảng điều khiển người dùng"
 
@@ -1105,29 +1117,29 @@ msgstr "User Control Panel- Bảng điều khiển người dùng"
 msgid "UCP Admin"
 msgstr "Quản trị viên của UCP"
 
-#: Ucp.class.php:1309
+#: Ucp.class.php:1218
 msgid "UCP Daemon"
 msgstr ""
 
-#: Ucp.class.php:1317
+#: Ucp.class.php:1221
 msgid "UCP Node Disabled in Advanced Settings."
 msgstr ""
 
-#: Ucp.class.php:1454
+#: Ucp.class.php:1361
 #, php-format
 msgid "UCP Node Server Failed: %s"
 msgstr ""
 
-#: Ucp.class.php:1343
+#: Ucp.class.php:1248
 #, php-format
 msgid "UCP Node Server has already been running on PID %s for %s"
 msgstr ""
 
-#: Ucp.class.php:1412
+#: Ucp.class.php:1319
 msgid "UCP Node Server is not running"
 msgstr ""
 
-#: Ucp.class.php:1325
+#: Ucp.class.php:1229
 msgid "UCP Node is not running"
 msgstr ""
 
@@ -1153,7 +1165,7 @@ msgstr ""
 "UCP hiện đang bị vô hiệu. Vui lòng thông báo với quản trị viên hệ thống của "
 "bạn"
 
-#: htdocs/assets/js/ucp.js:352
+#: htdocs/assets/js/ucp.js:379
 msgid "UCP is not supported in your browser"
 msgstr ""
 
@@ -1170,15 +1182,15 @@ msgstr ""
 "UCP, hay còn được biết đến là Bảng điều khiển người dùng, là một giao diện "
 "người dùng cho FreePBX."
 
-#: htdocs/includes/User.class.php:92
+#: htdocs/includes/User.class.php:95
 msgid "Unable to send Password Reset Email"
 msgstr "Không thể gửi Email cài đặt lại mật khẩu"
 
-#: Ucp.class.php:1311
+#: Ucp.class.php:1218
 msgid "Unknown"
 msgstr ""
 
-#: htdocs/modules/Settings/assets/js/global.js:262
+#: htdocs/modules/Settings/assets/js/global.js:271
 msgid "Unsupported file type"
 msgstr "Kiểu tệp không được hỗ trợ"
 
@@ -1206,11 +1218,11 @@ msgstr ""
 msgid "Use PBX Timezone"
 msgstr ""
 
-#: htdocs/modules/Settings/Settings.class.php:186
+#: htdocs/modules/Settings/Settings.class.php:163
 msgid "User"
 msgstr ""
 
-#: htdocs/views/forgot.php:27 htdocs/views/header.php:4
+#: htdocs/views/forgot.php:27 htdocs/views/header.php:6
 #: htdocs/views/login.php:5 ucp.i18n.php:4 /usr/src/freepbx/ucp/ucp.i18n.php:56
 #: htdocs/modules/Widgets/assets/js/global.js:47
 msgid "User Control Panel"
@@ -1220,12 +1232,7 @@ msgstr "Bảng điều khiển người dùng"
 msgid "User Control Panel Settings"
 msgstr "Các cài đặt trong Bảng điều khiển người dùng"
 
-#: htdocs/views/dashfootercontent.php:2
-#, php-format
-msgid "User Control Panel is released as %s or newer"
-msgstr "Bảng điều khiển người dùng được phát hành dưới dạng %s hoặc mới hơn"
-
-#: Ucp.class.php:512
+#: Ucp.class.php:431
 #, php-format
 msgid "User Control Panel: %s"
 msgstr "Bảng điều khiển người dùng: %s"
@@ -1234,7 +1241,7 @@ msgstr "Bảng điều khiển người dùng: %s"
 msgid "User Details"
 msgstr "Thông tin chi tiết của người dùng"
 
-#: Ucp.class.php:361 Ucp.class.php:394
+#: Ucp.class.php:354 Ucp.class.php:368
 msgid "User Primary Extension"
 msgstr "Sử dụng máy nhanh chính"
 
@@ -1258,7 +1265,7 @@ msgstr "Xem: Các biểu tượng UCP"
 msgid "WXYZ"
 msgstr "WXYZ"
 
-#: htdocs/views/header.php:70
+#: htdocs/views/header.php:78
 #, php-format
 msgid "Welcome %s"
 msgstr "Chào mừng đến với %s"
@@ -1314,7 +1321,7 @@ msgstr ""
 msgid "Widget Size"
 msgstr ""
 
-#: htdocs/modules/Widgets/Widgets.class.php:199
+#: htdocs/modules/Widgets/Widgets.class.php:194
 msgid "Widgets"
 msgstr ""
 
@@ -1392,7 +1399,7 @@ msgid ""
 "this tour at any time in your User Settings"
 msgstr ""
 
-#: htdocs/modules/Widgets/Widgets.class.php:41
+#: htdocs/modules/Widgets/Widgets.class.php:42
 #: htdocs/modules/Widgets/assets/js/global.js:908
 msgid "You have no dashboards. Click here to add one"
 msgstr ""
@@ -1405,7 +1412,7 @@ msgstr ""
 msgid "You must set a dashboard name!"
 msgstr ""
 
-#: htdocs/assets/js/ucp.js:339
+#: htdocs/assets/js/ucp.js:366
 msgid "Your Browser is unsupported at this time."
 msgstr "Trình duyệt của bạn không được hỗ trợ tại thời điểm này."
 
@@ -1453,7 +1460,7 @@ msgstr "Chức danh của bạn"
 msgid "Your Work Number"
 msgstr "Số điện thoại cơ quan của bạn"
 
-#: htdocs/assets/js/ucp.js:341
+#: htdocs/assets/js/ucp.js:368
 msgid ""
 "Your browser is unsupported at this time. Please upgrade or talk to your "
 "system administrator"
@@ -1488,7 +1495,7 @@ msgstr ""
 msgid "fred"
 msgstr ""
 
-#: Ucp.class.php:98
+#: Ucp.class.php:92
 msgid "gcc-c++ is not installed"
 msgstr ""
 
@@ -1503,11 +1510,11 @@ msgstr ""
 "bảo các đường dẫn của tệp và các danh mục đã được khóa đúng cách. Để biết "
 "thêm thông tin, xem: %s"
 
-#: Ucp.class.php:142
+#: Ucp.class.php:136
 msgid "icu is not installed. You need to run: yum install icu libicu-devel"
 msgstr ""
 
-#: Ucp.class.php:134
+#: Ucp.class.php:128
 msgid ""
 "icu, pkg-config or pkgconf is not installed. You need to run: apt-get "
 "install icu libicu-devel pkg-config pkgconf"
@@ -1521,9 +1528,18 @@ msgstr "hoặc"
 msgid "select template"
 msgstr ""
 
-#: htdocs/assets/js/jquery-ui-1.13.1.min.js:6
+#: htdocs/assets/js/jquery-ui-1.13.2.min.js:6
 msgid "string"
 msgstr ""
+
+#~ msgid "The removal of this copyright notice is stricly prohibited"
+#~ msgstr "Tuyệt đối nghiêm cấm việc xóa bỏ thông báo bản quyền này"
+
+#~ msgid "There was an error trying to load UCP"
+#~ msgstr "Đã xảy ra một lỗi khi đang tải UCP"
+
+#~ msgid "User Control Panel is released as %s or newer"
+#~ msgstr "Bảng điều khiển người dùng được phát hành dưới dạng %s hoặc mới hơn"
 
 #~ msgid "Email address unknown!"
 #~ msgstr "Địa chỉ Email không xác đinh!"
