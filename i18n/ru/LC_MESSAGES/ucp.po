@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: UCP 14\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-12-11 12:34+0000\n"
-"PO-Revision-Date: 2022-12-03 09:01+0000\n"
+"PO-Revision-Date: 2023-07-31 12:48+0000\n"
 "Last-Translator: Dmitriy Q <krotesk@ya.ru>\n"
 "Language-Team: Russian <http://weblate.freepbx.org/projects/freepbx/ucp/ru/>"
 "\n"
@@ -1286,11 +1286,11 @@ msgstr "Имя пользователя"
 
 #: ucp.i18n.php:12
 msgid "View: UCP dashfootercontent.php"
-msgstr ""
+msgstr "Обзор: UCP dashfootercontent.php"
 
 #: ucp.i18n.php:18
 msgid "View: UCP icons"
-msgstr ""
+msgstr "Обзор: значки UCP"
 
 #: htdocs/views/templates/phone.php:73
 msgid "WXYZ"
@@ -1313,35 +1313,43 @@ msgstr "Что такое UCP"
 #: htdocs/modules/Settings/views/settings.php:151
 msgid "When set to yes the tour will restart when this window closes"
 msgstr ""
+"Если установлено значение да, то тур будет перезапускаться при закрытии "
+"этого окна"
 
 #: htdocs/modules/Ucptour/assets/js/global.js:70
 msgid ""
 "When you are finished simply hit 'Create Dashboard' to create your dashboard"
 msgstr ""
+"Когда вы закончите - просто нажмите кнопку \"Создать панель\" для создания "
+"панели"
 
 #: ucp.i18n.php:30
 msgid ""
 "Whether to enable TLS for the backend server for UCP which allows "
 "instantaneous updates to the interface"
 msgstr ""
+"Включать ли TLS для внутреннего сервера для UCP, позволяющий мгновенно "
+"обновлять интерфейс"
 
 #: ucp.i18n.php:26
 msgid ""
 "Whether to enable the backend server for UCP which allows instantaneous "
 "updates to the interface"
 msgstr ""
+"Нужно ли включать внутренний сервер для UCP, позволяющий мгновенно обновлять "
+"интерфейс"
 
 #: htdocs/modules/Ucptour/assets/js/global.js:223
 msgid "Widget Locking"
-msgstr ""
+msgstr "Блокировка виджета"
 
 #: htdocs/modules/Ucptour/assets/js/global.js:207
 msgid "Widget Placement"
-msgstr ""
+msgstr "Размещение виджета"
 
 #: htdocs/modules/Ucptour/assets/js/global.js:233
 msgid "Widget Removal"
-msgstr ""
+msgstr "Удаление виджета"
 
 #: htdocs/views/dashboard-footer.php:162
 #: htdocs/modules/Ucptour/assets/js/global.js:228
@@ -1362,39 +1370,44 @@ msgid ""
 "Widgets are listed on the right. The titles and descriptions will be shown "
 "for each widget"
 msgstr ""
+"Виджеты перечислены справа. Для каждого виджета будут показаны названия и "
+"описания"
 
 #: htdocs/modules/Ucptour/assets/js/global.js:203
 msgid ""
 "Widgets are placed automatically on the dashboard after they have been added"
 msgstr ""
+"Виджеты автоматически размещаются на приборной панели после их добавления"
 
 #: htdocs/modules/Ucptour/assets/js/global.js:234
 #, perl-format
 msgid "Widgets can also be removed by clicking the '%s' symbol"
-msgstr ""
+msgstr "Виджеты также можно удалить, нажав на символ '%s'"
 
 #: htdocs/modules/Ucptour/assets/js/global.js:140
 #, perl-format
 msgid "Widgets can be added by clicking the '%s' symbol"
-msgstr ""
+msgstr "Виджеты можно добавить нажав на символ '%s'"
 
 #: htdocs/modules/Ucptour/assets/js/global.js:224
 msgid "Widgets can be locked into place to prevent their movement"
-msgstr ""
+msgstr "Виджеты могут быть зафиксированы для предотвращения их перемещения"
 
 #: htdocs/modules/Ucptour/assets/js/global.js:208
 msgid "Widgets can be moved around by clicking and dragging on the title bar"
-msgstr ""
+msgstr "Виджеты можно перемещать, кликая и перетаскивая их за заголовок"
 
 #: htdocs/modules/Ucptour/assets/js/global.js:216
 msgid ""
 "Widgets can be resized by placing your mouse near the corner of the widget. "
 "Click and drag to resize the widget."
 msgstr ""
+"Размеры виджетов можно изменять, подведя мышь к углу виджета. Щелкните и "
+"перетащите мышь, чтобы изменить размер виджета."
 
 #: htdocs/modules/Ucptour/assets/js/global.js:229
 msgid "Widgets settings can be changed by clicking this icon"
-msgstr ""
+msgstr "Настройки виджетов можно изменить, нажав на этот значок"
 
 #: htdocs/modules/Settings/views/settings.php:77
 msgid "Work Phone"
@@ -1406,17 +1419,20 @@ msgstr "Да"
 
 #: htdocs/modules/Widgets/assets/js/global.js:1148
 msgid "You already have this widget on the side bar"
-msgstr ""
+msgstr "У вас уже есть этот виджет в сайдбаре"
 
 #: htdocs/modules/Widgets/assets/js/global.js:1066
 msgid "You already have this widget on this dashboard"
-msgstr ""
+msgstr "У вас уже есть этот виджет на этой приборной панели"
 
 #: htdocs/modules/Ucptour/assets/js/global.js:25
 msgid ""
 "You can always exit the tour if you'd like, and you can restart the tour at "
 "anytime by clicking your User Settings and then 'Restart Tour'"
 msgstr ""
+"При желании вы всегда можете выйти из тура, а также в любой момент "
+"перезапустить тур, нажав кнопку \"Настройки пользователя\" и затем \""
+"Перезапустить тур\""
 
 #: htdocs/modules/Ucptour/assets/js/global.js:356
 #, perl-format
@@ -1424,23 +1440,25 @@ msgid ""
 "You have finished the tour of User Control Panel for %s 14. You can restart "
 "this tour at any time in your User Settings"
 msgstr ""
+"Вы завершили тур по Панели управления пользователя для %s 14. Вы можете "
+"возобновить этот тур в любое время в Настройках пользователя"
 
 #: htdocs/modules/Widgets/Widgets.class.php:41
 #: htdocs/modules/Widgets/assets/js/global.js:908
 msgid "You have no dashboards. Click here to add one"
-msgstr ""
+msgstr "У вас нет приборных панелей. Нажмите здесь, чтобы добавить одну"
 
 #: htdocs/modules/Ucptour/assets/js/global.js:25
 msgid "You just successfully logged in for the first time!"
-msgstr ""
+msgstr "Вы только что успешно вошли в систему в первый раз!"
 
 #: htdocs/modules/Widgets/assets/js/global.js:1386
 msgid "You must set a dashboard name!"
-msgstr ""
+msgstr "Вы должны задать имя панели мониторинга!"
 
 #: htdocs/assets/js/ucp.js:328
 msgid "Your Browser is unsupported at this time."
-msgstr ""
+msgstr "В настоящее время ваш браузер не поддерживается."
 
 #: htdocs/modules/Settings/views/settings.php:74
 msgid "Your Cell Phone Number"
@@ -1491,31 +1509,37 @@ msgid ""
 "Your browser is unsupported at this time. Please upgrade or talk to your "
 "system administrator"
 msgstr ""
+"Ваш браузер в настоящее время не поддерживается. Пожалуйста, обновите его "
+"или обратитесь к системному администратору"
 
 #: htdocs/modules/Ucptour/assets/js/global.js:352
 msgid "Your can logout of UCP by clicking this logout button"
-msgstr ""
+msgstr "Вы можете выйти из UCP, нажав на эту кнопку выхода"
 
 #: htdocs/modules/Ucptour/assets/js/global.js:94
 msgid "Your dashboard has been added here"
-msgstr ""
+msgstr "Ваша панель мониторинга добавлена сюда"
 
 #: htdocs/modules/Ucptour/assets/js/global.js:347
 msgid ""
 "Your specific settings are defined when clicking the 'gear' icon in the side "
 "bar"
 msgstr ""
+"Ваши персональные настройки определяются при нажатии на значок \"шестеренка\""
+" в боковой панели"
 
 #: ucp.i18n.php:16
 msgid ""
 "dashfootercontent.php view. This should never be changed except for very "
 "advanced layout changes"
 msgstr ""
+"обзор dashfootercontent.php. Его не следует изменять, за исключением очень "
+"сложных изменений макета"
 
 #: htdocs/assets/js/lodash-4.17.2.js:15638
 #: htdocs/assets/js/lodash-4.17.2.js:15642
 msgid "fred"
-msgstr ""
+msgstr "фред"
 
 #: Ucp.class.php:98
 msgid "gcc-c++ is not installed"
@@ -1535,12 +1559,15 @@ msgstr ""
 #: Ucp.class.php:142
 msgid "icu is not installed. You need to run: yum install icu libicu-devel"
 msgstr ""
+"icu не установлен. Необходимо выполнить команду: yum install icu libicu-devel"
 
 #: Ucp.class.php:134
 msgid ""
 "icu, pkg-config or pkgconf is not installed. You need to run: apt-get "
 "install icu libicu-devel pkg-config pkgconf"
 msgstr ""
+"icu, pkg-config или pkgconf не установлены. Необходимо выполнить команду: "
+"apt-get install icu libicu-devel pkg-config pkgconf"
 
 #: htdocs/views/login.php:25
 msgid "or"
