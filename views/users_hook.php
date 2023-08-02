@@ -140,7 +140,7 @@
 								<select name="templateid" class="form-control">
 									<option value=""><?php echo  _("None")?></option>
 									<?php foreach($tempList as $list) { ?>
-										<option value="<?php echo $list['id']?>" <?php echo $list['id'] == $assignedTemplate ? 'selected' : ''?>><?php echo $list['templatename']?></option>
+										<option value="<?php echo $list['id']?>" <?php echo $list['id'] == (isset($assignedTemplate) && $assignedTemplate) ? 'selected' : ''?>><?php echo $list['templatename']?></option>
 									<?php } ?>
 								</select>
 							</div>
