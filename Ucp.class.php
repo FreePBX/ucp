@@ -623,7 +623,7 @@ class Ucp implements \BMO {
 			} else {
 				$this->Userman->setModuleSettingByGID($id,'ucp|Global','originate', false);
 			}
-			$this->Userman->setModuleSettingByGID($id,'ucp|Settings','assigned', $_POST['ucp_settings']);
+			$this->Userman->setModuleSettingByGID($id,'ucp|Settings','assigned', $_POST['ucp_settings'] ?? '');
 			if($_POST['assign_template'] == 'true') {
 				$this->Userman->setModuleSettingByGID($id,'ucp|template','assigntemplate',true);
 				$this->Userman->setModuleSettingByGID($id,'ucp|template','templateid',$_POST['templateid']);
