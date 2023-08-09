@@ -106,8 +106,8 @@ class Home extends Modules {
 				return [ "status" => true, "content" => $data[0]['content'] ];
 				break;
 			case "originate":
-				$_REQUEST['from'] = filter_var($_REQUEST['from'], FILTER_SANITIZE_STRING);
-				$_REQUEST['to'] = filter_var($_REQUEST['to'], FILTER_SANITIZE_STRING);
+				$_REQUEST['from'] = filter_var($_REQUEST['from'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+				$_REQUEST['to'] = filter_var($_REQUEST['to'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 				if (str_contains($_REQUEST['to'], ".") || str_contains((string) $_REQUEST['from'], ".")) {
 					$return['status']  = false;
 					$return['message'] = _('Invalid Device');

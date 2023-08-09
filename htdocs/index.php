@@ -154,7 +154,7 @@ $user_dashboards = $ucp->Dashboards->getDashboards();
 foreach($user_dashboards as $dashboard_info){
 	$tmp = $ucp->Modules->Widgets->getWidgetsFromDashboard($dashboard_info["id"]);
 	$id = $dashboard_info["id"];
-	$displayvars['dashboards_info'][$id] = json_decode((string) $tmp,true, 512, JSON_THROW_ON_ERROR);
+	$displayvars['dashboards_info'][$id] = json_decode((string) $tmp,true);
 }
 $active_dashboard_id = "";
 
