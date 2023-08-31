@@ -1241,54 +1241,53 @@ class Ucp implements \BMO {
 			return;
 		}
 		$status = $this->FreePBX->Pm2->getStatus("ucp") ?: [];
-		if(isset($status['pm2_env'])) {
-			switch($status['pm2_env']['status']) {
-				case 'online':
-					if(is_object($output)) {
-						$output->writeln(sprintf(_("UCP Node Server has already been running on PID %s for %s"),$status['pid'],$status['pm2_env']['created_at_human_diff']));
-					}
-					return $status['pid'];
-				break;
-				default:
-					if(is_object($output)) {
-						$output->writeln(_("Starting UCP Node Server..."));
-					}
-					$this->FreePBX->Pm2->start("ucp",__DIR__."/node/index.js");
-					if(is_object($output)) {
-						$progress = new ProgressBar($output, 0);
-						$progress->setFormat('[%bar%] %elapsed%');
-						$progress->start();
-					}
-					$i = 0;
-					while($i < 100) {
-						$data = $this->FreePBX->Pm2->getStatus("ucp");
-						if(!empty($data) && $data['pm2_env']['status'] == 'online') {
-							if(is_object($output)) {
-								$progress->finish();
-							}
-							break;
-						}
+		$pm2_env_status = $status['pm2_env']['status'] ?? '';
+		switch($pm2_env_status) {
+			case 'online':
+				if(is_object($output)) {
+					$output->writeln(sprintf(_("UCP Node Server has already been running on PID %s for %s"),$status['pid'],$status['pm2_env']['created_at_human_diff']));
+				}
+				return $status['pid'];
+			break;
+			default:
+				if(is_object($output)) {
+					$output->writeln(_("Starting UCP Node Server..."));
+				}
+				$this->FreePBX->Pm2->start("ucp",__DIR__."/node/index.js");
+				if(is_object($output)) {
+					$progress = new ProgressBar($output, 0);
+					$progress->setFormat('[%bar%] %elapsed%');
+					$progress->start();
+				}
+				$i = 0;
+				while($i < 100) {
+					$data = $this->FreePBX->Pm2->getStatus("ucp");
+					if(!empty($data) && $data['pm2_env']['status'] == 'online') {
 						if(is_object($output)) {
-							$progress->setProgress($i);
+							$progress->finish();
 						}
-						$i++;
-						usleep(100000);
+						break;
 					}
 					if(is_object($output)) {
-						$output->writeln("");
+						$progress->setProgress($i);
 					}
-					if(!empty($data)) {
-						$this->FreePBX->Pm2->reset("ucp");
-						if(is_object($output)) {
-							$output->writeln(sprintf(_("Started UCP Node Server. PID is %s"),$data['pid']));
-						}
-						return $data['pid'];
-					}
+					$i++;
+					usleep(100000);
+				}
+				if(is_object($output)) {
+					$output->writeln("");
+				}
+				if(!empty($data)) {
+					$this->FreePBX->Pm2->reset("ucp");
 					if(is_object($output)) {
-						$output->write("<error>".sprintf(_("Failed to run: '%s'")."</error>",$command));
+						$output->writeln(sprintf(_("Started UCP Node Server. PID is %s"),$data['pid']));
 					}
-				break;
-			}
+					return $data['pid'];
+				}
+				if(is_object($output)) {
+					$output->write("<error>".sprintf(_("Failed to run: '%s'")."</error>",$command));
+				}
+			break;
 		}
 		return false;
 	}
