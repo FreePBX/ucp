@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-07-31 06:09+0000\n"
+"POT-Creation-Date: 2023-08-31 10:53+0000\n"
 "PO-Revision-Date: 2018-08-08 11:42+0000\n"
 "Last-Translator: Petr Varvarovsky <petrv@atlantis.cz>\n"
 "Language-Team: Czech <http://*/projects/freepbx/ucp/cs/>\n"
@@ -388,7 +388,7 @@ msgstr "Zakázat"
 msgid "Display Name"
 msgstr "Zobrazovaný název"
 
-#: Ucp.class.php:1373
+#: Ucp.class.php:1372
 #, php-format
 msgid "Don't know what %s is"
 msgstr "Nevím, co je %s"
@@ -946,11 +946,11 @@ msgstr "Spouštění UCP Node serveru..."
 msgid "Starting new UCP Node Process..."
 msgstr "Spouštění nového UCP Node procesu..."
 
-#: Ucp.class.php:1357
+#: Ucp.class.php:1356
 msgid "Stopped UCP Node Server"
 msgstr "Zastaven UCP Node server"
 
-#: Ucp.class.php:1326
+#: Ucp.class.php:1325
 msgid "Stopping UCP Node Server"
 msgstr "Zastavování UCP Node serveru"
 
@@ -1188,7 +1188,7 @@ msgstr "UCP Daemon"
 msgid "UCP Node Disabled in Advanced Settings."
 msgstr ""
 
-#: Ucp.class.php:1361
+#: Ucp.class.php:1360
 #, php-format
 msgid "UCP Node Server Failed: %s"
 msgstr "Chyba UCP Node serveru: %s"
@@ -1198,7 +1198,7 @@ msgstr "Chyba UCP Node serveru: %s"
 msgid "UCP Node Server has already been running on PID %s for %s"
 msgstr "Server UCP Node již běží na PID %s pro %s"
 
-#: Ucp.class.php:1319
+#: Ucp.class.php:1318
 msgid "UCP Node Server is not running"
 msgstr "UCP Node server neběží"
 

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-07-31 06:09+0000\n"
+"POT-Creation-Date: 2023-08-31 10:53+0000\n"
 "PO-Revision-Date: 2017-05-04 03:17+0200\n"
 "Last-Translator: Evgeniy <yen81@mail.ru>\n"
 "Language-Team: Russian <http://weblate.freepbx.org/projects/freepbx/ucp/ru/"
@@ -355,7 +355,7 @@ msgstr ""
 msgid "Display Name"
 msgstr ""
 
-#: Ucp.class.php:1373
+#: Ucp.class.php:1372
 #, php-format
 msgid "Don't know what %s is"
 msgstr ""
@@ -896,11 +896,11 @@ msgstr ""
 msgid "Starting new UCP Node Process..."
 msgstr ""
 
-#: Ucp.class.php:1357
+#: Ucp.class.php:1356
 msgid "Stopped UCP Node Server"
 msgstr ""
 
-#: Ucp.class.php:1326
+#: Ucp.class.php:1325
 msgid "Stopping UCP Node Server"
 msgstr ""
 
@@ -1104,7 +1104,7 @@ msgstr ""
 msgid "UCP Node Disabled in Advanced Settings."
 msgstr ""
 
-#: Ucp.class.php:1361
+#: Ucp.class.php:1360
 #, php-format
 msgid "UCP Node Server Failed: %s"
 msgstr ""
@@ -1114,7 +1114,7 @@ msgstr ""
 msgid "UCP Node Server has already been running on PID %s for %s"
 msgstr ""
 
-#: Ucp.class.php:1319
+#: Ucp.class.php:1318
 msgid "UCP Node Server is not running"
 msgstr ""
 
