@@ -13,6 +13,7 @@
 namespace UCP;
 
 include(__DIR__ . '/Module_Helpers.class.php');
+#[\AllowDynamicProperties]
 class Modules extends Module_Helpers {
 	// Static Object used for self-referencing.
 	private static \UCP\Modules $obj;

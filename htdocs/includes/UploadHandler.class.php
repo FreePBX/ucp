@@ -19,7 +19,7 @@
  */
 
 namespace UCP;
-
+#[\AllowDynamicProperties]
 class UploadHandler {
 
     protected $options;

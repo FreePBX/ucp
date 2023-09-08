@@ -7,6 +7,7 @@
  * @author Philippe Lindheimer
  */
 namespace UCP;
+#[\AllowDynamicProperties]
 class Modgettext extends UCP {
 
 	// This hash maps a given module name to the initialized txt domain it should use.

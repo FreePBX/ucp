@@ -12,6 +12,7 @@ use Symfony\Component\Process\Exception\ProcessFailedException;
 use Symfony\Component\Process\Process;
 //progress bar 
 use Symfony\Component\Console\Helper\ProgressBar;
+#[\AllowDynamicProperties]
 class Ucp implements \BMO {
 	private $message;
 	private array $registeredHooks = [];

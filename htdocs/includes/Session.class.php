@@ -11,7 +11,7 @@
  * Copyright 2006-2014 Schmooze Com Inc.
  */
 namespace UCP;
-
+#[\AllowDynamicProperties]
 class Session extends UCP {
 	private string $prefix = 'UCP_';
 

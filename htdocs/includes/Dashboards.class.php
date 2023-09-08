@@ -14,6 +14,7 @@
 namespace UCP;
 use \Ramsey\Uuid\Uuid;
 use \Ramsey\Uuid\Exception\UnsatisfiedDependencyException;
+#[\AllowDynamicProperties]
 class Dashboards {
 
 	private $dashboardsCache;

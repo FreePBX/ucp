@@ -16,6 +16,7 @@ use Emojione\Client;
 use Emojione\Ruleset;
 
 include(__DIR__ . '/UCP_Helpers.class.php');
+#[\AllowDynamicProperties]
 class UCP extends UCP_Helpers {
 	// Static Object used for self-referencing.
 	private static \UCP\UCP $uobj;
