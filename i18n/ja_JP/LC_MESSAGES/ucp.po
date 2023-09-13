@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-08-31 10:53+0000\n"
+"POT-Creation-Date: 2023-09-13 10:15+0000\n"
 "PO-Revision-Date: 2016-09-02 16:04+0200\n"
 "Last-Translator: Kenichi <k.kitani@qloog.com>\n"
 "Language-Team: Japanese <http://weblate.freepbx.org/projects/freepbx/ucp/"
@@ -132,14 +132,6 @@ msgstr ""
 msgid "Adding a dashboard"
 msgstr ""
 
-#: ucp.i18n.php:34
-msgid "Address to bind to. Default is "
-msgstr ""
-
-#: ucp.i18n.php:6
-msgid "Admin"
-msgstr "アドミン"
-
 #: htdocs/views/dashboard-footer.php:217
 msgid "Alert"
 msgstr ""
@@ -164,14 +156,6 @@ msgstr "デスクトップ通知を許可する"
 msgid "Allow Login"
 msgstr "ログインを許可する"
 
-#: ucp.i18n.php:54
-msgid "Allow Password Changes"
-msgstr "パスワードの変更を許可"
-
-#: ucp.i18n.php:60
-msgid "Allow Username Changes"
-msgstr "ユーザ名の変更を許可"
-
 #: htdocs/modules/Settings/views/settings.php:146
 msgid "Allow browser desktop notifications from UCP modules."
 msgstr "UCPモジュールからのデスクトップ通知（ブラウザ経由）を許可します。"
@@ -182,14 +166,6 @@ msgid ""
 "WebRTC"
 msgstr ""
 "このユーザにUCPからの発信権限を付与する。注意: WebRTCとは別の設定です。"
-
-#: ucp.i18n.php:62
-msgid "Allow users to change their username in UCP"
-msgstr "UCPでユーザ名の変更を可能にする権限をユーザに与えます。"
-
-#: ucp.i18n.php:58
-msgid "Allow users to change thier password in UCP"
-msgstr "UCPでパスワードの変更を可能にする権限をユーザに与えます。"
 
 #: views/users_hook.php:204
 msgid "Allowed Extension Settings"
@@ -203,7 +179,7 @@ msgstr ""
 msgid "Assign UCP Template"
 msgstr ""
 
-#: Ucp.class.php:1211
+#: Ucp.class.php:1212
 #, php-format
 msgid ""
 "Asterisk home dir (%s) doesn't exist, and, ASTSPOOLDIR doesn't exist. "
@@ -340,11 +316,11 @@ msgstr "画像を削除"
 msgid "Delete a Dashboard"
 msgstr ""
 
-#: Ucp.class.php:1071
+#: Ucp.class.php:1072
 msgid "Deleted Session"
 msgstr "セッションを削除しました"
 
-#: Ucp.class.php:383 Ucp.class.php:913
+#: Ucp.class.php:384 Ucp.class.php:914
 msgid "Deleted User Session"
 msgstr "ユーザーのセッションを削除しました"
 
@@ -356,13 +332,13 @@ msgstr ""
 msgid "Display Name"
 msgstr "表示名"
 
-#: Ucp.class.php:1372
+#: Ucp.class.php:1373
 #, php-format
 msgid "Don't know what %s is"
 msgstr ""
 
-#: Ucp.class.php:294 Ucp.class.php:320 Ucp.class.php:1166 Ucp.class.php:1170
-#: Ucp.class.php:1174 Ucp.class.php:1178
+#: Ucp.class.php:295 Ucp.class.php:321 Ucp.class.php:1167 Ucp.class.php:1171
+#: Ucp.class.php:1175 Ucp.class.php:1179
 msgid "Done"
 msgstr "完了"
 
@@ -390,16 +366,8 @@ msgstr ""
 msgid "Enable Originating Calls"
 msgstr "発信元を有効にする"
 
-#: ucp.i18n.php:28
-msgid "Enable TLS for the NodeJS Server"
-msgstr ""
-
 #: views/users_hook.php:76
 msgid "Enable Tour Mode"
-msgstr ""
-
-#: ucp.i18n.php:22
-msgid "Enable the NodeJS Server"
 msgstr ""
 
 #: views/users_hook.php:95
@@ -429,16 +397,16 @@ msgstr ""
 msgid "Failed to install %s due to the following conflicting module(s): %s"
 msgstr "%s のインストールに失敗しました。モジュール: %s と衝突しています。"
 
-#: Ucp.class.php:1288
+#: Ucp.class.php:1289
 #, php-format
 msgid "Failed to run: '%s'"
 msgstr ""
 
-#: Ucp.class.php:172
+#: Ucp.class.php:173
 msgid "Failed updating libraries!"
 msgstr ""
 
-#: Ucp.class.php:302
+#: Ucp.class.php:303
 msgid "Failed!"
 msgstr ""
 
@@ -446,7 +414,7 @@ msgstr ""
 msgid "Fax"
 msgstr "FAX"
 
-#: Ucp.class.php:175
+#: Ucp.class.php:176
 msgid "Finished updating libraries!"
 msgstr ""
 
@@ -470,19 +438,19 @@ msgstr "GHI"
 msgid "General"
 msgstr "一般"
 
-#: Ucp.class.php:1176
+#: Ucp.class.php:1177
 msgid "Generating Main CSS..."
 msgstr "メインCSSを生成中..."
 
-#: Ucp.class.php:1172
+#: Ucp.class.php:1173
 msgid "Generating Main Scripts..."
 msgstr "メインスクリプトを生成中..."
 
-#: Ucp.class.php:1168
+#: Ucp.class.php:1169
 msgid "Generating Module CSS..."
 msgstr "モジュールCSSを生成中..."
 
-#: Ucp.class.php:1164
+#: Ucp.class.php:1165
 msgid "Generating Module Scripts..."
 msgstr "モジュールスクリプトを生成中..."
 
@@ -498,7 +466,7 @@ msgstr "ホーム"
 msgid "Home Phone"
 msgstr "自宅電話"
 
-#: Ucp.class.php:150 Ucp.class.php:157
+#: Ucp.class.php:151 Ucp.class.php:158
 #, php-format
 msgid "Home directory [%s] is not writable"
 msgstr ""
@@ -508,7 +476,7 @@ msgid ""
 "How you would like your name displayed throughout UCP and Contact Manager"
 msgstr "UCPとコンタクトマネージャーで使う表示名"
 
-#: Ucp.class.php:142
+#: Ucp.class.php:143
 #, php-format
 msgid "ICU version is: %s requirement is %s"
 msgstr ""
@@ -518,7 +486,7 @@ msgstr ""
 msgid "Inherit"
 msgstr "引き継ぐ"
 
-#: Ucp.class.php:162
+#: Ucp.class.php:163
 msgid "Installing/Updating Required Libraries. This may take a while..."
 msgstr ""
 
@@ -599,11 +567,11 @@ msgstr "このユーザーが UCP にログインします"
 msgid "Miscellaneous"
 msgstr "諸々"
 
-#: htdocs/includes/Ajax.class.php:36
+#: htdocs/includes/Ajax.class.php:37
 msgid "Module or Command requested invalid"
 msgstr ""
 
-#: htdocs/includes/Ajax.class.php:72
+#: htdocs/includes/Ajax.class.php:73
 msgid "Module or Command were null. Check your code."
 msgstr "モジュールかコマンドはnull。コードを確認してください。"
 
@@ -614,7 +582,7 @@ msgid ""
 "you want"
 msgstr ""
 
-#: Ucp.class.php:115
+#: Ucp.class.php:116
 #, php-format
 msgid ""
 "NPM version is: %s requirement is %s. Run 'yum upgrade nodejs' from the CLI "
@@ -630,43 +598,19 @@ msgstr ""
 msgid "No"
 msgstr "いいえ"
 
-#: Ucp.class.php:111
+#: Ucp.class.php:112
 msgid "Node Package Manager is not installed"
 msgstr ""
 
-#: Ucp.class.php:99
+#: Ucp.class.php:100
 msgid "Node is not installed"
 msgstr ""
 
-#: Ucp.class.php:103
+#: Ucp.class.php:104
 #, php-format
 msgid ""
 "Node version is: %s requirement is %s. Run 'yum upgrade nodejs' from the CLI "
 "as root"
-msgstr ""
-
-#: ucp.i18n.php:32
-msgid "NodeJS Bind Address"
-msgstr ""
-
-#: ucp.i18n.php:36
-msgid "NodeJS Bind Port"
-msgstr ""
-
-#: ucp.i18n.php:40
-msgid "NodeJS HTTPS Bind Address"
-msgstr ""
-
-#: ucp.i18n.php:42
-msgid "NodeJS HTTPS Bind Port"
-msgstr ""
-
-#: ucp.i18n.php:46
-msgid "NodeJS HTTPS TLS Certificate Location"
-msgstr ""
-
-#: ucp.i18n.php:50
-msgid "NodeJS HTTPS TLS Private Key Location"
 msgstr ""
 
 #: views/users_hook.php:141
@@ -721,7 +665,7 @@ msgstr "PQRS"
 msgid "Password"
 msgstr "パスワード"
 
-#: Ucp.class.php:434
+#: Ucp.class.php:435
 #, php-format
 msgid "Password Reset Link (Valid Until: %s): %s"
 msgstr "パスワードリセットリンク（%sまで有効）: %s"
@@ -739,31 +683,19 @@ msgstr ""
 msgid "Password has been changed!"
 msgstr "パスワードは変更されました！"
 
-#: ucp.i18n.php:38
-msgid "Port to bind to. Default is 8001"
-msgstr ""
-
-#: ucp.i18n.php:44
-msgid "Port to bind to. Default is 8003"
-msgstr ""
-
 #: htdocs/assets/js/ucp.js:290 htdocs/assets/js/ucp.js:344
 msgid "Processing..."
 msgstr "処理中..."
 
-#: htdocs/modules/Home/Home.class.php:51 ucp.i18n.php:64
+#: htdocs/modules/Home/Home.class.php:51
 msgid "RSS Feeds"
 msgstr "RSSフィード"
-
-#: ucp.i18n.php:66
-msgid "RSS Feeds that are displayed in UCP. This overrides "
-msgstr "RSSフィードがUCPで表示され、上書きします "
 
 #: Api/Rest/Dashboard.php:12
 msgid "Read UCP Dashboard Information"
 msgstr ""
 
-#: Ucp.class.php:308
+#: Ucp.class.php:309
 msgid "Refreshing all UCP Assets, this could take a while..."
 msgstr "UCPアセットを再読み込みしています。お待ちください..."
 
@@ -784,7 +716,7 @@ msgstr "パスワードをリセット"
 msgid "Restart Tour"
 msgstr ""
 
-#: Ucp.class.php:1227
+#: Ucp.class.php:1228
 #, php-format
 msgid "Running (Uptime: %s)"
 msgstr ""
@@ -823,14 +755,6 @@ msgstr "パスワードリセットリンクを送信する"
 #, php-format
 msgid "Sent at %s"
 msgstr "%s に送信された"
-
-#: ucp.i18n.php:52
-msgid "Sets the path to the HTTPS private key. This is required if "
-msgstr ""
-
-#: ucp.i18n.php:48
-msgid "Sets the path to the HTTPS server certificate. This is required if "
-msgstr ""
 
 #: htdocs/modules/Widgets/assets/js/global.js:100
 #: htdocs/modules/Widgets/assets/js/global.js:385
@@ -881,39 +805,35 @@ msgstr ""
 msgid "Something went wrong removing the dashboard"
 msgstr ""
 
-#: Ucp.class.php:1283
+#: Ucp.class.php:1284
 #, php-format
 msgid "Started UCP Node Server. PID is %s"
 msgstr ""
 
-#: Ucp.class.php:304
+#: Ucp.class.php:305
 #, php-format
 msgid "Started with PID %s!"
 msgstr ""
 
-#: Ucp.class.php:1254
+#: Ucp.class.php:1255
 msgid "Starting UCP Node Server..."
 msgstr ""
 
-#: Ucp.class.php:299
+#: Ucp.class.php:300
 msgid "Starting new UCP Node Process..."
 msgstr ""
 
-#: Ucp.class.php:1356
+#: Ucp.class.php:1357
 msgid "Stopped UCP Node Server"
 msgstr ""
 
-#: Ucp.class.php:1325
+#: Ucp.class.php:1326
 msgid "Stopping UCP Node Server"
 msgstr ""
 
-#: Ucp.class.php:292 Ucp.class.php:318
+#: Ucp.class.php:293 Ucp.class.php:319
 msgid "Stopping old running processes..."
 msgstr ""
-
-#: ucp.i18n.php:14
-msgid "Styling and Logos"
-msgstr "デザインとロゴ"
 
 #: htdocs/includes/User.class.php:89
 msgid "Submitted"
@@ -924,7 +844,7 @@ msgstr ""
 msgid "Success!"
 msgstr ""
 
-#: Ucp.class.php:120
+#: Ucp.class.php:121
 msgid "System"
 msgstr ""
 
@@ -958,7 +878,7 @@ msgid ""
 "dashboard by clicking this symbol"
 msgstr ""
 
-#: htdocs/includes/Ajax.class.php:77
+#: htdocs/includes/Ajax.class.php:78
 #, php-format
 msgid "The class %s already existed. Ajax MUST load it, for security reasons"
 msgstr ""
@@ -991,14 +911,6 @@ msgid ""
 "see: %s"
 msgstr ""
 
-#: ucp.i18n.php:70
-msgid ""
-"The number of days a session token will be valid for. Clear this setting if "
-"you want tokens to last forever (Not Recommended)"
-msgstr ""
-"セッショントークンが有効な日数。トークンが永久に有効になることを希望する場合"
-"この設定をクリアしてください（非推奨）"
-
 #: htdocs/modules/Settings/views/settings.php:29
 #: htdocs/modules/Settings/views/settings.php:34
 msgid "The password used to login to User Control Panel and other services"
@@ -1007,14 +919,6 @@ msgstr "UCPやその他のサービスのログインに使うパスワード"
 #: htdocs/assets/js/ucp.js:562
 msgid "The session has expired and you are being forcibly logged out"
 msgstr ""
-
-#: ucp.i18n.php:8
-msgid ""
-"The user control panel is a way for users to control call handling and "
-"personal settings from a web browser."
-msgstr ""
-"ユーザーコントロールパネルを使用すると呼の処理と個人設定をウェブブラウザから"
-"コントロールできます。"
 
 #: htdocs/modules/Settings/views/settings.php:20
 msgid "The username used to login to User Control Panel and other services"
@@ -1101,52 +1005,34 @@ msgstr ""
 msgid "To remove this widget from the side bar click 'Remove Widget'"
 msgstr ""
 
-#: ucp.i18n.php:10
-msgid "UCP"
-msgstr "UCP"
-
 #: views/header.php:1
 msgid "UCP Admin"
 msgstr "UCP管理者"
 
-#: Ucp.class.php:1218
+#: Ucp.class.php:1219
 msgid "UCP Daemon"
 msgstr ""
 
-#: Ucp.class.php:1221
+#: Ucp.class.php:1222
 msgid "UCP Node Disabled in Advanced Settings."
 msgstr ""
 
-#: Ucp.class.php:1360
+#: Ucp.class.php:1361
 #, php-format
 msgid "UCP Node Server Failed: %s"
 msgstr ""
 
-#: Ucp.class.php:1248
+#: Ucp.class.php:1249
 #, php-format
 msgid "UCP Node Server has already been running on PID %s for %s"
 msgstr ""
 
-#: Ucp.class.php:1318
+#: Ucp.class.php:1319
 msgid "UCP Node Server is not running"
 msgstr ""
 
-#: Ucp.class.php:1229
+#: Ucp.class.php:1230
 msgid "UCP Node is not running"
-msgstr ""
-
-#: ucp.i18n.php:24
-msgid "UCP NodeJS Server"
-msgstr ""
-
-#: ucp.i18n.php:68
-msgid "UCP Session Timeout"
-msgstr "UCP セッション タイムアウト"
-
-#: ucp.i18n.php:20
-msgid ""
-"UCP icons folder. This should never be changed except for very advanced "
-"layout changes"
 msgstr ""
 
 #: htdocs/index.php:23
@@ -1173,7 +1059,7 @@ msgstr ""
 msgid "Unable to send Password Reset Email"
 msgstr ""
 
-#: Ucp.class.php:1218
+#: Ucp.class.php:1219
 msgid "Unknown"
 msgstr ""
 
@@ -1210,8 +1096,7 @@ msgid "User"
 msgstr ""
 
 #: htdocs/views/forgot.php:27 htdocs/views/header.php:6
-#: htdocs/views/login.php:5 ucp.i18n.php:4 /usr/src/freepbx/ucp/ucp.i18n.php:56
-#: htdocs/modules/Widgets/assets/js/global.js:47
+#: htdocs/views/login.php:5 htdocs/modules/Widgets/assets/js/global.js:47
 msgid "User Control Panel"
 msgstr "UCP"
 
@@ -1219,7 +1104,7 @@ msgstr "UCP"
 msgid "User Control Panel Settings"
 msgstr "ユーザーコントロールパネル設定"
 
-#: Ucp.class.php:431
+#: Ucp.class.php:432
 #, php-format
 msgid "User Control Panel: %s"
 msgstr "ユーザーコントロールパネル： %s"
@@ -1228,7 +1113,7 @@ msgstr "ユーザーコントロールパネル： %s"
 msgid "User Details"
 msgstr "ユーザー詳細"
 
-#: Ucp.class.php:354 Ucp.class.php:368
+#: Ucp.class.php:355 Ucp.class.php:369
 msgid "User Primary Extension"
 msgstr "ユーザープライマリ内線"
 
@@ -1239,14 +1124,6 @@ msgstr "ユーザー設定"
 #: htdocs/modules/Settings/views/settings.php:18 htdocs/views/login.php:16
 msgid "Username"
 msgstr "ユーザー名"
-
-#: ucp.i18n.php:12
-msgid "View: UCP dashfootercontent.php"
-msgstr ""
-
-#: ucp.i18n.php:18
-msgid "View: UCP icons"
-msgstr ""
 
 #: htdocs/views/templates/phone.php:73
 msgid "WXYZ"
@@ -1273,18 +1150,6 @@ msgstr ""
 #: htdocs/modules/Ucptour/assets/js/global.js:70
 msgid ""
 "When you are finished simply hit 'Create Dashboard' to create your dashboard"
-msgstr ""
-
-#: ucp.i18n.php:30
-msgid ""
-"Whether to enable TLS for the backend server for UCP which allows "
-"instantaneous updates to the interface"
-msgstr ""
-
-#: ucp.i18n.php:26
-msgid ""
-"Whether to enable the backend server for UCP which allows instantaneous "
-"updates to the interface"
 msgstr ""
 
 #: htdocs/modules/Ucptour/assets/js/global.js:223
@@ -1469,18 +1334,12 @@ msgid ""
 "bar"
 msgstr ""
 
-#: ucp.i18n.php:16
-msgid ""
-"dashfootercontent.php view. This should never be changed except for very "
-"advanced layout changes"
-msgstr ""
-
 #: htdocs/assets/js/lodash-4.17.2.js:15638
 #: htdocs/assets/js/lodash-4.17.2.js:15642
 msgid "fred"
 msgstr ""
 
-#: Ucp.class.php:92
+#: Ucp.class.php:93
 msgid "gcc-c++ is not installed"
 msgstr ""
 
@@ -1494,11 +1353,11 @@ msgstr ""
 "htaccessファイルはサーバーの整合性を保つために重要なファイルです。関連するパ"
 "スとディレクトリのセキュリティ設定をご確認ください。詳しくはこちら： %s"
 
-#: Ucp.class.php:136
+#: Ucp.class.php:137
 msgid "icu is not installed. You need to run: yum install icu libicu-devel"
 msgstr ""
 
-#: Ucp.class.php:128
+#: Ucp.class.php:129
 msgid ""
 "icu, pkg-config or pkgconf is not installed. You need to run: apt-get "
 "install icu libicu-devel pkg-config pkgconf"
@@ -1515,6 +1374,47 @@ msgstr ""
 #: htdocs/assets/js/jquery-ui-1.13.2.min.js:6
 msgid "string"
 msgstr ""
+
+#~ msgid "Admin"
+#~ msgstr "アドミン"
+
+#~ msgid "Allow Password Changes"
+#~ msgstr "パスワードの変更を許可"
+
+#~ msgid "Allow Username Changes"
+#~ msgstr "ユーザ名の変更を許可"
+
+#~ msgid "Allow users to change their username in UCP"
+#~ msgstr "UCPでユーザ名の変更を可能にする権限をユーザに与えます。"
+
+#~ msgid "Allow users to change thier password in UCP"
+#~ msgstr "UCPでパスワードの変更を可能にする権限をユーザに与えます。"
+
+#~ msgid "RSS Feeds that are displayed in UCP. This overrides "
+#~ msgstr "RSSフィードがUCPで表示され、上書きします "
+
+#~ msgid "Styling and Logos"
+#~ msgstr "デザインとロゴ"
+
+#~ msgid ""
+#~ "The number of days a session token will be valid for. Clear this setting "
+#~ "if you want tokens to last forever (Not Recommended)"
+#~ msgstr ""
+#~ "セッショントークンが有効な日数。トークンが永久に有効になることを希望する場"
+#~ "合この設定をクリアしてください（非推奨）"
+
+#~ msgid ""
+#~ "The user control panel is a way for users to control call handling and "
+#~ "personal settings from a web browser."
+#~ msgstr ""
+#~ "ユーザーコントロールパネルを使用すると呼の処理と個人設定をウェブブラウザか"
+#~ "らコントロールできます。"
+
+#~ msgid "UCP"
+#~ msgstr "UCP"
+
+#~ msgid "UCP Session Timeout"
+#~ msgstr "UCP セッション タイムアウト"
 
 #~ msgid "The removal of this copyright notice is stricly prohibited"
 #~ msgstr "著作権情報の削除は禁止されています"
