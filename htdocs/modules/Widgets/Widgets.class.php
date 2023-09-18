@@ -50,8 +50,9 @@ class Widgets extends Modules {
 		$widgets = $this->UCP->Dashboards->getAllWidgets();
 
 		$widgets_info_serialized = $this->Modules->Widgets->getWidgetsFromDashboard($dashboard_id);
-
-		$widgets_info = json_decode((string) $widgets_info_serialized, null, 512, JSON_THROW_ON_ERROR);
+		if(!empty($widgets_info_serialized)) {
+			$widgets_info = json_decode((string) $widgets_info_serialized, null, 512, JSON_THROW_ON_ERROR);
+		}
 
 		$html = '<div class="grid-stack" data-dashboard_id="' . $dashboard_id . '">';
 
