@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-09-13 10:15+0000\n"
+"POT-Creation-Date: 2023-09-18 09:10+0000\n"
 "PO-Revision-Date: 2017-03-08 21:13+0200\n"
 "Last-Translator: Kingvoice <suporte@kingvoice.com.br>\n"
 "Language-Team: Portuguese (Brazil) <http://weblate.freepbx.org/projects/"
@@ -1185,7 +1185,7 @@ msgstr ""
 msgid "Widget Size"
 msgstr ""
 
-#: htdocs/modules/Widgets/Widgets.class.php:194
+#: htdocs/modules/Widgets/Widgets.class.php:195
 msgid "Widgets"
 msgstr ""
 

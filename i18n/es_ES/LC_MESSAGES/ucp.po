@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-09-13 10:15+0000\n"
+"POT-Creation-Date: 2023-09-18 09:10+0000\n"
 "PO-Revision-Date: 2016-06-07 10:27+0200\n"
 "Last-Translator: Ernesto <ecasas@sangoma.com>\n"
 "Language-Team: Spanish <http://weblate.freepbx.org/projects/freepbx/ucp/"
@@ -1171,7 +1171,7 @@ msgstr ""
 msgid "Widget Size"
 msgstr ""
 
-#: htdocs/modules/Widgets/Widgets.class.php:194
+#: htdocs/modules/Widgets/Widgets.class.php:195
 msgid "Widgets"
 msgstr ""
 

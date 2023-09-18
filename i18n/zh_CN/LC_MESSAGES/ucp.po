@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-09-13 10:15+0000\n"
+"POT-Creation-Date: 2023-09-18 09:10+0000\n"
 "PO-Revision-Date: 2015-11-23 13:55+0200\n"
 "Last-Translator: james <zhulizhong@gmail.com>\n"
 "Language-Team: Simplified Chinese <http://weblate.freepbx.org/projects/"
@@ -1162,7 +1162,7 @@ msgstr ""
 msgid "Widget Size"
 msgstr ""
 
-#: htdocs/modules/Widgets/Widgets.class.php:194
+#: htdocs/modules/Widgets/Widgets.class.php:195
 msgid "Widgets"
 msgstr ""
 

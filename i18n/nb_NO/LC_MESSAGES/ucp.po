@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-09-13 10:15+0000\n"
+"POT-Creation-Date: 2023-09-18 09:10+0000\n"
 "PO-Revision-Date: 2015-08-30 14:46+0200\n"
 "Last-Translator: Vidar Skjelanger <vidar@unimicro.no>\n"
 "Language-Team: Norwegian Bokmål <http://weblate.freepbx.org/projects/freepbx/"
@@ -1168,7 +1168,7 @@ msgstr ""
 msgid "Widget Size"
 msgstr ""
 
-#: htdocs/modules/Widgets/Widgets.class.php:194
+#: htdocs/modules/Widgets/Widgets.class.php:195
 msgid "Widgets"
 msgstr ""
 
