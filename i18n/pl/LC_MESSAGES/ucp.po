@@ -10,8 +10,8 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-09-15 08:32+0000\n"
-"PO-Revision-Date: 2023-03-14 19:00+0000\n"
-"Last-Translator: Klemens Starybrat <klemens.starybrat@gmail.com>\n"
+"PO-Revision-Date: 2023-10-24 16:00+0000\n"
+"Last-Translator: Szymon Wysokinski <szymon.wysokinski@sqspolska.pl>\n"
 "Language-Team: Polish <http://weblate.freepbx.org/projects/freepbx/ucp/pl/>\n"
 "Language: pl\n"
 "MIME-Version: 1.0\n"
@@ -100,11 +100,11 @@ msgstr "ABC"
 
 #: htdocs/views/dashboard-footer.php:202
 msgid "Accept"
-msgstr "Akceptuj"
+msgstr "Zaakceptuj"
 
 #: htdocs/modules/Settings/views/settings.php:5
 msgid "Account Settings"
-msgstr "Ustawienia konta"
+msgstr "Ustawienie Konta"
 
 #: views/users_hook.php:107
 msgid "Active Sessions"
