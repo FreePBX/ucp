@@ -7,7 +7,7 @@
 		<li><a class="nav-link" href="#ucpsettings" data-toggle="tab"><?php echo _("Interface Settings")?></a></li>
 		<?php foreach($extra as $module => $data) { ?>
 			<?php foreach($data as $e) { ?>
-				<li><a href="#settings-<?php echo $e['module']?>-<?php echo $e['rawname']?>" data-toggle="tab"><?php echo $e['name']?></a></li>
+				<li><a href="#settings-<?php echo $e['module'] ?? ''; ?>-<?php echo $e['rawname'] ?? ''; ?>" data-toggle="tab"><?php echo $e['name'] ?? '';?></a></li>
 			<?php }?>
 		<?php }?>
 	</ul>
@@ -177,8 +177,8 @@
 		</div>
 		<?php foreach($extra as $module => $data) { ?>
 			<?php foreach($data as $e) { ?>
-				<div class="tab-pane fade" id="settings-<?php echo $e['module']?>-<?php echo $e['rawname']?>">
-					<?php echo $e['html']?>
+				<div class="tab-pane fade" id="settings-<?php echo $e['module'] ?? ''; ?>-<?php echo $e['rawname'] ?? ''; ?>">
+					<?php echo $e['html'] ?? ''; ?>
 				</div>
 			<?php }?>
 		<?php }?>
