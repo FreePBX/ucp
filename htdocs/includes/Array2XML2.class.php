@@ -31,6 +31,7 @@
  *       echo $xml->saveXML();
  */
 
+#[\AllowDynamicProperties]
 class Array2XML2 {
 
     private static ?\DomDocument $xml = null;

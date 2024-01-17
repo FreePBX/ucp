@@ -6,6 +6,7 @@ namespace Emojione;
  * Client for Emojione
  */
 
+#[\AllowDynamicProperties]
 class Client implements ClientInterface {
     public $ascii = false; // convert ascii smileys?
     public $shortcodes = true; // convert shortcodes?

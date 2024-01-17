@@ -2,6 +2,7 @@
 
 namespace Emojione;
 
+#[\AllowDynamicProperties]
 class Emojione {
     public static $ascii = false; // convert ascii smileys?
     public static $unicodeAlt = true; // use the unicode char as the alt attribute (makes copy and pasting the resulting text better)
