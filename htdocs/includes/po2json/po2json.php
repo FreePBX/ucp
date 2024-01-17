@@ -4,7 +4,7 @@
  * @author Anakeen
  * @license http://creativecommons.org/licenses/by-nc-sa/2.0/fr/ Anakeen - licence CC
  */
-
+#[\AllowDynamicProperties]
 class po2json {
 	public $entry = [];
 	private string $encoding = 'utf-8';
