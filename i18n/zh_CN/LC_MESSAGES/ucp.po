@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-09-18 09:10+0000\n"
+"POT-Creation-Date: 2024-01-17 05:25-0500\n"
 "PO-Revision-Date: 2015-11-23 13:55+0200\n"
 "Last-Translator: james <zhulizhong@gmail.com>\n"
 "Language-Team: Simplified Chinese <http://weblate.freepbx.org/projects/"
@@ -130,6 +130,10 @@ msgstr ""
 #: htdocs/modules/Ucptour/assets/js/global.js:32
 msgid "Adding a dashboard"
 msgstr ""
+
+#: ucp.i18n.php:6
+msgid "Admin"
+msgstr "管理"
 
 #: htdocs/views/dashboard-footer.php:217
 msgid "Alert"
@@ -916,6 +920,12 @@ msgstr ""
 msgid "The session has expired and you are being forcibly logged out"
 msgstr ""
 
+#: ucp.i18n.php:8
+msgid ""
+"The user control panel is a way for users to control call handling and "
+"personal settings from a web browser."
+msgstr ""
+
 #: htdocs/modules/Settings/views/settings.php:20
 msgid "The username used to login to User Control Panel and other services"
 msgstr ""
@@ -993,6 +1003,10 @@ msgstr ""
 
 #: htdocs/modules/Ucptour/assets/js/global.js:330
 msgid "To remove this widget from the side bar click 'Remove Widget'"
+msgstr ""
+
+#: ucp.i18n.php:10
+msgid "UCP"
 msgstr ""
 
 #: views/header.php:1
@@ -1085,7 +1099,8 @@ msgid "User"
 msgstr ""
 
 #: htdocs/views/forgot.php:27 htdocs/views/header.php:6
-#: htdocs/views/login.php:5 htdocs/modules/Widgets/assets/js/global.js:47
+#: htdocs/views/login.php:5 ucp.i18n.php:4
+#: htdocs/modules/Widgets/assets/js/global.js:47
 msgid "User Control Panel"
 msgstr "用户控制界面"
 
@@ -1359,9 +1374,6 @@ msgstr ""
 #: htdocs/assets/js/jquery-ui-1.13.2.min.js:6
 msgid "string"
 msgstr ""
-
-#~ msgid "Admin"
-#~ msgstr "管理"
 
 #~ msgid "Allow Password Changes"
 #~ msgstr "允许密码修改"

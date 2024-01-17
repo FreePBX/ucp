@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-09-18 09:10+0000\n"
+"POT-Creation-Date: 2024-01-17 05:25-0500\n"
 "PO-Revision-Date: 2016-12-13 14:49+0200\n"
 "Last-Translator: Maxim <maxim@ua.fm>\n"
 "Language-Team: Ukrainian <http://weblate.freepbx.org/projects/freepbx/ucp/"
@@ -18,8 +18,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Generator: Weblate 2.4\n"
 
 #: htdocs/assets/js/lodash-4.17.2.js:8787
@@ -132,6 +132,10 @@ msgstr ""
 #: htdocs/modules/Ucptour/assets/js/global.js:32
 msgid "Adding a dashboard"
 msgstr ""
+
+#: ucp.i18n.php:6
+msgid "Admin"
+msgstr "Адміністратор"
 
 #: htdocs/views/dashboard-footer.php:217
 msgid "Alert"
@@ -926,6 +930,14 @@ msgstr ""
 msgid "The session has expired and you are being forcibly logged out"
 msgstr ""
 
+#: ucp.i18n.php:8
+msgid ""
+"The user control panel is a way for users to control call handling and "
+"personal settings from a web browser."
+msgstr ""
+"Панель керування користувача надає можливість користувачам, контролювати "
+"обробку викликів та персональні налаштування за допомогою веб-браузера."
+
 #: htdocs/modules/Settings/views/settings.php:20
 msgid "The username used to login to User Control Panel and other services"
 msgstr ""
@@ -1012,6 +1024,10 @@ msgstr ""
 #: htdocs/modules/Ucptour/assets/js/global.js:330
 msgid "To remove this widget from the side bar click 'Remove Widget'"
 msgstr ""
+
+#: ucp.i18n.php:10
+msgid "UCP"
+msgstr "UCP"
 
 #: views/header.php:1
 msgid "UCP Admin"
@@ -1106,7 +1122,8 @@ msgid "User"
 msgstr ""
 
 #: htdocs/views/forgot.php:27 htdocs/views/header.php:6
-#: htdocs/views/login.php:5 htdocs/modules/Widgets/assets/js/global.js:47
+#: htdocs/views/login.php:5 ucp.i18n.php:4
+#: htdocs/modules/Widgets/assets/js/global.js:47
 msgid "User Control Panel"
 msgstr "Панель керування користувача"
 
@@ -1386,9 +1403,6 @@ msgstr ""
 msgid "string"
 msgstr ""
 
-#~ msgid "Admin"
-#~ msgstr "Адміністратор"
-
 #~ msgid "Allow Password Changes"
 #~ msgstr "Дозволити зміну паролю"
 
@@ -1410,16 +1424,6 @@ msgstr ""
 #~ msgstr ""
 #~ "Кількість днів протягом яких буде дійсний маркер сеансу. Очистити цю "
 #~ "настройку, якщо ви хочете, щоб маркери тривали вічно (не рекомендується)"
-
-#~ msgid ""
-#~ "The user control panel is a way for users to control call handling and "
-#~ "personal settings from a web browser."
-#~ msgstr ""
-#~ "Панель керування користувача надає можливість користувачам, контролювати "
-#~ "обробку викликів та персональні налаштування за допомогою веб-браузера."
-
-#~ msgid "UCP"
-#~ msgstr "UCP"
 
 #~ msgid "UCP Session Timeout"
 #~ msgstr "Тайм-аут сеансу UCP"

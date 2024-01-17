@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-09-18 09:10+0000\n"
+"POT-Creation-Date: 2024-01-17 05:25-0500\n"
 "PO-Revision-Date: 2018-10-25 08:00+0000\n"
 "Last-Translator: Bastian Mertgen <b.mertgen@bastian-mertgen.de>\n"
 "Language-Team: German <http://*/projects/freepbx/ucp/de/>\n"
@@ -151,6 +151,10 @@ msgstr "Widgets hinzufügen"
 #: htdocs/modules/Ucptour/assets/js/global.js:32
 msgid "Adding a dashboard"
 msgstr "Ein Dashboard hinzufügen"
+
+#: ucp.i18n.php:6
+msgid "Admin"
+msgstr "Administrator"
 
 #: htdocs/views/dashboard-footer.php:217
 msgid "Alert"
@@ -952,9 +956,9 @@ msgid ""
 "locale aware. If left blank this will use the group/system format. For more "
 "formats please see: %s"
 msgstr ""
-"Das Datums- und Zeitformat sollte angezeigt werden. Der Standard des \"llll"
-"\" ist regional. Falls unbestimt, wird das group/system Format genutzt. Für "
-"mehr Formate bitte hier nachsehen: %s"
+"Das Datums- und Zeitformat sollte angezeigt werden. Der Standard des "
+"\"llll\" ist regional. Falls unbestimt, wird das group/system Format "
+"genutzt. Für mehr Formate bitte hier nachsehen: %s"
 
 #: htdocs/modules/Settings/views/settings.php:167
 #, php-format
@@ -987,6 +991,14 @@ msgstr ""
 #: htdocs/assets/js/ucp.js:562
 msgid "The session has expired and you are being forcibly logged out"
 msgstr "Die Session ist abgelaufen und Sie sind zwangsweise ausgeloggt"
+
+#: ucp.i18n.php:8
+msgid ""
+"The user control panel is a way for users to control call handling and "
+"personal settings from a web browser."
+msgstr ""
+"Das Benutzerkontrollzentrum (UCP) gibt Benutzern die Möglichkeit, ihre "
+"Anrufe und persönliche Einstellungen über einen Webbrowser zu verwalten."
 
 #: htdocs/modules/Settings/views/settings.php:20
 msgid "The username used to login to User Control Panel and other services"
@@ -1088,6 +1100,10 @@ msgstr ""
 "Um dieses Widget von der Side bar zu entfernen bitte 'Entferne Widget' "
 "klicken"
 
+#: ucp.i18n.php:10
+msgid "UCP"
+msgstr "UCP (Benutzerkontrollzentrum)"
+
 #: views/header.php:1
 msgid "UCP Admin"
 msgstr "UCP Administrator"
@@ -1181,7 +1197,8 @@ msgid "User"
 msgstr "Benutzer"
 
 #: htdocs/views/forgot.php:27 htdocs/views/header.php:6
-#: htdocs/views/login.php:5 htdocs/modules/Widgets/assets/js/global.js:47
+#: htdocs/views/login.php:5 ucp.i18n.php:4
+#: htdocs/modules/Widgets/assets/js/global.js:47
 msgid "User Control Panel"
 msgstr "Benutzerkontrollzentrum (UCP)"
 
@@ -1487,9 +1504,6 @@ msgstr ""
 #~ msgid "Address to bind to. Default is "
 #~ msgstr "Adresse an die gebunden werden soll. Standard ist "
 
-#~ msgid "Admin"
-#~ msgstr "Administrator"
-
 #~ msgid "Allow Password Changes"
 #~ msgstr "Änderungen des Passworts zulassen"
 
@@ -1552,16 +1566,6 @@ msgstr ""
 #~ "Die Anzahl der Tage die ein Session-Token gültig ist. Deaktivieren Sie "
 #~ "diese Einstellung, wenn die Tokens kein Ablaufdatum besitzen sollen "
 #~ "(nicht empfohlen)"
-
-#~ msgid ""
-#~ "The user control panel is a way for users to control call handling and "
-#~ "personal settings from a web browser."
-#~ msgstr ""
-#~ "Das Benutzerkontrollzentrum (UCP) gibt Benutzern die Möglichkeit, ihre "
-#~ "Anrufe und persönliche Einstellungen über einen Webbrowser zu verwalten."
-
-#~ msgid "UCP"
-#~ msgstr "UCP (Benutzerkontrollzentrum)"
 
 #~ msgid "UCP NodeJS Server"
 #~ msgstr "UCP-NodeJS-Server"

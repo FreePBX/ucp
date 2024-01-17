@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-09-18 09:10+0000\n"
+"POT-Creation-Date: 2024-01-17 05:25-0500\n"
 "PO-Revision-Date: 2016-09-02 16:04+0200\n"
 "Last-Translator: Kenichi <k.kitani@qloog.com>\n"
 "Language-Team: Japanese <http://weblate.freepbx.org/projects/freepbx/ucp/"
@@ -131,6 +131,10 @@ msgstr ""
 #: htdocs/modules/Ucptour/assets/js/global.js:32
 msgid "Adding a dashboard"
 msgstr ""
+
+#: ucp.i18n.php:6
+msgid "Admin"
+msgstr "アドミン"
 
 #: htdocs/views/dashboard-footer.php:217
 msgid "Alert"
@@ -920,6 +924,14 @@ msgstr "UCPやその他のサービスのログインに使うパスワード"
 msgid "The session has expired and you are being forcibly logged out"
 msgstr ""
 
+#: ucp.i18n.php:8
+msgid ""
+"The user control panel is a way for users to control call handling and "
+"personal settings from a web browser."
+msgstr ""
+"ユーザーコントロールパネルを使用すると呼の処理と個人設定をウェブブラウザから"
+"コントロールできます。"
+
 #: htdocs/modules/Settings/views/settings.php:20
 msgid "The username used to login to User Control Panel and other services"
 msgstr "ユーザーコントロールパネルとたのサービスにログインするためのユーザー名"
@@ -1004,6 +1016,10 @@ msgstr ""
 #: htdocs/modules/Ucptour/assets/js/global.js:330
 msgid "To remove this widget from the side bar click 'Remove Widget'"
 msgstr ""
+
+#: ucp.i18n.php:10
+msgid "UCP"
+msgstr "UCP"
 
 #: views/header.php:1
 msgid "UCP Admin"
@@ -1096,7 +1112,8 @@ msgid "User"
 msgstr ""
 
 #: htdocs/views/forgot.php:27 htdocs/views/header.php:6
-#: htdocs/views/login.php:5 htdocs/modules/Widgets/assets/js/global.js:47
+#: htdocs/views/login.php:5 ucp.i18n.php:4
+#: htdocs/modules/Widgets/assets/js/global.js:47
 msgid "User Control Panel"
 msgstr "UCP"
 
@@ -1375,9 +1392,6 @@ msgstr ""
 msgid "string"
 msgstr ""
 
-#~ msgid "Admin"
-#~ msgstr "アドミン"
-
 #~ msgid "Allow Password Changes"
 #~ msgstr "パスワードの変更を許可"
 
@@ -1402,16 +1416,6 @@ msgstr ""
 #~ msgstr ""
 #~ "セッショントークンが有効な日数。トークンが永久に有効になることを希望する場"
 #~ "合この設定をクリアしてください（非推奨）"
-
-#~ msgid ""
-#~ "The user control panel is a way for users to control call handling and "
-#~ "personal settings from a web browser."
-#~ msgstr ""
-#~ "ユーザーコントロールパネルを使用すると呼の処理と個人設定をウェブブラウザか"
-#~ "らコントロールできます。"
-
-#~ msgid "UCP"
-#~ msgstr "UCP"
 
 #~ msgid "UCP Session Timeout"
 #~ msgstr "UCP セッション タイムアウト"
