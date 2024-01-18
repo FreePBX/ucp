@@ -77,6 +77,10 @@ class po2json {
 	}
 
 	public function po2array() {
-		return json_decode((string) $this->po2json(), true, 512, JSON_THROW_ON_ERROR);
+		if(!empty($this->po2json()) && $this->po2json() !='') {
+			return json_decode((string) $this->po2json(), true, 512, JSON_THROW_ON_ERROR);
+		} else {
+			return [];
+		}
 	}
 }
