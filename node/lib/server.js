@@ -11,7 +11,6 @@ var EventEmitter = require( "events" ).EventEmitter,
 		server = null,
 		serverS = null,
 		fs = require("fs"),
-		io = require("socket.io")(),
 		express = require('express'),
 		app = express(),
 		freepbx = {},
@@ -26,6 +25,16 @@ var EventEmitter = require( "events" ).EventEmitter,
 		key = '',
 		cert = '',
 		cabundle = '';
+const os = require('os');
+const serverIP = getServerIPAddress();
+const io = require("socket.io")({
+	cors: {
+		origin: `http://${serverIP}`, 
+		methods: ["GET", "POST"],
+		credentials: true 
+	},
+	cookie: true
+});
 
 Server = function(fpbx) {
 	fpbx.server = this;
@@ -191,5 +200,16 @@ checkAuth = function(socket, next) {
 		next(new Error("not authorized"));
 	});
 };
+
+function getServerIPAddress() {
+	const ifaces = os.networkInterfaces();
+	for (let dev in ifaces) {
+		const iface = ifaces[dev].find(iface => !iface.internal && iface.family === 'IPv4');
+		if (iface) {
+			return iface.address;
+		}
+	}
+	return 'localhost'; // Fallback if no IPv4 address is found
+}
 
 module.exports = Server;
