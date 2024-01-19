@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-01-17 05:25-0500\n"
+"POT-Creation-Date: 2024-01-19 02:48-0500\n"
 "PO-Revision-Date: 2015-11-23 13:55+0200\n"
 "Last-Translator: james <zhulizhong@gmail.com>\n"
 "Language-Team: Simplified Chinese <http://weblate.freepbx.org/projects/"
@@ -80,6 +80,10 @@ msgstr ".htaccess 文件已经关闭，请开启此功能"
 #: htdocs/index.php:106
 msgid ".htaccess files are not supported on this webserver."
 msgstr "页面服务器不支持.htaccess 文件。"
+
+#: htdocs/assets/js/socket.io-4.7.4.min.js:6
+msgid ".split("
+msgstr ""
 
 #: htdocs/assets/js/moment-with-locales-2.20.1.min.js:1
 msgid ": "
