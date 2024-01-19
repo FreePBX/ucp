@@ -5,7 +5,7 @@ var server = {},
 		freepbx = {};
 
 freepbx = new require("./lib/freepbx.js")();
-freepbx.on("ready", async function() {
+freepbx.on("ready", function() {
 	console.log( freepbx.config.get("DASHBOARD_FREEPBX_BRAND")+" is Ready!" );
 	if(!freepbx.config.get("NODEJSENABLED")) {
 		console.log( "UCP Node Server is not enabled!" );
@@ -16,7 +16,7 @@ freepbx.on("ready", async function() {
 	//freepbx.confg = The FreePBX Configuration Object
 	//freepbx.astman = The Asterisk Manager Connection
 	console.log("Asterisk version is: " + freepbx.config.get("ASTVERSION"));
-	freepbx.server = await new require("./lib/server.js")(freepbx);
+	freepbx.server = new require("./lib/server.js")(freepbx);
 
 	freepbx.loadModules();
 });
