@@ -5,6 +5,10 @@
  * This is the master FreePBX Object used to control and operate FreePBX
  * @type {[type]}
  */
+
+const os = require('os');
+const { promisify } = require('util');
+const exec = promisify(require('child_process').exec);
 var EventEmitter = require( "events" ).EventEmitter,
 		http = require("http"),
 		https = require("https"),
@@ -25,19 +29,19 @@ var EventEmitter = require( "events" ).EventEmitter,
 		key = '',
 		cert = '',
 		cabundle = '';
-const os = require('os');
-const serverIP = getServerIPAddress();
-const io = require("socket.io")({
-	cors: {
-		origin: `http://${serverIP}`, 
-		methods: ["GET", "POST"],
-		credentials: true 
-	},
-	cookie: true
-});
 
-Server = function(fpbx) {
+Server = async function(fpbx) {
 	fpbx.server = this;
+	const serverIP = await getServerIPAddress();
+	// Initialize Socket.IO with the dynamic IP address
+	const io = require("socket.io")({
+		cors: {
+			origin: `http://${serverIP}`,
+			methods: ["GET", "POST"],
+			credentials: true
+		},
+		cookie: true
+	});
 
 	var config = {},
 			amistatus = "disconnected",
@@ -201,15 +205,31 @@ checkAuth = function(socket, next) {
 	});
 };
 
-function getServerIPAddress() {
-	const ifaces = os.networkInterfaces();
-	for (let dev in ifaces) {
-		const iface = ifaces[dev].find(iface => !iface.internal && iface.family === 'IPv4');
-		if (iface) {
-			return iface.address;
+async function getServerIPAddress() {
+	try {
+		const { stdout } = await exec('route -n');
+		const lines = stdout.split('\n');
+		const defaultRoute = lines.find(line => line.trim().startsWith('0.0.0.0'));
+		if (!defaultRoute) {
+			return 'localhost'; // Fallback if no default route found
 		}
+
+		const defaultRouteParts = defaultRoute.split(/\s+/);
+		const primaryInterface = defaultRouteParts[defaultRouteParts.length - 1];
+
+		const ifaces = os.networkInterfaces();
+		if (ifaces[primaryInterface]) {
+			const iface = ifaces[primaryInterface].find(iface => !iface.internal && iface.family === 'IPv4');
+			if (iface) {
+				return iface.address;
+			}
+		}
+
+		return 'localhost'; // Fallback if no IPv4 address is found
+	} catch (error) {
+		console.error(`exec error: ${error}`);
+		return 'localhost'; // Fallback on error
 	}
-	return 'localhost'; // Fallback if no IPv4 address is found
 }
 
 module.exports = Server;
