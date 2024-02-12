@@ -211,6 +211,7 @@ if(!empty($user["id"])){
 	$ucp->View->show_view(__DIR__.'/views/dashboard-header.php',$displayvars);
 }
 
+$hideLogin = false;
 if($user && !empty($user)) {
 	$display = 'dashboard';
 } else {
@@ -219,7 +220,6 @@ if($user && !empty($user)) {
 	} else {
 		$display = '';
 	}
-	$hideLogin = false;
 	if(isset($_REQUEST['action']) && $_REQUEST['action'] == 'reset') {
 		$hideLogin = true;
 	}
@@ -228,6 +228,7 @@ if($user && !empty($user)) {
 	}
 }
 
+$displayvars['hideLogin'] = $hideLogin;
 switch($display) {
 	case "dashboard":
 		$displayvars['display'] = $ucp->Modules->Widgets->getDisplay($active_dashboard_id);
@@ -247,7 +248,6 @@ switch($display) {
 	break;
 	default:
 		$displayvars['token'] = $ucp->Session->generateToken('login');
-		$displayvars['hideLogin'] = $hideLogin;
 
 		$browser = new \Sinergi\BrowserDetector\Browser();
 
