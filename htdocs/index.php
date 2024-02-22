@@ -137,9 +137,9 @@ $user_small_widgets = [];
 foreach($usw as $id => $widget) {
 	$name = ucfirst(strtolower((string) $widget['rawname']));
 	$id = $widget['id'];
-	$info = $all_simple_widgets['widget'][$name]['list'][$widget['widget_type_id']];
-	$icon = !empty($all_simple_widgets['widget'][$name]['list'][$widget['widget_type_id']]['icon']) ? $all_simple_widgets['widget'][$name]['list'][$widget['widget_type_id']]['icon'] : $all_simple_widgets['widget'][$name]['icon'];
-	$display = $all_simple_widgets['widget'][$name]['display'];
+	$info = $all_simple_widgets['widget'][$name]['list'][$widget['widget_type_id']] ?? '';
+	$icon = !empty($all_simple_widgets['widget'][$name]['list'][$widget['widget_type_id']]['icon']) ? $all_simple_widgets['widget'][$name]['list'][$widget['widget_type_id']]['icon'] : ($all_simple_widgets['widget'][$name]['icon'] ?? '');
+	$display = $all_simple_widgets['widget'][$name]['display'] ?? '';
 	if(empty($info)) {
 		continue;
 	}
