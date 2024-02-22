@@ -84,7 +84,7 @@
 				echo $module['rawname'] ?>" class="<?php echo ($module['rawname'] == $active_module) ? 'active' : '' ?>">
 					<?php if (empty($module['menu'])) { ?>
 						<a data-pjax data-mod="<?php echo $module['rawname'] ?>"
-							href="?display=dashboard&amp;mod=<?php echo $module['rawname'] ?>"><?php echo $module['name'] ?>
+							href="?display=dashboard&amp;mod=<?php echo $module['rawname'] ?>"><?php echo $module['name'] ?? ''; ?>
 							<?php if (isset($module['badge'])) { ?><span class="badge">
 								<?php echo $module['badge'] ?>
 							</span>
@@ -92,7 +92,7 @@
 						</a>
 					<?php }
 					else { ?>
-						<a class="mobileSubMenu" data-mod="<?php echo $module['rawname'] ?>"><?php echo $module['name'] ?> 		<?php if (isset($module['badge'])) { ?><span class="badge">
+						<a class="mobileSubMenu" data-mod="<?php echo $module['rawname'] ?>"><?php echo $module['name'] ?? ''; ?> 		<?php if (isset($module['badge'])) { ?><span class="badge">
 									<?php echo $module['badge'] ?>
 								</span>
 							<?php } ?>
