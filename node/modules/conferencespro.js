@@ -27,12 +27,13 @@ Conferencespro = function(freepbx) {
 		socket.on("subscribe", function(data) {
 			//TODO: need to check if they are allowed to view this conference
 			console.log("Client [" + socket.handshake.address + "] subscribed to Conference " + data);
-			socket.join(data);
-			var conferenceData = conf.list(data);
+			const room = data.toString();
+			socket.join(room);
+			var conferenceData = conf.list(room);
 			if (conferenceData !== false) {
-				conferenceSocket.to(data).emit('list',conferenceData);
+				conferenceSocket.to(room).emit('list',conferenceData);
 			} else {
-				conferenceSocket.to(data).emit('list',{});
+				conferenceSocket.to(room).emit('list',{});
 			}
 		});
 
@@ -46,9 +47,10 @@ Conferencespro = function(freepbx) {
 			if (conferenceData !== false) {
 				conferenceData.status = true;
 				conferenceData.conference = data;
-				conferenceSocket.to(data).emit('list',conferenceData);
+				const room = data.toString();
+				conferenceSocket.to(room).emit('list',conferenceData);
 			} else {
-				conferenceSocket.to(data).emit('list',{status: false});
+				conferenceSocket.to(room).emit('list',{status: false});
 			}
 		});
 
@@ -102,7 +104,7 @@ Conferencespro = function(freepbx) {
 	 * @param  {object} Data returned from Asterisk AMI
 	 */
 	conf.on("talking", function(data) {
-		conferenceSocket.to(data.conference).emit("talking", data);
+		conferenceSocket.to(data.conference.toString()).emit("talking", data);
 	});
 
 	/**
@@ -111,7 +113,7 @@ Conferencespro = function(freepbx) {
 	* @param  {object} Data returned from Asterisk AMI
 	*/
 	conf.on("mute", function(data) {
-		conferenceSocket.to(data.conference).emit("mute", data);
+		conferenceSocket.to(data.conference.toString()).emit("mute", data);
 	});
 
 	/**
@@ -120,7 +122,7 @@ Conferencespro = function(freepbx) {
 	* @param  {object} Data returned from Asterisk AMI
 	*/
 	conf.on("join", function(data) {
-		conferenceSocket.to(data.conference).emit("join", data);
+		conferenceSocket.to(data.conference.toString()).emit("join", data);
 	});
 
 	/**
@@ -129,7 +131,7 @@ Conferencespro = function(freepbx) {
 	* @param  {object} Data returned from Asterisk AMI
 	*/
 	conf.on("leave", function(data) {
-		conferenceSocket.to(data.conference).emit("leave", data);
+		conferenceSocket.to(data.conference.toString()).emit("leave", data);
 	});
 
 	/**
@@ -138,7 +140,7 @@ Conferencespro = function(freepbx) {
 	* @param  {object} Data returned from Asterisk AMI
 	*/
 	conf.on("start", function(data) {
-		conferenceSocket.to(data.conference).emit("starting", data);
+		conferenceSocket.to(data.conference.toString()).emit("starting", data);
 	});
 
 	/**
@@ -147,7 +149,7 @@ Conferencespro = function(freepbx) {
 	* @param  {object} Data returned from Asterisk AMI
 	*/
 	conf.on("end", function(data) {
-		conferenceSocket.to(data.conference).emit("ending", data);
+		conferenceSocket.to(data.conference.toString()).emit("ending", data);
 	});
 
 	/**
@@ -157,7 +159,7 @@ Conferencespro = function(freepbx) {
 	* @param  {object} Data returned from Asterisk AMI
 	*/
 	conf.on("lock", function(data) {
-		conferenceSocket.to(data.conference).emit("lock", data);
+		conferenceSocket.to(data.conference.toString()).emit("lock", data);
 	});
 };
 
