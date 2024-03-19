@@ -68,6 +68,14 @@ class Ajax extends UCP {
 				}
 				$this->addHeader('HTTP/1.0','200');
 			break;
+			case 'fetchSettings':
+				try {
+					$ret = ['status' => true , 'ucpserver' => $this->UCP->getServerSettings()];
+				} catch (Exception $e){
+					$ret = ['status' => false, 'message' => 'There is an error fetching server settings: '.$e->getMessage()];
+				}
+				$this->addHeader('Content-Type', 'application/json');
+			break;
 			default:
 				if (!$module || !$command) {
 					$this->triggerFatal(_("Module or Command were null. Check your code."));
