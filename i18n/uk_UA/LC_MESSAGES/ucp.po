@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-02-12 03:17-0500\n"
+"POT-Creation-Date: 2024-03-20 01:22-0400\n"
 "PO-Revision-Date: 2016-12-13 14:49+0200\n"
 "Last-Translator: Maxim <maxim@ua.fm>\n"
 "Language-Team: Ukrainian <http://weblate.freepbx.org/projects/freepbx/ucp/"
@@ -583,7 +583,7 @@ msgstr "Різне"
 msgid "Module or Command requested invalid"
 msgstr ""
 
-#: htdocs/includes/Ajax.class.php:73
+#: htdocs/includes/Ajax.class.php:81
 msgid "Module or Command were null. Check your code."
 msgstr "Модуль або команда нульові. Перевірте свій код."
 
@@ -890,7 +890,7 @@ msgid ""
 "dashboard by clicking this symbol"
 msgstr ""
 
-#: htdocs/includes/Ajax.class.php:78
+#: htdocs/includes/Ajax.class.php:86
 #, php-format
 msgid "The class %s already existed. Ajax MUST load it, for security reasons"
 msgstr ""
@@ -930,7 +930,7 @@ msgstr ""
 "Пароль, який використовується для входу в UCP (панель управління) і інші "
 "послуги"
 
-#: htdocs/assets/js/ucp.js:562
+#: htdocs/assets/js/ucp.js:575
 msgid "The session has expired and you are being forcibly logged out"
 msgstr ""
 
@@ -1084,6 +1084,11 @@ msgid ""
 msgstr ""
 "UCP, інакше відома як Панель Керування Користувача являє собою "
 "користувацький інтерфейс для FreePBX."
+
+#: htdocs/assets/js/ucp.js:488
+#, perl-format
+msgid "Unable to connect to the UCP Node Server.<br>%s"
+msgstr ""
 
 #: htdocs/includes/User.class.php:95
 msgid "Unable to send Password Reset Email"

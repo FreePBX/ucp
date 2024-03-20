@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-02-12 03:17-0500\n"
+"POT-Creation-Date: 2024-03-20 01:22-0400\n"
 "PO-Revision-Date: 2018-08-08 11:42+0000\n"
 "Last-Translator: Petr Varvarovsky <petrv@atlantis.cz>\n"
 "Language-Team: Czech <http://*/projects/freepbx/ucp/cs/>\n"
@@ -615,7 +615,7 @@ msgstr "Různé"
 msgid "Module or Command requested invalid"
 msgstr ""
 
-#: htdocs/includes/Ajax.class.php:73
+#: htdocs/includes/Ajax.class.php:81
 msgid "Module or Command were null. Check your code."
 msgstr "Modul nebo příkaz byly nulové. Zkontrolujte kód."
 
@@ -935,7 +935,7 @@ msgstr ""
 "Uživatelský kontrolní panel je nyní rozdělen 'Ovládacích panelů'. Nový "
 "ovládací panel můžete přidat kliknutím na tento symbol"
 
-#: htdocs/includes/Ajax.class.php:78
+#: htdocs/includes/Ajax.class.php:86
 #, php-format
 msgid "The class %s already existed. Ajax MUST load it, for security reasons"
 msgstr "Třída %s již existuje. Ajax si ho MUSÍ z bezpečnostních důvodů načíst"
@@ -984,7 +984,7 @@ msgstr ""
 "Heslo, které se používá pro přihlášení k uživatelskému portálu (UCP) a "
 "dalším službám"
 
-#: htdocs/assets/js/ucp.js:562
+#: htdocs/assets/js/ucp.js:575
 msgid "The session has expired and you are being forcibly logged out"
 msgstr "Čas relace vypršel, byli jste odhlášeni"
 
@@ -1147,6 +1147,11 @@ msgid ""
 msgstr ""
 "UCP, jinak známý jako uživatelský portál, je uživatelské rozhraní pro "
 "FreePBX."
+
+#: htdocs/assets/js/ucp.js:488
+#, perl-format
+msgid "Unable to connect to the UCP Node Server.<br>%s"
+msgstr ""
 
 #: htdocs/includes/User.class.php:95
 msgid "Unable to send Password Reset Email"
