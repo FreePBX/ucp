@@ -477,8 +477,21 @@ var UCPC = Class.extend({
 				callback(socket);
 			});
 			socket.on("connect_error", function(reason) {
-				UCP.displayGlobalMessage(sprintf(_("Unable to connect to the UCP Node Server.<br>%s"),reason), "red", true);
-				callback(false);
+				$.ajax({
+					url: "ajax.php", data: { module: "ucp", command: "fetchSettings" }, success: function (data) {
+						ucpserver = data.ucpserver;
+						if (!ucpserver.enabled) {
+							clearTimeout(timeout);
+							socket.disconnect();
+							UCP.removeGlobalMessage();
+						} else {
+							UCP.displayGlobalMessage(sprintf(_("Unable to connect to the UCP Node Server.<br>%s"), reason), "red", true);
+						}
+						callback(false);
+					}, error: function (xhr, status, error) {
+						console.error("Error fetching settings:", error);
+					}, dataType: "json", type: "POST"
+				});
 			});
 		}
 	},
