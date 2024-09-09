@@ -11,13 +11,21 @@ if ($amp_conf['FORCE_JS_CSS_IMG_DOWNLOAD']) {
 	$this_time_append = '';
 }
 
+// BRAND_IMAGE_FREEPBX_FOOT based on condtion 
+$footer_img ='';
+if(isset($amp_conf['BRAND_IMAGE_FREEPBX_FOOT'])){
+$footer_img = $amp_conf['BRAND_IMAGE_FREEPBX_FOOT'];
+}else{
+	$footer_img = 'images/freepbx_small.png';
+}
+
 // Brandable logos in footer
 //fpbx logo
 $html .= '<div class="col-md-4">
 	<a target="_blank" href="'
 	. $amp_conf['BRAND_IMAGE_FREEPBX_LINK_FOOT']
 	. '" >'
-	. '<img id="footer_logo1" src="' . $amp_conf['BRAND_IMAGE_FREEPBX_FOOT'] ?? 'images/freepbx_small.png' . $version_tag
+	. '<img id="footer_logo1" src="' . $footer_img . $version_tag
 	. '" alt="' . $amp_conf['BRAND_FREEPBX_ALT_FOOT'] . '"/>
 	</a>
 	</div>';
