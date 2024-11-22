@@ -70,6 +70,16 @@
 								<button type="button" id="btn-forgot" class="btn btn-default <?php echo $lhideClass ?>"><?php echo _('Send Me A Password Reset Link')?></button>
 							</td>
 						</tr>
+						<?php if(FreePBX::Modules()->checkStatus('pbxsaml') && FreePBX::Config()->get('UCP_SAML')) { ?>
+						<tr>
+							<td colspan="3" class="button-row">
+								<div style="width: 100%; margin-top: 25px; border-top: 1px solid #ccc; padding-top: 10px; text-align: center;">
+									<div> <?php echo _('Or') ?> </div>
+									<button id="saml-btn" class="btn btn-default"><?php echo _('SAML Login')?></button>
+								</div>
+							</td>
+						</tr>
+						<?php } ?>
 					</table>
 				</div>
 			</div>

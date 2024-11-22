@@ -1009,3 +1009,8 @@ $("#resetTemplate").click(function() {
 		return false
 	}
 });
+
+$("#saml-btn").click(function(event) {
+	console.log("SAML button click");
+	window.location.href = "/admin/ajax.php?module=pbxsaml&command=checkSAMLenabled&loginpanel=ucp";
+});
