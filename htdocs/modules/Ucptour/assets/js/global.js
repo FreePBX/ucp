@@ -236,7 +236,7 @@ $(document).bind("logIn", function( event ) {
 				element: ".dashboard-menu.active .lock-dashboard",
 				placement: "bottom",
 				title: _("Dashboard Locking"),
-				content: sprintf(_("All widgets in a dashboard can also be locked globally by clicking the '%s' symbol on the dashboard tab"),'X')
+				content: sprintf(_("All widgets in a dashboard can also be locked globally by clicking the '%s' symbol on the dashboard tab"),'<i class="fa fa-unlock-alt" aria-hidden="true"></i>')
 			}, {
 				element: ".navbar.navbar-inverse.navbar-fixed-left",
 				placement: "right",
