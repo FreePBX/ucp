@@ -91,7 +91,7 @@ if ( !isset($_SERVER['HTACCESS']) && preg_match("/apache/i", (string) $_SERVER['
 	// No .htaccess support
 	if(!$nt->exists('ucp', 'htaccess')) {
 		$nt->add_security('ucp', 'htaccess', _('.htaccess files are disabled on this webserver. Please enable them'),
-		sprintf(_("To protect the integrity of your server, you must allow overrides in your webserver's configuration file for the User Control Panel. For more information see: %s"), '<a href="http://wiki.freepbx.org/display/F2/Webserver+Overrides">http://wiki.freepbx.org/display/F2/Webserver+Overrides</a>'));
+		sprintf(_("To protect the integrity of your server, you must allow overrides in your webserver's configuration file for the User Control Panel. For more information see: %s"), '<a href="https://sangomakb.atlassian.net/wiki/spaces/PG/pages/26673359/PBX+GUI+-+Webserver+Overrides">https://sangomakb.atlassian.net/wiki/spaces/PG/pages/26673359/PBX+GUI+-+Webserver+Overrides</a>'));
 	}
 } elseif(!preg_match("/apache/i", (string) $_SERVER['SERVER_SOFTWARE'])) {
 	$sql = "SELECT value FROM admin WHERE variable = 'htaccess'";
@@ -104,7 +104,7 @@ if ( !isset($_SERVER['HTACCESS']) && preg_match("/apache/i", (string) $_SERVER['
 			$nt->delete('ucp', 'htaccess');
 		}
 		$nt->add_warning('ucp', 'htaccess', _('.htaccess files are not supported on this webserver.'),
-		sprintf(_("htaccess files help protect the integrity of your server. Please make sure file paths and directories are locked down properly. For more information see: %s"), '<a href="http://wiki.freepbx.org/display/F2/Webserver+Overrides">http://wiki.freepbx.org/display/F2/Webserver+Overrides</a>'),"http://wiki.freepbx.org/display/F2/Webserver+Overrides",true,true);
+		sprintf(_("htaccess files help protect the integrity of your server. Please make sure file paths and directories are locked down properly. For more information see: %s"), '<a href="https://sangomakb.atlassian.net/wiki/spaces/PG/pages/26673359/PBX+GUI+-+Webserver+Overrides">https://sangomakb.atlassian.net/wiki/spaces/PG/pages/26673359/PBX+GUI+-+Webserver+Overrides</a>'),"https://sangomakb.atlassian.net/wiki/spaces/PG/pages/26673359/PBX+GUI+-+Webserver+Overrides",true,true);
 		$sql = "REPLACE INTO admin (`value`, `variable`) VALUES (1, 'htaccess')";
 		$sth = FreePBX::Database()->prepare($sql);
 		$sth->execute();
