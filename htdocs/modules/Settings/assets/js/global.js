@@ -166,6 +166,24 @@ var SettingsC = UCPMC.extend({
 			}
 		});
 
+		// Add click handler for launch-app button
+		$("#launch-app").on("click", function(e) {
+			console.log("Launching app...");
+			e.preventDefault();
+			$.ajax({
+				type: 'POST',
+				url: UCP.ajaxUrl,
+				data: { module: "sangomaconnect", command: "getLoginUrl" },
+				dataType: 'json',
+				timeout: 30000,
+				success: function (data) {
+					if (data.status) {
+						window.location.href = data.loginUrl;
+					}
+				}
+			});
+		});
+
 		$("#update-pwd").click(function(e) {
 			e.preventDefault();
 			e.stopPropagation();
