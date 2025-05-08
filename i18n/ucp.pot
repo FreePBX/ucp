@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-03-28 01:39-0400\n"
+"POT-Creation-Date: 2025-05-08 08:53-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -754,7 +754,7 @@ msgstr ""
 msgid "Save your dashboard"
 msgstr ""
 
-#: htdocs/modules/Settings/assets/js/global.js:238
+#: htdocs/modules/Settings/assets/js/global.js:256
 msgid "Saved!"
 msgstr ""
 
@@ -1103,7 +1103,7 @@ msgstr ""
 msgid "Unknown"
 msgstr ""
 
-#: htdocs/modules/Settings/assets/js/global.js:271
+#: htdocs/modules/Settings/assets/js/global.js:289
 msgid "Unsupported file type"
 msgstr ""
 

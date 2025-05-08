@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-09-09 08:24-0400\n"
+"POT-Creation-Date: 2025-05-08 08:53-0400\n"
 "PO-Revision-Date: 2016-06-01 07:08+0200\n"
 "Last-Translator: Hans <info@hansvaneijsden.nl>\n"
 "Language-Team: Dutch <http://weblate.freepbx.org/projects/freepbx/ucp/nl/>\n"
@@ -744,7 +744,7 @@ msgstr ""
 msgid "Save your dashboard"
 msgstr ""
 
-#: htdocs/modules/Settings/assets/js/global.js:238
+#: htdocs/modules/Settings/assets/js/global.js:256
 msgid "Saved!"
 msgstr "Opgeslagen!"
 
@@ -1106,7 +1106,7 @@ msgstr ""
 msgid "Unknown"
 msgstr ""
 
-#: htdocs/modules/Settings/assets/js/global.js:271
+#: htdocs/modules/Settings/assets/js/global.js:289
 msgid "Unsupported file type"
 msgstr ""
 

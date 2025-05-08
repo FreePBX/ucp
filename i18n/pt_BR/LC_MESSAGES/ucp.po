@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-09-09 08:24-0400\n"
+"POT-Creation-Date: 2025-05-08 08:53-0400\n"
 "PO-Revision-Date: 2017-03-08 21:13+0200\n"
 "Last-Translator: Kingvoice <suporte@kingvoice.com.br>\n"
 "Language-Team: Portuguese (Brazil) <http://weblate.freepbx.org/projects/"
@@ -744,7 +744,7 @@ msgstr ""
 msgid "Save your dashboard"
 msgstr ""
 
-#: htdocs/modules/Settings/assets/js/global.js:238
+#: htdocs/modules/Settings/assets/js/global.js:256
 msgid "Saved!"
 msgstr "Salvo!"
 
@@ -1104,7 +1104,7 @@ msgstr "Não é possível enviar o Email de Redefinição de Senha"
 msgid "Unknown"
 msgstr ""
 
-#: htdocs/modules/Settings/assets/js/global.js:271
+#: htdocs/modules/Settings/assets/js/global.js:289
 msgid "Unsupported file type"
 msgstr "Tipo de arquivo não suportado"
 

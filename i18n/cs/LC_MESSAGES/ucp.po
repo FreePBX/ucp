@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-09-09 08:24-0400\n"
+"POT-Creation-Date: 2025-05-08 08:53-0400\n"
 "PO-Revision-Date: 2018-08-08 11:42+0000\n"
 "Last-Translator: Petr Varvarovsky <petrv@atlantis.cz>\n"
 "Language-Team: Czech <http://*/projects/freepbx/ucp/cs/>\n"
@@ -779,7 +779,7 @@ msgstr "Aktivní (V provozu: %s)"
 msgid "Save your dashboard"
 msgstr "Uložte svůj ovládací panel"
 
-#: htdocs/modules/Settings/assets/js/global.js:238
+#: htdocs/modules/Settings/assets/js/global.js:256
 msgid "Saved!"
 msgstr "Uloženo!"
 
@@ -1165,7 +1165,7 @@ msgstr "Nelze odeslat e-mail s obnovením hesla"
 msgid "Unknown"
 msgstr "Neznámý"
 
-#: htdocs/modules/Settings/assets/js/global.js:271
+#: htdocs/modules/Settings/assets/js/global.js:289
 msgid "Unsupported file type"
 msgstr "Nepodporovaný typ souboru"
 
