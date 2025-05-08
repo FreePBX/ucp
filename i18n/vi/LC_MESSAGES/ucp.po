@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-04 12:04+0000\n"
+"POT-Creation-Date: 2025-05-08 12:55+0000\n"
 "PO-Revision-Date: 2017-08-02 21:28+0200\n"
 "Last-Translator: PETER <ftek@ymail.com>\n"
 "Language-Team: Vietnamese <http://weblate.freepbx.org/projects/freepbx/ucp/"
@@ -775,7 +775,7 @@ msgstr ""
 msgid "Save your dashboard"
 msgstr ""
 
-#: htdocs/modules/Settings/assets/js/global.js:229
+#: htdocs/modules/Settings/assets/js/global.js:247
 msgid "Saved!"
 msgstr "Đã lưu!"
 
@@ -1176,7 +1176,7 @@ msgstr "Không thể gửi Email cài đặt lại mật khẩu"
 msgid "Unknown"
 msgstr ""
 
-#: htdocs/modules/Settings/assets/js/global.js:262
+#: htdocs/modules/Settings/assets/js/global.js:280
 msgid "Unsupported file type"
 msgstr "Kiểu tệp không được hỗ trợ"
 
