@@ -16,7 +16,7 @@ include(__DIR__.'/includes/bootstrap.php');
 try {
 	$ucp = \UCP\UCP::create();
 	$ucp->Modgettext->textdomain("ucp");
-} catch(\Exception) {
+} catch(\Exception $e) {
 	if(isset($_REQUEST['quietmode'])) {
 		echo json_encode(["status" => false, "message" => "UCP is disabled"]);
 	} else {
@@ -46,7 +46,6 @@ $lang = $d['language'];
 if(isset($_REQUEST['SAMLResponse'])) {
 	include  '/var/www/html/admin/modules/pbxsaml/processSaml.php';
 }
-
 if(isset($_REQUEST['logout'])) {
 	if($user) {
 		$ucp->User->logout();
