@@ -369,6 +369,31 @@ var UCPC = Class.extend({
 			$("#login-window").height("300");
 		}
 		$(".main-block").addClass("hidden");
+
+		$("input[name='username']").on("focusout", function() {
+			var username = $(this).val().trim();
+			if(username) {
+				$.ajax({
+					url: UCP.ajaxUrl,
+					type: "POST",
+					data: {
+						module: "pbxsaml",
+						command: "checkSAMLenabled",
+						username: username,
+						loginpanel: "ucp"
+					},
+					success: function(response) {
+						if(response.status) {
+							if (confirm("SAML login is enabled for this user. Would you like to log in with SAML instead of using a password?")) {
+								location.replace(response.url);
+							} else {
+								console.log("SAML login canceled.");
+							}
+						}
+					}
+				});
+			}
+		});
 	},
 	setupDashboard: function() {
 		var totalNavs = 0, navWidth = 33, Ucp = this;
