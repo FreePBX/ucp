@@ -1,3 +1,9 @@
+<?php
+		$isSamlEnabled = 0;
+		if (\FreePBX::Modules()->checkStatus('pbxsaml')) {
+			$isSamlEnabled = 1;
+		}
+?>
 <div class="row">
 	<div id="login-window" class="col-md-4 col-md-offset-3 col-sm-6 col-sm-offset-2 col-xs-8 col-xs-offset-1" style="<?php echo (!empty($error_warning) || !empty($error_danger)) ? 'height: 300px;' : ''?>">
 		<form id="frm-login" method="POST" action="?display=dashboard">
@@ -15,6 +21,7 @@
 				<span class="input-group-addon"><i class="fa fa-user fa-fw"></i></span>
 				<input type="text" name="username" class="form-control" placeholder="<?php echo _('Username')?>" autocapitalize="off" autocorrect="off">
 			</div>
+			<div id="normalloginform" style="<?php echo ($isSamlEnabled) ? 'display:none;' : '';?>">
 			<?php 
 				$lhideClass = 'lhide';
 				if($hideLogin) {
@@ -73,6 +80,12 @@
 					</table>
 				</div>
 			</div>
+			</div>
+			<?php if($isSamlEnabled){ ?>
+				<div id="samlloginbtn">
+					<button type="button" id="btn-saml" class="btn btn-default"><?php echo _('Login')?></button>
+				</div>
+			<?php } ?>
 		</form>
 		<div class="extra-info pull-left"><?php echo session_id()?></div>
 		<div class="extra-info pull-right"><?php echo $_SERVER['REMOTE_ADDR']?></div>
