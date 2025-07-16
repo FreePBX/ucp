@@ -285,7 +285,41 @@ var UCPC = Class.extend({
 				}
 			}
 		});
+
+		$('#btn-saml').on('click', function () {
+			var username =$("input[name=username]").val();
+		
+			if (username === "") {
+			  alert("Username is required.");
+			  return;
+			}
+			$.ajax({
+				url: UCP.ajaxUrl,
+				type: "POST",
+				data: {
+					module: "pbxsaml",
+					command: "checkSAMLenabled",
+					username: username,
+					loginpanel: "ucp"
+				},
+				success: function(response) {
+					if(response.status) {
+						location.replace(response.url);
+					} else {
+						$('#samlloginbtn').hide();
+						$('#normalloginform').show();
+					}
+				}
+			});
+		});
+
 		$("#btn-login").click(async function (event) {
+			var targetDiv = $('#normalloginform');
+			if (targetDiv.length && targetDiv.is(':hidden')) {
+				event.preventDefault();
+				$('#btn-saml').click();
+				return;
+			}
 			btn.prop("disabled", true);
 			btn.text(_("Processing..."));
 
