@@ -306,7 +306,6 @@ var UCPC = Class.extend({
 					if(response.status) {
 						location.replace(response.url);
 					} else {
-						console.log("SAML not enabled");
 						$('#samlloginbtn').hide();
 						$('#normalloginform').show();
 					}
@@ -315,6 +314,12 @@ var UCPC = Class.extend({
 		});
 
 		$("#btn-login").click(async function (event) {
+			var targetDiv = $('#normalloginform');
+			if (targetDiv.length && targetDiv.is(':hidden')) {
+				event.preventDefault();
+				$('#btn-saml').click();
+				return;
+			}
 			btn.prop("disabled", true);
 			btn.text(_("Processing..."));
 
