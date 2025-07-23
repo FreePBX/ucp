@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-07-21 09:25+0000\n"
+"POT-Creation-Date: 2025-07-23 09:40+0000\n"
 "PO-Revision-Date: 2018-08-08 11:42+0000\n"
 "Last-Translator: Petr Varvarovsky <petrv@atlantis.cz>\n"
 "Language-Team: Czech <http://*/projects/freepbx/ucp/cs/>\n"
@@ -606,8 +606,8 @@ msgid "Loading..."
 msgstr "Načítání..."
 
 #: htdocs/views/forgot.php:67 htdocs/views/login.php:55
-#: htdocs/views/login.php:86 htdocs/assets/js/ucp.js:358
-#: htdocs/assets/js/ucp.js:380 htdocs/assets/js/ucp.js:390
+#: htdocs/views/login.php:86 htdocs/assets/js/ucp.js:363
+#: htdocs/assets/js/ucp.js:385 htdocs/assets/js/ucp.js:395
 msgid "Login"
 msgstr "Přihlásit se"
 
@@ -781,7 +781,7 @@ msgstr "Bind port. Výchozí hodnota je 8001"
 msgid "Port to bind to. Default is 8003"
 msgstr "Bind port. Výchozí hodnota je 8003"
 
-#: htdocs/assets/js/ucp.js:319 htdocs/assets/js/ucp.js:373
+#: htdocs/assets/js/ucp.js:324 htdocs/assets/js/ucp.js:378
 msgid "Processing..."
 msgstr "Zpracovává se..."
 
@@ -1056,7 +1056,7 @@ msgstr ""
 "Heslo, které se používá pro přihlášení k uživatelskému portálu (UCP) a "
 "dalším službám"
 
-#: htdocs/assets/js/ucp.js:591
+#: htdocs/assets/js/ucp.js:596
 msgid "The session has expired and you are being forcibly logged out"
 msgstr "Čas relace vypršel, byli jste odhlášeni"
 
@@ -1223,7 +1223,7 @@ msgid "UCP is currently disabled. Please talk to your system Administrator"
 msgstr ""
 "UCP je momentálně deaktivováno. Prosím, poraďte se s administrátorem systému"
 
-#: htdocs/assets/js/ucp.js:408
+#: htdocs/assets/js/ucp.js:413
 msgid "UCP is not supported in your browser"
 msgstr "UCP není podporován ve vašem prohlížeči"
 
@@ -1485,7 +1485,7 @@ msgstr "Právě jste se úspěšně poprvé přihlásili!"
 msgid "You must set a dashboard name!"
 msgstr "Musíte zadat název ovládacího panelu!"
 
-#: htdocs/assets/js/ucp.js:395
+#: htdocs/assets/js/ucp.js:400
 msgid "Your Browser is unsupported at this time."
 msgstr "Váš prohlížeč není v současné době podporován."
 
@@ -1533,7 +1533,7 @@ msgstr "Tvůj titul"
 msgid "Your Work Number"
 msgstr "Tvůj telefon do práce"
 
-#: htdocs/assets/js/ucp.js:397
+#: htdocs/assets/js/ucp.js:402
 msgid ""
 "Your browser is unsupported at this time. Please upgrade or talk to your "
 "system administrator"

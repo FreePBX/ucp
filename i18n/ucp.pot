@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-07-21 09:25+0000\n"
+"POT-Creation-Date: 2025-07-23 09:40+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -581,9 +581,9 @@ msgstr ""
 #: htdocs/views/forgot.php:67
 #: htdocs/views/login.php:55
 #: htdocs/views/login.php:86
-#: htdocs/assets/js/ucp.js:358
-#: htdocs/assets/js/ucp.js:380
-#: htdocs/assets/js/ucp.js:390
+#: htdocs/assets/js/ucp.js:363
+#: htdocs/assets/js/ucp.js:385
+#: htdocs/assets/js/ucp.js:395
 msgid "Login"
 msgstr ""
 
@@ -755,8 +755,8 @@ msgstr ""
 msgid "Port to bind to. Default is 8003"
 msgstr ""
 
-#: htdocs/assets/js/ucp.js:319
-#: htdocs/assets/js/ucp.js:373
+#: htdocs/assets/js/ucp.js:324
+#: htdocs/assets/js/ucp.js:378
 msgid "Processing..."
 msgstr ""
 
@@ -1015,7 +1015,7 @@ msgstr ""
 msgid "The password used to login to User Control Panel and other services"
 msgstr ""
 
-#: htdocs/assets/js/ucp.js:591
+#: htdocs/assets/js/ucp.js:596
 msgid "The session has expired and you are being forcibly logged out"
 msgstr ""
 
@@ -1162,7 +1162,7 @@ msgstr ""
 msgid "UCP is currently disabled. Please talk to your system Administrator"
 msgstr ""
 
-#: htdocs/assets/js/ucp.js:408
+#: htdocs/assets/js/ucp.js:413
 msgid "UCP is not supported in your browser"
 msgstr ""
 
@@ -1413,7 +1413,7 @@ msgstr ""
 msgid "You must set a dashboard name!"
 msgstr ""
 
-#: htdocs/assets/js/ucp.js:395
+#: htdocs/assets/js/ucp.js:400
 msgid "Your Browser is unsupported at this time."
 msgstr ""
 
@@ -1461,7 +1461,7 @@ msgstr ""
 msgid "Your Work Number"
 msgstr ""
 
-#: htdocs/assets/js/ucp.js:397
+#: htdocs/assets/js/ucp.js:402
 msgid ""
 "Your browser is unsupported at this time. Please upgrade or talk to your "
 "system administrator"
