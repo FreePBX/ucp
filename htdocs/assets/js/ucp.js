@@ -306,8 +306,11 @@ var UCPC = Class.extend({
 					if(response.status) {
 						location.replace(response.url);
 					} else {
-						$('#samlloginbtn').hide();
-						$('#normalloginform').show();
+						alert(response.message)
+						$('#samlloginbtn').show();
+						$('#normalloginform').hide();
+						$('.smallogin').hide();
+						$("#frm-login")[0].reset();
 					}
 				}
 			});
