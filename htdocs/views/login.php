@@ -1,7 +1,7 @@
 <style>
 .loginhead::before {
   content: '';
-  width:100px;
+  width:125px;
   height:1px;
   display:inline-block;
   background:gray;
@@ -9,7 +9,7 @@
 }
 .loginhead::after {
   content: '';
-  width:100px;
+  width:125px;
   height:1px;
   display:inline-block;
   background:gray;
@@ -116,11 +116,10 @@
 			<?php if($isSamlEnabled){ ?>
 				<div class="row smallogin" sytle="margin-top: 13px !important" >
 					<div class="col-lg-12 col-md-12 col-12">
-					<h6 style="text-align: center" class="loginhead"> or sigin in with 12</h6>
+					<h6 style="text-align: center" class="loginhead"> or sigin in with </h6>
 					<div class="samllink">
 						<a href="javascript:void(0)" class="loginsmal form-group" onclick="navigateToSaml(event)">
-							<img src="https://auth-nfglb.netfortris.com/resources/microsoft.png" width="30px" height="30px"></img>
-							Microsoft
+							<img src="https://apps3.sangoma.com/microsoft-logo-with-signs.svg" style="width:110px" ></img>	
 						</a>
 					</div>
 					</div>
