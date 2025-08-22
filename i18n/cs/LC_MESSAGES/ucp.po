@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-07-23 09:40+0000\n"
+"POT-Creation-Date: 2025-08-22 05:49+0000\n"
 "PO-Revision-Date: 2018-08-08 11:42+0000\n"
 "Last-Translator: Petr Varvarovsky <petrv@atlantis.cz>\n"
 "Language-Team: Czech <http://*/projects/freepbx/ucp/cs/>\n"
@@ -86,12 +86,12 @@ msgstr ""
 ");\n"
 "     * // => "
 
-#: htdocs/index.php:97
+#: htdocs/index.php:93
 msgid ".htaccess files are disabled on this webserver. Please enable them"
 msgstr ""
 "Soubory .htaccess jsou na tomto webovém serveru zakázány. Povolte je prosím"
 
-#: htdocs/index.php:110
+#: htdocs/index.php:106
 msgid ".htaccess files are not supported on this webserver."
 msgstr "Soubory .htaccess nejsou na tomto webovém serveru podporovány."
 
@@ -402,7 +402,7 @@ msgstr "Upravit ovládací panel"
 msgid "Editing a Dashboard"
 msgstr "Upravování ovládacího panelu"
 
-#: htdocs/modules/Settings/views/settings.php:47 htdocs/views/login.php:45
+#: htdocs/modules/Settings/views/settings.php:47 htdocs/views/login.php:77
 msgid "Email"
 msgstr "Email"
 
@@ -485,7 +485,7 @@ msgstr "První"
 msgid "First Name"
 msgstr "Jméno"
 
-#: htdocs/views/login.php:53
+#: htdocs/views/login.php:85
 msgid "Forgot Password"
 msgstr "Zapomenuté heslo"
 
@@ -554,7 +554,7 @@ msgstr "Instalace / aktualizace požadovaných knihoven. Může to chvíli trvat
 msgid "Interface Settings"
 msgstr "Nastavení rozhraní"
 
-#: htdocs/index.php:260
+#: htdocs/index.php:256
 #, php-format
 msgid ""
 "Internet Explorer %s is not supported. Functionality will be deteriorated "
@@ -577,7 +577,7 @@ msgstr "Neplatné zařízení"
 msgid "Invalid Login Credentials"
 msgstr "Neplatné přihlašovací údaje"
 
-#: htdocs/index.php:248
+#: htdocs/index.php:244
 msgid "Invalid Token"
 msgstr "Neplatný token"
 
@@ -601,13 +601,13 @@ msgstr "Poslední"
 msgid "Last Name"
 msgstr "Příjmení"
 
-#: htdocs/views/forgot.php:85 htdocs/views/login.php:75
+#: htdocs/views/forgot.php:85 htdocs/views/login.php:107
 msgid "Loading..."
 msgstr "Načítání..."
 
-#: htdocs/views/forgot.php:67 htdocs/views/login.php:55
-#: htdocs/views/login.php:86 htdocs/assets/js/ucp.js:363
-#: htdocs/assets/js/ucp.js:385 htdocs/assets/js/ucp.js:395
+#: htdocs/views/forgot.php:67 htdocs/views/login.php:87
+#: htdocs/views/login.php:131 htdocs/assets/js/ucp.js:366
+#: htdocs/assets/js/ucp.js:388 htdocs/assets/js/ucp.js:398
 msgid "Login"
 msgstr "Přihlásit se"
 
@@ -751,7 +751,7 @@ msgid "PQRS"
 msgstr "PQRS"
 
 #: htdocs/modules/Settings/views/settings.php:25
-#: htdocs/modules/Settings/views/settings.php:27 htdocs/views/login.php:35
+#: htdocs/modules/Settings/views/settings.php:27 htdocs/views/login.php:67
 msgid "Password"
 msgstr "Heslo"
 
@@ -781,7 +781,7 @@ msgstr "Bind port. Výchozí hodnota je 8001"
 msgid "Port to bind to. Default is 8003"
 msgstr "Bind port. Výchozí hodnota je 8003"
 
-#: htdocs/assets/js/ucp.js:324 htdocs/assets/js/ucp.js:378
+#: htdocs/assets/js/ucp.js:327 htdocs/assets/js/ucp.js:381
 msgid "Processing..."
 msgstr "Zpracovává se..."
 
@@ -801,7 +801,7 @@ msgstr ""
 msgid "Refreshing all UCP Assets, this could take a while..."
 msgstr "Obnovení všech zdrojů UCP. toto může chvíli trvat..."
 
-#: htdocs/views/forgot.php:71 htdocs/views/login.php:59
+#: htdocs/views/forgot.php:71 htdocs/views/login.php:91
 msgid "Remember Me"
 msgstr "Zapamatovat si mě"
 
@@ -849,7 +849,7 @@ msgstr "Výběr malých widgetů"
 msgid "Selecting Widgets"
 msgstr "Výběr widgetů"
 
-#: htdocs/views/login.php:77
+#: htdocs/views/login.php:109
 msgid "Send Me A Password Reset Link"
 msgstr "Pošli mi odkaz na resetování hesla"
 
@@ -1056,7 +1056,7 @@ msgstr ""
 "Heslo, které se používá pro přihlášení k uživatelskému portálu (UCP) a "
 "dalším službám"
 
-#: htdocs/assets/js/ucp.js:596
+#: htdocs/assets/js/ucp.js:599
 msgid "The session has expired and you are being forcibly logged out"
 msgstr "Čas relace vypršel, byli jste odhlášeni"
 
@@ -1096,7 +1096,7 @@ msgid "There was an error getting the widget information, try again later"
 msgstr ""
 "Vyskytla se chyba při získání informací o widgetu, zkuste to prosím později"
 
-#: htdocs/index.php:127
+#: htdocs/index.php:123
 msgid "There was an error trying to load UCP"
 msgstr "Při pokusu o načtení UCP došlo k chybě"
 
@@ -1151,7 +1151,7 @@ msgstr "Chcete-li pokračovat, klikněte na Další"
 msgid "To just close/hide the widget's content click the '%s' symbol"
 msgstr "Chcete-li zavřít/skrýt obsah widgetu, klikněte na symbol '%s'"
 
-#: htdocs/index.php:98
+#: htdocs/index.php:94
 #, php-format
 msgid ""
 "To protect the integrity of your server, you must allow overrides in your "
@@ -1168,7 +1168,7 @@ msgstr ""
 "Chcete-li odstranit tento widget z bočního panelu, klikněte na položku "
 "'Odebrat widget'"
 
-#: htdocs/index.php:127 ucp.i18n.php:10
+#: htdocs/index.php:123 ucp.i18n.php:10
 msgid "UCP"
 msgstr "UCP"
 
@@ -1223,7 +1223,7 @@ msgid "UCP is currently disabled. Please talk to your system Administrator"
 msgstr ""
 "UCP je momentálně deaktivováno. Prosím, poraďte se s administrátorem systému"
 
-#: htdocs/assets/js/ucp.js:413
+#: htdocs/assets/js/ucp.js:416
 msgid "UCP is not supported in your browser"
 msgstr "UCP není podporován ve vašem prohlížeči"
 
@@ -1281,7 +1281,7 @@ msgid "User"
 msgstr "Uživatel"
 
 #: htdocs/views/forgot.php:27 htdocs/views/header.php:4
-#: htdocs/views/login.php:11 ucp.i18n.php:4
+#: htdocs/views/login.php:43 ucp.i18n.php:4
 #: /usr/src/freepbx/ucp/ucp.i18n.php:56
 #: htdocs/modules/Widgets/assets/js/global.js:47
 msgid "User Control Panel"
@@ -1308,7 +1308,7 @@ msgstr "Hlavní linka uživatele"
 msgid "User Settings"
 msgstr "Nastavení uživatele"
 
-#: htdocs/modules/Settings/views/settings.php:18 htdocs/views/login.php:22
+#: htdocs/modules/Settings/views/settings.php:18 htdocs/views/login.php:54
 msgid "Username"
 msgstr "Jméno uživatele"
 
@@ -1485,7 +1485,7 @@ msgstr "Právě jste se úspěšně poprvé přihlásili!"
 msgid "You must set a dashboard name!"
 msgstr "Musíte zadat název ovládacího panelu!"
 
-#: htdocs/assets/js/ucp.js:400
+#: htdocs/assets/js/ucp.js:403
 msgid "Your Browser is unsupported at this time."
 msgstr "Váš prohlížeč není v současné době podporován."
 
@@ -1533,7 +1533,7 @@ msgstr "Tvůj titul"
 msgid "Your Work Number"
 msgstr "Tvůj telefon do práce"
 
-#: htdocs/assets/js/ucp.js:402
+#: htdocs/assets/js/ucp.js:405
 msgid ""
 "Your browser is unsupported at this time. Please upgrade or talk to your "
 "system administrator"
@@ -1574,7 +1574,7 @@ msgstr "fred"
 msgid "gcc-c++ is not installed"
 msgstr "Není nainstalován gcc-c++"
 
-#: htdocs/index.php:111
+#: htdocs/index.php:107
 #, php-format
 msgid ""
 "htaccess files help protect the integrity of your server. Please make sure "
@@ -1595,7 +1595,7 @@ msgid ""
 "install icu libicu-devel pkg-config pkgconf"
 msgstr ""
 
-#: htdocs/views/login.php:40
+#: htdocs/views/login.php:72
 msgid "or"
 msgstr "nebo"
 

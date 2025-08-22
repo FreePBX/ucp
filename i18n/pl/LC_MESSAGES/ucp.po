@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-07-23 09:40+0000\n"
+"POT-Creation-Date: 2025-08-22 05:49+0000\n"
 "PO-Revision-Date: 2016-05-03 03:14+0200\n"
 "Last-Translator: Michal <mboltz@tlen.pl>\n"
 "Language-Team: Polish <http://weblate.freepbx.org/projects/freepbx/ucp/pl/>\n"
@@ -65,11 +65,11 @@ msgid ""
 "     * // => "
 msgstr ""
 
-#: htdocs/index.php:97
+#: htdocs/index.php:93
 msgid ".htaccess files are disabled on this webserver. Please enable them"
 msgstr "Pliki .htaccess są wyłączone na tym serwerze web. Proszę je włączyć"
 
-#: htdocs/index.php:110
+#: htdocs/index.php:106
 msgid ".htaccess files are not supported on this webserver."
 msgstr "Pliki .htaccess nie są obsługiwane na tym serwerze web."
 
@@ -368,7 +368,7 @@ msgstr ""
 msgid "Editing a Dashboard"
 msgstr ""
 
-#: htdocs/modules/Settings/views/settings.php:47 htdocs/views/login.php:45
+#: htdocs/modules/Settings/views/settings.php:47 htdocs/views/login.php:77
 msgid "Email"
 msgstr "Email"
 
@@ -448,7 +448,7 @@ msgstr "Pierwszy"
 msgid "First Name"
 msgstr "Imię"
 
-#: htdocs/views/login.php:53
+#: htdocs/views/login.php:85
 msgid "Forgot Password"
 msgstr "Zapomniałeś hasła"
 
@@ -516,7 +516,7 @@ msgstr ""
 msgid "Interface Settings"
 msgstr ""
 
-#: htdocs/index.php:260
+#: htdocs/index.php:256
 #, php-format
 msgid ""
 "Internet Explorer %s is not supported. Functionality will be deteriorated "
@@ -537,7 +537,7 @@ msgstr ""
 msgid "Invalid Login Credentials"
 msgstr "Błędne dane logowania"
 
-#: htdocs/index.php:248
+#: htdocs/index.php:244
 msgid "Invalid Token"
 msgstr "Błędny token"
 
@@ -561,13 +561,13 @@ msgstr "Ostatni"
 msgid "Last Name"
 msgstr "Nazwisko"
 
-#: htdocs/views/forgot.php:85 htdocs/views/login.php:75
+#: htdocs/views/forgot.php:85 htdocs/views/login.php:107
 msgid "Loading..."
 msgstr "Wczytywanie..."
 
-#: htdocs/views/forgot.php:67 htdocs/views/login.php:55
-#: htdocs/views/login.php:86 htdocs/assets/js/ucp.js:363
-#: htdocs/assets/js/ucp.js:385 htdocs/assets/js/ucp.js:395
+#: htdocs/views/forgot.php:67 htdocs/views/login.php:87
+#: htdocs/views/login.php:131 htdocs/assets/js/ucp.js:366
+#: htdocs/assets/js/ucp.js:388 htdocs/assets/js/ucp.js:398
 msgid "Login"
 msgstr "Zaloguj"
 
@@ -705,7 +705,7 @@ msgid "PQRS"
 msgstr "PQRS"
 
 #: htdocs/modules/Settings/views/settings.php:25
-#: htdocs/modules/Settings/views/settings.php:27 htdocs/views/login.php:35
+#: htdocs/modules/Settings/views/settings.php:27 htdocs/views/login.php:67
 msgid "Password"
 msgstr "Hasło"
 
@@ -735,7 +735,7 @@ msgstr ""
 msgid "Port to bind to. Default is 8003"
 msgstr ""
 
-#: htdocs/assets/js/ucp.js:324 htdocs/assets/js/ucp.js:378
+#: htdocs/assets/js/ucp.js:327 htdocs/assets/js/ucp.js:381
 msgid "Processing..."
 msgstr "Przetwarzanie..."
 
@@ -755,7 +755,7 @@ msgstr ""
 msgid "Refreshing all UCP Assets, this could take a while..."
 msgstr "Odświeżanie wszystkich zasobów UCP, to może chwilę potrwać..."
 
-#: htdocs/views/forgot.php:71 htdocs/views/login.php:59
+#: htdocs/views/forgot.php:71 htdocs/views/login.php:91
 msgid "Remember Me"
 msgstr "Zapamiętaj mnie"
 
@@ -803,7 +803,7 @@ msgstr ""
 msgid "Selecting Widgets"
 msgstr ""
 
-#: htdocs/views/login.php:77
+#: htdocs/views/login.php:109
 msgid "Send Me A Password Reset Link"
 msgstr "Wyślij mi odnośnik do resetu hasła"
 
@@ -990,7 +990,7 @@ msgstr ""
 msgid "The password used to login to User Control Panel and other services"
 msgstr "Hasło używane do logowania do Panelu Użytkownika (UCP) i innych usług"
 
-#: htdocs/assets/js/ucp.js:596
+#: htdocs/assets/js/ucp.js:599
 msgid "The session has expired and you are being forcibly logged out"
 msgstr ""
 
@@ -1025,7 +1025,7 @@ msgstr ""
 msgid "There was an error getting the widget information, try again later"
 msgstr ""
 
-#: htdocs/index.php:127
+#: htdocs/index.php:123
 msgid "There was an error trying to load UCP"
 msgstr "Wystąpił błąd przy wczytywaniu UCP"
 
@@ -1073,7 +1073,7 @@ msgstr ""
 msgid "To just close/hide the widget's content click the '%s' symbol"
 msgstr ""
 
-#: htdocs/index.php:98
+#: htdocs/index.php:94
 #, php-format
 msgid ""
 "To protect the integrity of your server, you must allow overrides in your "
@@ -1088,7 +1088,7 @@ msgstr ""
 msgid "To remove this widget from the side bar click 'Remove Widget'"
 msgstr ""
 
-#: htdocs/index.php:127 ucp.i18n.php:10
+#: htdocs/index.php:123 ucp.i18n.php:10
 msgid "UCP"
 msgstr "UCP"
 
@@ -1142,7 +1142,7 @@ msgstr ""
 "UCO jest obecnie wyłączone. Proszę skontaktuj się z administratorem Twojego "
 "systemu"
 
-#: htdocs/assets/js/ucp.js:413
+#: htdocs/assets/js/ucp.js:416
 msgid "UCP is not supported in your browser"
 msgstr ""
 
@@ -1198,7 +1198,7 @@ msgid "User"
 msgstr ""
 
 #: htdocs/views/forgot.php:27 htdocs/views/header.php:4
-#: htdocs/views/login.php:11 ucp.i18n.php:4
+#: htdocs/views/login.php:43 ucp.i18n.php:4
 #: /usr/src/freepbx/ucp/ucp.i18n.php:56
 #: htdocs/modules/Widgets/assets/js/global.js:47
 msgid "User Control Panel"
@@ -1225,7 +1225,7 @@ msgstr ""
 msgid "User Settings"
 msgstr ""
 
-#: htdocs/modules/Settings/views/settings.php:18 htdocs/views/login.php:22
+#: htdocs/modules/Settings/views/settings.php:18 htdocs/views/login.php:54
 msgid "Username"
 msgstr "Nazwa użytkownika"
 
@@ -1388,7 +1388,7 @@ msgstr ""
 msgid "You must set a dashboard name!"
 msgstr ""
 
-#: htdocs/assets/js/ucp.js:400
+#: htdocs/assets/js/ucp.js:403
 msgid "Your Browser is unsupported at this time."
 msgstr "W obecnej chwili Twoja przeglądarka nie jest wspierana."
 
@@ -1436,7 +1436,7 @@ msgstr "Twój tytuł"
 msgid "Your Work Number"
 msgstr "Twój numer służbowy"
 
-#: htdocs/assets/js/ucp.js:402
+#: htdocs/assets/js/ucp.js:405
 msgid ""
 "Your browser is unsupported at this time. Please upgrade or talk to your "
 "system administrator"
@@ -1473,7 +1473,7 @@ msgstr ""
 msgid "gcc-c++ is not installed"
 msgstr ""
 
-#: htdocs/index.php:111
+#: htdocs/index.php:107
 #, php-format
 msgid ""
 "htaccess files help protect the integrity of your server. Please make sure "
@@ -1493,7 +1493,7 @@ msgid ""
 "install icu libicu-devel pkg-config pkgconf"
 msgstr ""
 
-#: htdocs/views/login.php:40
+#: htdocs/views/login.php:72
 msgid "or"
 msgstr "lub"
 
