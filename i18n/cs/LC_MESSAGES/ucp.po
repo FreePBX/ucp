@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-22 05:49+0000\n"
+"POT-Creation-Date: 2025-08-22 09:59+0000\n"
 "PO-Revision-Date: 2018-08-08 11:42+0000\n"
 "Last-Translator: Petr Varvarovsky <petrv@atlantis.cz>\n"
 "Language-Team: Czech <http://*/projects/freepbx/ucp/cs/>\n"
@@ -606,7 +606,7 @@ msgid "Loading..."
 msgstr "Načítání..."
 
 #: htdocs/views/forgot.php:67 htdocs/views/login.php:87
-#: htdocs/views/login.php:131 htdocs/assets/js/ucp.js:366
+#: htdocs/views/login.php:130 htdocs/assets/js/ucp.js:366
 #: htdocs/assets/js/ucp.js:388 htdocs/assets/js/ucp.js:398
 msgid "Login"
 msgstr "Přihlásit se"
