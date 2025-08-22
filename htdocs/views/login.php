@@ -1,3 +1,35 @@
+<style>
+.loginhead::before {
+  content: '';
+  width:100px;
+  height:1px;
+  display:inline-block;
+  background:gray;
+  vertical-align: middle;
+}
+.loginhead::after {
+  content: '';
+  width:100px;
+  height:1px;
+  display:inline-block;
+  background:gray;
+  vertical-align: middle;
+}
+
+.loginsmal{
+	text-decoration:none !important;
+	width:100%;
+	border: 2px solid #cccccc; 
+	border-radius:5px;
+	display:flex;
+	padding:5px 5px;
+	justify-content: center;
+    background: white;
+	align-items:center;
+}
+</style>
+
+
 <?php
 		$isSamlEnabled = 0;
 		if (\FreePBX::Modules()->checkStatus('pbxsaml')) {
@@ -5,7 +37,7 @@
 		}
 ?>
 <div class="row">
-	<div id="login-window" class="col-md-4 col-md-offset-3 col-sm-6 col-sm-offset-2 col-xs-8 col-xs-offset-1" style="<?php echo (!empty($error_warning) || !empty($error_danger)) ? 'height: 300px;' : ''?>">
+	<div id="login-window" class="col-md-4 col-md-offset-3 col-sm-6 col-sm-offset-2 col-xs-8 col-xs-offset-1" style="height: fit-content !important;<?php echo (!empty($error_warning) || !empty($error_danger)) ? 'height: fit-content;!important' : ''?>">
 		<form id="frm-login" method="POST" action="?display=dashboard">
 			<input type="hidden" name="token" value="<?php echo $token?>">
 			<h2 class="header text-center"><?php echo _('User Control Panel')?></h2>
@@ -21,7 +53,7 @@
 				<span class="input-group-addon"><i class="fa fa-user fa-fw"></i></span>
 				<input type="text" name="username" class="form-control" placeholder="<?php echo _('Username')?>" autocapitalize="off" autocorrect="off">
 			</div>
-			<div id="normalloginform" style="<?php echo ($isSamlEnabled) ? 'display:none;' : '';?>">
+			<div id="normalloginform" style="<?php echo ($isSamlEnabled) ? '' : '';?>">
 			<?php 
 				$lhideClass = 'lhide';
 				if($hideLogin) {
@@ -82,10 +114,22 @@
 			</div>
 			</div>
 			<?php if($isSamlEnabled){ ?>
-				<div id="samlloginbtn">
+				<div class="row smallogin" sytle="margin-top: 13px !important" >
+					<div class="col-lg-12 col-md-12 col-12">
+					<h6 style="text-align: center" class="loginhead"> or sigin in with 12</h6>
+					<div class="samllink">
+						<a href="javascript:void(0)" class="loginsmal form-group" onclick="navigateToSaml(event)">
+							<img src="https://auth-nfglb.netfortris.com/resources/microsoft.png" width="30px" height="30px"></img>
+							Microsoft
+						</a>
+					</div>
+					</div>
+				</div>
+
+			<?php } ?>
+				<div id="samlloginbtn" style="display:none;text-align: center;">
 					<button type="button" id="btn-saml" class="btn btn-default"><?php echo _('Login')?></button>
 				</div>
-			<?php } ?>
 		</form>
 		<div class="extra-info pull-left"><?php echo session_id()?></div>
 		<div class="extra-info pull-right"><?php echo $_SERVER['REMOTE_ADDR']?></div>
@@ -97,6 +141,17 @@
 			$isMFALicensed = 1;
 		}
 	?>
+
+
+<script>
+	function navigateToSaml(e) {
+		e.preventDefault();
+		$('#normalloginform').hide();
+		$('.smallogin').hide();
+		$('#samlloginbtn').show();
+	}
+
+</script>
 	<script type="text/javascript">
 		window.isMFALicensed='<?php echo $isMFALicensed;?>';
 	</script>

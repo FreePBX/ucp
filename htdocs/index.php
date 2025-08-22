@@ -44,10 +44,6 @@ $user = $ucp->User->getUser();
 $d = $ucp->View->setGUILocales($user);
 $lang = $d['language'];
 
-if(\FreePBX::Modules()->checkStatus('pbxsaml') && isset($_REQUEST['SAMLResponse'])) {
-	include  '/var/www/html/admin/modules/pbxsaml/processSaml.php';
-}
-
 if(isset($_REQUEST['logout'])) {
 	if($user) {
 		$ucp->User->logout();
