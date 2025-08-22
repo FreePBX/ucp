@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-22 09:59+0000\n"
+"POT-Creation-Date: 2025-08-22 11:19+0000\n"
 "PO-Revision-Date: 2016-07-06 05:21+0200\n"
 "Last-Translator: Media <mousavi.media@gmail.com>\n"
 "Language-Team: Persian (Iran) <http://weblate.freepbx.org/projects/freepbx/"
@@ -65,12 +65,12 @@ msgid ""
 "     * // => "
 msgstr ""
 
-#: htdocs/index.php:93
+#: htdocs/index.php:96
 msgid ".htaccess files are disabled on this webserver. Please enable them"
 msgstr ""
 "فایلهای htaccess. در این سرور وب غیرفعال هستند. لطفا آن ها را فعال کنید"
 
-#: htdocs/index.php:106
+#: htdocs/index.php:109
 msgid ".htaccess files are not supported on this webserver."
 msgstr "فایلهای htaccess. در این سرور وب پشتیبانی نمی شوند."
 
@@ -519,7 +519,7 @@ msgstr ""
 msgid "Interface Settings"
 msgstr "تنظیمات اینترفیس"
 
-#: htdocs/index.php:256
+#: htdocs/index.php:259
 #, php-format
 msgid ""
 "Internet Explorer %s is not supported. Functionality will be deteriorated "
@@ -542,7 +542,7 @@ msgstr "دستگاه نامعتبر"
 msgid "Invalid Login Credentials"
 msgstr "اطلاعات کاربری نامعتبر"
 
-#: htdocs/index.php:244
+#: htdocs/index.php:247
 msgid "Invalid Token"
 msgstr "توکن نامعتبر"
 
@@ -1036,7 +1036,7 @@ msgstr ""
 msgid "There was an error getting the widget information, try again later"
 msgstr ""
 
-#: htdocs/index.php:123
+#: htdocs/index.php:126
 msgid "There was an error trying to load UCP"
 msgstr "خطایی در هنگام بارگذاری پنل کنترل کاربری رخ داده است"
 
@@ -1086,7 +1086,7 @@ msgstr ""
 msgid "To just close/hide the widget's content click the '%s' symbol"
 msgstr ""
 
-#: htdocs/index.php:94
+#: htdocs/index.php:97
 #, php-format
 msgid ""
 "To protect the integrity of your server, you must allow overrides in your "
@@ -1100,7 +1100,7 @@ msgstr ""
 msgid "To remove this widget from the side bar click 'Remove Widget'"
 msgstr ""
 
-#: htdocs/index.php:123 ucp.i18n.php:10
+#: htdocs/index.php:126 ucp.i18n.php:10
 msgid "UCP"
 msgstr "پنل کنترل کاربری"
 
@@ -1485,7 +1485,7 @@ msgstr ""
 msgid "gcc-c++ is not installed"
 msgstr ""
 
-#: htdocs/index.php:107
+#: htdocs/index.php:110
 #, php-format
 msgid ""
 "htaccess files help protect the integrity of your server. Please make sure "

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-22 09:59+0000\n"
+"POT-Creation-Date: 2025-08-22 11:19+0000\n"
 "PO-Revision-Date: 2016-09-02 16:04+0200\n"
 "Last-Translator: Kenichi <k.kitani@qloog.com>\n"
 "Language-Team: Japanese <http://weblate.freepbx.org/projects/freepbx/ucp/"
@@ -65,12 +65,12 @@ msgid ""
 "     * // => "
 msgstr ""
 
-#: htdocs/index.php:93
+#: htdocs/index.php:96
 msgid ".htaccess files are disabled on this webserver. Please enable them"
 msgstr ""
 "このサーバーでは .htaccess ファイルが無効化されています。有効にしてください。"
 
-#: htdocs/index.php:106
+#: htdocs/index.php:109
 msgid ".htaccess files are not supported on this webserver."
 msgstr "このサーバーは .htaccess ファイルをサポートしていません。"
 
@@ -518,7 +518,7 @@ msgstr ""
 msgid "Interface Settings"
 msgstr "インターフェイス設定"
 
-#: htdocs/index.php:256
+#: htdocs/index.php:259
 #, php-format
 msgid ""
 "Internet Explorer %s is not supported. Functionality will be deteriorated "
@@ -541,7 +541,7 @@ msgstr "無効なデバイス"
 msgid "Invalid Login Credentials"
 msgstr "ログイン情報が間違っています"
 
-#: htdocs/index.php:244
+#: htdocs/index.php:247
 msgid "Invalid Token"
 msgstr "不正トークン"
 
@@ -1031,7 +1031,7 @@ msgstr ""
 msgid "There was an error getting the widget information, try again later"
 msgstr ""
 
-#: htdocs/index.php:123
+#: htdocs/index.php:126
 msgid "There was an error trying to load UCP"
 msgstr "UCPをロード中にエラーが発生しました"
 
@@ -1082,7 +1082,7 @@ msgstr ""
 msgid "To just close/hide the widget's content click the '%s' symbol"
 msgstr ""
 
-#: htdocs/index.php:94
+#: htdocs/index.php:97
 #, php-format
 msgid ""
 "To protect the integrity of your server, you must allow overrides in your "
@@ -1097,7 +1097,7 @@ msgstr ""
 msgid "To remove this widget from the side bar click 'Remove Widget'"
 msgstr ""
 
-#: htdocs/index.php:123 ucp.i18n.php:10
+#: htdocs/index.php:126 ucp.i18n.php:10
 msgid "UCP"
 msgstr "UCP"
 
@@ -1481,7 +1481,7 @@ msgstr ""
 msgid "gcc-c++ is not installed"
 msgstr ""
 
-#: htdocs/index.php:107
+#: htdocs/index.php:110
 #, php-format
 msgid ""
 "htaccess files help protect the integrity of your server. Please make sure "

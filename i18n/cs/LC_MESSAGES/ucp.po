@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-22 09:59+0000\n"
+"POT-Creation-Date: 2025-08-22 11:19+0000\n"
 "PO-Revision-Date: 2018-08-08 11:42+0000\n"
 "Last-Translator: Petr Varvarovsky <petrv@atlantis.cz>\n"
 "Language-Team: Czech <http://*/projects/freepbx/ucp/cs/>\n"
@@ -86,12 +86,12 @@ msgstr ""
 ");\n"
 "     * // => "
 
-#: htdocs/index.php:93
+#: htdocs/index.php:96
 msgid ".htaccess files are disabled on this webserver. Please enable them"
 msgstr ""
 "Soubory .htaccess jsou na tomto webovém serveru zakázány. Povolte je prosím"
 
-#: htdocs/index.php:106
+#: htdocs/index.php:109
 msgid ".htaccess files are not supported on this webserver."
 msgstr "Soubory .htaccess nejsou na tomto webovém serveru podporovány."
 
@@ -554,7 +554,7 @@ msgstr "Instalace / aktualizace požadovaných knihoven. Může to chvíli trvat
 msgid "Interface Settings"
 msgstr "Nastavení rozhraní"
 
-#: htdocs/index.php:256
+#: htdocs/index.php:259
 #, php-format
 msgid ""
 "Internet Explorer %s is not supported. Functionality will be deteriorated "
@@ -577,7 +577,7 @@ msgstr "Neplatné zařízení"
 msgid "Invalid Login Credentials"
 msgstr "Neplatné přihlašovací údaje"
 
-#: htdocs/index.php:244
+#: htdocs/index.php:247
 msgid "Invalid Token"
 msgstr "Neplatný token"
 
@@ -1096,7 +1096,7 @@ msgid "There was an error getting the widget information, try again later"
 msgstr ""
 "Vyskytla se chyba při získání informací o widgetu, zkuste to prosím později"
 
-#: htdocs/index.php:123
+#: htdocs/index.php:126
 msgid "There was an error trying to load UCP"
 msgstr "Při pokusu o načtení UCP došlo k chybě"
 
@@ -1151,7 +1151,7 @@ msgstr "Chcete-li pokračovat, klikněte na Další"
 msgid "To just close/hide the widget's content click the '%s' symbol"
 msgstr "Chcete-li zavřít/skrýt obsah widgetu, klikněte na symbol '%s'"
 
-#: htdocs/index.php:94
+#: htdocs/index.php:97
 #, php-format
 msgid ""
 "To protect the integrity of your server, you must allow overrides in your "
@@ -1168,7 +1168,7 @@ msgstr ""
 "Chcete-li odstranit tento widget z bočního panelu, klikněte na položku "
 "'Odebrat widget'"
 
-#: htdocs/index.php:123 ucp.i18n.php:10
+#: htdocs/index.php:126 ucp.i18n.php:10
 msgid "UCP"
 msgstr "UCP"
 
@@ -1574,7 +1574,7 @@ msgstr "fred"
 msgid "gcc-c++ is not installed"
 msgstr "Není nainstalován gcc-c++"
 
-#: htdocs/index.php:107
+#: htdocs/index.php:110
 #, php-format
 msgid ""
 "htaccess files help protect the integrity of your server. Please make sure "
