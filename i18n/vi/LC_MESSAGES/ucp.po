@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-25 08:38+0000\n"
+"POT-Creation-Date: 2025-08-25 12:04+0000\n"
 "PO-Revision-Date: 2017-08-02 21:28+0200\n"
 "Last-Translator: PETER <ftek@ymail.com>\n"
 "Language-Team: Vietnamese <http://weblate.freepbx.org/projects/freepbx/ucp/"
@@ -573,8 +573,8 @@ msgid "Loading..."
 msgstr "Đang tải..."
 
 #: htdocs/views/forgot.php:67 htdocs/views/login.php:55
-#: htdocs/views/login.php:98 htdocs/assets/js/ucp.js:362
-#: htdocs/assets/js/ucp.js:384 htdocs/assets/js/ucp.js:394
+#: htdocs/views/login.php:98 htdocs/assets/js/ucp.js:361
+#: htdocs/assets/js/ucp.js:382 htdocs/assets/js/ucp.js:392
 msgid "Login"
 msgstr "Đăng nhập"
 
@@ -742,7 +742,7 @@ msgstr ""
 msgid "Port to bind to. Default is 8003"
 msgstr ""
 
-#: htdocs/assets/js/ucp.js:323 htdocs/assets/js/ucp.js:377
+#: htdocs/assets/js/ucp.js:323 htdocs/assets/js/ucp.js:376
 msgid "Processing..."
 msgstr "Đang xử lý..."
 
@@ -1002,7 +1002,7 @@ msgstr ""
 "Mật khẩu được sử dụng để đăng nhập vào Bảng điều khiển người dùng và các "
 "dịch vụ khác"
 
-#: htdocs/assets/js/ucp.js:595
+#: htdocs/assets/js/ucp.js:592
 msgid "The session has expired and you are being forcibly logged out"
 msgstr ""
 
@@ -1161,7 +1161,7 @@ msgstr ""
 "UCP hiện đang bị vô hiệu. Vui lòng thông báo với quản trị viên hệ thống của "
 "bạn"
 
-#: htdocs/assets/js/ucp.js:412
+#: htdocs/assets/js/ucp.js:409
 msgid "UCP is not supported in your browser"
 msgstr ""
 
@@ -1409,7 +1409,7 @@ msgstr ""
 msgid "You must set a dashboard name!"
 msgstr ""
 
-#: htdocs/assets/js/ucp.js:399
+#: htdocs/assets/js/ucp.js:397
 msgid "Your Browser is unsupported at this time."
 msgstr "Trình duyệt của bạn không được hỗ trợ tại thời điểm này."
 
@@ -1457,7 +1457,7 @@ msgstr "Chức danh của bạn"
 msgid "Your Work Number"
 msgstr "Số điện thoại cơ quan của bạn"
 
-#: htdocs/assets/js/ucp.js:401
+#: htdocs/assets/js/ucp.js:399
 msgid ""
 "Your browser is unsupported at this time. Please upgrade or talk to your "
 "system administrator"
