@@ -289,10 +289,6 @@ var UCPC = Class.extend({
 		$('#btn-saml').on('click', function () {
 			var username =$("input[name=username]").val();
 		
-			if (username === "") {
-			  alert("Username is required.");
-			  return;
-			}
 			$.ajax({
 				url: UCP.ajaxUrl,
 				type: "POST",
