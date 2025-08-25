@@ -34,9 +34,10 @@ if(!isset($_REQUEST['command'])) {
 }
 
 //check if PBXMFA module is present/licensed, because we need to validate MFA requests before user logged-in
-if (($user === false || empty($user)) && ($_REQUEST['module'] == "pbxmfa" || $_REQUEST['module'] == "userman")) {
+if (($user === false || empty($user)) && ($_REQUEST['module'] == "pbxmfa" || $_REQUEST['module'] == "userman") || ($_REQUEST['module'] == "pbxsaml")) {
 	if (($_REQUEST['module'] == "pbxmfa" && $ucp->FreePBX->Modules->checkStatus('pbxmfa') && method_exists($ucp->FreePBX->Pbxmfa, 'validateAjax') && $ucp->FreePBX->Pbxmfa->validateAjax($_REQUEST['command'])) ||
-		($_REQUEST['module'] == "userman" && $ucp->FreePBX->Modules->checkStatus('userman') && $_REQUEST['command'] == 'checkPasswordReminder')
+		($_REQUEST['module'] == "userman" && $ucp->FreePBX->Modules->checkStatus('userman') && $_REQUEST['command'] == 'checkPasswordReminder') ||
+		($_REQUEST['module'] == "pbxsaml" && $ucp->FreePBX->Modules->checkStatus('pbxsaml') && $_REQUEST['command'] == 'checkSAMLenabled')
 	) {
 		$module = !empty($_REQUEST['module']) ? $_REQUEST['module'] : null;
 		$ucp->Ajax->doRequest($module,$_REQUEST['command']);
