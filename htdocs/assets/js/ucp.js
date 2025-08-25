@@ -357,7 +357,6 @@ var UCPC = Class.extend({
 			$.post(UCP.ajaxUrl, queryString, function (data) {
 				if (!data.status) {
 					$("#error-msg").html(data.message).fadeIn("fast");
-					$("#login-window").height("300");
 					btn.prop("disabled", false);
 					btn.text(_("Login"));
 				} else {
@@ -379,7 +378,6 @@ var UCPC = Class.extend({
 				$.post( UCP.ajaxUrl, queryString, function( data ) {
 					if (!data.status) {
 						$("#error-msg").html(data.message).fadeIn("fast");
-						$("#login-window").height("300");
 						btn.prop("disabled", false);
 						btn.text(_("Login"));
 					} else {
@@ -399,7 +397,6 @@ var UCPC = Class.extend({
 			btn.text(_("Your Browser is unsupported at this time."));
 			$(".jsalert").show();
 			$(".jsalert").text(_("Your browser is unsupported at this time. Please upgrade or talk to your system administrator"));
-			$("#login-window").height("300");
 		}
 		$(".main-block").addClass("hidden");
 	},
