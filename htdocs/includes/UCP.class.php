@@ -286,7 +286,8 @@ class UCP extends UCP_Helpers {
 			"emojionearea-3.1.6.min.css",
 			"font-awesome.min-4.7.0.css",
 			"gridstack.min.css",
-			"jquery.tokenize-2.6.css"
+			"jquery.tokenize-2.6.css",
+			"saml.css"
 		);
 
 
