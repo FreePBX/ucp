@@ -111,8 +111,8 @@ class User {
 			case 'login':
 				$rm = isset($_POST['rememberme']) ? true : false;
 				$o = $this->login($_POST['username'],$_POST['password'], $rm);
-				if(!$o) {
-					$return['message'] = _('Invalid Login Credentials');
+				if(!$o['login']) {
+					$return['message'] = _($o['credentials']);
 				} else {
 					$mods = $this->UCP->Modules->getModulesByMethod('login');
 					foreach($mods as $mod) {
@@ -219,7 +219,9 @@ class User {
 	 * @return bool True if username and password matched, otherwise false
 	 */
 	public function login($username, $password, $remember=false, $directlogin = false) {
-		if(!empty($username) && !empty($password) && $this->_authenticate($username, $password, $directlogin)) {
+		$isauth = $this->_authenticate($username, $password, $directlogin);
+		$logindetails['credentials'] = $isauth['credentials'];
+		if(!empty($username) && !empty($password) && $isauth['isauth']) {
 			if(!$this->_checkToken()) {
 				$this->token = $this->_generateToken();
 				$this->_storeToken($this->token);
@@ -229,12 +231,15 @@ class User {
 						$remember = false;
 					}
 				}
-				return true;
+				$logindetails['login'] = true;
+				return $logindetails;
 			} else {
-				return true;
+				$logindetails['login'] = true;
+				return $logindetails;
 			}
 		} else {
-			return false;
+			$logindetails['login'] = false;
+			return $logindetails;
 		}
 	}
 
@@ -369,23 +374,27 @@ class User {
 	 * @return bool True if credentials were valid, otherwise false
 	 */
 	private function _authenticate($username, $password, $directlogin = false) {
+		$isAuthenticated = [];
 		if($directlogin) {
 			$uData = $this->UCP->FreePBX->Ucp->getUserByUsername($username);
 			$result = $uData['id'];
 		} else{
 			$result = $this->UCP->FreePBX->Ucp->checkCredentials($username, $password);
+			$isAuthenticated['credentials'] = $result;
 		}
 		if(!empty($result) && $this->_allowed($result)) {
 			$this->uid = $result;
 			if(function_exists('freepbx_log_security')) {
 				freepbx_log_security('Authentication successful for '.(!empty($username) ? $username : 'unknown').' from '.$_SERVER['REMOTE_ADDR']);
 			}
-			return true;
+			$isAuthenticated['isauth']=true;
+			return $isAuthenticated;
 		}
 		if(function_exists('freepbx_log_security')) {
 			freepbx_log_security('Authentication failure for '.(!empty($username) ? $username : 'unknown').' from '.$_SERVER['REMOTE_ADDR']);
 		}
-		return false;
+		$isAuthenticated['isauth']=false;
+		return $isAuthenticated;
 	}
 
 	/**

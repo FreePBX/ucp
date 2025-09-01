@@ -116,6 +116,8 @@
 		$('#normalloginform').hide();
 		$('.smallogin').hide();
 		$('#samlloginbtn').show();
+		$("#error-msg").html("");
+		$('#error-msg').hide();
 	}
 
 </script>
