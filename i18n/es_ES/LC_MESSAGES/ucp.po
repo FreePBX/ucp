@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-25 12:04+0000\n"
+"POT-Creation-Date: 2025-09-02 05:03+0000\n"
 "PO-Revision-Date: 2016-06-07 10:27+0200\n"
 "Last-Translator: Ernesto <ecasas@sangoma.com>\n"
 "Language-Team: Spanish <http://weblate.freepbx.org/projects/freepbx/ucp/"
@@ -536,7 +536,7 @@ msgstr "Inválido"
 msgid "Invalid Device"
 msgstr ""
 
-#: htdocs/includes/User.class.php:115
+#: htdocs/includes/User.class.php:125
 msgid "Invalid Login Credentials"
 msgstr "Credenciales de acceso inválidas"
 
@@ -778,6 +778,11 @@ msgstr ""
 #: Ucp.class.php:1324
 #, php-format
 msgid "Running (Uptime: %s)"
+msgstr ""
+
+#: htdocs/includes/User.class.php:119
+msgid ""
+"SAML Single Sign-On is enabled for your account. Please sign in using SSO."
 msgstr ""
 
 #: htdocs/modules/Ucptour/assets/js/global.js:69

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-25 12:04+0000\n"
+"POT-Creation-Date: 2025-09-02 05:03+0000\n"
 "PO-Revision-Date: 2018-08-08 11:42+0000\n"
 "Last-Translator: Petr Varvarovsky <petrv@atlantis.cz>\n"
 "Language-Team: Czech <http://*/projects/freepbx/ucp/cs/>\n"
@@ -573,7 +573,7 @@ msgstr "Neplatné"
 msgid "Invalid Device"
 msgstr "Neplatné zařízení"
 
-#: htdocs/includes/User.class.php:115
+#: htdocs/includes/User.class.php:125
 msgid "Invalid Login Credentials"
 msgstr "Neplatné přihlašovací údaje"
 
@@ -822,6 +822,11 @@ msgstr "Restartovat prohlížení"
 #, php-format
 msgid "Running (Uptime: %s)"
 msgstr "Aktivní (V provozu: %s)"
+
+#: htdocs/includes/User.class.php:119
+msgid ""
+"SAML Single Sign-On is enabled for your account. Please sign in using SSO."
+msgstr ""
 
 #: htdocs/modules/Ucptour/assets/js/global.js:69
 msgid "Save your dashboard"

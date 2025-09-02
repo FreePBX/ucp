@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-25 12:04+0000\n"
+"POT-Creation-Date: 2025-09-02 05:03+0000\n"
 "PO-Revision-Date: 2018-10-25 08:00+0000\n"
 "Last-Translator: Bastian Mertgen <b.mertgen@bastian-mertgen.de>\n"
 "Language-Team: German <http://*/projects/freepbx/ucp/de/>\n"
@@ -577,7 +577,7 @@ msgstr "Ungültig"
 msgid "Invalid Device"
 msgstr "Ungültiges Gerät"
 
-#: htdocs/includes/User.class.php:115
+#: htdocs/includes/User.class.php:125
 msgid "Invalid Login Credentials"
 msgstr "Ungültige Login Zugangsdaten"
 
@@ -829,6 +829,11 @@ msgstr "Tour erneut starten"
 #, php-format
 msgid "Running (Uptime: %s)"
 msgstr "Aktiver Prozess (Uptime: %s)"
+
+#: htdocs/includes/User.class.php:119
+msgid ""
+"SAML Single Sign-On is enabled for your account. Please sign in using SSO."
+msgstr ""
 
 #: htdocs/modules/Ucptour/assets/js/global.js:69
 msgid "Save your dashboard"
