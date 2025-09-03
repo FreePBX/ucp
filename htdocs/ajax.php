@@ -34,7 +34,7 @@ if(!isset($_REQUEST['command'])) {
 }
 
 //check if PBXMFA module is present/licensed, because we need to validate MFA requests before user logged-in
-if (($user === false || empty($user)) && ($_REQUEST['module'] == "pbxmfa" || $_REQUEST['module'] == "userman") || ($_REQUEST['module'] == "pbxsaml")) {
+if (($user === false || empty($user)) && isset($_REQUEST['module']) && (($_REQUEST['module'] == "pbxmfa" || $_REQUEST['module'] == "userman") || ($_REQUEST['module'] == "pbxsaml"))){
 	if (($_REQUEST['module'] == "pbxmfa" && $ucp->FreePBX->Modules->checkStatus('pbxmfa') && method_exists($ucp->FreePBX->Pbxmfa, 'validateAjax') && $ucp->FreePBX->Pbxmfa->validateAjax($_REQUEST['command'])) ||
 		($_REQUEST['module'] == "userman" && $ucp->FreePBX->Modules->checkStatus('userman') && $_REQUEST['command'] == 'checkPasswordReminder') ||
 		($_REQUEST['module'] == "pbxsaml" && $ucp->FreePBX->Modules->checkStatus('pbxsaml') && $_REQUEST['command'] == 'checkSAMLenabled')
