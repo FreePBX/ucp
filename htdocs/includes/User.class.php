@@ -114,6 +114,16 @@ class User {
 				break;
 			case 'login':
 				$rm = isset($_POST['rememberme']) ? true : false;
+				if (\FreePBX::Modules()->checkStatus('pbxsaml')) {
+					$getUser = $this->UCP->FreePBX->Ucp->getUserByUsername($_POST['username']);
+					$usamlenabled = $this->UCP->FreePBX->Userman->getCombinedModuleSettingByID($getUser['id'], 'pbxsaml', 'enablesaml');
+					if($usamlenabled){
+						return [
+							'status'=>false,
+							'message'=>_('SAML Single Sign-On is enabled for your account. Please sign in using SSO.')
+						];
+					}
+				}
 				$o = $this->login($_POST['username'], $_POST['password'], $rm);
 				if (!$o) {
 					$return['message'] = _('Invalid Login Credentials');

@@ -285,7 +285,40 @@ var UCPC = Class.extend({
 				}
 			}
 		});
+
+		$('#btn-saml').on('click', function () {
+			var username =$("input[name=username]").val();
+			$.ajax({
+				url: UCP.ajaxUrl,
+				type: "POST",
+				data: {
+					module: "pbxsaml",
+					command: "checkSAMLenabled",
+					username: username,
+					loginpanel: "ucp"
+				},
+				success: function(response) {
+					if(response.status) {
+						location.replace(response.url);
+					} else {
+						alert(response.message)
+						$('#samlloginbtn').show();
+						$('#normalloginform').hide();
+						$('.smallogin').hide();
+						$("#frm-login")[0].reset();
+					}
+				}
+			});
+		});
+
 		$("#btn-login").click(async function (event) {
+			var targetDiv = $('#normalloginform');
+			if (targetDiv.length && targetDiv.is(':hidden')) {
+				event.preventDefault();
+				$('#btn-saml').click();
+				return;
+			}
+
 			btn.prop("disabled", true);
 			btn.text(_("Processing..."));
 
@@ -324,7 +357,6 @@ var UCPC = Class.extend({
 			$.post(UCP.ajaxUrl, queryString, function (data) {
 				if (!data.status) {
 					$("#error-msg").html(data.message).fadeIn("fast");
-					$("#login-window").height("300");
 					btn.prop("disabled", false);
 					btn.text(_("Login"));
 				} else {
@@ -346,7 +378,6 @@ var UCPC = Class.extend({
 				$.post( UCP.ajaxUrl, queryString, function( data ) {
 					if (!data.status) {
 						$("#error-msg").html(data.message).fadeIn("fast");
-						$("#login-window").height("300");
 						btn.prop("disabled", false);
 						btn.text(_("Login"));
 					} else {
@@ -366,7 +397,6 @@ var UCPC = Class.extend({
 			btn.text(_("Your Browser is unsupported at this time."));
 			$(".jsalert").show();
 			$(".jsalert").text(_("Your browser is unsupported at this time. Please upgrade or talk to your system administrator"));
-			$("#login-window").height("300");
 		}
 		$(".main-block").addClass("hidden");
 	},

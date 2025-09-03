@@ -1,5 +1,13 @@
+
+<?php
+		$isSamlEnabled = 0;
+		if (\FreePBX::Modules()->checkStatus('pbxsaml')) {
+			$isSamlEnabled = 1;
+		}
+?>
+
 <div class="row">
-	<div id="login-window" class="col-md-4 col-md-offset-3 col-sm-6 col-sm-offset-2 col-xs-8 col-xs-offset-1" style="<?php echo (!empty($error_warning) || !empty($error_danger)) ? 'height: 300px;' : ''?>">
+	<div id="login-window" class="col-md-4 col-md-offset-3 col-sm-6 col-sm-offset-2 col-xs-8 col-xs-offset-1" style="height: fit-content !important;<?php echo (!empty($error_warning) || !empty($error_danger)) ? 'height: fit-content;!important' : ''?>">
 		<form id="frm-login" method="POST" action="?display=dashboard">
 			<input type="hidden" name="token" value="<?php echo $token?>">
 			<h2 class="header text-center"><?php echo _('User Control Panel')?></h2>
@@ -15,6 +23,7 @@
 				<span class="input-group-addon"><i class="fa fa-user fa-fw"></i></span>
 				<input type="text" name="username" class="form-control" placeholder="<?php echo _('Username')?>" autocapitalize="off" autocorrect="off">
 			</div>
+			<div id="normalloginform" >
 			<?php 
 				$lhideClass = 'lhide';
 				if($hideLogin) {
@@ -73,6 +82,24 @@
 					</table>
 				</div>
 			</div>
+			</div>
+			<?php if($isSamlEnabled){ ?>
+				<div class="row smallogin" sytle="margin-top: 13px !important" >
+					<div class="col-lg-12 col-md-12 col-12">
+					<h6 style="text-align: center;font-size:14px" class="loginhead"> or sign in with </h6>
+					<div class="samllink" style="text-align: center;">
+						<a href="javascript:void(0)" class="loginsmal form-group" onclick="navigateToSaml(event)">
+							<img src="https://apps3.sangoma.com/microsoft-logo-with-signs.svg" style="width:110px" ></img>	
+						</a>
+					</div>
+					</div>
+				</div>
+
+			<?php } ?>
+			<div id="samlloginbtn" style="display:none;text-align: center;">
+				<button type="button" id="btn-saml" class="btn btn-default"><?php echo _('Login')?></button>
+			</div>
+
 		</form>
 		<div class="extra-info pull-left"><?php echo session_id()?></div>
 		<div class="extra-info pull-right"><?php echo $_SERVER['REMOTE_ADDR']?></div>
@@ -84,6 +111,16 @@
 			$isMFALicensed = 1;
 		}
 	?>
+	<script>
+		function navigateToSaml(e) {
+			e.preventDefault();
+			$('#error-msg').hide();
+			$('#normalloginform').hide();
+			$('.smallogin').hide();
+			$('#samlloginbtn').show();
+		}
+
+	</script>
 	<script type="text/javascript">
 		window.isMFALicensed='<?php echo $isMFALicensed;?>';
 	</script>
