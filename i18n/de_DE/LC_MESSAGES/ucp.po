@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-08 08:53-0400\n"
+"POT-Creation-Date: 2025-09-03 02:00-0400\n"
 "PO-Revision-Date: 2018-10-25 08:00+0000\n"
 "Last-Translator: Bastian Mertgen <b.mertgen@bastian-mertgen.de>\n"
 "Language-Team: German <http://*/projects/freepbx/ucp/de/>\n"
@@ -94,11 +94,11 @@ msgstr ""
 msgid "+t,e.props.alpha={idx:3,type:"
 msgstr ""
 
-#: htdocs/index.php:93
+#: htdocs/index.php:96
 msgid ".htaccess files are disabled on this webserver. Please enable them"
 msgstr ".htaccess sind auf diesem Server deaktiviert. Bitte aktiviere diese"
 
-#: htdocs/index.php:106
+#: htdocs/index.php:109
 msgid ".htaccess files are not supported on this webserver."
 msgstr ".htaccess-Dateien werden von diesem Webserver nicht unterstützt."
 
@@ -396,7 +396,7 @@ msgstr "Dashboard bearbeiten"
 msgid "Editing a Dashboard"
 msgstr "Bearbeitung eines Dashboards"
 
-#: htdocs/modules/Settings/views/settings.php:47 htdocs/views/login.php:38
+#: htdocs/modules/Settings/views/settings.php:47 htdocs/views/login.php:47
 msgid "Email"
 msgstr "E-Mail"
 
@@ -472,7 +472,7 @@ msgstr "Erster"
 msgid "First Name"
 msgstr "Vorname"
 
-#: htdocs/views/login.php:46
+#: htdocs/views/login.php:55
 msgid "Forgot Password"
 msgstr "Passwort vergessen"
 
@@ -542,7 +542,7 @@ msgstr ""
 msgid "Interface Settings"
 msgstr "Schnittstellen-Einstellungen"
 
-#: htdocs/index.php:247
+#: htdocs/index.php:250
 #, php-format
 msgid ""
 "Internet Explorer %s is not supported. Functionality will be deteriorated "
@@ -561,11 +561,11 @@ msgstr "Ungültig"
 msgid "Invalid Device"
 msgstr "Ungültiges Gerät"
 
-#: htdocs/includes/User.class.php:119
+#: htdocs/includes/User.class.php:129
 msgid "Invalid Login Credentials"
 msgstr "Ungültige Login Zugangsdaten"
 
-#: htdocs/index.php:236
+#: htdocs/index.php:239
 msgid "Invalid Token"
 msgstr "Ungültiger Token"
 
@@ -589,13 +589,13 @@ msgstr "Letzter"
 msgid "Last Name"
 msgstr "Nachname"
 
-#: htdocs/views/forgot.php:85 htdocs/views/login.php:68
+#: htdocs/views/forgot.php:85 htdocs/views/login.php:77
 msgid "Loading..."
 msgstr "Laden..."
 
-#: htdocs/views/forgot.php:67 htdocs/views/login.php:48
-#: htdocs/assets/js/ucp.js:329 htdocs/assets/js/ucp.js:351
-#: htdocs/assets/js/ucp.js:361
+#: htdocs/views/forgot.php:67 htdocs/views/login.php:57
+#: htdocs/views/login.php:100 htdocs/assets/js/ucp.js:361
+#: htdocs/assets/js/ucp.js:382 htdocs/assets/js/ucp.js:392
 msgid "Login"
 msgstr "Einloggen"
 
@@ -718,7 +718,7 @@ msgid "PQRS"
 msgstr "PQRS"
 
 #: htdocs/modules/Settings/views/settings.php:25
-#: htdocs/modules/Settings/views/settings.php:27 htdocs/views/login.php:28
+#: htdocs/modules/Settings/views/settings.php:27 htdocs/views/login.php:37
 msgid "Password"
 msgstr "Passwort"
 
@@ -740,7 +740,7 @@ msgstr ""
 msgid "Password has been changed!"
 msgstr "Passwort wurde geändert!"
 
-#: htdocs/assets/js/ucp.js:290 htdocs/assets/js/ucp.js:344
+#: htdocs/assets/js/ucp.js:323 htdocs/assets/js/ucp.js:376
 msgid "Processing..."
 msgstr "Verarbeiten..."
 
@@ -760,7 +760,7 @@ msgstr ""
 msgid "Refreshing all UCP Assets, this could take a while..."
 msgstr "Aktualisiere alle UCP Inhalte, dies kann einen Moment dauern..."
 
-#: htdocs/views/forgot.php:71 htdocs/views/login.php:52
+#: htdocs/views/forgot.php:71 htdocs/views/login.php:61
 msgid "Remember Me"
 msgstr "Login merken"
 
@@ -781,6 +781,11 @@ msgstr "Tour erneut starten"
 #, php-format
 msgid "Running (Uptime: %s)"
 msgstr "Aktiver Prozess (Uptime: %s)"
+
+#: htdocs/includes/User.class.php:123
+msgid ""
+"SAML Single Sign-On is enabled for your account. Please sign in using SSO."
+msgstr ""
 
 #: htdocs/modules/Ucptour/assets/js/global.js:69
 msgid "Save your dashboard"
@@ -808,7 +813,7 @@ msgstr "Auswahl der kleinen Widgets"
 msgid "Selecting Widgets"
 msgstr "Auswahl Widgets"
 
-#: htdocs/views/login.php:70
+#: htdocs/views/login.php:79
 msgid "Send Me A Password Reset Link"
 msgstr "Senden Sie mir einen Passwort Reset Link"
 
@@ -992,7 +997,7 @@ msgid "The password used to login to User Control Panel and other services"
 msgstr ""
 "Dieses Passwort wird für den Login zum UCP und für andere Dienste verwendet"
 
-#: htdocs/assets/js/ucp.js:575
+#: htdocs/assets/js/ucp.js:605
 msgid "The session has expired and you are being forcibly logged out"
 msgstr "Die Session ist abgelaufen und Sie sind zwangsweise ausgeloggt"
 
@@ -1091,7 +1096,7 @@ msgstr ""
 "Um den Widget Inhalt zu schließen oder zu verstecken einfach das '%s' Symbol "
 "klicken"
 
-#: htdocs/index.php:94
+#: htdocs/index.php:97
 #, php-format
 msgid ""
 "To protect the integrity of your server, you must allow overrides in your "
@@ -1147,7 +1152,7 @@ msgid "UCP is currently disabled. Please talk to your system Administrator"
 msgstr ""
 "UCP ist derzeit deaktiviert. Bitte sprechen Sie mit Ihrem Systemadministrator"
 
-#: htdocs/assets/js/ucp.js:379
+#: htdocs/assets/js/ucp.js:409
 msgid "UCP is not supported in your browser"
 msgstr "UCP wird in Ihrem Browser nicht unterstützt"
 
@@ -1164,7 +1169,7 @@ msgstr ""
 "UCP, bekannt als das User Control Panel, ist die Benutzer Schnittstelle für "
 "FreePBX."
 
-#: htdocs/assets/js/ucp.js:488
+#: htdocs/assets/js/ucp.js:518
 #, perl-format
 msgid "Unable to connect to the UCP Node Server.<br>%s"
 msgstr ""
@@ -1210,7 +1215,7 @@ msgid "User"
 msgstr "Benutzer"
 
 #: htdocs/views/forgot.php:27 htdocs/views/header.php:6
-#: htdocs/views/login.php:5 ucp.i18n.php:4
+#: htdocs/views/login.php:13 ucp.i18n.php:4
 #: htdocs/modules/Widgets/assets/js/global.js:47
 msgid "User Control Panel"
 msgstr "Benutzerkontrollzentrum (UCP)"
@@ -1236,7 +1241,7 @@ msgstr "Primäre Benutzernebenstelle"
 msgid "User Settings"
 msgstr "Benutzereinstellungen"
 
-#: htdocs/modules/Settings/views/settings.php:18 htdocs/views/login.php:16
+#: htdocs/modules/Settings/views/settings.php:18 htdocs/views/login.php:24
 msgid "Username"
 msgstr "Benutzername"
 
@@ -1397,7 +1402,7 @@ msgstr "Sie haben sich erfolgreich zum ersten Mal eingeloggt!"
 msgid "You must set a dashboard name!"
 msgstr "Sie müssen den Dashboard-Namen bestimmen!"
 
-#: htdocs/assets/js/ucp.js:366
+#: htdocs/assets/js/ucp.js:397
 msgid "Your Browser is unsupported at this time."
 msgstr "Ihr Browser wird im Moment nicht unterstützt."
 
@@ -1445,7 +1450,7 @@ msgstr "Ihr Titel"
 msgid "Your Work Number"
 msgstr "Ihre Telefonnummer in der Firma"
 
-#: htdocs/assets/js/ucp.js:368
+#: htdocs/assets/js/ucp.js:399
 msgid ""
 "Your browser is unsupported at this time. Please upgrade or talk to your "
 "system administrator"
@@ -1479,7 +1484,7 @@ msgstr "fred"
 msgid "gcc-c++ is not installed"
 msgstr "gcc-c++ ist nicht installiert"
 
-#: htdocs/index.php:107
+#: htdocs/index.php:110
 #, php-format
 msgid ""
 "htaccess files help protect the integrity of your server. Please make sure "
@@ -1502,7 +1507,7 @@ msgid ""
 "install icu libicu-devel pkg-config pkgconf"
 msgstr ""
 
-#: htdocs/views/login.php:33
+#: htdocs/views/login.php:42
 msgid "or"
 msgstr "oder"
 
