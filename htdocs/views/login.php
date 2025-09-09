@@ -82,13 +82,40 @@
 			</div>
 			</div>
 			<?php if($isSamlEnabled){ ?>
-				<div class="row smallogin" sytle="margin-top: 13px !important" >
+				<div class="row smallogin" sytle="margin-top: 13px !important;" >
 					<div class="col-lg-12 col-md-12 col-12">
-					<h6 style="text-align: center;font-size:14px" class="loginhead"> or sign in with </h6>
-					<div class="samllink" style="text-align: center;">
-						<a href="javascript:void(0)" class="loginsmal form-group" onclick="navigateToSaml(event)">
-							<img src="https://apps3.sangoma.com/microsoft-logo-with-signs.svg" style="width:110px" ></img>	
-						</a>
+					<div style="padding-top:10px !important">
+						<h6 style="text-align: center;font-size:14px" class="loginhead"> or sign in with </h6>
+						<div class="samllink" style="text-align: center;">
+						<?php
+							$sql = "SELECT val FROM kvstore_FreePBX_modules_Pbxsaml WHERE `key` = 'samldriver'";
+							$sth = FreePBX::Database()->prepare($sql);
+							$sth->execute();
+							$res = $sth->fetch(\PDO::FETCH_ASSOC);
+							$image = '';
+							$samlDriver = '';
+							$disabled= '';
+							$tooltip = _("SAML driver is not enabled. Please enable it to sign in");
+							if(isset($res['val'])){
+								$samlDriver = $res['val'];
+								$sql = "SELECT val FROM kvstore_FreePBX_modules_Pbxsaml WHERE `key` = 'driver_details'";
+								$sth = FreePBX::Database()->prepare($sql);
+								$sth->execute();
+								$getDetails = $sth->fetch(\PDO::FETCH_ASSOC);
+								if(!empty($getDetails)){
+									$driver = json_decode($getDetails['val'],true);
+									$image = isset($driver['image'])?$driver['image']:'';
+									$tooltip = isset($driver['tooltip'])?$driver['tooltip']:$tooltip;
+								}
+							}
+							if($samlDriver == '' || $samlDriver == false){
+								$disabled = "disabled";
+							}
+						?>
+						<button class="loginsmal form-group" onclick="navigateToSaml(event)" data-toggle="tootip" title="<?php echo $tooltip ?>" style="width:100%;cursor:pointer" <?php echo $disabled ?>>
+							<img src="<?php echo $image?>" style="width:110px" alt="Saml Login"></img>
+						</button>
+						</div>
 					</div>
 					</div>
 				</div>
