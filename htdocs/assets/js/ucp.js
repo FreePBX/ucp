@@ -287,30 +287,25 @@ var UCPC = Class.extend({
 		});
 
 		$('#btn-saml').on('click', function () {
-			var username =$("input[name=username]").val();
-		
-			$.ajax({
-				url: UCP.ajaxUrl,
-				type: "POST",
-				data: {
-					module: "pbxsaml",
-					command: "checkSAMLenabled",
-					username: username,
-					loginpanel: "ucp"
-				},
-				success: function(response) {
-					if(response.status) {
-						location.replace(response.url);
-					} else {
-						alert(response.message)
+			var username =$("input[name=username]").val();	
+			let loginpanel='ucp';
+			let currentForm = $(this).closest("form");
+			handleSAMLFunc(username,loginpanel);
+		});
+
+		async function handleSAMLFunc(username,loginpanel){
+			if (typeof checkPbxSAMLenabled === "function") {
+				let response = await checkPbxSAMLenabled(username,loginpanel);
+				if(response == 'login failed'){
 						$('#samlloginbtn').show();
 						$('#normalloginform').hide();
 						$('.smallogin').hide();
 						$("#frm-login")[0].reset();
-					}
 				}
-			});
-		});
+			} else {
+				normalLogin();
+			}
+		}
 
 		$("#btn-login").click(async function (event) {
 			var targetDiv = $('#normalloginform');
