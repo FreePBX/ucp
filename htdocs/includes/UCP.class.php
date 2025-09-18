@@ -236,8 +236,7 @@ class UCP extends UCP_Helpers {
 			}
 		}
 
-		$globalCssFiles = [ "bootstrap-4.6.1.min.css", "bootstrap-table-1.21.1.min.css", "bootstrap-toggle-2.2.2.min.css", "bootstrap-select-1.13.14.min.css", "ajax-bootstrap-select-1.4.5.min.css", "emojione-2.2.7.min.css", "emojionearea-3.4.2.min.css", "font-awesome.min-4.7.0.css", "gridstack.min.css", "jquery.tokenize-2.6.css","saml.css" ];
-
+		$globalCssFiles = [ "bootstrap-4.6.1.min.css", "bootstrap-table-1.21.1.min.css", "bootstrap-toggle-2.2.2.min.css", "bootstrap-select-1.13.14.min.css", "ajax-bootstrap-select-1.4.5.min.css", "emojione-2.2.7.min.css", "emojionearea-3.4.2.min.css", "font-awesome.min-4.7.0.css", "gridstack.min.css", "jquery.tokenize-2.6.css"];
 
 		$contents  = '';
 		$files     = [];

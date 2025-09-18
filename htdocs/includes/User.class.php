@@ -114,7 +114,7 @@ class User {
 				break;
 			case 'login':
 				$rm = isset($_POST['rememberme']) ? true : false;
-				if (\FreePBX::Modules()->checkStatus('pbxsaml')) {
+				if (\FreePBX::Modules()->checkStatus('pbxsaml') && \FreePBX::Pbxsaml()->isLicensed()) {
 					$getUser = $this->UCP->FreePBX->Ucp->getUserByUsername($_POST['username']);
 					$usamlenabled = $this->UCP->FreePBX->Userman->getCombinedModuleSettingByID($getUser['id'], 'pbxsaml', 'enablesaml');
 					if($usamlenabled){
