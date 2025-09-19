@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-09-02 05:03+0000\n"
+"POT-Creation-Date: 2025-09-19 11:09+0000\n"
 "PO-Revision-Date: 2016-09-02 16:04+0200\n"
 "Last-Translator: Kenichi <k.kitani@qloog.com>\n"
 "Language-Team: Japanese <http://weblate.freepbx.org/projects/freepbx/ucp/"
@@ -370,7 +370,7 @@ msgstr ""
 msgid "Editing a Dashboard"
 msgstr ""
 
-#: htdocs/modules/Settings/views/settings.php:47 htdocs/views/login.php:45
+#: htdocs/modules/Settings/views/settings.php:47 htdocs/views/login.php:39
 msgid "Email"
 msgstr "メール"
 
@@ -450,7 +450,7 @@ msgstr "名"
 msgid "First Name"
 msgstr "名"
 
-#: htdocs/views/login.php:53
+#: htdocs/views/login.php:47
 msgid "Forgot Password"
 msgstr "パスワードお忘れの場合"
 
@@ -565,13 +565,13 @@ msgstr "姓"
 msgid "Last Name"
 msgstr "姓"
 
-#: htdocs/views/forgot.php:85 htdocs/views/login.php:75
+#: htdocs/views/forgot.php:85 htdocs/views/login.php:69
 msgid "Loading..."
 msgstr "読み込み中..."
 
-#: htdocs/views/forgot.php:67 htdocs/views/login.php:55
-#: htdocs/views/login.php:98 htdocs/assets/js/ucp.js:361
-#: htdocs/assets/js/ucp.js:382 htdocs/assets/js/ucp.js:392
+#: htdocs/views/forgot.php:67 htdocs/views/login.php:49
+#: htdocs/views/login.php:86 htdocs/assets/js/ucp.js:356
+#: htdocs/assets/js/ucp.js:377 htdocs/assets/js/ucp.js:387
 msgid "Login"
 msgstr "ログイン"
 
@@ -709,7 +709,7 @@ msgid "PQRS"
 msgstr "PQRS"
 
 #: htdocs/modules/Settings/views/settings.php:25
-#: htdocs/modules/Settings/views/settings.php:27 htdocs/views/login.php:35
+#: htdocs/modules/Settings/views/settings.php:27 htdocs/views/login.php:29
 msgid "Password"
 msgstr "パスワード"
 
@@ -739,7 +739,7 @@ msgstr ""
 msgid "Port to bind to. Default is 8003"
 msgstr ""
 
-#: htdocs/assets/js/ucp.js:323 htdocs/assets/js/ucp.js:376
+#: htdocs/assets/js/ucp.js:318 htdocs/assets/js/ucp.js:371
 msgid "Processing..."
 msgstr "処理中..."
 
@@ -759,7 +759,7 @@ msgstr ""
 msgid "Refreshing all UCP Assets, this could take a while..."
 msgstr "UCPアセットを再読み込みしています。お待ちください..."
 
-#: htdocs/views/forgot.php:71 htdocs/views/login.php:59
+#: htdocs/views/forgot.php:71 htdocs/views/login.php:53
 msgid "Remember Me"
 msgstr "保存する"
 
@@ -812,7 +812,7 @@ msgstr ""
 msgid "Selecting Widgets"
 msgstr ""
 
-#: htdocs/views/login.php:77
+#: htdocs/views/login.php:71
 msgid "Send Me A Password Reset Link"
 msgstr "パスワードリセットリンクを送信する"
 
@@ -1001,7 +1001,7 @@ msgstr ""
 msgid "The password used to login to User Control Panel and other services"
 msgstr "UCPやその他のサービスのログインに使うパスワード"
 
-#: htdocs/assets/js/ucp.js:592
+#: htdocs/assets/js/ucp.js:587
 msgid "The session has expired and you are being forcibly logged out"
 msgstr ""
 
@@ -1154,7 +1154,7 @@ msgstr ""
 msgid "UCP is currently disabled. Please talk to your system Administrator"
 msgstr "UCPは無効です。システムの管理者にご相談ください。"
 
-#: htdocs/assets/js/ucp.js:409
+#: htdocs/assets/js/ucp.js:404
 msgid "UCP is not supported in your browser"
 msgstr ""
 
@@ -1211,8 +1211,7 @@ msgid "User"
 msgstr ""
 
 #: htdocs/views/forgot.php:27 htdocs/views/header.php:4
-#: htdocs/views/login.php:11 ucp.i18n.php:4
-#: /usr/src/freepbx/ucp/ucp.i18n.php:56
+#: htdocs/views/login.php:5 ucp.i18n.php:4 /usr/src/freepbx/ucp/ucp.i18n.php:56
 #: htdocs/modules/Widgets/assets/js/global.js:47
 msgid "User Control Panel"
 msgstr "UCP"
@@ -1238,7 +1237,7 @@ msgstr "ユーザープライマリ内線"
 msgid "User Settings"
 msgstr "ユーザー設定"
 
-#: htdocs/modules/Settings/views/settings.php:18 htdocs/views/login.php:22
+#: htdocs/modules/Settings/views/settings.php:18 htdocs/views/login.php:16
 msgid "Username"
 msgstr "ユーザー名"
 
@@ -1401,7 +1400,7 @@ msgstr ""
 msgid "You must set a dashboard name!"
 msgstr ""
 
-#: htdocs/assets/js/ucp.js:397
+#: htdocs/assets/js/ucp.js:392
 msgid "Your Browser is unsupported at this time."
 msgstr "このブラウザはサポートされていません。"
 
@@ -1449,7 +1448,7 @@ msgstr "あなたの役職"
 msgid "Your Work Number"
 msgstr "あなたの勤務先電話番号"
 
-#: htdocs/assets/js/ucp.js:399
+#: htdocs/assets/js/ucp.js:394
 msgid ""
 "Your browser is unsupported at this time. Please upgrade or talk to your "
 "system administrator"
@@ -1506,7 +1505,7 @@ msgid ""
 "install icu libicu-devel pkg-config pkgconf"
 msgstr ""
 
-#: htdocs/views/login.php:40
+#: htdocs/views/login.php:34
 msgid "or"
 msgstr "もしくは"
 
