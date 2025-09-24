@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-09-03 02:00-0400\n"
+"POT-Creation-Date: 2025-09-24 07:57-0400\n"
 "PO-Revision-Date: 2016-07-06 05:21+0200\n"
 "Last-Translator: Media <mousavi.media@gmail.com>\n"
 "Language-Team: Persian (Iran) <http://weblate.freepbx.org/projects/freepbx/"
@@ -363,7 +363,7 @@ msgstr ""
 msgid "Editing a Dashboard"
 msgstr ""
 
-#: htdocs/modules/Settings/views/settings.php:47 htdocs/views/login.php:47
+#: htdocs/modules/Settings/views/settings.php:47 htdocs/views/login.php:39
 msgid "Email"
 msgstr "ایمیل"
 
@@ -435,7 +435,7 @@ msgstr "اولین"
 msgid "First Name"
 msgstr "نام"
 
-#: htdocs/views/login.php:55
+#: htdocs/views/login.php:47
 msgid "Forgot Password"
 msgstr "کلمه عبور فراموش شده"
 
@@ -550,13 +550,13 @@ msgstr "آخر"
 msgid "Last Name"
 msgstr "نام خانوادگی"
 
-#: htdocs/views/forgot.php:85 htdocs/views/login.php:77
+#: htdocs/views/forgot.php:85 htdocs/views/login.php:69
 msgid "Loading..."
 msgstr "در حال بارگذاری…"
 
-#: htdocs/views/forgot.php:67 htdocs/views/login.php:57
-#: htdocs/views/login.php:100 htdocs/assets/js/ucp.js:361
-#: htdocs/assets/js/ucp.js:382 htdocs/assets/js/ucp.js:392
+#: htdocs/views/forgot.php:67 htdocs/views/login.php:49
+#: htdocs/views/login.php:86 htdocs/assets/js/ucp.js:357
+#: htdocs/assets/js/ucp.js:378 htdocs/assets/js/ucp.js:388
 msgid "Login"
 msgstr "ورود"
 
@@ -670,7 +670,7 @@ msgid "PQRS"
 msgstr "PQRS"
 
 #: htdocs/modules/Settings/views/settings.php:25
-#: htdocs/modules/Settings/views/settings.php:27 htdocs/views/login.php:37
+#: htdocs/modules/Settings/views/settings.php:27 htdocs/views/login.php:29
 msgid "Password"
 msgstr "بله"
 
@@ -692,7 +692,7 @@ msgstr ""
 msgid "Password has been changed!"
 msgstr "کلمه عبور تغییر یافت!"
 
-#: htdocs/assets/js/ucp.js:323 htdocs/assets/js/ucp.js:376
+#: htdocs/assets/js/ucp.js:319 htdocs/assets/js/ucp.js:372
 msgid "Processing..."
 msgstr "در حال پردازش..."
 
@@ -712,7 +712,7 @@ msgstr ""
 msgid "Refreshing all UCP Assets, this could take a while..."
 msgstr "بازنشانی تمام مقادیر پنل کنترل کاربری. منتظر باشید..."
 
-#: htdocs/views/forgot.php:71 htdocs/views/login.php:61
+#: htdocs/views/forgot.php:71 htdocs/views/login.php:53
 msgid "Remember Me"
 msgstr "مرا بخاطر بسپار"
 
@@ -765,7 +765,7 @@ msgstr ""
 msgid "Selecting Widgets"
 msgstr ""
 
-#: htdocs/views/login.php:79
+#: htdocs/views/login.php:71
 msgid "Send Me A Password Reset Link"
 msgstr "لینک بازنشانی کلمه عبور را برایم ارسال کن"
 
@@ -931,7 +931,7 @@ msgid "The password used to login to User Control Panel and other services"
 msgstr ""
 "از این کلمه عبور برای ورود به پنل کنترل کاربری و دیگر سرویس ها استفاده می شود"
 
-#: htdocs/assets/js/ucp.js:605
+#: htdocs/assets/js/ucp.js:601
 msgid "The session has expired and you are being forcibly logged out"
 msgstr ""
 
@@ -1071,7 +1071,7 @@ msgid "UCP is currently disabled. Please talk to your system Administrator"
 msgstr ""
 "پنل کنترل کاربری در حال حاضر غیرفعال است. لطفا با مدیر سیستم خود تماس بگیرید"
 
-#: htdocs/assets/js/ucp.js:409
+#: htdocs/assets/js/ucp.js:405
 msgid "UCP is not supported in your browser"
 msgstr ""
 
@@ -1087,7 +1087,7 @@ msgid ""
 msgstr ""
 "UCP، یا به عبارت دیگر پنل کنترل کاربری، یک رابط کاربری برای FreePBX است."
 
-#: htdocs/assets/js/ucp.js:518
+#: htdocs/assets/js/ucp.js:514
 #, perl-format
 msgid "Unable to connect to the UCP Node Server.<br>%s"
 msgstr ""
@@ -1133,7 +1133,7 @@ msgid "User"
 msgstr ""
 
 #: htdocs/views/forgot.php:27 htdocs/views/header.php:6
-#: htdocs/views/login.php:13 ucp.i18n.php:4
+#: htdocs/views/login.php:5 ucp.i18n.php:4
 #: htdocs/modules/Widgets/assets/js/global.js:47
 msgid "User Control Panel"
 msgstr "پنل کنترل کاربری"
@@ -1159,7 +1159,7 @@ msgstr "داخلی اصلی کاربر"
 msgid "User Settings"
 msgstr "تنظیمات کاربر"
 
-#: htdocs/modules/Settings/views/settings.php:18 htdocs/views/login.php:24
+#: htdocs/modules/Settings/views/settings.php:18 htdocs/views/login.php:16
 msgid "Username"
 msgstr "نام کاربری"
 
@@ -1302,7 +1302,7 @@ msgstr ""
 msgid "You must set a dashboard name!"
 msgstr ""
 
-#: htdocs/assets/js/ucp.js:397
+#: htdocs/assets/js/ucp.js:393
 msgid "Your Browser is unsupported at this time."
 msgstr "در حال حاضر مرورگر شما پشتیبانی نمی شود."
 
@@ -1350,7 +1350,7 @@ msgstr "عنوان شما"
 msgid "Your Work Number"
 msgstr "تلفن محل کار شما"
 
-#: htdocs/assets/js/ucp.js:399
+#: htdocs/assets/js/ucp.js:395
 msgid ""
 "Your browser is unsupported at this time. Please upgrade or talk to your "
 "system administrator"
@@ -1401,7 +1401,7 @@ msgid ""
 "install icu libicu-devel pkg-config pkgconf"
 msgstr ""
 
-#: htdocs/views/login.php:42
+#: htdocs/views/login.php:34
 msgid "or"
 msgstr "یا"
 

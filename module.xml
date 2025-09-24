@@ -2,7 +2,7 @@
 	<rawname>ucp</rawname>
 	<name>User Control Panel</name>
 	<repo>standard</repo>
-	<version>17.0.4.27</version>
+	<version>17.0.4.28</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>AGPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/agpl-3.0.txt</licenselink>
@@ -11,7 +11,7 @@
 	</description>
   	<more-info>https://sangomakb.atlassian.net/wiki/spaces/PG/pages/38896213/User+Control+Panel+UCP</more-info>
 	<changelog>
-		*17.0.4.27* Packaging of ver 17.0.4.27
+		*17.0.4.28* Packaging of ver 17.0.4.28
 		*17.0.4.26* Packaging of ver 17.0.4.26
 		*17.0.4.25* Packaging of ver 17.0.4.25
 		*17.0.4.24* #136 UCP Tour - text error 
