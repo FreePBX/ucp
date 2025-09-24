@@ -286,13 +286,13 @@ var UCPC = Class.extend({
 			}
 		});
 
-		$('#btn-saml').on('click', function () {
-			var username =$("input[name=username]").val();	
-			let loginpanel='ucp';
+		$(document).on('click', '#btn-saml', function () {
+			var username = $("input[name=username]").val();
+			let loginpanel = 'ucp';
 			let currentForm = $(this).closest("form");
-			handleSAMLFunc(username,loginpanel);
+			handleSAMLFunc(username, loginpanel);
 		});
-
+		
 		async function handleSAMLFunc(username,loginpanel){
 			if (typeof checkPbxSAMLenabled === "function") {
 				let response = await checkPbxSAMLenabled(username,loginpanel);
