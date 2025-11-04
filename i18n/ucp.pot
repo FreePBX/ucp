@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-10-15 06:41+0000\n"
+"POT-Creation-Date: 2025-11-04 06:33+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -62,11 +62,11 @@ msgid ""
 "     * // => "
 msgstr ""
 
-#: htdocs/index.php:96
+#: htdocs/index.php:93
 msgid ".htaccess files are disabled on this webserver. Please enable them"
 msgstr ""
 
-#: htdocs/index.php:109
+#: htdocs/index.php:106
 msgid ".htaccess files are not supported on this webserver."
 msgstr ""
 
@@ -528,7 +528,7 @@ msgstr ""
 msgid "Interface Settings"
 msgstr ""
 
-#: htdocs/index.php:259
+#: htdocs/index.php:256
 #, php-format
 msgid ""
 "Internet Explorer %s is not supported. Functionality will be deteriorated "
@@ -549,7 +549,7 @@ msgstr ""
 msgid "Invalid Login Credentials"
 msgstr ""
 
-#: htdocs/index.php:247
+#: htdocs/index.php:244
 msgid "Invalid Token"
 msgstr ""
 
@@ -1053,7 +1053,7 @@ msgstr ""
 msgid "There was an error getting the widget information, try again later"
 msgstr ""
 
-#: htdocs/index.php:126
+#: htdocs/index.php:123
 msgid "There was an error trying to load UCP"
 msgstr ""
 
@@ -1102,7 +1102,7 @@ msgstr ""
 msgid "To just close/hide the widget's content click the '%s' symbol"
 msgstr ""
 
-#: htdocs/index.php:97
+#: htdocs/index.php:94
 #, php-format
 msgid ""
 "To protect the integrity of your server, you must allow overrides in your "
@@ -1114,7 +1114,7 @@ msgstr ""
 msgid "To remove this widget from the side bar click 'Remove Widget'"
 msgstr ""
 
-#: htdocs/index.php:126
+#: htdocs/index.php:123
 #: ucp.i18n.php:10
 msgid "UCP"
 msgstr ""
@@ -1501,7 +1501,7 @@ msgstr ""
 msgid "gcc-c++ is not installed"
 msgstr ""
 
-#: htdocs/index.php:110
+#: htdocs/index.php:107
 #, php-format
 msgid ""
 "htaccess files help protect the integrity of your server. Please make sure "

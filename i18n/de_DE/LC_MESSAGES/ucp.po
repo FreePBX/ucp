@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-09-19 11:09+0000\n"
+"POT-Creation-Date: 2025-11-04 06:33+0000\n"
 "PO-Revision-Date: 2018-10-25 08:00+0000\n"
 "Last-Translator: Bastian Mertgen <b.mertgen@bastian-mertgen.de>\n"
 "Language-Team: German <http://*/projects/freepbx/ucp/de/>\n"
@@ -86,11 +86,11 @@ msgstr ""
 ");\n"
 "     * // => "
 
-#: htdocs/index.php:96
+#: htdocs/index.php:93
 msgid ".htaccess files are disabled on this webserver. Please enable them"
 msgstr ".htaccess sind auf diesem Server deaktiviert. Bitte aktiviere diese"
 
-#: htdocs/index.php:109
+#: htdocs/index.php:106
 msgid ".htaccess files are not supported on this webserver."
 msgstr ".htaccess-Dateien werden von diesem Webserver nicht unterstützt."
 
@@ -558,7 +558,7 @@ msgstr ""
 msgid "Interface Settings"
 msgstr "Schnittstellen-Einstellungen"
 
-#: htdocs/index.php:259
+#: htdocs/index.php:256
 #, php-format
 msgid ""
 "Internet Explorer %s is not supported. Functionality will be deteriorated "
@@ -581,7 +581,7 @@ msgstr "Ungültiges Gerät"
 msgid "Invalid Login Credentials"
 msgstr "Ungültige Login Zugangsdaten"
 
-#: htdocs/index.php:247
+#: htdocs/index.php:244
 msgid "Invalid Token"
 msgstr "Ungültiger Token"
 
@@ -1111,7 +1111,7 @@ msgstr ""
 "Es ist ein Fehler aufgetreten, die Widget Information zu erhalten, bitte "
 "versuchen Sie es später"
 
-#: htdocs/index.php:126
+#: htdocs/index.php:123
 msgid "There was an error trying to load UCP"
 msgstr "Beim Versuch das UCP zu laden ist ein Fehler aufgetreten"
 
@@ -1170,7 +1170,7 @@ msgstr ""
 "Um den Widget Inhalt zu schließen oder zu verstecken einfach das '%s' Symbol "
 "klicken"
 
-#: htdocs/index.php:97
+#: htdocs/index.php:94
 #, php-format
 msgid ""
 "To protect the integrity of your server, you must allow overrides in your "
@@ -1187,7 +1187,7 @@ msgstr ""
 "Um dieses Widget von der Side bar zu entfernen bitte 'Entferne Widget' "
 "klicken"
 
-#: htdocs/index.php:126 ucp.i18n.php:10
+#: htdocs/index.php:123 ucp.i18n.php:10
 msgid "UCP"
 msgstr "UCP (Benutzerkontrollzentrum)"
 
@@ -1601,7 +1601,7 @@ msgstr "fred"
 msgid "gcc-c++ is not installed"
 msgstr "gcc-c++ ist nicht installiert"
 
-#: htdocs/index.php:110
+#: htdocs/index.php:107
 #, php-format
 msgid ""
 "htaccess files help protect the integrity of your server. Please make sure "

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-09-19 11:09+0000\n"
+"POT-Creation-Date: 2025-11-04 06:33+0000\n"
 "PO-Revision-Date: 2016-06-07 10:27+0200\n"
 "Last-Translator: Ernesto <ecasas@sangoma.com>\n"
 "Language-Team: Spanish <http://weblate.freepbx.org/projects/freepbx/ucp/"
@@ -65,13 +65,13 @@ msgid ""
 "     * // => "
 msgstr ""
 
-#: htdocs/index.php:96
+#: htdocs/index.php:93
 msgid ".htaccess files are disabled on this webserver. Please enable them"
 msgstr ""
 "los ficheros .htaccess están deshabilitados en ente webserver. Por favor "
 "habilitelos"
 
-#: htdocs/index.php:109
+#: htdocs/index.php:106
 msgid ".htaccess files are not supported on this webserver."
 msgstr "archivos .htaccess no son compatibles con este servidor web."
 
@@ -519,7 +519,7 @@ msgstr ""
 msgid "Interface Settings"
 msgstr ""
 
-#: htdocs/index.php:259
+#: htdocs/index.php:256
 #, php-format
 msgid ""
 "Internet Explorer %s is not supported. Functionality will be deteriorated "
@@ -540,7 +540,7 @@ msgstr ""
 msgid "Invalid Login Credentials"
 msgstr "Credenciales de acceso inválidas"
 
-#: htdocs/index.php:247
+#: htdocs/index.php:244
 msgid "Invalid Token"
 msgstr "Llave inválida"
 
@@ -1033,7 +1033,7 @@ msgstr ""
 msgid "There was an error getting the widget information, try again later"
 msgstr ""
 
-#: htdocs/index.php:126
+#: htdocs/index.php:123
 msgid "There was an error trying to load UCP"
 msgstr "Hubo un error tratando de cargar el UCP"
 
@@ -1081,7 +1081,7 @@ msgstr ""
 msgid "To just close/hide the widget's content click the '%s' symbol"
 msgstr ""
 
-#: htdocs/index.php:97
+#: htdocs/index.php:94
 #, php-format
 msgid ""
 "To protect the integrity of your server, you must allow overrides in your "
@@ -1096,7 +1096,7 @@ msgstr ""
 msgid "To remove this widget from the side bar click 'Remove Widget'"
 msgstr ""
 
-#: htdocs/index.php:126 ucp.i18n.php:10
+#: htdocs/index.php:123 ucp.i18n.php:10
 msgid "UCP"
 msgstr "UCP"
 
@@ -1483,7 +1483,7 @@ msgstr ""
 msgid "gcc-c++ is not installed"
 msgstr ""
 
-#: htdocs/index.php:110
+#: htdocs/index.php:107
 #, php-format
 msgid ""
 "htaccess files help protect the integrity of your server. Please make sure "
