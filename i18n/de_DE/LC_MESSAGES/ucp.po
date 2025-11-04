@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-09-24 07:57-0400\n"
+"POT-Creation-Date: 2025-11-04 01:57-0500\n"
 "PO-Revision-Date: 2018-10-25 08:00+0000\n"
 "Last-Translator: Bastian Mertgen <b.mertgen@bastian-mertgen.de>\n"
 "Language-Team: German <http://*/projects/freepbx/ucp/de/>\n"
@@ -94,11 +94,11 @@ msgstr ""
 msgid "+t,e.props.alpha={idx:3,type:"
 msgstr ""
 
-#: htdocs/index.php:96
+#: htdocs/index.php:93
 msgid ".htaccess files are disabled on this webserver. Please enable them"
 msgstr ".htaccess sind auf diesem Server deaktiviert. Bitte aktiviere diese"
 
-#: htdocs/index.php:109
+#: htdocs/index.php:106
 msgid ".htaccess files are not supported on this webserver."
 msgstr ".htaccess-Dateien werden von diesem Webserver nicht unterstützt."
 
@@ -542,7 +542,7 @@ msgstr ""
 msgid "Interface Settings"
 msgstr "Schnittstellen-Einstellungen"
 
-#: htdocs/index.php:250
+#: htdocs/index.php:247
 #, php-format
 msgid ""
 "Internet Explorer %s is not supported. Functionality will be deteriorated "
@@ -565,7 +565,7 @@ msgstr "Ungültiges Gerät"
 msgid "Invalid Login Credentials"
 msgstr "Ungültige Login Zugangsdaten"
 
-#: htdocs/index.php:239
+#: htdocs/index.php:236
 msgid "Invalid Token"
 msgstr "Ungültiger Token"
 
@@ -1096,7 +1096,7 @@ msgstr ""
 "Um den Widget Inhalt zu schließen oder zu verstecken einfach das '%s' Symbol "
 "klicken"
 
-#: htdocs/index.php:97
+#: htdocs/index.php:94
 #, php-format
 msgid ""
 "To protect the integrity of your server, you must allow overrides in your "
@@ -1484,7 +1484,7 @@ msgstr "fred"
 msgid "gcc-c++ is not installed"
 msgstr "gcc-c++ ist nicht installiert"
 
-#: htdocs/index.php:110
+#: htdocs/index.php:107
 #, php-format
 msgid ""
 "htaccess files help protect the integrity of your server. Please make sure "

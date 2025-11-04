@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-09-24 07:57-0400\n"
+"POT-Creation-Date: 2025-11-04 01:57-0500\n"
 "PO-Revision-Date: 2018-08-08 11:42+0000\n"
 "Last-Translator: Petr Varvarovsky <petrv@atlantis.cz>\n"
 "Language-Team: Czech <http://*/projects/freepbx/ucp/cs/>\n"
@@ -94,12 +94,12 @@ msgstr ""
 msgid "+t,e.props.alpha={idx:3,type:"
 msgstr ""
 
-#: htdocs/index.php:96
+#: htdocs/index.php:93
 msgid ".htaccess files are disabled on this webserver. Please enable them"
 msgstr ""
 "Soubory .htaccess jsou na tomto webovém serveru zakázány. Povolte je prosím"
 
-#: htdocs/index.php:109
+#: htdocs/index.php:106
 msgid ".htaccess files are not supported on this webserver."
 msgstr "Soubory .htaccess nejsou na tomto webovém serveru podporovány."
 
@@ -538,7 +538,7 @@ msgstr "Instalace / aktualizace požadovaných knihoven. Může to chvíli trvat
 msgid "Interface Settings"
 msgstr "Nastavení rozhraní"
 
-#: htdocs/index.php:250
+#: htdocs/index.php:247
 #, php-format
 msgid ""
 "Internet Explorer %s is not supported. Functionality will be deteriorated "
@@ -561,7 +561,7 @@ msgstr "Neplatné zařízení"
 msgid "Invalid Login Credentials"
 msgstr "Neplatné přihlašovací údaje"
 
-#: htdocs/index.php:239
+#: htdocs/index.php:236
 msgid "Invalid Token"
 msgstr "Neplatný token"
 
@@ -1084,7 +1084,7 @@ msgstr "Chcete-li pokračovat, klikněte na Další"
 msgid "To just close/hide the widget's content click the '%s' symbol"
 msgstr "Chcete-li zavřít/skrýt obsah widgetu, klikněte na symbol '%s'"
 
-#: htdocs/index.php:97
+#: htdocs/index.php:94
 #, php-format
 msgid ""
 "To protect the integrity of your server, you must allow overrides in your "
@@ -1463,7 +1463,7 @@ msgstr "fred"
 msgid "gcc-c++ is not installed"
 msgstr "Není nainstalován gcc-c++"
 
-#: htdocs/index.php:110
+#: htdocs/index.php:107
 #, php-format
 msgid ""
 "htaccess files help protect the integrity of your server. Please make sure "

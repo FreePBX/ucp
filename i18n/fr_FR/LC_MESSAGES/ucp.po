@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-09-24 07:57-0400\n"
+"POT-Creation-Date: 2025-11-04 01:57-0500\n"
 "PO-Revision-Date: 2017-03-12 17:22+0200\n"
 "Last-Translator: Nicolas <freepbx@riendeau.org>\n"
 "Language-Team: French <http://weblate.freepbx.org/projects/freepbx/ucp/fr_FR/"
@@ -73,13 +73,13 @@ msgstr ""
 msgid "+t,e.props.alpha={idx:3,type:"
 msgstr ""
 
-#: htdocs/index.php:96
+#: htdocs/index.php:93
 msgid ".htaccess files are disabled on this webserver. Please enable them"
 msgstr ""
 "Les fichiers .htaccess sont désactivées sur ce serveur web. Veuillez les "
 "activer"
 
-#: htdocs/index.php:109
+#: htdocs/index.php:106
 msgid ".htaccess files are not supported on this webserver."
 msgstr "Les fichiers .htaccess ne sont pas supportés sur ce serveur web."
 
@@ -511,7 +511,7 @@ msgstr ""
 msgid "Interface Settings"
 msgstr "Paramètres de l'interface"
 
-#: htdocs/index.php:250
+#: htdocs/index.php:247
 #, php-format
 msgid ""
 "Internet Explorer %s is not supported. Functionality will be deteriorated "
@@ -535,7 +535,7 @@ msgstr "Appareil invalide"
 msgid "Invalid Login Credentials"
 msgstr "Nom d'utilisateur ou mot de passe invalide"
 
-#: htdocs/index.php:239
+#: htdocs/index.php:236
 msgid "Invalid Token"
 msgstr "Jeton invalide"
 
@@ -1030,7 +1030,7 @@ msgstr ""
 msgid "To just close/hide the widget's content click the '%s' symbol"
 msgstr ""
 
-#: htdocs/index.php:97
+#: htdocs/index.php:94
 #, php-format
 msgid ""
 "To protect the integrity of your server, you must allow overrides in your "
@@ -1394,7 +1394,7 @@ msgstr ""
 msgid "gcc-c++ is not installed"
 msgstr ""
 
-#: htdocs/index.php:110
+#: htdocs/index.php:107
 #, php-format
 msgid ""
 "htaccess files help protect the integrity of your server. Please make sure "
