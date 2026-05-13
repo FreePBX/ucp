@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-03-10 01:29-0400\n"
+"POT-Creation-Date: 2026-05-13 03:39-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -473,7 +473,7 @@ msgstr ""
 msgid "Hold"
 msgstr ""
 
-#: htdocs/modules/Home/Home.class.php:211
+#: htdocs/modules/Home/Home.class.php:216
 msgid "Home"
 msgstr ""
 
@@ -523,9 +523,13 @@ msgstr ""
 msgid "Invalid"
 msgstr ""
 
-#: htdocs/modules/Home/Home.class.php:151
-#: htdocs/modules/Home/Home.class.php:167
+#: htdocs/modules/Home/Home.class.php:152
+msgid "Invalid Destination"
+msgstr ""
+
+#: htdocs/modules/Home/Home.class.php:156
 #: htdocs/modules/Home/Home.class.php:172
+#: htdocs/modules/Home/Home.class.php:177
 msgid "Invalid Device"
 msgstr ""
 

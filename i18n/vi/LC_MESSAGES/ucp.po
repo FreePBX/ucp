@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-11-04 01:57-0500\n"
+"POT-Creation-Date: 2026-05-13 03:39-0400\n"
 "PO-Revision-Date: 2017-08-02 21:28+0200\n"
 "Last-Translator: PETER <ftek@ymail.com>\n"
 "Language-Team: Vietnamese <http://weblate.freepbx.org/projects/freepbx/ucp/"
@@ -468,7 +468,7 @@ msgstr "Đang tạo Mô đun kịch bản..."
 msgid "Hold"
 msgstr "giữ"
 
-#: htdocs/modules/Home/Home.class.php:211
+#: htdocs/modules/Home/Home.class.php:216
 msgid "Home"
 msgstr "Trang chủ"
 
@@ -518,9 +518,13 @@ msgstr ""
 msgid "Invalid"
 msgstr "Không hợp lệ"
 
-#: htdocs/modules/Home/Home.class.php:151
-#: htdocs/modules/Home/Home.class.php:167
+#: htdocs/modules/Home/Home.class.php:152
+msgid "Invalid Destination"
+msgstr ""
+
+#: htdocs/modules/Home/Home.class.php:156
 #: htdocs/modules/Home/Home.class.php:172
+#: htdocs/modules/Home/Home.class.php:177
 msgid "Invalid Device"
 msgstr "Thiết bị không hợp lệ"
 

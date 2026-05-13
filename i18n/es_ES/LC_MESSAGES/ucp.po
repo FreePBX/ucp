@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-11-04 01:57-0500\n"
+"POT-Creation-Date: 2026-05-13 03:39-0400\n"
 "PO-Revision-Date: 2016-06-07 10:27+0200\n"
 "Last-Translator: Ernesto <ecasas@sangoma.com>\n"
 "Language-Team: Spanish <http://weblate.freepbx.org/projects/freepbx/ucp/"
@@ -466,7 +466,7 @@ msgstr "Generando Modulo de Scripts..."
 msgid "Hold"
 msgstr "Espere"
 
-#: htdocs/modules/Home/Home.class.php:211
+#: htdocs/modules/Home/Home.class.php:216
 msgid "Home"
 msgstr "Inicio"
 
@@ -514,9 +514,13 @@ msgstr ""
 msgid "Invalid"
 msgstr "Inválido"
 
-#: htdocs/modules/Home/Home.class.php:151
-#: htdocs/modules/Home/Home.class.php:167
+#: htdocs/modules/Home/Home.class.php:152
+msgid "Invalid Destination"
+msgstr ""
+
+#: htdocs/modules/Home/Home.class.php:156
 #: htdocs/modules/Home/Home.class.php:172
+#: htdocs/modules/Home/Home.class.php:177
 msgid "Invalid Device"
 msgstr ""
 
