@@ -2,7 +2,7 @@
 	<rawname>ucp</rawname>
 	<name>User Control Panel</name>
 	<repo>standard</repo>
-	<version>17.0.4.31</version>
+	<version>17.0.5</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>AGPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/agpl-3.0.txt</licenselink>
@@ -11,6 +11,7 @@
 	</description>
   	<more-info>https://sangomakb.atlassian.net/wiki/spaces/PG/pages/38896213/User+Control+Panel+UCP</more-info>
 	<changelog>
+		*17.0.5* FREEI-2844 changes done for fixing post-authenticated command injection in UCP 
 		*17.0.4.31* #976: fix(node)-pin mariadb to ~3.4.5 for CommonJS compatibility 
 		*17.0.4.30* FREEI-2501 ucp test and login urls handled along with custom ports 
 		*17.0.4.29* Packaging of ver 17.0.4.29
