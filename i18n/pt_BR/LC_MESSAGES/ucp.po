@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-11-04 06:33+0000\n"
+"POT-Creation-Date: 2026-05-14 06:23+0000\n"
 "PO-Revision-Date: 2017-03-08 21:13+0200\n"
 "Last-Translator: Kingvoice <suporte@kingvoice.com.br>\n"
 "Language-Team: Portuguese (Brazil) <http://weblate.freepbx.org/projects/"
@@ -487,7 +487,7 @@ msgstr "Gerando Scripts de Módulos…"
 msgid "Hold"
 msgstr "Segurar"
 
-#: htdocs/modules/Home/Home.class.php:192
+#: htdocs/modules/Home/Home.class.php:197
 msgid "Home"
 msgstr "Início"
 
@@ -538,9 +538,13 @@ msgstr ""
 msgid "Invalid"
 msgstr "Inválido"
 
-#: htdocs/modules/Home/Home.class.php:121
-#: htdocs/modules/Home/Home.class.php:141
-#: htdocs/modules/Home/Home.class.php:145
+#: htdocs/modules/Home/Home.class.php:122
+msgid "Invalid Destination"
+msgstr ""
+
+#: htdocs/modules/Home/Home.class.php:126
+#: htdocs/modules/Home/Home.class.php:146
+#: htdocs/modules/Home/Home.class.php:150
 msgid "Invalid Device"
 msgstr "Dispositivo Inválido"
 
