@@ -2,6 +2,9 @@
   "name": "ucp-server",
   "description": "UCP Backend Server",
   "author": "Schmoozecom, Inc <info@schmoozecom.com>",
+  "scripts": {
+    "postinstall": "node lib/asterisk-manager-patch.js"
+  },
   "dependencies": {
     "asterisk-manager": "0.2.0",
     "async": "3.2.4",

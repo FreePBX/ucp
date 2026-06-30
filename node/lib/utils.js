@@ -111,3 +111,35 @@ module.exports.versionCompare = function(v1, v2, operator) {
 	}
 	return line && line.length;
 };
+
+/**
+ * Strip CR/LF from AMI field values to prevent action injection.
+ */
+module.exports.sanitizeAmiValue = function(value) {
+	if (value === null || value === undefined) {
+		return "";
+	}
+	return String(value).replace(/[\r\n]/g, "");
+};
+
+/**
+ * Conference numbers are numeric identifiers in FreePBX.
+ */
+module.exports.validateConference = function(conference) {
+	var value = module.exports.sanitizeAmiValue(conference);
+	if (!/^\d{1,20}$/.test(value)) {
+		return false;
+	}
+	return value;
+};
+
+/**
+ * Asterisk channel names: tech/resource (e.g. PJSIP/1000).
+ */
+module.exports.validateChannel = function(channel) {
+	var value = module.exports.sanitizeAmiValue(channel);
+	if (!value || !/^[A-Za-z0-9_\/\-;.@]+$/.test(value)) {
+		return false;
+	}
+	return value;
+};

@@ -26,14 +26,27 @@ var EventEmitter = require( "events" ).EventEmitter,
 		cert = '',
 		cabundle = '';
 
+const auth = require("./auth.js");
+
 const io = require("socket.io")({
 	cors: {
-		origin: true, 
+		origin: function(origin, callback) {
+			callback(null, origin || true);
+		},
 		methods: ["GET", "POST"],
-		credentials: true 
+		credentials: true
 	},
 	cookie: true
 });
+
+// Socket.IO v4: io.use() applies only to the default namespace. Wrap io.of() so
+// every custom namespace (/conferences, /xmpp, etc.) gets the same auth check.
+var ioOf = io.of.bind(io);
+io.of = function(namespace) {
+	var nsp = ioOf(namespace);
+	nsp.use(auth.checkAuth);
+	return nsp;
+};
 
 Server = function(fpbx) {
 	fpbx.server = this;
@@ -79,7 +92,8 @@ Server = function(fpbx) {
 		}
 	}
 
-	io.use(checkAuth);
+	auth.init(freepbx);
+	io.use(auth.checkAuth);
 
 	if(enabledS) {
 		var options = {};
@@ -168,36 +182,6 @@ stop = function() {
 		console.log("Shutting down server on port " + hostS + ":" + portS);
 		serverS.close();
 	}
-};
-
-checkAuth = function(socket, next) {
-	var auth = false,
-			address = null,
-			suppliedToken = (typeof socket.handshake.query.token != "undefined") ? socket.handshake.query.token : "empty";
-
-	run++; // 0 -> 1
-	suppliedToken = freepbx.db.escape(suppliedToken);
-	address = freepbx.db.escape(socket.handshake.address);
-	address = address.replace(/^::ffff:([\d]+\.)/, "$1"); //ipv4 mapped into ipv6
-	var prep = freepbx.db.prepare('SELECT * FROM ucp_sessions WHERE session = :session AND address = :address');
-	freepbx.db.queryStream(prep({ session: suppliedToken, address: address }))
-		.on('data', function (row) {
-			var prep = freepbx.db.prepare('UPDATE ucp_sessions SET socketid = :socketid WHERE session = :session AND address = :address');
-			var query = freepbx.db.queryStream(prep({ session: suppliedToken, address: address, socketid: socket.id }));
-			auth = true;
-		})
-		.on('end', function () {
-		if (auth) {
-			console.log("Token [" + suppliedToken + "] from: " + address + " was accepted");
-			next();
-		} else {
-			console.log("Token [" + suppliedToken + "] from: " + address + " was rejected");
-			next(new Error("not authorized"));
-		}
-	}).on("error", function(e) {
-		console.log("Error while checking authorization?");
-		next(new Error("not authorized"));
-	});
 };
 
 module.exports = Server;

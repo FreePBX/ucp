@@ -72,6 +72,11 @@ startup = function() {
 };
 
 mute = function(conference, channel) {
+	conference = utils.validateConference(conference);
+	channel = utils.validateChannel(channel);
+	if (conference === false || channel === false) {
+		return;
+	}
 	ami.action({
 			"action": "confbridgemute",
 			"actionid": "1",
@@ -92,6 +97,11 @@ mute = function(conference, channel) {
 };
 
 unmute = function(conference, channel) {
+	conference = utils.validateConference(conference);
+	channel = utils.validateChannel(channel);
+	if (conference === false || channel === false) {
+		return;
+	}
 	ami.action({
 			"action": "confbridgeunmute",
 			"actionid": "1",
@@ -112,6 +122,11 @@ unmute = function(conference, channel) {
 };
 
 kick = function(conference, channel) {
+	conference = utils.validateConference(conference);
+	channel = utils.validateChannel(channel);
+	if (conference === false || channel === false) {
+		return;
+	}
 	ami.action({
 			"action": "confbridgekick",
 			"actionid": "1",
@@ -127,6 +142,10 @@ kick = function(conference, channel) {
 };
 
 lock = function(conference) {
+	conference = utils.validateConference(conference);
+	if (conference === false) {
+		return;
+	}
 	ami.action({
 			"action": "confbridgelock",
 			"actionid": "1",
@@ -140,6 +159,10 @@ lock = function(conference) {
 };
 
 unlock = function(conference) {
+	conference = utils.validateConference(conference);
+	if (conference === false) {
+		return;
+	}
 	ami.action({
 			"action": "confbridgeunlock",
 			"actionid": "1",

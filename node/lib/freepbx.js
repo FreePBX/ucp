@@ -117,12 +117,16 @@ connect2database = async function (config, callback) {
 connect2AstMan = function(config, callback) {
 	var astman = {},
 			init = false,
-			status = "disconnected";
+			status = "disconnected",
+			mgrUser = config.UCPMGRUSER || config.AMPMGRUSER,
+			mgrPass = config.UCPMGRPASS || config.AMPMGRPASS;
+
+	require("./asterisk-manager-patch.js");
 	astman = new require("asterisk-manager")(
 		config.ASTMANAGERPORT,
 		config.ASTMANAGERHOST,
-		config.AMPMGRUSER,
-		config.AMPMGRPASS,
+		mgrUser,
+		mgrPass,
 	true);
 
 	astman.keepConnected();

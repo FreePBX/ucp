@@ -73,7 +73,7 @@ class Ucp implements \BMO {
     }
 
 	public function install() {
-		$settings = ['NODEJSENABLED' => true, 'NODEJSTLSENABLED' => false, 'NODEJSBINDADDRESS' => '::', 'NODEJSBINDPORT' => '8001', 'NODEJSHTTPSBINDADDRESS' => '::', 'NODEJSHTTPSBINDPORT' => '8003', 'NODEJSTLSCERTFILE' => '', 'NODEJSTLSPRIVATEKEY' => ''];
+		$settings = ['NODEJSENABLED' => true, 'NODEJSTLSENABLED' => false, 'NODEJSBINDADDRESS' => '127.0.0.1', 'NODEJSBINDPORT' => '8001', 'NODEJSHTTPSBINDADDRESS' => '127.0.0.1', 'NODEJSHTTPSBINDPORT' => '8003', 'NODEJSTLSCERTFILE' => '', 'NODEJSTLSPRIVATEKEY' => ''];
 
 		$info = $this->FreePBX->Modules->getInfo('ucpnode');
 		if(!empty($info['ucpnode'])) {
@@ -209,7 +209,7 @@ class Ucp implements \BMO {
 		$set['defaultval'] =& $set['value'];
 		$set['options'] = '';
 		$set['name'] = 'NodeJS Bind Address';
-		$set['description'] = 'Address to bind to. Default is "::" (Listen for all IPv4 and IPv6 Connections)';
+		$set['description'] = 'Address to bind to. Default is 127.0.0.1 (localhost only). Use only when UCP Node is reverse-proxied or accessed locally.';
 		$set['emptyok'] = 0;
 		$set['type'] = CONF_TYPE_TEXT;
 		$set['level'] = 2;
@@ -234,7 +234,7 @@ class Ucp implements \BMO {
 		$set['defaultval'] =& $set['value'];
 		$set['options'] = '';
 		$set['name'] = 'NodeJS HTTPS Bind Address';
-		$set['description'] = 'Address to bind to. Default is "::" (Listen for all IPv4 and IPv6 Connections)';
+		$set['description'] = 'Address to bind to. Default is 127.0.0.1 (localhost only). Use only when UCP Node is reverse-proxied or accessed locally.';
 		$set['emptyok'] = 0;
 		$set['type'] = CONF_TYPE_TEXT;
 		$set['level'] = 2;
@@ -278,6 +278,18 @@ class Ucp implements \BMO {
 		$set['readonly'] = 0;
 		$this->FreePBX->Config->define_conf_setting('NODEJSTLSPRIVATEKEY',$set);
 
+		$this->defineUcpAmiSettings();
+		$this->setupUcpAmiManager();
+
+		foreach (['NODEJSBINDADDRESS', 'NODEJSHTTPSBINDADDRESS'] as $bindSetting) {
+			if ($this->FreePBX->Config->conf_setting_exists($bindSetting)) {
+				$current = $this->FreePBX->Config->get($bindSetting);
+				if (in_array($current, ['::', '0.0.0.0'], true)) {
+					$this->FreePBX->Config->update($bindSetting, '127.0.0.1');
+				}
+			}
+		}
+
 		$this->FreePBX->Config->commit_conf_settings();
 
 		$cert = $this->FreePBX->Certman->getDefaultCertDetails();
@@ -312,6 +324,8 @@ class Ucp implements \BMO {
 	}
 
 	public function uninstall() {
+		$this->removeUcpAmiManager();
+
 		$path = $this->FreePBX->Config->get_conf_setting('AMPWEBROOT');
 		$location = $path.'/ucp';
 		unlink($location);
@@ -1399,5 +1413,88 @@ class Ucp implements \BMO {
 	public function getUserIdByKey($key) {
 		$uid = $this->FreePBX->Userman->getUidFromUnlockkey($key);
 		return $uid;
+	}
+
+	/**
+	 * Create a dedicated low-privilege AMI user for the UCP Node process.
+	 */
+	public function setupUcpAmiManager() {
+		if (!$this->FreePBX->Modules->checkStatus('manager')) {
+			return false;
+		}
+		$managerName = 'ucp_events';
+		$managers = $this->FreePBX->Manager->list_managers();
+		$key = array_search($managerName, array_column($managers, 'name'));
+		$secret = '';
+		if ($key !== false) {
+			$secret = $managers[$key]['secret'];
+			$this->FreePBX->Manager->del_manager($managerName, true);
+		}
+		if (empty($secret)) {
+			$secret = $this->FreePBX->Config->get('UCPMGRPASS');
+		}
+		if (empty($secret)) {
+			$secret = bin2hex(openssl_random_pseudo_bytes(16));
+		}
+		$deny = '0.0.0.0/0.0.0.0';
+		$permit = '127.0.0.1/255.255.255.0';
+		$read = 'system,call';
+		$write = 'call';
+		$this->FreePBX->Manager->add_manager($managerName, $secret, $deny, $permit, $read, $write, 5000);
+		$additional = "eventfilter = Confbridge\n";
+		$additional .= "eventfilter = Event: FullyBooted\n";
+		$this->FreePBX->Manager->setConfig('additional_settings', $additional, $managerName);
+		$this->FreePBX->Config->set('UCPMGRUSER', $managerName);
+		$this->FreePBX->Config->set('UCPMGRPASS', $secret);
+		needreload();
+		return true;
+	}
+
+	/**
+	 * Remove the dedicated UCP Node AMI user.
+	 */
+	public function removeUcpAmiManager() {
+		if (!$this->FreePBX->Modules->checkStatus('manager')) {
+			return false;
+		}
+		$managerName = 'ucp_events';
+		$managers = $this->FreePBX->Manager->list_managers();
+		$key = array_search($managerName, array_column($managers, 'name'));
+		if ($key !== false) {
+			$this->FreePBX->Manager->del_manager($managerName, true);
+		}
+		$this->FreePBX->Manager->delConfig('additional_settings', $managerName);
+		return true;
+	}
+
+	/**
+	 * Register Advanced Settings for the UCP Node AMI credentials.
+	 */
+	private function defineUcpAmiSettings() {
+		$set = [];
+		$set['module'] = 'ucp';
+		$set['category'] = 'UCP NodeJS Server';
+		$set['value'] = $this->FreePBX->Config->get('UCPMGRUSER') ?: 'ucp_events';
+		$set['defaultval'] =& $set['value'];
+		$set['options'] = '';
+		$set['name'] = 'UCP Node AMI Username';
+		$set['description'] = 'Dedicated Asterisk Manager user for the UCP Node server (not the admin AMI user).';
+		$set['emptyok'] = 0;
+		$set['level'] = 2;
+		$set['readonly'] = 1;
+		$set['type'] = CONF_TYPE_TEXT;
+		$this->FreePBX->Config->define_conf_setting('UCPMGRUSER', $set);
+
+		$set['value'] = $this->FreePBX->Config->get('UCPMGRPASS');
+		if (empty($set['value'])) {
+			$set['value'] = '';
+		}
+		$set['defaultval'] =& $set['value'];
+		$set['name'] = 'UCP Node AMI Password';
+		$set['description'] = 'Password for the dedicated UCP Node Asterisk Manager user.';
+		$set['type'] = CONF_TYPE_TEXT;
+		$set['emptyok'] = 1;
+		$set['readonly'] = 1;
+		$this->FreePBX->Config->define_conf_setting('UCPMGRPASS', $set);
 	}
 }
