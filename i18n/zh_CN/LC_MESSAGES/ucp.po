@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-05-13 03:39-0400\n"
+"POT-Creation-Date: 2026-07-06 08:48-0400\n"
 "PO-Revision-Date: 2015-11-23 13:55+0200\n"
 "Last-Translator: james <zhulizhong@gmail.com>\n"
 "Language-Team: Simplified Chinese <http://weblate.freepbx.org/projects/"
@@ -185,7 +185,7 @@ msgstr ""
 msgid "Assign UCP Template"
 msgstr ""
 
-#: Ucp.class.php:1212
+#: Ucp.class.php:1226
 #, php-format
 msgid ""
 "Asterisk home dir (%s) doesn't exist, and, ASTSPOOLDIR doesn't exist. "
@@ -322,11 +322,11 @@ msgstr ""
 msgid "Delete a Dashboard"
 msgstr ""
 
-#: Ucp.class.php:1072
+#: Ucp.class.php:1086
 msgid "Deleted Session"
 msgstr "已删除的会话"
 
-#: Ucp.class.php:384 Ucp.class.php:914
+#: Ucp.class.php:398 Ucp.class.php:928
 msgid "Deleted User Session"
 msgstr "已删除的用户会话"
 
@@ -338,13 +338,13 @@ msgstr ""
 msgid "Display Name"
 msgstr "显示名称"
 
-#: Ucp.class.php:1373
+#: Ucp.class.php:1387
 #, php-format
 msgid "Don't know what %s is"
 msgstr ""
 
-#: Ucp.class.php:295 Ucp.class.php:321 Ucp.class.php:1167 Ucp.class.php:1171
-#: Ucp.class.php:1175 Ucp.class.php:1179
+#: Ucp.class.php:307 Ucp.class.php:335 Ucp.class.php:1181 Ucp.class.php:1185
+#: Ucp.class.php:1189 Ucp.class.php:1193
 msgid "Done"
 msgstr "完成"
 
@@ -403,7 +403,7 @@ msgstr ""
 msgid "Failed to install %s due to the following conflicting module(s): %s"
 msgstr ""
 
-#: Ucp.class.php:1289
+#: Ucp.class.php:1303
 #, php-format
 msgid "Failed to run: '%s'"
 msgstr ""
@@ -412,7 +412,7 @@ msgstr ""
 msgid "Failed updating libraries!"
 msgstr ""
 
-#: Ucp.class.php:303
+#: Ucp.class.php:315
 msgid "Failed!"
 msgstr ""
 
@@ -444,19 +444,19 @@ msgstr ""
 msgid "General"
 msgstr "标准"
 
-#: Ucp.class.php:1177
+#: Ucp.class.php:1191
 msgid "Generating Main CSS..."
 msgstr "生成 Main CSS。。。"
 
-#: Ucp.class.php:1173
+#: Ucp.class.php:1187
 msgid "Generating Main Scripts..."
 msgstr "生成Main Scripts。。。"
 
-#: Ucp.class.php:1169
+#: Ucp.class.php:1183
 msgid "Generating Module CSS..."
 msgstr "生成 Module CSS..."
 
-#: Ucp.class.php:1165
+#: Ucp.class.php:1179
 msgid "Generating Module Scripts..."
 msgstr ""
 
@@ -673,7 +673,7 @@ msgstr ""
 msgid "Password"
 msgstr "密码"
 
-#: Ucp.class.php:435
+#: Ucp.class.php:449
 #, php-format
 msgid "Password Reset Link (Valid Until: %s): %s"
 msgstr ""
@@ -707,7 +707,7 @@ msgstr ""
 msgid "Read UCP Dashboard Information"
 msgstr ""
 
-#: Ucp.class.php:309
+#: Ucp.class.php:321
 msgid "Refreshing all UCP Assets, this could take a while..."
 msgstr ""
 
@@ -728,7 +728,7 @@ msgstr ""
 msgid "Restart Tour"
 msgstr ""
 
-#: Ucp.class.php:1228
+#: Ucp.class.php:1242
 #, php-format
 msgid "Running (Uptime: %s)"
 msgstr ""
@@ -818,33 +818,33 @@ msgstr ""
 msgid "Something went wrong removing the dashboard"
 msgstr ""
 
-#: Ucp.class.php:1284
+#: Ucp.class.php:1298
 #, php-format
 msgid "Started UCP Node Server. PID is %s"
 msgstr ""
 
-#: Ucp.class.php:305
+#: Ucp.class.php:317
 #, php-format
 msgid "Started with PID %s!"
 msgstr ""
 
-#: Ucp.class.php:1255
+#: Ucp.class.php:1269
 msgid "Starting UCP Node Server..."
 msgstr ""
 
-#: Ucp.class.php:300
+#: Ucp.class.php:312
 msgid "Starting new UCP Node Process..."
 msgstr ""
 
-#: Ucp.class.php:1357
+#: Ucp.class.php:1371
 msgid "Stopped UCP Node Server"
 msgstr ""
 
-#: Ucp.class.php:1326
+#: Ucp.class.php:1340
 msgid "Stopping UCP Node Server"
 msgstr ""
 
-#: Ucp.class.php:293 Ucp.class.php:319
+#: Ucp.class.php:305 Ucp.class.php:333
 msgid "Stopping old running processes..."
 msgstr ""
 
@@ -1030,29 +1030,29 @@ msgstr ""
 msgid "UCP Admin"
 msgstr ""
 
-#: Ucp.class.php:1219
+#: Ucp.class.php:1233
 msgid "UCP Daemon"
 msgstr ""
 
-#: Ucp.class.php:1222
+#: Ucp.class.php:1236
 msgid "UCP Node Disabled in Advanced Settings."
 msgstr ""
 
-#: Ucp.class.php:1361
+#: Ucp.class.php:1375
 #, php-format
 msgid "UCP Node Server Failed: %s"
 msgstr ""
 
-#: Ucp.class.php:1249
+#: Ucp.class.php:1263
 #, php-format
 msgid "UCP Node Server has already been running on PID %s for %s"
 msgstr ""
 
-#: Ucp.class.php:1319
+#: Ucp.class.php:1333
 msgid "UCP Node Server is not running"
 msgstr ""
 
-#: Ucp.class.php:1230
+#: Ucp.class.php:1244
 msgid "UCP Node is not running"
 msgstr ""
 
@@ -1084,7 +1084,7 @@ msgstr ""
 msgid "Unable to send Password Reset Email"
 msgstr ""
 
-#: Ucp.class.php:1219
+#: Ucp.class.php:1233
 msgid "Unknown"
 msgstr ""
 
@@ -1130,7 +1130,7 @@ msgstr "用户控制界面"
 msgid "User Control Panel Settings"
 msgstr ""
 
-#: Ucp.class.php:432
+#: Ucp.class.php:446
 #, php-format
 msgid "User Control Panel: %s"
 msgstr ""
@@ -1139,7 +1139,7 @@ msgstr ""
 msgid "User Details"
 msgstr ""
 
-#: Ucp.class.php:355 Ucp.class.php:369
+#: Ucp.class.php:369 Ucp.class.php:383
 msgid "User Primary Extension"
 msgstr ""
 

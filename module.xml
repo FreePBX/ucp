@@ -2,7 +2,7 @@
 	<rawname>ucp</rawname>
 	<name>User Control Panel</name>
 	<repo>standard</repo>
-	<version>17.0.7</version>
+	<version>17.0.8</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>AGPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/agpl-3.0.txt</licenselink>
@@ -11,6 +11,7 @@
 	</description>
   	<more-info>https://sangomakb.atlassian.net/wiki/spaces/PG/pages/38896213/User+Control+Panel+UCP</more-info>
 	<changelog>
+		*17.0.8* FREEI-3007 Security - Unauthenticated remote code execution in FreePBX UCP via socket.io namespace auth bypass and AMI action injection 
 		*17.0.7* FREEI-2844 changes done for fixing post-authenticated command injection in UCP 
 		*17.0.6.1* #1025 UCP Template dropdown in Group edit shows wrong template 
 		*17.0.6* #1025 UCP Template dropdown in Group edit shows wrong template 
