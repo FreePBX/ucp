@@ -49,7 +49,7 @@ class User {
 				break;
 			case 'saveTemplate':
 			case 'resetTemplate':
-				return $this->uid;
+				return (bool) $this->getUser();
 			break;
 			default:
 				return false;
@@ -153,13 +153,15 @@ class User {
 			break;
 			case 'saveTemplate':
 				$tempId = $_REQUEST['tempid'];
-				$uId = $this->uid;
+				$user = $this->getUser();
+				$uId = !empty($user['id']) ? $user['id'] : null;
 				if(!empty($tempId) && !empty($uId)) {
 					return $this->saveTemplateById($tempId, $uId);
 				}
 			break;
 			case 'resetTemplate':
-				$uId = $this->uid;
+				$user = $this->getUser();
+				$uId = !empty($user['id']) ? $user['id'] : null;
 				if(!empty($uId)) {
 					return $this->resetTemplateById($uId);
 				}
