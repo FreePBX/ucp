@@ -73,7 +73,7 @@ class Ucp implements \BMO {
     }
 
 	public function install() {
-		$settings = ['NODEJSENABLED' => true, 'NODEJSTLSENABLED' => false, 'NODEJSBINDADDRESS' => '127.0.0.1', 'NODEJSBINDPORT' => '8001', 'NODEJSHTTPSBINDADDRESS' => '127.0.0.1', 'NODEJSHTTPSBINDPORT' => '8003', 'NODEJSTLSCERTFILE' => '', 'NODEJSTLSPRIVATEKEY' => ''];
+		$settings = ['NODEJSENABLED' => true, 'NODEJSTLSENABLED' => false, 'NODEJSBINDADDRESS' => '::', 'NODEJSBINDPORT' => '8001', 'NODEJSHTTPSBINDADDRESS' => '::', 'NODEJSHTTPSBINDPORT' => '8003', 'NODEJSTLSCERTFILE' => '', 'NODEJSTLSPRIVATEKEY' => ''];
 
 		$info = $this->FreePBX->Modules->getInfo('ucpnode');
 		if(!empty($info['ucpnode'])) {
@@ -209,7 +209,7 @@ class Ucp implements \BMO {
 		$set['defaultval'] =& $set['value'];
 		$set['options'] = '';
 		$set['name'] = 'NodeJS Bind Address';
-		$set['description'] = 'Address to bind to. Default is 127.0.0.1 (localhost only). Use only when UCP Node is reverse-proxied or accessed locally.';
+		$set['description'] = 'Address to bind to. Default is "::" (Listen for all IPv4 and IPv6 Connections)';
 		$set['emptyok'] = 0;
 		$set['type'] = CONF_TYPE_TEXT;
 		$set['level'] = 2;
@@ -234,7 +234,7 @@ class Ucp implements \BMO {
 		$set['defaultval'] =& $set['value'];
 		$set['options'] = '';
 		$set['name'] = 'NodeJS HTTPS Bind Address';
-		$set['description'] = 'Address to bind to. Default is 127.0.0.1 (localhost only). Use only when UCP Node is reverse-proxied or accessed locally.';
+		$set['description'] = 'Address to bind to. Default is "::" (Listen for all IPv4 and IPv6 Connections)';
 		$set['emptyok'] = 0;
 		$set['type'] = CONF_TYPE_TEXT;
 		$set['level'] = 2;
@@ -280,15 +280,6 @@ class Ucp implements \BMO {
 
 		$this->defineUcpAmiSettings();
 		$this->setupUcpAmiManager();
-
-		foreach (['NODEJSBINDADDRESS', 'NODEJSHTTPSBINDADDRESS'] as $bindSetting) {
-			if ($this->FreePBX->Config->conf_setting_exists($bindSetting)) {
-				$current = $this->FreePBX->Config->get($bindSetting);
-				if (in_array($current, ['::', '0.0.0.0'], true)) {
-					$this->FreePBX->Config->update($bindSetting, '127.0.0.1');
-				}
-			}
-		}
 
 		$this->FreePBX->Config->commit_conf_settings();
 
