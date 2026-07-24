@@ -44,10 +44,18 @@ if (($user === false || empty($user)) && isset($_REQUEST['module']) && (($_REQUE
 	}
 }
 
-if(($_REQUEST['command'] != "login" && ($_REQUEST['module']??'') != "User") && ($user === false || empty($user))) {
-	header("HTTP/1.0 403 Forbidden");
-	$json = json_encode(["status" => "false", "message" => "forbidden"]);
-	die($json);
+if ($user === false || empty($user)) {
+	$unauthUserCommands = ['login', 'forgot', 'reset'];
+	$allowed = (
+		isset($_REQUEST['module'], $_REQUEST['command'])
+		&& $_REQUEST['module'] === 'User'
+		&& in_array($_REQUEST['command'], $unauthUserCommands, true)
+	);
+	if (!$allowed) {
+		header("HTTP/1.0 403 Forbidden");
+		$json = json_encode(["status" => "false", "message" => "forbidden"]);
+		die($json);
+	}
 }
 
 $module = !empty($_REQUEST['module']) ? $_REQUEST['module'] : null;
