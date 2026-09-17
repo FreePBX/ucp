@@ -4,6 +4,7 @@
  */
 class Less_Visitor_processExtends extends Less_Visitor {
 
+	/** @var Less_Tree_Extend[][] */
 	public $allExtendsStack;
 
 	/**
@@ -98,15 +99,17 @@ class Less_Visitor_processExtends extends Less_Visitor {
 			// may no longer be needed.			$this->extendChainCount++;
 			if ( $iterationCount > 100 ) {
 
-				try{
+				try {
 					$selectorOne = $extendsToAdd[0]->selfSelectors[0]->toCSS();
 					$selectorTwo = $extendsToAdd[0]->selector->toCSS();
-				}catch ( Exception $e ) {
+				} catch ( Exception $e ) {
 					$selectorOne = "{unable to calculate}";
 					$selectorTwo = "{unable to calculate}";
 				}
 
-				throw new Less_Exception_Parser( "extend circular reference detected. One of the circular extends is currently:" . $selectorOne . ":extend(" . $selectorTwo . ")" );
+				throw new Less_Exception_Parser(
+					"extend circular reference detected. One of the circular extends is currently:" . $selectorOne . ":extend(" . $selectorTwo . ")"
+				);
 			}
 
 			// now process the new extends on the existing rules so that we can handle a extending b extending c ectending d extending e...
@@ -116,7 +119,7 @@ class Less_Visitor_processExtends extends Less_Visitor {
 		return array_merge( $extendsList, $extendsToAdd );
 	}
 
-	protected function visitRule( $ruleNode, &$visitDeeper ) {
+	protected function visitDeclaration( $declNode, &$visitDeeper ) {
 		$visitDeeper = false;
 	}
 
@@ -133,7 +136,7 @@ class Less_Visitor_processExtends extends Less_Visitor {
 			return;
 		}
 
-		$allExtends	= end( $this->allExtendsStack );
+		$allExtends = end( $this->allExtendsStack );
 		$paths_len = count( $rulesetNode->paths );
 
 		// look at each selector path in the ruleset, find any extend matches and then copy, find and replace
@@ -199,7 +202,12 @@ class Less_Visitor_processExtends extends Less_Visitor {
 
 				// if we allow elements before our match we can add a potential match every time. otherwise only at the first element.
 				if ( $extend->allowBefore || ( $haystackSelectorIndex === 0 && $hackstackElementIndex === 0 ) ) {
-					$potentialMatches[] = [ 'pathIndex' => $haystackSelectorIndex, 'index' => $hackstackElementIndex, 'matched' => 0, 'initialCombinator' => $haystackElement->combinator ];
+					$potentialMatches[] = [
+						'pathIndex' => $haystackSelectorIndex,
+						'index' => $hackstackElementIndex,
+						'matched' => 0,
+						'initialCombinator' => $haystackElement->combinator
+					];
 					$potentialMatches_len++;
 				}
 
@@ -212,7 +220,9 @@ class Less_Visitor_processExtends extends Less_Visitor {
 					if ( $potentialMatch && $potentialMatch['matched'] === $extend->selector->elements_len ) {
 						$potentialMatch['finished'] = true;
 
-						if ( !$extend->allowAfter && ( $hackstackElementIndex + 1 < $haystack_elements_len || $haystackSelectorIndex + 1 < $haystack_path_len ) ) {
+						if ( !$extend->allowAfter &&
+							( $hackstackElementIndex + 1 < $haystack_elements_len || $haystackSelectorIndex + 1 < $haystack_path_len )
+						) {
 							$potentialMatch = null;
 						}
 					}
@@ -264,6 +274,9 @@ class Less_Visitor_processExtends extends Less_Visitor {
 	}
 
 	/**
+	 * @param array $potentialMatch
+	 * @param Less_Tree_Element[] $needleElements
+	 * @param Less_Tree_Element $haystackElement
 	 * @param int $hackstackElementIndex
 	 */
 	private function PotentialMatch( $potentialMatch, $needleElements, $haystackElement, $hackstackElementIndex ) {
@@ -359,10 +372,17 @@ class Less_Visitor_processExtends extends Less_Visitor {
 			return true;
 		}
 
-		// @phan-suppress-next-line PhanUndeclaredProperty https://phabricator.wikimedia.org/T327082
-		$elementValue1 = ( $elementValue1->value->value ?: $elementValue1->value );
-		// @phan-suppress-next-line PhanUndeclaredProperty https://phabricator.wikimedia.org/T327082
-		$elementValue2 = ( $elementValue2->value->value ?: $elementValue2->value );
+		$elementValue1 = $elementValue1->value;
+
+		if ( $elementValue1 instanceof Less_Tree_Quoted ) {
+			$elementValue1 = $elementValue1->value;
+		}
+
+		$elementValue2 = $elementValue2->value;
+
+		if ( $elementValue2 instanceof Less_Tree_Quoted ) {
+			$elementValue2 = $elementValue2->value;
+		}
 
 		return $elementValue1 === $elementValue2;
 	}
@@ -389,16 +409,24 @@ class Less_Visitor_processExtends extends Less_Visitor {
 
 			if ( $match['pathIndex'] > $currentSelectorPathIndex && $currentSelectorPathElementIndex > 0 ) {
 				$last_path = end( $path );
-				$last_path->elements = array_merge( $last_path->elements, array_slice( $selectorPath[$currentSelectorPathIndex]->elements, $currentSelectorPathElementIndex ) );
+				$last_path->elements = array_merge(
+					$last_path->elements,
+					array_slice( $selectorPath[$currentSelectorPathIndex]->elements, $currentSelectorPathElementIndex )
+				);
 				$currentSelectorPathElementIndex = 0;
 				$currentSelectorPathIndex++;
 			}
 
 			$newElements = array_merge(
-				array_slice( $selector->elements, $currentSelectorPathElementIndex, ( $match['index'] - $currentSelectorPathElementIndex ) ), // last parameter of array_slice is different than the last parameter of javascript's slice
-				 [ $firstElement ],
-				 array_slice( $replacementSelector->elements, 1 )
-				);
+				array_slice(
+					$selector->elements,
+					$currentSelectorPathElementIndex,
+					// last parameter of array_slice is different than the last parameter of javascript's slice
+					$match['index'] - $currentSelectorPathElementIndex
+				),
+				[ $firstElement ],
+				array_slice( $replacementSelector->elements, 1 )
+			);
 
 			if ( $currentSelectorPathIndex === $match['pathIndex'] && $matchIndex > 0 ) {
 				$last_key = count( $path ) - 1;
@@ -418,7 +446,10 @@ class Less_Visitor_processExtends extends Less_Visitor {
 
 		if ( $currentSelectorPathIndex < $selectorPath_len && $currentSelectorPathElementIndex > 0 ) {
 			$last_path = end( $path );
-			$last_path->elements = array_merge( $last_path->elements, array_slice( $selectorPath[$currentSelectorPathIndex]->elements, $currentSelectorPathElementIndex ) );
+			$last_path->elements = array_merge(
+				$last_path->elements,
+				array_slice( $selectorPath[$currentSelectorPathIndex]->elements, $currentSelectorPathElementIndex )
+			);
 			$currentSelectorPathIndex++;
 		}
 
@@ -437,12 +468,12 @@ class Less_Visitor_processExtends extends Less_Visitor {
 		array_pop( $this->allExtendsStack );
 	}
 
-	protected function visitDirective( $directiveNode ) {
-		$newAllExtends = array_merge( $directiveNode->allExtends, end( $this->allExtendsStack ) );
-		$this->allExtendsStack[] = $this->doExtendChaining( $newAllExtends, $directiveNode->allExtends );
+	protected function visitAtRule( $atRuleNode ) {
+		$newAllExtends = array_merge( $atRuleNode->allExtends, end( $this->allExtendsStack ) );
+		$this->allExtendsStack[] = $this->doExtendChaining( $newAllExtends, $atRuleNode->allExtends );
 	}
 
-	protected function visitDirectiveOut() {
+	protected function visitAtRuleOut() {
 		array_pop( $this->allExtendsStack );
 	}
 

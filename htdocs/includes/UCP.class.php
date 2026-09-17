@@ -41,7 +41,7 @@ class UCP extends UCP_Helpers {
 		$this->emoji->imageType    = 'svg';
 		$this->emoji->imagePathSVG = 'assets/images/emoji/svg/'; // defaults to jsdelivr's free CDN
 
-		$this->detect = new \Mobile_Detect;
+		$this->detect = new \Detection\MobileDetect;
 		// Ensure the local object is available
 		self::$uobj = $this;
 	}

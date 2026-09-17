@@ -24,12 +24,24 @@ use Composer\Semver\VersionParser;
  *
  * @final
  */
-class InstalledVersions {
+class InstalledVersions
+{
+    /**
+     * @var string|null if set (by reflection by Composer), this should be set to the path where this class is being copied to
+     * @internal
+     */
+    private static $selfDir = null;
+
     /**
      * @var mixed[]|null
      * @psalm-var array{root: array{name: string, pretty_version: string, version: string, reference: string|null, type: string, install_path: string, aliases: string[], dev: bool}, versions: array<string, array{pretty_version?: string, version?: string, reference?: string|null, type?: string, install_path?: string, aliases?: string[], dev_requirement: bool, replaced?: string[], provided?: string[]}>}|array{}|null
      */
     private static $installed;
+
+    /**
+     * @var bool
+     */
+    private static $installedIsLocalDir;
 
     /**
      * @var bool|null
@@ -48,7 +60,8 @@ class InstalledVersions {
      * @return string[]
      * @psalm-return list<string>
      */
-    public static function getInstalledPackages() {
+    public static function getInstalledPackages()
+    {
         $packages = array();
         foreach (self::getInstalled() as $installed) {
             $packages[] = array_keys($installed['versions']);
@@ -68,7 +81,8 @@ class InstalledVersions {
      * @return string[]
      * @psalm-return list<string>
      */
-    public static function getInstalledPackagesByType($type) {
+    public static function getInstalledPackagesByType($type)
+    {
         $packagesByType = array();
 
         foreach (self::getInstalled() as $installed) {
@@ -91,7 +105,8 @@ class InstalledVersions {
      * @param  bool   $includeDevRequirements
      * @return bool
      */
-    public static function isInstalled($packageName, $includeDevRequirements = true) {
+    public static function isInstalled($packageName, $includeDevRequirements = true)
+    {
         foreach (self::getInstalled() as $installed) {
             if (isset($installed['versions'][$packageName])) {
                 return $includeDevRequirements || !isset($installed['versions'][$packageName]['dev_requirement']) || $installed['versions'][$packageName]['dev_requirement'] === false;
@@ -113,9 +128,10 @@ class InstalledVersions {
      * @param  string|null   $constraint  A version constraint to check for, if you pass one you have to make sure composer/semver is required by your package
      * @return bool
      */
-    public static function satisfies(VersionParser $parser, $packageName, $constraint) {
+    public static function satisfies(VersionParser $parser, $packageName, $constraint)
+    {
         $constraint = $parser->parseConstraints((string) $constraint);
-        $provided   = $parser->parseConstraints(self::getVersionRanges($packageName));
+        $provided = $parser->parseConstraints(self::getVersionRanges($packageName));
 
         return $provided->matches($constraint);
     }
@@ -129,7 +145,8 @@ class InstalledVersions {
      * @param  string $packageName
      * @return string Version constraint usable with composer/semver
      */
-    public static function getVersionRanges($packageName) {
+    public static function getVersionRanges($packageName)
+    {
         foreach (self::getInstalled() as $installed) {
             if (!isset($installed['versions'][$packageName])) {
                 continue;
@@ -159,7 +176,8 @@ class InstalledVersions {
      * @param  string      $packageName
      * @return string|null If the package is being replaced or provided but is not really installed, null will be returned as version, use satisfies or getVersionRanges if you need to know if a given version is present
      */
-    public static function getVersion($packageName) {
+    public static function getVersion($packageName)
+    {
         foreach (self::getInstalled() as $installed) {
             if (!isset($installed['versions'][$packageName])) {
                 continue;
@@ -179,7 +197,8 @@ class InstalledVersions {
      * @param  string      $packageName
      * @return string|null If the package is being replaced or provided but is not really installed, null will be returned as version, use satisfies or getVersionRanges if you need to know if a given version is present
      */
-    public static function getPrettyVersion($packageName) {
+    public static function getPrettyVersion($packageName)
+    {
         foreach (self::getInstalled() as $installed) {
             if (!isset($installed['versions'][$packageName])) {
                 continue;
@@ -199,7 +218,8 @@ class InstalledVersions {
      * @param  string      $packageName
      * @return string|null If the package is being replaced or provided but is not really installed, null will be returned as reference
      */
-    public static function getReference($packageName) {
+    public static function getReference($packageName)
+    {
         foreach (self::getInstalled() as $installed) {
             if (!isset($installed['versions'][$packageName])) {
                 continue;
@@ -219,7 +239,8 @@ class InstalledVersions {
      * @param  string      $packageName
      * @return string|null If the package is being replaced or provided but is not really installed, null will be returned as install path. Packages of type metapackages also have a null install path.
      */
-    public static function getInstallPath($packageName) {
+    public static function getInstallPath($packageName)
+    {
         foreach (self::getInstalled() as $installed) {
             if (!isset($installed['versions'][$packageName])) {
                 continue;
@@ -235,7 +256,8 @@ class InstalledVersions {
      * @return array
      * @psalm-return array{name: string, pretty_version: string, version: string, reference: string|null, type: string, install_path: string, aliases: string[], dev: bool}
      */
-    public static function getRootPackage() {
+    public static function getRootPackage()
+    {
         $installed = self::getInstalled();
 
         return $installed[0]['root'];
@@ -248,7 +270,8 @@ class InstalledVersions {
      * @return array[]
      * @psalm-return array{root: array{name: string, pretty_version: string, version: string, reference: string|null, type: string, install_path: string, aliases: string[], dev: bool}, versions: array<string, array{pretty_version?: string, version?: string, reference?: string|null, type?: string, install_path?: string, aliases?: string[], dev_requirement: bool, replaced?: string[], provided?: string[]}>}
      */
-    public static function getRawData() {
+    public static function getRawData()
+    {
         @trigger_error('getRawData only returns the first dataset loaded, which may not be what you expect. Use getAllRawData() instead which returns all datasets for all autoloaders present in the process.', E_USER_DEPRECATED);
 
         if (null === self::$installed) {
@@ -256,8 +279,7 @@ class InstalledVersions {
             // and not from its source location in the composer/composer package, see https://github.com/composer/composer/issues/9937
             if (substr(__DIR__, -8, 1) !== 'C') {
                 self::$installed = include __DIR__ . '/installed.php';
-            }
-            else {
+            } else {
                 self::$installed = array();
             }
         }
@@ -271,7 +293,8 @@ class InstalledVersions {
      * @return array[]
      * @psalm-return list<array{root: array{name: string, pretty_version: string, version: string, reference: string|null, type: string, install_path: string, aliases: string[], dev: bool}, versions: array<string, array{pretty_version?: string, version?: string, reference?: string|null, type?: string, install_path?: string, aliases?: string[], dev_requirement: bool, replaced?: string[], provided?: string[]}>}>
      */
-    public static function getAllRawData() {
+    public static function getAllRawData()
+    {
         return self::getInstalled();
     }
 
@@ -293,34 +316,61 @@ class InstalledVersions {
      *
      * @psalm-param array{root: array{name: string, pretty_version: string, version: string, reference: string|null, type: string, install_path: string, aliases: string[], dev: bool}, versions: array<string, array{pretty_version?: string, version?: string, reference?: string|null, type?: string, install_path?: string, aliases?: string[], dev_requirement: bool, replaced?: string[], provided?: string[]}>} $data
      */
-    public static function reload($data) {
-        self::$installed         = $data;
+    public static function reload($data)
+    {
+        self::$installed = $data;
         self::$installedByVendor = array();
+
+        // when using reload, we disable the duplicate protection to ensure that self::$installed data is
+        // always returned, but we cannot know whether it comes from the installed.php in __DIR__ or not,
+        // so we have to assume it does not, and that may result in duplicate data being returned when listing
+        // all installed packages for example
+        self::$installedIsLocalDir = false;
+    }
+
+    /**
+     * @return string
+     */
+    private static function getSelfDir()
+    {
+        if (self::$selfDir === null) {
+            self::$selfDir = strtr(__DIR__, '\\', '/');
+        }
+
+        return self::$selfDir;
     }
 
     /**
      * @return array[]
      * @psalm-return list<array{root: array{name: string, pretty_version: string, version: string, reference: string|null, type: string, install_path: string, aliases: string[], dev: bool}, versions: array<string, array{pretty_version?: string, version?: string, reference?: string|null, type?: string, install_path?: string, aliases?: string[], dev_requirement: bool, replaced?: string[], provided?: string[]}>}>
      */
-    private static function getInstalled() {
+    private static function getInstalled()
+    {
         if (null === self::$canGetVendors) {
             self::$canGetVendors = method_exists('Composer\Autoload\ClassLoader', 'getRegisteredLoaders');
         }
 
         $installed = array();
+        $copiedLocalDir = false;
 
         if (self::$canGetVendors) {
+            $selfDir = self::getSelfDir();
             foreach (ClassLoader::getRegisteredLoaders() as $vendorDir => $loader) {
+                $vendorDir = strtr($vendorDir, '\\', '/');
                 if (isset(self::$installedByVendor[$vendorDir])) {
                     $installed[] = self::$installedByVendor[$vendorDir];
-                }
-                elseif (is_file($vendorDir . '/composer/installed.php')) {
+                } elseif (is_file($vendorDir.'/composer/installed.php')) {
                     /** @var array{root: array{name: string, pretty_version: string, version: string, reference: string|null, type: string, install_path: string, aliases: string[], dev: bool}, versions: array<string, array{pretty_version?: string, version?: string, reference?: string|null, type?: string, install_path?: string, aliases?: string[], dev_requirement: bool, replaced?: string[], provided?: string[]}>} $required */
-                    $required    = require $vendorDir . '/composer/installed.php';
-                    $installed[] = self::$installedByVendor[$vendorDir] = $required;
-                    if (null === self::$installed && strtr($vendorDir . '/composer', '\\', '/') === strtr(__DIR__, '\\', '/')) {
-                        self::$installed = $installed[count($installed) - 1];
+                    $required = require $vendorDir.'/composer/installed.php';
+                    self::$installedByVendor[$vendorDir] = $required;
+                    $installed[] = $required;
+                    if (self::$installed === null && $vendorDir.'/composer' === $selfDir) {
+                        self::$installed = $required;
+                        self::$installedIsLocalDir = true;
                     }
+                }
+                if (self::$installedIsLocalDir && $vendorDir.'/composer' === $selfDir) {
+                    $copiedLocalDir = true;
                 }
             }
         }
@@ -330,15 +380,14 @@ class InstalledVersions {
             // and not from its source location in the composer/composer package, see https://github.com/composer/composer/issues/9937
             if (substr(__DIR__, -8, 1) !== 'C') {
                 /** @var array{root: array{name: string, pretty_version: string, version: string, reference: string|null, type: string, install_path: string, aliases: string[], dev: bool}, versions: array<string, array{pretty_version?: string, version?: string, reference?: string|null, type?: string, install_path?: string, aliases?: string[], dev_requirement: bool, replaced?: string[], provided?: string[]}>} $required */
-                $required        = require __DIR__ . '/installed.php';
+                $required = require __DIR__ . '/installed.php';
                 self::$installed = $required;
-            }
-            else {
+            } else {
                 self::$installed = array();
             }
         }
 
-        if (self::$installed !== array()) {
+        if (self::$installed !== array() && !$copiedLocalDir) {
             $installed[] = self::$installed;
         }
 
