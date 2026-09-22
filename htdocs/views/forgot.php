@@ -18,8 +18,8 @@
         </div>
     </div>
 </div>
-<div class="row">
-    <div id="login-window" class="col-md-4 col-md-offset-3 col-sm-6 col-sm-offset-2 col-xs-8 col-xs-offset-1" style="<?php echo (!empty($error_warning) || !empty($error_danger)) ? 'height: 300px;' : ''?>">
+<div class="row justify-content-center">
+    <div id="login-window" class="col-10 col-sm-6 col-md-4" style="<?php echo (!empty($error_warning) || !empty($error_danger)) ? 'height: 300px;' : ''?>">
         <div id="">
             <form id="frm-login" method="POST" action="?display=dashboard">
                 <input type="hidden" name="token" value="<?php echo $token?>">
@@ -35,13 +35,13 @@
                 <div id="error-msg" class="alert alert-danger" style="display:none"></div>
                 <div class="lhide">
                     <div class="input-group input-margin" style="padding: 0px 15px;">
-                        <span class="input-group-addon"><i class="fa fa-user fa-fw"></i></span>
+                        <span class="input-group-text"><i class="fa fa-user fa-fw"></i></span>
                         <input type="text" name="username" class="form-control" placeholder="Username" autocapitalize="off" autocorrect="off" value="<?php echo $username?>">
                     </div>
                 </div>
                 <div class="lhide">
                     <div class="input-group input-margin" style="padding: 0px 15px;">
-                        <span class="input-group-addon"><i class="fa fa-key fa-fw"></i></span>
+                        <span class="input-group-text"><i class="fa fa-key fa-fw"></i></span>
                         <input type="password" name="password" class="form-control" placeholder="Password" autocapitalize="off" autocorrect="off">
                     </div>
                 </div>
@@ -50,13 +50,13 @@
                 </div>
                 <div class="lshow">
                     <div class="input-group input-margin" style="padding: 0px 15px;">
-                        <span class="input-group-addon"><i class="fa fa-key fa-fw"></i></span>
+                        <span class="input-group-text"><i class="fa fa-key fa-fw"></i></span>
                         <input type="password" name="npass1" class="form-control" placeholder="New Password" autocapitalize="off" autocorrect="off">
                     </div>
                 </div>
                 <div class="lshow">
                     <div class="input-group input-margin" style="padding: 0px 15px;">
-                        <span class="input-group-addon"><i class="fa fa-key fa-fw"></i></span>
+                        <span class="input-group-text"><i class="fa fa-key fa-fw"></i></span>
                         <input type="password" name="npass2" class="form-control" placeholder="Confirm New Password" autocapitalize="off" autocorrect="off">
                     </div>
                 </div>

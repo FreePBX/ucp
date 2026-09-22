@@ -20,7 +20,7 @@
 		<?php } ?>
 	</ul>
 
-	<div id="add_new_dashboard" class="add-dashboard" data-toggle="modal" data-target="#add_dashboard">
+	<div id="add_new_dashboard" class="add-dashboard" data-bs-toggle="modal" data-bs-target="#add_dashboard">
 		<i class="fa fa-2x fa-plus-circle" aria-hidden="true"></i>
 	</div>
 
@@ -36,7 +36,7 @@
 <!-- left navbar -->
 <nav class="navbar navbar-inverse navbar-fixed-left">
 	<ul class="nav navbar-nav align-self-baseline" id="side_bar_content">
-		<li class="add-widget first-widget locked" data-toggle="modal" data-target="#add_widget"><a href="#"><i
+		<li class="add-widget first-widget locked" data-bs-toggle="modal" data-bs-target="#add_widget"><a href="#"><i
 					class="fa fa-plus-circle" aria-hidden="true"></i></a></li>
 		<?php if (!empty($user_small_widgets)) { ?>
 			<?php foreach ($user_small_widgets as $small_widget) { ?>

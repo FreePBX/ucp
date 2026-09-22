@@ -1,18 +1,18 @@
 <div id="ucp-settings">
 	<h3><?php echo _('User Control Panel Settings')?></h3>
 	<div class="alert alert-info text-center" id="settings-message"><?php echo _("All fields update when unfocused (selecting another field) except password")?></div>
-	<ul class="nav nav-tabs pb-0">
-		<li><a class="active nav-link" href="#accountsettings" data-toggle="tab"><?php echo _("Account Settings")?></a></li>
-		<li><a class="nav-link" href="#userinfo" data-toggle="tab"><?php echo _("User Details")?></a></li>
-		<li><a class="nav-link" href="#ucpsettings" data-toggle="tab"><?php echo _("Interface Settings")?></a></li>
+	<ul class="nav nav-tabs pb-0" role="tablist">
+		<li class="nav-item"><a class="active nav-link" href="#accountsettings" data-bs-toggle="tab" role="tab"><?php echo _("Account Settings")?></a></li>
+		<li class="nav-item"><a class="nav-link" href="#userinfo" data-bs-toggle="tab" role="tab"><?php echo _("User Details")?></a></li>
+		<li class="nav-item"><a class="nav-link" href="#ucpsettings" data-bs-toggle="tab" role="tab"><?php echo _("Interface Settings")?></a></li>
 		<?php foreach($extra as $module => $data) { ?>
 			<?php foreach($data as $e) { ?>
-				<li><a href="#settings-<?php echo $e['module'] ?? ''; ?>-<?php echo $e['rawname'] ?? ''; ?>" data-toggle="tab"><?php echo $e['name'] ?? '';?></a></li>
+				<li class="nav-item"><a class="nav-link" href="#settings-<?php echo $e['module'] ?? ''; ?>-<?php echo $e['rawname'] ?? ''; ?>" data-bs-toggle="tab" role="tab"><?php echo $e['name'] ?? '';?></a></li>
 			<?php }?>
 		<?php }?>
 	</ul>
 	<div class="tab-content">
-		<div class="tab-pane fade in active" id="accountsettings">
+		<div class="tab-pane fade show active" id="accountsettings">
 			<?php if($changeusername) {?>
 				<div class="form-group">
 					<label for="username" class="help"><?php echo _('Username')?> <i class="fa fa-question-circle"></i></label>
@@ -118,12 +118,8 @@
 				<label for="lang" class="help"><?php echo _('Language')?> <i class="fa fa-question-circle"></i></label><br/>
 				<div class="input-group">
 					<?php echo FreePBX::View()->languageDrawSelect('lang',$user['language'],_('Default')); ?>
-					<span class="input-group-btn ml-auto">
-						<a href="#" class="btn btn-default" id="browserlang"><?php echo _("Use Browser Language")?></a>
-					</span>
-					<span class="input-group-btn">
-						<a href="#" class="btn btn-default" id="systemlang"><?php echo _("Use PBX Language")?></a>
-					</span>
+					<button type="button" class="btn btn-secondary" id="browserlang"><?php echo _("Use Browser Language")?></button>
+					<button type="button" class="btn btn-secondary" id="systemlang"><?php echo _("Use PBX Language")?></button>
 				</div>
 				<span class="help-block help-hidden" data-for="lang"><?php echo _('Your Language')?></span>
 			</div>
@@ -131,12 +127,8 @@
 				<label for="timezone" class="help"><?php echo _('Timezone')?> <i class="fa fa-question-circle"></i></label><br/>
 				<div class="input-group">
 					<?php echo FreePBX::View()->timezoneDrawSelect('timezone',$user['timezone'],_('Default')); ?>
-					<span class="input-group-btn ml-auto">
-						<a href="#" class="btn btn-default" id="browsertz"><?php echo _("Use Browser Timezone")?></a>
-					</span>
-					<span class="input-group-btn">
-						<a href="#" class="btn btn-default" id="systemtz"><?php echo _("Use PBX Timezone")?></a>
-					</span>
+					<button type="button" class="btn btn-secondary" id="browsertz"><?php echo _("Use Browser Timezone")?></button>
+					<button type="button" class="btn btn-secondary" id="systemtz"><?php echo _("Use PBX Timezone")?></button>
 				</div>
 				<span class="help-block help-hidden" data-for="timezone"><?php echo _('Your Timezone')?></span>
 			</div>
@@ -154,7 +146,7 @@
 				<label for="datetimeformat" class="help"><?php echo _('Date and Time Format')?> <i class="fa fa-question-circle"></i></label><br/>
 				<div class="input-group">
 					<input type="text" class="form-control" placeholder="<?php echo $placeholders['datetimeformat']?>" id="datetimeformat" name="datetimeformat" value="<?php echo $user['datetimeformat']?>">
-					<span class="input-group-addon" id="datetimeformat-now"></span>
+					<span class="input-group-text" id="datetimeformat-now"></span>
 				</div>
 				<span class="help-block help-hidden" data-for="datetimeformat"><?php echo sprintf(_('The format dates and times should display in. The default of "llll" is locale aware. If left blank this will use the group/system format. For more formats please see: %s'),'http://momentjs.com/docs/#/displaying/format/')?></span>
 			</div>
@@ -162,7 +154,7 @@
 				<label for="dateformat" class="help"><?php echo _('Date Format')?> <i class="fa fa-question-circle"></i></label><br/>
 				<div class="input-group">
 					<input type="text" class="form-control" placeholder="<?php echo $placeholders['dateformat']?>" id="dateformat" name="dateformat" value="<?php echo $user['dateformat']?>">
-					<span class="input-group-addon" id="dateformat-now"></span>
+					<span class="input-group-text" id="dateformat-now"></span>
 				</div>
 				<span class="help-block help-hidden" data-for="dateformat"><?php echo sprintf(_('The format dates should display in. The default of "l" is locale aware. If left blank this will use the group/system format. For more formats please see: %s'),'http://momentjs.com/docs/#/displaying/format/')?></span>
 			</div>
@@ -170,7 +162,7 @@
 				<label for="timeformat" class="help"><?php echo _('Time Format')?> <i class="fa fa-question-circle"></i></label><br/>
 				<div class="input-group">
 					<input type="text" class="form-control" placeholder="<?php echo $placeholders['timeformat']?>" id="timeformat" name="timeformat" value="<?php echo $user['timeformat']?>">
-					<span class="input-group-addon" id="timeformat-now"></span>
+					<span class="input-group-text" id="timeformat-now"></span>
 				</div>
 				<span class="help-block help-hidden" data-for="timeformat"><?php echo sprintf(_('The format times should display in. The default of "LT" is locale aware. If left blank this will use the group/system format. For more formats please see: %s'),'http://momentjs.com/docs/#/displaying/format/')?></span>
 			</div>

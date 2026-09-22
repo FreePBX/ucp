@@ -358,10 +358,11 @@ $(document).bind("logIn", function( event ) {
 		]
 	});
 	if(UCP.Modules.Ucptour.staticsettings.show) {
-		// Initialize the tour
-		UCP.Modules.Ucptour.tour.init();
-
-		// Start the tour
-		UCP.Modules.Ucptour.tour.start();
+		try {
+			UCP.Modules.Ucptour.tour.init();
+			UCP.Modules.Ucptour.tour.start();
+		} catch (e) {
+			console.warn("UCP tour could not start", e);
+		}
 	}
 });

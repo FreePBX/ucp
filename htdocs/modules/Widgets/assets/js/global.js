@@ -944,7 +944,7 @@ var WidgetsC = Class.extend({
 			$(".navbar-nav .add-widget").addClass("active");
 		});
 		//tab select scroll position memory
-		$('#add_widget .nav-tabs a[data-toggle=tab]').on('shown.bs.tab', function (e) {
+		$('#add_widget .nav-tabs a[data-bs-toggle=tab], #add_widget .nav-tabs a[data-toggle=tab]').on('shown.bs.tab', function (e) {
 			$("#add_widget .bhoechie-tab-menu .list-group-item").each(function() {
 				$(this).data("position",$(this).position().top);
 			});
