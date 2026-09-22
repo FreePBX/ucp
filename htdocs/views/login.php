@@ -1,5 +1,5 @@
-<div class="row">
-	<div id="login-window" class="col-md-4 col-md-offset-3 col-sm-6 col-sm-offset-2 col-xs-8 col-xs-offset-1" style="height: fit-content !important;<?php echo (!empty($error_warning) || !empty($error_danger)) ? 'height: fit-content;!important' : ''?>">
+<div class="row justify-content-center">
+	<div id="login-window" class="col-10 col-sm-6 col-md-4" style="height: fit-content !important;<?php echo (!empty($error_warning) || !empty($error_danger)) ? 'height: fit-content !important;' : ''?>">
 		<form id="frm-login" method="POST" action="?display=dashboard">
 			<input type="hidden" name="token" value="<?php echo $token?>">
 			<h2 class="header text-center"><?php echo _('User Control Panel')?></h2>
@@ -12,7 +12,7 @@
 			<div class="alert alert-warning jsalert" style="display:none;"></div>
 			<div id="error-msg" class="alert alert-danger" style="display:none"></div>
 			<div class="input-group input-margin">
-				<span class="input-group-addon"><i class="fa fa-user fa-fw"></i></span>
+				<span class="input-group-text"><i class="fa fa-user fa-fw"></i></span>
 				<input type="text" name="username" class="form-control" placeholder="<?php echo _('Username')?>" autocapitalize="off" autocorrect="off">
 			</div>
 			<div id="normalloginform">
@@ -25,7 +25,7 @@
 			<?php if(!$hideLogin) { ?>
 			<div class="lshow">
 				<div class="input-group input-margin">
-					<span class="input-group-addon"><i class="fa fa-key fa-fw"></i></span>
+					<span class="input-group-text"><i class="fa fa-key fa-fw"></i></span>
 					<input type="password" name="password" class="form-control" placeholder="<?php echo _('Password')?>" autocapitalize="off" autocorrect="off">
 				</div>
 			</div>
@@ -35,12 +35,12 @@
 			</div>
 			<div class="<?php echo $lhideClass ?>">
 				<div class="input-group input-margin">
-					<span class="input-group-addon"><i class="fa fa-envelope fa-fw"></i></span>
+					<span class="input-group-text"><i class="fa fa-envelope fa-fw"></i></span>
 					<input type="text" name="email" class="form-control" placeholder="<?php echo _('Email')?>" autocapitalize="off" autocorrect="off">
 				</div>
 			</div>
 			<div class="row">
-				<div class="col-md-12 col-ºsm-12">
+				<div class="col-12">
 					<table class="extras">
 						<tr class="action-switch">
 							<?php if(!$hideLogin) { ?>
@@ -86,8 +86,8 @@
 				<button type="button" id="btn-saml" class="btn btn-default"><?php echo _('Login')?></button>
 			</div>
 		</form>
-		<div class="extra-info pull-left"><?php echo session_id()?></div>
-		<div class="extra-info pull-right"><?php echo $_SERVER['REMOTE_ADDR']?></div>
+		<div class="extra-info float-start"><?php echo session_id()?></div>
+		<div class="extra-info float-end"><?php echo $_SERVER['REMOTE_ADDR']?></div>
 	</div>
 	<?php
 		$isMFALicensed = 0;

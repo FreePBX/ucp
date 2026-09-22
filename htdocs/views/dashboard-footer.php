@@ -9,8 +9,8 @@
 		<div class="modal-dialog">
 			<div class="modal-content">
 				<div class="modal-header">
-					<h4 class="modal-title mr-auto" id="add_dashboard_label"><i class="fa fa-plus-circle" aria-hidden="true"></i> <?php echo _("Add Dashboard")?></h4>
-					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					<h4 class="modal-title me-auto" id="add_dashboard_label"><i class="fa fa-plus-circle" aria-hidden="true"></i> <?php echo _("Add Dashboard")?></h4>
+					<button type="button" class="close ms-auto" data-bs-dismiss="modal" aria-label="Close"><i class="fa fa-times" aria-hidden="true"></i></button>
 				</div>
 				<div class="modal-body">
 					<div class="form-group">
@@ -19,7 +19,7 @@
 					</div>
 				</div>
 				<div class="modal-footer">
-					<button type="button" class="btn btn-danger" data-dismiss="modal"><?php echo _("Cancel")?></button>
+					<button type="button" class="btn btn-danger" data-bs-dismiss="modal"><?php echo _("Cancel")?></button>
 					<button type="submit" id="create_dashboard" class="btn btn-primary"><?php echo _("Create Dashboard")?></button>
 				</div>
 			</div>
@@ -30,8 +30,8 @@
 		<div class="modal-dialog">
 			<div class="modal-content">
 				<div class="modal-header">
-					<h4 class="modal-title mr-auto" id="edit_dashboard_label"><i class="fa fa-pencil" aria-hidden="true"></i> <?php echo _("Edit Dashboard")?></h4>
-					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					<h4 class="modal-title me-auto" id="edit_dashboard_label"><i class="fa fa-pencil" aria-hidden="true"></i> <?php echo _("Edit Dashboard")?></h4>
+					<button type="button" class="close ms-auto" data-bs-dismiss="modal" aria-label="Close"><i class="fa fa-times" aria-hidden="true"></i></button>
 				</div>
 				<div class="modal-body">
 					<div class="form-group">
@@ -40,7 +40,7 @@
 					</div>
 				</div>
 				<div class="modal-footer">
-					<button type="button" class="btn btn-danger" data-dismiss="modal"><?php echo _("Cancel")?></button>
+					<button type="button" class="btn btn-danger" data-bs-dismiss="modal"><?php echo _("Cancel")?></button>
 					<button type="submit" id="edit_dashboard_btn" class="btn btn-primary"><?php echo _("Edit Dashboard")?></button>
 				</div>
 			</div>
@@ -51,13 +51,13 @@
 		<div class="modal-dialog">
 			<div class="modal-content">
 				<div class="modal-header">
-					<h4 class="modal-title mr-auto" id="add_widget_label"><i class="fa fa-plus-circle" aria-hidden="true"></i> <?php echo _("Add Widget")?></h4>
-					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					<h4 class="modal-title me-auto" id="add_widget_label"><i class="fa fa-plus-circle" aria-hidden="true"></i> <?php echo _("Add Widget")?></h4>
+					<button type="button" class="close ms-auto" data-bs-dismiss="modal" aria-label="Close"><i class="fa fa-times" aria-hidden="true"></i></button>
 				</div>
 				<div class="modal-body">
 					<ul id="tabs" class="nav nav-tabs" data-tabs="tabs">
-						<li><a class="nav-link active" href="#red" data-toggle="tab"><?php echo _("Dashboard Widgets")?></a></li>
-						<li><a class="nav-link" href="#small" data-toggle="tab"><?php echo _("Side Bar Widgets")?></a></li>
+						<li><a class="nav-link active" href="#red" data-bs-toggle="tab"><?php echo _("Dashboard Widgets")?></a></li>
+						<li><a class="nav-link" href="#small" data-bs-toggle="tab"><?php echo _("Side Bar Widgets")?></a></li>
 					</ul>
 					<div class="tab-content">
 						<div class="tab-pane active" id="red">
@@ -165,7 +165,7 @@
 					</div>
 				</div>
 				<div class="modal-footer">
-					<button type="button" class="btn btn-danger" data-dismiss="modal"><?php echo _('Cancel')?></button>
+					<button type="button" class="btn btn-danger" data-bs-dismiss="modal"><?php echo _('Cancel')?></button>
 				</div>
 			</div>
 		</div>
@@ -175,8 +175,8 @@
 		<div class="modal-dialog">
 			<div class="modal-content">
 				<div class="modal-header">
-					<h4 class="modal-title mr-auto" id="widget_settings_label"><i class="fa fa-cog" aria-hidden="true"></i> <?php echo _("Widget Settings")?></h4>
-					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><i class="fa fa-times" aria-hidden="true"></i></button>
+					<h4 class="modal-title me-auto" id="widget_settings_label"><i class="fa fa-cog" aria-hidden="true"></i> <?php echo _("Widget Settings")?></h4>
+					<button type="button" class="close ms-auto" data-bs-dismiss="modal" aria-label="Close"><i class="fa fa-times" aria-hidden="true"></i></button>
 				</div>
 				<div class="modal-body widget-settings-content"></div>
 			</div>
@@ -189,10 +189,8 @@
 		<div class="modal-dialog" role="document">
 			<div class="modal-content">
 				<div class="modal-header">
-					<h4 class="modal-title mr-auto"></h4>
-					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-						<span aria-hidden="true">&times;</span>
-					</button>
+					<h4 class="modal-title me-auto"></h4>
+					<button type="button" class="close ms-auto" data-bs-dismiss="modal" aria-label="Close"><i class="fa fa-times" aria-hidden="true"></i></button>
 				</div>
 				<div class="modal-body"></div>
 				<div class="modal-footer">
@@ -206,8 +204,8 @@
 		<div class="modal-dialog" role="document">
 			<div class="modal-content">
 				<div class="modal-header">
-					<h4 class="modal-title mr-auto" id="confirm_message_title"><i class="fa fa-question-circle" aria-hidden="true"></i> <?php echo _("Confirm Action")?></h4>
-					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					<h4 class="modal-title me-auto" id="confirm_message_title"><i class="fa fa-question-circle" aria-hidden="true"></i> <?php echo _("Confirm Action")?></h4>
+					<button type="button" class="close ms-auto" data-bs-dismiss="modal" aria-label="Close"><i class="fa fa-times" aria-hidden="true"></i></button>
 				</div>
 				<div class="modal-body">
 					<div class="alert" role="alert" id="confirm_content">
@@ -215,8 +213,8 @@
 					</div>
 				</div>
 				<div class="modal-footer">
-					<button type="button" class="btn btn-danger" data-dismiss="modal"><?php echo _("Cancel")?></button>
-					<button type="button" class="btn btn-primary" data-dismiss="modal" id="modal_confirm_button"><?php echo _("Accept")?></button>
+					<button type="button" class="btn btn-danger" data-bs-dismiss="modal"><?php echo _("Cancel")?></button>
+					<button type="button" class="btn btn-primary" data-bs-dismiss="modal" id="modal_confirm_button"><?php echo _("Accept")?></button>
 				</div>
 			</div>
 		</div>
@@ -227,8 +225,8 @@
 		<div class="modal-dialog">
 			<div class="modal-content">
 				<div class="modal-header">
-					<h4 class="modal-title mr-auto" id="alert_label"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> <?php echo _("Alert")?></h4>
-					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					<h4 class="modal-title me-auto" id="alert_label"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> <?php echo _("Alert")?></h4>
+					<button type="button" class="close ms-auto" data-bs-dismiss="modal" aria-label="Close"><i class="fa fa-times" aria-hidden="true"></i></button>
 				</div>
 				<div class="modal-body">
 					<div class="row">

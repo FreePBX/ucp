@@ -4,6 +4,26 @@
  * License can be found in the license file inside the module directory
  * Copyright 2006-2014 Schmooze Com Inc.
  */
+// bootstrap-table 1.27.3 uses Bootstrap Icons under Bootstrap 5,
+// but UCP only ships Font Awesome 4.7.0.
+if ($.fn.bootstrapTable) {
+	$.fn.bootstrapTable.defaults.iconsPrefix = 'fa';
+	$.fn.bootstrapTable.defaults.icons = $.extend({}, $.fn.bootstrapTable.defaults.icons, {
+		paginationSwitchDown: 'fa-caret-square-o-down',
+		paginationSwitchUp: 'fa-caret-square-o-up',
+		refresh: 'fa-refresh',
+		toggleOff: 'fa-toggle-off',
+		toggleOn: 'fa-toggle-on',
+		columns: 'fa-th-list',
+		detailOpen: 'fa-plus',
+		detailClose: 'fa-minus',
+		fullscreen: 'fa-arrows-alt',
+		search: 'fa-search',
+		clearSearch: 'fa-trash',
+		export: 'fa-download'
+	});
+}
+
 var UCPC = Class.extend({
 	init: function() {
 		this.loggedIn = false;
@@ -158,7 +178,7 @@ var UCPC = Class.extend({
 			load();
 			var loaded = [];
 			//tab navigation
-			$('.widget-settings-content a[data-toggle="tab"]').on("shown.bs.tab", function(e) {
+			$('.widget-settings-content a[data-bs-toggle="tab"], .widget-settings-content a[data-toggle="tab"]').on("shown.bs.tab", function(e) {
 				var href = $(e.target).attr("href");
 				if(loaded.indexOf(href) === -1) {
 					loaded.push(href);

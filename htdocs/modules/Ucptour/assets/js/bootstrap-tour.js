@@ -3545,7 +3545,7 @@ var bind = function (fn, me) { return function () { return fn.apply(me, argument
         duration: false,
         delay: false,
         basePath: '',
-        template: '<div class="popover" role="tooltip"> <div class="arrow"></div> <h3 class="popover-header"></h3> <div class="popover-body"></div> <div class="popover-navigation"> <div class="btn-group"> <button class="btn btn-sm btn-outline-secondary" data-role="prev">&laquo; Prev</button> <button class="btn btn-sm btn-outline-secondary" data-role="next">Next &raquo;</button> <button class="btn btn-sm btn-outline-secondary" data-role="pause-resume" data-pause-text="Pause" data-resume-text="Resume">Pause</button> </div> <button class="btn btn-sm btn-outline-secondary" data-role="end">End tour</button> </div> </div>',
+        template: '<div class="popover" role="tooltip"> <div class="popover-arrow arrow"></div> <h3 class="popover-header"></h3> <div class="popover-body"></div> <div class="popover-navigation"> <div class="btn-group"> <button class="btn btn-sm btn-outline-secondary" data-role="prev">&laquo; Prev</button> <button class="btn btn-sm btn-outline-secondary" data-role="next">Next &raquo;</button> <button class="btn btn-sm btn-outline-secondary" data-role="pause-resume" data-pause-text="Pause" data-resume-text="Resume">Pause</button> </div> <button class="btn btn-sm btn-outline-secondary" data-role="end">End tour</button> </div> </div>',
         afterSetState: function (key, value) { },
         afterGetState: function (key, value) { },
         afterRemoveState: function (key) { },
@@ -3749,10 +3749,11 @@ var bind = function (fn, me) { return function () { return fn.apply(me, argument
         return function (e) {
           var $element, next_step;
           $element = $(step.element);
-          if (!$element.data('bs.popover')) {
+          if (!_this._getPopoverInstance($element)) {
             $element = $('body');
           }
-          $element.popover('dispose').removeClass("tour-" + _this._options.name + "-element tour-" + _this._options.name + "-" + i + "-element").removeData('bs.popover');
+          _this._disposePopover($element);
+          $element.removeClass("tour-" + _this._options.name + "-element tour-" + _this._options.name + "-" + i + "-element");
           if (step.reflex) {
             $(step.reflexElement).removeClass('tour-step-element-reflex').off((_this._reflexEvent(step.reflex)) + ".tour-" + _this._options.name);
           }
@@ -4030,6 +4031,53 @@ var bind = function (fn, me) { return function () { return fn.apply(me, argument
       return this._debug("Step " + (this._current + 1) + " of " + this._options.steps.length);
     };
 
+    Tour.prototype._getPopoverInstance = function ($element) {
+      var el;
+      if (!$element || !$element.length) {
+        return null;
+      }
+      if ($element.data('bs.popover')) {
+        return $element.data('bs.popover');
+      }
+      el = $element[0];
+      if (typeof bootstrap !== 'undefined' && bootstrap.Popover && typeof bootstrap.Popover.getInstance === 'function') {
+        return bootstrap.Popover.getInstance(el);
+      }
+      return null;
+    };
+
+    Tour.prototype._getPopoverTip = function (instance) {
+      if (!instance) {
+        return $();
+      }
+      if (typeof instance.getTipElement === 'function') {
+        return $(instance.getTipElement());
+      }
+      if (typeof instance._getTipElement === 'function') {
+        return $(instance._getTipElement());
+      }
+      if (instance.tip) {
+        return $(instance.tip);
+      }
+      if (instance._tip) {
+        return $(instance._tip);
+      }
+      return $();
+    };
+
+    Tour.prototype._disposePopover = function ($element) {
+      var instance;
+      instance = this._getPopoverInstance($element);
+      if (instance && typeof instance.dispose === 'function') {
+        instance.dispose();
+      } else if ($element && typeof $element.popover === 'function') {
+        $element.popover('dispose');
+      }
+      if ($element && $element.length) {
+        $element.removeData('bs.popover');
+      }
+    };
+
     Tour.prototype._showPopover = function (step, i) {
       var $element, $tip, isOrphan, options;
       $(".tour-" + this._options.name).remove();
@@ -4056,19 +4104,26 @@ var bind = function (fn, me) { return function () { return fn.apply(me, argument
           };
         })(this));
       }
+      this._disposePopover($element);
       $element.popover({
         placement: step.placement,
         trigger: 'manual',
         title: step.title,
         content: step.content,
         html: true,
-        animation: step.animation,
+        animation: step.animation !== false,
         container: step.container,
         template: step.template,
-        selector: step.element
+        sanitize: false
       }).popover('show');
-      $tip = $($element.data('bs.popover').getTipElement());
-      return $tip.attr('id', step.id);
+      $tip = this._getPopoverTip(this._getPopoverInstance($element));
+      if (!$tip.length) {
+        $tip = $(".popover.tour-" + this._options.name).last();
+      }
+      if ($tip.length) {
+        $tip.attr('id', step.id);
+      }
+      return $tip;
     };
 
     Tour.prototype._template = function (step, i) {
