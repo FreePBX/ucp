@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-07-09 03:13-0400\n"
+"POT-Creation-Date: 2026-10-06 07:22-0400\n"
 "PO-Revision-Date: 2018-10-25 08:00+0000\n"
 "Last-Translator: Bastian Mertgen <b.mertgen@bastian-mertgen.de>\n"
 "Language-Team: German <http://*/projects/freepbx/ucp/de/>\n"
@@ -20,9 +20,9 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 3.0.1\n"
 
-#: htdocs/assets/js/lodash-4.17.2.js:8787
-msgid "  abc  "
-msgstr "  ..abc..  "
+#: htdocs/assets/js/moment-with-locales-2.31.0.min.js:6
+msgid " "
+msgstr ""
 
 #: htdocs/views/dashfootercontent.php:37
 #, php-format
@@ -34,64 +34,100 @@ msgstr ""
 msgid "%s is a registered trademark of"
 msgstr ""
 
+#: htdocs/assets/js/moment-with-locales-2.31.0.min.js:66
+msgid ""
+"),Ve=[/^ene/i,/^feb/i,/^mar/i,/^abr/i,/^may/i,/^jun/i,/^jul/i,/^ago/i,/^sep/"
+"i,/^oct/i,/^nov/i,/^dic/i],Me=/^(enero|febrero|marzo|abril|mayo|junio|julio|"
+"agosto|septiembre|octubre|noviembre|diciembre|ene.?|feb.?|mar.?|abr.?|may.?|"
+"jun.?|jul.?|ago.?|sep.?|oct.?|nov.?|dic.?)/i,ys=(L.defineLocale("
+msgstr ""
+
+#: htdocs/assets/js/moment-with-locales-2.31.0.min.js:66
+msgid "),Ys="
+msgstr ""
+
+#: htdocs/assets/js/moment-with-locales-2.31.0.min.js:48
+#: htdocs/assets/js/moment-with-locales-2.31.0.min.js:50
+#: htdocs/assets/js/moment-with-locales-2.31.0.min.js:52
+#: htdocs/assets/js/moment-with-locales-2.31.0.min.js:54
+#: htdocs/assets/js/moment-with-locales-2.31.0.min.js:56
+#: htdocs/assets/js/moment-with-locales-2.31.0.min.js:58
+#: htdocs/assets/js/moment-with-locales-2.31.0.min.js:60
+#: htdocs/assets/js/moment-with-locales-2.31.0.min.js:62
+#: htdocs/assets/js/moment-with-locales-2.31.0.min.js:64
+msgid "),longDateFormat:{LT:"
+msgstr ""
+
+#: htdocs/assets/js/moment-with-locales-2.31.0.min.js:48
+#: htdocs/assets/js/moment-with-locales-2.31.0.min.js:50
+#: htdocs/assets/js/moment-with-locales-2.31.0.min.js:52
+#: htdocs/assets/js/moment-with-locales-2.31.0.min.js:54
+#: htdocs/assets/js/moment-with-locales-2.31.0.min.js:56
+#: htdocs/assets/js/moment-with-locales-2.31.0.min.js:58
+#: htdocs/assets/js/moment-with-locales-2.31.0.min.js:60
+#: htdocs/assets/js/moment-with-locales-2.31.0.min.js:62
+#: htdocs/assets/js/moment-with-locales-2.31.0.min.js:64
+msgid "),monthsShort:"
+msgstr ""
+
+#: htdocs/assets/js/moment-with-locales-2.31.0.min.js:66
+msgid ""
+"),monthsShort:function(e,a){return e?(/-MMM-/.test(a)?Ys:Ls)[e.month()]:Ls},"
+"monthsRegex:Me,monthsShortRegex:Me,monthsStrictRegex:/^(enero|febrero|marzo|"
+"abril|mayo|junio|julio|agosto|septiembre|octubre|noviembre|diciembre)/i,"
+"monthsShortStrictRegex:/^(ene.?|feb.?|mar.?|abr.?|may.?|jun.?|jul.?|ago.?|"
+"sep.?|oct.?|nov.?|dic.?)/i,monthsParse:Ve,longMonthsParse:Ve,"
+"shortMonthsParse:Ve,weekdays:"
+msgstr ""
+
+#: htdocs/assets/js/moment-with-locales-2.31.0.min.js:48
+#: htdocs/assets/js/moment-with-locales-2.31.0.min.js:50
+#: htdocs/assets/js/moment-with-locales-2.31.0.min.js:52
+#: htdocs/assets/js/moment-with-locales-2.31.0.min.js:54
+#: htdocs/assets/js/moment-with-locales-2.31.0.min.js:56
+#: htdocs/assets/js/moment-with-locales-2.31.0.min.js:58
+#: htdocs/assets/js/moment-with-locales-2.31.0.min.js:60
+#: htdocs/assets/js/moment-with-locales-2.31.0.min.js:62
+#: htdocs/assets/js/moment-with-locales-2.31.0.min.js:64
+msgid "),weekdays:"
+msgstr ""
+
+#: htdocs/assets/js/moment-with-locales-2.31.0.min.js:48
+#: htdocs/assets/js/moment-with-locales-2.31.0.min.js:50
+#: htdocs/assets/js/moment-with-locales-2.31.0.min.js:52
+#: htdocs/assets/js/moment-with-locales-2.31.0.min.js:54
+#: htdocs/assets/js/moment-with-locales-2.31.0.min.js:56
+#: htdocs/assets/js/moment-with-locales-2.31.0.min.js:58
+#: htdocs/assets/js/moment-with-locales-2.31.0.min.js:60
+#: htdocs/assets/js/moment-with-locales-2.31.0.min.js:62
+#: htdocs/assets/js/moment-with-locales-2.31.0.min.js:64
+#: htdocs/assets/js/moment-with-locales-2.31.0.min.js:66
+msgid "),weekdaysMin:"
+msgstr ""
+
+#: htdocs/assets/js/moment-with-locales-2.31.0.min.js:66
+msgid "),weekdaysParseExact:!0,longDateFormat:{LT:"
+msgstr ""
+
+#: htdocs/assets/js/moment-with-locales-2.31.0.min.js:48
+#: htdocs/assets/js/moment-with-locales-2.31.0.min.js:50
+#: htdocs/assets/js/moment-with-locales-2.31.0.min.js:52
+#: htdocs/assets/js/moment-with-locales-2.31.0.min.js:54
+#: htdocs/assets/js/moment-with-locales-2.31.0.min.js:56
+#: htdocs/assets/js/moment-with-locales-2.31.0.min.js:58
+#: htdocs/assets/js/moment-with-locales-2.31.0.min.js:60
+#: htdocs/assets/js/moment-with-locales-2.31.0.min.js:62
+#: htdocs/assets/js/moment-with-locales-2.31.0.min.js:64
+#: htdocs/assets/js/moment-with-locales-2.31.0.min.js:66
+msgid "),weekdaysShort:"
+msgstr ""
+
 #: htdocs/assets/js/emojionearea-3.4.2.min.js:9
 msgid ").replace(/"
 msgstr ""
 
-#: htdocs/assets/js/lodash-4.17.2.js:15199
-msgid ""
-");\n"
-"     *\n"
-"     * if (_.isError(elements)) {\n"
-"     *   elements = [];\n"
-"     * }\n"
-"     */\n"
-"    var attempt = baseRest(function(func, args) {\n"
-"      try {\n"
-"        return apply(func, undefined, args);\n"
-"      } catch (e) {\n"
-"        return isError(e) ? e : new Error(e);\n"
-"      }\n"
-"    });\n"
-"\n"
-"    /**\n"
-"     * Binds methods of an object to the object itself, overwriting the "
-"existing\n"
-"     * method.\n"
-"     *\n"
-"     * **Note:** This method doesn"
-msgstr ""
-");\n"
-"     *\n"
-"     * if (_.isError(elements)) {\n"
-"     *   elements = [];\n"
-"     * }\n"
-"     */\n"
-"    var attempt = baseRest(function(func, args) {\n"
-"      try {\n"
-"        return apply(func, undefined, args);\n"
-"      } catch (e) {\n"
-"        return isError(e) ? e : new Error(e);\n"
-"      }\n"
-"    });\n"
-"\n"
-"    /**\n"
-"     * Binds methods of an object to the object itself, overwriting the "
-"existing\n"
-"     * method.\n"
-"     *\n"
-"     * **Note:** This method doesn"
-
-#: htdocs/assets/js/lodash-4.17.2.js:14398
-msgid ""
-");\n"
-"     * // => "
-msgstr ""
-");\n"
-"     * // => "
-
-#: htdocs/assets/js/jquery-ui-1.13.2.min.js:6
-msgid "+t,e.props.alpha={idx:3,type:"
+#: htdocs/assets/js/jquery-migrate-4.0.2.min.js:2
+msgid "+g++]=!0,e):y.apply(this,arguments)}}),s.ajaxPrefilter("
 msgstr ""
 
 #: htdocs/index.php:93
@@ -102,14 +138,6 @@ msgstr ".htaccess sind auf diesem Server deaktiviert. Bitte aktiviere diese"
 msgid ".htaccess files are not supported on this webserver."
 msgstr ".htaccess-Dateien werden von diesem Webserver nicht unterstützt."
 
-#: htdocs/assets/js/socket.io-4.7.4.min.js:6
-msgid ".split("
-msgstr ""
-
-#: htdocs/assets/js/moment-with-locales-2.20.1.min.js:1
-msgid ": "
-msgstr ": "
-
 #: htdocs/modules/Ucptour/assets/js/global.js:123
 #, perl-format
 msgid "A dashboard can be deleted by clicking the '%s'"
@@ -119,7 +147,7 @@ msgstr "Das Dashboard kann gelöscht werden durch drücken der '%s' Taste"
 msgid "ABC"
 msgstr "ABC"
 
-#: htdocs/views/dashboard-footer.php:219
+#: htdocs/views/dashboard-footer.php:217
 msgid "Accept"
 msgstr "Akzeptieren"
 
@@ -160,7 +188,7 @@ msgstr "Ein Dashboard hinzufügen"
 msgid "Admin"
 msgstr "Administrator"
 
-#: htdocs/views/dashboard-footer.php:230
+#: htdocs/views/dashboard-footer.php:228
 msgid "Alert"
 msgstr "Alarm"
 
@@ -180,7 +208,7 @@ msgstr ""
 "Alle Widgets in einem Dashboard können gemeinsam durch klicken des '%s' "
 "Symbols auf dem Dashboard Tab gesperrt werden"
 
-#: htdocs/modules/Settings/views/settings.php:144
+#: htdocs/modules/Settings/views/settings.php:136
 msgid "Allow Desktop Notifications"
 msgstr "Erlaube Desktop Benachrichtigungen"
 
@@ -188,7 +216,7 @@ msgstr "Erlaube Desktop Benachrichtigungen"
 msgid "Allow Login"
 msgstr "Erlaube Login"
 
-#: htdocs/modules/Settings/views/settings.php:146
+#: htdocs/modules/Settings/views/settings.php:138
 msgid "Allow browser desktop notifications from UCP modules."
 msgstr "Erlaube Browser Desktop Benachrichtigungen von UCP Modulen."
 
@@ -230,7 +258,7 @@ msgid "Call"
 msgstr "Anruf"
 
 #: htdocs/views/dashboard-footer.php:22 htdocs/views/dashboard-footer.php:43
-#: htdocs/views/dashboard-footer.php:168 htdocs/views/dashboard-footer.php:218
+#: htdocs/views/dashboard-footer.php:168 htdocs/views/dashboard-footer.php:216
 msgid "Cancel"
 msgstr "Abbrechen"
 
@@ -269,7 +297,7 @@ msgstr ""
 "Durch klicken des '%s' Symbols wird dieses Widget zum aktuellen Dashboard "
 "hinzugefügt."
 
-#: htdocs/views/dashboard-footer.php:243 htdocs/views/forgot.php:15
+#: htdocs/views/dashboard-footer.php:241 htdocs/views/forgot.php:15
 msgid "Close"
 msgstr "schließen"
 
@@ -277,7 +305,7 @@ msgstr "schließen"
 msgid "Company"
 msgstr "Firma"
 
-#: htdocs/views/dashboard-footer.php:209
+#: htdocs/views/dashboard-footer.php:207
 msgid "Confirm Action"
 msgstr "Aktion bestätigen"
 
@@ -337,16 +365,16 @@ msgstr "Dashboard Widgets werden hier dargestellt"
 msgid "Dashboards"
 msgstr "Dashboards"
 
-#: htdocs/modules/Settings/views/settings.php:162
+#: htdocs/modules/Settings/views/settings.php:154
 msgid "Date Format"
 msgstr "Datumsformat"
 
-#: htdocs/modules/Settings/views/settings.php:154
+#: htdocs/modules/Settings/views/settings.php:146
 msgid "Date and Time Format"
 msgstr "Datums- und Zeitformat"
 
 #: htdocs/modules/Settings/views/settings.php:120
-#: htdocs/modules/Settings/views/settings.php:133
+#: htdocs/modules/Settings/views/settings.php:129
 msgid "Default"
 msgstr "Standard"
 
@@ -366,7 +394,7 @@ msgstr "Gelöschte Sitzung"
 msgid "Deleted User Session"
 msgstr "Gelöschte Benutzer Sitzung"
 
-#: htdocs/assets/js/ucp.js:80
+#: htdocs/assets/js/ucp.js:100
 msgid "Disable"
 msgstr "Deaktivieren"
 
@@ -400,7 +428,7 @@ msgstr "Bearbeitung eines Dashboards"
 msgid "Email"
 msgstr "E-Mail"
 
-#: htdocs/assets/js/ucp.js:77
+#: htdocs/assets/js/ucp.js:97
 msgid "Enable"
 msgstr "Aktivieren"
 
@@ -598,8 +626,8 @@ msgid "Loading..."
 msgstr "Laden..."
 
 #: htdocs/views/forgot.php:67 htdocs/views/login.php:49
-#: htdocs/views/login.php:86 htdocs/assets/js/ucp.js:357
-#: htdocs/assets/js/ucp.js:378 htdocs/assets/js/ucp.js:388
+#: htdocs/views/login.php:86 htdocs/assets/js/ucp.js:377
+#: htdocs/assets/js/ucp.js:398 htdocs/assets/js/ucp.js:408
 msgid "Login"
 msgstr "Einloggen"
 
@@ -740,11 +768,11 @@ msgstr "Passwort zurücksetzen für: %s"
 msgid "Password does not match security policy."
 msgstr ""
 
-#: htdocs/assets/js/ucp.js:280
+#: htdocs/assets/js/ucp.js:300
 msgid "Password has been changed!"
 msgstr "Passwort wurde geändert!"
 
-#: htdocs/assets/js/ucp.js:319 htdocs/assets/js/ucp.js:372
+#: htdocs/assets/js/ucp.js:339 htdocs/assets/js/ucp.js:392
 msgid "Processing..."
 msgstr "Verarbeiten..."
 
@@ -777,7 +805,7 @@ msgstr "Widget löschen"
 msgid "Reset Password"
 msgstr "Passwort zurücksetzen"
 
-#: htdocs/modules/Settings/views/settings.php:149
+#: htdocs/modules/Settings/views/settings.php:141
 msgid "Restart Tour"
 msgstr "Tour erneut starten"
 
@@ -962,7 +990,7 @@ msgstr ""
 msgid "The dashboard's name can be changed by clicking the pencil"
 msgstr "Der Dashboard Name kann durch klicken des Stifts geändert werden"
 
-#: htdocs/modules/Settings/views/settings.php:159
+#: htdocs/modules/Settings/views/settings.php:151
 #, php-format
 msgid ""
 "The format dates and times should display in. The default of \"llll\" is "
@@ -973,7 +1001,7 @@ msgstr ""
 "\"llll\" ist regional. Falls unbestimt, wird das group/system Format "
 "genutzt. Für mehr Formate bitte hier nachsehen: %s"
 
-#: htdocs/modules/Settings/views/settings.php:167
+#: htdocs/modules/Settings/views/settings.php:159
 #, php-format
 msgid ""
 "The format dates should display in. The default of \"l\" is locale aware. If "
@@ -984,7 +1012,7 @@ msgstr ""
 "regional. Falls unbestimmt, wird das group/system Format genutzt. Für mehr "
 "Formate bitte hier nachsehen: %s"
 
-#: htdocs/modules/Settings/views/settings.php:175
+#: htdocs/modules/Settings/views/settings.php:167
 #, php-format
 msgid ""
 "The format times should display in. The default of \"LT\" is locale aware. "
@@ -1001,7 +1029,7 @@ msgid "The password used to login to User Control Panel and other services"
 msgstr ""
 "Dieses Passwort wird für den Login zum UCP und für andere Dienste verwendet"
 
-#: htdocs/assets/js/ucp.js:601
+#: htdocs/assets/js/ucp.js:621
 msgid "The session has expired and you are being forcibly logged out"
 msgstr "Die Session ist abgelaufen und Sie sind zwangsweise ausgeloggt"
 
@@ -1041,7 +1069,7 @@ msgstr ""
 "Es ist ein Fehler aufgetreten, die Widget Information zu erhalten, bitte "
 "versuchen Sie es später"
 
-#: htdocs/assets/js/ucp.js:33 htdocs/assets/js/ucp.js:48
+#: htdocs/assets/js/ucp.js:53 htdocs/assets/js/ucp.js:68
 msgid "There was an error. See the console log for more details"
 msgstr ""
 "Es ist ein Fehler aufgetreten. Bitte schauen Sie in dem Konsolen Log nach "
@@ -1077,11 +1105,11 @@ msgstr ""
 "Dieser Rundgang wird Sie in ein paar einfachen Schritten die neue "
 "Benutzerkonsole einführen."
 
-#: htdocs/modules/Settings/views/settings.php:170
+#: htdocs/modules/Settings/views/settings.php:162
 msgid "Time Format"
 msgstr "Zeitformat"
 
-#: htdocs/modules/Settings/views/settings.php:131
+#: htdocs/modules/Settings/views/settings.php:127
 msgid "Timezone"
 msgstr "Zeitzone"
 
@@ -1156,7 +1184,7 @@ msgid "UCP is currently disabled. Please talk to your system Administrator"
 msgstr ""
 "UCP ist derzeit deaktiviert. Bitte sprechen Sie mit Ihrem Systemadministrator"
 
-#: htdocs/assets/js/ucp.js:405
+#: htdocs/assets/js/ucp.js:425
 msgid "UCP is not supported in your browser"
 msgstr "UCP wird in Ihrem Browser nicht unterstützt"
 
@@ -1173,7 +1201,7 @@ msgstr ""
 "UCP, bekannt als das User Control Panel, ist die Benutzer Schnittstelle für "
 "FreePBX."
 
-#: htdocs/assets/js/ucp.js:514
+#: htdocs/assets/js/ucp.js:534
 #, perl-format
 msgid "Unable to connect to the UCP Node Server.<br>%s"
 msgstr ""
@@ -1194,11 +1222,11 @@ msgstr "Nicht unterstützter Dateityp"
 msgid "Update Password"
 msgstr "Passwort aktualisieren"
 
-#: htdocs/modules/Settings/views/settings.php:122
+#: htdocs/modules/Settings/views/settings.php:121
 msgid "Use Browser Language"
 msgstr "Sprache des Browsers verwenden"
 
-#: htdocs/modules/Settings/views/settings.php:135
+#: htdocs/modules/Settings/views/settings.php:130
 msgid "Use Browser Timezone"
 msgstr "Zeitzone des Browsers verwenden"
 
@@ -1206,11 +1234,11 @@ msgstr "Zeitzone des Browsers verwenden"
 msgid "Use Gravatar"
 msgstr "Gravatar benutzen"
 
-#: htdocs/modules/Settings/views/settings.php:125
+#: htdocs/modules/Settings/views/settings.php:122
 msgid "Use PBX Language"
 msgstr "Sprache der TK-Anlage verwenden"
 
-#: htdocs/modules/Settings/views/settings.php:138
+#: htdocs/modules/Settings/views/settings.php:131
 msgid "Use PBX Timezone"
 msgstr "Zeitzone der TK-Anlage verwenden"
 
@@ -1267,7 +1295,7 @@ msgstr "Willkommen zu %s!"
 msgid "What is UCP"
 msgstr "Was ist UCP"
 
-#: htdocs/modules/Settings/views/settings.php:151
+#: htdocs/modules/Settings/views/settings.php:143
 msgid "When set to yes the tour will restart when this window closes"
 msgstr ""
 "Wenn Sie JA wählen, wird die Tour erneut gestartet, wenn sich dieses Fenster "
@@ -1406,7 +1434,7 @@ msgstr "Sie haben sich erfolgreich zum ersten Mal eingeloggt!"
 msgid "You must set a dashboard name!"
 msgstr "Sie müssen den Dashboard-Namen bestimmen!"
 
-#: htdocs/assets/js/ucp.js:393
+#: htdocs/assets/js/ucp.js:413
 msgid "Your Browser is unsupported at this time."
 msgstr "Ihr Browser wird im Moment nicht unterstützt."
 
@@ -1434,7 +1462,7 @@ msgstr "Ihr Vorname"
 msgid "Your Home Number"
 msgstr "Ihre Telefonnummer Zuhause"
 
-#: htdocs/modules/Settings/views/settings.php:128
+#: htdocs/modules/Settings/views/settings.php:124
 msgid "Your Language"
 msgstr "Ihre Sprache"
 
@@ -1442,7 +1470,7 @@ msgstr "Ihre Sprache"
 msgid "Your Last Name"
 msgstr "Ihr Nachname"
 
-#: htdocs/modules/Settings/views/settings.php:141
+#: htdocs/modules/Settings/views/settings.php:133
 msgid "Your Timezone"
 msgstr "Ihre Zeitzone"
 
@@ -1454,7 +1482,7 @@ msgstr "Ihr Titel"
 msgid "Your Work Number"
 msgstr "Ihre Telefonnummer in der Firma"
 
-#: htdocs/assets/js/ucp.js:395
+#: htdocs/assets/js/ucp.js:415
 msgid ""
 "Your browser is unsupported at this time. Please upgrade or talk to your "
 "system administrator"
@@ -1478,11 +1506,6 @@ msgid ""
 msgstr ""
 "Ihre spezifischen Einstellungen werden definiert, wenn Sie in der Side bar "
 "auf das 'Zahnradsymbol' klicken"
-
-#: htdocs/assets/js/lodash-4.17.2.js:15638
-#: htdocs/assets/js/lodash-4.17.2.js:15642
-msgid "fred"
-msgstr "fred"
 
 #: Ucp.class.php:93
 msgid "gcc-c++ is not installed"
@@ -1519,9 +1542,64 @@ msgstr "oder"
 msgid "select template"
 msgstr ""
 
-#: htdocs/assets/js/jquery-ui-1.13.2.min.js:6
-msgid "string"
-msgstr ""
+#~ msgid "  abc  "
+#~ msgstr "  ..abc..  "
+
+#~ msgid ""
+#~ ");\n"
+#~ "     *\n"
+#~ "     * if (_.isError(elements)) {\n"
+#~ "     *   elements = [];\n"
+#~ "     * }\n"
+#~ "     */\n"
+#~ "    var attempt = baseRest(function(func, args) {\n"
+#~ "      try {\n"
+#~ "        return apply(func, undefined, args);\n"
+#~ "      } catch (e) {\n"
+#~ "        return isError(e) ? e : new Error(e);\n"
+#~ "      }\n"
+#~ "    });\n"
+#~ "\n"
+#~ "    /**\n"
+#~ "     * Binds methods of an object to the object itself, overwriting the "
+#~ "existing\n"
+#~ "     * method.\n"
+#~ "     *\n"
+#~ "     * **Note:** This method doesn"
+#~ msgstr ""
+#~ ");\n"
+#~ "     *\n"
+#~ "     * if (_.isError(elements)) {\n"
+#~ "     *   elements = [];\n"
+#~ "     * }\n"
+#~ "     */\n"
+#~ "    var attempt = baseRest(function(func, args) {\n"
+#~ "      try {\n"
+#~ "        return apply(func, undefined, args);\n"
+#~ "      } catch (e) {\n"
+#~ "        return isError(e) ? e : new Error(e);\n"
+#~ "      }\n"
+#~ "    });\n"
+#~ "\n"
+#~ "    /**\n"
+#~ "     * Binds methods of an object to the object itself, overwriting the "
+#~ "existing\n"
+#~ "     * method.\n"
+#~ "     *\n"
+#~ "     * **Note:** This method doesn"
+
+#~ msgid ""
+#~ ");\n"
+#~ "     * // => "
+#~ msgstr ""
+#~ ");\n"
+#~ "     * // => "
+
+#~ msgid ": "
+#~ msgstr ": "
+
+#~ msgid "fred"
+#~ msgstr "fred"
 
 #~ msgid "Something went wrong getting the content of the widget"
 #~ msgstr "Etwas lief falsch um den Inhalt des Widgets zu erhalten"

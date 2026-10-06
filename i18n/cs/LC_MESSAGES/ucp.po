@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-07-09 03:13-0400\n"
+"POT-Creation-Date: 2026-10-06 07:22-0400\n"
 "PO-Revision-Date: 2018-08-08 11:42+0000\n"
 "Last-Translator: Petr Varvarovsky <petrv@atlantis.cz>\n"
 "Language-Team: Czech <http://*/projects/freepbx/ucp/cs/>\n"
@@ -20,9 +20,9 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 "X-Generator: Weblate 3.0.1\n"
 
-#: htdocs/assets/js/lodash-4.17.2.js:8787
-msgid "  abc  "
-msgstr "  abc  "
+#: htdocs/assets/js/moment-with-locales-2.31.0.min.js:6
+msgid " "
+msgstr ""
 
 #: htdocs/views/dashfootercontent.php:37
 #, php-format
@@ -34,64 +34,100 @@ msgstr ""
 msgid "%s is a registered trademark of"
 msgstr ""
 
+#: htdocs/assets/js/moment-with-locales-2.31.0.min.js:66
+msgid ""
+"),Ve=[/^ene/i,/^feb/i,/^mar/i,/^abr/i,/^may/i,/^jun/i,/^jul/i,/^ago/i,/^sep/"
+"i,/^oct/i,/^nov/i,/^dic/i],Me=/^(enero|febrero|marzo|abril|mayo|junio|julio|"
+"agosto|septiembre|octubre|noviembre|diciembre|ene.?|feb.?|mar.?|abr.?|may.?|"
+"jun.?|jul.?|ago.?|sep.?|oct.?|nov.?|dic.?)/i,ys=(L.defineLocale("
+msgstr ""
+
+#: htdocs/assets/js/moment-with-locales-2.31.0.min.js:66
+msgid "),Ys="
+msgstr ""
+
+#: htdocs/assets/js/moment-with-locales-2.31.0.min.js:48
+#: htdocs/assets/js/moment-with-locales-2.31.0.min.js:50
+#: htdocs/assets/js/moment-with-locales-2.31.0.min.js:52
+#: htdocs/assets/js/moment-with-locales-2.31.0.min.js:54
+#: htdocs/assets/js/moment-with-locales-2.31.0.min.js:56
+#: htdocs/assets/js/moment-with-locales-2.31.0.min.js:58
+#: htdocs/assets/js/moment-with-locales-2.31.0.min.js:60
+#: htdocs/assets/js/moment-with-locales-2.31.0.min.js:62
+#: htdocs/assets/js/moment-with-locales-2.31.0.min.js:64
+msgid "),longDateFormat:{LT:"
+msgstr ""
+
+#: htdocs/assets/js/moment-with-locales-2.31.0.min.js:48
+#: htdocs/assets/js/moment-with-locales-2.31.0.min.js:50
+#: htdocs/assets/js/moment-with-locales-2.31.0.min.js:52
+#: htdocs/assets/js/moment-with-locales-2.31.0.min.js:54
+#: htdocs/assets/js/moment-with-locales-2.31.0.min.js:56
+#: htdocs/assets/js/moment-with-locales-2.31.0.min.js:58
+#: htdocs/assets/js/moment-with-locales-2.31.0.min.js:60
+#: htdocs/assets/js/moment-with-locales-2.31.0.min.js:62
+#: htdocs/assets/js/moment-with-locales-2.31.0.min.js:64
+msgid "),monthsShort:"
+msgstr ""
+
+#: htdocs/assets/js/moment-with-locales-2.31.0.min.js:66
+msgid ""
+"),monthsShort:function(e,a){return e?(/-MMM-/.test(a)?Ys:Ls)[e.month()]:Ls},"
+"monthsRegex:Me,monthsShortRegex:Me,monthsStrictRegex:/^(enero|febrero|marzo|"
+"abril|mayo|junio|julio|agosto|septiembre|octubre|noviembre|diciembre)/i,"
+"monthsShortStrictRegex:/^(ene.?|feb.?|mar.?|abr.?|may.?|jun.?|jul.?|ago.?|"
+"sep.?|oct.?|nov.?|dic.?)/i,monthsParse:Ve,longMonthsParse:Ve,"
+"shortMonthsParse:Ve,weekdays:"
+msgstr ""
+
+#: htdocs/assets/js/moment-with-locales-2.31.0.min.js:48
+#: htdocs/assets/js/moment-with-locales-2.31.0.min.js:50
+#: htdocs/assets/js/moment-with-locales-2.31.0.min.js:52
+#: htdocs/assets/js/moment-with-locales-2.31.0.min.js:54
+#: htdocs/assets/js/moment-with-locales-2.31.0.min.js:56
+#: htdocs/assets/js/moment-with-locales-2.31.0.min.js:58
+#: htdocs/assets/js/moment-with-locales-2.31.0.min.js:60
+#: htdocs/assets/js/moment-with-locales-2.31.0.min.js:62
+#: htdocs/assets/js/moment-with-locales-2.31.0.min.js:64
+msgid "),weekdays:"
+msgstr ""
+
+#: htdocs/assets/js/moment-with-locales-2.31.0.min.js:48
+#: htdocs/assets/js/moment-with-locales-2.31.0.min.js:50
+#: htdocs/assets/js/moment-with-locales-2.31.0.min.js:52
+#: htdocs/assets/js/moment-with-locales-2.31.0.min.js:54
+#: htdocs/assets/js/moment-with-locales-2.31.0.min.js:56
+#: htdocs/assets/js/moment-with-locales-2.31.0.min.js:58
+#: htdocs/assets/js/moment-with-locales-2.31.0.min.js:60
+#: htdocs/assets/js/moment-with-locales-2.31.0.min.js:62
+#: htdocs/assets/js/moment-with-locales-2.31.0.min.js:64
+#: htdocs/assets/js/moment-with-locales-2.31.0.min.js:66
+msgid "),weekdaysMin:"
+msgstr ""
+
+#: htdocs/assets/js/moment-with-locales-2.31.0.min.js:66
+msgid "),weekdaysParseExact:!0,longDateFormat:{LT:"
+msgstr ""
+
+#: htdocs/assets/js/moment-with-locales-2.31.0.min.js:48
+#: htdocs/assets/js/moment-with-locales-2.31.0.min.js:50
+#: htdocs/assets/js/moment-with-locales-2.31.0.min.js:52
+#: htdocs/assets/js/moment-with-locales-2.31.0.min.js:54
+#: htdocs/assets/js/moment-with-locales-2.31.0.min.js:56
+#: htdocs/assets/js/moment-with-locales-2.31.0.min.js:58
+#: htdocs/assets/js/moment-with-locales-2.31.0.min.js:60
+#: htdocs/assets/js/moment-with-locales-2.31.0.min.js:62
+#: htdocs/assets/js/moment-with-locales-2.31.0.min.js:64
+#: htdocs/assets/js/moment-with-locales-2.31.0.min.js:66
+msgid "),weekdaysShort:"
+msgstr ""
+
 #: htdocs/assets/js/emojionearea-3.4.2.min.js:9
 msgid ").replace(/"
 msgstr ""
 
-#: htdocs/assets/js/lodash-4.17.2.js:15199
-msgid ""
-");\n"
-"     *\n"
-"     * if (_.isError(elements)) {\n"
-"     *   elements = [];\n"
-"     * }\n"
-"     */\n"
-"    var attempt = baseRest(function(func, args) {\n"
-"      try {\n"
-"        return apply(func, undefined, args);\n"
-"      } catch (e) {\n"
-"        return isError(e) ? e : new Error(e);\n"
-"      }\n"
-"    });\n"
-"\n"
-"    /**\n"
-"     * Binds methods of an object to the object itself, overwriting the "
-"existing\n"
-"     * method.\n"
-"     *\n"
-"     * **Note:** This method doesn"
-msgstr ""
-");\n"
-"     *\n"
-"     * if (_.isError(elements)) {\n"
-"     *   elements = [];\n"
-"     * }\n"
-"     */\n"
-"    var attempt = baseRest(function(func, args) {\n"
-"      try {\n"
-"        return apply(func, undefined, args);\n"
-"      } catch (e) {\n"
-"        return isError(e) ? e : new Error(e);\n"
-"      }\n"
-"    });\n"
-"\n"
-"    /**\n"
-"     * Binds methods of an object to the object itself, overwriting the "
-"existing\n"
-"     * method.\n"
-"     *\n"
-"     * **Note:** This method doesn"
-
-#: htdocs/assets/js/lodash-4.17.2.js:14398
-msgid ""
-");\n"
-"     * // => "
-msgstr ""
-");\n"
-"     * // => "
-
-#: htdocs/assets/js/jquery-ui-1.13.2.min.js:6
-msgid "+t,e.props.alpha={idx:3,type:"
+#: htdocs/assets/js/jquery-migrate-4.0.2.min.js:2
+msgid "+g++]=!0,e):y.apply(this,arguments)}}),s.ajaxPrefilter("
 msgstr ""
 
 #: htdocs/index.php:93
@@ -103,14 +139,6 @@ msgstr ""
 msgid ".htaccess files are not supported on this webserver."
 msgstr "Soubory .htaccess nejsou na tomto webovém serveru podporovány."
 
-#: htdocs/assets/js/socket.io-4.7.4.min.js:6
-msgid ".split("
-msgstr ""
-
-#: htdocs/assets/js/moment-with-locales-2.20.1.min.js:1
-msgid ": "
-msgstr ": "
-
 #: htdocs/modules/Ucptour/assets/js/global.js:123
 #, perl-format
 msgid "A dashboard can be deleted by clicking the '%s'"
@@ -120,7 +148,7 @@ msgstr "Ovládací panel lze smazat kliknutím na tlačítko '%s'"
 msgid "ABC"
 msgstr "ABC"
 
-#: htdocs/views/dashboard-footer.php:219
+#: htdocs/views/dashboard-footer.php:217
 msgid "Accept"
 msgstr "Potvrdit"
 
@@ -161,7 +189,7 @@ msgstr "Přidání ovládacího panelu"
 msgid "Admin"
 msgstr "Administrator"
 
-#: htdocs/views/dashboard-footer.php:230
+#: htdocs/views/dashboard-footer.php:228
 msgid "Alert"
 msgstr "Upozornění"
 
@@ -181,7 +209,7 @@ msgstr ""
 "Všechny widgety na ovládacím panelu lze také globálně zamknout kliknutím na "
 "symbol \"%s\" na kartě ovládacího panelu"
 
-#: htdocs/modules/Settings/views/settings.php:144
+#: htdocs/modules/Settings/views/settings.php:136
 msgid "Allow Desktop Notifications"
 msgstr "Povolit notifikace na ploše"
 
@@ -189,7 +217,7 @@ msgstr "Povolit notifikace na ploše"
 msgid "Allow Login"
 msgstr "Povolit přihlášení"
 
-#: htdocs/modules/Settings/views/settings.php:146
+#: htdocs/modules/Settings/views/settings.php:138
 msgid "Allow browser desktop notifications from UCP modules."
 msgstr "Povolení upozornění na ploše prohlížeče z modulů UCP."
 
@@ -229,7 +257,7 @@ msgid "Call"
 msgstr "Volat"
 
 #: htdocs/views/dashboard-footer.php:22 htdocs/views/dashboard-footer.php:43
-#: htdocs/views/dashboard-footer.php:168 htdocs/views/dashboard-footer.php:218
+#: htdocs/views/dashboard-footer.php:168 htdocs/views/dashboard-footer.php:216
 msgid "Cancel"
 msgstr "Zrušit"
 
@@ -267,7 +295,7 @@ msgid ""
 msgstr ""
 "Kliknutím na symbol '%s' přidáte tento widget na aktuálně aktivní panel."
 
-#: htdocs/views/dashboard-footer.php:243 htdocs/views/forgot.php:15
+#: htdocs/views/dashboard-footer.php:241 htdocs/views/forgot.php:15
 msgid "Close"
 msgstr "Zavřít"
 
@@ -275,7 +303,7 @@ msgstr "Zavřít"
 msgid "Company"
 msgstr "Firma"
 
-#: htdocs/views/dashboard-footer.php:209
+#: htdocs/views/dashboard-footer.php:207
 msgid "Confirm Action"
 msgstr "Potvrdit akci"
 
@@ -335,16 +363,16 @@ msgstr "Zde se zobrazí widgety ovládacího panelu"
 msgid "Dashboards"
 msgstr "Ovládací panely"
 
-#: htdocs/modules/Settings/views/settings.php:162
+#: htdocs/modules/Settings/views/settings.php:154
 msgid "Date Format"
 msgstr "Formát data"
 
-#: htdocs/modules/Settings/views/settings.php:154
+#: htdocs/modules/Settings/views/settings.php:146
 msgid "Date and Time Format"
 msgstr "Formát data a času"
 
 #: htdocs/modules/Settings/views/settings.php:120
-#: htdocs/modules/Settings/views/settings.php:133
+#: htdocs/modules/Settings/views/settings.php:129
 msgid "Default"
 msgstr "Výchozí nastavení"
 
@@ -364,7 +392,7 @@ msgstr "Odstraněná relace"
 msgid "Deleted User Session"
 msgstr "Odstraněná relace uživatele"
 
-#: htdocs/assets/js/ucp.js:80
+#: htdocs/assets/js/ucp.js:100
 msgid "Disable"
 msgstr "Zakázat"
 
@@ -398,7 +426,7 @@ msgstr "Upravování ovládacího panelu"
 msgid "Email"
 msgstr "Email"
 
-#: htdocs/assets/js/ucp.js:77
+#: htdocs/assets/js/ucp.js:97
 msgid "Enable"
 msgstr "Povolit"
 
@@ -594,8 +622,8 @@ msgid "Loading..."
 msgstr "Načítání..."
 
 #: htdocs/views/forgot.php:67 htdocs/views/login.php:49
-#: htdocs/views/login.php:86 htdocs/assets/js/ucp.js:357
-#: htdocs/assets/js/ucp.js:378 htdocs/assets/js/ucp.js:388
+#: htdocs/views/login.php:86 htdocs/assets/js/ucp.js:377
+#: htdocs/assets/js/ucp.js:398 htdocs/assets/js/ucp.js:408
 msgid "Login"
 msgstr "Přihlásit se"
 
@@ -733,11 +761,11 @@ msgstr "Reset hesla pro: %s"
 msgid "Password does not match security policy."
 msgstr ""
 
-#: htdocs/assets/js/ucp.js:280
+#: htdocs/assets/js/ucp.js:300
 msgid "Password has been changed!"
 msgstr "Heslo bylo změněno!"
 
-#: htdocs/assets/js/ucp.js:319 htdocs/assets/js/ucp.js:372
+#: htdocs/assets/js/ucp.js:339 htdocs/assets/js/ucp.js:392
 msgid "Processing..."
 msgstr "Zpracovává se..."
 
@@ -770,7 +798,7 @@ msgstr "Odebrat widget"
 msgid "Reset Password"
 msgstr "Resetování hesla"
 
-#: htdocs/modules/Settings/views/settings.php:149
+#: htdocs/modules/Settings/views/settings.php:141
 msgid "Restart Tour"
 msgstr "Restartovat prohlížení"
 
@@ -953,7 +981,7 @@ msgstr "Třída %s již existuje. Ajax si ho MUSÍ z bezpečnostních důvodů n
 msgid "The dashboard's name can be changed by clicking the pencil"
 msgstr "Název ovládacího panelu lze změnit kliknutím na tužku"
 
-#: htdocs/modules/Settings/views/settings.php:159
+#: htdocs/modules/Settings/views/settings.php:151
 #, php-format
 msgid ""
 "The format dates and times should display in. The default of \"llll\" is "
@@ -964,7 +992,7 @@ msgstr ""
 "Pokud bude ponecháno prázdné, použije se formát skupiny/systému. Další "
 "formáty naleznete na: %s"
 
-#: htdocs/modules/Settings/views/settings.php:167
+#: htdocs/modules/Settings/views/settings.php:159
 #, php-format
 msgid ""
 "The format dates should display in. The default of \"l\" is locale aware. If "
@@ -975,7 +1003,7 @@ msgstr ""
 "ponecháno prázdné, použije se formát skupiny/systému. Další formáty "
 "naleznete na: %s"
 
-#: htdocs/modules/Settings/views/settings.php:175
+#: htdocs/modules/Settings/views/settings.php:167
 #, php-format
 msgid ""
 "The format times should display in. The default of \"LT\" is locale aware. "
@@ -993,7 +1021,7 @@ msgstr ""
 "Heslo, které se používá pro přihlášení k uživatelskému portálu (UCP) a "
 "dalším službám"
 
-#: htdocs/assets/js/ucp.js:601
+#: htdocs/assets/js/ucp.js:621
 msgid "The session has expired and you are being forcibly logged out"
 msgstr "Čas relace vypršel, byli jste odhlášeni"
 
@@ -1033,7 +1061,7 @@ msgid "There was an error getting the widget information, try again later"
 msgstr ""
 "Vyskytla se chyba při získání informací o widgetu, zkuste to prosím později"
 
-#: htdocs/assets/js/ucp.js:33 htdocs/assets/js/ucp.js:48
+#: htdocs/assets/js/ucp.js:53 htdocs/assets/js/ucp.js:68
 msgid "There was an error. See the console log for more details"
 msgstr "Vyskytla se chyba. Podrobnější informace naleznete v protokolu konzole"
 
@@ -1067,11 +1095,11 @@ msgstr ""
 "Tato prohlídka vás provede v několika jednoduchých krocích novým "
 "uživatelským ovládacím panelem."
 
-#: htdocs/modules/Settings/views/settings.php:170
+#: htdocs/modules/Settings/views/settings.php:162
 msgid "Time Format"
 msgstr "Formát času"
 
-#: htdocs/modules/Settings/views/settings.php:131
+#: htdocs/modules/Settings/views/settings.php:127
 msgid "Timezone"
 msgstr "Časové pásmo"
 
@@ -1144,7 +1172,7 @@ msgid "UCP is currently disabled. Please talk to your system Administrator"
 msgstr ""
 "UCP je momentálně deaktivováno. Prosím, poraďte se s administrátorem systému"
 
-#: htdocs/assets/js/ucp.js:405
+#: htdocs/assets/js/ucp.js:425
 msgid "UCP is not supported in your browser"
 msgstr "UCP není podporován ve vašem prohlížeči"
 
@@ -1161,7 +1189,7 @@ msgstr ""
 "UCP, jinak známý jako uživatelský portál, je uživatelské rozhraní pro "
 "FreePBX."
 
-#: htdocs/assets/js/ucp.js:514
+#: htdocs/assets/js/ucp.js:534
 #, perl-format
 msgid "Unable to connect to the UCP Node Server.<br>%s"
 msgstr ""
@@ -1182,11 +1210,11 @@ msgstr "Nepodporovaný typ souboru"
 msgid "Update Password"
 msgstr "Aktualizovat heslo"
 
-#: htdocs/modules/Settings/views/settings.php:122
+#: htdocs/modules/Settings/views/settings.php:121
 msgid "Use Browser Language"
 msgstr "Použijte jazyk prohlížeče"
 
-#: htdocs/modules/Settings/views/settings.php:135
+#: htdocs/modules/Settings/views/settings.php:130
 msgid "Use Browser Timezone"
 msgstr "Použij časové pásmo prohlížeče"
 
@@ -1194,11 +1222,11 @@ msgstr "Použij časové pásmo prohlížeče"
 msgid "Use Gravatar"
 msgstr "Použij Gravatar"
 
-#: htdocs/modules/Settings/views/settings.php:125
+#: htdocs/modules/Settings/views/settings.php:122
 msgid "Use PBX Language"
 msgstr "Použij jazyk ústředny"
 
-#: htdocs/modules/Settings/views/settings.php:138
+#: htdocs/modules/Settings/views/settings.php:131
 msgid "Use PBX Timezone"
 msgstr "Použij časové pásmo ústředny"
 
@@ -1255,7 +1283,7 @@ msgstr "Vítejte v %s!"
 msgid "What is UCP"
 msgstr "Co je UCP"
 
-#: htdocs/modules/Settings/views/settings.php:151
+#: htdocs/modules/Settings/views/settings.php:143
 msgid "When set to yes the tour will restart when this window closes"
 msgstr ""
 "Pokud je nastaveno na Ano, po uzavření tohoto okna se prohlídka restartuje"
@@ -1386,7 +1414,7 @@ msgstr "Právě jste se úspěšně poprvé přihlásili!"
 msgid "You must set a dashboard name!"
 msgstr "Musíte zadat název ovládacího panelu!"
 
-#: htdocs/assets/js/ucp.js:393
+#: htdocs/assets/js/ucp.js:413
 msgid "Your Browser is unsupported at this time."
 msgstr "Váš prohlížeč není v současné době podporován."
 
@@ -1414,7 +1442,7 @@ msgstr "Tvoje jméno"
 msgid "Your Home Number"
 msgstr "Tvůj telefon domů"
 
-#: htdocs/modules/Settings/views/settings.php:128
+#: htdocs/modules/Settings/views/settings.php:124
 msgid "Your Language"
 msgstr "Tvůj jazyk"
 
@@ -1422,7 +1450,7 @@ msgstr "Tvůj jazyk"
 msgid "Your Last Name"
 msgstr "Tvoje příjmení"
 
-#: htdocs/modules/Settings/views/settings.php:141
+#: htdocs/modules/Settings/views/settings.php:133
 msgid "Your Timezone"
 msgstr "Tvoje časové pásmo"
 
@@ -1434,7 +1462,7 @@ msgstr "Tvůj titul"
 msgid "Your Work Number"
 msgstr "Tvůj telefon do práce"
 
-#: htdocs/assets/js/ucp.js:395
+#: htdocs/assets/js/ucp.js:415
 msgid ""
 "Your browser is unsupported at this time. Please upgrade or talk to your "
 "system administrator"
@@ -1457,11 +1485,6 @@ msgid ""
 msgstr ""
 "Vaše uživatelská nastavení jsou definována při kliknutí na ikonu 'ozubeného "
 "kola' na bočním panelu"
-
-#: htdocs/assets/js/lodash-4.17.2.js:15638
-#: htdocs/assets/js/lodash-4.17.2.js:15642
-msgid "fred"
-msgstr "fred"
 
 #: Ucp.class.php:93
 msgid "gcc-c++ is not installed"
@@ -1496,9 +1519,64 @@ msgstr "nebo"
 msgid "select template"
 msgstr ""
 
-#: htdocs/assets/js/jquery-ui-1.13.2.min.js:6
-msgid "string"
-msgstr ""
+#~ msgid "  abc  "
+#~ msgstr "  abc  "
+
+#~ msgid ""
+#~ ");\n"
+#~ "     *\n"
+#~ "     * if (_.isError(elements)) {\n"
+#~ "     *   elements = [];\n"
+#~ "     * }\n"
+#~ "     */\n"
+#~ "    var attempt = baseRest(function(func, args) {\n"
+#~ "      try {\n"
+#~ "        return apply(func, undefined, args);\n"
+#~ "      } catch (e) {\n"
+#~ "        return isError(e) ? e : new Error(e);\n"
+#~ "      }\n"
+#~ "    });\n"
+#~ "\n"
+#~ "    /**\n"
+#~ "     * Binds methods of an object to the object itself, overwriting the "
+#~ "existing\n"
+#~ "     * method.\n"
+#~ "     *\n"
+#~ "     * **Note:** This method doesn"
+#~ msgstr ""
+#~ ");\n"
+#~ "     *\n"
+#~ "     * if (_.isError(elements)) {\n"
+#~ "     *   elements = [];\n"
+#~ "     * }\n"
+#~ "     */\n"
+#~ "    var attempt = baseRest(function(func, args) {\n"
+#~ "      try {\n"
+#~ "        return apply(func, undefined, args);\n"
+#~ "      } catch (e) {\n"
+#~ "        return isError(e) ? e : new Error(e);\n"
+#~ "      }\n"
+#~ "    });\n"
+#~ "\n"
+#~ "    /**\n"
+#~ "     * Binds methods of an object to the object itself, overwriting the "
+#~ "existing\n"
+#~ "     * method.\n"
+#~ "     *\n"
+#~ "     * **Note:** This method doesn"
+
+#~ msgid ""
+#~ ");\n"
+#~ "     * // => "
+#~ msgstr ""
+#~ ");\n"
+#~ "     * // => "
+
+#~ msgid ": "
+#~ msgstr ": "
+
+#~ msgid "fred"
+#~ msgstr "fred"
 
 #~ msgid "Something went wrong getting the content of the widget"
 #~ msgstr "Chyba při získání obsahu widgetu"
